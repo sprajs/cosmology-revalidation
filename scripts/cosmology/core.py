@@ -19,6 +19,10 @@ from numpy.polynomial.legendre import leggauss
 ROOT = Path(__file__).resolve().parents[2]
 EDGES = np.array([0., .1, .3, .6, 1., 2.5])
 GX, GW = leggauss(48)
+# Capture source at import, not at a long fit's completion while other work proceeds.
+CODE_AT_START = {str(p.relative_to(ROOT)): p.read_bytes() for p in Path(__file__).parent.glob('*.py')}
+REVISION_AT_START = subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
+DIRTY_AT_START = bool(subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip())
 
 
 def sha(path):
@@ -31,11 +35,16 @@ def sha(path):
 
 def manifest(directory, purpose, inputs, configuration, outputs):
     files = {str(Path(p).relative_to(ROOT)): sha(p) for p in inputs}
-    code = {str(p.relative_to(ROOT)): sha(p) for p in Path(__file__).parent.glob('*.py')}
+    code = {p: hashlib.sha256(b).hexdigest() for p,b in CODE_AT_START.items()}
+    archive=ROOT/'runs/cosmology/provenance'; archive.mkdir(parents=True,exist_ok=True)
+    for p,b in CODE_AT_START.items():
+        dest=archive/(code[p]+'.py')
+        if not dest.exists(): dest.write_bytes(b)
+        assert sha(dest)==code[p]
     record = dict(created_utc=datetime.now(timezone.utc).isoformat(), purpose=purpose,
                   inputs_sha256=files, code_sha256=code, configuration=configuration,
-                  git_revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
-                  git_dirty=bool(subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip()),
+                  git_revision=REVISION_AT_START, git_dirty=DIRTY_AT_START,
+                  code_capture='at process import; exact bytes under runs/cosmology/provenance/<sha256>.py',
                   python=platform.python_version(), lock_sha256=sha(ROOT/'uv.lock'),
                   outputs_sha256={str(Path(p).relative_to(ROOT)): sha(p) for p in outputs})
     (directory/'manifest.json').write_text(json.dumps(record, indent=2)+'\n')
@@ -116,10 +125,21 @@ def interpolation_basis(z, per_segment=40):
 
 
 class Pantheon:
-    def __init__(self, zmax=None, per_segment=40):
+    def __init__(self, zmax=None, per_segment=40, magnitude_table=None):
         base = ROOT/'sources/repos/CobayaSampler__sn_data/PantheonPlus'
         self.inputs = [base/'Pantheon+SH0ES.dat',base/'Pantheon+SH0ES_STAT+SYS.cov']
         df = pd.read_csv(self.inputs[0],sep=r'\s+')
+        self.magnitude_revision_rows = 0
+        if magnitude_table is not None:
+            new = pd.read_csv(magnitude_table,sep=r'\s+')
+            assert len(new)==len(df)
+            for col in ['CID','IDSURVEY']:
+                assert np.array_equal(new[col].to_numpy(),df[col].to_numpy()), col
+            for col in ['zHD','zHEL']:
+                assert np.allclose(new[col].to_numpy(),df[col].to_numpy(),rtol=0,atol=1e-14), col
+            self.magnitude_revision_rows = int(np.count_nonzero(np.abs(new.m_b_corr.to_numpy()-df.m_b_corr.to_numpy())>1e-10))
+            df['m_b_corr'] = new.m_b_corr.to_numpy()
+            self.inputs.append(Path(magnitude_table))
         raw = np.loadtxt(self.inputs[1])
         n = int(raw[0]); assert n==len(df) and raw.size==1+n*n
         cov = raw[1:].reshape(n,n)
@@ -173,6 +193,7 @@ class Pantheon:
                     zHD_min=float(self.z.min()),zHD_max=float(self.z.max()),
                     covariance_min_eigenvalue=float(np.linalg.eigvalsh(self.cov)[0]),
                     input_covariance_max_asymmetry_mag2=self.input_asymmetry,
+                    magnitude_revision_rows=self.magnitude_revision_rows,
                     offset_projection_error=float(np.max(np.abs(self.A@np.ones(len(self.z))))),
                     interpolation_nodes=len(self.nodes))
 

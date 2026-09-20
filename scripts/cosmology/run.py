@@ -25,7 +25,7 @@ def summarize(a):
 
 def fit(args):
     out=ROOT/'runs/cosmology'/args.name; out.mkdir(parents=True,exist_ok=True)
-    sn=Pantheon() if args.data in ('sn','joint') else None
+    sn=Pantheon(magnitude_table=ROOT/args.magnitude_table if args.magnitude_table else None) if args.data in ('sn','joint') else None
     bao=BAO() if args.data in ('bao','joint') else None
     config=vars(args).copy()
     inputs=[]
@@ -189,6 +189,7 @@ if __name__=='__main__':
     f.add_argument('--data',choices=['sn','bao','joint'],default='sn')
     f.add_argument('--amplitude',choices=['none','fixed','normal','uniform'],default='none')
     f.add_argument('--correction'); f.add_argument('--column',default='delta_mu'); f.add_argument('--zcolumn',default='z')
+    f.add_argument('--magnitude-table',help='Explicitly revised m_b_corr table; identifiers/redshifts must match original row order')
     f.add_argument('--scale',type=float,default=1.); f.add_argument('--tau',type=float,default=.5)
     f.add_argument('--steps',type=int,default=7000); f.add_argument('--burn',type=int,default=1500)
     f.add_argument('--walkers',type=int,default=40); f.add_argument('--seed',type=int,default=2092026)
