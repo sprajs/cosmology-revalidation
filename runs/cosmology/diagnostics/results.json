@@ -1,0 +1,95 @@
+{
+  "lcdm_conditional_recovery": {
+    "n": 200,
+    "true_Om": 0.33,
+    "estimate_mean": 0.33243573541772703,
+    "bias": 0.002435735417727014,
+    "mean_mcse": 0.0012829651976812612,
+    "empirical_sd": 0.018143867826135186,
+    "mean_curvature_sd": 0.01814832528477739,
+    "one_sigma_coverage": 0.69,
+    "coverage_binomial_se_at_nominal": 0.03291053858568711,
+    "qualification": "Simulated Gaussian released-distance likelihood, not survey/photometry/selection recovery."
+  },
+  "posterior_predictive": {
+    "pantheon-cpl": {
+      "replicate_gaussian_df": 1589,
+      "observed_chi2_median": 1404.303112483065,
+      "replicate_chi2_median": 1589.4055336915117,
+      "P_replicate_chi2_at_least_observed": 0.9995,
+      "P_replicate_chi2_at_most_observed": 0.0005,
+      "analytic_P_replicate_chi2_at_most_observed": 0.0003524571200991052,
+      "qualification": "Posterior predictive Gaussian distance-product check; lower observed scatter can indicate conservative covariance or non-Gaussian/selected residuals, not validation of all physics."
+    },
+    "pantheon-cpl-c14fixed": {
+      "replicate_gaussian_df": 1589,
+      "observed_chi2_median": 1404.3877617891644,
+      "replicate_chi2_median": 1588.7524104056129,
+      "P_replicate_chi2_at_least_observed": 0.9995,
+      "P_replicate_chi2_at_most_observed": 0.0005,
+      "analytic_P_replicate_chi2_at_most_observed": 0.00035452513489423777,
+      "qualification": "Posterior predictive Gaussian distance-product check; lower observed scatter can indicate conservative covariance or non-Gaussian/selected residuals, not validation of all physics."
+    },
+    "pantheon-bao-cpl-c14slope": {
+      "replicate_gaussian_df": 1589,
+      "observed_chi2_median": 1406.0706758594597,
+      "replicate_chi2_median": 1586.5946954072624,
+      "P_replicate_chi2_at_least_observed": 1.0,
+      "P_replicate_chi2_at_most_observed": 0.0,
+      "analytic_P_replicate_chi2_at_most_observed": 0.0003948297741461371,
+      "qualification": "Posterior predictive Gaussian distance-product check; lower observed scatter can indicate conservative covariance or non-Gaussian/selected residuals, not validation of all physics."
+    }
+  },
+  "replicate_ensembles": {
+    "pantheon-bao-cpl": {
+      "runs": [
+        {
+          "name": "pantheon-bao-cpl",
+          "q0_mean": -0.43614245004369123,
+          "q0_sd": 0.08116494833925642,
+          "mean_block_mcse": 0.0007807255246204127,
+          "P_q0_negative_sample_fraction": 1.0,
+          "probability_block_mcse": 0.0,
+          "opposite_sign_draws": 0,
+          "zero_tail_notice": "zero block MCSE when all draws share a sign is not a resolved posterior tail"
+        },
+        {
+          "name": "pantheon-bao-cpl-repeat",
+          "q0_mean": -0.437012166741321,
+          "q0_sd": 0.08020335556447106,
+          "mean_block_mcse": 0.0009786312078153136,
+          "P_q0_negative_sample_fraction": 1.0,
+          "probability_block_mcse": 0.0,
+          "opposite_sign_draws": 0,
+          "zero_tail_notice": "zero block MCSE when all draws share a sign is not a resolved posterior tail"
+        }
+      ],
+      "mean_difference_in_combined_block_mcse": 0.6947178806575567
+    },
+    "pantheon-bao-cpl-c14slope": {
+      "runs": [
+        {
+          "name": "pantheon-bao-cpl-c14slope",
+          "q0_mean": 0.042130183997107724,
+          "q0_sd": 0.09663943984034007,
+          "mean_block_mcse": 0.0007896187526484943,
+          "P_q0_negative_sample_fraction": 0.3302948275862069,
+          "probability_block_mcse": 0.003464323005758599,
+          "opposite_sign_draws": 388429,
+          "zero_tail_notice": "zero block MCSE when all draws share a sign is not a resolved posterior tail"
+        },
+        {
+          "name": "pantheon-bao-cpl-c14slope-repeat",
+          "q0_mean": 0.044577796045051216,
+          "q0_sd": 0.09730338898730694,
+          "mean_block_mcse": 0.0009589078253637379,
+          "P_q0_negative_sample_fraction": 0.32138275862068966,
+          "probability_block_mcse": 0.0036248863199199004,
+          "opposite_sign_draws": 393598,
+          "zero_tail_notice": "zero block MCSE when all draws share a sign is not a resolved posterior tail"
+        }
+      ],
+      "mean_difference_in_combined_block_mcse": 1.970422413247461
+    }
+  }
+}

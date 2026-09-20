@@ -25,3 +25,11 @@ Before these new outcomes, register 200 Gaussian simulations with the fixed rele
 ## 2026-09-20: provenance repair before final release
 
 During concurrent authoring, the first cosmology manifest implementation hashed source files at completion, so a file could change during an already-running fit. The scientific equations were unchanged after validation; later changes added revision-table support and reporting. Nevertheless those end-of-run hashes do not reliably identify the executed version. Capture exact code bytes/revision at process import, archive them by SHA-256, and rerun every retained fit from its saved configuration under frozen source before finalizing. Preserve the first-run summaries separately and check numerical agreement; do not retroactively relabel their manifests as exact execution provenance.
+
+## Final freeze and independent review, 20 September 2026
+
+All 19 cosmology configurations were replayed with exact code bytes captured at import. Scientific posterior fields and sign fractions are identical to the initial seeded runs; only wall time and an added zero-revision metadata field differ. Validation, template generation, reference-chain summaries, finite-bin likelihood limits, Gaussian diagnostics and figures were regenerated afterward. The independent audit was rerun against these outputs and retained byte-identical numerical results.
+
+The public C2 covariance was recovered and its principal heliocentric likelihood reproduced: q_m=.009517→.353991 under the age shift, independently checked at four final points to 9.1e−12 in −2logL. No full multiframe/global-optimum or calibrated dipole-significance certification is inferred. Ray v2 and the Sah coordinate response were added to the primary-source baseline; the original Ray full-sample reversal cannot be explained by the coordinate error alone.
+
+Final synthesis review requested two clarifications, both adopted: arbitrary SN luminosity evolution limits SN-only inference, not all independent geometric probes; the supplied W22 library is rate-weighted simulation output, not the exact recovered W26 survey selection. The reviewed report bytes are preserved in `runs/audit/provenance/`; final edits are these clarifications, the completed C2 numbers and record links. No conclusions were selected by agent agreement.

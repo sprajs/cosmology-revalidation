@@ -1,5 +1,7 @@
 # Access gaps and requests that would make replication exact
 
+> Historical acquisition-stage record. Current analysis, resolved gaps and remaining barriers are in [the final report](final-report.md) and [current literature/data map](literature-and-data-status.md). The original scientific content below is preserved.
+
 As of 20 September 2026. No authors have been contacted and no messages have been sent. A paper saying “no new data” does not imply that every derived table, selection or analysis script is publicly released.
 
 | Priority | Missing item | Access classification and evidence | Why it matters / precise request |

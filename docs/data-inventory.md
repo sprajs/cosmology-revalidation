@@ -1,5 +1,7 @@
 # Data inventory
 
+> Historical acquisition-stage record. Current analysis, resolved gaps and remaining barriers are in [the final report](final-report.md) and [current literature/data map](literature-and-data-status.md). The original scientific content below is preserved.
+
 Checked 20 September 2026. **Local** means acquired bytes, not a completed scientific replication. **Public but not recovered** describes a retrieval failure; it does not mean private. **Not located** describes the limits of this search. Exact versions, hashes and failed attempts are retained in `catalog/`.
 
 ## Supernova and host data

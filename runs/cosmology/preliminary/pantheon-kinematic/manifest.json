@@ -1,0 +1,52 @@
+{
+  "created_utc": "2026-09-20T22:12:39.383549+00:00",
+  "purpose": "Conditional released-distance likelihood fit; not raw-photometry reconstruction",
+  "inputs_sha256": {
+    "sources/repos/CobayaSampler__sn_data/PantheonPlus/Pantheon+SH0ES.dat": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8",
+    "sources/repos/CobayaSampler__sn_data/PantheonPlus/Pantheon+SH0ES_STAT+SYS.cov": "abf806d966485e64afdb359c87bffc0ecc00d05eff0a31ced66f247385df0fdc"
+  },
+  "code_sha256": {
+    "scripts/cosmology/core.py": "b79058a93fdd26e8e2a86ed6727c982050a82cc51d742870f0bd2cd988227d67",
+    "scripts/cosmology/run.py": "020ab488d9882629837f2eae17ec95ab8878e6474568f619d5f98f966cf0bd43",
+    "scripts/cosmology/reference_chains.py": "d9f69c76aebbf2b5e89f5bb89095189e436c2b51b5523186c5942e9772a984c7"
+  },
+  "configuration": {
+    "action": "fit",
+    "name": "pantheon-kinematic",
+    "model": "kinematic",
+    "data": "sn",
+    "amplitude": "none",
+    "correction": null,
+    "column": "delta_mu",
+    "zcolumn": "z",
+    "scale": 1.0,
+    "tau": 0.5,
+    "steps": 10000,
+    "burn": 1500,
+    "walkers": 40,
+    "seed": 41006,
+    "actual_priors": {
+      "q0": [
+        -3.0,
+        2.0
+      ],
+      "q1": [
+        -8.0,
+        8.0
+      ]
+    },
+    "early_DE_prior": null,
+    "normal_amplitude_prior": null,
+    "qbin_smoothing_sd": null
+  },
+  "git_revision": "472f13fcbe4388611cbd319ce8c4657732408210",
+  "git_dirty": true,
+  "python": "3.12.14",
+  "lock_sha256": "d0b4a11755e18a7f87fe1974a52cfedba8f3b1bac8a7966f690087f86a64b908",
+  "outputs_sha256": {
+    "runs/cosmology/pantheon-kinematic/summary.json": "28bc7dd0259b75c645ea6f4a6fd003b70b6b256b6ae5346f260e88eb86d69163",
+    "runs/cosmology/pantheon-kinematic/configuration.json": "0dc5393ab66314588c7ad59e3c0361d3abc15be7290bcaa38ea4b5511b539928",
+    "runs/cosmology/pantheon-kinematic/q_history.csv": "972782307962bada9f2ac5f33669c8168b1777068bed84c5aafd87a2fa3f0e91",
+    "runs/cosmology/pantheon-kinematic/chains.npz": "a23af7ebbe287a82eeb754b76fba004e5b012cebc0d8aa1bcebf92d639f9ab1a"
+  }
+}

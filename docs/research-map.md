@@ -1,5 +1,7 @@
 # Research map
 
+> Historical acquisition-stage record. Current analysis, resolved gaps and remaining barriers are in [the final report](final-report.md) and [current literature/data map](literature-and-data-status.md). The original scientific content below is preserved.
+
 Scope: the supernova progenitor-age dispute and its immediate data/method dependencies, checked on 20 September 2026. This is a source map, not a verdict. Numerical results below are **reported by the cited authors**, not reproduced here. The collection is not an exhaustive bibliography of dark energy.
 
 ## What the claim actually concerns

@@ -1,0 +1,289 @@
+#extract covaraince for my use from lane et al.
+#Caution :Code is still ugly
+import pandas as pd
+import numpy as np
+
+
+from astropy.coordinates import SkyCoord
+import astropy.units as u
+
+import matplotlib.pyplot as plt
+path='/Storage/animesh/DATA_PPLUS'
+
+PAN=pd.read_csv(path+'/Pantheon+SH0ES.dat',delimiter=' ')
+df= pd.read_csv('/Storage/animesh/Analysis_C2/full_input.csv')
+Z=pd.read_csv(path+'/Zpan.csv')
+len(PAN)
+
+
+lane=np.load('index_sorted_lane.npy')
+
+ix=PAN[PAN['zHEL']>=0.8].index
+
+pan_lane=PAN.loc[lane]
+ix_lane=pan_lane[pan_lane['zHEL']>=0.8].index
+
+ix[~np.in1d(ix,ix_lane)]
+
+pan_lane[pan_lane['zHEL']>=0.8]
+
+PAN[PAN['zHEL']>=0.8][['CID','RA','DEC','PKMJD','zHEL']]
+
+
+
+mask
+
+#150.0610	2.1924	55943.2
+#SURVEYCOMPARE=abs(np.array(PAN['IDSURVEY'])[:,np.newaxis]==np.array(df['IDSURVEY']))
+MJDCOMPARE=abs(np.isclose(np.array(df['zHEL']),1.54,atol=1e-2))
+mask1=MJDCOMPARE
+
+df[mask1]
+
+mat = np.empty((len(PAN), len(df)), dtype=object)
+rows = len(PAN)
+cols = len(df)
+
+# Create the i and j indices arrays
+i_indices = np.arange(rows)[:, None]  # Shape (rows, 1)
+j_indices = np.arange(cols)           # Shape (cols,)
+
+# Combine i and j indices into one array
+mat = np.stack(np.meshgrid(i_indices, j_indices, indexing='ij'), axis=-1)
+
+# Example usage
+
+SURVEYCOMPARE=abs(np.array(PAN['IDSURVEY'])[:,np.newaxis]==np.array(df['IDSURVEY']))
+ZHELCOMPARE=abs(np.array(PAN['zHEL'])[:,np.newaxis]==np.array(df['zHEL']))
+cCOMPARE=abs(np.array(PAN['c'])[:,np.newaxis]-np.array(df['c']))<0.00001
+
+mask=SURVEYCOMPARE  & cCOMPARE
+arr=np.array(mat[mask])
+
+
+panindex=mat[mask][:,0]
+lane_index=mat[mask][:,1]   
+
+dictionary = dict(arr)
+
+sorted_arr = arr[arr[:, 1].argsort()]
+
+print(sorted_arr)
+
+cov_proper=np.loadtxt('/Storage/animesh/Analysis_C2/PP_1690_COVd.txt')
+
+
+cov_proper.shape
+
+#for i,j in arr:
+#    print(df.loc[j]['Unnamed: 0'],PAN.loc[i]['CID'],'_',PAN.loc[i]['IDSURVEY'])
+
+#PAN=PAN.sort_values('zHEL')
+PAN=pd.read_csv(path+'/Pantheon+SH0ES.dat',delimiter=' ')
+PAN['NAME']=PAN['CID'].astype(str) + '_' + PAN['IDSURVEY'].astype(float).astype(str)
+PAN=PAN.sort_values('zHEL')
+
+mat = np.empty((len(PAN), len(df)), dtype=object)
+rows = len(PAN)
+cols = len(df)
+# Create the i and j indices arrays
+i_indices = np.arange(rows)[:, None]  # Shape (rows, 1)
+j_indices = np.arange(cols)           # Shape (cols,)
+
+# Combine i and j indices into one array
+mat = np.stack(np.meshgrid(i_indices, j_indices, indexing='ij'), axis=-1)
+# Example usage
+NAMECOMPARE=abs(np.array(PAN['NAME'])[:,np.newaxis]==np.array(df['Unnamed: 0']))
+mask=NAMECOMPARE
+
+PAN_SORTED_INDEX=np.array(PAN.index)
+
+
+
+panindex=mat[mask][:,0]
+lane_index=mat[mask][:,1]   
+
+arr=np.array(mat[mask])
+sorted_pairing = arr[arr[:, 1].argsort()]
+ix_df = sorted_pairing[:, 1]
+index_lane = sorted_pairing[:, 0]
+
+dictionary = dict(arr)
+newkeys = np.array(PAN.index[np.in1d(PAN.index, arr[:, 0])])
+index_cov_sorted_zhel = np.array([dictionary[k] for k in newkeys])
+tempind=np.array([[3*i,3*i+1,3*i+2] for i in index_cov_sorted_zhel ])
+tempind=tempind.flatten(order='c')
+
+cov_final = cov_proper[:, tempind][tempind]
+
+
+tempind[51]/3
+
+arr[:20]
+
+tempind[18]/3
+
+arr[6]
+
+cov_final[:,5*3][5*3]
+
+cov_proper[:,683*3][683*3]
+
+np.save('cov_final', cov_final)
+
+#tempind=np.array([[3*i,3*i+1,3*i+2] for i in index_cov_sorted_zhel ])
+#tempind=tempind.flatten(order='c')
+
+np.save('index_sorted_lane',newkeys)
+
+np.load('/Storage/animesh/Analysis_C2/index_sorted_lane.npy')
+
+ix=345
+PAN.loc[ix]
+
+ix_lane
+
+ix
+
+PAN.index[ix]
+
+51/3
+
+np.where(cov_final==0.0032551409747765816)
+
+ix=1432
+ix_lane=dictionary[ix]
+temp=3*ix_lane
+print(ix_lane)
+print(df.iloc[ix_lane]['Unnamed: 0'],PAN.iloc[ix].CID)
+print(cov_proper[3*ix_lane,3*ix_lane],cov_final[3*PAN.index[ix],3*PAN.index[ix]])
+print(cov_proper[3*ix_lane,3*ix_lane],cov_final[3*ix,3*ix])
+
+Z1 = pd.read_csv(path+'/Zpan.csv')
+df1=pd.read_csv( path+'/Pantheon+SH0ES.dat',delimiter=' ')
+
+Z1['mB'] = Z1['mB'] + df1['biasCor_m_b']
+Z1=Z1.loc[newkeys]
+Z1=Z1.reset_index(drop=True)
+#Z=Z[Z['zHEL']<0.8]
+Z1.zHEL[400]
+l1=Z1.index
+COVd1 = np.load('/Storage/animesh/Analysis_C2/cov_final.npy')
+tempind1=np.array([[3*i,3*i+1,3*i+2] for i in l1])
+tempind1=tempind1.flatten(order='c')
+
+
+n1=134
+tempind1=np.array([[3*i,3*i+1,3*i+2] for i in [n1]])
+tempind1=tempind1.flatten(order='c')
+
+print('Z is:',Z1.iloc[n1].zHEL,'\n COV elements are: \n', COVd1[:,tempind1][tempind1])
+
+print(df[df.zHEL==0.01219] .index[0])
+n2=df[df.zHEL==0.01219].index[0]
+tempind2=np.array([[3*i,3*i+1,3*i+2] for i in [n2]])
+tempind2=tempind2.flatten(order='c')
+print('Z is:',df.iloc[n2].zHEL,'\n COV elements are: \n',cov_proper[:,tempind2][tempind2])
+
+cov_proper=np.loadtxt('/Storage/animesh/Analysis_C2/PP_1690_COVd.txt')
+
+
+PAN=pd.read_csv(path+'/Pantheon+SH0ES.dat',delimiter=' ')
+PAN['NAME']=PAN['CID'].astype(str) + '_' + PAN['IDSURVEY'].astype(float).astype(str)
+df=pd.read_csv('/Storage/animesh/Analysis_C2/full_input.csv')
+df['cov_elements']=np.diag(cov_proper)[::3]
+rows = len(PAN)
+cols = len(df)
+# Create the i and j indices arrays
+i_indices = np.arange(rows)[:, None]  # Shape (rows, 1)
+j_indices = np.arange(cols)           # Shape (cols,)
+# Combine i and j indices into one array
+mat = np.stack(np.meshgrid(i_indices, j_indices, indexing='ij'), axis=-1)
+NAMECOMPARE=np.array(PAN['NAME'])[:,np.newaxis]==np.array(df['Unnamed: 0'])
+mask=NAMECOMPARE
+pairing=mat[mask]
+
+PAN=PAN.sort_values('zHEL')
+
+newkeys1=PAN.index[np.in1d(PAN.index,pairing[:,0])]
+dictionary=dict(pairing)
+index_temp=[dictionary[j] for j in newkeys1]    
+ind3n3n=np.array([[3*i,3*i+1,3*i+2] for i in index_temp])
+ind3n3n=ind3n3n.flatten(order='c')
+cov_final1=cov_proper[:,ind3n3n][ind3n3n]
+indnn=np.array([[3*i] for i in index_temp])
+indnn=indnn.flatten(order='c')
+cov_nn=cov_proper[indnn][:,indnn]
+
+np.save('cov_final',cov_final1)
+np.save('cov_nn',cov_nn)
+
+np.save('index_sorted_lane',newkeys1)
+
+Z1 = pd.read_csv(path+'/Zpan.csv')
+df1=pd.read_csv( path+'/Pantheon+SH0ES.dat',delimiter=' ')
+
+Z1['mB'] = Z1['mB'] + df1['biasCor_m_b']
+Z1=Z1.loc[newkeys1]
+Z1=Z1.reset_index(drop=True)
+#Z=Z[Z['zHEL']<0.8]
+l1=Z1.index
+COVd2 = cov_final1
+tempind1=np.array([[3*i,3*i+1,3*i+2] for i in l1])
+tempind1=tempind1.flatten(order='c')
+
+
+n1=586
+n1=768
+tempind1=np.array([[3*i,3*i+1,3*i+2] for i in [n1]])
+tempind1=tempind1.flatten(order='c')
+
+print('Z is:',Z1.iloc[n1].zHEL,'\n COV elements are: \n', COVd2[:,tempind1][tempind1])
+df[df['zHEL']== 0.04].cov_elements
+COVd2[3*586,3*1039]
+
+z=0.30791
+for z in [0.0176]:
+    print(df[df.zHEL==z ] .index)
+    n2=df[df.zHEL==z  ].index
+    tempind2=np.array([[3*i,3*i+1,3*i+2] for i in [n2]])
+    tempind2=tempind2.flatten(order='c')
+    print('Z is:',df.iloc[n2].zHEL,'\n COV elements are: \n',cov_proper[:,tempind2][tempind2])
+
+Z1[Z1.zHEL==0.23822]
+
+df.iloc[1664]
+
+print(df[df.zHEL==0.04 ] .index,df[df.zHEL==0.23822 ] .index)
+
+cov_proper[1664,591]
+cov_proper[1664,1664]
+
+
+n2=df[df.zHEL==0.01317].index[0]
+
+n2
+
+PAN_new=PAN.loc[newkeys1]
+ra1=PAN_new[PAN_new.zHEL<0.8].RA
+
+newest_df=pd.read_csv(path+'/altered_df.csv',index_col=0)
+ra2=newest_df.RA
+np.where(np.array(ra1)!=np.array(ra2))
+
+
+merged_df = pd.merge(newest_df, PAN, on='zHEL', suffixes=('_newest', '_PAN'))
+merged_df['RA_match'] = merged_df['RA_newest'] == merged_df['RA_PAN']
+merged_df['DEC_match'] = merged_df['DEC_newest'] == merged_df['DEC_PAN']
+print(merged_df[['zHEL', 'RA_newest', 'RA_PAN', 'RA_match', 'DEC_newest', 'DEC_PAN', 'DEC_match']])
+
+merged_df['RA_PAN']==False
+
+      fun: -1174.8817317049131
+        x: [-1.930e+01 -1.534e-01 -3.665e-01  1.014e-01 -2.783e+01
+             1.189e-02  1.472e+02  1.777e+01]
+
+
+
+index_cov_sorted_zhel
+

@@ -1,34 +1,26 @@
-# Supernova acceleration dispute: research collection
+# Supernova populations and cosmic acceleration
 
-Prepared 20 September 2026. This workspace gathers literature, public data, source code, provenance and access gaps for a future replication. **No cosmological fits, age regressions, posterior comparisons or tests of the authors' conclusions have been run.** File checks and catalogue counts are acquisition checks only.
+Independent local investigation, 20 September 2026. **Scientific analysis is complete; exact-reproduction barriers remain explicitly documented.** This supersedes the original acquisition-only README, preserved in Git commit `472f13f`.
 
-The likely exchange is **Son et al. (2025) → Wiseman et al. (2026, Southampton) → Chung et al. (2026)**. It concerns whether supernova age evolution changes the evidence for **accelerating expansion**, particularly acceleration today. It does not claim that the universe never expanded. DES supernova measurements and DESI baryon acoustic oscillation measurements are separate inputs.
+Host age, dust, calibration and selection can materially change supernova cosmology. Standard released distances favour acceleration in the models tested. A Son-like age correction can reverse the present-sign inference, but the public evidence does not uniquely identify that extra correction or establish robust present deceleration.
 
-Start with these documents:
+Start here:
 
-| Document | Purpose |
+| Record | Purpose |
 |---|---|
-| [Research map](docs/research-map.md) | Papers, chronology, claims, definitions and the actual disagreements |
-| [Data inventory](docs/data-inventory.md) | What is local, what each release contains, and which versions belong together |
-| [Access gaps](docs/open-gaps.md) | Private inputs, unreleased products, failed retrievals and material not mirrored |
-| [Popular coverage](docs/media-context.md) | The two relevant Sabine Hossenfelder videos, institutional accounts and journalism |
-| [Experimental preparation](docs/replication-boundary.md) | A staged future protocol, without choosing a side or starting analysis |
-| [Literature catalogue](catalog/literature.md) | Links to every indexed paper and its local PDF(s) |
+| [Final scientific report](docs/final-report.md) | Findings, competing evidence, conditional results and limitations |
+| [Reproducibility guide](docs/reproducibility.md) | Pinned environment, calculation order, exact configurations and verification |
+| [Current literature/data map](docs/literature-and-data-status.md) | Primary revisions through 20 September and exact/approximate/blocked reproductions |
+| [Claim-and-evidence ledger](docs/claim-evidence-ledger.md) | Claims, counterevidence and missing discriminators |
+| [Experiment register](docs/experiment-register.md) and [decision log](docs/decision-log.md) | Plans, changes, failed attempts and final status |
+| [Independent falsification audit](docs/investigations/independent-audit.md) | Different numerical implementations and adversarial scientific checks |
+| [First principles](docs/first-principles.md), [causal model](docs/causal-model.md), [correction ledger](docs/correction-ledger.md) | Mathematical assumptions, latent variables and already-applied corrections |
+| [Unsent author-data requests](docs/author-data-requests.md) | Precise missing products and what each would decide |
 
-The collection contains **39 PDFs** (including alternate versions and the correction), **14 pinned repository snapshots**, and about **11 GB** of local material including original archives and extracted copies. See [collection totals](catalog/collection-summary.json). The core papers, including the published Southampton response and published Yonsei reply, are in `papers/pdf/`; searchable extractions are in `papers/text/`. Supporting papers are included for data provenance and methods; they have not all received a line-by-line methodological review. The [reading ledger](catalog/reading-ledger.json) distinguishes these levels.
+The main inference starts at released corrected distances/covariances and BAO measurements. It is not an independent raw-photometry or CMB-map reconstruction. Measured fluxes, inferred ages, author simulations, corrected distances and reference chains remain labelled separately. New synthetic tests establish mathematical/algorithmic behaviour under their stated generators.
 
-Data reside in `data/` and commit-pinned release snapshots under `sources/repos/`. Original repository archives remain in `sources/archives/`. Author code is preserved as evidence; it has not been executed or installed. Downloaded chains are the authors' pre-existing products, not results generated here.
+Original `papers/`, `data/`, `sources/` acquisitions were preserved. Derived tables live under `data/derived/`; scientific scripts under `scripts/`; outputs, configurations and manifests under `runs/`. Current source additions are dated and hashed. Large inputs, chains and covariance arrays remain local and are excluded from Git; **a Git-only checkout is not the complete scientific data bundle**. See the reproducibility guide before transferring this record.
 
-The [acquisition log](catalog/acquisition.jsonl) records source URLs, UTC retrieval times, sizes, hashes and failed attempts. The [repository inventory](catalog/repository_inventory.json) records exact commits and unresolved Git LFS pointers. The [integrity report](catalog/integrity.json) covers downloads and compressed containers. The [table inventory](catalog/table_inventory.json) records observed schemas and counts. Two truncated downloads were quarantined under `sources/failed/`; usable replacements or alternative formats are separate.
+The acquisition catalogues under `catalog/` and older `docs/research-map.md`, `data-inventory.md`, `open-gaps.md` and `replication-boundary.md` are historical records. Their counts and “future analysis” language describe the earlier collection, not the completed investigation.
 
-Collection helpers use the Python standard library:
-
-```bash
-python3 scripts/collect.py papers 2510.13121 2601.13785 2605.21586
-python3 scripts/index_collection.py
-python3 scripts/inspect_tables.py
-```
-
-Existing downloads are deliberately not refreshed in place. For a later update, create a new dated collection or explicitly version the acquisition paths. Consult the inventory before assuming a whole repository is usable: some public simulation objects could not be retrieved, and exact paper-specific analysis configurations remain missing.
-
-Bulk source material is excluded from Git by default. Keep its authors' licenses and citation requirements; this local research collection does not assign a new license to their work.
+No authors were contacted and no data or results were published or uploaded. Third-party source licenses remain with their authors.

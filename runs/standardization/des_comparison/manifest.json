@@ -1,0 +1,41 @@
+{
+  "experiment": "STD-01",
+  "utc": "2026-09-20T22:15:56.550113+00:00",
+  "code_revision": "fa051694b0453d3e1efc83eaef3b62e39ab56227",
+  "script_sha256": "e723ddbe03459c45669e9d48b0c80afb7e50eb979fb37414aeb3c9d86216266e",
+  "plan_sha256": "beeab346c8cd8fdff9ed5839623b7efde0d05248dbdb06b4f85e5dcf5bc019f6",
+  "inputs": {
+    "sources/repos/PantheonPlusSH0ES__DataRelease@7fc6805/Pantheon+_Data/4_DISTANCES_AND_COVAR/Pantheon+SH0ES.dat": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8",
+    "sources/repos/des-science__DES-SN5YR/4_DISTANCES_COVMAT/DES-Dovekie_HD.csv": "2f57019d783eaa976df80a41b0054171a2d994ee9808d715ce850c2df5720aaf",
+    "sources/repos/des-science__DES-SN5YR/4_DISTANCES_COVMAT/DES-Dovekie_Metadata.csv": "45ad71f8470eaecfe2b386699ef66b26b0717c50f445d5f32941988d32c75388",
+    "sources/repos/des-science__DES-SN5YR/4_DISTANCES_COVMAT/STAT+SYS.npz": "ffd3124b32148b1372bd95fda9299269f0352a9f8eee02d416c610e38495463b",
+    "sources/repos/des-science__DES-SN5YR/4_DISTANCES_COVMAT/STATONLY.npz": "ba596d4f035530e53bf5bf2c24359e2dc00ef6449661a30c83bdbe50ae26f6b2",
+    "sources/repos/des-science__DES-SN5YR@1.3/4_DISTANCES_COVMAT/DES-SN5YR_HD+MetaData.csv": "80e081d13145a7ee66730b59826ed83e6414087fd1e26a5a206a196f650f02c5",
+    "sources/repos/des-science__DES-SN5YR@1.3/4_DISTANCES_COVMAT/DES-SN5YR_HD.csv": "95ab1e9f5460a056de37d2b4e28df73ce0c7fd471baba9fb37f1667f41b7901c",
+    "sources/repos/des-science__DES-SN5YR@1.3/4_DISTANCES_COVMAT/STAT+SYS.txt.gz": "20bc94a881893235a94fc5a1b1c995f4b35bfae333996c2a0ce2696cb05381f2",
+    "sources/repos/des-science__DES-SN5YR@1.3/4_DISTANCES_COVMAT/STATONLY.txt.gz": "89f296a26f9bb500ccfebb173420d80deb609243e424534a31d8fe7befa05fda"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "pandas": "2.2.3"
+  },
+  "configuration": {
+    "Omega_m_bounds": [
+      0.01,
+      0.99
+    ],
+    "profile_delta_chi2": 1,
+    "magnitude_intercept": "analytic free",
+    "quadrature": "64 point Gauss-Legendre checked against scipy quad",
+    "matrix_subset_rule": "Invert precision to covariance; subset covariance; invert subset",
+    "seed": null
+  },
+  "outputs": [
+    "runs/standardization/des_comparison/flat_lcdm_fits.csv",
+    "runs/standardization/des_comparison/matched_distance_changes.png",
+    "runs/standardization/des_comparison/results.json",
+    "data/derived/standardization/des_matched_comparison.csv"
+  ]
+}

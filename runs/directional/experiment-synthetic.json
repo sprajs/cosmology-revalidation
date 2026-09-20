@@ -1,0 +1,100 @@
+{
+  "frozen_at": "2026-09-20T22:43:26.787009+00:00",
+  "git_head_at_freeze": "1c5e24fd3247957dcc4a13b6d553e3505bb7d62e",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "pandas": "2.2.3",
+    "astropy": "7.1.0"
+  },
+  "blas_threads": 1,
+  "plan": {
+    "path": "runs/directional/code/final/directional-plan.md",
+    "bytes": 6815,
+    "sha256": "ffd7d0280b5481994a4e3a4a37edc8176d397843e46dd0ca446be6a75877a03e"
+  },
+  "preregistration_note": "Final append-only plan includes dated amendments; original execution record establishes pre-outcome ordering.",
+  "experiment": "synthetic",
+  "command": "OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/directional/audit.py synthetic; then .venv/bin/python scripts/directional/summarize_boundaries.py",
+  "seed": 260609650,
+  "configuration": {
+    "models": [
+      "flat LCDM Om=.3",
+      "EdS",
+      "flat constant q=0"
+    ],
+    "zmin": 0.01,
+    "zmax": [
+      0.1,
+      0.2,
+      0.4,
+      0.8
+    ],
+    "frame": "zHD",
+    "prefactor": "zHEL",
+    "noise_realizations_per_model_cut": 100,
+    "covariance": "C1 total; no extra scatter",
+    "bounds": {
+      "q": [
+        -3,
+        3
+      ],
+      "J": [
+        -20,
+        20
+      ]
+    }
+  },
+  "inputs": [
+    {
+      "path": "sources/repos/Shin107__Anisotropy-in-Pantheon-Plus/Analysis C1/Z_mbcorr.csv",
+      "bytes": 108162,
+      "sha256": "7a73897b6a9f5612ee2107eef6612b9244e17131c4888d2400e74b07c21777f1"
+    },
+    {
+      "path": "sources/repos/Shin107__Anisotropy-in-Pantheon-Plus/Analysis C1/Pantheon+SH0ES.dat",
+      "bytes": 579283,
+      "sha256": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8"
+    },
+    {
+      "path": "sources/repos/Shin107__Anisotropy-in-Pantheon-Plus/Analysis C1/statsys_mbcorr.npy",
+      "bytes": 23147336,
+      "sha256": "5c1b855c02e6a96ca8aa651e5e645af2db3b5f15f0c3647ca93c10ca27f8197e"
+    }
+  ],
+  "code": [
+    {
+      "path": "runs/directional/code/final/audit.py",
+      "bytes": 8497,
+      "sha256": "2876b3da75b0172b0b661010353c97886f39c1eceed65449f1d7a136cec3afce"
+    },
+    {
+      "path": "runs/directional/code/final/summarize_boundaries.py",
+      "bytes": 471,
+      "sha256": "83c5f1fdfadbbe90650459cb142a14ad1d27344926b435b60d36d45dbbf9f757"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "runs/directional/taylor-errors.json",
+      "bytes": 1603,
+      "sha256": "f07870b7ab1ff4f3dddfeb38c39bde94ab60c4d0f932778ab99a7183e5715d81"
+    },
+    {
+      "path": "runs/directional/synthetic-summary.json",
+      "bytes": 13232,
+      "sha256": "bfba8baeafcb71959957819afd167ba05578e830eed458776ca4751095879ef8"
+    },
+    {
+      "path": "runs/directional/synthetic-realizations.csv",
+      "bytes": 65645,
+      "sha256": "2a2b3d1a5df3be125c86ee02b607111af971e2b1e706f6c3da8d9f2641b70c97"
+    },
+    {
+      "path": "runs/directional/synthetic-boundaries.csv",
+      "bytes": 300,
+      "sha256": "5d8df4d264bb7933c637e01ec19b8fdcd686693b69cb4f2450bd460f3b0dc232"
+    }
+  ]
+}

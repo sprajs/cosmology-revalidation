@@ -1,0 +1,53 @@
+{
+  "time_utc": "2026-09-20T22:11:33.100499+00:00",
+  "purpose": "A2-A3-A5-linmix",
+  "git_head": "472f13fcbe4388611cbd319ce8c4657732408210",
+  "python": "3.12.14 (main, Aug 14 2026, 15:34:45) [Clang 22.1.3 ]",
+  "platform": "Linux-7.2.5-4-omarchy-x86_64-with-glibc2.44",
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "pandas": "2.2.3",
+    "matplotlib": "3.10.3"
+  },
+  "inputs": {
+    "data/host_ages/chung2025/table1.dat": "a47af23e2d94cde8d4b50a341e5a76bd5a7ef3497cb052c6ff5f34db11556aae",
+    "data/host_ages/chung2025/table2.dat": "243889aa0148f02069bdea2c1286afcadc0bdf09f7acd688941eeeef65a8044a",
+    "data/derived/age_signal/matched_all_rows.csv": "e3848703630d2a7ea8fe82601cd57712bb0be9f1d96ae2a659dd6a492f733c99",
+    "data/derived/age_signal/matched_G11_first.csv": "2937fd34ea9abca4d3f6a668b12a7fc4cec159152768c1a27b7ba7dc8898a00e",
+    "data/derived/age_signal/matched_R19_first.csv": "be1d97a221e0aabddbf329d2dbb8712a3b4807b3387bafa236c844b8a9d0837e",
+    "sources/external/age_signal/linmix-933dbb1359dcb5404cf881bfdd5cf433b0195152/linmix/linmix.py": "6bc8cb74141f1957ed7eb103eaabc09933604870f9dc7cf33857a71c2bf5682a"
+  },
+  "code_sha256": "8f40ff9d681b03ff3282a9f4294a345319f3cf415f7653dfab807bf0828eca71",
+  "plan_sha256": "7ff7baf828a8fb25689d2d52a93bdb4ebb6bb6e03ababa8253e1cd131070f862",
+  "config": {
+    "K": 3,
+    "nchains": 4,
+    "miniter": 20000,
+    "maxiter": 100000,
+    "seed_base": 20260920,
+    "intrinsic_variance": "free nonnegative"
+  },
+  "outputs": {
+    "runs/age_signal/linmix-summary.json": "eb4a937e2c2d2b42a85d35b0ef7ae86b5dd5cc162041d5c02a03a971ffeeee3a",
+    "runs/age_signal/linmix/G11_first_hr_corrected_error_diag_0.42.json": "68cabd8d10b70b7829d7d86085f2671127fcf24621134b64dfceb11614900bdb",
+    "runs/age_signal/linmix/G11_first_hr_no_bias_error_diag_0.42.json": "000c381945584f6b4ecfe3eaac20e495fbe1d716a086037ffb6b26364a20fb6a",
+    "runs/age_signal/linmix/G11_first_hr_tripp_error_diag_0.42.json": "0a2e7fd63b01a523fc96859156a2cfea376783dea259c091c65c84cbbcb69ae8",
+    "runs/age_signal/linmix/G11_first_hr_tripp_error_no_covadd_0.42.json": "fdafd11650b51820e56a076a7eab23b0f6c08f912986d6918296d631a320e574",
+    "runs/age_signal/linmix/G11_first_hr_tripp_error_no_covadd_0.2.json": "ab3b49d5d9d4b34c758b250e95197afb0488bce5fcf4c77b17ce965895f1a0ac",
+    "runs/age_signal/linmix/G11_first_hr_tripp_error_no_covadd_0.25.json": "57282adb9fd8e029d1eb8d862a0b428e54f7116c14613d401f8a3ffd797af85d",
+    "runs/age_signal/linmix/G11_first_hr_tripp_error_no_covadd_0.3.json": "57f0bdd5510e1ad19bcfdebdd24b657dd9fde43c0ffbf28b645177c0a1b29851",
+    "runs/age_signal/linmix/G11_first_hr_tripp_error_no_covadd_0.35.json": "7c64ebf7a728624a4db7d20875635a65c548481214cb1b7df3d8ada518ff464a",
+    "runs/age_signal/linmix/R19_first_hr_corrected_error_diag_0.42.json": "81f2ab4ec6a08a90bf465d01e13db7641c9a8f5b587b7eb264a422917d3da52e",
+    "runs/age_signal/linmix/R19_first_hr_no_bias_error_diag_0.42.json": "40df325ea23636714811312a172e5a0d9fc20911bd1be2d671ec889fc2ee7186",
+    "runs/age_signal/linmix/R19_first_hr_tripp_error_diag_0.42.json": "2b84dcf2b28e58a22f2b7973d3a20d0b57873735cd2ad115106cb75a3ae9020c",
+    "runs/age_signal/linmix/R19_first_hr_tripp_error_no_covadd_0.42.json": "6a16333eaf76ec11fbb1f33be9f760986cd7ba90dd042dbc94a4d1a59cded1e8",
+    "runs/age_signal/linmix/R19_first_hr_tripp_error_no_covadd_0.2.json": "351a9eb383e45496526f730308d26d76193e47088d8f6ecbad17068159911785",
+    "runs/age_signal/linmix/R19_first_hr_tripp_error_no_covadd_0.25.json": "32da760185560afc1af3dfd7c74fffd0fa9d46957c3489cf4481053476de54b5",
+    "runs/age_signal/linmix/R19_first_hr_tripp_error_no_covadd_0.3.json": "39d85dba476f225b36fe4b1948489abb17f4d36c188e0d1aeeff358d9a85d581",
+    "runs/age_signal/linmix/R19_first_hr_tripp_error_no_covadd_0.35.json": "6e4ae579ace1b4c4a211ba17095376c8c512c8365b54060d9f6ed947633a0c8d",
+    "runs/age_signal/linmix/C25_G11_hr_C25.json": "3213c715a0bb431746740593226a6ed89ff88f820669ac0ef291e3f7512781d2",
+    "runs/age_signal/linmix/C25_G11_hr_original.json": "50bd5a7cc9341c96a0879e306041c02052f922939125ff8c3c5ce22d2d7b1021",
+    "runs/age_signal/linmix/C25_R19_hr_C25.json": "e718f88ae528a84f43a9cffd0a087fa0173630d1fcab738eb3d95536fb9a9d22"
+  }
+}

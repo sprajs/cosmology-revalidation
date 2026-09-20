@@ -1,0 +1,82 @@
+{
+  "frozen_at": "2026-09-20T22:43:26.787009+00:00",
+  "git_head_at_freeze": "1c5e24fd3247957dcc4a13b6d553e3505bb7d62e",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "pandas": "2.2.3",
+    "astropy": "7.1.0"
+  },
+  "blas_threads": 1,
+  "plan": {
+    "path": "runs/directional/code/final/directional-plan.md",
+    "bytes": 6815,
+    "sha256": "ffd7d0280b5481994a4e3a4a37edc8176d397843e46dd0ca446be6a75877a03e"
+  },
+  "preregistration_note": "Final append-only plan includes dated amendments; original execution record establishes pre-outcome ordering.",
+  "experiment": "c2",
+  "command": "OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/directional/c2.py",
+  "seed": null,
+  "configuration": {
+    "cut": ".00937<zHEL<.8",
+    "frame": "zHEL",
+    "n": 1547,
+    "reverse_bias": true,
+    "age_correction": [
+      false,
+      true
+    ],
+    "means": "profiled exactly",
+    "nuisance": "alpha,beta,sigmaM,sigmaX,sigmaC optimized",
+    "dipole": "RA168 DEC-7, S>=.00938",
+    "starts": 2,
+    "code_lineage": "c2-executed/audit.py is verified reconstruction of the actually imported pre-wide helper"
+  },
+  "inputs": [
+    {
+      "path": "sources/repos/Shin107__Anisotropy-in-Pantheon-Plus/Analysis C2/Pantheon+SH0ES.dat",
+      "bytes": 579283,
+      "sha256": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8"
+    },
+    {
+      "path": "sources/repos/Shin107__Anisotropy-in-Pantheon-Plus/index_sorted_lane.npy",
+      "bytes": 13592,
+      "sha256": "fd5280dbca0aa7126bd539db03b4195d8a86170af838904a367e90a31002f60e"
+    },
+    {
+      "path": "runs/directional/sources/cov_final.npy",
+      "bytes": 203939336,
+      "sha256": "ac4d002f3c6bf7dd2defe79e286ca6294fbfb9761c8fcc9d0a9796f81100e0eb"
+    },
+    {
+      "path": "sources/repos/Shin107__Anisotropy-in-Pantheon-Plus/median_deltaage.csv",
+      "bytes": 2500,
+      "sha256": "f9e2ef88a9e54d3cf84a2cee0ff63a4a29dcc4070ef7d636cb4fa999aff2a31e"
+    }
+  ],
+  "code": [
+    {
+      "path": "runs/directional/code/c2-executed/c2.py",
+      "bytes": 6204,
+      "sha256": "d83506dcd74ada14a8b3b4d60fe0ddc6fd6cc1e444daa9efa60038f7b695809c"
+    },
+    {
+      "path": "runs/directional/code/c2-executed/audit.py",
+      "bytes": 8435,
+      "sha256": "8037af3725a373834883a7ca43220aa76bfe2135c7dba1011edd7b6b609f70f1"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "runs/directional/c2-fits.json",
+      "bytes": 7465,
+      "sha256": "c8eef00d771d2783bcbba6c67c26570fccec1d14b8d5243b56f7b6fd95a58771"
+    },
+    {
+      "path": "runs/directional/c2-gradient-check.json",
+      "bytes": 517,
+      "sha256": "d69b9ea1a9d2fcf7df49f59ca686249685713c2ff6aee3133d6993f3901221c8"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import scienceplots 
+plt.style.use(['science', 'notebook', 'grid'])
+import astropy.units as u
+from scipy.interpolate import CubicSpline
+import numpy as np
+from astropy.coordinates import SkyCoord
+plt.rcParams['font.family'] = 'serif'
+
+median_delta_age = pd.read_csv('median_deltaage.csv',header= None)
+mean_delta_age = pd.read_csv('mean_deltaage.csv',header= None)
+median_delta_age = median_delta_age.sort_values(by=0)
+mean_delta_age = mean_delta_age.sort_values(by=0)
+
+cs_median = CubicSpline(median_delta_age[0], median_delta_age[1])
+cs_mean = CubicSpline(mean_delta_age[0], mean_delta_age[1])
+
+
+import pickle
+
+with open('cs_mean.pkl', 'wb') as f:
+    pickle.dump(cs_mean, f)
+
+with open('cs_median.pkl', 'wb') as f:
+    pickle.dump(cs_median, f)
+  

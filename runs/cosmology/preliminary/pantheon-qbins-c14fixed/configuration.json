@@ -1,0 +1,41 @@
+{
+  "action": "fit",
+  "name": "pantheon-qbins-c14fixed",
+  "model": "qbins",
+  "data": "sn",
+  "amplitude": "fixed",
+  "correction": "runs/cosmology/templates/c14-cpl63-median.csv",
+  "column": "delta_mu",
+  "zcolumn": "z",
+  "scale": 1.0,
+  "tau": 1.5,
+  "steps": 12000,
+  "burn": 1500,
+  "walkers": 40,
+  "seed": 41014,
+  "actual_priors": {
+    "q0": [
+      -3.0,
+      2.0
+    ],
+    "q1": [
+      -3.0,
+      2.0
+    ],
+    "q2": [
+      -3.0,
+      2.0
+    ],
+    "q3": [
+      -3.0,
+      2.0
+    ],
+    "q4": [
+      -3.0,
+      2.0
+    ]
+  },
+  "early_DE_prior": null,
+  "normal_amplitude_prior": null,
+  "qbin_smoothing_sd": 1.5
+}

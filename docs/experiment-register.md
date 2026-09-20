@@ -1,0 +1,25 @@
+# Experiment register
+
+Plans were recorded before each new test outcome. Papers' reported results were known before attempted reproduction; reproductions are not blinded discoveries. Root and three first-wave investigators recorded separate initial interpretations before comparison. Scientific agents were Astra Ultra; bounded later source acquisition used Sol. No global settings changed.
+
+| ID | Question / branch | Plan | Runnable implementation and outputs | State |
+|---|---|---|---|---|
+| A1 | IDs, overlap and cumulative cuts | [Age plan](experiments/age_signal-plan.md) | `scripts/age_signal/analyse.py`; `runs/age_signal/sample-audit.json` and derived crosswalk | Exact count reconstruction; ambiguous age precedence retained |
+| A2/A3/A5 | Historical/modern age slopes, corrections, cuts and errors | Age plan | `analyse.py`, `sensitivity.py`, `covariance_linmix.py`, `fullcov_eiv.py`, `mass_revision.py`, `validate_algebra.py`; all under age_signal directories | Approximate numerical reproductions plus controlled sensitivities; latent/selection limits documented |
+| A4 | Does C26 mock centering create dilution? | Age plan | `scripts/age_signal/mock_audit.py`; `runs/age_signal/mock-results.csv` | Analytic identity and paired synthetic experiment, not exact author mock reproduction |
+| M1 | Conditions for slope×evolution transport and causal asymmetry | [Mapping plan](experiments/mapping-plan.md) | `scripts/mapping/controlled.py`; `runs/mapping/controlled-mapping.csv` | Controlled synthetic counterexamples, no observational posterior |
+| M2 | Cosmic-SFH×DTD age correction | Mapping plan | `scripts/mapping/csfh_dtd.py`; `runs/mapping/csfh-dtd-curves.csv` | Approximate Son scale; W26 1.5-Gyr discrepancy retained |
+| M3 | Public W22 simulated host library | Mapping plan | `scripts/mapping/hostlib_audit.py`; `runs/mapping/author-hostlib-summary.csv` | Actual author-product summary, not exact W26 selected pipeline |
+| STD01 | DES/Dovekie matched vectors and covariance | [Standardization plan](experiments/standardization-plan.md) | `scripts/standardization/compare_des.py`; `runs/standardization/des_comparison/` | Native baseline fits reproduced; matched factorial diagnostic |
+| STD02 | Dust geometry/selection and latent colour confounding | Standardization plan | `scripts/standardization/dust_identifiability.py`; `runs/standardization/dust_identifiability/` | Analytic and synthetic constructive tests |
+| STD03 | Public low-z host-mass revision | Standardization plan | `scripts/standardization/pantheon_mass_update.py`; `runs/standardization/pantheon_mass_update/` | Public reconstruction reproduced; covariance held fixed |
+| COS01 | Baseline and correction-conditioned cosmology | [Cosmology plan](experiments/cosmology-plan.md) | `scripts/cosmology/run.py`; per-fit configuration, chains and manifests | 19 inference configurations including independent repeat ensembles; final captured-code replay complete with identical scientific summary fields |
+| COS02 | Kinematic resolution and evolution degeneracy | Cosmology plan | `core.py`, `kinematic_limits.py`; `runs/cosmology/kinematic-limits/` | Flat finite-bin/smooth models and exact identifiability calculation |
+| COS03 | Independent BAO likelihood and CMB-chain-derived q | Cosmology plan | `run.py`, `reference_chains.py`; `runs/cosmology/desi-reference-chains/` | BAO refits completed; chains explicitly reference-only, full Son CMB reproduction blocked |
+| COS04/DIR | Directional cosmography and Taylor truncation | [Directional plan](experiments/directional-plan.md) | `scripts/directional/`; `runs/directional/` | C1 and principal HEL C2 reproduced; exact-LCDM/truncation/coordinate checks complete; remaining multiframe/physical limitations explicit |
+| VAL01 | Analytic/Astropy/full-likelihood implementation checks | Cosmology plan | `run.py validate`; `runs/cosmology/validation/` | Passed refined interpolation; initial failed check retained |
+| VAL02 | Gaussian injection recovery, posterior predictions, ensemble repeats | [Decision log](decision-log.md) | `scripts/cosmology/diagnostics.py`; `runs/cosmology/diagnostics/` | Recovery consistent at tested resolution; observed underdispersion retained |
+| AUDIT | Independent Astra Ultra falsification attempt | Goal objective; [audit report](investigations/independent-audit.md) | `scripts/audit/`; `runs/audit/` | Complete: independent raw-table/ODE, formation-redshift quadrature, age/mocks, C1/C2 likelihood and current-source checks |
+| LIT | Subsequent primary revisions and independent-sample leads | Goal objective | `sources/updates/`; branch acquisition manifests | Complete bounded source freeze: September host-mass/BayeSN/ZTF/Kim/Kelsey plus corrected Ray/Sah response |
+
+Exact current commands, seeds and environment are recorded in each manifest/configuration, and the reproducibility guide selects the authoritative outputs. Synthetic data, author-produced simulations, inferred age tables, corrected distances and posterior chains retain different labels throughout.

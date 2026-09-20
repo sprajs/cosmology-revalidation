@@ -1,5 +1,7 @@
 # Experimental preparation, without running the experiment
 
+> Historical acquisition-stage record. Current analysis, resolved gaps and remaining barriers are in [the final report](final-report.md) and [current literature/data map](literature-and-data-status.md). The original scientific content below is preserved.
+
 The current stage is acquisition, provenance and study design. No regression, residual recomputation, cosmological likelihood evaluation, chain reweighting or scientific hypothesis test has been run. Existing author chains are evidence artifacts. Counts, file hashes, archive CRCs, FITS headers and array shapes have been inspected to establish what is actually available.
 
 ## Separate the possible reproduction targets

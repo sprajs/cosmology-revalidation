@@ -1,0 +1,39 @@
+{
+  "release_comparisons": {
+    "W26_snapshot": {
+      "sha256_equal": true,
+      "all_values_equal": true,
+      "CID_survey_order_equal": true
+    },
+    "current_acquisition": {
+      "sha256_equal": true,
+      "all_values_equal": true,
+      "CID_survey_order_equal": true
+    }
+  },
+  "rows": 1701,
+  "low_z_rows": 713,
+  "low_mass_fit_rows": 317,
+  "high_mass_fit_rows": 396,
+  "changed_rows": 114,
+  "changed_unique_CIDs": 102,
+  "changed_calibrator_rows": 0,
+  "changed_SDSS_rows": 18,
+  "mean_delta_m_b_corr_changed": 0.07220464502818195,
+  "mean_delta_m_b_corr_all_lowz": 0.011544641701560646,
+  "range_delta_m_b_corr_changed": [
+    0.01341178410833671,
+    0.2864821312709285
+  ],
+  "max_abs_difference_to_public_reconstructed_table": 7.105427357601002e-15,
+  "descending_cubic_coefficients_low_minus_high": [
+    -2.3291374384805366,
+    1.4245282563653527,
+    0.5989960990241792,
+    0.06336434683780368
+  ],
+  "unchanged_columns": "Every column except m_b_corr (including MU_SH0ES, masses, errors, biasCor_m_b). Use m_b_corr for this branch.",
+  "uncertainty": "No covariance update. Does not propagate host-mass shift or curve-fit uncertainty; deterministic sensitivity only.",
+  "sign": "NEW minus OLD standardized apparent magnitude is positive on average (+0.07220 mag); public file and -biasCor sign support this. Hoyt Appendix F quotes Delta mu=-0.073; retain sign discrepancy/convention explicitly.",
+  "reproduction": "Exact numerical reproduction of public Roy Choudhury branch-transfer table; comparison to private Hoyt file only asserted by public author, not independently verified here."
+}

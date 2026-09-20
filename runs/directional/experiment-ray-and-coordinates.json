@@ -1,0 +1,77 @@
+{
+  "frozen_at": "2026-09-20T22:43:26.787009+00:00",
+  "git_head_at_freeze": "1c5e24fd3247957dcc4a13b6d553e3505bb7d62e",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "pandas": "2.2.3",
+    "astropy": "7.1.0"
+  },
+  "blas_threads": 1,
+  "plan": {
+    "path": "runs/directional/code/final/directional-plan.md",
+    "bytes": 6815,
+    "sha256": "ffd7d0280b5481994a4e3a4a37edc8176d397843e46dd0ca446be6a75877a03e"
+  },
+  "preregistration_note": "Final append-only plan includes dated amendments; original execution record establishes pre-outcome ordering.",
+  "experiment": "ray-and-coordinates",
+  "command": "OPENBLAS_NUM_THREADS=1 .venv/bin/python scripts/directional/ray_check.py",
+  "seed": null,
+  "configuration": {
+    "cut": ".00937<zHEL<=.8",
+    "J": 1,
+    "diagonal_sigma_mag": 0.15,
+    "frames": [
+      "zHEL",
+      "zCMB",
+      "zHD"
+    ],
+    "subsets": [
+      "all",
+      "dipole",
+      "antidipole"
+    ],
+    "slopes": "alpha/beta and offset jointly linear-profiled",
+    "age_correction": [
+      false,
+      true
+    ]
+  },
+  "inputs": [
+    {
+      "path": "sources/repos/Shin107__Anisotropy-in-Pantheon-Plus/Analysis C1/Pantheon+SH0ES.dat",
+      "bytes": 579283,
+      "sha256": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8"
+    },
+    {
+      "path": "sources/repos/Shin107__Anisotropy-in-Pantheon-Plus/median_deltaage.csv",
+      "bytes": 2500,
+      "sha256": "f9e2ef88a9e54d3cf84a2cee0ff63a4a29dcc4070ef7d636cb4fa999aff2a31e"
+    }
+  ],
+  "code": [
+    {
+      "path": "runs/directional/code/final/audit.py",
+      "bytes": 8497,
+      "sha256": "2876b3da75b0172b0b661010353c97886f39c1eceed65449f1d7a136cec3afce"
+    },
+    {
+      "path": "runs/directional/code/final/ray_check.py",
+      "bytes": 2102,
+      "sha256": "61a19e7d33b0afffcf9a3bdae58b59b3b92247dd31dc8dbb2cddf06460ac632a"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "runs/directional/ray-v2-simple-fit.json",
+      "bytes": 4770,
+      "sha256": "e5b8b67feed84f569acf5da272a8270a6ef2b40b37e4994e4cc1f6770825af38"
+    },
+    {
+      "path": "runs/directional/response-coordinate-check.json",
+      "bytes": 519,
+      "sha256": "ce7c70e62458af6f9708313bd016cfad146cc059491c68e0d5ee50d1ee032517"
+    }
+  ]
+}

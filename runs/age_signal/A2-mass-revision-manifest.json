@@ -1,0 +1,35 @@
+{
+  "time_utc": "2026-09-20T22:16:00.769908+00:00",
+  "purpose": "A2-mass-revision",
+  "git_head": "fa051694b0453d3e1efc83eaef3b62e39ab56227",
+  "python": "3.12.14 (main, Aug 14 2026, 15:34:45) [Clang 22.1.3 ]",
+  "platform": "Linux-7.2.5-4-omarchy-x86_64-with-glibc2.44",
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "pandas": "2.2.3",
+    "matplotlib": "3.10.3"
+  },
+  "inputs": {
+    "sources/repos/PantheonPlusSH0ES__DataRelease@7fc6805/Pantheon+_Data/4_DISTANCES_AND_COVAR/Pantheon+SH0ES.dat": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8",
+    "data/derived/standardization/Pantheon_W26_lowz_mass_revision.dat": "ddaf83762ebf1b6bef76f015308d770f92df6227f4efcf78938399d5ce0cce61",
+    "sources/repos/PantheonPlusSH0ES__DataRelease@7fc6805/Pantheon+_Data/4_DISTANCES_AND_COVAR/Pantheon+SH0ES_STAT+SYS.cov": "abf806d966485e64afdb359c87bffc0ecc00d05eff0a31ced66f247385df0fdc",
+    "scripts/age_signal/mass_revision.py": "16d35e3134f1874cfba707f9ca50a4711625631eb5a747c027ea5d11a1b1ceb7",
+    "data/derived/age_signal/matched_G11_first.csv": "2937fd34ea9abca4d3f6a668b12a7fc4cec159152768c1a27b7ba7dc8898a00e",
+    "data/derived/age_signal/matched_R19_first.csv": "be1d97a221e0aabddbf329d2dbb8712a3b4807b3387bafa236c844b8a9d0837e"
+  },
+  "code_sha256": "8f40ff9d681b03ff3282a9f4294a345319f3cf415f7653dfab807bf0828eca71",
+  "plan_sha256": "d4d096916a19d052d5429c3db4a26d0bf43fa69b1e9d94b7a7838ba90c91d302",
+  "config": {
+    "seed_base": 20260970,
+    "nchains": 4,
+    "miniter": 20000,
+    "maxiter": 100000,
+    "delta": "new.m_b_corr-old.m_b_corr"
+  },
+  "outputs": {
+    "runs/age_signal/mass-revision-summary.json": "58e6a32ba08c41e68d801b5fe9199bd0f4b2ba82c30cd84b3f1b6f40d60b6bbe",
+    "data/derived/age_signal/mass_revision_G11_first.csv": "f89f2abb3cd6a4aa5cb2c14d89402b973b951b22dc34887a4835c788788c308d",
+    "data/derived/age_signal/mass_revision_R19_first.csv": "06db891d978bf4723522c567681e19cfe92a1884bf9e7075873a8ebdf41406b8"
+  }
+}
