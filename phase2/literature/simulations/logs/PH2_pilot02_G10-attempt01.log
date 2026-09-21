@@ -1,0 +1,746 @@
+
+ Full command: /home/szymon/Documents/ChatGPT/supernova/phase2/official/build/SNANA-2fe0f56/bin/snlc_sim.exe /home/szymon/Documents/ChatGPT/supernova/phase2/literature/simulations/inputs/PH2_pilot02_G10.input 
+
+ SNANA_VERSION: 2fe0f564
+
+
+
+ ****************************************************************** 
+   Begin execution of snlc_sim.exe    
+ SNDATA_ROOT = /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT 
+ SNANA_DIR   = /home/szymon/Documents/ChatGPT/supernova/phase2/official/build/SNANA-2fe0f56 
+
+
+   sizeof(INPUTS) =   1.644 MB 
+   sizeof(GENLC)  =   9.696 MB 
+
+  init_SNDATA_GLOBAL: 
+ --------------------------------------------------------
+  Initialize NstringMatch for sim-input file
+  Read 164 words from user input file 1: 
+	 /home/szymon/Documents/ChatGPT/supernova/phase2/literature/simulations/inputs/PH2_pilot02_G10.input 
+
+ ****************************************************************** 
+   init_HzFUN_INFO  
+	 H0         = 70.00      # km/s/Mpc 
+	 OM, OL, Ok = 0.31500, 0.68500, 0.00000 
+	 w0, wa     = -1.000,  0.000 
+
+ ****************************************************************** 
+    prep_user_inputs summary   
+	 SIMLIB file        : /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/simlib/DES/DES-SN5YR_DES.SIMLIB   (start LIBID=0)
+	 Generation Version : PH2_pilot02_G10 
+	 Generation source  : RANDOM 
+	 Generation model   : SALT3.DES5YR 
+	 Number of LC to Generate: 0 
+	 OMEGA_(MATTER,LAMBDA)= 0.315, 0.685,    w0= -1.00   H0= 70.0 
+	 KCOR  file : /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/kcor/DES/DES-SN5YR/calib_DES-SN5YR_DES.fits.gz 
+	 Observer Gen-FILTERS  :  griz  
+	 Random number seed: 213849  (NSTREAM=2)
+	 Gen-Range for RA(deg)  : -360.000 to  360.000 
+	 Gen-Range for DEC(deg): -360.000 to  360.000 
+	 Gen-Range for ZCMB :  0.050 to  1.300  (sigma= 0.0000, bias=0.00000) 
+	 Gen-Range for PEAKMJD  :  56535.0 to  58178.0  
+	 Gen-Range for Trest    :    -40.0 to    100.0  days 
+	 Gen-Range for SHAPEPAR  :     -5.0 to      5.0  
+	 Gen-Range for AV  : -9.00 to -9.00  (dN/dAv = exp(-AV/-9.00) 
+	 Gen-Mean  for RV  : 3.10  
+	 Gen-sigma for RV  : 0.00 , 0.00 (lower , upper ) 
+	 Gen-Range for RV  : 1.00 to 5.00 
+	 ZP offsets (griz) :  0.000 0.000 0.000 0.000
+	 MODEL mag offsets (griz) :   0.00  0.00  0.00  0.00
+
+
+ ****************************************************************** 
+    init_RANDOMsource : CIDOFF=0   
+
+ ****************************************************************** 
+   SIMLIB_readGlobalHeader_TEXT  
+	 Opened : /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/simlib/DES/DES-SN5YR_DES.SIMLIB 
+
+ ****************************************************************** 
+   SIMLIB_prepGlobalHeader  
+	 SIMLIB Survey    : DES 
+	 SIMLIB telescope : UNKNOWN 
+	 SIMLIB Field : VOID 
+	 SIMLIB pixel size: 0.270 asec 
+	 SIMLIB Filters   : griz 
+	 SIMLIB PSF unit:    ARCSEC_FWHM 
+	 SIMLIB SKYSIG unit: ADU_PER_SQPIXEL 
+	 SIMLIB IGNORE FLUXERR_COR map. 
+
+  Bit-mask options for SIMLIB_MSKOPT = 32 
+	 MASK=    32 -> ignore FLUXERR_COR map in SIMLIB header 
+
+ POWERLAW RATE MODEL:  2.27e-05*(1+z)^1.70  (0.0 < z < 10.0) 
+    MODEL_RATE(z=0.05) = 2.466e-05/Mpc^3/yr    
+    MODEL_RATE(z=0.25) = 3.317e-05/Mpc^3/yr    
+    MODEL_RATE(z=0.45) = 4.269e-05/Mpc^3/yr    
+    MODEL_RATE(z=0.65) = 5.318e-05/Mpc^3/yr    
+    MODEL_RATE(z=0.85) = 6.460e-05/Mpc^3/yr    
+    MODEL_RATE(z=1.05) = 7.691e-05/Mpc^3/yr    
+    MODEL_RATE(z=1.25) = 9.010e-05/Mpc^3/yr    
+ Calculated Number of EVENTS per season =  2.652e+04 
+
+ ****************************************************************** 
+   INIT_HOSTLIB: Read and init host-galaxy library  
+
+  Bit-mask options for HOSTLIB_MSKOPT = 259 
+	 MASK=     1 -> internally set if HOSTLIB_FILE != NULL 
+	 MASK=     2 -> compute host mag & poisson noise in SN aperture 
+	 MASK=   256 -> print extra info during init 
+
+	 Scale LOGMASS error by 0.00
+	 Scale LOGSFR error by 0.00
+	 Scale LOGsSFR error by 0.00
+	 Scale COLOR error by 0.00
+	 Load 'LOGMASS_TRUE,LOGSFR_TRUE,r_obs_auto,obs_gr_auto' for SNTABLE storage. 
+	 Read WEIGHT-MAP from supplemental file:
+	   /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/simlib/DES/DES-SN5YR_WGTmaps/DES-SN5YR_DES.WGT
+    Load GRIDMAP-020 'WGTMAP(LOGMASS_TRUE WGT SNMAGSHIFT )'  NROW=129 
+	 malloc_GRIDMAP: allocate 0.0 MB for 129 bins
+	 Ignore SNMAGSHIFT in WGTMAP 
+	 Reading /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/simlib/DES/DES-SN5YR_DES.HOSTLIB 
+	 Found match to HOSTLIB Variable 'GALID' (IVAR_STORE=0) 
+	 Found match to HOSTLIB Variable 'ZTRUE' (IVAR_STORE=1) 
+	 Found match to HOSTLIB Variable 'LOGMASS_TRUE' (IVAR_STORE=2) 
+	 Found match to HOSTLIB Variable 'LOGSFR_TRUE' (IVAR_STORE=3) 
+	 Found match to HOSTLIB Variable 'r_obs_auto' (IVAR_STORE=4) 
+	 Found match to HOSTLIB Variable 'obs_gr_auto' (IVAR_STORE=5) 
+	 Found match to HOSTLIB Variable 'RA_GAL' (IVAR_STORE=6) 
+	 Found match to HOSTLIB Variable 'DEC_GAL' (IVAR_STORE=7) 
+	 Found match to HOSTLIB Variable 'ZPHOT_ERR' (IVAR_STORE=8) 
+	 Found match to HOSTLIB Variable 'g_obs' (IVAR_STORE=9) 
+	 Found match to HOSTLIB Variable 'r_obs' (IVAR_STORE=10) 
+	 Found match to HOSTLIB Variable 'i_obs' (IVAR_STORE=11) 
+	 Found match to HOSTLIB Variable 'z_obs' (IVAR_STORE=12) 
+	 Found match to HOSTLIB Variable 'a0_Sersic' (IVAR_STORE=13) 
+	 Found match to HOSTLIB Variable 'b0_Sersic' (IVAR_STORE=14) 
+	 Found match to HOSTLIB Variable 'n0_Sersic' (IVAR_STORE=15) 
+	 Found match to HOSTLIB Variable 'a_rot' (IVAR_STORE=16) 
+	 Found match to HOSTLIB Variable 'LOGMASS_TRUE' (IVAR_STORE=17) 
+	 Found match to HOSTLIB Variable 'LOGSFR_TRUE' (IVAR_STORE=18) 
+	 Found match to HOSTLIB Variable 'a_DLR' (IVAR_STORE=19) 
+	 Found match to HOSTLIB Variable 'b_DLR' (IVAR_STORE=20) 
+	 Found match to HOSTLIB Variable 'COLOR_TRUE' (IVAR_STORE=21) 
+	 Reading /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/simlib/DES/DES-SN5YR_DES.HOSTLIB 
+	 Stored 251258 galaxies from HOSTLIB (from 263695 total). 
+	 ZTRUE frame is Heliocentric
+
+	 *** WARNING: 14 entries might be stars (z<0.0010) **** 
+
+	 Sort HOSTLIB by redshift (0.0375 to 1.3960) 
+	 |zSN-zGAL| tolerance zpoly: 0.002,0.04 
+	 Check HOSTLIB for duplicate entries. 
+	 Interpolate WGTMAP for each galaxy (2.51 MB) ... 
+	   WGT(igal=0,GALID=2200555945) = 0.000374 -> WGTSUM = 0.000374 
+	   WGT(igal=1,GALID=2200203883) = 0.000662 -> WGTSUM = 0.001036 
+	   WGT(igal=251257,GALID=2200384442) = 0.005511 -> WGTSUM = 645.437665 
+	 Read 901 rows of b_n(n) table from 
+	   /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/simlib/Sersic_bn.dat
+	 Init 51 log10(R/Re) bins from -4.000 to  2.000 
+	 Init 50 Sersic integral tables spanning n = 0.15 - 11.00 (80.4 kB) 
+	 init_SAMEHOST: Re-use host arbitrary number of times.
+	 Compute Host Galaxy Mags and Noise. 
+   OPEN_TEXTFILE: /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/simlib/Gauss2dIntegrals.dat 
+   Read 4 table varNames from TEXT table=Gass2D 
+	 ==> Finished reading 3 of 4 variables with 51 entries
+	 Gauss2d Table radius : 0.00 - 5.00 (51 bins of 0.10) 
+	 Gauss2d Table sigma  : 0.50 - 0.50 (1 bins of 0.00) 
+	 HOSTLIB Init time: 4.00 seconds 
+
+ ****************************************************************** 
+   init_lensDMU  
+	 Opened : /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/models/lensing/LENSING_PROBMAP_LogNormal+MICECATv1.DAT 
+	 Found 7217 total rows in file. 
+	 Convert 7200 lens-table rows into 36(z) x 200(DMU) array
+		 <dmu>[z=1.005] =  -4.7394e-04 
+		 <dmu>[z=2.005] =   1.3686e-05 
+		 <dmu>[z=3.005] =   5.6426e-05 
+	 Done initializing Prob(-1.516 < DeltaMU < 0.213) 
+	 in 36 redshfit bins from 0.405 to 3.905 
+
+ ****************************************************************** 
+   INIT_FLUXERRMODEL:  
+	 Opened : /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/simlib/DES/DES-SN5YR_DES_FLUXERRMODEL_SIM.DAT 
+	 FIELD-assign SHALLOW --> S1+S2+C1+C2+X1+X2+E1+E2 
+	 FIELD-assign DEEP --> X3+C3 
+    Load GRIDMAP-100 'FLUXERR(SBMAG)'  NROW=8 
+	 malloc_GRIDMAP: allocate 0.0 MB for 8 bins
+    Load GRIDMAP-101 'FLUXERR(SBMAG)'  NROW=8 
+	 malloc_GRIDMAP: allocate 0.0 MB for 8 bins
+    Load GRIDMAP-102 'FLUXERR(SBMAG)'  NROW=8 
+	 malloc_GRIDMAP: allocate 0.0 MB for 8 bins
+    Load GRIDMAP-103 'FLUXERR(SBMAG)'  NROW=8 
+	 malloc_GRIDMAP: allocate 0.0 MB for 8 bins
+    Load GRIDMAP-104 'FLUXERR(SBMAG)'  NROW=8 
+	 malloc_GRIDMAP: allocate 0.0 MB for 8 bins
+    Load GRIDMAP-105 'FLUXERR(SBMAG)'  NROW=8 
+	 malloc_GRIDMAP: allocate 0.0 MB for 8 bins
+    Load GRIDMAP-106 'FLUXERR(SBMAG)'  NROW=8 
+	 malloc_GRIDMAP: allocate 0.0 MB for 8 bins
+    Load GRIDMAP-107 'FLUXERR(SBMAG)'  NROW=8 
+	 malloc_GRIDMAP: allocate 0.0 MB for 8 bins
+
+       MAPNAME       BANDS         FIELDLIST        VARNAMES     SIZE 
+# --------------------------------------------------------------------------- 
+ FLUXERR_SCALE:0          g S1+S2+C1+C2+X1+X2+E1+E2      SBMAG         8
+ FLUXERR_SCALE:0          r S1+S2+C1+C2+X1+X2+E1+E2      SBMAG         8
+ FLUXERR_SCALE:0          i S1+S2+C1+C2+X1+X2+E1+E2      SBMAG         8
+ FLUXERR_SCALE:0          z S1+S2+C1+C2+X1+X2+E1+E2      SBMAG         8
+ FLUXERR_SCALE:0          g X3+C3                        SBMAG         8
+ FLUXERR_SCALE:0          r X3+C3                        SBMAG         8
+ FLUXERR_SCALE:0          i X3+C3                        SBMAG         8
+ FLUXERR_SCALE:0          z X3+C3                        SBMAG         8
+# --------------------------------------------------------------------------- 
+ NINDEX_SPARSE_FLUXERRMAP = 1 
+ NREDCOV = 8  (number of reduced flux-cov)
+	 Excess scatter 0: REDCOV(g) =  0.600  (FIELD=SHALLOW)
+	 Excess scatter 1: REDCOV(r) =  0.600  (FIELD=SHALLOW)
+	 Excess scatter 2: REDCOV(i) =  0.600  (FIELD=SHALLOW)
+	 Excess scatter 3: REDCOV(z) =  0.600  (FIELD=SHALLOW)
+	 Excess scatter 4: REDCOV(g) =  0.600  (FIELD=DEEP)
+	 Excess scatter 5: REDCOV(r) =  0.600  (FIELD=DEEP)
+	 Excess scatter 6: REDCOV(i) =  0.600  (FIELD=DEEP)
+	 Excess scatter 7: REDCOV(z) =  0.600  (FIELD=DEEP)
+
+ ****************************************************************** 
+   Initialize SEARCH EFFICIENCY for 'DES' 
+  
+   Read Detection-efficiency curves: 
+	 EFF_DETECT(g) = 0.463 at SNR =  5.50 ()
+	 EFF_DETECT(r) = 0.425 at SNR =  5.00 ()
+	 EFF_DETECT(i) = 0.540 at SNR =  5.50 ()
+	 EFF_DETECT(z) = 0.469 at SNR =  5.00 ()
+
+   Fetch SOFTWARE SEARCH-LOGIC from : 
+	 /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/models/searcheff/SEARCHEFF_PIPELINE_LOGIC.DAT
+	 Logic: 2 MJDs require filters=g+r+i+z 
+	 Trigger epoch contains all obs within 0.400 days
+
+
+ 	 SEARCHEFF_SPEC_FILE = ZERO -> Force EFF_SPEC=0. 
+
+
+   Read zHOST-for-unconfirmed effic map from 
+	 /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/models/searcheff/SEARCHEFF_zHOST_DES-SN5YR.DAT
+    Load GRIDMAP-040 'HOSTEFF:(r_obs_auto obs_gr_auto HOSTEFF)'  NROW=38 
+	 malloc_GRIDMAP: allocate 0.0 MB for 38 bins
+	 FIELDLIST = C1+C2 
+	 PEAKMJD_RANGE = 56300 to 57500 
+    Load GRIDMAP-041 'HOSTEFF:(r_obs_auto obs_gr_auto HOSTEFF)'  NROW=38 
+	 malloc_GRIDMAP: allocate 0.0 MB for 38 bins
+	 FIELDLIST = C1+C2 
+	 PEAKMJD_RANGE = 57500 to 57900 
+    Load GRIDMAP-042 'HOSTEFF:(r_obs_auto obs_gr_auto HOSTEFF)'  NROW=38 
+	 malloc_GRIDMAP: allocate 0.0 MB for 38 bins
+	 FIELDLIST = C1+C2 
+	 PEAKMJD_RANGE = 57900 to 58300 
+    Load GRIDMAP-043 'HOSTEFF:(r_obs_auto obs_gr_auto HOSTEFF)'  NROW=38 
+	 malloc_GRIDMAP: allocate 0.0 MB for 38 bins
+	 FIELDLIST = E1+E2 
+	 PEAKMJD_RANGE = 56300 to 57500 
+    Load GRIDMAP-044 'HOSTEFF:(r_obs_auto obs_gr_auto HOSTEFF)'  NROW=38 
+	 malloc_GRIDMAP: allocate 0.0 MB for 38 bins
+	 FIELDLIST = E1+E2 
+	 PEAKMJD_RANGE = 57500 to 57900 
+    Load GRIDMAP-045 'HOSTEFF:(r_obs_auto obs_gr_auto HOSTEFF)'  NROW=38 
+	 malloc_GRIDMAP: allocate 0.0 MB for 38 bins
+	 FIELDLIST = E1+E2 
+	 PEAKMJD_RANGE = 57900 to 58300 
+    Load GRIDMAP-046 'HOSTEFF:(r_obs_auto obs_gr_auto HOSTEFF)'  NROW=38 
+	 malloc_GRIDMAP: allocate 0.0 MB for 38 bins
+	 FIELDLIST = S1+S2 
+	 PEAKMJD_RANGE = 56300 to 57500 
+    Load GRIDMAP-047 'HOSTEFF:(r_obs_auto obs_gr_auto HOSTEFF)'  NROW=38 
+	 malloc_GRIDMAP: allocate 0.0 MB for 38 bins
+	 FIELDLIST = S1+S2 
+	 PEAKMJD_RANGE = 57500 to 57900 
+    Load GRIDMAP-048 'HOSTEFF:(r_obs_auto obs_gr_auto HOSTEFF)'  NROW=38 
+	 malloc_GRIDMAP: allocate 0.0 MB for 38 bins
+	 FIELDLIST = S1+S2 
+	 PEAKMJD_RANGE = 57900 to 58300 
+    Load GRIDMAP-049 'HOSTEFF:(r_obs_auto obs_gr_auto HOSTEFF)'  NROW=38 
+	 malloc_GRIDMAP: allocate 0.0 MB for 38 bins
+	 FIELDLIST = X1+X2 
+	 PEAKMJD_RANGE = 56300 to 57500 
+    Load GRIDMAP-050 'HOSTEFF:(r_obs_auto obs_gr_auto HOSTEFF)'  NROW=38 
+	 malloc_GRIDMAP: allocate 0.0 MB for 38 bins
+	 FIELDLIST = X1+X2 
+	 PEAKMJD_RANGE = 57500 to 57900 
+    Load GRIDMAP-051 'HOSTEFF:(r_obs_auto obs_gr_auto HOSTEFF)'  NROW=38 
+	 malloc_GRIDMAP: allocate 0.0 MB for 38 bins
+	 FIELDLIST = X1+X2 
+	 PEAKMJD_RANGE = 57900 to 58300 
+    Load GRIDMAP-052 'HOSTEFF:(r_obs_auto obs_gr_auto HOSTEFF)'  NROW=38 
+	 malloc_GRIDMAP: allocate 0.0 MB for 38 bins
+	 FIELDLIST = C3 
+	 PEAKMJD_RANGE = 56300 to 57500 
+    Load GRIDMAP-053 'HOSTEFF:(r_obs_auto obs_gr_auto HOSTEFF)'  NROW=38 
+	 malloc_GRIDMAP: allocate 0.0 MB for 38 bins
+	 FIELDLIST = C3 
+	 PEAKMJD_RANGE = 57500 to 57900 
+    Load GRIDMAP-054 'HOSTEFF:(r_obs_auto obs_gr_auto HOSTEFF)'  NROW=38 
+	 malloc_GRIDMAP: allocate 0.0 MB for 38 bins
+	 FIELDLIST = C3 
+	 PEAKMJD_RANGE = 57900 to 58300 
+    Load GRIDMAP-055 'HOSTEFF:(r_obs_auto obs_gr_auto HOSTEFF)'  NROW=38 
+	 malloc_GRIDMAP: allocate 0.0 MB for 38 bins
+	 FIELDLIST = X3 
+	 PEAKMJD_RANGE = 56300 to 57500 
+    Load GRIDMAP-056 'HOSTEFF:(r_obs_auto obs_gr_auto HOSTEFF)'  NROW=38 
+	 malloc_GRIDMAP: allocate 0.0 MB for 38 bins
+	 FIELDLIST = X3 
+	 PEAKMJD_RANGE = 57500 to 57900 
+    Load GRIDMAP-057 'HOSTEFF:(r_obs_auto obs_gr_auto HOSTEFF)'  NROW=38 
+	 malloc_GRIDMAP: allocate 0.0 MB for 38 bins
+	 FIELDLIST = X3 
+	 PEAKMJD_RANGE = 57900 to 58300 
+
+ ****************************************************************** 
+   READ_CALIB_DRIVER: read calib/filters/kcor  
+	 FILTERS_SURVEY = griz 
+  Opened /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/kcor/DES/DES-SN5YR/calib_DES-SN5YR_DES.fits.gz
+   read_calib_head 
+		 Read VERSION         = 4  (kcor.exe version) 
+		 Read NPRIM           = 2  primary refs 
+		 Read PRIM001         = NULL 
+		 Read PRIM002         = AB 
+		 Read NFILTERS        = 4  filters 
+		 Read NKCOR           = 0  K-COR tables 
+		 Read  991 wavelength bins (2100.00 to 12000.00)
+		 Read  106 epoch      bins (-20.00 to 85.00)
+		 Read    1 redshift   bins (0.00 to 0.00)
+		 Read    1 AV         bins (0.00 to 0.00)
+   read_calib_zpoff  
+   read_calib_snsed 
+   read_kcor_tables 
+   read_kcor_mags 
+   read_calib_filters 
+   read_calib_primarysed 
+
+   print_calib_summary 
+	  Primary Spectrum: AB 
+
+  FILTER SUMMARY (RDKCOR) : 
+   internal                   LAM  LAM   rest-lam      primary
+  index name                  AVG  RMS   kcor range    mag   ZP
+ ---------------------------------------------------------------------- 
+    2 DES-g                  4828  413     0-    0  -0.001  -0.001
+    3 DES-r                  6435  428     0-    0  -0.012  -0.012
+    4 DES-i                  7828  434     0-    0  -0.009  -0.009
+    5 DES-z                  9181  432     0-    0   0.007   0.007
+	 NFILTDEF[SURVEY,REST] = 4 0 
+
+ READ_CALIB_DRIVER: Done 
+
+
+ ****************************************************************** 
+   init_genPDF with OPTMASK=1  
+	 Enable extrapolation beyond map ranges.
+	 use speed-trick: select from range bounded by PROB ~ 0. 
+	 Opened : /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/models/population_pdf/DES-SN5YR/DES-SN5YR_DES_S3_G10.DAT 
+    Load GRIDMAP-060 'SALT2c_PDF(SALT2c,LOGMASS,PROB)'  NROW=1900 
+	 malloc_GRIDMAP: allocate 0.0 MB for 1900 bins
+    Load GRIDMAP-061 'SALT2x1_PDF(SALT2x1,LOGMASS,PROB)'  NROW=1900 
+	 malloc_GRIDMAP: allocate 0.0 MB for 1900 bins
+	 Found HOSTLIB IVAR= 2 for VARNAME='LOGMASS_TRUE' (SALT2c_PDF) 
+	 Found HOSTLIB IVAR= 2 for VARNAME='LOGMASS_TRUE' (SALT2x1_PDF) 
+
+
+ ****************************************************************** 
+   init_genmag_SALT2 : Initialize /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/models/SALT3/SALT3.DES5YR  
+   filtdump_SEDMODEL: Read primary ref 'AB' with 991 lambda bins 
+
+   Defined                                 Lambda           AB     AB 
+   Filter                  <LAMBDA>        Range(step)      mag    ZP 
+   ----------------------------------------------------------------------
+   id=02 (       DES-g)   ( 4827.7 + 0)   3800- 5650( 10)  -0.001  14.535  
+   id=03 (       DES-r)   ( 6434.8 + 0)   5400- 7350( 10)  -0.012  14.670  
+   id=04 (       DES-i)   ( 7828.1 + 0)   6750- 8700( 10)  -0.009  14.614  
+   id=05 (       DES-z)   ( 9181.2 + 0)   8250-10150( 10)   0.007  14.367  
+   ----------------------------------------------------------------------
+	 ISMODEL = SALT3
+  Read SALT2 model parameters from  
+	  /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/models/SALT3/SALT3.DES5YR
+	 OPTMASK = 0  
+
+  SALT3.INFO 
+	 RESTLAMBDA_RANGE:    1200 -   8000 A
+	 Global MAG OFFSET:   0.270 mag  
+	 COLOR OFFSET:   0.000 mag  
+	 COLOR DISP_MAX:    1.0 mag  
+	 COLORLAW PARAMS:  
+	    B,V_WAVELENGTH = 4302.6 , 5428.6 
+	    INTERP LAMBDA RANGE:  2800.0 -  8000.0 
+	    CL-polynomial params: -0.529  0.679 -0.435  0.116 -0.011 
+	 MAGERR_FLOOR:   0.005 mag  
+	 MAGERR(REST) =  0.100 mag for    100 < LAMREST <    200 
+	 SEDFLUX_INTERP_OPT:  2  (Spline  then Linear with LAMSTEP/2 and DAYSTEP/5) 
+	 ERRMAP_INTERP_OPT:   1  (Linear) 
+	 ERRMAP_KCOR_OPT:     1  (ON) 
+	 ERRMAP_BADVAL_ABORT: 1  (ON) 
+
+  Read  SALT2-0  SED  from : 
+    /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/models/SALT3/SALT3.DES5YR/salt3_template_0.dat 
+    Extrap UVLAM: 2000.0 -> 500.0 A  (NLAM=901->1051) 
+  Store SED-0  LAM(MIN,MAX,STEP)= 500,11000,5  DAY(MIN,MAX,STEP)=-20,50,0.2 
+
+  Read  SALT2-1  SED  from : 
+    /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/models/SALT3/SALT3.DES5YR/salt3_template_1.dat 
+    Extrap UVLAM: 2000.0 -> 500.0 A  (NLAM=901->1051) 
+  Store SED-1  LAM(MIN,MAX,STEP)= 500,11000,5  DAY(MIN,MAX,STEP)=-20,50,0.2 
+
+	 mB = 10.6350 - 2.5*log10(x0)  
+
+ Read SALT2 ERROR MAPS: 
+  Read  SALT2-VAR0  SED  from : 
+    /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/models/SALT3/SALT3.DES5YR/salt3_lc_variance_0.dat 
+
+ERRMAP: WARNING for ERRMAP file 0: salt3_lc_variance_0.dat
+ERRMAP:     SED_LAMRANGE:    500.0 to 11000.0 A
+ERRMAP:     ERRMAP_LAMRANGE: 2000.0 to 11000.0 A does not cover SED_LAMRANGE
+  Read  SALT2-VAR1  SED  from : 
+    /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/models/SALT3/SALT3.DES5YR/salt3_lc_variance_1.dat 
+
+ERRMAP: WARNING for ERRMAP file 1: salt3_lc_variance_1.dat
+ERRMAP:     SED_LAMRANGE:    500.0 to 11000.0 A
+ERRMAP:     ERRMAP_LAMRANGE: 2000.0 to 11000.0 A does not cover SED_LAMRANGE
+  Read  SALT2-COVAR  SED  from : 
+    /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/models/SALT3/SALT3.DES5YR/salt3_lc_covariance_01.dat 
+
+ERRMAP: WARNING for ERRMAP file 2: salt3_lc_covariance_01.dat
+ERRMAP:     SED_LAMRANGE:    500.0 to 11000.0 A
+ERRMAP:     ERRMAP_LAMRANGE: 2000.0 to 11000.0 A does not cover SED_LAMRANGE
+
+  Read color-dispersion vs. lambda from salt3_color_dispersion.dat 
+
+ERRMAP: WARNING for ERRMAP file 4: salt3_color_dispersion.dat
+ERRMAP:     SED_LAMRANGE:    500.0 to 11000.0 A
+ERRMAP:     ERRMAP_LAMRANGE: 2000.0 to 11000.0 A does not cover SED_LAMRANGE
+
+              NBADVAL NBADVAL       ERRMAP-value    ERRMAP-value
+    ERRMAP     (NaN)  (crazy^)      actual-range^   [valid-range]
+# -----------------------------------------------------------------------
+       VAR0      0        0         0.0 -      1.1  [   -10.0 -    500.0]
+       VAR1      0        0         0.0 -      0.0  [   -10.0 -    500.0]
+      COVAR      0        0        -0.1 -      0.2  [   -30.0 -    100.0]
+   ERRSCALE      0        0    100000000.0 - -100000000.0  [     0.0 -    200.0]
+ COLOR-DISP      0        0         0.0 -      1.0  [     0.0 -      5.0]
+# -----------------------------------------------------------------------
+#         ^restricted to -11.0 < DAY < 41.0 days
+
+  Create ColorLaw Table: COLOR(MIN,MAX,STEP) = -2.0,2.0,0.01
+
+                       e^CL     peak     color  
+            LAMBDA(A)  (c=1)    dS0/S0   disp   
+  --------------------------------------------- 
+  LAMINFO:    2000     0.000   0.3906   1.000  
+  LAMINFO:    2500     0.000   0.0148   0.339  
+  LAMINFO:    3000     0.022   0.0124   0.075  
+  LAMINFO:    3500     0.253   0.0085   0.026  
+  LAMINFO:    3560     0.302   0.0085   0.024  
+  LAMINFO:    3900     0.615   0.0082   0.015  
+  LAMINFO:    4302     1.000   0.0081   0.010  
+  LAMINFO:    4720     1.435   0.0038   0.009  
+  LAMINFO:    5428     2.512   0.0038   0.009  
+  LAMINFO:    6185     4.144   0.0038   0.013  
+  LAMINFO:    6500     4.787   0.0038   0.016  
+  LAMINFO:    7500     6.199   0.0028   0.027  
+  LAMINFO:    8030     6.881   0.0027   0.031  
+  LAMINFO:    8500     7.480   0.0020   0.029  
+  LAMINFO:    9210     8.485   0.0023   0.017  
+  LAMINFO:    9940     9.660   0.0012   0.005  
+
+   Read EXTRAP_LATETIME parameters from :
+	 /home/szymon/Documents/ChatGPT/supernova/phase2/literature/sources/SNIa_Extrap_LateTime_2expon.TEXT 
+	 DAYMIN_EXTRAP = 45.0 
+
+	 FLUX_EXTRAP(t) ~ [ exp(t/TAU1) + RATIO*exp(t/TAU2) ] 
+                                TAU1     TAU2     DAY when
+   LAM    TAU1   TAU2   RATIO  mag/day  mag/day    F1=F2 
+   --------------------------------------------------------
+  3590.0  33.00  59.90 1.0100   0.033    0.018     -1 
+  4380.0  57.10  91.70 0.3000   0.019    0.012     182 
+  5490.0  31.00  84.00 0.3100   0.035    0.013     58 
+  6520.0  28.60  56.20 0.3500   0.038    0.019     61 
+  8030.0  20.60  84.00 0.2500   0.053    0.013     38 
+ 11000.0  18.30 147.00 0.0600   0.059    0.007     59 
+ 12500.0  16.90 100.00 0.1400   0.064    0.011     40 
+   --------------------------------------------------------
+
+  init_genmag_SALT2 : Done. 
+
+ ****************************************************************** 
+   init_modelSmear: init intrinsic SN smearing with model=G10  
+	 Smear-mode: complete wavelength dependence. 
+	 ISMODEL = SALT3
+  Read SALT2-smear file: 
+  '/home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/models/SALT3/SALT3.DES5YR/salt3_color_dispersion.dat' 
+    Read 901 SALT2-Smear values from lambda=  2000 to  11000 
+    SIGCOH = 0.106
+    SMEAR *= [ 1 +  0.000000*(LAM-2157)]   LAM < 2157 
+    SMEAR *= [ 1 +  0.000108*(LAM-2157)]   LAM > 2157 
+	 Set LAM-node  0 at  2000.0 A : SIGMA= 1.000 
+	 Set LAM-node  1 at  2800.0 A : SIGMA= 0.139 
+	 Set LAM-node  2 at  3600.0 A : SIGMA= 0.026 
+	 Set LAM-node  3 at  4400.0 A : SIGMA= 0.012 
+	 Set LAM-node  4 at  5200.0 A : SIGMA= 0.011 
+	 Set LAM-node  5 at  6000.0 A : SIGMA= 0.016 
+	 Set LAM-node  6 at  6800.0 A : SIGMA= 0.028 
+	 Set LAM-node  7 at  7600.0 A : SIGMA= 0.044 
+	 Set LAM-node  8 at  8400.0 A : SIGMA= 0.050 
+	 Set LAM-node  9 at  9200.0 A : SIGMA= 0.031 
+	 Set LAM-node 10 at 10000.0 A : SIGMA= 0.008 
+	 Set LAM-node 11 at 10800.0 A : SIGMA= 0.001 
+	 Set LAM-node 12 at 11000.0 A : SIGMA= 0.000 
+   Number of Gaussian  randoms per SN: 14 
+   Number of Flat(0-1) randoms per SN: 0 
+
+ init_obs_atFLUXMAX: Fmax-clump [SNRCUT=5.0(3.0), MJDWIN=60.0, wgt=1] 
+
+ ****************************************************************** 
+   README_DOCANA_DRIVER: Prepare README content (iflag=1)  
+
+ ****************************************************************** 
+   clr_VERSION  
+	 LCMERGE Version PH2_pilot02_G10 does not exist. 
+	 SIM Version PH2_pilot02_G10 does not exist. 
+	 PHOTOMETRY Version PH2_pilot02_G10 does not exist. 
+
+ ****************************************************************** 
+   Init SIMGEN_DUMP file   
+	 open /home/szymon/Documents/ChatGPT/supernova/phase2/literature/simulations/outputs/PH2_pilot02_G10/PH2_pilot02_G10.DUMP
+
+ ****************************************************************** 
+   WR_SNFITSIO_INIT  
+
+ ****************************************************************** 
+   set_TIMERS  
+	 Sim-init time: 4.0 sec 
+
+ ****************************************************************** 
+    Begin Generating Lightcurves.   
+  Found Max dN/dz * wgt = 1.268023e+06 at z =    1.300 
+	 Finished generating        1 of 26518 (CID=1) 
+	 Finished generating      500 of 26518 (CID=500) 
+	 Finished generating     1000 of 26518 (CID=999) 
+	 Finished generating     1500 of 26518 (CID=1500) 
+	 Finished generating     2000 of 26518 (CID=2000) 
+	 Finished generating     2500 of 26518 (CID=2499) 
+	 Finished generating     3000 of 26518 (CID=3000) 
+	 Finished generating     3500 of 26518 (CID=3500) 
+	 Finished generating     4000 of 26518 (CID=4000) 
+	 Finished generating     4500 of 26518 (CID=4499) 
+	 Finished generating     5000 of 26518 (CID=5000) 
+	 Finished generating     5500 of 26518 (CID=5500) 
+	 Finished generating     6000 of 26518 (CID=6000) 
+	 Finished generating     6500 of 26518 (CID=6500) 
+	 Finished generating     7000 of 26518 (CID=7000) 
+	 Finished generating     7500 of 26518 (CID=7500) 
+	 Finished generating     8000 of 26518 (CID=8000) 
+	 Finished generating     8500 of 26518 (CID=8500) 
+	 Finished generating     9000 of 26518 (CID=9000) 
+	 Finished generating     9500 of 26518 (CID=9500) 
+	 Finished generating    10000 of 26518 (CID=9999) 
+	 Finished generating    10500 of 26518 (CID=10500) 
+	 Finished generating    11000 of 26518 (CID=10999) 
+	 Finished generating    11500 of 26518 (CID=11500) 
+	 Finished generating    12000 of 26518 (CID=12000) 
+	 Finished generating    12500 of 26518 (CID=12499) 
+	 Finished generating    13000 of 26518 (CID=13000) 
+	 Finished generating    13500 of 26518 (CID=13500) 
+	 Finished generating    14000 of 26518 (CID=14000) 
+	 Finished generating    14500 of 26518 (CID=14499) 
+	 Finished generating    15000 of 26518 (CID=15000) 
+	 Finished generating    15500 of 26518 (CID=15500) 
+	 Finished generating    16000 of 26518 (CID=16000) 
+	 Finished generating    16500 of 26518 (CID=16500) 
+	 Finished generating    17000 of 26518 (CID=17000) 
+	 Finished generating    17500 of 26518 (CID=17500) 
+	 Finished generating    18000 of 26518 (CID=18000) 
+	 Finished generating    18500 of 26518 (CID=18500) 
+	 Finished generating    19000 of 26518 (CID=19000) 
+	 Finished generating    19500 of 26518 (CID=19500) 
+	 Finished generating    20000 of 26518 (CID=19999) 
+	 Finished generating    20500 of 26518 (CID=20500) 
+	 Finished generating    21000 of 26518 (CID=20999) 
+	 Finished generating    21500 of 26518 (CID=21500) 
+	 Finished generating    22000 of 26518 (CID=22000) 
+	 Finished generating    22500 of 26518 (CID=22499) 
+	 Finished generating    23000 of 26518 (CID=23000) 
+	 Finished generating    23500 of 26518 (CID=23500) 
+	 Finished generating    24000 of 26518 (CID=24000) 
+	 Finished generating    24500 of 26518 (CID=24499) 
+	 Finished generating    25000 of 26518 (CID=25000) 
+	 Finished generating    25500 of 26518 (CID=25500) 
+	 Finished generating    26000 of 26518 (CID=26000) 
+	 Finished generating    26500 of 26518 (CID=26500) 
+
+ ****************************************************************** 
+    Done generating 26518 SN lightcurves from RANDOM source.  
+	 (26518 lightcurves requested => 3085 were written) 
+
+   FLUXERRMAP                EXTRAP-FRACTION   (NLO,NHI) 
+   ------------------------------------------------------ 
+   FLUXERR_SCALE(S1+S2+C1+C  15940/132816 = 0.1200   (215,15725)
+   FLUXERR_SCALE(S1+S2+C1+C  9670/135207 = 0.0715   (837,8833)
+   FLUXERR_SCALE(S1+S2+C1+C  8326/136425 = 0.0610   (2052,6274)
+   FLUXERR_SCALE(S1+S2+C1+C  8017/135559 = 0.0591   (3321,4696)
+   FLUXERR_SCALE(X3+C3-g)    3498/30334 = 0.1153   (18,3480)
+   FLUXERR_SCALE(X3+C3-r)    2168/30122 = 0.0720   (217,1951)
+   FLUXERR_SCALE(X3+C3-i)    1780/30210 = 0.0589   (444,1336)
+   FLUXERR_SCALE(X3+C3-z)    1767/28932 = 0.0611   (727,1040)
+
+   N_ITER Summary for GENPDF_FILE:
+	SALT2c_PDF   : N_ITER[MEAN,MAX] = 3.5, 31 
+	SALT2x1_PDF  : N_ITER[MEAN,MAX] = 3.7, 40 
+
+ ****************************************************************** 
+   README_DOCANA_DRIVER: Prepare README content (iflag=2)  
+
+ ****************************************************************** 
+   DUMP README CONTENTS TO SCREEN
+  
+DOCUMENTATION:
+  OVERVIEW:
+    TIME_START:   2026-09-20  23:32  # UT
+    SURVEY:       DES
+    GENMODEL:     /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/models/SALT3/SALT3.DES5YR
+    SNIA:         True
+    HOST_MACHINE: (null)
+    USERNAME:     szymon
+    SNDATA_ROOT:  /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT
+    SNANA_DIR:     /home/szymon/Documents/ChatGPT/supernova/phase2/official/build/SNANA-2fe0f56
+    SNANA_VERSION: 2fe0f564
+    CWD:   /home/szymon/Documents/ChatGPT/supernova
+    INPUT_FILE:
+    - /home/szymon/Documents/ChatGPT/supernova/phase2/literature/simulations/inputs/PH2_pilot02_G10.input
+# 
+  INPUT_KEYS:
+# Output data
+    GENVERSION:              PH2_pilot02_G10
+    NGENTOT_LC:              26518  
+    FORMAT_MASK:             32  #  += 2,32,16 -> TEXT, FITS, randomCID
+    GENTYPE:                 1  # true type
+    SNTYPE:                  1  101  # spec Type, photID type
+    CIDOFF:                  0  
+    CIDRAN_MIN:              0  
+    CIDRAN_MAX:              3000000  
+# Source model
+    UVLAM_EXTRAPFLUX:        500 
+    GENMODEL:                $SNDATA_ROOT/models/SALT3/SALT3.DES5YR 
+    GENMODEL_EXTRAP_LATETIME: /home/szymon/Documents/ChatGPT/supernova/phase2/literature/sources/SNIa_Extrap_LateTime_2expon.TEXT 
+    GENPDF_OPTMASK:          1 
+    GENPDF_FILE:             $SNDATA_ROOT/models/population_pdf/DES-SN5YR/DES-SN5YR_DES_S3_G10.DAT 
+    GENMAG_SMEAR_ADDPHASECOR: 0.0 10.0 
+    GENMAG_SMEAR_MODELNAME:  G10 
+# Cosmology inputs
+    OMEGA_MATTER:            0.3150  
+    OMEGA_LAMBDA:            0.6850  
+    w0_LAMBDA:               -1.0000  
+    wa_LAMBDA:               0  
+    MUSHIFT:                 0  
+    LENSING_PROBMAP_FILE:    $SNDATA_ROOT/models/lensing/LENSING_PROBMAP_LogNormal+MICECATv1.DAT 
+# Instrumental inputs
+    GENFILTERS:          griz 
+    KCOR_FILE:           $SNDATA_ROOT/kcor/DES/DES-SN5YR/calib_DES-SN5YR_DES.fits.gz 
+    SIMLIB_FILE:             $SNDATA_ROOT/simlib/DES/DES-SN5YR_DES.SIMLIB 
+    SMEARFLAG_FLUX:      1  # 1->add Poisson noise
+    SMEARFLAG_ZEROPT:    3  # +=1->apply scatter, +=2->add to FLUXERRCAL
+    FLUXERRMODEL_FILE:       $SNDATA_ROOT/simlib/DES/DES-SN5YR_DES_FLUXERRMODEL_SIM.DAT 
+# HOSTLIB inputs
+    HOSTLIB_GENRANGE_NSIGZ:  -3. +3. 
+    HOSTLIB_SCALE_PROPERTY_ERR: 0.0(LOGMASS),0.0(LOGSFR),0.0(LOGsSFR),0.0(COLOR) 
+    HOSTLIB_MSKOPT:          258 
+    HOSTLIB_FILE:            $SNDATA_ROOT/simlib/DES/DES-SN5YR_DES.HOSTLIB 
+    HOSTLIB_WGTMAP_FILE:     $SNDATA_ROOT/simlib/DES/DES-SN5YR_WGTmaps/DES-SN5YR_DES.WGT 
+    HOSTLIB_STOREVAR:        LOGMASS_TRUE,LOGSFR_TRUE,r_obs_auto,obs_gr_auto 
+# SEARCHEFF/detections
+    SEARCHEFF_PIPELINE_LOGIC_FILE:  $SNDATA_ROOT/models/searcheff/SEARCHEFF_PIPELINE_LOGIC.DAT
+    NEWMJD_DIF:              0.4000  # day-sep if > 1 detections required
+    SEARCHEFF_PIPELINE_EFF_FILE:  $SNDATA_ROOT/models/searcheff/SEARCHEFF_PIPELINE_DES.DAT
+    SEARCHEFF_SPEC_FILE:     ZERO
+    SEARCHEFF_zHOST_FILE:    $SNDATA_ROOT/models/searcheff/SEARCHEFF_zHOST_DES-SN5YR.DAT
+    APPLY_SEARCHEFF_OPT:     5  # += 1,2,4 => pipe,spec,zhost
+# Redshift inputs
+    GENRANGE_REDSHIFT:       0.0500  1.3000  
+    GENSIGMA_REDSHIFT:       1.0000e-05  
+    GENSIGMA_VPEC:           300.0000  # true vpec scatter (km/sec)
+    VPEC_ERR:                300.0000  # vpec error after correction (km/sec)
+# Epoch & sky coverage inputs
+    GENRANGE_PEAKMJD:        56535.0000  58178.0000  
+    GENRANGE_TREST:          -40.0000  100.0000  
+    SOLID_ANGLE:             8.2000e-03  
+# Galactic extinction
+    RV_MWCOLORLAW:           3.1 
+    OPT_MWEBV:               3 
+    OPT_MWCOLORLAW:          99 
+# Population and rate-model params
+    GENPDF_FILE:  $SNDATA_ROOT/models/population_pdf/DES-SN5YR/DES-SN5YR_DES_S3_G10.DAT 
+    GENPEAK_SALT2ALPHA:      0.1500  
+    GENSIGMA_SALT2ALPHA:     0  0  
+    GENRANGE_SALT2ALPHA:     1.0000e-03  0.4000  
+    GENPEAK_SALT2BETA:       3.1000  
+    GENSIGMA_SALT2BETA:      0  0  
+    GENRANGE_SALT2BETA:      0.5000  9.9000  
+    DNDZ:                    POWERLAW 2.27E-5 1.7 
+# Misc inputs
+    GENSOURCE:               RANDOM
+    PATH_SNDATA_SIM:         /home/szymon/Documents/ChatGPT/supernova/phase2/literature/simulations/outputs
+    RANSEED:                 213849  
+    DEBUG_FLAG:              0  
+    SIMGEN_DUMPALL:          39 CID GENZ GALZTRUE LIBID RA DEC MWEBV MU PEAKMJD PEAKMAG_g PEAKMAG_r PEAKMAG_i PEAKMAG_z SNRMAX_g SNRMAX_r SNRMAX_i SNRMAX_z SNRMAX SNRMAX2 SNRMAX3 NOBS TRESTMIN TRESTMAX TGAPMAX CUTMASK SIM_EFFMASK GALID LOGMASS_TRUE LOGSFR_TRUE r_obs_auto obs_gr_auto SALT2mB SALT2x1 # CUTWIN inputs
+# CUTWIN inputs
+    APPLY_CUTWIN_OPT:        1  
+    CUTWIN_NEPOCH:           5 -5. 
+    CUTWIN_SNRMAX:           3 griz 2 -20. 60. 
+    CUTWIN_MWEBV:            0 0.30 
+# 
+  INPUT_NOTES:
+  - Poisson noise is ON 
+  - Reported flux-uncertainty includes SKY+GALAXY+SOURCE
+  - SB-dependent flux scatter is OFF
+  -  POWERLAW RATE MODEL:  2.27e-05*(1+z)^1.70  (0.0 < z < 10.0) 
+  -     MODEL_RATE(z=0.05) = 2.466e-05/Mpc^3/yr    
+  -     MODEL_RATE(z=0.25) = 3.317e-05/Mpc^3/yr    
+  -     MODEL_RATE(z=0.45) = 4.269e-05/Mpc^3/yr    
+  -     MODEL_RATE(z=0.65) = 5.318e-05/Mpc^3/yr    
+  -     MODEL_RATE(z=0.85) = 6.460e-05/Mpc^3/yr    
+  -     MODEL_RATE(z=1.05) = 7.691e-05/Mpc^3/yr    
+  -     MODEL_RATE(z=1.25) = 9.010e-05/Mpc^3/yr    
+  -  Calculated Number of EVENTS per season =  2.652e+04 
+  - H0 =  70.00 km/s/Mpc 
+  - Omega_{M,L} =  0.315, 0.685     w0,wa = -1.00,0.000
+  - APPLY_SEARCHEFF_OPT=5 --> Require EFF(PIPELINE+zHOST) 
+  - PIPELINE requires 2 detections among g+r+i+z (MJD dif > 0.4000 days) 
+# 
+  OUTPUT_SUMMARY:
+    RANDOM_SYNC: 
+    - List=1  FIRST=0.224555  LAST=0.878016   AVG(wrap) = 0.3 +_ 0.3 
+    - List=2  FIRST=0.470881  LAST=0.588624   AVG(wrap) = 0.2 +_ 0.3 
+    - List=3  FIRST=0.339520  LAST=0.995808   AVG(wrap) = 0.0 +_ 0.0 
+# 
+    CPU_MINUTES:       1.7  
+    NGENLC_TOT:        26518    # (265/sec)
+    NGENLC_WRITE:      3085    # (31/sec)
+    NGENSPEC_WRITE:    0  
+    EFF(SEARCH+CUTS):  0.1163 +-  0.0020
+    NGEN_PER_SEASON:   26518       # NSN(GEN) in GENRANGE(z,MJD,dOmega)
+    NACC_PER_SEASON:   3085 +_ 56  # NSN(ACCEPT) after trigger+cuts
+    NREJECT:  [2475,0,0,  20883,75]   # [NEP<5,GENRANGE,PEAKMAG,  SEARCHEFF,CUTWIN] 
+    HOST_NMATCH:   # accepted
+    - 0 : [   53, 135,  20 ]  # z-ranges:  0.05-0.47, 0.47-0.88, 0.88-1.30
+    - 2 : [    0,   0,   0 ] 
+    HOST_NMATCH_FRACTIONS:  # accepted 
+    - 0 : [  0.057, 0.072, 0.074 ]  # z-ranges:  0.05-0.47, 0.47-0.88, 0.88-1.30
+    - 2 : [  0.000, 0.000, 0.000 ] 
+DOCUMENTATION_END:
+
+  AUXILIARY FILES: 
+  /home/szymon/Documents/ChatGPT/supernova/phase2/literature/simulations/outputs/PH2_pilot02_G10/PH2_pilot02_G10.LIST 
+  /home/szymon/Documents/ChatGPT/supernova/phase2/literature/simulations/outputs/PH2_pilot02_G10/PH2_pilot02_G10.README 
+  /home/szymon/Documents/ChatGPT/supernova/phase2/literature/simulations/outputs/PH2_pilot02_G10/PH2_pilot02_G10.DUMP
+ WR_SNFITSIO_END: wrote 3085 events and 0 spectra to FITS format
+
+ DONE with snlc_sim.

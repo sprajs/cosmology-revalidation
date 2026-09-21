@@ -1,0 +1,8 @@
+{
+  "registered_utc": "2026-09-20T23:17:10.890549+00:00",
+  "scope": "Before any duplicate-refit outcomes; response to full-column record inspection",
+  "reason": "Broad exposure-key groups mostly contain two different image-metadata records A and B, each repeated twice. Whole-group deletion could merge distinct metadata.",
+  "additional_arm": "exact_full_row_unique: within CID, keep first occurrence of each unique complete PHOT row across all actual columns. Leave every distinct A/B record untouched. Retain source-to-derived mapping, rebuild NOBS/pointers, use identical baseline fit settings.",
+  "known_counts": "4328 exact duplicate pairs;168 pairs lie in groups with published accepted data. This does not establish exact accepted-pair count when source candidates share LCPLOT values.",
+  "interpretation": "A dependence sensitivity, not a replacement official release. Full correlation or record reduction is hypothetical until provenance explains duplicates. No claim of acceleration bias before downstream propagation."
+}

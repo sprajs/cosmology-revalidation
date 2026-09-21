@@ -1,0 +1,42 @@
+--- a/src/snlc_fit.F90
++++ b/src/snlc_fit.F90
+@@ -4294,6 +4294,13 @@
+            ,MAG_ERR                  &  ! (O) mag error from model
+            )
+ 
++! PHASE2 read-only audit: exact data-epoch prediction, final iteration.
++      IF ( LFLAG_LAST_MN .and. ITER == NFIT_ITERATION .and. LFITDATA ) THEN
++        write(6,'(A,1X,A,1X,I6,1X,A,1X,8(ES25.17E3,1X))') 'PHASE2_FLUX:', &
++          TRIM(SNLC_CCID),ifitdata,cfilt,MJD,Trest,flux_model,MAG_ERR, &
++          flux_data,flux_data_errtot,ZSN,MWEBV
++      ENDIF
++
+ ! convert MAG_ERR into flux-error
+ 
+       errfrac          = 1.0 - TEN8**(-0.4*MAG_ERR)
+@@ -4656,6 +4663,25 @@
+     ENDIF
+ 
+ 
++    IF ( LFLAG_LAST_MN .and. ITER == NFIT_ITERATION ) THEN
++      write(6,'(A,1X,A,1X,16(ES25.17E3,1X))') 'PHASE2_SETUP:', &
++        TRIM(SNLC_CCID),INIVAL(IPAR_X0),INIVAL(IPAR_SHAPE), &
++        INIVAL(IPAR_COLOR),INIVAL(IPAR_PEAKMJD)+MJDOFF, &
++        FITVAL(IPAR_X0,ITER-1),FITVAL(IPAR_SHAPE,ITER-1), &
++        FITVAL(IPAR_COLOR,ITER-1),FITVAL(IPAR_PEAKMJD,ITER-1)+MJDOFF, &
++        INIBND(1,IPAR_X0),INIBND(2,IPAR_X0), &
++        INIBND(1,IPAR_SHAPE),INIBND(2,IPAR_SHAPE), &
++        INIBND(1,IPAR_COLOR),INIBND(2,IPAR_COLOR), &
++        INIBND(1,IPAR_PEAKMJD)+MJDOFF,INIBND(2,IPAR_PEAKMJD)+MJDOFF
++      write(6,'(A,1X,A,1X,I6,1X,8(ES25.17E3,1X))') 'PHASE2_OBJECTIVE:', &
++        TRIM(SNLC_CCID), NFITDATA, CHI2TOT, CHI2INI, &
++        XVAL(IPAR_X0),XVAL(IPAR_SHAPE),XVAL(IPAR_COLOR), &
++        XVAL(IPAR_PEAKMJD)+MJDOFF,DBLE(SNLC_SEARCH_PEAKMJD),DBLE(MJDOFF)
++      DO irow=1,NFITDATA
++        write(6,'(A,1X,A,1X,I6,1X,*(ES25.17E3,1X))') 'PHASE2_COVINV:', &
++          TRIM(SNLC_CCID),irow,(COVMAT2(irow,icol),icol=1,NFITDATA)
++      ENDDO
++    ENDIF
+     RETURN
+   END SUBROUTINE FCNSNLC
+ 

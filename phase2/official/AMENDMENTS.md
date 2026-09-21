@@ -1,0 +1,13 @@
+# Evidence-led implementation amendments
+
+2026-09-20T23:00Z: the original SNANA fitter compiled successfully from the locally archived public 2026-09-18 source snapshot (886408a4e171896db5eaa97e735a655f50cec2db). Prioritize actual SNANA execution over the fallback sncosmo pipeline. The 2024 SNDATA archive supplies the original filters, zero points, models, Galactic extinction maps and classifier/selection inputs. Its reconstructed SIM/PATH_SNDATA_SIM.LIST is an empty local runtime file, not an acquired source asset.
+
+2026-09-20T23:04Z: a 12-object run shows most fits agree closely but some differ in epoch acceptance; expand to the full original Hubble-diagram membership to quantify those differences, without asserting an exact original-executable reproduction. Include 194 low-redshift objects and the first released Ia mock to test real data and simulation paths.
+
+SNANA `FIX_COVAR_LCFIT` explicitly documents MINOS scalar errors versus Hessian off-diagonal covariances. For a consistent measurement covariance, add read-only output statements exporting the original `FITERRMAT` 4x4 submatrix and double-precision fitted parameters for x0,x1,c,t0 after the final accepted fit. Also replace lossy text float formatting with 17 significant digits. These changes do not change the objective, minimizer, cuts or covariance calculation; preserve the original MINOS columns separately. No positive-definite repair is allowed. Verify the output-only patch by comparing pilot fits before/after.
+
+The source archive does not have its own `.git` directory, so Autotools initially reported the enclosing investigation repository's revision. Set the build identity explicitly to the actual pinned SNANA source commit with an output-patch suffix; preserve both the source diff and executable hash. This is a provenance fix, not a scientific pipeline change.
+
+2026-09-21: The accepted public epoch audit reveals missing bit32 rejection; run a separate recovered-mask arm with PHOTFLAG_MSKREJ=32 and Pippin consistent-membership OPT_SNCID_LIST=1. Preserve literal outputs. The all-row recovery remains imperfect. Next, condition a separate arm on exact published accepted epochs, disable iterative clipping and retain default starts before any reference-start diagnostic. This isolates likelihood/minimizer differences; it is not independent mask reproduction. Quantify cosmological-weighted parameter propagation before deciding approximate baseline adequacy.
+
+Add an implementation assumptions register and portable12-object calibrated-flux fixture before independent model comparison. Reproducing SNANA does not validate its SED family, covariance model, priors, clipping or selection assumptions; specify observational falsifiers and numerical crosschecks.

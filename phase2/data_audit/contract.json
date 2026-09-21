@@ -1,0 +1,35 @@
+{
+  "schema_version": "des-calibrated-photometry-audit-v1",
+  "sources": "Original FITS remain immutable source. HDF5 is column-preserving conversion, not new measurements. Hard-linked byte-identical PHOT tables are not independent data.",
+  "groups": [
+    "original/DES",
+    "original/Foundation",
+    "original/LOWZ",
+    "current/DES",
+    "current/Foundation",
+    "current/LOWZ",
+    "diffimg/DES"
+  ],
+  "column_arrays": "<group>/head/<original-column>, <group>/phot/<original-column>",
+  "indices": "FITS PTROBS_MIN/MAX 1-based inclusive: python slice [MIN-1:MAX]. HDF5 head_row_zero_based maps every phot row to zero-based HEAD owner; -1 is unowned. External phot_row and head_row are 1-based.",
+  "masks": "basic_eligible does not remove negative flux or low SNR. audit_flags retains all data, including delimiters, and describes failures without silently excluding. Duplicate MJD/band flags require exposure-level inspection.",
+  "flags": {
+    "delimiter": 1,
+    "unowned": 2,
+    "invalid_mjd": 4,
+    "nonfinite_flux": 8,
+    "invalid_fluxerr": 16,
+    "invalid_band": 32,
+    "duplicate_object_mjd_band": 64,
+    "documented_diffimg_error_flag": 128,
+    "des_psf_cut_failure": 256,
+    "des_electron_zeropoint_cut_failure": 512
+  },
+  "SNR": "signed FLUXCAL/FLUXCALERR",
+  "flux_scale": "mag=27.5-2.5log10(FLUXCAL) for positive flux; use signed flux likelihood for all values.",
+  "depth": "27.5-2.5log10(5*FLUXCALERR) is an error-derived depth proxy; no independent completeness calibration.",
+  "quality_units": "SNANA CUTWIN_PSF uses PSF_SIG1*PIXSIZE*2.355 in FWHM arcsec; ZPNPE=ZEROPT+2.5log10(GAIN), with gain<.01 replaced by .001.",
+  "partial_cuts": "Only DES proxies: .05<=zHEL<=1.2,0<=zHELERR<=.01,0<=MWEBV<=.25,>=5 broad-phase epochs,>=2 bands with SNRmax>5, some phase<=5 and>=5. Published PKMJD for metadata matches, header PEAKMJD otherwise. NOT complete published selection; low-z proxy columns are inapplicable.",
+  "covariance_npz": "means ordered [mB,x1,c]; unrepaired covariance from public errors and crosscolumns transformed with dmB/dx0=-2.5/(ln10*x0). naive_covariance_psd flags mathematical compatibility only; MINOS and parabolic errors can be mixed. Invalid/rounded matrices must not be silently interpreted as precise Gaussian likelihoods.",
+  "fitted_metadata": "Original and current metadata are inferred fit/BBC products; they are not raw photometry and are not independent releases. No full all-transient SALT fit covariance was found in these release metadata files."
+}

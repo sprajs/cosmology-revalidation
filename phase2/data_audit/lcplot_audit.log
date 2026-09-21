@@ -1,0 +1,121 @@
+{
+  "note": "Public LCPLOT MJD requires float32 then printed3 decimals; matching unrounded double FITS to3-decimal public values with0.0005-day tolerance would falsely miss most rows. No flux corrections were reapplied.",
+  "targeted": {
+    "1442085": {
+      "raw_rows": 107,
+      "published_data_rows": 65,
+      "published_accepted": 50,
+      "refit_pilot_accepted": 50,
+      "unmatched_public_rows": [],
+      "max_abs_flux_relative_difference": 4.749744902856495e-08,
+      "max_abs_err_relative_difference": 4.818990744716655e-05,
+      "refit_accepted_absent_from_public_lcplot": [],
+      "acceptance_disagreements": []
+    },
+    "1896213": {
+      "raw_rows": 78,
+      "published_data_rows": 50,
+      "published_accepted": 42,
+      "refit_pilot_accepted": 46,
+      "unmatched_public_rows": [],
+      "max_abs_flux_relative_difference": 5.30928317068291e-08,
+      "max_abs_err_relative_difference": 3.0147944707161648e-05,
+      "refit_accepted_absent_from_public_lcplot": [
+        {
+          "raw_mjd": 58046.125,
+          "band": "i",
+          "refit_used": 1,
+          "refit_chi2": 0.14,
+          "refit_flux": 8.756,
+          "refit_err": 4.1497,
+          "raw_photflag": 2081,
+          "raw_psf_sigma": 2.0929999351501465
+        },
+        {
+          "raw_mjd": 58101.231,
+          "band": "i",
+          "refit_used": 1,
+          "refit_chi2": 0.41,
+          "refit_flux": 5.015,
+          "refit_err": 3.6021,
+          "raw_photflag": 2081,
+          "raw_psf_sigma": 2.180999994277954
+        },
+        {
+          "raw_mjd": 58084.26,
+          "band": "z",
+          "refit_used": 1,
+          "refit_chi2": 1.08,
+          "refit_flux": 33.018,
+          "refit_err": 4.406,
+          "raw_photflag": 2081,
+          "raw_psf_sigma": 1.899999976158142
+        },
+        {
+          "raw_mjd": 58107.172,
+          "band": "z",
+          "refit_used": 1,
+          "refit_chi2": 1.54,
+          "refit_flux": 18.082,
+          "refit_err": 4.075,
+          "raw_photflag": 2081,
+          "raw_psf_sigma": 1.878999948501587
+        }
+      ],
+      "acceptance_disagreements": []
+    },
+    "1289306": {
+      "raw_rows": 219,
+      "published_data_rows": 124,
+      "published_accepted": 103,
+      "refit_pilot_accepted": 104,
+      "unmatched_public_rows": [],
+      "max_abs_flux_relative_difference": 5.745096101145532e-08,
+      "max_abs_err_relative_difference": 4.3604383907806916e-05,
+      "refit_accepted_absent_from_public_lcplot": [
+        {
+          "raw_mjd": 57265.214,
+          "band": "i",
+          "refit_used": 1,
+          "refit_chi2": 1.4,
+          "refit_flux": 36.282,
+          "refit_err": 13.054,
+          "raw_photflag": 33,
+          "raw_psf_sigma": 2.1640000343322754
+        }
+      ],
+      "acceptance_disagreements": []
+    },
+    "1256426": {
+      "raw_rows": 79,
+      "published_data_rows": 27,
+      "published_accepted": 7,
+      "refit_pilot_accepted": null,
+      "unmatched_public_rows": [],
+      "max_abs_flux_relative_difference": 4.1454715080623794e-08,
+      "max_abs_err_relative_difference": 3.8492690427272087e-05,
+      "refit_accepted_absent_from_public_lcplot": []
+    }
+  },
+  "duplicate_raw_groups": 2509,
+  "duplicate_groups_on_public_lcplot": 115,
+  "duplicate_groups_with_accepted_rows": 94,
+  "duplicate_groups_multiple_accepted_rows": 94,
+  "raw_rows_in_groups_with_any_accepted": 376,
+  "public_accepted_rows_in_raw_duplicate_groups": 374,
+  "public_duplicate_snid_mjd_band_rows_all_data": 458,
+  "files": [
+    {
+      "path": "sources/repos/des-science__DES-SN5YR@1.3/0_DATA/DES5YR_SALT3_LCFIT.LCPLOT.gz",
+      "sha256": "9167662582c406d9cd3ac34c6cceb3a167c8b057dd011288b742f1a87972450a"
+    },
+    {
+      "path": "phase2/official/results/snana_pilot12_plots.LCPLOT.TEXT",
+      "sha256": "89edfbbb5b39e8a2b783e6488baf567ae1a9277b4ec54152244cfa76e82afa4a"
+    },
+    {
+      "path": "scripts/phase2/data_audit/lcplot_audit.py",
+      "sha256": "3a2b53a0a88c4e645cdfa2531f7ee3919ffdb76df3a3cde12c53d960f8ac9686"
+    }
+  ]
+}

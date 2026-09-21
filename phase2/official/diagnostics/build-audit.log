@@ -1,0 +1,69 @@
+make: Entering directory '/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/SNANA-audit'
+make  all-recursive
+make[1]: Entering directory '/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/SNANA-audit'
+Making all in src
+make[2]: Entering directory '/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/SNANA-audit/src'
+make  all-am
+make[3]: Entering directory '/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/SNANA-audit/src'
+../util/set_Cpreproc_flags.py
+/usr/bin/mkdir -p ../obj
+/usr/bin/mkdir -p ../obj
+(cd ../obj; gcc -c -m64 -DGIT_SNANA_VERSION=\"886408a4-output17g\"  -fcommon -O2 -DNDEBUG -D_FORTIFY_SOURCE=2  -Wall -I/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/include  -I/home/szymon/.local/share/mise/installs/python/3.14.7/include/python3.14 -I/home/szymon/.local/share/mise/installs/python/3.14.7/include/python3.14 ../src/snlc_sim.c)
+/usr/bin/mkdir -p ../obj
+(cd ../obj; gcc -c -m64 -DGIT_SNANA_VERSION=\"886408a4-output17g\"  -fcommon -O2 -DNDEBUG -D_FORTIFY_SOURCE=2  -Wall ../src/sntools_host.c)
+(cd ../obj; gcc -c -m64 -DGIT_SNANA_VERSION=\"886408a4-output17g\"  -fcommon -O2 -DNDEBUG -D_FORTIFY_SOURCE=2  -Wall ../src/sntools_wgtmap.c)
+Traceback (most recent call last):
+  File "/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/SNANA-audit/src/../util/set_Cpreproc_flags.py", line 27, in <module>
+    SNANA_DIR           = os.environ['SNANA_DIR']
+                          ~~~~~~~~~~^^^^^^^^^^^^^
+  File "<frozen os>", line 709, in __getitem__
+KeyError: 'SNANA_DIR'
+../src/sntools_wgtmap.c: In function ‘read_VARNAMES_WGTMAP’:
+../src/sntools_wgtmap.c:152:28: warning: variable ‘NTMP’ set but not used [-Wunused-but-set-variable=]
+  152 |   int NWD, ivar, gzipFlag, NTMP=0 ;
+      |                            ^~~~
+make[3]: *** [Makefile:702: set_Cpreproc_flags] Error 1
+make[3]: *** Waiting for unfinished jobs....
+../src/sntools_host.c: In function ‘read_VARNAMES_WGTMAP_LEGACY’:
+../src/sntools_host.c:1405:28: warning: variable ‘NTMP’ set but not used [-Wunused-but-set-variable=]
+ 1405 |   int NWD, ivar, gzipFlag, NTMP=0 ;
+      |                            ^~~~
+../src/sntools_host.c: In function ‘summary_snpar_HOSTLIB’:
+../src/sntools_host.c:3566:24: warning: variable ‘NVAR_FOUND’ set but not used [-Wunused-but-set-variable=]
+ 3566 |   int i, NVAR, LFOUND, NVAR_FOUND=0 ;
+      |                        ^~~~~~~~~~
+../src/sntools_host.c: In function ‘DUMP_GROUPID’:
+../src/sntools_host.c:9976:13: warning: variable ‘ngal’ set but not used [-Wunused-but-set-variable=]
+ 9976 |   int igal, ngal=0, GROUPID ;
+      |             ^~~~
+../src/sntools_host.c: In function ‘integmag_hostSpec’:
+../src/sntools_host.c:10503:19: warning: variable ‘NBLAM_UNDEFINED’ set but not used [-Wunused-but-set-variable=]
+10503 |   int    ilamobs, NBLAM_UNDEFINED=0;
+      |                   ^~~~~~~~~~~~~~~
+../src/snlc_sim.c: In function ‘GENSPEC_SYNMAG’:
+../src/snlc_sim.c:11380:52: warning: variable ‘T_sum’ set but not used [-Wunused-but-set-variable=]
+11380 |   double flux_sum=0.0, varflux_sum=0.0, T_max=0.0, T_sum=0.0 ;
+      |                                                    ^~~~~
+../src/snlc_sim.c: In function ‘wr_SIMGEN_DUMP_SPEC’:
+../src/snlc_sim.c:15395:10: warning: variable ‘NFILT_WARN’ set but not used [-Wunused-but-set-variable=]
+15395 |   int    NFILT_WARN=0, ifilt, ifilt_obs;
+      |          ^~~~~~~~~~
+../src/snlc_sim.c: In function ‘SIMLIB_readNextCadence_TEXT’:
+../src/snlc_sim.c:19625:7: warning: variable ‘NLINE’ set but not used [-Wunused-but-set-variable=]
+19625 |   int NLINE=0;
+      |       ^~~~~
+../src/snlc_sim.c: In function ‘get_SPECTROGRAPH_ZPTPSFSKY’:
+../src/snlc_sim.c:21047:11: warning: variable ‘NBLAM’ set but not used [-Wunused-but-set-variable=]
+21047 |   int l,  NBLAM ;
+      |           ^~~~~
+../src/snlc_sim.c: In function ‘LOAD_SEARCHEFF_DATA’:
+../src/snlc_sim.c:24653:18: warning: variable ‘NRANTMP’ set but not used [-Wunused-but-set-variable=]
+24653 |   int ep, NOBS,  NRANTMP=0, i_prop;
+      |                  ^~~~~~~
+make[3]: Leaving directory '/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/SNANA-audit/src'
+make[2]: *** [Makefile:444: all] Error 2
+make[2]: Leaving directory '/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/SNANA-audit/src'
+make[1]: *** [Makefile:409: all-recursive] Error 1
+make[1]: Leaving directory '/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/SNANA-audit'
+make: *** [Makefile:350: all] Error 2
+make: Leaving directory '/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/SNANA-audit'

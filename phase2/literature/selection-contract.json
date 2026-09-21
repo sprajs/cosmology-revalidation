@@ -1,0 +1,227 @@
+{
+  "version": "1.1",
+  "status": "empirical-components-implemented-full-normalization-unvalidated",
+  "conditioning": [
+    "survey",
+    "field",
+    "cadence",
+    "season",
+    "redshift",
+    "host apparent magnitude",
+    "host observed colour",
+    "true host properties"
+  ],
+  "latent_variables": [
+    "intrinsic SALT colour",
+    "stretch",
+    "E(B-V)",
+    "R_V",
+    "intrinsic beta",
+    "luminosity",
+    "host/SN age where defined",
+    "type"
+  ],
+  "observed_data": [
+    "epoch flux and uncertainty",
+    "joint fitted mB/x1/c covariance where using summaries",
+    "host measurement uncertainty",
+    "redshift measurement/error and association"
+  ],
+  "stages": [
+    {
+      "name": "pipeline_detection",
+      "implementation": "scripts/phase2/literature/selection_assets.py:DetectionEfficiency",
+      "input": "valid nonsaturated epoch MJD,band,SNR_CALC",
+      "source": "phase2/official/inputs/SNDATA_ROOT/models/searcheff/SEARCHEFF_PIPELINE_DES.DAT",
+      "limit": "Conditional on expected simulator SNR/cadence; measured flux/error is not the historical DES trigger input."
+    },
+    {
+      "name": "host_spectroscopic_redshift",
+      "implementation": "scripts/phase2/literature/selection_assets.py:HostEfficiency",
+      "input": "r_obs_auto, obs_gr_auto, field, peakMJD",
+      "source": "phase2/official/inputs/SNDATA_ROOT/models/searcheff/SEARCHEFF_zHOST_DES-SN5YR.DAT",
+      "limit": "Empirical denominator is targeted-eligible host population; host detection/targeting/association still required; grid does not include cell count uncertainty."
+    },
+    {
+      "name": "loose_simulator_cuts",
+      "implementation": "original SNANA with APPLY_CUTWIN_OPT=1",
+      "input": "5 epochs, 2 filters with SNRMAX>3, MWEBV<0.3",
+      "limit": "Not the final fitted-SALT quality sample."
+    },
+    {
+      "name": "fitted_quality",
+      "implementation": "must run identical light-curve fitter and cuts on simulated flux",
+      "input": "fit convergence, rest-frame coverage, 2 bands SNR>5, |x1|<3, |c|<0.3, sigma_x1<1, sigma_tpeak<2, fitprob>0.001",
+      "limit": "True x1,c thresholding cannot replace noisy fitted selection."
+    },
+    {
+      "name": "analysis_membership",
+      "implementation": "must explicitly reproduce or redefine selection before comparison",
+      "input": "detected host, host-derived z, Chauvenet, valid bias correction, systematic-variant CID intersection",
+      "limit": "Raw hierarchy may need a different declared sample; do not inherit model-dependent membership invisibly."
+    },
+    {
+      "name": "classification_contamination",
+      "implementation": "conditional mixture with class calibration",
+      "input": "photometry/host/z and type likelihood",
+      "limit": "Nominal cosmology retains low-P(Ia) events; PBEAMS is already distance-dependent. Treating same-flux class posterior as independent likelihood double counts data."
+    }
+  ],
+  "normalization": "For fixed conditions u: p(y|selected,u,theta)=integral S(y,v,u)*p(y|v,u,theta)*p(v|u,theta)dv / Z(theta,u). Evaluate all selection stages consistently. Include type-specific selection in the mixture and rate normalization if event counts are used.",
+  "selected_importance_identity": "E_{p0(v,y|selected,u)}[p_theta(v,y|u)/p0(v,y|u)]=Z(theta,u)/Z(0,u), only under absolute continuity, fixed identical selection and exact joint proposal. Z0 cancels only where fixed and common to comparisons.",
+  "prohibition": "Do not use selected mocks as an unbiased generated denominator. Do not identify SIM_SALT2c or SIM_SALT2mB with fitted effective SALT values. Do not apply proposal reweighting to unsupported luminosity/cosmology shifts.",
+  "support_evidence": "All 71946 released selected Ia rows satisfy SIM_mB-SIM_mu+alpha*SIM_x1-beta*SIM_c=-19.365 within 2.9e-6 mag, and SIM_MAGSMEAR_COH=0. At fixed full latent conditions luminosity support is effectively singular.",
+  "forward_solution": "Generate parent injections with SIMGEN_DUMPALL and retained failures; vary luminosity using supported GENMAG_OFF_GLOBAL/ZVARIATION inputs, rerun measured-flux fitting/cuts; audit generated counts and coverage before using fitted selection emulator.",
+  "empirical_imposed_assumptions": [
+    {
+      "component": "Cadence and observing conditions",
+      "empirical": [
+        "Released DES SIMLIB contains 10000 sky-position libraries with observed MJD, exposureID, filter, gain, sky, PSF and zero-point. Documentation states creation from DiffImg sky noise/PSF/ZPT."
+      ],
+      "imposed": [
+        "Sampling a library location/date and treating its recorded conditions as representative of candidate population.",
+        "Coadded/effective PSF and noise compression rather than re-running detector pixels."
+      ],
+      "source": "phase2/official/inputs/SNDATA_ROOT/simlib/DES/DES-SN5YR_DES.SIMLIB",
+      "falsifiers": [
+        "Compare real and simulated per-band cadence, season gaps, PSF, SKY_SIG and ZEROPT by field/season/redshift before fitting cosmology.",
+        "Crossmatch real IMGNUM/exposure IDs to SIMLIB entries; identify uncovered or duplicated observing-condition regions."
+      ]
+    },
+    {
+      "component": "Noise and host surface brightness",
+      "empirical": [
+        "DES-SN5YR_DES_FLUXERRMODEL_SIM.DAT reports421634FAKE and390257SIM observations, field/band/SBMAG correction maps and per-bin counts.",
+        "Flux uncertainty correction informed by image-overlay fakes and real off-transient tests; Kessler2019 section6.4 and Sanchez2024 section2.6."
+      ],
+      "imposed": [
+        "Analytic source/sky/host noise with empirical scale; not fresh pixel-level injection.",
+        "Released correction map sets REDCOV0.6 on the added-fudge noise component, not total flux, in each band and field group; independent search and correlated template components are separate.",
+        "Grid extrapolation/empty bins; shallow-g brightestbin reports0fake observations.",
+        "Host profiles and SN positions approximate local surface brightness."
+      ],
+      "source": "phase2/official/inputs/SNDATA_ROOT/simlib/DES/DES-SN5YR_DES_FLUXERRMODEL_SIM.DAT",
+      "falsifiers": [
+        "Test real held-out standardized flux residual mean, robust scale, tails and inter-epoch correlations by field,band,SBMAG,PSF,sky,phase,observedSNR.",
+        "Use independent non-transient/pre-explosion flux when available, acknowledging SMP fixes reference-epoch transient flux to zero so fitted references cannot independently validate that constraint.",
+        "Compare reported flux errors at matched observing conditions without any distance-redshift model.",
+        "Separate model residuals from noise using phase/band/host-dependent coherent residual patterns and DIFFIMG-versus-SMP differences."
+      ]
+    },
+    {
+      "component": "Detection",
+      "empirical": [
+        "Single-epoch efficiency versus expected SNR measured from image-overlay fakes, including operational image detection and artifact rejection."
+      ],
+      "imposed": [
+        "One-dimensional SNR compression omits other dependence unless calibration demonstrated sufficient.",
+        "Two separated detection periods and simulator minimum-cuts are encoded logic.",
+        "Transporting fake-calibrated efficiency to changed colours/profiles/redshifts requires coverage."
+      ],
+      "source": "phase2/official/inputs/SNDATA_ROOT/models/searcheff/SEARCHEFF_PIPELINE_DES.DAT",
+      "falsifiers": [
+        "Where complete detections and injected failures exist, test efficiency residuals against hostSB,PSF,band,season at fixed expectedSNR.",
+        "Compare actual observation/mask and trigger counts by field and season; selected-only real transients cannot identify missing events."
+      ]
+    },
+    {
+      "component": "Host redshift and association",
+      "empirical": [
+        "Released r_obs_auto\u00d7obs_gr_auto efficiency by field/discoveryseason, estimated for galaxies satisfying host targeting criteria."
+      ],
+      "imposed": [
+        "Population host targeting distribution and simulator host assignment; smooth/clamped table interpolation.",
+        "Host rate weights (mass/SFR) and assumed matching policy.",
+        "Cell count uncertainty unavailable in released host-z grid."
+      ],
+      "source": "phase2/official/inputs/SNDATA_ROOT/models/searcheff/SEARCHEFF_zHOST_DES-SN5YR.DAT",
+      "falsifiers": [
+        "Test held-out targeting and spectroscopic success if target lists and failures are released; hostz-conditioned cosmology sample alone is insufficient.",
+        "Use full released transient sample and secure host crossmatches to test association failures versus separation/brightness/redshift."
+      ]
+    },
+    {
+      "component": "SALT/dust/population",
+      "empirical": [
+        "SALT empirical SED trained from measured light curves/spectra.",
+        "P21 and related population parameters fitted to selected DES c/x1 and standardized-residual trends through simulation; not a direct unbiased parent census."
+      ],
+      "imposed": [
+        "Intrinsic-colour Gaussian, exponential reddening, mass/redshift split dust grids, intrinsic-beta distribution, stretch population and independence/conditional-factorization choices.",
+        "Spectral-time shape extrapolation; dust law and fixed model-coordinate relation; physicalRV differs from effective fitted colour coefficient."
+      ],
+      "source": "phase2/official/inputs/SNDATA_ROOT/models/population_pdf/DES-SN5YR/DOCUMENTATION.README",
+      "falsifiers": [
+        "Compare measured joint c/x1/host and within-z magnitude-colour-host residuals on held-out data with free z-bin intercepts.",
+        "Inspect wavelength/phase residuals on observed flux; merely improving distance residual scatter is insufficient.",
+        "Inject alternative dust, intrinsic-colour mixture and luminosity drift through flux+selection, then test coverage using a deliberately misspecified inference family."
+      ]
+    },
+    {
+      "component": "Cosmology and event rates",
+      "empirical": [
+        "Measured redshifts/cadence anchor placement of observed events."
+      ],
+      "imposed": [
+        "Nominal generated flatLCDM Omega_m0.315,H070,w=-1 and volumetric rate POWERLAW2.27e-5*(1+z)^1.7.",
+        "Lensing and peculiar velocities use specified distributions.",
+        "Luminosity-redshift relation controls flux and detectability even when simulation cosmology is called only fiducial."
+      ],
+      "source": "phase2/official/inputs/SNDATA_ROOT/sample_input_files/DES-SN5YR/D5yr_anchors_sim.yml",
+      "falsifiers": [
+        "Inject altered luminosity-distance or absolute-luminosity redshift functions and rerun detection/fitting; test estimator bias/coverage for flexible-q alternatives.",
+        "Condition on observed z only if rate likelihood is excluded explicitly; still recompute selection normalization when flux changes.",
+        "Do not assume fiducial-cosmology independence from nominal closure or selected proposal reweighting with singular luminosity support."
+      ]
+    },
+    {
+      "component": "Classification and fitted membership",
+      "empirical": [
+        "Classifier trained with simulated/reweighted populations; observed spectroscopic checks constrain only their own selection regime."
+      ],
+      "imposed": [
+        "Ia/CC rate/template/population and calibration mapping; SNN output is conditioned on same flux.",
+        "Fit convergence/rest-frame cuts, bias-map support, outlier decisions and systematic sample intersections."
+      ],
+      "source": "papers/text/2401.02945v2.txt",
+      "falsifiers": [
+        "Assess held-out calibrated class probabilities in matched spectroscopic samples and injected CC alternatives.",
+        "Run identical flux fitter and noisy quality cuts, retaining missing/failed cases; never replace them with true-parameter cuts."
+      ]
+    }
+  ],
+  "closure_independent_test_design": {
+    "status": "preregistered; numerical execution tracked separately",
+    "split": "Deterministic CID split and field/season holdouts; hyperparameters/noise scales trained on training subset only. Refit validation splits independently where nuisance leakage matters.",
+    "coverage": "An estimator recovering its own generative family is a code closure check. Physical robustness requires different truth families and prior/noise/selection misspecification. Report coverage per truth family and MC uncertainty, not pooled pass/fail.",
+    "stress_grid": [
+      "P21/BS21/G10 physical flux variants with same fitter; exact W22 remains blocked pending SN_age host input.",
+      "P21+0.10mag,P21-0.10mag,P21+0.20*zmag forward injections.",
+      "Noise scale and same-band interepoch correlation perturbations validated against real residual bounds.",
+      "Intrinsic-colour skew/mixture and dust mass/z changes with fit-aware selection.",
+      "Hostz/trigger perturbations limited by independent calibration uncertainty; identify unsupported cells."
+    ],
+    "cosmology_free_statistics": [
+      "Heldout joint fitted(c,x1,hostmass) withinz,field bins.",
+      "Heldout fittedmB residual versuscolour/stretch/host after training one unconstrained intercept perredshiftbin.",
+      "Heldout raw flux uncertainty/residual and phase/band correlation diagnostics at matched observing conditions."
+    ],
+    "avoidance": [
+      "Do not count SMP reference flux fixed tozero as independent proof of zero transient baseline.",
+      "Do not count data-tuned population corrections as an independent confirmation on the same c/x1 distribution.",
+      "Do not infer absolute completeness from selected data alone."
+    ]
+  },
+  "pixel_level_availability": {
+    "measured_products": "Original DES5YR release provides reduced calibrated SMP epoch fluxes/errors and ancillary metadata, with DIFFIMG light curves separately released; these are not untouched detector counts.",
+    "primary_sources": [
+      "https://arxiv.org/abs/2406.05046",
+      "https://zenodo.org/records/14332953",
+      "https://github.com/des-science/DES-SN5YR",
+      "https://datalab.noirlab.edu/docs/manual/UsingAstroDataLab/DataAccessInterfaces/SimpleImageAccessSIA/SimpleImageAccessSIA.html"
+    ],
+    "public_lower_level": "NOIRLab documents DES DR2 single-epoch image SIA service des_dr2_se plus NOIRLab raw/calibrated image services. Existence of services does not prove every original DES-SN search/reference frame and exact calibration/PSF/mask/overlay artifact is retrievable.",
+    "not_done": "No exhaustive IMGNUM-to-archive crossmatch or new SMP pixel fit/image injection in this task. Published fake calibration is reused and stress-tested at flux level. Exact pixel-stage end-to-end reproduction remains separate and unclaimed."
+  },
+  "forward_preregistration": "phase2/literature/simulations/inputs/preregistration-pilot02.json"
+}

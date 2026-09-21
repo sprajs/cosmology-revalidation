@@ -1,0 +1,90 @@
+{
+  "selection": "DES with conditioned |delta_mB|>.01 or |delta_Tripp|>.01; all anomalies retained, no exclusion.",
+  "CID": [
+    "1318661",
+    "1776304",
+    "1280780",
+    "1263244",
+    "1292145",
+    "1289366",
+    "1307748",
+    "1402076",
+    "1291408",
+    "1280792"
+  ],
+  "seed_grid": "x1=-2,0,2; t0=defaultconditionedfit_t0 +(-4,0,4)days; x0,c from defaultconditionedfit; plus one publishedreference seed.",
+  "same_mask": true,
+  "selection_criterion": "Report all objective values; candidate min reported SNANA FITCHI2, never closest reference. Different iteratively frozen covariance matrices mean min-chi2 across branches is not a fully normalized common likelihood. Quantify branch ambiguity before selecting final inference arm.",
+  "tasks": [
+    {
+      "label": "xm2_tm4",
+      "seed": "phase2/official/inputs/conditioned_seed_xm2_tm4.FITRES",
+      "seed_sha256": "8e9708be64dac328a57a8da4cd37ec087d778314b4ce79ed5e91a6b13d3b0eb0",
+      "config": "phase2/official/inputs/snana_conditioned_seed_xm2_tm4.nml",
+      "config_sha256": "0906acd1b46ff28834421cecfc0e8f4177c103aa38f6edc26109140ed85d9d3d"
+    },
+    {
+      "label": "xm2_tp0",
+      "seed": "phase2/official/inputs/conditioned_seed_xm2_tp0.FITRES",
+      "seed_sha256": "1a71af8ee3abb3b6c9f13747690bf7151f401a417497a250f7adaf3aac7665ff",
+      "config": "phase2/official/inputs/snana_conditioned_seed_xm2_tp0.nml",
+      "config_sha256": "d079d0e074cc4d656bb74b8ced485f12c6ad7b9011a2c7a9824da3bacc0120d2"
+    },
+    {
+      "label": "xm2_tp4",
+      "seed": "phase2/official/inputs/conditioned_seed_xm2_tp4.FITRES",
+      "seed_sha256": "10443cac3b0892d544ba77af2536776c0aeeea39b89e915183fa16bb1a15adbe",
+      "config": "phase2/official/inputs/snana_conditioned_seed_xm2_tp4.nml",
+      "config_sha256": "473d79f462156621e49f65c0eeb0c7fb7914269076cc28c88194de227d428fe3"
+    },
+    {
+      "label": "xp0_tm4",
+      "seed": "phase2/official/inputs/conditioned_seed_xp0_tm4.FITRES",
+      "seed_sha256": "d231c3b97a01fe8e131fa59ec487a06ef0231a0814c8e49ad4b758865e9ede9f",
+      "config": "phase2/official/inputs/snana_conditioned_seed_xp0_tm4.nml",
+      "config_sha256": "cd21981a706a6cff1c2f040e79d10d61dde0187f6a246e0e3a6f61e4aa2d4c9a"
+    },
+    {
+      "label": "xp0_tp0",
+      "seed": "phase2/official/inputs/conditioned_seed_xp0_tp0.FITRES",
+      "seed_sha256": "f82372710fbc286a76c366d1850d320d768dc32580145de59946d061205c63cf",
+      "config": "phase2/official/inputs/snana_conditioned_seed_xp0_tp0.nml",
+      "config_sha256": "5675006e318c53cb6655d4463ae0bfee9993080ece7023fcbfc2b6de3dd3ac80"
+    },
+    {
+      "label": "xp0_tp4",
+      "seed": "phase2/official/inputs/conditioned_seed_xp0_tp4.FITRES",
+      "seed_sha256": "5fdf3eaa998fe4035e763e0e422c9545c9d2eba730e217d90704d2edba6ed3a4",
+      "config": "phase2/official/inputs/snana_conditioned_seed_xp0_tp4.nml",
+      "config_sha256": "195a50660e6a8286a3af730bc2629d5d0ca630f863df943937c285796b3cf4d1"
+    },
+    {
+      "label": "xp2_tm4",
+      "seed": "phase2/official/inputs/conditioned_seed_xp2_tm4.FITRES",
+      "seed_sha256": "f5d6f842de3b89516be43eaf370f2cb988f8e243a48bf7eaf6da37fc850a1e0e",
+      "config": "phase2/official/inputs/snana_conditioned_seed_xp2_tm4.nml",
+      "config_sha256": "15cf45186a6272b04aeca9c5136d7ba2504afc6d9982471f80570365d6cea8f8"
+    },
+    {
+      "label": "xp2_tp0",
+      "seed": "phase2/official/inputs/conditioned_seed_xp2_tp0.FITRES",
+      "seed_sha256": "134e55a63e939c799ff3e071b4d7a6a9814087ffbd55282151c42f2f6c14b93a",
+      "config": "phase2/official/inputs/snana_conditioned_seed_xp2_tp0.nml",
+      "config_sha256": "12d1852b4689a1edd342379564acd6d20825ce1226993af0ac4fd92ab793a826"
+    },
+    {
+      "label": "xp2_tp4",
+      "seed": "phase2/official/inputs/conditioned_seed_xp2_tp4.FITRES",
+      "seed_sha256": "1248c4e07968ffbc917d63e009398b36a4355a854fb999badd621db930ed1c3d",
+      "config": "phase2/official/inputs/snana_conditioned_seed_xp2_tp4.nml",
+      "config_sha256": "f7e869b4fea30e83ef1a7aa3e8d03c968254eafb553f406260a8d9075aee53d5"
+    },
+    {
+      "label": "reference",
+      "seed": "phase2/official/inputs/conditioned_seed_reference.FITRES",
+      "seed_sha256": "138ee47942e02ad8773998a9feff793739f6b8b23d53c352bb4108f6119a0f50",
+      "config": "phase2/official/inputs/snana_conditioned_seed_reference.nml",
+      "config_sha256": "c4d93611990ae20ef1a6f5ae43a47ef80c85810f98baefc1da493adf121c78e0"
+    }
+  ]
+}

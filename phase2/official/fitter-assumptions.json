@@ -1,0 +1,415 @@
+{
+  "schema_version": 1,
+  "target": "Original DES-SN5YR tag1.3 calibrated-flux fit",
+  "implementation_commit": "886408a4e171896db5eaa97e735a655f50cec2db",
+  "exact_original_fit_executable_known": false,
+  "not_assumption_validation": true,
+  "items": [
+    {
+      "id": "spectral_family",
+      "assumption": "Rest-frame SED is x0 times [M0(phase,wavelength)+x1*M1(phase,wavelength)] times a single empirical colour law; no host-age or independent dust law is fit in each real SN light curve.",
+      "settings": {
+        "model": "SALT3.DES5YR",
+        "surfaces": 2,
+        "host_component_used": false,
+        "SALT3_MAG_OFFSET": 0.27,
+        "mB_offset_from_mx": 10.635,
+        "colourlaw_version": 1,
+        "colourlaw_range_A": [
+          2800,
+          8000
+        ],
+        "colourlaw_coefficients": [
+          -0.52893681502,
+          0.67900172346,
+          -0.43450428557,
+          0.1157017279,
+          -0.01099058969
+        ]
+      },
+      "source": [
+        {
+          "path": "phase2/official/build/SNANA-current/src/genmag_SALT2.c",
+          "line_ranges": [
+            [
+              186,
+              384
+            ],
+            [
+              2020,
+              2070
+            ],
+            [
+              2545,
+              3000
+            ]
+          ],
+          "sha256": "b9cdeffd847c5cdda4d53ed78a8cd152bf0179a17b5b85d5a813eb4c96033ff9"
+        }
+      ],
+      "falsifier": "At fixed calibrated data and redshift, held-out-band or held-out-phase residuals require a reproducible spectral mode outside M0+x1*M1+colour, beyond measurement and model covariance. Match an independent implementation first."
+    },
+    {
+      "id": "interpolation_extrapolation",
+      "assumption": "The trained spectral surface is numerically interpolated and extrapolated by SNANA-specific rules.",
+      "settings": {
+        "SED_interp_option": 2,
+        "rebin_phase_factor": 5,
+        "rebin_wavelength_factor": 2,
+        "algorithm": "Local spline interpolation to finer surface grid, then integration interpolates within that table. Not automatically identical to sncosmo bicubic implementation.",
+        "error_map_interp_option": 1,
+        "error_map_phase": "Clamped to model map boundary before evaluation.",
+        "fit_phase_window_rest_days": [
+          -15,
+          45
+        ],
+        "fit_mean_wavelength_rest_A": [
+          3500,
+          8000
+        ],
+        "extrapolation": "Early phase uses boundary slope over3rest days and modelflux_extrap; current default late phase prefers FLAM extrapolation. Outside fitted window model-grid predictions can exercise extrapolation and must be tested separately.",
+        "UVLAM_EXTRAPFLUX": -9
+      },
+      "source": [
+        {
+          "path": "phase2/official/build/SNANA-current/src/genmag_SALT2.c",
+          "line_ranges": [
+            [
+              360,
+              369
+            ],
+            [
+              495,
+              668
+            ],
+            [
+              1180,
+              1200
+            ],
+            [
+              2170,
+              2290
+            ],
+            [
+              2338,
+              2450
+            ]
+          ],
+          "sha256": "b9cdeffd847c5cdda4d53ed78a8cd152bf0179a17b5b85d5a813eb4c96033ff9"
+        }
+      ],
+      "falsifier": "At fixed parameters, convergence under finer independent phase/wavelength quadrature or interpolation changes accepted-epoch flux beyond tolerance and materially shifts recovered parameters; compare interior separately from extrapolated phase points."
+    },
+    {
+      "id": "calibration_response",
+      "assumption": "Released calibrated flux and passbands/AB primary offsets are accurate enough; detector chromatic/DCR and surface-brightness uncertainty adjustments have already been applied.",
+      "settings": {
+        "flux_zeropoint": 27.5,
+        "response_convention": "Photon counting; full calibration FITS supplies transmission and primary SED.",
+        "DES_AB_offsets_mag": {
+          "g": -0.0008,
+          "r": -0.0116,
+          "i": -0.009,
+          "z": 0.0071
+        },
+        "double_apply_released_corrections": false
+      },
+      "source": [
+        {
+          "path": "phase2/official/build/SNANA-current/src/genmag_SALT2.c",
+          "line_ranges": [
+            [
+              1910,
+              1940
+            ],
+            [
+              2545,
+              3000
+            ]
+          ],
+          "sha256": "b9cdeffd847c5cdda4d53ed78a8cd152bf0179a17b5b85d5a813eb4c96033ff9"
+        }
+      ],
+      "falsifier": "Independent stellar calibration or injection-recovery residuals correlate with colour, airmass, surface brightness or detector position; an alternative response reproduces calibration observations and predicts held-out SN flux more accurately."
+    },
+    {
+      "id": "redshift_extinction",
+      "assumption": "Spectroscopic redshift is fixed in the light-curve fit; the temporal/spectral transformation uses heliocentric redshift. Galactic extinction follows F99Rv3.1 using a fresh SFD lookup rescaled.",
+      "settings": {
+        "DOFIT_PHOTOZ": false,
+        "OPT_MWEBV": 3,
+        "SFD_scale": 0.86,
+        "MWEBV_fractional_uncertainty": 0.05,
+        "OPT_MWCOLORLAW": 99,
+        "RV_MWCOLORLAW": 3.1,
+        "redshift_for_flux": "zHEL, not cosmological zHD",
+        "host_AV_RV_fit": false
+      },
+      "source": [
+        {
+          "path": "phase2/official/build/SNANA-current/src/MWgaldust.c",
+          "line_ranges": [
+            [
+              1,
+              1600
+            ]
+          ],
+          "sha256": "6a3869b4626005f5889cdd7edab8a7e409b64c71b129acdace033747e1e1c4d3"
+        },
+        {
+          "path": "phase2/official/build/SNANA-current/src/genmag_SALT2.c",
+          "line_ranges": [
+            [
+              2170,
+              2200
+            ]
+          ],
+          "sha256": "b9cdeffd847c5cdda4d53ed78a8cd152bf0179a17b5b85d5a813eb4c96033ff9"
+        }
+      ],
+      "falsifier": "Independent dust-map/extinction-law data or redshift observations reveal coherent colour/phase residuals beyond the uncertainty used; explicitly propagate redshift uncertainty in a controlled alternative rather than switching cosmology distances."
+    },
+    {
+      "id": "model_uncertainty",
+      "assumption": "The training variance/covariance surfaces and wavelength colour-dispersion function describe uncertainty outside photometry errors.",
+      "settings": {
+        "surface_variance": "V00 +2*x1*V01+x1^2*V11; SALT3 flux variance uses absolute value if negative; denominator flux_train uses absolute value if negative.",
+        "evaluation": "Error maps at mean rest wavelength, not a separate full integration of every covariance spectral element.",
+        "colour_dispersion": "Same observed band is fully correlated across its epochs via [2.5/ln10]^2*dispersion(mean_rest_wavelength)^2; distinct bands get0from this term.",
+        "magerr_floor": 0.005,
+        "magerr_to_fractional_flux": "1-10^(-0.4*magerr), not linear approximation.",
+        "x1_for_error": "0on first iteration, previous-iteration x1 later when OPT_CHI2_SIGMA=0."
+      },
+      "source": [
+        {
+          "path": "phase2/official/build/SNANA-current/src/genmag_SALT2.c",
+          "line_ranges": [
+            [
+              2338,
+              2540
+            ],
+            [
+              3151,
+              3295
+            ]
+          ],
+          "sha256": "b9cdeffd847c5cdda4d53ed78a8cd152bf0179a17b5b85d5a813eb4c96033ff9"
+        },
+        {
+          "path": "phase2/official/build/SNANA-current/src/snlc_fit.F90",
+          "line_ranges": [
+            [
+              13693,
+              13742
+            ]
+          ],
+          "sha256": "c3ae0005d186ce7e9696f91c97f1516fba44b238148b3eacfb9b26958accc72b"
+        }
+      ],
+      "falsifier": "Whitened held-out residuals show band/phase covariance inconsistent with these maps, or injected/recovered parameter intervals have incorrect coverage. Negative raw variance activations should be counted and checked explicitly; abs() is a numerical rule, not a physical explanation."
+    },
+    {
+      "id": "objective_covariance",
+      "assumption": "SNANA uses iterative generalized least squares with a covariance frozen within later minimization iterations. It is not a generic parameter-dependent normalized Gaussian likelihood.",
+      "settings": {
+        "OPT_COVAR_FLUX": 1,
+        "OPT_COVAR_MWXTERR": 1,
+        "DOCHI2_SIGMA": false,
+        "OPT_CHI2_SIGMA": 0,
+        "log_determinant_in_objective": false,
+        "iteration1": "Diagonal variance, x1_for_model_error=0, temporary max-flux5percent error added.",
+        "later_iterations": "Model covariance and MW extinction outer product plus diagonal data variance; covariance recalculated between iterations then fixed during minimization.",
+        "data_offdiagonal": "0unless explicitly supplied by FUDGE_MAG_COVERR; no release exposure-level measurement covariance supplied.",
+        "MW_covariance": "Cross-band and cross-epoch outer product of extinction-induced flux errors.",
+        "objective": "(data-model)^T C_frozen^-1(data-model)+parameter prior chi2."
+      },
+      "source": [
+        {
+          "path": "phase2/official/build/SNANA-current/src/snlc_fit.F90",
+          "line_ranges": [
+            [
+              3020,
+              3046
+            ],
+            [
+              3934,
+              4660
+            ],
+            [
+              6842,
+              6843
+            ],
+            [
+              6899,
+              6903
+            ],
+            [
+              10480,
+              10765
+            ]
+          ],
+          "sha256": "c3ae0005d186ce7e9696f91c97f1516fba44b238148b3eacfb9b26958accc72b"
+        }
+      ],
+      "falsifier": "Independent generalized least squares at identical frozen covariance and masks gives different objective/minimum; or controlled likelihood with continuously evaluated covariance and determinant improves held-out flux prediction/coverage. A changed objective is an alternative assumption, not a numerical reproduction."
+    },
+    {
+      "id": "priors_initialization",
+      "assumption": "Peak time, colour and stretch are stabilized by initialization, broad priors and bounded optimization.",
+      "settings": {
+        "OPT_SETPKMJD": 20,
+        "initial_t0": "Flux-maximum clump, flag16+no-abort4; then initial grid around estimate",
+        "initial_t0_grid_relative_days": [
+          -4,
+          4,
+          2
+        ],
+        "initial_x1": 0.001,
+        "initial_c": 0.01,
+        "initial_steps": {
+          "x1": 0.3,
+          "c": 0.03,
+          "t0_days": 2
+        },
+        "PRIOR_MJDSIG_days": 10,
+        "t0_prior": "Gaussian about current INIVAL t0, reset to previous fitted t0 at later iterations; grid +/-30d, chi2 flares exponentially beyond +/-28d.",
+        "PRIOR_SHAPE_RANGE": [
+          -6,
+          6
+        ],
+        "PRIOR_SHAPE_SIGMA": 0.1,
+        "PRIOR_COLOR_RANGE_default": [
+          -9,
+          9
+        ],
+        "PRIOR_COLOR_SIGMA_default": 0.01,
+        "fit_selection_x1": [
+          -5,
+          5
+        ],
+        "fit_selection_c": [
+          -0.5,
+          0.5
+        ],
+        "bounds_note": "FITWIN fields are output/quality cuts. Actual pilot MINUIT bounds exported in portable_pilot/exact_prior_setup.json: x1[-5,5],c[-1.6000000238,2],x0[.01*initial_x0,100*initial_x0],t0originalsearch+/-100days. Later INIVAL and t0prior centre reset to previousfit.",
+        "t0_initial_minuit_bound_relative_days": [
+          -100,
+          100
+        ]
+      },
+      "source": [
+        {
+          "path": "phase2/official/build/SNANA-current/src/snlc_fit.F90",
+          "line_ranges": [
+            [
+              6778,
+              6825
+            ],
+            [
+              6950,
+              6990
+            ],
+            [
+              7900,
+              8220
+            ],
+            [
+              11745,
+              12100
+            ]
+          ],
+          "sha256": "c3ae0005d186ce7e9696f91c97f1516fba44b238148b3eacfb9b26958accc72b"
+        }
+      ],
+      "falsifier": "Multi-start minimization or prior-width sensitivity gives distinct solutions for accepted objects, especially phase-boundary/clipping cases; compare full objective and held-out prediction rather than selecting solution closest to published parameters."
+    },
+    {
+      "id": "clipping_selection",
+      "assumption": "Three DES fit iterations, first-iteration clipping and phase/quality cuts select the data that determine the reported parameters.",
+      "settings": {
+        "NFIT_ITERATION": 3,
+        "DELCHI2_REJECT": 10,
+        "FUDGEALL_ITER1_MAXFRAC": 0.05,
+        "FITWIN_TREST": [
+          -15,
+          45
+        ],
+        "RESTLAMBDA_FITRANGE": [
+          3500,
+          8000
+        ],
+        "CUTWIN_PSF_FWHM_ARCSEC": [
+          0.5,
+          2.75
+        ],
+        "CUTWIN_ZPNPE": [
+          30.5,
+          100
+        ],
+        "photflag_recovered_mask": 32,
+        "photflag_status": "Recovered from published accepted observations, not explicitly present in original released NML.",
+        "OPT_SNCID_LIST": 1,
+        "conditioned_mask_arm": "Separate derived accepted-mask photometry with reject bit2^29; clipping disabled. This tests likelihood conditional on author decisions, not independent mask reproduction."
+      },
+      "source": [
+        {
+          "path": "phase2/official/build/SNANA-current/src/snlc_fit.F90",
+          "line_ranges": [
+            [
+              4395,
+              4499
+            ],
+            [
+              10785,
+              11100
+            ]
+          ],
+          "sha256": "c3ae0005d186ce7e9696f91c97f1516fba44b238148b3eacfb9b26958accc72b"
+        }
+      ],
+      "falsifier": "Reproducible low-probability outlier structure, masking sensitivity among cosmologically weighted objects, or multi-start mask instability changes inference beyond preregistered numerical tolerance. Never drop anomalies merely to match public output."
+    },
+    {
+      "id": "parameter_errors",
+      "assumption": "Ordinary scalar errors from MINOS and off-diagonal Hessian covariance are different summaries; mixed Gaussian covariance is not guaranteed valid.",
+      "settings": {
+        "USE_MINOS": true,
+        "export": "Unmodified full4x4 FITERRMAT and REAL8parameters printed by output-only patch.",
+        "order": [
+          "x0",
+          "x1",
+          "c",
+          "t0"
+        ],
+        "transformation": "dmx/dx0=-2.5/(ln10*x0); exact first-order covariance basis transformation.",
+        "PSD_repair": false,
+        "scope": "Local Hessian conditional on fitter mask, fixed covariance iteration and stabilization priors; excludes population/selection/cosmology uncertainty."
+      },
+      "source": [
+        {
+          "path": "phase2/official/build/SNANA-current/src/snlc_fit.F90",
+          "line_ranges": [
+            [
+              2500,
+              2605
+            ]
+          ],
+          "sha256": "c3ae0005d186ce7e9696f91c97f1516fba44b238148b3eacfb9b26958accc72b"
+        }
+      ],
+      "falsifier": "Likelihood slices/bootstrap/injection-recovery show strong non-Gaussianity, bias or undercoverage; local Hessian then cannot be used as a sufficient summary without sensitivity analysis."
+    }
+  ],
+  "independent_test_order": [
+    "Fix parameters and compare flux units/passbands/extinction before fitting.",
+    "Compare accepted epochs/masks separately from model evaluation.",
+    "Reconstruct frozen flux covariance and objective at supplied parameters; exact covariance snapshot still needed for bit-level check.",
+    "Independently minimize fixed-mask objective using default and multiple starts.",
+    "Perform injection-recovery and held-out phase/band residual tests before ranking physical populations."
+  ],
+  "remaining_portable_limitations": [
+    "Legacy LCPLOT curve serialization is ~5significant digits; exact_epoch_predictions.csv supplies full REAL8 predictions at accepted observation MJDs.",
+    "Exact accepted-epoch REAL8 predictions, frozen covariance and per-object initialization/bounds/prior centres now exported in portable_pilot/exact_* and objective_<CID>.npz.",
+    "Independent sncosmo/native calculation not yet performed."
+  ]
+}

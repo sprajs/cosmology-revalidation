@@ -1,0 +1,8 @@
+{
+  "source": "phase2/official/inputs/SNDATA_ROOT/models/population_pdf/DES-SN5YR/DES-SN5YR_DES_S3_P21.DAT.gz",
+  "source_sha256": "a59401dd3d0eb69c7616cfe492aa718f7bc27f0a19fadcbe1bf2732b102a95bf",
+  "derived": "phase2/literature/simulations/inputs/DES-SN5YR_DES_S3_P21_constant_alpha_relocated.DAT",
+  "derived_sha256": "1b0f59816b2ac196d5ac61189806252ea9b74e59a6f528dca49bfd045e6070f0",
+  "change": "Remove GENPEAK_SALT2ALPHA0.15 from PDF and set same exact constant in simulation input. Historical2023 generator fails constructing zero-sigmaGaussian grid; no added scatter.",
+  "diagnostic": "phase2/official/diagnostics/simulation-segfault-gdb.log"
+}

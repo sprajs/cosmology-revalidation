@@ -1,0 +1,51 @@
+(cd ../obj; gcc -c -static -m64 -O1 -fcommon -std=gnu99 -Wno-error=implicit-function-declaration -DGIT_SNANA_VERSION=\"2fe0f564\" -I/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/include -I//usr/include  ../src/snlc_sim.c )
+(cd ../obj; \
+gcc -c -static -m64 -O1 -fcommon -std=gnu99 -Wno-error=implicit-function-declaration -DGIT_SNANA_VERSION=\"2fe0f564\" ../src/sntools_host.c )
+(cd ../obj; \
+gcc -c -static -m64 -O1 -fcommon -std=gnu99 -Wno-error=implicit-function-declaration -DGIT_SNANA_VERSION=\"2fe0f564\" ../src/sntools_weaklens.c )
+(cd ../obj; \
+gcc -c -static -m64 -O1 -fcommon -std=gnu99 -Wno-error=implicit-function-declaration -DGIT_SNANA_VERSION=\"2fe0f564\" ../src/sntools_stronglens.c )
+(cd ../obj; \
+gcc -c -static -m64 -O1 -fcommon -std=gnu99 -Wno-error=implicit-function-declaration -DGIT_SNANA_VERSION=\"2fe0f564\" ../src/sntools_wronghost.c )
+(cd ../obj; \
+gcc -c -static -m64 -O1 -fcommon -std=gnu99 -Wno-error=implicit-function-declaration -DGIT_SNANA_VERSION=\"2fe0f564\" ../src/sntools_sim_readme.c )
+(cd ../obj; \
+gcc -c -static -m64 -O1 -fcommon -std=gnu99 -Wno-error=implicit-function-declaration -DGIT_SNANA_VERSION=\"2fe0f564\" -I/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/include ../src/sntools_trigger.c )
+(cd ../obj; \
+gcc -c -static -m64 -O1 -fcommon -std=gnu99 -Wno-error=implicit-function-declaration -DGIT_SNANA_VERSION=\"2fe0f564\" -I//usr/include ../src/sntools_modelgrid_gen.c )
+(cd ../obj; \
+gcc -c -static -m64 -O1 -fcommon -std=gnu99 -Wno-error=implicit-function-declaration -DGIT_SNANA_VERSION=\"2fe0f564\" -I//usr/include ../src/sntools_spectrograph.c )
+(cd ../obj; \
+gcc -c -static -m64 -O1 -fcommon -std=gnu99 -Wno-error=implicit-function-declaration -DGIT_SNANA_VERSION=\"2fe0f564\"  -I/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/include ../src/sntools_genPDF.c )
+(cd ../obj; \
+gcc -c -static -m64 -O1 -fcommon -std=gnu99 -Wno-error=implicit-function-declaration -DGIT_SNANA_VERSION=\"2fe0f564\"  -I/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/include ../src/sntools_genGauss_asym.c )
+(cd ../obj; \
+gcc -c -static -m64 -O1 -fcommon -std=gnu99 -Wno-error=implicit-function-declaration -DGIT_SNANA_VERSION=\"2fe0f564\"  -I/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/include ../src/sntools_genExpHalfGauss.c )
+(cd ../obj; \
+gcc -c -static -m64 -O1 -fcommon -std=gnu99 -Wno-error=implicit-function-declaration -DGIT_SNANA_VERSION=\"2fe0f564\" ../src/inoue_igm.c )
+(cd ../obj; \
+gcc -c -static -m64 -O1 -fcommon -std=gnu99 -Wno-error=implicit-function-declaration -DGIT_SNANA_VERSION=\"2fe0f564\" -I//usr/include -I/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/include ../src/genmag_NON1ASED.c )
+(cd ../obj; \
+gcc -c -static -m64 -O1 -fcommon -std=gnu99 -Wno-error=implicit-function-declaration -DGIT_SNANA_VERSION=\"2fe0f564\" -I//usr/include -I/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/include  ../src/genmag_NON1AGRID.c )
+(cd ../obj; \
+gcc -c -static -m64 -O1 -fcommon -std=gnu99 -Wno-error=implicit-function-declaration -DGIT_SNANA_VERSION=\"2fe0f564\" -I//usr/include -I/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/include  ../src/genmag_LCLIB.c )
+(cd ../obj; \
+gcc  -c -static -m64 -O1 -fcommon -std=gnu99 -Wno-error=implicit-function-declaration -DGIT_SNANA_VERSION=\"2fe0f564\"  ../src/genmag_PySEDMODEL.c )
+for item in  snana ; do \
+    rm -f $item.lnk; \
+    ln -s ../src/$item.car $item.lnk; \
+done
+mkdir ../src/tempana
+../util/ypatchy.pl - ../src/tempana/snana.f snana.cra .go
+ Done: see summary in ypatchy.log 
+rm snana.lnk 
+(cd ../src/tempana; \
+    ../../bin/fcasplit -f gfortran snana.f "-c -static -fno-automatic -m64 -fsecond-underscore -O1     -fallow-argument-mismatch -fcommon" " " ; \
+    echo "Compiling"; \
+    . ./snana.shfca; \
+)
+/bin/sh: line 2: ../../bin/fcasplit: No such file or directory
+Compiling
+/bin/sh: line 4: ./snana.shfca: No such file or directory
+make: *** [Makefile:522: ../lib/libsnana.a] Error 1
+make: *** Waiting for unfinished jobs....

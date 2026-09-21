@@ -1,0 +1,54 @@
+make: Entering directory '/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/SNANA-audit/src'
+/usr/bin/mkdir -p ../obj
+(cd ../obj; /home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/bin/gfortran -B/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/lib/gcc/x86_64-pc-linux-gnu/16/ -B/usr/lib/gcc/x86_64-pc-linux-gnu/16/ -c -fno-automatic -m64 -fsecond-underscore   -O2 -D_FORTIFY_SOURCE=2  -Wall -DSNFIT -DMINUIT ../src/snlc_fit.F90)
+../src/snana.F90:16069:56:
+
+16069 | 666      format(T2, 'xxx EP=',I3'-',A1, '(',L1,')', 2x,  &
+      |                                                        1
+Warning: Legacy Extension: Missing comma in FORMAT string at (1)
+../src/snana.F90:19714:82:
+
+19714 |              'REDSHIFT: 'F8.5, 5x, 'PEAKMJD: ', F9.3 )
+      |                                                                                  1
+Warning: Legacy Extension: Missing comma in FORMAT string at (1)
+../src/snlc_fit.F90:2174:108:
+
+ 2174 |                '-> repeat fit for CID=',A12 )
+      |                                                                                                            1
+Warning: Legacy Extension: Missing comma in FORMAT string at (1)
+../src/snlc_fit.F90:8999:81:
+
+ 8999 | 20  format(T5,' xxx TEST CHI2(',A,') = ', 2x F9.2 )
+      |                                                                                 1
+Warning: Legacy Extension: Missing comma in FORMAT string at (1)
+../src/snlc_fit.F90:17824:0:
+
+17824 |                 4x,'MJD=', F9.3,','F9.3  &
+Warning: Legacy Extension: Missing comma in FORMAT string at (1)
+../src/snlc_fit.F90:17933:123:
+
+17933 |                          'FLUX FLUXERR TOBS TREST' )
+      |                                                                                                                           1
+Warning: Legacy Extension: Missing comma in FORMAT string at (1)
+../src/snlc_fit.F90:18633:37:
+
+18633 |  51      format( 'x0 = ('F6.3, ' +-', F6.3, ')xE-4'  )
+      |                                     1
+Warning: Legacy Extension: Missing comma in FORMAT string at (1)
+../src/snlc_fit.F90:18634:37:
+
+18634 |  52      format( 'x0 = ('F6.3, ' +-', F6.3, ')xE-2'  )
+      |                                     1
+Warning: Legacy Extension: Missing comma in FORMAT string at (1)
+../src/snana.F90:6865:46:
+
+ 6865 |        CALL PARSE_SNTABLE_LIST(locase_STRING, TBNAME, NOPT, COPT_LIST)
+      |                                              1
+Warning: Character length of actual argument longer than of dummy argument ‘tablename’ (60/20) at (1) [-Wcharacter-truncation]
+/usr/bin/mkdir -p ../bin
+/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/bin/gfortran -B/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/lib/gcc/x86_64-pc-linux-gnu/16/ -B/usr/lib/gcc/x86_64-pc-linux-gnu/16/ -o ../bin/snlc_fit.exe -m64   \
+	../obj/snlc_fit.o ../obj/sntools.o ../obj/sntools_gridmap.o ../obj/sntools_nonlinearity.o ../obj/sntools_fluxErrModels.o ../obj/sntools_fluxErrModels_legacy.o ../obj/sntools_simeff_obsolete.o ../obj/sntools_dataformat_fits.o ../obj/sntools_dataformat_text.o ../obj/sntools_data.o ../obj/sntools_zPDF_spline.o ../obj/sntools_spline.o ../obj/sntools_modelgrid_read.o ../obj/sntools_calib.o ../obj/sntools_output.o ../obj/yaml.o ../obj/MWgaldust.o ../obj/sntools_cosmology.o ../obj/multiseason.o ../obj/sntools_genSmear.o ../obj/sntools_devel.o ../obj/minuit.o ../obj/genmag_stretch2.o ../obj/genmag_mlcs2k2.o ../obj/genmag_SALT2.o ../obj/genmag_BAYESN.o ../obj/genmag_snoopy.o ../obj/genmag_S11DM15.o ../obj/genmag_SEDtools.o ../obj/genmag_extinction.o ../obj/genmag_extrap.o \
+	-L//lib -lcfitsio -L//home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/lib -lgsl -lgslcblas \
+	 -lm -lstdc++
+cd ../obj; rm -f snlc_fit.o; rm -f *.mod
+make: Leaving directory '/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/SNANA-audit/src'

@@ -1,0 +1,48 @@
+{
+  "schema": "measurement-assumptions-tests-v1",
+  "registered_utc": "2026-09-20T23:30:06.809285+00:00",
+  "timestamp_note": "System UTC at preregistration write; before executing noise and residual statistics.",
+  "known_prior_evidence": [
+    "Full audit structural integrity",
+    "A,B,A,B repeated record pattern",
+    "published clipping differences",
+    "SMP errors and flux already corrected",
+    "baseline reproduction gate has not passed"
+  ],
+  "population": "Original release Hubble-sample DES CIDs matched by SNID, all 1635, compared to full public SMP and DIFFIMG photometry",
+  "off_signal": {
+    "primary_window": "abs(MJD - published PKMJD) > 365 observer days",
+    "secondary_window": "abs(MJD - published PKMJD) > 200 observer days; late Ia emission and contamination make this weaker",
+    "masks": [
+      "basic valid finite flux, positive error, valid MJD",
+      "DIFFIMG: additionally exclude documented error bits 8,16,32,64,128,256,512,1024,2048 and enforce PSF FWHM0.5..2.75arcsec and electron-ZP>=30.5",
+      "SMP: basic only and diagnostic mask32+PSF/ZP; do not transplant DIFFIMG mask because published SMP accepts bits1024/2048"
+    ],
+    "statistics": [
+      "signed pull mean, median, RMS, standard deviation, robust MAD, fractions abs(pull)>3 and5",
+      "1000 object-cluster bootstrap intervals for mean, mean-square and tail fractions; no iid standard errors",
+      "object-band means and moments; distinct-time neighboring pairs with gaps 0..1,1..10,10..60,>60days and raw pull product (baseline offsets can mimic correlation)"
+    ],
+    "strata": [
+      "band",
+      "field",
+      "host surface-brightness magnitude<22,22..24,>=24 where positive host flux exists"
+    ],
+    "reference": "Zero mean/unit variance Gaussian is a falsifiable working noise model, not assumed true. Population selected by Hubble sample, baseline contamination and common-reference offsets can falsify it without uniquely diagnosing photon-noise calibration."
+  },
+  "published_residuals": {
+    "method": "Interpolate per-object/band published DATA_MODEL=0 flux curves only inside their time support, compare DATA_MODEL=1 and-1 separately; signed sqrt(published CHI2) additionally reports diagonal total-error residual diagnostic",
+    "caution": "In-sample fit and clipping shrink/tail-truncate accepted residuals. CHI2 column is not full covariance quadratic. Neither diagnostic is an independent validation of SALT or Gaussianity."
+  },
+  "pixel_access": {
+    "population_rule": "First three original DES Hubble CIDs in ascending numeric order with public survey coordinates, no selection on residuals",
+    "acquisition": "Query documented public single-epoch SIA and image services. Acquire a small representative CCD stamp only when a documented cutout or efficient ranged FITS access exposes image plus weight/mask and usable WCS. Preserve URL/query/response/hash.",
+    "direct_test": "For any usable calibrated CCD stamp: fixed sky/control apertures off known SN/host; compare summed sky-subtracted flux against weight-derived uncertainties with mask, PSF/WCS sanity and spatial correlation. If exact transient epoch or calibrated zero point unavailable, do not compare directly to released SMP amplitude. No coadd substituted for transient exposure; no image result if needed inputs inaccessible."
+  },
+  "restrictions": [
+    "No source photometry edits",
+    "No new SALT alternative fits before baseline gate",
+    "No cosmological bias claim from observational anomalies alone",
+    "Do not label calibrated flux raw detector pixels"
+  ]
+}

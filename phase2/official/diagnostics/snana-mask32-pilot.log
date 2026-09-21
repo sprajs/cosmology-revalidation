@@ -1,0 +1,2885 @@
+  Full command:  /home/szymon/Documents/ChatGPT/supernova/phase2/official/build/SNANA-current/bin/snlc_fit.exe /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/snana_mask32_pilot.nml
+  
+  SNANA_VERSION: 886408a4-output17g
+  
+  
+  ######################################################## 
+     INIT_SNVAR: Init variables.
+  ######################################################## 
+  
+   Allocate 12.50 MB for CIDMASK array (to check duplicates)
+   HOST MACHINE =    ()
+   SNDATA_ROOT = /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT
+   SNANA_DIR = /home/szymon/Documents/ChatGPT/supernova/phase2/official/build/SNANA-current
+  
+  ######################################################## 
+     READ SNLCINP NAMELIST. 
+  ######################################################## 
+  
+    Read namelist file: /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/snana_mask32_pilot.nml
+&SNLCINP
+ VERSION_PHOTOMETRY="DES-SN5YR_DES                                                           ", 49*"NULL                                                                    ",
+ VERSION_PHOTOMETRY_WILDCARD="NULL                                                                                                                                                                                                                                                                                                        ",
+ VERSION_REFORMAT_FITS="NULL                                                                    ",
+ VERSION_REFORMAT_TEXT="NULL                                                                    ",
+ PRIVATE_DATA_PATH="/home/szymon/Documents/ChatGPT/supernova/sources/repos/des-science__DES-SN5YR@1.3/0_DATA                                                                        ",
+ FILTER_UPDATE_PATH="                                                                                                                                                                ",
+ NONSURVEY_FILTERS="                                                                                                    ",
+ SNRMAX_FILTERS="                                                                                                    ",
+ VPEC_ERR_OVERRIDE=  0.00000000    ,
+ FILTER_REPLACE="                                                                                                                                                                                                        ",
+ FILTLIST_LAMSHIFT="                                                                                                    ",
+ JOBSPLIT= 2*1          ,
+ JOBSPLIT_EXTERNAL= 2*1          ,
+ SIM_PRESCALE=  1.00000000    ,
+ MXLC_FIT=999888777  ,
+ OPT_YAML=0          ,
+ OPTSIM_LCWIDTH=0          ,
+ OPT_REFORMAT_SPECTRA=0          ,
+ OPT_REFORMAT_TEXT=0          ,
+ REFORMAT_KEYS="NULL                                                                                                                                                                                                                                                                                                        ",
+ OPT_REFORMAT_FITS=0          ,
+ ZP_FLUXCAL_REFORMAT= -9.00000000    ,
+ SNMJD_LIST_FILE="                                                                                                                                                                                                                                                                                                            ",
+ SNMJD_OUT_FILE="                                                                                                                                                                                                                                                                                                            ",
+ MNFIT_PKMJD_LOGFILE="MNFIT_PKMJD.LOG                                                                                                                                                                                                                                                                                             ",
+ ROOTFILE_OUT="                                                                                                                                                                                                                                                                                                            ",
+ TEXTFILE_PREFIX="/home/szymon/Documents/ChatGPT/supernova/phase2/official/results/snana_mask32_pilot                                                                                                                                                                                                                         ",
+ SNTABLE_LIST="FITRES(text:host) LCPLOT(text:col)                                                                                                                                                                                                                                                                          ",
+ SNTABLE_FILTER_REMAP="                                                                                                                                                                                                                                                                                                            ",
+ MARZFILE_OUT="                                                                                                                                                                                                                                                                                                            ",
+ SNTABLE_APPEND_VARNAME="                                                                                                                                                                                                                                                                                                            ",
+ SNTABLE_APPEND_VALUE= -9.00000000    ,
+ CALIB_FILE="NULL                                                                                                                                                                                                                                                                                                        ",
+ KCOR_FILE="$SNDATA_ROOT/kcor/DES/DES-SN5YR/calib_DES-SN5YR_DES.fits                                                                                                                                                                                                                                                    ",
+ OVERRIDE_RESTLAM_BOUNDARY="                                                                                ",
+ USERTAGS_FILE="                                                                                                                                                                                                                                                                                                            ",
+ VPEC_FILE="                                                                                                                                                                                                                                                                                                            ",
+ HEADER_OVERRIDE_FILE="                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
+ HEADER_OVERRIDE_DIR="                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
+ SIM_HEADER_OVERRIDE_FILE="                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
+ SIM_HEADER_OVERRIDE_DIR="                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
+ EPOCH_IGNORE_FILE="DEFAULT                                                                                                                                                                                                                                                                                                     ",
+ OUT_EPOCH_IGNORE_FILE="                                                                                                                                                                                                                                                                                                            ",
+ NONLINEARITY_FILE="                                                                                                                                                                                                                                                                                                            ",
+ SNCID_LIST_FILE="/home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/pilot12.cid                                                                                                                                                                                                                                 ",
+ OPT_SNCID_LIST=0          ,
+ FLAG_USE_SAME_EVENTS=0          ,
+ OPT_VPEC_COR=1          ,
+ SIMLIB_OUT="                                                                                                                                                                                                                                                                                                            ",
+ SIMLIB_OUTFILE="                                                                                                                                                                                                                                                                                                            ",
+ SIMLIB_ZPERR_LIST="                                                                                                                                                                                                                                                                                                            ",
+ OPT_SIMLIB_OUT=1          ,
+ SIMLIB_OUT_TMINFIX=99999      ,
+ NFIT_ITERATION=3          ,
+ MINUIT_PRINT_LEVEL=-1         ,
+ INTERP_OPT=1          ,
+ USE_MIGRAD=F,
+ USE_MINOS=T,
+ USE_SIMPLEX=F,
+ OPT_SETPKMJD=20         ,
+ QUANTILE_ZERRMIN=  0.00000000    ,
+ SNRCUT_SETPKMJD=  5.00000000    ,
+ MJDWIN_SETPKMJD=  60.0000000    ,
+ SHIFT_SETPKMJD=  0.00000000    ,
+ DEBUG_FLAG=0          ,
+ LSIM_SEARCH_SPEC=F,
+ LSIM_SEARCH_ZHOST=F,
+ LDMP_SNFAIL=F,
+ LDMP_SNANA_VERSION=F,
+ LDMP_SATURATE=F,
+ LTEST_KCOR=F,
+ LTEST_INTERP=F,
+ LTEST_MAG=F,
+ LTEST_U3BAND=F,
+ USESIM_SNIA=T,
+ USESIM_NONIA=T,
+ USESIM_TRUEFLUX=F,
+ USESIM_REDSHIFT=F,
+ USE_SNHOST_ZPHOT=F,
+ USE_HOSTGAL_PHOTOZ=F,
+ USE_SNHOST_QZPHOT=F,
+ RESTORE_WRONG_VPEC=F,
+ RESTORE_OVERRIDE_ZBUG=F,
+ RESTORE_MWEBV_ERR_BUG=F,
+ RESTORE_DES5YR=F,
+ REFAC_DATA_FLAG=0          ,
+ REQUIRE_DOCANA=0          ,
+ FORCE_STDOUT_BATCH=F,
+ LPROB_TRUEFLUX=F,
+ ABORT_ON_NOEPOCHS=F,
+ ABORT_ON_BADAVWARP=T,
+ ABORT_ON_NOPKMJD=T,
+ ABORT_ON_BADZ=T,
+ ABORT_ON_BADKCOR=T,
+ ABORT_ON_BADSURVEY=T,
+ ABORT_ON_MARGPDF0=T,
+ ABORT_ON_TRESTCUT=F,
+ ABORT_ON_DUPLCID=F,
+ ABORT_ON_DUPLMJD=F,
+ ABORT_ON_BADFILTER=T,
+ ABORT_ON_BADQZPHOT=T,
+ ABORT_ON_MISSING_QZPHOT=T,
+ H0_REF=  70.000000000000000     ,  7.0000000000000000     ,
+ OLAM_REF= 0.68500000238418579     ,  2.9999999329447746E-002,
+ OMAT_REF= 0.31499999761581421     ,  2.9999999329447746E-002,
+ W0_REF= -1.0000000000000000     , 0.10000000149011612     ,
+ WA_REF= 2*0.0000000000000000       ,
+ USE_MWCOR=F,
+ MXLC_PLOT=12         ,
+ NCCID_PLOT=0          ,
+ SNCCID_PLOT= 52*"                                        ",
+ MJDPERIOD_PLOT=  0.00000000    ,
+ MJDSHIFT_PLOT=  0.00000000    ,
+ DTOBS_MODEL_PLOT=  2.00000000    ,
+ MULTISEASON_OPTMASK=0          ,
+ MULTISEASON_TGAP=  1.00000000E+09,
+ ZTOL_HELIO2CMB=  1.99999996E-02,
+ MULTISEASON_NREJECT_OUTLIER=  0.00000000    ,
+ MULTISEASON_CHI2RED_ACTIVE=  5.00000000    ,
+ PHOTFLAG_DETECT=0          ,
+ PHOTFLAG_TRIGGER=0          ,
+ SNTYPE_LIST= 52*0          ,
+ SNCID_LIST= 52*0          ,
+ SNCCID_LIST= 52*"                                        ",
+ MXEVT_PROCESS=999888777  ,
+ MXEVT_CUTS=999888777  ,
+ SNCCID_IGNORE= 52*"                                        ",
+ SNCID_IGNORE_FILE="                                                                                                                                                                                                                                                                                                            ",
+ SNCID_IGNORE= 52*0          ,
+ SNTYPE_IGNORE= 52*-9         ,
+ DETNUM_LIST= 52*0          ,
+ SIM_TEMPLATE_INDEX_LIST= 52*0          ,
+ SNFIELD_LIST="ALL                                                         ", 51*"                                                            ",
+ PHOTFLAG_MSKREJ=32         , 4*0          ,
+ PHOTFLAG_BITLIST_REJECT= 30*-9         ,
+ CUTWIN_CID= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_SNTYPE= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_REDSHIFT=  5.00000007E-02,  1.20000005    ,
+ CUTWIN_REDSHIFT_ERR=  0.00000000    ,  9.99999978E-03,
+ CUTWIN_RA= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_DEC= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_HOST_SEP= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_HOST_NMATCH= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_NEPOCH=  5.00000000    ,  1.00000000E+09,
+ CUTWIN_SNRMAX=  5.00000000    ,  100000000.    ,
+ CUTWIN_SNRMAX2= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_SNRSUM= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_NFIELD=  1.00000000    ,  999.000000    ,
+ CUTWIN_MWEBV=  0.00000000    , 0.250000000    ,
+ CUTWIN_NSEASON_ACTIVE= -99.0000000    ,  99.0000000    ,
+ CUTWIN_TRESTMIN= -9999.00000    ,  5.00000000    ,
+ CUTWIN_TRESTMAX=  5.00000000    ,  99999.0000    ,
+ CUTWIN_TRESTRANGE= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_TREST= -20.0000000    ,  60.0000000    ,
+ CUTWIN_TOBS= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_TGAPMAX= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_T0GAPMAX= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_TOBSMIN= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_TOBSMAX= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_PEAKMJD= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_NOBS_PREDETECT= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_MJD= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_PSF= 0.500000000    ,  2.75000000    ,
+ CUTWIN_ZP= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_ZPADU= 2*0.00000000      ,
+ CUTWIN_ZPNPE=  30.5000000    ,  100.000000    ,
+ CUTWIN_ZPERR= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_PHOTPROB= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_ERRTEST= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_SIM_PULL= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_TREST_TRUEFLUX= 2*999.000000      ,
+ CUTWIN_NBAND_THRESH= 2*-9.00000000     ,
+ CUTWIN_NFILT_SNRMAX=  2.00000000    ,  99.0000000    ,
+ CUTWIN_NFILT_SNRMAX2=  0.00000000    ,  100.000000    ,
+ CUTWIN_NFILT_TRESTMIN=  1.00000000    ,  100.000000    ,
+ CUTWIN_NFILT_TRESTMAX=  1.00000000    ,  100.000000    ,
+ CUTWIN_TREST2= -1.00000000E+09,  1.00000000E+09,
+ CUTWIN_NFILT_TREST2=  1.00000000    ,  100.000000    ,
+ CUTWIN_RESTLAM=  2000.00000    ,  25000.0000    ,
+ CUTWIN_LAMREST=  2000.00000    ,  25000.0000    ,
+ CUTWIN_LAMOBS=  2000.00000    ,  70000.0000    ,
+ CUTWIN_SNR_NODETECT= -1.00000000E+09,  1.00000000E+09,
+ PRIVATE_CUTWIN_STRING= 10*"                                                                                                                                                                                                                                                                                                            ",
+ PRIVATE_VARNAME_READLIST="                                                                                                                                                                                                                                                                                                            ",
+ SIMVAR_CUTWIN_STRING="                                                                                                                                                                                                                                                                                                            ",
+ EARLYLC_STRING="                                                                                                                                                                                                                                                                                                            ",
+ REQUIRE_EPOCHS_STRING="                                                                                                    ",
+ DUMP_STRING="                                                                                                    ",
+ METHOD_SPLINE_QUANTILES="CUBIC               ",
+ SNCUT_SNRMAX="                                                                                                                                                                                                                                                                                                            ",
+ SNCUT_HOST_SBFLUX="                                                                                                                                                                                                                                                                                                            ",
+ SNCUT_NOBS_TREST="                                                                                                                                                                                                                                                                                                            ",
+ EPCUT_SNRMIN="                                                                                                                                                                                                                                                                                                            ",
+ EPCUT_SKYSIG="                                                                                                                                                                                                                                                                                                            ",
+ EPCUT_PSFSIG="                                                                                                                                                                                                                                                                                                            ",
+ MAGOBS_SHIFT_PRIMARY="                                                                                                                                                                                                                                                                                                            ",
+ MAGOBS_SHIFT_ZP="                                                                                                                                                                                                                                                                                                            ",
+ MAGREST_SHIFT_PRIMARY="                                                                                                                                                                                                                                                                                                            ",
+ MAGREST_SHIFT_ZP="                                                                                                                                                                                                                                                                                                            ",
+ FILTER_LAMSHIFT="                                                                                                                                                                                                                                                                                                            ",
+ MAGOBS_SHIFT_PRIMARY_PARAMS= 3*0.00000000      ,
+ MAGOBS_SHIFT_ZP_PARAMS= 3*0.00000000      ,
+ FUDGE_FLUXCAL_OFFSET="                                                                                                                                                                                                                                                                                                            ",
+ FUDGE_FLUXCAL_ERROR="                                                                                                                                                                                                                                                                                                            ",
+ FUDGE_FLUXCAL_ERRPIX="                                                                                                                                                                                                                                                                                                            ",
+ FUDGE_FLUXERR_SCALE="                                                                                                                                                                                                                                                                                                            ",
+ FUDGE_MAG_ERROR="                                                                                                                                                                                                                                                                                                            ",
+ FUDGE_MAG_COVERR="                                                                                                                                                                                                                                                                                                            ",
+ SIM_FUDGE_MAG_ERROR="                                                                                                                                                                                                                                                                                                            ",
+ FLUXERRMODEL_FILE="                                                                                                                                                                                                                                                                                                            ",
+ SIM_FLUXERRMODEL_FILE="                                                                                                                                                                                                                                                                                                            ",
+ FLUXERRMODEL_OPTMASK=0          ,
+ MAGCOR_FILE="                                                                                                                                                                                                                                                                                                            ",
+ SIM_MAGCOR_FILE="                                                                                                                                                                                                                                                                                                            ",
+ FORCE_MAGCOR_ZERO=0          ,
+ FORCE_WAVECOR_ZERO=0          ,
+ FUDGE_HOSTNOISE_FILE="                                                                                                                                                                                                                                                                                                            ",
+ RV_MWCOLORLAW=  3.09999990    ,
+ OPT_MWCOLORLAW=99         ,
+ PARLIST_MWCOLORLAW= 10*0.00000000      ,
+ OPT_MWEBV=3          ,
+ MWEBV_SCALE=  1.00000000    ,
+ MWEBV_SHIFT=  0.00000000    ,
+ MWEBV_FORCE= -9.00000000    ,
+ HOSTGAL_ZPHOT_SHIFT=  0.00000000    ,
+ HOSTGAL_ZSPEC_SHIFT=  0.00000000    ,
+ HOSTGAL_PHOTOZ_SHIFT=  100000000.    ,
+ HOSTGAL_SPECZ_SHIFT=  100000000.    ,
+ REDSHIFT_FINAL_SHIFT=  0.00000000    ,
+ FLUXERRCALC_ZPTERR= -9.89999962    ,
+ CUTWIN_MJD_EXCLUDE= 2*0.00000000      ,
+ CUTWIN_TOBS_PREDETECT= -1.00000000E+09,  1.00000000E+09,
+ /
+
+ Set REFAC_DATA_FLAG = 0
+
+   
+  ######################################################## 
+    INIT_SNCID_LISTS    
+  ######################################################## 
+  
+    Store      0 string  CIDs from integer SNCID_LIST
+    Store      0 string  CIDs from char SNCCID_LIST
+    Store     12 string  CIDs from file SNCID_LIST_FILE
+
+  init_SNDATA_GLOBAL: 
+  ###################################################### 
+  RD_SNFITSIO_PREP: 
+  Prepare to read PHOTOMETRY VERSION 'DES-SN5YR_DES' from 
+	 /home/szymon/Documents/ChatGPT/supernova/sources/repos/des-science__DES-SN5YR@1.3/0_DATA/DES-SN5YR_DES 
+  ###################################################### 
+  
+  ######################################################## 
+    RDGLOBAL: FETCH GLOBAL SURVEY INFO from HEADER              
+  ######################################################## 
+  
+    Found PRIVATE(AGN_SCAN)                                                    
+    Found SURVEY  = DES   (IDSURVEY= 10)
+    Found FILTERS = griz   (NFILTDEF=  4)
+    Found   19706 SN Candidates to Process.
+  
+  
+  ######################################################## 
+    PROCSNNML
+  ######################################################## 
+  
+  
+  ######################################################## 
+    INIT_CUTMASK
+  ######################################################## 
+  
+  INIT_CUTMASK: NCUTBIT          =           61
+  INIT_CUTMASK: CUTMASK8_SN_ALL  =      2251799813685247
+  INIT_CUTMASK: CUTMASK8_MJD_ALL =   2303591209400008704
+
+ ****************************************************************** 
+   READ_CALIB_DRIVER: read calib/filters/kcor  
+	 FILTERS_SURVEY = griz 
+  Opened /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT/kcor/DES/DES-SN5YR/calib_DES-SN5YR_DES.fits
+   read_calib_head 
+		 Read VERSION         = 4  (kcor.exe version) 
+		 Read NPRIM           = 2  primary refs 
+		 Read PRIM001         = NULL 
+		 Read PRIM002         = AB 
+		 Read NFILTERS        = 4  filters 
+		 Read NKCOR           = 0  K-COR tables 
+		 Read  991 wavelength bins (2100.00 to 12000.00)
+		 Read  106 epoch      bins (-20.00 to 85.00)
+		 Read    1 redshift   bins (0.00 to 0.00)
+		 Read    1 AV         bins (0.00 to 0.00)
+   read_calib_zpoff  
+   read_calib_snsed 
+   read_kcor_tables 
+   read_kcor_mags 
+   read_calib_filters 
+   read_calib_primarysed 
+
+   print_calib_summary 
+	  Primary Spectrum: AB 
+
+  FILTER SUMMARY (RDKCOR) : 
+   internal                   LAM  LAM   rest-lam      primary
+  index name                  AVG  RMS   kcor range    mag   ZP
+ ---------------------------------------------------------------------- 
+    2 DES-g                  4828  413     0-    0  -0.001  -0.001
+    3 DES-r                  6435  428     0-    0  -0.012  -0.012
+    4 DES-i                  7828  434     0-    0  -0.009  -0.009
+    5 DES-z                  9181  432     0-    0   0.007   0.007
+	 NFILTDEF[SURVEY,REST] = 4 0 
+
+ READ_CALIB_DRIVER: Done 
+  
+     Extra ZP offsets from ZPOFF.DAT +  SNLCINP MAGOBS_SHIFT_ZP:
+     Applied   0  non-zero  MAGOBS_SHIFT_ZP 
+  
+  ######################################################## 
+    INIT_GALextinct
+  ######################################################## 
+  
+    RV_MWCOLORLAW  ->  3.10 from User (&SNLCINP)
+    OPT_MWCOLORLAW ->  99 from User (&SNLCINP)
+    OPT_MWCOLORLAW =    99 -> Fitzpatrick99 (cubic spline)
+  
+    OPT_MWEBV ->   3 from User (&SNLCINP)
+    OPT_MWEBV =    3 -> Schlafly11+PS2013: 0.86*MWEBV(SFD98)
+  
+  ######################################################## 
+    INIT_SNTABLE_OPTIONS  
+  ######################################################## 
+  
+        SNANA-table: USE=0   TEXTFORMAT=key 
+       FITRES-table: USE=1   TEXTFORMAT=key 
+      SNLCPAK-table: MXLC_PLOT=      12   TEXTFORMAT=col 
+      SPECPAK-table: MXLC_PLOT=      12   TEXTFORMAT=none
+    MODELSPEC-table: USE=0   TEXTFORMAT=none
+         MARZ-table: USE=0   TEXTFORMAT=none
+        PRIOR-table: USE=0   TEXTFORMAT=key 
+        SNANA-table: select CUTFLAG_SNANA &  63
+    Include best-match HOSTGAL info in TEXT tables.
+
+ ****************************************************************** 
+   SNLCPAK_INIT for SURVEY=DES  (1 fits per SN)  
+ INIT_OUTFILES       ->TABLEFILE_OPEN: 
+
+ ****************************************************************** 
+   OPEN_TEXTFILE_LCLIST: open text list-file with PREFIX=/home/szymon/Documents/ChatGPT/supernova/phase2/official/results/snana_mask32_pilot  
+  
+  ######################################################## 
+    PLOT THEORY HUBBLE DIAGRAMS for REFERENCE
+  ######################################################## 
+  
+  
+  ######################################################## 
+    CALL FITPAR_INI
+  ######################################################## 
+  
+  
+  ######################################################## 
+     READ &FITINP NAMELIST
+  ######################################################## 
+  
+  
+&FITINP
+ FITMODEL_NAME="/home/szymon/Documents/ChatGPT/supernova/sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR                                                                                                                                                                                                ",
+ RESTLAMBDA_FITRANGE=  3500.00000    ,  8000.00000    ,
+ UVLAM_EXTRAPFLUX= -9.00000000    ,
+ FILTLIST_FIT="griz                                                                                                ",
+ FILTLIST_DMPFCN="                    ",
+ FILTER_FITMAGDIF="    ",
+ FILTLIST_FITRESTMAG="            ",
+ LUMIFIX_FITRESTMAG=  999.000000    ,
+ SHAPEFIX_FITRESTMAG=  999.000000    ,
+ COLORFIX_FITRESTMAG=  999.000000    ,
+ LAMEXTRAP_FITRESTMAG=  0.00000000    ,
+ DLAMTOL_FITRESTMAG=  0.00000000    ,
+ FILTLIST_DMPFUN="                    ",
+ TREST_DMPFUN= -999.000000    ,  999.000000    ,
+ SCALE_PLOTCHI2=  1.00000000    ,
+ NEARFILT_IGNORE_REST="                    ",
+ DOFIT_PHOTOZ=F,
+ SKIP_PHOTOZ_INIT=F,
+ LDMP_PHOTOZ_DROPFILTER=F,
+ LFIXPAR_ALL=F,
+ LFIXPAR_ADJUST=F,
+ LKCOR_AVWARP=T,
+ LKCOR_STRETCH=F,
+ USE_MODEL_MAGERR=T,
+ DOCHI2_SIGMA=F,
+ OPT_CHI2_SIGMA=0          ,
+ LAMREST_MODEL_SMOOTH= -9.00000000    ,
+ CHECK_CRAZYFITERR=T,
+ ADD_SALT2ERR_FROMZ=F,
+ ENABLE_MAGSHIFT_SALT2=T,
+ ENABLE_WAVESHIFT_SALT2=T,
+ ALLOW_NEGFLUX_SALT2=T,
+ STRETCH_TEMPLATE_FILE="                                                                                                                                                                                                                                                                                                            ",
+ SALT2_DICTFILE="                                                                                                                                                                                                                                                                                                            ",
+ DELCHI2_REJECT=  10.0000000    ,
+ SIGNOISE_REJECT= -9.00000000    ,
+ PEAKMJD_SANITY=  0.00000000    ,  1000000.00    ,
+ FITWIN_ZPULL= -900000000.    ,  900000000.    ,
+ FITWIN_ZPHOT= -900000000.    ,  900000000.    ,
+ FITWIN_COLOR=-0.500000000    , 0.500000000    ,
+ FITWIN_SHAPE= -5.00000000    ,  5.00000000    ,
+ FITWIN_MJD= -900000000.    ,  900000000.    ,
+ FITWIN_PEAKMJD= -900000000.    ,  900000000.    ,
+ FITWIN_PROB=  0.00000000    ,  1.00999999    ,
+ FITWIN_PROB_ITER1= -900000000.    ,  900000000.    ,
+ FITWIN_SHAPE_ITER1= -900000000.    ,  900000000.    ,
+ FITWIN_COLOR_ITER1= -900000000.    ,  900000000.    ,
+ FITWIN_CHI2RED_INI= -900000000.    ,  900000000.    ,
+ FITWIN_CHI2RED_INI2= -900000000.    ,  900000000.    ,
+ FITWIN_NOMARG_PROB= -900000000.    ,  900000000.    ,
+ FITWIN_CHI2SIGMA= -900000000.    ,  900000000.    ,
+ FITWIN_TREST= -15.0000000    ,  45.0000000    ,
+ FITWIN_TREST_FILTER="                                                                                                                        ",
+ FITWIN_TREST_FILT= 200*0.00000000      ,
+ FITWIN_COV_OFFDIAG= -8.00000000    ,  8.00000000    ,
+ FITWIN_PEAKMJD_ERR=  0.00000000    ,  30000.0000    ,
+ FITWIN_MB_ERR=  0.00000000    ,  1.00000000    ,
+ FITWIN_SHAPE_ERR=  0.00000000    ,  30000.0000    ,
+ FITWIN_COLOR_ERR=  0.00000000    ,  30000.0000    ,
+ FITWIN_PEAKMJD_ERRZ1=  0.00000000    ,  30000.0000    ,
+ FITWIN_MB_ERRZ1=  0.00000000    ,  30000.0000    ,
+ FITWIN_SHAPE_ERRZ1=  0.00000000    ,  30000.0000    ,
+ FITWIN_COLOR_ERRZ1=  0.00000000    ,  30000.0000    ,
+ SNMAGRMS_FOR_PHOTOZ= 0.119999997    ,
+ TREST_REJECT= -15.0000000    ,  45.0000000    ,
+ MJD_REJECT= -900000000.    ,  900000000.    ,
+ USESIM_AV=F,
+ USESIM_RV=F,
+ USESIM_COLOR=F,
+ USESIM_LUMIPAR=F,
+ USESIM_SHAPE=F,
+ USESIM_PEAKMJD=F,
+ USESIM_DLMAG=F,
+ USESIM_INIVAL=F,
+ INISTP_PEAKMJD=  2.00000000    ,
+ INISTP_AV= 0.200000003    ,
+ INISTP_RV=  0.00000000    ,
+ INISTP_AVRV=  0.00000000    ,
+ INISTP_DLMAG= 0.500000000    ,
+ INISTP_X0=  9.99999975E-06,
+ INISTP_PHOTOZ=  0.00000000    ,
+ INISTP_COLOR=  2.99999993E-02,
+ INISTP_SHAPE= 0.300000012    ,
+ INISTP_SHAPE2=  0.00000000    ,
+ INIVAL_PEAKMJD= -99999.0000    ,
+ INIVAL_AV= -99999.0000    ,
+ INIVAL_RV=  3.09999990    ,
+ INIVAL_AVRV= 0.100000001    ,
+ INIVAL_DLMAG= -99999.0000    ,
+ INIVAL_PHOTOZ= -99999.0000    ,
+ INIVAL_COLOR=  9.99999978E-03,
+ INIVAL_X0= -99999.0000    ,
+ INIVAL_SHAPE= -99999.0000    ,
+ INIVAL_SHAPE2= -99999.0000    ,
+ INIVAL_SHIFT_ERRFRAC=  0.00000000    ,
+ INIVAL_GRIDSEARCH_DPEAKMJD= -4.00000000    ,  4.00000000    ,  2.00000000    ,
+ INIVAL_GRIDSEARCH_COLOR= 3*0.00000000      ,
+ FRACERRDIF_REPEATFIT=  1.00000000E+09,
+ OPT_COVAR=-99        ,
+ OPT_COVAR_FLUX=-9         ,
+ OPT_COVAR_MWXTERR=1          ,
+ OPT_XTMW_ERR=-9         ,
+ OPT_COVAR_LCFIT=0          ,
+ OPT_SNXT=1          ,
+ OPT_KCORERR=2          ,
+ OPT_NEARFILT=2          ,
+ OPT_LANDOLT=0          ,
+ UCOR_BXB=F,
+ OPT_PHOTOZ=0          ,
+ SCALE_NBIN_COURSE_PHOTOZ=1          ,
+ NBINC_COURSE_PHOTOZ=-9         ,
+ NBINS_COURSE_PHOTOZ=-9         ,
+ NBINT_COURSE_PHOTOZ=-9         ,
+ NBINZ_COURSE_PHOTOZ=-9         ,
+ RANGEC_COURSE_PHOTOZ= 2*-99.0000000     ,
+ RANGES_COURSE_PHOTOZ= 2*-99.0000000     ,
+ RANGET_COURSE_PHOTOZ= 2*-99.0000000     ,
+ RANGEZ_COURSE_PHOTOZ= 2*-99.0000000     ,
+ NEVAL_MCMC_PHOTOZ=0          ,
+ PARLIST_MCMC_PHOTOZ=  0.00000000    ,  20.0000000    , 0.330000013    , 0.899999976    ,  1.00000000    ,
+ 
+ FUDGE_COVAR=  0.00000000    ,
+ SCALE_COVAR=  1.00000000    ,
+ LANDOLT_COLOR_SHIFT= 10*0.00000000      ,
+ NGRID_PDF=0          ,
+ NSIGMA_PDF=4          ,
+ MAX_INTEGPDF=3          ,
+ VARLIST_PDF="ALL                                                         ",
+ PRIOR_AVEXP= 2*1.00000000E+09  ,
+ PRIOR_AVWGT=  1.00000000    ,  0.00000000    ,
+ PRIOR_AVRES=  0.00000000    ,
+ PRIOR_MJDSIG=  10.0000000    ,
+ PRIOR_ZERRSCALE=  1000.01001    ,
+ PRIOR_MUERRSCALE=  1000.01001    ,
+ DOPRIOR_DLMAG=F,
+ PRIOR_COLOR_RANGE= -9.00000000    ,  9.00000000    ,
+ PRIOR_COLOR_SIGMA=  9.99999978E-03,
+ PRIOR_SHAPE_RANGE= -6.00000000    ,  6.00000000    ,
+ PRIOR_SHAPE_SIGMA= 0.100000001    ,
+ PRIOR_SHAPE2_RANGE= -9.00000000    ,  9.00000000    ,
+ PRIOR_SHAPE2_SIGMA= 0.100000001    ,
+ PRIOR_LUMIPAR_RANGE= -9.00000000    ,  9.00000000    ,
+ PRIOR_LUMIPAR_SIGMA= 0.100000001    ,
+ PRIOR_DMU_RANGE= -9.00000000    ,  9.00000000    ,
+ PRIOR_DMU_SIGMA= 0.100000001    ,
+ PRIOR_DELTA_PROFILE= 0.230000004    , 0.479999989    ,-0.239999995    , 0.100000001    ,
+ OPT_PRIOR=1          ,
+ OPT_PRIOR_AV=1          ,
+ OPT_MNSTAT_COV=1          ,
+ SIMFIT_IDEAL_PRESCALE=0          ,
+ MINOS_ERR_DLMAG=F,
+ MINOS_ERR_REQALL0=F,
+ MINOS_ERR_REQALL1=F,
+ MINOS_ERRMAX_BAD=T,
+ CONTOUR_LIST= 80*0          ,
+ LTRACE=F,
+ NFIT_VERBOSE=20         ,
+ FUDGE_FITERR_MAXFRAC=  0.00000000    ,
+ FUDGE_FITERR_TREST= 4*999.000000      ,
+ FUDGE_FITERR_PASSBANDS="NULL                                                                                                ",
+ FUDGE_FITERR_RESTLAM= 2*1000.00000      , 2*90000.0000      ,
+ FUDGE_MAGERR_MODEL= -9.00000000    ,
+ FUDGE_FITERR_MAXITER=9          ,
+ FUDGEALL_MAXFRAC=  0.00000000    ,
+ FUDGEALL_ITER1_MAXFRAC=  5.00000007E-02,
+ FUDGE_DATAERR_SCALE=  1.00000000    ,
+ FUDGE_MODELERR_SCALE=  1.00000000    ,
+ FITCOVAR_FILE="                                                                                                                                                                                                                                                                                                            ",
+ TREST_PEAKRENORM= 2*0.00000000      ,
+ SALT2ALPHA= 0.140000001    ,
+ SALT2BETA=  3.20000005    ,
+ OPT_SALT2FIT=0          ,
+ PHOTODZ_REJECT=  5.00000007E-02,
+ PHOTODZ1Z_REJECT= -99.0000000    ,
+ PHOTOZ_ITER1_LAMRANGE=  4000.00000    ,  26000.0000    ,
+ PHOTOZ_BOUND=  9.99999997E-07,  1.39999998    ,
+ MAGLIM_VMAX="                                                            ",
+ OPT_VMAX=0          ,
+ CCID_DUMP_CHI2_MATRIX="                    ",
+ /
+
+ ****************************************************************** 
+   init_genmag_SALT2 : Initialize /home/szymon/Documents/ChatGPT/supernova/sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR  
+	 Allow SED Flam < 0 
+	 DO_WAVECOR_SALT2 = 0 
+   filtdump_SEDMODEL: Read primary ref 'AB' with 991 lambda bins 
+
+   Defined                                 Lambda           AB     AB 
+   Filter                  <LAMBDA>        Range(step)      mag  ZP_MODEL 
+   ----------------------------------------------------------------------
+   id=02 (       DES-g)   ( 4827.7 + 0)   3800- 5650( 10)  -0.0008  14.5352  
+   id=03 (       DES-r)   ( 6434.8 + 0)   5400- 7350( 10)  -0.0116  14.6698  
+   id=04 (       DES-i)   ( 7828.1 + 0)   6750- 8700( 10)  -0.0090  14.6145  
+   id=05 (       DES-z)   ( 9181.2 + 0)   8250-10150( 10)   0.0071  14.3666  
+   ----------------------------------------------------------------------
+	 ISMODEL = SALT3
+  Read SALT2 model parameters from  
+	  /home/szymon/Documents/ChatGPT/supernova/sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR
+	 OPTMASK = 0  
+
+  SALT3.INFO 
+	 RESTLAMBDA_RANGE:    2800 -   8000 A
+	 Global MAG OFFSET:   0.270 mag  
+	 COLOR OFFSET:   0.000 mag  
+	 COLOR DISP_MAX:    1.0 mag  
+	 COLORLAW PARAMS:  
+	    B,V_WAVELENGTH = 4302.6 , 5428.6 
+	    INTERP LAMBDA RANGE:  2800.0 -  8000.0 
+	    CL-polynomial params: -0.529  0.679 -0.435  0.116 -0.011 
+	 MAGERR_FLOOR:   0.005 mag  
+	 MAGERR(REST) =  0.100 mag for    100 < LAMREST <    200 
+	 SEDFLUX_INTERP_OPT:  2  (Spline  then Linear with LAMSTEP/2 and DAYSTEP/5) 
+	 ERRMAP_INTERP_OPT:   1  (Linear) 
+	 ERRMAP_KCOR_OPT:     1  (ON) 
+	 ERRMAP_BADVAL_ABORT: 1  (ON) 
+
+	 malloc_METADATA_SEDMODEL for NSED=2 and NPAR=0
+  Read  SALT3-0  SED  from : 
+    /home/szymon/Documents/ChatGPT/supernova/sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/salt3_template_0.dat 
+  Store SED-0  LAM(MIN,MAX,STEP)=2000,11000,5  DAY(MIN,MAX,STEP)=-20,50,0.2 
+
+  Read  SALT3-1  SED  from : 
+    /home/szymon/Documents/ChatGPT/supernova/sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/salt3_template_1.dat 
+  Store SED-1  LAM(MIN,MAX,STEP)=2000,11000,5  DAY(MIN,MAX,STEP)=-20,50,0.2 
+
+	 mB = 10.6350 - 2.5*log10(x0)  
+
+ Read SALT3 ERROR MAPS: 
+  Define error map  0(VAR0): salt3_lc_variance_0.dat 
+  Define error map  1(VAR1): salt3_lc_variance_1.dat 
+  Define error map  2(COVAR01): salt3_lc_covariance_01.dat 
+  Define error map  3(ERRSCALE): salt3_lc_dispersion_scaling.dat 
+  Define error map  4(COLOR-DISP): salt3_color_dispersion.dat 
+  Read  SALT3-VAR0  SED  from : 
+    /home/szymon/Documents/ChatGPT/supernova/sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/salt3_lc_variance_0.dat 
+  Read  SALT3-VAR1  SED  from : 
+    /home/szymon/Documents/ChatGPT/supernova/sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/salt3_lc_variance_1.dat 
+  Read  SALT3-COVAR01  SED  from : 
+    /home/szymon/Documents/ChatGPT/supernova/sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/salt3_lc_covariance_01.dat 
+
+  Read color-dispersion vs. lambda from salt3_color_dispersion.dat 
+
+              NBADVAL NBADVAL       ERRMAP-value      ERRMAP-value
+    ERRMAP     (NaN)  (crazy^)      actual-range^     [valid-range]
+# ---------------------------------------------------------------------------
+       VAR0      0        0     6.57e-08 -  1.09e+00  [   -30.0 -    100.0]
+       VAR1      0        0     6.54e-08 -  3.30e-02  [   -10.0 -    500.0]
+    COVAR01      0        0    -1.39e-01 -  1.83e-01  [   -30.0 -    100.0]
+   ERRSCALE      0        0     1.00e+08 - -1.00e+08  [     0.0 -    200.0]
+ COLOR-DISP      0        0     1.59e-04 -  1.00e+00  [     0.0 -      5.0]
+# ---------------------------------------------------------------------------
+#         ^restricted to -11.0 < DAY < 41.0 days
+
+  Create ColorLaw Table: COLOR(MIN,MAX,STEP) = -2.0,2.0,0.01
+
+                       e^CL     peak     color  
+            LAMBDA(A)  (c=1)    dS0/S0   disp   
+  --------------------------------------------- 
+  LAMINFO:    2000     0.000   0.3906   1.000  
+  LAMINFO:    2500     0.000   0.0148   0.339  
+  LAMINFO:    3000     0.022   0.0124   0.075  
+  LAMINFO:    3500     0.253   0.0085   0.026  
+  LAMINFO:    3560     0.302   0.0085   0.024  
+  LAMINFO:    3900     0.615   0.0082   0.015  
+  LAMINFO:    4302     1.000   0.0081   0.010  
+  LAMINFO:    4720     1.435   0.0038   0.009  
+  LAMINFO:    5428     2.512   0.0038   0.009  
+  LAMINFO:    6185     4.144   0.0038   0.013  
+  LAMINFO:    6500     4.787   0.0038   0.016  
+  LAMINFO:    7500     6.199   0.0028   0.027  
+  LAMINFO:    8030     6.881   0.0027   0.031  
+  LAMINFO:    8500     7.480   0.0020   0.029  
+  LAMINFO:    9210     8.485   0.0023   0.017  
+  LAMINFO:    9940     9.660   0.0012   0.005  
+
+ PHASE-EXTRAP METHOD: naive SEDFLUX extrap
+
+  init_genmag_SALT2 : Done. 
+   
+    SN-MODEL  LAMBDA RANGE:  2800. -  8000.
+    USER-DEF  LAMBDA RANGE:  3500. -  8000.
+    Final     LAMBDA RANGE:  3500. -  8000.
+   
+   SECOND-ITERATION EPOCH-REJECTION CUTS: 
+     REJECT  delchi2      >    10.0000000    
+     REJECT  signal/noise <   -9.00000000    
+     REJECT  Trest        <   -15.0000000    
+     REJECT  Trest        >    45.0000000    
+     REJECT  MJD          <   -900000000.    
+     REJECT  MJD          >    900000000.    
+     REJECT  PEAKMJD      <   -900000000.    
+     REJECT  PEAKMJD      >    900000000.    
+   
+  
+   FINAL FIT CUTS: 
+     REQUIRE MINOS ERROR for DLAMG        :  F
+     REQUIRE MINOS ERROR for ALL   FITPAR :  F
+     REQUIRE MINOS ERROR for ALL-1 FITPAR :  F
+     FIT-SIGMACHI2     >   -900000000.    
+     FIT-PROB(final)   >    0.00000000    
+     FIT-PROB(no marg) >   -900000000.    
+   
+    Valid ERROR(ITER      ) must be >   0.00010
+    Valid ERROR(ISN       ) must be >   0.00010
+    Valid ERROR(PKMJD     ) must be >   0.00010
+    Valid ERROR(x1        ) must be >   0.00100
+    Valid ERROR(x2        ) must be >   0.00010
+    Valid ERROR(c         ) must be >   0.00100
+    Valid ERROR(mB        ) must be >   0.00010
+    Valid ERROR(x0        ) must be >   0.00000
+    Valid ERROR(REDSHIFT  ) must be >   0.00050
+   
+    FIT-ERROR fudge =   0.05 * max(Flux)   for ITER <= 1
+  
+  ######################################################## 
+    INIT PEAKMJD PRIOR =  EXP[ -(PKMJD-PKMJD_INI)^2/  10^2 ]            
+  ######################################################## 
+  
+  
+  ######################################################## 
+    INIT x1 PRIOR: -6.00 to  6.00  Gauss roll sigma= 0.10               
+  ######################################################## 
+  
+  
+  ######################################################## 
+    INIT c PRIOR: -9.00 to  9.00  Gauss roll sigma= 0.01                
+  ######################################################## 
+  
+	 CPUTIME_INIT         = 1.000 second
+  
+  ######################################################## 
+    READ_EPIGNORE_FILE:
+  ######################################################## 
+  
+     Default IGNORE file does not exist -> skip read.
+    EPOCH_IGNORE: ignore epochs with PHOTFLAG &       32
+  
+  ###################################################### 
+  RD_SNFITSIO_PREP: 
+  Prepare to read PHOTOMETRY VERSION 'DES-SN5YR_DES' from 
+	 /home/szymon/Documents/ChatGPT/supernova/sources/repos/des-science__DES-SN5YR@1.3/0_DATA/DES-SN5YR_DES 
+  ###################################################### 
+   Open DES-SN5YR_DES_HEAD.FITS  
+   Open (ifile=1, itype=1) DES-SN5YR_DES_PHOT.FITS 
+   SURVEY=DES    FILTERS=griz   N(SNe)=19706  
+   Allocate 10.923 MB memory for DES-SN5YR_DES_HEAD.FITS (IFILE=1, NROW=19716). 
+   Allocate  0.059 MB memory for DES-SN5YR_DES_PHOT.FITS (IFILE=1, NROW=275). 
+  *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+     Done Reading CID 1652139           NMJD(found,stored)= 112   47
+  SNTABLE_CREATE_TEXT: init FITRES TEXT-table in key format. 
+     Create BLOCK = SNANA  for TABLE ID =  7788
+     Create BLOCK = SNFIT  for TABLE ID =  7788
+  
+ SET_PEAKMJD method: MJD at max flux in dense clump of SNR-detections.
+  
+
+ init_obs_atFLUXMAX: Fmax-clump [SNRCUT=5.0(3.0), MJDWIN=60.0, wgt=1] 
+       SET_PEAKMJD(1652139) --> 57763.125   (FmaxClump)             
+       Analyze ISN=       1  for CID=1652139        NOBS(store,cuts)=  43->  43
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  1 for CID 1652139                 
+  ######################################################## 
+  
+    CID 1652139 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1652139 ITER= 1                             
+  ######################################################## 
+  
+         32  Filter-epochs ACCEPTED for fit.
+          0  Filter-epochs REJECTED for fit.
+    1652139(ITER= 1): Use DIAGONAL Covariance elements only.
+  
+  ######################################################## 
+    FITINI_ADJUST for CID= 1652139   (1652139)                                                          
+  ######################################################## 
+  
+   FCNSNLC(BEFORE FITINI_ADJUST)    returns   CHI2=     11.69/ 32
+         Adjust PKMJD=57763.125 ==> 57763.125  (CHI2=     11.69)
+   riz Data/Model flux-ratio :  0.955  0.996  0.991  
+       x0 =  0.424E-05 ==>  0.416E-05
+   FCNSNLC(AFTER  FITINI_ADJUST)    returns   CHI2=     11.62/ 32
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    1   CID=1652139   NFITPAR=  9   iter=1                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1652139  fitpar( 1):ITER           =  1.0000     +/-  0.000    (P)
+       CID 1652139  fitpar( 3):PKMJD          =   57762.502 +/- 0.6843    (M)
+       CID 1652139  fitpar( 4):x1             = 0.76911E-01 +/- 0.6091    (M)
+       CID 1652139  fitpar( 6):c              = 0.40444E-01 +/- 0.5687E-01(M)
+       CID 1652139  fitpar( 8):x0             = 0.41646E-05 +/- 0.1941E-06(M)
+       CID 1652139   ITER=1   FITPROB =  0.999E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  2 for CID 1652139                 
+  ######################################################## 
+  
+    CID 1652139 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1652139 ITER= 2                             
+  ######################################################## 
+  
+         29  Filter-epochs ACCEPTED for fit.
+          3  Filter-epochs REJECTED for fit.
+    1652139(ITER= 2): Use full   29 x   29 Covariance matrix.                                         
+    1652139(ITER= 2): Add covariance from fit-model
+    1652139(ITER= 2): Add covariance from Galactic extinction
+    1652139(ITER= 2): Inverted COVMAT with    841 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    1   CID=1652139   NFITPAR=  9   iter=2                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1652139  fitpar( 1):ITER           =  2.0000     +/-  0.000    (P)
+       CID 1652139  fitpar( 3):PKMJD          =   57762.610 +/- 0.5611    (M)
+       CID 1652139  fitpar( 4):x1             = 0.94465E-01 +/- 0.4982    (M)
+       CID 1652139  fitpar( 6):c              = 0.45296E-01 +/- 0.4747E-01(M)
+       CID 1652139  fitpar( 8):x0             = 0.41677E-05 +/- 0.1629E-06(M)
+       CID 1652139   ITER=2   FITPROB =  0.981E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  3 for CID 1652139                 
+  ######################################################## 
+  
+    CID 1652139 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1652139 ITER= 3                             
+  ######################################################## 
+  
+         29  Filter-epochs ACCEPTED for fit.
+          3  Filter-epochs REJECTED for fit.
+    1652139(ITER= 3): Use full   29 x   29 Covariance matrix.                                         
+    1652139(ITER= 3): Add covariance from fit-model
+    1652139(ITER= 3): Add covariance from Galactic extinction
+    1652139(ITER= 3): Inverted COVMAT with    841 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    1   CID=1652139   NFITPAR=  9   iter=3                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1652139  fitpar( 1):ITER           =  3.0000     +/-  0.000    (P)
+       CID 1652139  fitpar( 3):PKMJD          =   57762.610 +/- 0.5610    (M)
+       CID 1652139  fitpar( 4):x1             = 0.93939E-01 +/- 0.4981    (M)
+       CID 1652139  fitpar( 6):c              = 0.45307E-01 +/- 0.4745E-01(M)
+       CID 1652139  fitpar( 8):x0             = 0.41677E-05 +/- 0.1629E-06(M)
+       CID 1652139   ITER=3   FITPROB =  0.981E+00
+  
+  ######################################################## 
+    FITANA_CUTS: APPLY FIT-CUTS TO SN 1652139                                       
+  ######################################################## 
+  
+                     PEAKMJD =  57762.609 PASSES CUT.                    
+                    TobsMin =  -23.5     PASSES CUT.
+                    TobsMax =   40.4     PASSES CUT.
+                   Trestmin =  -13.2     PASSES CUT.
+                   Trestmax =   22.7     PASSES CUT.
+                    TGAPmax =   5.04     PASSES CUT.
+                   T0GAPmax =   3.91     PASSES CUT.
+                     SNRSUM =   46.7     PASSES CUT.
+           FITWIN_TREST(min) =  -13.2     PASSES CUT.                    
+           FITWIN_TREST(max) =   22.7     PASSES CUT.                    
+           FITWIN_TRESTRANGE =   35.8     PASSES CUT.                    
+          x1                 =  0.939E-01 PASSES CUT.                    
+          c                  =  0.453E-01 PASSES CUT.                    
+                      FITCOV              PASSES CUT.                    
+                     FITPROB =  0.981     PASSES CUT.                    
+                 CHI2(SIGMA) =   0.00     PASSES CUT.                    
+                NFILT_SNRMAX =    3       PASSES CUT.                    
+               NFILT_SNRMAX2 =    4       PASSES CUT.                    
+              NFILT_TRESTMIN =    3       PASSES CUT.                    
+              NFILT_TRESTMAX =    3       PASSES CUT.                    
+            MINOS ERROR EVALUATIONS   PASSES CUT.                        
+    CID 1652139  PASSES FIT-CUTS 
+
+PHASE2_HESSIAN: 1652139  4.16765662449714748E-006  9.39394130948256745E-002  4.53067514070992772E-002  5.77626102070955094E+004  2.59051129713702211E-014 -5.48071074781687203E-008 -5.96432228090023820E-010 -1.22410431190224301E-008 -5.48071074781687203E-008  2.32495241180481649E-001  5.13028311745015314E-003  6.88472642177274385E-002 -5.96432228090023820E-010  5.13028311745015314E-003  2.27486353742313661E-003  8.35128047370516449E-004 -1.22410431190224301E-008  6.88472642177274385E-002  8.35128047370516449E-004  1.99433118136852994E-001
+  
+  ######################################################## 
+    LC FIT SUMMARY for CID=1652139                                                  
+  ######################################################## 
+  
+ Quantity          r          i          z
+ --------------------------------------------------------------------------------
+   NEPOCH         11         12          9
+  NREJECT          1          1          1
+     NDOF         10         11          8
+     CHI2       4.72       2.97       4.85
+     PROB       0.91       0.99       0.77
+  PeakMag      24.17      23.57      23.73
+  PeakErr       0.06       0.04       0.05
+     XTMW       0.01       0.01       0.01
+  XTMWerr       0.00       0.00       0.00
+ --------------------------------------------------------------------------------
+   SALT2 mB(1652139) =   24.0853 +-  0.0424
+   Trest FIT RANGE(1652139):  -13.16 to   22.67   (relative to FIT-PEAKMJD)
+   MJD   FIT RANGE(1652139): 57739.1 to 57803.0
+  
+   FIT MINIMUM (1652139) returns TOTAL   CHI2/dof=  12.6    / 25   PROB=0.98143
+   FIT MINIMUM (1652139) returns DATA    CHI2/dof=  12.6    / 25   PROB=0.98143
+   FIT MINIMUM (1652139) returns PRIOR   CHI2/dof= 0.288E-07/  0   PROB=1.00000
+  
+         SNLCPAK: pack CID = 1652139 for plotting.
+    Finished fitting CID =      1652139 in  0.222 seconds
+  *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+     Done Reading CID 1480038           NMJD(found,stored)= 111   81
+       SET_PEAKMJD(1480038) --> 57681.098   (FmaxClump)             
+       Analyze ISN=       2  for CID=1480038        NOBS(store,cuts)=  73->  73
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  1 for CID 1480038                 
+  ######################################################## 
+  
+    CID 1480038 : FIT OBSERVER FILTERS griz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1480038 ITER= 1                             
+  ######################################################## 
+  
+         73  Filter-epochs ACCEPTED for fit.
+          0  Filter-epochs REJECTED for fit.
+    1480038(ITER= 1): Use DIAGONAL Covariance elements only.
+  
+  ######################################################## 
+    FITINI_ADJUST for CID= 1480038   (1480038)                                                          
+  ######################################################## 
+  
+   FCNSNLC(BEFORE FITINI_ADJUST)    returns   CHI2=     84.52/ 73
+         Adjust PKMJD=57681.098 ==> 57681.098  (CHI2=     84.52)
+   griz Data/Model flux-ratio :  1.236  1.165  1.168  1.157  
+       x0 =  0.323E-04 ==>  0.381E-04
+   FCNSNLC(AFTER  FITINI_ADJUST)    returns   CHI2=     35.17/ 73
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    2   CID=1480038   NFITPAR=  9   iter=1                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1480038  fitpar( 1):ITER           =  1.0000     +/-  0.000    (P)
+       CID 1480038  fitpar( 3):PKMJD          =   57680.712 +/- 0.4266    (M)
+       CID 1480038  fitpar( 4):x1             = 0.83790     +/- 0.3613    (M)
+       CID 1480038  fitpar( 6):c              = -.19694E-01 +/- 0.2680E-01(M)
+       CID 1480038  fitpar( 8):x0             = 0.37234E-04 +/- 0.1354E-05(M)
+       CID 1480038   ITER=1   FITPROB =  0.100E+01
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  2 for CID 1480038                 
+  ######################################################## 
+  
+    CID 1480038 : FIT OBSERVER FILTERS griz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1480038 ITER= 2                             
+  ######################################################## 
+  
+         57  Filter-epochs ACCEPTED for fit.
+         16  Filter-epochs REJECTED for fit.
+    1480038(ITER= 2): Use full   57 x   57 Covariance matrix.                                         
+    1480038(ITER= 2): Add covariance from fit-model
+    1480038(ITER= 2): Add covariance from Galactic extinction
+    1480038(ITER= 2): Inverted COVMAT with   3249 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    2   CID=1480038   NFITPAR=  9   iter=2                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1480038  fitpar( 1):ITER           =  2.0000     +/-  0.000    (P)
+       CID 1480038  fitpar( 3):PKMJD          =   57680.475 +/- 0.2973    (M)
+       CID 1480038  fitpar( 4):x1             = 0.80019     +/- 0.2433    (M)
+       CID 1480038  fitpar( 6):c              = -.16668E-01 +/- 0.2044E-01(M)
+       CID 1480038  fitpar( 8):x0             = 0.37404E-04 +/- 0.1012E-05(M)
+       CID 1480038   ITER=2   FITPROB =  0.920E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  3 for CID 1480038                 
+  ######################################################## 
+  
+    CID 1480038 : FIT OBSERVER FILTERS griz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1480038 ITER= 3                             
+  ######################################################## 
+  
+         57  Filter-epochs ACCEPTED for fit.
+         16  Filter-epochs REJECTED for fit.
+    1480038(ITER= 3): Use full   57 x   57 Covariance matrix.                                         
+    1480038(ITER= 3): Add covariance from fit-model
+    1480038(ITER= 3): Add covariance from Galactic extinction
+    1480038(ITER= 3): Inverted COVMAT with   3249 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    2   CID=1480038   NFITPAR=  9   iter=3                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1480038  fitpar( 1):ITER           =  3.0000     +/-  0.000    (P)
+       CID 1480038  fitpar( 3):PKMJD          =   57680.474 +/- 0.2973    (M)
+       CID 1480038  fitpar( 4):x1             = 0.80135     +/- 0.2430    (M)
+       CID 1480038  fitpar( 6):c              = -.16503E-01 +/- 0.2040E-01(M)
+       CID 1480038  fitpar( 8):x0             = 0.37402E-04 +/- 0.1011E-05(M)
+       CID 1480038   ITER=3   FITPROB =  0.920E+00
+  
+  ######################################################## 
+    FITANA_CUTS: APPLY FIT-CUTS TO SN 1480038                                       
+  ######################################################## 
+  
+                     PEAKMJD =  57680.473 PASSES CUT.                    
+                    TobsMin =  -18.1     PASSES CUT.
+                    TobsMax =   58.7     PASSES CUT.
+                   Trestmin =  -13.6     PASSES CUT.
+                   Trestmax =   43.9     PASSES CUT.
+                    TGAPmax =   8.28     PASSES CUT.
+                   T0GAPmax =   5.32     PASSES CUT.
+                     SNRSUM =   79.0     PASSES CUT.
+           FITWIN_TREST(min) =  -13.6     PASSES CUT.                    
+           FITWIN_TREST(max) =   43.9     PASSES CUT.                    
+           FITWIN_TRESTRANGE =   57.5     PASSES CUT.                    
+          x1                 =  0.801     PASSES CUT.                    
+          c                  = -0.165E-01 PASSES CUT.                    
+                      FITCOV              PASSES CUT.                    
+                     FITPROB =  0.920     PASSES CUT.                    
+                 CHI2(SIGMA) =   0.00     PASSES CUT.                    
+                NFILT_SNRMAX =    4       PASSES CUT.                    
+               NFILT_SNRMAX2 =    4       PASSES CUT.                    
+              NFILT_TRESTMIN =    4       PASSES CUT.                    
+              NFILT_TRESTMAX =    4       PASSES CUT.                    
+            MINOS ERROR EVALUATIONS   PASSES CUT.                        
+    CID 1480038  PASSES FIT-CUTS 
+
+PHASE2_HESSIAN: 1480038  3.74021708274086342E-005  8.01352683955522060E-001 -1.65029917183279196E-002  5.76804739694255695E+004  1.01748441961887664E-012 -1.62337062578136508E-007 -1.03948578389201340E-008 -1.10162624005833653E-007 -1.62337062578136508E-007  5.88780245994507540E-002  7.62741425721159762E-004  1.82529232885682603E-002 -1.03948578389201340E-008  7.62741425721159762E-004  4.06850059509505338E-004  1.01023073038430857E-003 -1.10162624005833653E-007  1.82529232885682603E-002  1.01023073038430857E-003  8.66428240304490532E-002
+  
+  ######################################################## 
+    LC FIT SUMMARY for CID=1480038                                                  
+  ######################################################## 
+  
+ Quantity          g          r          i          z
+ --------------------------------------------------------------------------------
+   NEPOCH         17         18         18         20
+  NREJECT          4          4          4          4
+     NDOF         13         14         14         16
+     CHI2       8.61      12.70       8.62       9.01
+     PROB       0.80       0.55       0.85       0.91
+  PeakMag      22.03      21.68      21.70      22.10
+  PeakErr       0.04       0.03       0.03       0.04
+     XTMW       0.08       0.05       0.04       0.03
+  XTMWerr       0.00       0.00       0.00       0.00
+ --------------------------------------------------------------------------------
+   SALT2 mB(1480038) =   21.7028 +-  0.0294
+   Trest FIT RANGE(1480038):  -13.55 to   43.92   (relative to FIT-PEAKMJD)
+   MJD   FIT RANGE(1480038): 57662.4 to 57739.1
+  
+   FIT MINIMUM (1480038) returns TOTAL   CHI2/dof=  39.3    / 53   PROB=0.92000
+   FIT MINIMUM (1480038) returns DATA    CHI2/dof=  39.3    / 53   PROB=0.92000
+   FIT MINIMUM (1480038) returns PRIOR   CHI2/dof= 0.151E-06/  0   PROB=1.00000
+  
+         SNLCPAK: pack CID = 1480038 for plotting.
+    Finished fitting CID =      1480038 in  0.378 seconds
+  *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+     Done Reading CID 1442085           NMJD(found,stored)= 107   97
+       SET_PEAKMJD(1442085) --> 57663.312   (FmaxClump)             
+       Analyze ISN=       3  for CID=1442085        NOBS(store,cuts)=  86->  86
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  1 for CID 1442085                 
+  ######################################################## 
+  
+    CID 1442085 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1442085 ITER= 1                             
+  ######################################################## 
+  
+         65  Filter-epochs ACCEPTED for fit.
+          0  Filter-epochs REJECTED for fit.
+    1442085(ITER= 1): Use DIAGONAL Covariance elements only.
+  
+  ######################################################## 
+    FITINI_ADJUST for CID= 1442085   (1442085)                                                          
+  ######################################################## 
+  
+   FCNSNLC(BEFORE FITINI_ADJUST)    returns   CHI2=     92.53/ 65
+         Adjust PKMJD=57663.312 ==> 57667.312  (CHI2=     73.87)
+   riz Data/Model flux-ratio :  0.832  0.946  0.822  
+       x0 =  0.709E-05 ==>  0.614E-05
+   FCNSNLC(AFTER  FITINI_ADJUST)    returns   CHI2=     64.22/ 65
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    3   CID=1442085   NFITPAR=  9   iter=1                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1442085  fitpar( 1):ITER           =  1.0000     +/-  0.000    (P)
+       CID 1442085  fitpar( 3):PKMJD          =   57665.991 +/-  1.160    (M)
+       CID 1442085  fitpar( 4):x1             = -1.6599     +/- 0.9434    (M)
+       CID 1442085  fitpar( 6):c              = -.96353E-02 +/- 0.9754E-01(M)
+       CID 1442085  fitpar( 8):x0             = 0.65161E-05 +/- 0.5467E-06(M)
+       CID 1442085   ITER=1   FITPROB =  0.512E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  2 for CID 1442085                 
+  ######################################################## 
+  
+    CID 1442085 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1442085 ITER= 2                             
+  ######################################################## 
+  
+         50  Filter-epochs ACCEPTED for fit.
+         15  Filter-epochs REJECTED for fit.
+    1442085(ITER= 2): Use full   50 x   50 Covariance matrix.                                         
+    1442085(ITER= 2): Add covariance from fit-model
+    1442085(ITER= 2): Add covariance from Galactic extinction
+    1442085(ITER= 2): Inverted COVMAT with   2500 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    3   CID=1442085   NFITPAR=  9   iter=2                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1442085  fitpar( 1):ITER           =  2.0000     +/-  0.000    (P)
+       CID 1442085  fitpar( 3):PKMJD          =   57666.179 +/-  1.104    (M)
+       CID 1442085  fitpar( 4):x1             = -1.4834     +/- 0.9095    (M)
+       CID 1442085  fitpar( 6):c              = 0.29601E-02 +/- 0.9515E-01(M)
+       CID 1442085  fitpar( 8):x0             = 0.64814E-05 +/- 0.5411E-06(M)
+       CID 1442085   ITER=2   FITPROB =  0.119E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  3 for CID 1442085                 
+  ######################################################## 
+  
+    CID 1442085 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1442085 ITER= 3                             
+  ######################################################## 
+  
+         50  Filter-epochs ACCEPTED for fit.
+         15  Filter-epochs REJECTED for fit.
+    1442085(ITER= 3): Use full   50 x   50 Covariance matrix.                                         
+    1442085(ITER= 3): Add covariance from fit-model
+    1442085(ITER= 3): Add covariance from Galactic extinction
+    1442085(ITER= 3): Inverted COVMAT with   2500 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    3   CID=1442085   NFITPAR=  9   iter=3                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1442085  fitpar( 1):ITER           =  3.0000     +/-  0.000    (P)
+       CID 1442085  fitpar( 3):PKMJD          =   57666.327 +/-  1.094    (M)
+       CID 1442085  fitpar( 4):x1             = -1.4372     +/- 0.9014    (M)
+       CID 1442085  fitpar( 6):c              = 0.31231E-02 +/- 0.9390E-01(M)
+       CID 1442085  fitpar( 8):x0             = 0.64895E-05 +/- 0.5341E-06(M)
+       CID 1442085   ITER=3   FITPROB =  0.117E+00
+  
+  ######################################################## 
+    FITANA_CUTS: APPLY FIT-CUTS TO SN 1442085                                       
+  ######################################################## 
+  
+                     PEAKMJD =  57666.328 PASSES CUT.                    
+                    TobsMin =  -23.1     PASSES CUT.
+                    TobsMax =   72.9     PASSES CUT.
+                   Trestmin =  -14.1     PASSES CUT.
+                   Trestmax =   44.6     PASSES CUT.
+                    TGAPmax =   6.76     PASSES CUT.
+                   T0GAPmax =   6.76     PASSES CUT.
+                     SNRSUM =   21.1     PASSES CUT.
+           FITWIN_TREST(min) =  -14.1     PASSES CUT.                    
+           FITWIN_TREST(max) =   44.6     PASSES CUT.                    
+           FITWIN_TRESTRANGE =   58.7     PASSES CUT.                    
+          x1                 =  -1.44     PASSES CUT.                    
+          c                  =  0.312E-02 PASSES CUT.                    
+                      FITCOV              PASSES CUT.                    
+                     FITPROB =  0.117     PASSES CUT.                    
+                 CHI2(SIGMA) =   0.00     PASSES CUT.                    
+                NFILT_SNRMAX =    3       PASSES CUT.                    
+               NFILT_SNRMAX2 =    4       PASSES CUT.                    
+              NFILT_TRESTMIN =    3       PASSES CUT.                    
+              NFILT_TRESTMAX =    3       PASSES CUT.                    
+            MINOS ERROR EVALUATIONS   PASSES CUT.                        
+    CID 1442085  PASSES FIT-CUTS 
+
+PHASE2_HESSIAN: 1442085  6.48952995372962740E-006 -1.43716415577548107E+000  3.12311269577336681E-003  5.76663269210626604E+004  2.83777618029469562E-013 -2.72415154190839697E-007 -2.26977349913584680E-008  5.00851526090089569E-008 -2.72415154190839697E-007  7.33368854495465183E-001  1.01894219037896808E-002  1.57222875274148938E-001 -2.26977349913584680E-008  1.01894219037896808E-002  9.18659761798783919E-003 -3.48574146897522681E-003  5.00851526090089569E-008  1.57222875274148938E-001 -3.48574146897522681E-003  5.46511157389833802E-001
+  
+  ######################################################## 
+    LC FIT SUMMARY for CID=1442085                                                  
+  ######################################################## 
+  
+ Quantity          r          i          z
+ --------------------------------------------------------------------------------
+   NEPOCH         20         22         23
+  NREJECT          5          5          5
+     NDOF         15         17         18
+     CHI2      14.66      24.79      18.16
+     PROB       0.48       0.10       0.45
+  PeakMag      23.47      23.32      23.38
+  PeakErr       0.10       0.08       0.10
+     XTMW       0.07       0.05       0.04
+  XTMWerr       0.00       0.00       0.00
+ --------------------------------------------------------------------------------
+   SALT2 mB(1442085) =   23.6045 +-  0.0894
+   Trest FIT RANGE(1442085):  -14.11 to   44.56   (relative to FIT-PEAKMJD)
+   MJD   FIT RANGE(1442085): 57643.3 to 57739.2
+  
+   FIT MINIMUM (1442085) returns TOTAL   CHI2/dof=  57.6    / 46   PROB=0.11658
+   FIT MINIMUM (1442085) returns DATA    CHI2/dof=  57.6    / 46   PROB=0.11658
+   FIT MINIMUM (1442085) returns PRIOR   CHI2/dof= 0.218E-03/  0   PROB=1.00000
+  
+         SNLCPAK: pack CID = 1442085 for plotting.
+    Finished fitting CID =      1442085 in  0.571 seconds
+  N_SNLC_READ =       5000   Rate =   2500.0 sec^-1
+  *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+     Done Reading CID 1318689           NMJD(found,stored)= 117   63
+       SET_PEAKMJD(1318689) --> 57011.086   (FmaxClump)             
+       Analyze ISN=       4  for CID=1318689        NOBS(store,cuts)=  55->  55
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  1 for CID 1318689                 
+  ######################################################## 
+  
+    CID 1318689 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1318689 ITER= 1                             
+  ######################################################## 
+  
+         41  Filter-epochs ACCEPTED for fit.
+          0  Filter-epochs REJECTED for fit.
+    1318689(ITER= 1): Use DIAGONAL Covariance elements only.
+  
+  ######################################################## 
+    FITINI_ADJUST for CID= 1318689   (1318689)                                                          
+  ######################################################## 
+  
+   FCNSNLC(BEFORE FITINI_ADJUST)    returns   CHI2=     56.50/ 41
+         Adjust PKMJD=57011.086 ==> 57015.086  (CHI2=     38.78)
+   riz Data/Model flux-ratio :  1.102  1.030  1.025  
+       x0 =  0.130E-04 ==>  0.136E-04
+   FCNSNLC(AFTER  FITINI_ADJUST)    returns   CHI2=     35.29/ 41
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    4   CID=1318689   NFITPAR=  9   iter=1                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1318689  fitpar( 1):ITER           =  1.0000     +/-  0.000    (P)
+       CID 1318689  fitpar( 3):PKMJD          =   57014.137 +/- 0.7915    (M)
+       CID 1318689  fitpar( 4):x1             = 0.82587     +/- 0.6524    (M)
+       CID 1318689  fitpar( 6):c              = -.28773E-01 +/- 0.5692E-01(M)
+       CID 1318689  fitpar( 8):x0             = 0.13758E-04 +/- 0.8139E-06(M)
+       CID 1318689   ITER=1   FITPROB =  0.717E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  2 for CID 1318689                 
+  ######################################################## 
+  
+    CID 1318689 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1318689 ITER= 2                             
+  ######################################################## 
+  
+         38  Filter-epochs ACCEPTED for fit.
+          3  Filter-epochs REJECTED for fit.
+    1318689(ITER= 2): Use full   38 x   38 Covariance matrix.                                         
+    1318689(ITER= 2): Add covariance from fit-model
+    1318689(ITER= 2): Add covariance from Galactic extinction
+    1318689(ITER= 2): Inverted COVMAT with   1444 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    4   CID=1318689   NFITPAR=  9   iter=2                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1318689  fitpar( 1):ITER           =  2.0000     +/-  0.000    (P)
+       CID 1318689  fitpar( 3):PKMJD          =   57014.401 +/- 0.7111    (M)
+       CID 1318689  fitpar( 4):x1             = 0.62485     +/- 0.5285    (M)
+       CID 1318689  fitpar( 6):c              = -.33419E-01 +/- 0.4644E-01(M)
+       CID 1318689  fitpar( 8):x0             = 0.13803E-04 +/- 0.6102E-06(M)
+       CID 1318689   ITER=2   FITPROB =  0.269E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  3 for CID 1318689                 
+  ######################################################## 
+  
+    CID 1318689 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1318689 ITER= 3                             
+  ######################################################## 
+  
+         38  Filter-epochs ACCEPTED for fit.
+          3  Filter-epochs REJECTED for fit.
+    1318689(ITER= 3): Use full   38 x   38 Covariance matrix.                                         
+    1318689(ITER= 3): Add covariance from fit-model
+    1318689(ITER= 3): Add covariance from Galactic extinction
+    1318689(ITER= 3): Inverted COVMAT with   1444 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    4   CID=1318689   NFITPAR=  9   iter=3                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1318689  fitpar( 1):ITER           =  3.0000     +/-  0.000    (P)
+       CID 1318689  fitpar( 3):PKMJD          =   57014.401 +/- 0.7096    (M)
+       CID 1318689  fitpar( 4):x1             = 0.62172     +/- 0.5269    (M)
+       CID 1318689  fitpar( 6):c              = -.33442E-01 +/- 0.4625E-01(M)
+       CID 1318689  fitpar( 8):x0             = 0.13805E-04 +/- 0.6085E-06(M)
+       CID 1318689   ITER=3   FITPROB =  0.264E+00
+  
+  ######################################################## 
+    FITANA_CUTS: APPLY FIT-CUTS TO SN 1318689                                       
+  ######################################################## 
+  
+                     PEAKMJD =  57014.402 PASSES CUT.                    
+                    TobsMin =  -22.3     PASSES CUT.
+                    TobsMax =   52.7     PASSES CUT.
+                   Trestmin =  -14.9     PASSES CUT.
+                   Trestmax =   35.3     PASSES CUT.
+                    TGAPmax =   6.63     PASSES CUT.
+                   T0GAPmax =   5.24     PASSES CUT.
+                     SNRSUM =   50.5     PASSES CUT.
+           FITWIN_TREST(min) =  -14.9     PASSES CUT.                    
+           FITWIN_TREST(max) =   35.3     PASSES CUT.                    
+           FITWIN_TRESTRANGE =   50.2     PASSES CUT.                    
+          x1                 =  0.622     PASSES CUT.                    
+          c                  = -0.334E-01 PASSES CUT.                    
+                      FITCOV              PASSES CUT.                    
+                     FITPROB =  0.264     PASSES CUT.                    
+                 CHI2(SIGMA) =   0.00     PASSES CUT.                    
+                NFILT_SNRMAX =    3       PASSES CUT.                    
+               NFILT_SNRMAX2 =    4       PASSES CUT.                    
+              NFILT_TRESTMIN =    3       PASSES CUT.                    
+              NFILT_TRESTMAX =    3       PASSES CUT.                    
+            MINOS ERROR EVALUATIONS   PASSES CUT.                        
+    CID 1318689  PASSES FIT-CUTS 
+
+PHASE2_HESSIAN: 1318689  1.38045890180733502E-005  6.21715494695809667E-001 -3.34420564190796021E-002  5.70144011685353908E+004  3.67191074020452242E-013 -1.68191630223518160E-007 -1.93629987158036833E-008  2.85913784510494276E-008 -1.68191630223518160E-007  2.62772423378695275E-001  4.30271995527779522E-003 -8.01546987960403273E-002 -1.93629987158036833E-008  4.30271995527779522E-003  2.12587947563522544E-003 -1.02529664270213281E-003  2.85913784510494276E-008 -8.01546987960403273E-002 -1.02529664270213281E-003  2.92850145616183666E-001
+  
+  ######################################################## 
+    LC FIT SUMMARY for CID=1318689                                                  
+  ######################################################## 
+  
+ Quantity          r          i          z
+ --------------------------------------------------------------------------------
+   NEPOCH         13         14         14
+  NREJECT          1          1          1
+     NDOF         12         13         13
+     CHI2      20.50       7.68      10.47
+     PROB       0.06       0.86       0.66
+  PeakMag      22.51      22.66      22.72
+  PeakErr       0.05       0.03       0.05
+     XTMW       0.03       0.02       0.02
+  XTMWerr       0.00       0.00       0.00
+ --------------------------------------------------------------------------------
+   SALT2 mB(1318689) =   22.7849 +-  0.0479
+   Trest FIT RANGE(1318689):  -14.91 to   35.28   (relative to FIT-PEAKMJD)
+   MJD   FIT RANGE(1318689): 56992.1 to 57067.1
+  
+   FIT MINIMUM (1318689) returns TOTAL   CHI2/dof=  38.8    / 34   PROB=0.26392
+   FIT MINIMUM (1318689) returns DATA    CHI2/dof=  38.8    / 34   PROB=0.26392
+   FIT MINIMUM (1318689) returns PRIOR   CHI2/dof= 0.297E-07/  0   PROB=1.00000
+  
+         SNLCPAK: pack CID = 1318689 for plotting.
+    Finished fitting CID =      1318689 in  0.291 seconds
+  *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+     Done Reading CID 1311247           NMJD(found,stored)= 100   57
+       SET_PEAKMJD(1311247) --> 56992.051   (FmaxClump)             
+       Analyze ISN=       5  for CID=1311247        NOBS(store,cuts)=  49->  49
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  1 for CID 1311247                 
+  ######################################################## 
+  
+    CID 1311247 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1311247 ITER= 1                             
+  ######################################################## 
+  
+         37  Filter-epochs ACCEPTED for fit.
+          0  Filter-epochs REJECTED for fit.
+    1311247(ITER= 1): Use DIAGONAL Covariance elements only.
+  
+  ######################################################## 
+    FITINI_ADJUST for CID= 1311247   (1311247)                                                          
+  ######################################################## 
+  
+   FCNSNLC(BEFORE FITINI_ADJUST)    returns   CHI2=    200.26/ 37
+         Adjust PKMJD=56992.051 ==> 56990.051  (CHI2=    197.32)
+   riz Data/Model flux-ratio :  1.734  1.714  1.635  
+       x0 =  0.168E-04 ==>  0.285E-04
+   FCNSNLC(AFTER  FITINI_ADJUST)    returns   CHI2=     38.04/ 37
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    5   CID=1311247   NFITPAR=  9   iter=1                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1311247  fitpar( 1):ITER           =  1.0000     +/-  0.000    (P)
+       CID 1311247  fitpar( 3):PKMJD          =   56992.203 +/- 0.8200    (M)
+       CID 1311247  fitpar( 4):x1             =  1.9296     +/- 0.7428    (M)
+       CID 1311247  fitpar( 6):c              = 0.17721E-01 +/- 0.5971E-01(M)
+       CID 1311247  fitpar( 8):x0             = 0.26177E-04 +/- 0.1734E-05(M)
+       CID 1311247   ITER=1   FITPROB =  0.842E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  2 for CID 1311247                 
+  ######################################################## 
+  
+    CID 1311247 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1311247 ITER= 2                             
+  ######################################################## 
+  
+         36  Filter-epochs ACCEPTED for fit.
+          1  Filter-epochs REJECTED for fit.
+    1311247(ITER= 2): Use full   36 x   36 Covariance matrix.                                         
+    1311247(ITER= 2): Add covariance from fit-model
+    1311247(ITER= 2): Add covariance from Galactic extinction
+    1311247(ITER= 2): Inverted COVMAT with   1296 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    5   CID=1311247   NFITPAR=  9   iter=2                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1311247  fitpar( 1):ITER           =  2.0000     +/-  0.000    (P)
+       CID 1311247  fitpar( 3):PKMJD          =   56992.710 +/- 0.4803    (M)
+       CID 1311247  fitpar( 4):x1             =  2.6239     +/- 0.5090    (M)
+       CID 1311247  fitpar( 6):c              = 0.57741E-01 +/- 0.4186E-01(M)
+       CID 1311247  fitpar( 8):x0             = 0.24938E-04 +/- 0.1165E-05(M)
+       CID 1311247   ITER=2   FITPROB =  0.302E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  3 for CID 1311247                 
+  ######################################################## 
+  
+    CID 1311247 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1311247 ITER= 3                             
+  ######################################################## 
+  
+         36  Filter-epochs ACCEPTED for fit.
+          1  Filter-epochs REJECTED for fit.
+    1311247(ITER= 3): Use full   36 x   36 Covariance matrix.                                         
+    1311247(ITER= 3): Add covariance from fit-model
+    1311247(ITER= 3): Add covariance from Galactic extinction
+    1311247(ITER= 3): Inverted COVMAT with   1296 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    5   CID=1311247   NFITPAR=  9   iter=3                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1311247  fitpar( 1):ITER           =  3.0000     +/-  0.000    (P)
+       CID 1311247  fitpar( 3):PKMJD          =   56992.755 +/- 0.5062    (M)
+       CID 1311247  fitpar( 4):x1             =  2.5739     +/- 0.5308    (M)
+       CID 1311247  fitpar( 6):c              = 0.54846E-01 +/- 0.4477E-01(M)
+       CID 1311247  fitpar( 8):x0             = 0.25014E-04 +/- 0.1249E-05(M)
+       CID 1311247   ITER=3   FITPROB =  0.362E+00
+  
+  ######################################################## 
+    FITANA_CUTS: APPLY FIT-CUTS TO SN 1311247                                       
+  ######################################################## 
+  
+                     PEAKMJD =  56992.754 PASSES CUT.                    
+                    TobsMin =  -19.7     PASSES CUT.
+                    TobsMax =   56.3     PASSES CUT.
+                   Trestmin =  -13.7     PASSES CUT.
+                   Trestmax =   39.0     PASSES CUT.
+                    TGAPmax =   6.93     PASSES CUT.
+                   T0GAPmax =   6.93     PASSES CUT.
+                     SNRSUM =   68.8     PASSES CUT.
+           FITWIN_TREST(min) =  -13.7     PASSES CUT.                    
+           FITWIN_TREST(max) =   39.0     PASSES CUT.                    
+           FITWIN_TRESTRANGE =   52.7     PASSES CUT.                    
+          x1                 =   2.57     PASSES CUT.                    
+          c                  =  0.548E-01 PASSES CUT.                    
+                      FITCOV              PASSES CUT.                    
+                     FITPROB =  0.362     PASSES CUT.                    
+                 CHI2(SIGMA) =   0.00     PASSES CUT.                    
+                NFILT_SNRMAX =    3       PASSES CUT.                    
+               NFILT_SNRMAX2 =    4       PASSES CUT.                    
+              NFILT_TRESTMIN =    3       PASSES CUT.                    
+              NFILT_TRESTMAX =    3       PASSES CUT.                    
+            MINOS ERROR EVALUATIONS   PASSES CUT.                        
+    CID 1311247  PASSES FIT-CUTS 
+
+PHASE2_HESSIAN: 1311247  2.50135659130226971E-005  2.57387216158158694E+000  5.48460518472531078E-002  5.69927549562819258E+004  1.57721974250199031E-012 -4.48601027350641994E-007 -4.33369549601171113E-008 -1.92269186550105282E-007 -4.48601027350641994E-007  2.82499432807463424E-001  7.16875042614972813E-003  7.88766544210892234E-002 -4.33369549601171113E-008  7.16875042614972813E-003  2.02714099090518709E-003  5.25415435136908013E-003 -1.92269186550105282E-007  7.88766544210892234E-002  5.25415435136908013E-003  2.61673454804074224E-001
+  
+  ######################################################## 
+    LC FIT SUMMARY for CID=1311247                                                  
+  ######################################################## 
+  
+ Quantity          r          i          z
+ --------------------------------------------------------------------------------
+   NEPOCH         12         13         12
+  NREJECT          0          0          1
+     NDOF         12         13         11
+     CHI2       5.55      10.36      18.20
+     PROB       0.94       0.66       0.08
+  PeakMag      21.90      21.90      22.10
+  PeakErr       0.05       0.03       0.05
+     XTMW       0.02       0.01       0.01
+  XTMWerr       0.00       0.00       0.00
+ --------------------------------------------------------------------------------
+   SALT2 mB(1311247) =   22.1396 +-  0.0542
+   Trest FIT RANGE(1311247):  -13.68 to   39.01   (relative to FIT-PEAKMJD)
+   MJD   FIT RANGE(1311247): 56973.0 to 57049.0
+  
+   FIT MINIMUM (1311247) returns TOTAL   CHI2/dof=  34.2    / 32   PROB=0.36190
+   FIT MINIMUM (1311247) returns DATA    CHI2/dof=  34.2    / 32   PROB=0.36190
+   FIT MINIMUM (1311247) returns PRIOR   CHI2/dof= 0.204E-04/  0   PROB=1.00000
+  
+         SNLCPAK: pack CID = 1311247 for plotting.
+    Finished fitting CID =      1311247 in  0.269 seconds
+  N_SNLC_READ =      10000   Rate =   3333.3 sec^-1
+  *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+     Done Reading CID 1923060           NMJD(found,stored)=  56   48
+       SET_PEAKMJD(1923060) --> 58101.047   (FmaxClump)             
+       Analyze ISN=       6  for CID=1923060        NOBS(store,cuts)=  40->  40
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  1 for CID 1923060                 
+  ######################################################## 
+  
+    CID 1923060 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1923060 ITER= 1                             
+  ######################################################## 
+  
+         30  Filter-epochs ACCEPTED for fit.
+          0  Filter-epochs REJECTED for fit.
+    1923060(ITER= 1): Use DIAGONAL Covariance elements only.
+  
+  ######################################################## 
+    FITINI_ADJUST for CID= 1923060   (1923060)                                                          
+  ######################################################## 
+  
+   FCNSNLC(BEFORE FITINI_ADJUST)    returns   CHI2=     80.41/ 30
+         Adjust PKMJD=58101.047 ==> 58103.047  (CHI2=     64.16)
+   riz Data/Model flux-ratio :  1.156  1.192  1.149  
+       x0 =  0.236E-04 ==>  0.275E-04
+   FCNSNLC(AFTER  FITINI_ADJUST)    returns   CHI2=     11.33/ 30
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    6   CID=1923060   NFITPAR=  9   iter=1                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1923060  fitpar( 1):ITER           =  1.0000     +/-  0.000    (P)
+       CID 1923060  fitpar( 3):PKMJD          =   58102.941 +/- 0.5052    (M)
+       CID 1923060  fitpar( 4):x1             = 0.41753     +/- 0.5058    (M)
+       CID 1923060  fitpar( 6):c              = 0.23023E-01 +/- 0.4324E-01(M)
+       CID 1923060  fitpar( 8):x0             = 0.27025E-04 +/- 0.1313E-05(M)
+       CID 1923060   ITER=1   FITPROB =  0.997E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  2 for CID 1923060                 
+  ######################################################## 
+  
+    CID 1923060 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1923060 ITER= 2                             
+  ######################################################## 
+  
+         24  Filter-epochs ACCEPTED for fit.
+          6  Filter-epochs REJECTED for fit.
+    1923060(ITER= 2): Use full   24 x   24 Covariance matrix.                                         
+    1923060(ITER= 2): Add covariance from fit-model
+    1923060(ITER= 2): Add covariance from Galactic extinction
+    1923060(ITER= 2): Inverted COVMAT with    576 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    6   CID=1923060   NFITPAR=  9   iter=2                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1923060  fitpar( 1):ITER           =  2.0000     +/-  0.000    (P)
+       CID 1923060  fitpar( 3):PKMJD          =   58103.053 +/- 0.3647    (M)
+       CID 1923060  fitpar( 4):x1             = 0.29699     +/- 0.3548    (M)
+       CID 1923060  fitpar( 6):c              = 0.27724E-01 +/- 0.3142E-01(M)
+       CID 1923060  fitpar( 8):x0             = 0.26984E-04 +/- 0.8959E-06(M)
+       CID 1923060   ITER=2   FITPROB =  0.579E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  3 for CID 1923060                 
+  ######################################################## 
+  
+    CID 1923060 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1923060 ITER= 3                             
+  ######################################################## 
+  
+         24  Filter-epochs ACCEPTED for fit.
+          6  Filter-epochs REJECTED for fit.
+    1923060(ITER= 3): Use full   24 x   24 Covariance matrix.                                         
+    1923060(ITER= 3): Add covariance from fit-model
+    1923060(ITER= 3): Add covariance from Galactic extinction
+    1923060(ITER= 3): Inverted COVMAT with    576 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    6   CID=1923060   NFITPAR=  9   iter=3                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1923060  fitpar( 1):ITER           =  3.0000     +/-  0.000    (P)
+       CID 1923060  fitpar( 3):PKMJD          =   58103.054 +/- 0.3639    (M)
+       CID 1923060  fitpar( 4):x1             = 0.29445     +/- 0.3542    (M)
+       CID 1923060  fitpar( 6):c              = 0.27612E-01 +/- 0.3140E-01(M)
+       CID 1923060  fitpar( 8):x0             = 0.26989E-04 +/- 0.8953E-06(M)
+       CID 1923060   ITER=3   FITPROB =  0.574E+00
+  
+  ######################################################## 
+    FITANA_CUTS: APPLY FIT-CUTS TO SN 1923060                                       
+  ######################################################## 
+  
+                     PEAKMJD =  58103.055 PASSES CUT.                    
+                    TobsMin =  -11.0     PASSES CUT.
+                    TobsMax =   33.0     PASSES CUT.
+                   Trestmin =  -7.96     PASSES CUT.
+                   Trestmax =   23.8     PASSES CUT.
+                    TGAPmax =   6.53     PASSES CUT.
+                   T0GAPmax =   2.89     PASSES CUT.
+                     SNRSUM =   93.1     PASSES CUT.
+           FITWIN_TREST(min) =  -7.96     PASSES CUT.                    
+           FITWIN_TREST(max) =   23.8     PASSES CUT.                    
+           FITWIN_TRESTRANGE =   31.8     PASSES CUT.                    
+          x1                 =  0.294     PASSES CUT.                    
+          c                  =  0.276E-01 PASSES CUT.                    
+                      FITCOV              PASSES CUT.                    
+                     FITPROB =  0.574     PASSES CUT.                    
+                 CHI2(SIGMA) =   0.00     PASSES CUT.                    
+                NFILT_SNRMAX =    3       PASSES CUT.                    
+               NFILT_SNRMAX2 =    4       PASSES CUT.                    
+              NFILT_TRESTMIN =    3       PASSES CUT.                    
+              NFILT_TRESTMAX =    3       PASSES CUT.                    
+            MINOS ERROR EVALUATIONS   PASSES CUT.                        
+    CID 1923060  PASSES FIT-CUTS 
+
+PHASE2_HESSIAN: 1923060  2.69893925012700130E-005  2.94453745989975424E-001  2.76119982888474169E-002  5.81030542092719188E+004  8.08241829395076097E-013 -1.74371236960977304E-007 -2.40885434199797584E-008 -2.65823800173317580E-008 -1.74371236960977304E-007  1.25521989062102018E-001  3.88989023308823362E-003  5.76571035651781121E-003 -2.40885434199797584E-008  3.88989023308823362E-003  1.00280774740345519E-003 -1.00786506651708625E-005 -2.65823800173317580E-008  5.76571035651781121E-003 -1.00786506651708625E-005  1.29495552955006310E-001
+  
+  ######################################################## 
+    LC FIT SUMMARY for CID=1923060                                                  
+  ######################################################## 
+  
+ Quantity          r          i          z
+ --------------------------------------------------------------------------------
+   NEPOCH         10         10         10
+  NREJECT          2          2          2
+     NDOF          8          8          8
+     CHI2       2.38      11.78       3.87
+     PROB       0.97       0.16       0.87
+  PeakMag      21.93      21.95      22.18
+  PeakErr       0.03       0.02       0.04
+     XTMW       0.04       0.03       0.03
+  XTMWerr       0.00       0.00       0.00
+ --------------------------------------------------------------------------------
+   SALT2 mB(1923060) =   22.0570 +-  0.0360
+   Trest FIT RANGE(1923060):   -7.96 to   23.85   (relative to FIT-PEAKMJD)
+   MJD   FIT RANGE(1923060): 58092.0 to 58136.0
+  
+   FIT MINIMUM (1923060) returns TOTAL   CHI2/dof=  18.2    / 20   PROB=0.57397
+   FIT MINIMUM (1923060) returns DATA    CHI2/dof=  18.2    / 20   PROB=0.57397
+   FIT MINIMUM (1923060) returns PRIOR   CHI2/dof= 0.108E-06/  0   PROB=1.00000
+  
+         SNLCPAK: pack CID = 1923060 for plotting.
+    Finished fitting CID =      1923060 in  0.143 seconds
+  *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+     Done Reading CID 1896213           NMJD(found,stored)=  78   70
+       SET_PEAKMJD(1896213) --> 58064.262   (FmaxClump)             
+       Analyze ISN=       7  for CID=1896213        NOBS(store,cuts)=  67->  67
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  1 for CID 1896213                 
+  ######################################################## 
+  
+    CID 1896213 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1896213 ITER= 1                             
+  ######################################################## 
+  
+         50  Filter-epochs ACCEPTED for fit.
+          0  Filter-epochs REJECTED for fit.
+    1896213(ITER= 1): Use DIAGONAL Covariance elements only.
+  
+  ######################################################## 
+    FITINI_ADJUST for CID= 1896213   (1896213)                                                          
+  ######################################################## 
+  
+   FCNSNLC(BEFORE FITINI_ADJUST)    returns   CHI2=     84.73/ 50
+         Adjust PKMJD=58064.262 ==> 58064.262  (CHI2=     84.73)
+   riz Data/Model flux-ratio :  0.773  0.771  0.966  
+       x0 =  0.584E-05 ==>  0.488E-05
+   FCNSNLC(AFTER  FITINI_ADJUST)    returns   CHI2=     47.43/ 50
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    7   CID=1896213   NFITPAR=  9   iter=1                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1896213  fitpar( 1):ITER           =  1.0000     +/-  0.000    (P)
+       CID 1896213  fitpar( 3):PKMJD          =   58064.125 +/- 0.7275    (M)
+       CID 1896213  fitpar( 4):x1             = -1.0637     +/- 0.5471    (M)
+       CID 1896213  fitpar( 6):c              = 0.11569     +/- 0.5980E-01(M)
+       CID 1896213  fitpar( 8):x0             = 0.49783E-05 +/- 0.2329E-06(M)
+       CID 1896213   ITER=1   FITPROB =  0.815E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  2 for CID 1896213                 
+  ######################################################## 
+  
+    CID 1896213 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1896213 ITER= 2                             
+  ######################################################## 
+  
+         42  Filter-epochs ACCEPTED for fit.
+          8  Filter-epochs REJECTED for fit.
+    1896213(ITER= 2): Use full   42 x   42 Covariance matrix.                                         
+    1896213(ITER= 2): Add covariance from fit-model
+    1896213(ITER= 2): Add covariance from Galactic extinction
+    1896213(ITER= 2): Inverted COVMAT with   1764 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    7   CID=1896213   NFITPAR=  9   iter=2                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1896213  fitpar( 1):ITER           =  2.0000     +/-  0.000    (P)
+       CID 1896213  fitpar( 3):PKMJD          =   58064.259 +/- 0.5657    (M)
+       CID 1896213  fitpar( 4):x1             = -1.0314     +/- 0.4288    (M)
+       CID 1896213  fitpar( 6):c              = 0.12359     +/- 0.5244E-01(M)
+       CID 1896213  fitpar( 8):x0             = 0.49491E-05 +/- 0.1978E-06(M)
+       CID 1896213   ITER=2   FITPROB =  0.680E-01
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  3 for CID 1896213                 
+  ######################################################## 
+  
+    CID 1896213 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1896213 ITER= 3                             
+  ######################################################## 
+  
+         42  Filter-epochs ACCEPTED for fit.
+          8  Filter-epochs REJECTED for fit.
+    1896213(ITER= 3): Use full   42 x   42 Covariance matrix.                                         
+    1896213(ITER= 3): Add covariance from fit-model
+    1896213(ITER= 3): Add covariance from Galactic extinction
+    1896213(ITER= 3): Inverted COVMAT with   1764 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    7   CID=1896213   NFITPAR=  9   iter=3                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1896213  fitpar( 1):ITER           =  3.0000     +/-  0.000    (P)
+       CID 1896213  fitpar( 3):PKMJD          =   58064.260 +/- 0.5643    (M)
+       CID 1896213  fitpar( 4):x1             = -1.0314     +/- 0.4278    (M)
+       CID 1896213  fitpar( 6):c              = 0.12359     +/- 0.5231E-01(M)
+       CID 1896213  fitpar( 8):x0             = 0.49491E-05 +/- 0.1973E-06(M)
+       CID 1896213   ITER=3   FITPROB =  0.672E-01
+  
+  ######################################################## 
+    FITANA_CUTS: APPLY FIT-CUTS TO SN 1896213                                       
+  ######################################################## 
+  
+                     PEAKMJD =  58064.258 PASSES CUT.                    
+                    TobsMin =  -24.0     PASSES CUT.
+                    TobsMax =   73.8     PASSES CUT.
+                   Trestmin =  -14.2     PASSES CUT.
+                   Trestmax =   43.7     PASSES CUT.
+                    TGAPmax =   5.84     PASSES CUT.
+                   T0GAPmax =   2.99     PASSES CUT.
+                     SNRSUM =   42.1     PASSES CUT.
+           FITWIN_TREST(min) =  -14.2     PASSES CUT.                    
+           FITWIN_TREST(max) =   43.7     PASSES CUT.                    
+           FITWIN_TRESTRANGE =   57.9     PASSES CUT.                    
+          x1                 =  -1.03     PASSES CUT.                    
+          c                  =  0.124     PASSES CUT.                    
+                      FITCOV              PASSES CUT.                    
+                     FITPROB =  0.672E-01 PASSES CUT.                    
+                 CHI2(SIGMA) =   0.00     PASSES CUT.                    
+                NFILT_SNRMAX =    3       PASSES CUT.                    
+               NFILT_SNRMAX2 =    4       PASSES CUT.                    
+              NFILT_TRESTMIN =    3       PASSES CUT.                    
+              NFILT_TRESTMAX =    3       PASSES CUT.                    
+            MINOS ERROR EVALUATIONS   PASSES CUT.                        
+    CID 1896213  PASSES FIT-CUTS 
+
+PHASE2_HESSIAN: 1896213  4.94913569452321973E-006 -1.03141360333660836E+000  1.23592290965750751E-001  5.80642595397897458E+004  3.72947176884367356E-014 -4.98408205285997896E-008 -5.21638456643010274E-009 -7.82606063016037799E-010 -4.98408205285997896E-008  1.75636139213100395E-001  6.95737232892820572E-003  2.04056957685484850E-003 -5.21638456643010274E-009  6.95737232892820572E-003  2.52424314673839034E-003  7.62421846100054708E-005 -7.82606063016037799E-010  2.04056957685484850E-003  7.62421846100054708E-005  1.53570960345358332E-002
+  
+  ######################################################## 
+    LC FIT SUMMARY for CID=1896213                                                  
+  ######################################################## 
+  
+ Quantity          r          i          z
+ --------------------------------------------------------------------------------
+   NEPOCH         19         16         15
+  NREJECT          3          3          2
+     NDOF         16         13         13
+     CHI2      25.98      16.85       9.06
+     PROB       0.05       0.21       0.77
+  PeakMag      23.81      23.55      23.43
+  PeakErr       0.06       0.04       0.04
+     XTMW       0.02       0.02       0.01
+  XTMWerr       0.00       0.00       0.00
+ --------------------------------------------------------------------------------
+   SALT2 mB(1896213) =   23.8987 +-  0.0433
+   Trest FIT RANGE(1896213):  -14.20 to   43.74   (relative to FIT-PEAKMJD)
+   MJD   FIT RANGE(1896213): 58040.3 to 58138.1
+  
+   FIT MINIMUM (1896213) returns TOTAL   CHI2/dof=  51.8    / 38   PROB=0.06716
+   FIT MINIMUM (1896213) returns DATA    CHI2/dof=  51.8    / 38   PROB=0.06716
+   FIT MINIMUM (1896213) returns PRIOR   CHI2/dof= 0.386E-07/  0   PROB=1.00000
+  
+         SNLCPAK: pack CID = 1896213 for plotting.
+    Finished fitting CID =      1896213 in  0.402 seconds
+  *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+     Done Reading CID 1339609           NMJD(found,stored)= 202   97
+       SET_PEAKMJD(1339609) --> 57379.074   (FmaxClump)             
+
+  *** DUPLICATE MJD WARNING *** CID=1339609   MJD=57339.2340   BAND=z   FIELD=C2+C3                       
+
+       Analyze ISN=       8  for CID=1339609        NOBS(store,cuts)=  97->  97
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  1 for CID 1339609                 
+  ######################################################## 
+  
+    CID 1339609 : FIT OBSERVER FILTERS iz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1339609 ITER= 1                             
+  ######################################################## 
+  
+         50  Filter-epochs ACCEPTED for fit.
+          0  Filter-epochs REJECTED for fit.
+    1339609(ITER= 1): Use DIAGONAL Covariance elements only.
+  
+  ######################################################## 
+    FITINI_ADJUST for CID= 1339609   (1339609)                                                          
+  ######################################################## 
+  
+   FCNSNLC(BEFORE FITINI_ADJUST)    returns   CHI2=    180.95/ 50
+         Adjust PKMJD=57379.074 ==> 57375.074  (CHI2=    154.99)
+   iz Data/Model flux-ratio :  1.853  1.651  
+       x0 =  0.176E-05 ==>  0.308E-05
+   FCNSNLC(AFTER  FITINI_ADJUST)    returns   CHI2=     44.61/ 50
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    8   CID=1339609   NFITPAR=  9   iter=1                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1339609  fitpar( 1):ITER           =  1.0000     +/-  0.000    (P)
+       CID 1339609  fitpar( 3):PKMJD          =   57373.135 +/-  1.269    (M)
+       CID 1339609  fitpar( 4):x1             = 0.67008     +/- 0.8234    (M)
+       CID 1339609  fitpar( 6):c              = -.95869E-01 +/- 0.1028    (M)
+       CID 1339609  fitpar( 8):x0             = 0.28852E-05 +/- 0.1888E-06(M)
+       CID 1339609   ITER=1   FITPROB =  0.839E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  2 for CID 1339609                 
+  ######################################################## 
+  
+    CID 1339609 : FIT OBSERVER FILTERS iz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1339609 ITER= 2                             
+  ######################################################## 
+  
+         43  Filter-epochs ACCEPTED for fit.
+          7  Filter-epochs REJECTED for fit.
+    1339609(ITER= 2): Use full   43 x   43 Covariance matrix.                                         
+    1339609(ITER= 2): Add covariance from fit-model
+    1339609(ITER= 2): Add covariance from Galactic extinction
+    1339609(ITER= 2): Inverted COVMAT with   1849 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    8   CID=1339609   NFITPAR=  9   iter=2                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1339609  fitpar( 1):ITER           =  2.0000     +/-  0.000    (P)
+       CID 1339609  fitpar( 3):PKMJD          =   57372.368 +/-  1.007    (M)
+       CID 1339609  fitpar( 4):x1             = 0.89340     +/- 0.6144    (M)
+       CID 1339609  fitpar( 6):c              = -.70539E-01 +/- 0.7844E-01(M)
+       CID 1339609  fitpar( 8):x0             = 0.28581E-05 +/- 0.1473E-06(M)
+       CID 1339609   ITER=2   FITPROB =  0.670E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  3 for CID 1339609                 
+  ######################################################## 
+  
+    CID 1339609 : FIT OBSERVER FILTERS iz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1339609 ITER= 3                             
+  ######################################################## 
+  
+         43  Filter-epochs ACCEPTED for fit.
+          7  Filter-epochs REJECTED for fit.
+    1339609(ITER= 3): Use full   43 x   43 Covariance matrix.                                         
+    1339609(ITER= 3): Add covariance from fit-model
+    1339609(ITER= 3): Add covariance from Galactic extinction
+    1339609(ITER= 3): Inverted COVMAT with   1849 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    8   CID=1339609   NFITPAR=  9   iter=3                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1339609  fitpar( 1):ITER           =  3.0000     +/-  0.000    (P)
+       CID 1339609  fitpar( 3):PKMJD          =   57372.358 +/-  1.004    (M)
+       CID 1339609  fitpar( 4):x1             = 0.88612     +/- 0.6149    (M)
+       CID 1339609  fitpar( 6):c              = -.69416E-01 +/- 0.7864E-01(M)
+       CID 1339609  fitpar( 8):x0             = 0.28604E-05 +/- 0.1475E-06(M)
+       CID 1339609   ITER=3   FITPROB =  0.672E+00
+  
+  ######################################################## 
+    FITANA_CUTS: APPLY FIT-CUTS TO SN 1339609                                       
+  ######################################################## 
+  
+                     PEAKMJD =  57372.359 PASSES CUT.                    
+                    TobsMin =  -27.1     PASSES CUT.
+                    TobsMax =   53.8     PASSES CUT.
+                   Trestmin =  -12.8     PASSES CUT.
+                   Trestmax =   25.3     PASSES CUT.
+                    TGAPmax =   8.01     PASSES CUT.
+                   T0GAPmax =   3.78     PASSES CUT.
+                     SNRSUM =   38.9     PASSES CUT.
+           FITWIN_TREST(min) =  -12.8     PASSES CUT.                    
+           FITWIN_TREST(max) =   25.3     PASSES CUT.                    
+           FITWIN_TRESTRANGE =   38.1     PASSES CUT.                    
+          x1                 =  0.886     PASSES CUT.                    
+          c                  = -0.694E-01 PASSES CUT.                    
+                      FITCOV              PASSES CUT.                    
+                     FITPROB =  0.672     PASSES CUT.                    
+                 CHI2(SIGMA) =   0.00     PASSES CUT.                    
+                NFILT_SNRMAX =    2       PASSES CUT.                    
+               NFILT_SNRMAX2 =    4       PASSES CUT.                    
+              NFILT_TRESTMIN =    2       PASSES CUT.                    
+              NFILT_TRESTMAX =    2       PASSES CUT.                    
+            MINOS ERROR EVALUATIONS   PASSES CUT.                        
+    CID 1339609  PASSES FIT-CUTS 
+
+PHASE2_HESSIAN: 1339609  2.86042330146569691E-006  8.86124109621552414E-001 -6.94160209748557744E-002  5.73723575041162330E+004  2.17147576754236048E-014 -4.30309105277131408E-008  5.37448925854013140E-009 -2.45658368914788840E-008 -4.30309105277131408E-008  3.76091178063747089E-001  1.23563100073795108E-002  7.58861300440467762E-002  5.37448925854013140E-009  1.23563100073795108E-002  6.24166943355872195E-003 -7.22668479804321716E-003 -2.45658368914788840E-008  7.58861300440467762E-002 -7.22668479804321716E-003  1.02293516222596126E+000
+  
+  ######################################################## 
+    LC FIT SUMMARY for CID=1339609                                                  
+  ######################################################## 
+  
+ Quantity          i          z
+ --------------------------------------------------------------------------------
+   NEPOCH         23         27
+  NREJECT          2          5
+     NDOF         21         22
+     CHI2      16.88      17.59
+     PROB       0.72       0.73
+  PeakMag      24.11      23.80
+  PeakErr       0.05       0.06
+     XTMW       0.01       0.01
+  XTMWerr       0.00       0.00
+ --------------------------------------------------------------------------------
+   SALT2 mB(1339609) =   24.4939 +-  0.0560
+   Trest FIT RANGE(1339609):  -12.76 to   25.35   (relative to FIT-PEAKMJD)
+   MJD   FIT RANGE(1339609): 57345.3 to 57426.1
+  
+   FIT MINIMUM (1339609) returns TOTAL   CHI2/dof=  34.6    / 39   PROB=0.67156
+   FIT MINIMUM (1339609) returns DATA    CHI2/dof=  34.6    / 39   PROB=0.67156
+   FIT MINIMUM (1339609) returns PRIOR   CHI2/dof= 0.125E-05/  0   PROB=1.00000
+  
+         SNLCPAK: pack CID = 1339609 for plotting.
+    Finished fitting CID =      1339609 in  0.342 seconds
+  N_SNLC_READ =      15000   Rate =   3750.0 sec^-1
+  *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+     Done Reading CID 1289306           NMJD(found,stored)= 219  169
+       SET_PEAKMJD(1289306) --> 57265.230   (FmaxClump)             
+       Analyze ISN=       9  for CID=1289306        NOBS(store,cuts)= 161-> 161
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  1 for CID 1289306                 
+  ######################################################## 
+  
+    CID 1289306 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1289306 ITER= 1                             
+  ######################################################## 
+  
+        124  Filter-epochs ACCEPTED for fit.
+          0  Filter-epochs REJECTED for fit.
+    1289306(ITER= 1): Use DIAGONAL Covariance elements only.
+  
+  ######################################################## 
+    FITINI_ADJUST for CID= 1289306   (1289306)                                                          
+  ######################################################## 
+  
+   FCNSNLC(BEFORE FITINI_ADJUST)    returns   CHI2=    277.07/124
+         Adjust PKMJD=57265.230 ==> 57269.230  (CHI2=    247.56)
+   riz Data/Model flux-ratio :  0.686  0.791  0.702  
+       x0 =  0.103E-04 ==>  0.748E-05
+   FCNSNLC(AFTER  FITINI_ADJUST)    returns   CHI2=    123.33/124
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    9   CID=1289306   NFITPAR=  9   iter=1                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1289306  fitpar( 1):ITER           =  1.0000     +/-  0.000    (P)
+       CID 1289306  fitpar( 3):PKMJD          =   57267.028 +/- 0.5886    (M)
+       CID 1289306  fitpar( 4):x1             = -2.6446     +/- 0.5955    (M)
+       CID 1289306  fitpar( 6):c              = -.63795E-01 +/- 0.6908E-01(M)
+       CID 1289306  fitpar( 8):x0             = 0.85081E-05 +/- 0.5525E-06(M)
+       CID 1289306   ITER=1   FITPROB =  0.840E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  2 for CID 1289306                 
+  ######################################################## 
+  
+    CID 1289306 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1289306 ITER= 2                             
+  ######################################################## 
+  
+        103  Filter-epochs ACCEPTED for fit.
+         21  Filter-epochs REJECTED for fit.
+    1289306(ITER= 2): Use full  103 x  103 Covariance matrix.                                         
+    1289306(ITER= 2): Add covariance from fit-model
+    1289306(ITER= 2): Add covariance from Galactic extinction
+    1289306(ITER= 2): Inverted COVMAT with  10609 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    9   CID=1289306   NFITPAR=  9   iter=2                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1289306  fitpar( 1):ITER           =  2.0000     +/-  0.000    (P)
+       CID 1289306  fitpar( 3):PKMJD          =   57266.985 +/- 0.5833    (M)
+       CID 1289306  fitpar( 4):x1             = -2.7788     +/- 0.5881    (M)
+       CID 1289306  fitpar( 6):c              = -.57266E-01 +/- 0.6819E-01(M)
+       CID 1289306  fitpar( 8):x0             = 0.85335E-05 +/- 0.5418E-06(M)
+       CID 1289306   ITER=2   FITPROB =  0.816E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  3 for CID 1289306                 
+  ######################################################## 
+  
+    CID 1289306 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1289306 ITER= 3                             
+  ######################################################## 
+  
+        103  Filter-epochs ACCEPTED for fit.
+         21  Filter-epochs REJECTED for fit.
+    1289306(ITER= 3): Use full  103 x  103 Covariance matrix.                                         
+    1289306(ITER= 3): Add covariance from fit-model
+    1289306(ITER= 3): Add covariance from Galactic extinction
+    1289306(ITER= 3): Inverted COVMAT with  10609 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=    9   CID=1289306   NFITPAR=  9   iter=3                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1289306  fitpar( 1):ITER           =  3.0000     +/-  0.000    (P)
+       CID 1289306  fitpar( 3):PKMJD          =   57266.977 +/- 0.5863    (M)
+       CID 1289306  fitpar( 4):x1             = -2.7863     +/- 0.5897    (M)
+       CID 1289306  fitpar( 6):c              = -.57038E-01 +/- 0.6857E-01(M)
+       CID 1289306  fitpar( 8):x0             = 0.85335E-05 +/- 0.5447E-06(M)
+       CID 1289306   ITER=3   FITPROB =  0.823E+00
+  
+  ######################################################## 
+    FITANA_CUTS: APPLY FIT-CUTS TO SN 1289306                                       
+  ######################################################## 
+  
+                     PEAKMJD =  57266.977 PASSES CUT.                    
+                    TobsMin =  -18.6     PASSES CUT.
+                    TobsMax =   67.3     PASSES CUT.
+                   Trestmin =  -12.0     PASSES CUT.
+                   Trestmax =   43.6     PASSES CUT.
+                    TGAPmax =   5.83     PASSES CUT.
+                   T0GAPmax =   2.44     PASSES CUT.
+                     SNRSUM =   30.5     PASSES CUT.
+           FITWIN_TREST(min) =  -12.0     PASSES CUT.                    
+           FITWIN_TREST(max) =   43.6     PASSES CUT.                    
+           FITWIN_TRESTRANGE =   55.6     PASSES CUT.                    
+          x1                 =  -2.79     PASSES CUT.                    
+          c                  = -0.570E-01 PASSES CUT.                    
+                      FITCOV              PASSES CUT.                    
+                     FITPROB =  0.823     PASSES CUT.                    
+                 CHI2(SIGMA) =   0.00     PASSES CUT.                    
+                NFILT_SNRMAX =    3       PASSES CUT.                    
+               NFILT_SNRMAX2 =    4       PASSES CUT.                    
+              NFILT_TRESTMIN =    3       PASSES CUT.                    
+              NFILT_TRESTMAX =    3       PASSES CUT.                    
+            MINOS ERROR EVALUATIONS   PASSES CUT.                        
+    CID 1289306  PASSES FIT-CUTS 
+
+PHASE2_HESSIAN: 1289306  8.53348327845989169E-006 -2.78633205416202667E+000 -5.70382093912218391E-002  5.72669774687510289E+004  3.05716574012440937E-013 -1.89864474392961783E-007 -2.52180318459196394E-008 -1.39085442124667043E-007 -1.89864474392961783E-007  3.50122945799482721E-001  8.77101451020407229E-003  1.59703201655300359E-001 -2.52180318459196394E-008  8.77101451020407229E-003  4.89552539277422413E-003  9.38793155210121237E-003 -1.39085442124667043E-007  1.59703201655300359E-001  9.38793155210121237E-003  3.56392672710193703E-001
+  
+  ######################################################## 
+    LC FIT SUMMARY for CID=1289306                                                  
+  ######################################################## 
+  
+ Quantity          r          i          z
+ --------------------------------------------------------------------------------
+   NEPOCH         41         38         45
+  NREJECT          7          7          7
+     NDOF         34         31         38
+     CHI2      27.74      25.87      32.30
+     PROB       0.77       0.73       0.73
+  PeakMag      23.04      23.16      23.15
+  PeakErr       0.07       0.05       0.07
+     XTMW       0.01       0.01       0.01
+  XTMWerr       0.00       0.00       0.00
+ --------------------------------------------------------------------------------
+   SALT2 mB(1289306) =   23.3072 +-  0.0693
+   Trest FIT RANGE(1289306):  -12.05 to   43.56   (relative to FIT-PEAKMJD)
+   MJD   FIT RANGE(1289306): 57248.4 to 57334.2
+  
+   FIT MINIMUM (1289306) returns TOTAL   CHI2/dof=  85.9    / 99   PROB=0.82277
+   FIT MINIMUM (1289306) returns DATA    CHI2/dof=  85.9    / 99   PROB=0.82277
+   FIT MINIMUM (1289306) returns PRIOR   CHI2/dof= 0.877E-06/  0   PROB=1.00000
+  
+         SNLCPAK: pack CID = 1289306 for plotting.
+    Finished fitting CID =      1289306 in  0.846 seconds
+  *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+     Done Reading CID 1280240           NMJD(found,stored)= 110   69
+       SET_PEAKMJD(1280240) --> 57276.355   (FmaxClump)             
+       Analyze ISN=      10  for CID=1280240        NOBS(store,cuts)=  57->  57
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  1 for CID 1280240                 
+  ######################################################## 
+  
+    CID 1280240 : FIT OBSERVER FILTERS gri
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1280240 ITER= 1                             
+  ######################################################## 
+  
+         42  Filter-epochs ACCEPTED for fit.
+          0  Filter-epochs REJECTED for fit.
+    1280240(ITER= 1): Use DIAGONAL Covariance elements only.
+  
+  ######################################################## 
+    FITINI_ADJUST for CID= 1280240   (1280240)                                                          
+  ######################################################## 
+  
+   FCNSNLC(BEFORE FITINI_ADJUST)    returns   CHI2=   2465.41/ 42
+         Adjust PKMJD=57276.355 ==> 57272.355  (CHI2=   1510.10)
+   gri Data/Model flux-ratio :  0.310  0.516  0.556  
+       x0 =  0.139E-02 ==>  0.639E-03
+   FCNSNLC(AFTER  FITINI_ADJUST)    returns   CHI2=   1292.37/ 42
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=   10   CID=1280240   NFITPAR=  9   iter=1                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1280240  fitpar( 1):ITER           =  1.0000     +/-  0.000    (P)
+       CID 1280240  fitpar( 3):PKMJD          =   57257.804 +/- 0.8461    (M)
+       CID 1280240  fitpar( 4):x1             = 0.35679     +/- 0.4760    (M)
+       CID 1280240  fitpar( 6):c              = 0.36419E-01 +/- 0.3939E-01(M)
+       CID 1280240  fitpar( 8):x0             = 0.11364E-02 +/- 0.5864E-04(M)
+       CID 1280240   ITER=1   FITPROB =  0.100E+01
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  2 for CID 1280240                 
+  ######################################################## 
+  
+    CID 1280240 : FIT OBSERVER FILTERS gri
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1280240 ITER= 2                             
+  ######################################################## 
+  
+         24  Filter-epochs ACCEPTED for fit.
+         18  Filter-epochs REJECTED for fit.
+    1280240(ITER= 2): Use full   24 x   24 Covariance matrix.                                         
+    1280240(ITER= 2): Add covariance from fit-model
+    1280240(ITER= 2): Add covariance from Galactic extinction
+    1280240(ITER= 2): Inverted COVMAT with    576 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=   10   CID=1280240   NFITPAR=  9   iter=2                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1280240  fitpar( 1):ITER           =  2.0000     +/-  0.000    (P)
+       CID 1280240  fitpar( 3):PKMJD          =   57257.700 +/- 0.3320    (M)
+       CID 1280240  fitpar( 4):x1             = 0.36351     +/- 0.1615    (M)
+       CID 1280240  fitpar( 6):c              = 0.38586E-01 +/- 0.1925E-01(M)
+       CID 1280240  fitpar( 8):x0             = 0.11351E-02 +/- 0.2742E-04(M)
+       CID 1280240   ITER=2   FITPROB =  0.153E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  3 for CID 1280240                 
+  ######################################################## 
+  
+    CID 1280240 : FIT OBSERVER FILTERS gri
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1280240 ITER= 3                             
+  ######################################################## 
+  
+         24  Filter-epochs ACCEPTED for fit.
+         18  Filter-epochs REJECTED for fit.
+    1280240(ITER= 3): Use full   24 x   24 Covariance matrix.                                         
+    1280240(ITER= 3): Add covariance from fit-model
+    1280240(ITER= 3): Add covariance from Galactic extinction
+    1280240(ITER= 3): Inverted COVMAT with    576 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=   10   CID=1280240   NFITPAR=  9   iter=3                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1280240  fitpar( 1):ITER           =  3.0000     +/-  0.000    (P)
+       CID 1280240  fitpar( 3):PKMJD          =   57257.703 +/- 0.3317    (M)
+       CID 1280240  fitpar( 4):x1             = 0.36544     +/- 0.1611    (M)
+       CID 1280240  fitpar( 6):c              = 0.38377E-01 +/- 0.1911E-01(M)
+       CID 1280240  fitpar( 8):x0             = 0.11351E-02 +/- 0.2718E-04(M)
+       CID 1280240   ITER=3   FITPROB =  0.150E+00
+  
+  ######################################################## 
+    FITANA_CUTS: APPLY FIT-CUTS TO SN 1280240                                       
+  ######################################################## 
+  
+                     PEAKMJD =  57257.703 PASSES CUT.                    
+                    TobsMin =  -1.42     PASSES CUT.
+                    TobsMax =   44.6     PASSES CUT.
+                   Trestmin =  -1.34     PASSES CUT.
+                   Trestmax =   42.1     PASSES CUT.
+                    TGAPmax =   9.51     PASSES CUT.
+                   T0GAPmax =   8.45     PASSES CUT.
+                     SNRSUM =   925.     PASSES CUT.
+           FITWIN_TREST(min) =  -1.34     PASSES CUT.                    
+           FITWIN_TREST(max) =   42.1     PASSES CUT.                    
+           FITWIN_TRESTRANGE =   43.4     PASSES CUT.                    
+          x1                 =  0.365     PASSES CUT.                    
+          c                  =  0.384E-01 PASSES CUT.                    
+                      FITCOV              PASSES CUT.                    
+                     FITPROB =  0.150     PASSES CUT.                    
+                 CHI2(SIGMA) =   0.00     PASSES CUT.                    
+                NFILT_SNRMAX =    3       PASSES CUT.                    
+               NFILT_SNRMAX2 =    4       PASSES CUT.                    
+              NFILT_TRESTMIN =    3       PASSES CUT.                    
+              NFILT_TRESTMAX =    3       PASSES CUT.                    
+            MINOS ERROR EVALUATIONS   PASSES CUT.                        
+    CID 1280240  PASSES FIT-CUTS 
+
+PHASE2_HESSIAN: 1280240  1.13512251339997175E-003  3.65439766703059554E-001  3.83767984333498458E-002  5.72577033307252859E+004  7.43438221874279702E-010 -1.03455633891623789E-006 -4.43266232068847541E-007 -1.47981387860857576E-006 -1.03455633891623789E-006  2.66617584640851356E-002  7.02100540242817702E-004 -4.01795008657734529E-002 -4.43266232068847541E-007  7.02100540242817702E-004  3.69641885111856618E-004 -1.83238565778099240E-005 -1.47981387860857576E-006 -4.01795008657734529E-002 -1.83238565778099240E-005  1.20326252660980779E-001
+  
+  ######################################################## 
+    LC FIT SUMMARY for CID=1280240                                                  
+  ######################################################## 
+  
+ Quantity          g          r          i
+ --------------------------------------------------------------------------------
+   NEPOCH         13         16         13
+  NREJECT          6          7          5
+     NDOF          7          9          8
+     CHI2       7.36      12.45       4.00
+     PROB       0.39       0.19       0.86
+  PeakMag      18.17      18.19      18.77
+  PeakErr       0.02       0.01       0.02
+     XTMW       0.04       0.03       0.02
+  XTMWerr       0.00       0.00       0.00
+ --------------------------------------------------------------------------------
+   SALT2 mB(1280240) =   17.9974 +-  0.0260
+   Trest FIT RANGE(1280240):   -1.34 to   42.07   (relative to FIT-PEAKMJD)
+   MJD   FIT RANGE(1280240): 57256.3 to 57302.3
+  
+   FIT MINIMUM (1280240) returns TOTAL   CHI2/dof=  26.5    / 20   PROB=0.14977
+   FIT MINIMUM (1280240) returns DATA    CHI2/dof=  26.5    / 20   PROB=0.14977
+   FIT MINIMUM (1280240) returns PRIOR   CHI2/dof= 0.369E-06/  0   PROB=1.00000
+  
+         SNLCPAK: pack CID = 1280240 for plotting.
+    Finished fitting CID =      1280240 in  0.270 seconds
+  *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+     Done Reading CID 1330817           NMJD(found,stored)= 101   80
+       SET_PEAKMJD(1330817) --> 57311.297   (FmaxClump)             
+       Analyze ISN=      11  for CID=1330817        NOBS(store,cuts)=  60->  60
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  1 for CID 1330817                 
+  ######################################################## 
+  
+    CID 1330817 : FIT OBSERVER FILTERS griz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1330817 ITER= 1                             
+  ######################################################## 
+  
+         60  Filter-epochs ACCEPTED for fit.
+          0  Filter-epochs REJECTED for fit.
+    1330817(ITER= 1): Use DIAGONAL Covariance elements only.
+  
+  ######################################################## 
+    FITINI_ADJUST for CID= 1330817   (1330817)                                                          
+  ######################################################## 
+  
+   FCNSNLC(BEFORE FITINI_ADJUST)    returns   CHI2=    387.59/ 60
+         Adjust PKMJD=57311.297 ==> 57309.297  (CHI2=    368.33)
+   griz Data/Model flux-ratio :  0.758  0.718  0.711  0.813  
+       x0 =  0.525E-04 ==>  0.394E-04
+   FCNSNLC(AFTER  FITINI_ADJUST)    returns   CHI2=     37.96/ 60
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=   11   CID=1330817   NFITPAR=  9   iter=1                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1330817  fitpar( 1):ITER           =  1.0000     +/-  0.000    (P)
+       CID 1330817  fitpar( 3):PKMJD          =   57308.923 +/- 0.3720    (M)
+       CID 1330817  fitpar( 4):x1             = -1.0881     +/- 0.3937    (M)
+       CID 1330817  fitpar( 6):c              = -.24031E-01 +/- 0.2483E-01(M)
+       CID 1330817  fitpar( 8):x0             = 0.40572E-04 +/- 0.1178E-05(M)
+       CID 1330817   ITER=1   FITPROB =  0.999E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  2 for CID 1330817                 
+  ######################################################## 
+  
+    CID 1330817 : FIT OBSERVER FILTERS griz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1330817 ITER= 2                             
+  ######################################################## 
+  
+         49  Filter-epochs ACCEPTED for fit.
+         11  Filter-epochs REJECTED for fit.
+    1330817(ITER= 2): Use full   49 x   49 Covariance matrix.                                         
+    1330817(ITER= 2): Add covariance from fit-model
+    1330817(ITER= 2): Add covariance from Galactic extinction
+    1330817(ITER= 2): Inverted COVMAT with   2401 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=   11   CID=1330817   NFITPAR=  9   iter=2                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1330817  fitpar( 1):ITER           =  2.0000     +/-  0.000    (P)
+       CID 1330817  fitpar( 3):PKMJD          =   57308.959 +/- 0.2777    (M)
+       CID 1330817  fitpar( 4):x1             = -1.1042     +/- 0.2437    (M)
+       CID 1330817  fitpar( 6):c              = -.27479E-01 +/- 0.1889E-01(M)
+       CID 1330817  fitpar( 8):x0             = 0.40473E-04 +/- 0.8326E-06(M)
+       CID 1330817   ITER=2   FITPROB =  0.564E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  3 for CID 1330817                 
+  ######################################################## 
+  
+    CID 1330817 : FIT OBSERVER FILTERS griz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1330817 ITER= 3                             
+  ######################################################## 
+  
+         49  Filter-epochs ACCEPTED for fit.
+         11  Filter-epochs REJECTED for fit.
+    1330817(ITER= 3): Use full   49 x   49 Covariance matrix.                                         
+    1330817(ITER= 3): Add covariance from fit-model
+    1330817(ITER= 3): Add covariance from Galactic extinction
+    1330817(ITER= 3): Inverted COVMAT with   2401 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=   11   CID=1330817   NFITPAR=  9   iter=3                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1330817  fitpar( 1):ITER           =  3.0000     +/-  0.000    (P)
+       CID 1330817  fitpar( 3):PKMJD          =   57308.960 +/- 0.2778    (M)
+       CID 1330817  fitpar( 4):x1             = -1.1046     +/- 0.2438    (M)
+       CID 1330817  fitpar( 6):c              = -.27465E-01 +/- 0.1888E-01(M)
+       CID 1330817  fitpar( 8):x0             = 0.40470E-04 +/- 0.8326E-06(M)
+       CID 1330817   ITER=3   FITPROB =  0.564E+00
+  
+  ######################################################## 
+    FITANA_CUTS: APPLY FIT-CUTS TO SN 1330817                                       
+  ######################################################## 
+  
+                     PEAKMJD =  57308.961 PASSES CUT.                    
+                    TobsMin =  -17.7     PASSES CUT.
+                    TobsMax =   56.2     PASSES CUT.
+                   Trestmin =  -14.0     PASSES CUT.
+                   Trestmax =   44.2     PASSES CUT.
+                    TGAPmax =   7.85     PASSES CUT.
+                   T0GAPmax =   3.08     PASSES CUT.
+                     SNRSUM =   116.     PASSES CUT.
+           FITWIN_TREST(min) =  -14.0     PASSES CUT.                    
+           FITWIN_TREST(max) =   44.2     PASSES CUT.                    
+           FITWIN_TRESTRANGE =   58.1     PASSES CUT.                    
+          x1                 =  -1.10     PASSES CUT.                    
+          c                  = -0.275E-01 PASSES CUT.                    
+                      FITCOV              PASSES CUT.                    
+                     FITPROB =  0.564     PASSES CUT.                    
+                 CHI2(SIGMA) =   0.00     PASSES CUT.                    
+                NFILT_SNRMAX =    4       PASSES CUT.                    
+               NFILT_SNRMAX2 =    4       PASSES CUT.                    
+              NFILT_TRESTMIN =    4       PASSES CUT.                    
+              NFILT_TRESTMAX =    4       PASSES CUT.                    
+            MINOS ERROR EVALUATIONS   PASSES CUT.                        
+    CID 1330817  PASSES FIT-CUTS 
+
+PHASE2_HESSIAN: 1330817  4.04696415776240371E-005 -1.10463281567458438E+000 -2.74652521330691624E-002  5.73089601871886553E+004  6.86714556535266052E-013 -8.00907573752521567E-008 -1.01394741709059664E-008 -2.41090897334899107E-008 -8.00907573752521567E-008  5.93567306229546426E-002  9.75818418318110986E-004 -5.31542376460111387E-003 -1.01394741709059664E-008  9.75818418318110986E-004  3.45856144578514325E-004  1.57007794164110230E-004 -2.41090897334899107E-008 -5.31542376460111387E-003  1.57007794164110230E-004  7.90534442119277952E-002
+  
+  ######################################################## 
+    LC FIT SUMMARY for CID=1330817                                                  
+  ######################################################## 
+  
+ Quantity          g          r          i          z
+ --------------------------------------------------------------------------------
+   NEPOCH         14         16         15         15
+  NREJECT          2          3          3          3
+     NDOF         12         13         12         12
+     CHI2       6.31      16.42      10.62      10.44
+     PROB       0.90       0.23       0.56       0.58
+  PeakMag      21.88      21.66      21.71      22.25
+  PeakErr       0.03       0.02       0.02       0.03
+     XTMW       0.10       0.07       0.05       0.04
+  XTMWerr       0.00       0.00       0.00       0.00
+ --------------------------------------------------------------------------------
+   SALT2 mB(1330817) =   21.6172 +-  0.0223
+   Trest FIT RANGE(1330817):  -13.95 to   44.17   (relative to FIT-PEAKMJD)
+   MJD   FIT RANGE(1330817): 57291.2 to 57365.1
+  
+   FIT MINIMUM (1330817) returns TOTAL   CHI2/dof=  42.8    / 45   PROB=0.56376
+   FIT MINIMUM (1330817) returns DATA    CHI2/dof=  42.8    / 45   PROB=0.56376
+   FIT MINIMUM (1330817) returns PRIOR   CHI2/dof= 0.131E-06/  0   PROB=1.00000
+  
+         SNLCPAK: pack CID = 1330817 for plotting.
+    Finished fitting CID =      1330817 in  0.290 seconds
+  *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+     Done Reading CID 1256819           NMJD(found,stored)=  81   67
+       SET_PEAKMJD(1256819) --> 56602.250   (FmaxClump)             
+       Analyze ISN=      12  for CID=1256819        NOBS(store,cuts)=  60->  60
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  1 for CID 1256819                 
+  ######################################################## 
+  
+    CID 1256819 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1256819 ITER= 1                             
+  ######################################################## 
+  
+         44  Filter-epochs ACCEPTED for fit.
+          0  Filter-epochs REJECTED for fit.
+    1256819(ITER= 1): Use DIAGONAL Covariance elements only.
+  
+  ######################################################## 
+    FITINI_ADJUST for CID= 1256819   (1256819)                                                          
+  ######################################################## 
+  
+   FCNSNLC(BEFORE FITINI_ADJUST)    returns   CHI2=     33.84/ 44
+         Adjust PKMJD=56602.250 ==> 56600.250  (CHI2=     21.42)
+   riz Data/Model flux-ratio :  0.970  0.977  0.941  
+       x0 =  0.856E-05 ==>  0.825E-05
+   FCNSNLC(AFTER  FITINI_ADJUST)    returns   CHI2=     19.19/ 44
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=   12   CID=1256819   NFITPAR=  9   iter=1                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1256819  fitpar( 1):ITER           =  1.0000     +/-  0.000    (P)
+       CID 1256819  fitpar( 3):PKMJD          =   56600.035 +/- 0.7137    (M)
+       CID 1256819  fitpar( 4):x1             = -.20811     +/- 0.4387    (M)
+       CID 1256819  fitpar( 6):c              = -.24259E-01 +/- 0.5084E-01(M)
+       CID 1256819  fitpar( 8):x0             = 0.84688E-05 +/- 0.3613E-06(M)
+       CID 1256819   ITER=1   FITPROB =  0.999E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  2 for CID 1256819                 
+  ######################################################## 
+  
+    CID 1256819 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1256819 ITER= 2                             
+  ######################################################## 
+  
+         33  Filter-epochs ACCEPTED for fit.
+         11  Filter-epochs REJECTED for fit.
+    1256819(ITER= 2): Use full   33 x   33 Covariance matrix.                                         
+    1256819(ITER= 2): Add covariance from fit-model
+    1256819(ITER= 2): Add covariance from Galactic extinction
+    1256819(ITER= 2): Inverted COVMAT with   1089 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=   12   CID=1256819   NFITPAR=  9   iter=2                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1256819  fitpar( 1):ITER           =  2.0000     +/-  0.000    (P)
+       CID 1256819  fitpar( 3):PKMJD          =   56600.007 +/- 0.5929    (M)
+       CID 1256819  fitpar( 4):x1             = -.91012E-01 +/- 0.3147    (M)
+       CID 1256819  fitpar( 6):c              = -.12571E-01 +/- 0.3841E-01(M)
+       CID 1256819  fitpar( 8):x0             = 0.84145E-05 +/- 0.2695E-06(M)
+       CID 1256819   ITER=2   FITPROB =  0.955E+00
+  
+  ######################################################## 
+    FITPAR_PREP: Begin FIT-ITERATION  3 for CID 1256819                 
+  ######################################################## 
+  
+    CID 1256819 : FIT OBSERVER FILTERS riz
+  
+  ######################################################## 
+    FITINI_COV: init fit arrays for CID=1256819 ITER= 3                             
+  ######################################################## 
+  
+         33  Filter-epochs ACCEPTED for fit.
+         11  Filter-epochs REJECTED for fit.
+    1256819(ITER= 3): Use full   33 x   33 Covariance matrix.                                         
+    1256819(ITER= 3): Add covariance from fit-model
+    1256819(ITER= 3): Add covariance from Galactic extinction
+    1256819(ITER= 3): Inverted COVMAT with   1089 non-zero elements       
+  
+  ######################################################## 
+        CALL MNFIT_DRIVER for ISN_PROC=   12   CID=1256819   NFITPAR=  9   iter=3                                           
+  ######################################################## 
+  
+   Set MINUIT STRATEGY =            2
+  
+  ------------------------------------------------ 
+   MNFIT_DRIVER: MINOS returns IERR =            0
+  ------------------------------------------------ 
+  
+    MNFIT_DRIVER: extract fit parameters with MNPOUT
+    MNFIT_DRIVER: EXIT returns IERR =           11
+       CID 1256819  fitpar( 1):ITER           =  3.0000     +/-  0.000    (P)
+       CID 1256819  fitpar( 3):PKMJD          =   56600.010 +/- 0.5886    (M)
+       CID 1256819  fitpar( 4):x1             = -.90224E-01 +/- 0.3137    (M)
+       CID 1256819  fitpar( 6):c              = -.12445E-01 +/- 0.3828E-01(M)
+       CID 1256819  fitpar( 8):x0             = 0.84124E-05 +/- 0.2682E-06(M)
+       CID 1256819   ITER=3   FITPROB =  0.953E+00
+  
+  ######################################################## 
+    FITANA_CUTS: APPLY FIT-CUTS TO SN 1256819                                       
+  ######################################################## 
+  
+                     PEAKMJD =  56600.012 PASSES CUT.                    
+                    TobsMin =  -20.7     PASSES CUT.
+                    TobsMax =   69.1     PASSES CUT.
+                   Trestmin =  -13.1     PASSES CUT.
+                   Trestmax =   43.5     PASSES CUT.
+                    TGAPmax =   7.51     PASSES CUT.
+                   T0GAPmax =   3.20     PASSES CUT.
+                     SNRSUM =   60.0     PASSES CUT.
+           FITWIN_TREST(min) =  -13.1     PASSES CUT.                    
+           FITWIN_TREST(max) =   43.5     PASSES CUT.                    
+           FITWIN_TRESTRANGE =   56.6     PASSES CUT.                    
+          x1                 = -0.902E-01 PASSES CUT.                    
+          c                  = -0.124E-01 PASSES CUT.                    
+                      FITCOV              PASSES CUT.                    
+                     FITPROB =  0.953     PASSES CUT.                    
+                 CHI2(SIGMA) =   0.00     PASSES CUT.                    
+                NFILT_SNRMAX =    3       PASSES CUT.                    
+               NFILT_SNRMAX2 =    4       PASSES CUT.                    
+              NFILT_TRESTMIN =    3       PASSES CUT.                    
+              NFILT_TRESTMAX =    3       PASSES CUT.                    
+            MINOS ERROR EVALUATIONS   PASSES CUT.                        
+    CID 1256819  PASSES FIT-CUTS 
+
+PHASE2_HESSIAN: 1256819  8.41241316643823857E-006 -9.02243585909614509E-002 -1.24453708187686196E-002  5.66000104249597644E+004  7.21839653436097366E-014 -3.72905566102137752E-008 -6.33549382956236098E-009 -7.93728365696706482E-009 -3.72905566102137752E-008  9.83423410538716986E-002  5.07255463245503122E-004 -2.13194220188857551E-002 -6.33549382956236098E-009  5.07255463245503122E-004  1.48116327820981691E-003 -2.59458352668667748E-003 -7.93728365696706482E-009 -2.13194220188857551E-002 -2.59458352668667748E-003  3.47253494421398079E-001
+  
+  ######################################################## 
+    LC FIT SUMMARY for CID=1256819                                                  
+  ######################################################## 
+  
+ Quantity          r          i          z
+ --------------------------------------------------------------------------------
+   NEPOCH         13         15         16
+  NREJECT          3          4          4
+     NDOF         10         11         12
+     CHI2       8.93       3.19       5.37
+     PROB       0.54       0.99       0.94
+  PeakMag      23.12      23.09      23.14
+  PeakErr       0.04       0.03       0.04
+     XTMW       0.06       0.05       0.03
+  XTMWerr       0.00       0.00       0.00
+ --------------------------------------------------------------------------------
+   SALT2 mB(1256819) =   23.3227 +-  0.0346
+   Trest FIT RANGE(1256819):  -13.07 to   43.52   (relative to FIT-PEAKMJD)
+   MJD   FIT RANGE(1256819): 56579.3 to 56669.1
+  
+   FIT MINIMUM (1256819) returns TOTAL   CHI2/dof=  17.5    / 29   PROB=0.95331
+   FIT MINIMUM (1256819) returns DATA    CHI2/dof=  17.5    / 29   PROB=0.95331
+   FIT MINIMUM (1256819) returns PRIOR   CHI2/dof= 0.391E-06/  0   PROB=1.00000
+  
+         SNLCPAK: pack CID = 1256819 for plotting.
+    Finished fitting CID =      1256819 in  0.213 seconds
+	 RD_SNFITSIO_CLOSE  DES-SN5YR_DES
+	 Free memory for ifile=1 : DES-SN5YR_DES_HEAD.FITS 
+	 Free memory for ifile=1 : DES-SN5YR_DES_PHOT.FITS 
+  
+  ######################################################## 
+    CALL FITPAR_END
+  ######################################################## 
+  
+   Close TEXT LCPLOT files 
+  
+  ######################################################## 
+    Job Summary                                                                                                             
+  ######################################################## 
+  
+                          Number of SN passing incremental cut for
+CUTSTAT:  CUT-NAME      ITYPE=     ALL       0       1  
+ ------------------------------------------------------------------------
+CUTSTAT:  CID                       12       9       3  
+CUTSTAT:  FIT+CUTS                  12       9       3  
+  
+ ------------------------------------------------------------------------
+  
+    Finished reading   19706 events
+    Finished processing      12 SN after snana  cuts   (     12 before cuts)
+	 CPUTIME_PROCESS_ALL  = 0.083 minute
+	 CPUTIME_PROCESS_RATE = 2.400 second^-1
+	 CPUTIME_READ_RATE    = 3941.200 second^-1
+    Finished processing     12 SN after fitter cuts
+  
+    Bad PHOTOMETRY FLAG for       13 of       962 epochs
+  
+ @-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-
+ @-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-
+
+    SEVERE WARNING: FOUND    3 Duplicate MJD+BAND   ( 0.317%)
+                      1 Duplicate MJDs are unique
+
+ @-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-
+ @-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-@-
+  
+    ENDING PROGRAM GRACEFULLY. 

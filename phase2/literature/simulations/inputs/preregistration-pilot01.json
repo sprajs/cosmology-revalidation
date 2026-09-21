@@ -1,0 +1,105 @@
+{
+  "purpose": "Forward model/selection validation at calibrated epoch flux level; no cosmological parameter estimation.",
+  "sample_design": "One initial common-seed realization per model; fixed number of generated attempts, not fixed accepted count.",
+  "runs": [
+    {
+      "name": "P21",
+      "version": "PH2_pilot01_P21",
+      "input": "phase2/literature/simulations/inputs/PH2_pilot01_P21.input",
+      "input_sha256": "3b212508be8ccf9facd02b38ca72c9156a1a1593ad9fc37e51cc6417e2a21b53",
+      "generated_requested": 26518,
+      "seed": 213849,
+      "population_map": "DES-SN5YR_DES_S3_P21.DAT.gz",
+      "limits": [
+        "Released 2024 renamed survey/population assets; source equivalence to original 2022 mock inputs not established."
+      ]
+    },
+    {
+      "name": "P21_dmplus010",
+      "version": "PH2_pilot01_P21_dmplus010",
+      "input": "phase2/literature/simulations/inputs/PH2_pilot01_P21_dmplus010.input",
+      "input_sha256": "9051540d11b280a6438a65637068921783b08a2f95a9cdf574bc53a4952be8ee",
+      "generated_requested": 26518,
+      "seed": 213849,
+      "population_map": "DES-SN5YR_DES_S3_P21.DAT.gz",
+      "limits": [
+        "Physical flux injection +0.10 mag in addition to population MAG_OFFSET; not importance-reweighted source magnitudes."
+      ]
+    },
+    {
+      "name": "P21_dmminus010",
+      "version": "PH2_pilot01_P21_dmminus010",
+      "input": "phase2/literature/simulations/inputs/PH2_pilot01_P21_dmminus010.input",
+      "input_sha256": "4a89ec74dd6e7c869929e444dafc5591b7826761390f2fe443d2d9c1c359ca7f",
+      "generated_requested": 26518,
+      "seed": 213849,
+      "population_map": "DES-SN5YR_DES_S3_P21.DAT.gz",
+      "limits": [
+        "Physical flux injection -0.10 mag in addition to population MAG_OFFSET; not importance-reweighted source magnitudes."
+      ]
+    },
+    {
+      "name": "P21_dmz020",
+      "version": "PH2_pilot01_P21_dmz020",
+      "input": "phase2/literature/simulations/inputs/PH2_pilot01_P21_dmz020.input",
+      "input_sha256": "5b8d2d67480b74c579d1ab911776cc5d5c1f448fdc4345992b1e030a8ecf6d28",
+      "generated_requested": 26518,
+      "seed": 213849,
+      "population_map": "DES-SN5YR_DES_S3_P21.DAT.gz",
+      "limits": [
+        "Physical flux injection +0.20*z mag; fixed cosmology retained only for generating survey flux."
+      ]
+    },
+    {
+      "name": "BS21",
+      "version": "PH2_pilot01_BS21",
+      "input": "phase2/literature/simulations/inputs/PH2_pilot01_BS21.input",
+      "input_sha256": "73fe65e89f49cc171ae1047eb09971be0a4496fb66a2f1bbb175faf84bb32588",
+      "generated_requested": 26518,
+      "seed": 213849,
+      "population_map": "DES-SN5YR_DES_S3_BS21.DAT.gz",
+      "limits": [
+        "Released approximate BS21 RV/EBV/x1 grids plus published intrinsic colour/beta moments (arXiv2004.10206v2, section4).",
+        "Beta and colour truncation ranges and common -0.12 offset are explicit controlled choices; exact historical BS21 job configuration not recovered.",
+        "Use free magnitude offsets in validation; do not interpret global magnitude difference as cosmology."
+      ]
+    },
+    {
+      "name": "G10",
+      "version": "PH2_pilot01_G10",
+      "input": "phase2/literature/simulations/inputs/PH2_pilot01_G10.input",
+      "input_sha256": "e10bc85b891ddf5f4dd38e7e81eb541732a0c88c431b7d2ff08b48be060c9116",
+      "generated_requested": 26518,
+      "seed": 213849,
+      "population_map": "DES-SN5YR_DES_S3_G10.DAT.gz",
+      "limits": [
+        "Released G10 mass-dependent x1/c grids, G10 wavelength scatter and beta3.1 from arXiv2004.10206v2 section3.1; common alpha0.15.",
+        "Controlled public-assets variant, not certified exact original G10 systematic job."
+      ]
+    }
+  ],
+  "W22": {
+    "status": "blocked-exact-input-missing",
+    "reason": "W22 x1 PDF needs SN_age; nominal released DES host library lacks SN_age. No substitute age is invented."
+  },
+  "pairing": "Same seed and survey source does not guarantee identical host/cadence draws when model RNG consumption differs. Audit CID/redshift/LIBID/host equality before claiming paired uncertainty reduction.",
+  "selection_stages": [
+    "Generated DUMP attempt",
+    "Pipeline+hostz+minimal generated cuts, FITS HEAD membership",
+    "Identical calibrated-flux SALT fitter",
+    "Predeclared measured quality subset",
+    "Any additional final analysis membership separately declared"
+  ],
+  "heldout_tests": [
+    "Compare joint fitted c,x1 and host mass within redshift/field bins on held-out CID split.",
+    "Compare within-z magnitude-colour-host patterns after estimating one free magnitude intercept per z bin on training split.",
+    "Use same measured quality cuts and covariance handling on observations and simulations.",
+    "Report simulated counts and multinomial/Monte Carlo uncertainties; one realization is a pilot, not decisive model rejection.",
+    "Measure selection response to global plus/minus0.10 and redshift0.20*z luminosity injections; no singular-proposal importance approximation."
+  ],
+  "nonclaims": [
+    "No independent SN_age measurement from mean host age.",
+    "No validation from preferred LCDM fit; injection cosmology is a flux-generation input only.",
+    "No final-cosmology or complete contamination validation from Ia-only mocks."
+  ]
+}

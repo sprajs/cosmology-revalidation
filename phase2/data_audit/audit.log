@@ -1,0 +1,41 @@
+AUDIT original/DES
+DONE original/DES 19706 1798736
+AUDIT original/Foundation
+DONE original/Foundation 185 6195
+AUDIT original/LOWZ
+DONE original/LOWZ 342 36974
+AUDIT current/DES
+DONE current/DES 19706 1798736
+AUDIT current/Foundation
+DONE current/Foundation 185 6195
+AUDIT current/LOWZ
+DONE current/LOWZ 342 36974
+AUDIT diffimg/DES
+DONE diffimg/DES 31636 18106216
+Traceback (most recent call last):
+  File "/home/szymon/Documents/ChatGPT/supernova/.venv/lib/python3.12/site-packages/astropy/io/fits/column.py", line 2142, in _get_index
+    return names.index(key.rstrip())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: 'IAUC' is not in list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/szymon/Documents/ChatGPT/supernova/scripts/phase2/data_audit/audit.py", line 205, in <module>
+    if p.is_file() and p.name!='outputs_manifest.json': outputs.append({'path':str(p.relative_to(ROOT)),'bytes':p.stat().st_size,'sha256':sha(p)})
+                          ^^^^^^
+  File "/home/szymon/Documents/ChatGPT/supernova/scripts/phase2/data_audit/audit.py", line 185, in main
+    differences[typ]['head_columns_added']=sorted(set(b[1].columns.names)-set(a[1].columns.names))
+                      ^^^^^^^^^^^^
+  File "/home/szymon/Documents/ChatGPT/supernova/.venv/lib/python3.12/site-packages/astropy/io/fits/fitsrec.py", line 531, in __getitem__
+    return self.field(key)
+           ^^^^^^^^^^^^^^^
+  File "/home/szymon/Documents/ChatGPT/supernova/.venv/lib/python3.12/site-packages/astropy/io/fits/fitsrec.py", line 718, in field
+    column = self.columns[key]
+             ~~~~~~~~~~~~^^^^^
+  File "/home/szymon/Documents/ChatGPT/supernova/.venv/lib/python3.12/site-packages/astropy/io/fits/column.py", line 1755, in __getitem__
+    key = _get_index(self.names, key)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/szymon/Documents/ChatGPT/supernova/.venv/lib/python3.12/site-packages/astropy/io/fits/column.py", line 2150, in _get_index
+    raise KeyError(f"Key '{key}' does not exist.")
+KeyError: "Key 'IAUC' does not exist."

@@ -1,0 +1,61 @@
+{
+  "version": "PH2_pilot02_P21_dmz020",
+  "record_time_utc": "2026-09-20T23:32:39.785973+00:00",
+  "input": {
+    "path": "phase2/literature/simulations/inputs/PH2_pilot02_P21_dmz020.input",
+    "sha256": "584ffdbd2e7baf2834be95bc38ba7c83d27b72564905011542f3599ebf05c284",
+    "bytes": 3514
+  },
+  "executable": {
+    "path": "phase2/official/build/SNANA-2fe0f56/bin/snlc_sim.exe",
+    "sha256": "cba9894dd316a36ddee0bd25b811692d982dbbed1b47d925f8bc0508b7f76952",
+    "bytes": 1796384
+  },
+  "source_commit": "2fe0f564361a873860661ff61080b4db9c607edf",
+  "source_tree_audit": "phase2/official/diagnostics/historical-tree-audit.json",
+  "environment": {
+    "SNANA_DIR": "/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/SNANA-2fe0f56",
+    "SNDATA_ROOT": "/home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT",
+    "LD_LIBRARY_PATH": "/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/lib"
+  },
+  "command": [
+    "/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/SNANA-2fe0f56/bin/snlc_sim.exe",
+    "/home/szymon/Documents/ChatGPT/supernova/phase2/literature/simulations/inputs/PH2_pilot02_P21_dmz020.input"
+  ],
+  "acquisition_archive": "phase2/official/inputs/SNDATA_ROOT_2024-07-03.tar.gz",
+  "constant_alpha_compatibility": "phase2/literature/simulations/inputs/constant-alpha-compatibility.json",
+  "exit_code": 0,
+  "log": {
+    "path": "phase2/literature/simulations/logs/PH2_pilot02_P21_dmz020-attempt01.log",
+    "sha256": "2e7273fbb9e2ac57414766af4453793c201635f4e4df44ae7556653cce21b7dd",
+    "bytes": 35498
+  },
+  "outputs": [
+    {
+      "path": "phase2/literature/simulations/outputs/PH2_pilot02_P21_dmz020/PH2_pilot02_P21_dmz020.DUMP",
+      "sha256": "0773dc6d2f747a26a1bada97e13e768b0e41af0c8eb18517b0935738a944338f",
+      "bytes": 8710971
+    },
+    {
+      "path": "phase2/literature/simulations/outputs/PH2_pilot02_P21_dmz020/PH2_pilot02_P21_dmz020.LIST",
+      "sha256": "68a841785782f67c6257ee60fbe24ed237c3cdcdfb7a9c704589ce6d4bd12206",
+      "bytes": 32
+    },
+    {
+      "path": "phase2/literature/simulations/outputs/PH2_pilot02_P21_dmz020/PH2_pilot02_P21_dmz020.README",
+      "sha256": "e3f04e903527c025350eef9d08659b7cff9179eceb3191d6150d9be1a7ea1108",
+      "bytes": 6660
+    },
+    {
+      "path": "phase2/literature/simulations/outputs/PH2_pilot02_P21_dmz020/PH2_pilot02_P21_dmz020_HEAD.FITS",
+      "sha256": "e812e01eb3dade98fe68a383df413f5b313b6e09ada1619a369dc4ac601c9e85",
+      "bytes": 1656000
+    },
+    {
+      "path": "phase2/literature/simulations/outputs/PH2_pilot02_P21_dmz020/PH2_pilot02_P21_dmz020_PHOT.FITS",
+      "sha256": "f05db0a2e5400cb28424a8784d1e56cf8ee5b0da3ec4b05124a145c598076f3c",
+      "bytes": 18855360
+    }
+  ],
+  "success_marker": true
+}

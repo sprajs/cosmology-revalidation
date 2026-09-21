@@ -1,0 +1,1 @@
+Initial diagnosis retained. Mean-model comparisons used correct assets. Covariance comparisons used lc_model_variance maps supplied in initial bundle, but runtime log proves SNANA actually uses lc_variance maps. These results do not isolate a covariance implementation difference; see corrected runtime-map results in parent directory.

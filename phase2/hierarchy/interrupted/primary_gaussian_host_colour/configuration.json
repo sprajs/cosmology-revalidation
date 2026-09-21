@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "data": "phase2/hierarchy/data/conditioned-multistart-best",
+    "name": "primary_gaussian_host_colour",
+    "model": "host_colour",
+    "noise": "gaussian",
+    "warmup": 600,
+    "draws": 1000,
+    "chains": 2,
+    "seed": 2026092160,
+    "reference": "coasting",
+    "cov_scale": 1.0,
+    "omit_training_cid": null
+  },
+  "n_train": 850,
+  "n_test": 213,
+  "features": [
+    "x",
+    "c",
+    "host",
+    "host_colour"
+  ],
+  "plan": "docs/phase2/conditional-prediction-plan.md",
+  "qualification": "Empirical conditional apparent-magnitude prediction in selected high-purity DES sample, from pre-BBC fits; no population/selection-free cosmology/dust identification."
+}

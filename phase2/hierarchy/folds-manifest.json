@@ -1,0 +1,19 @@
+{
+  "time_utc": "2026-09-20T23:11:12.371183+00:00",
+  "purpose": "Preregistered object-level predictive partitions; shared across all correction models",
+  "inputs_sha256": {
+    "sources/repos/des-science__DES-SN5YR@1.3/4_DISTANCES_COVMAT/DES-SN5YR_HD+MetaData.csv": "80e081d13145a7ee66730b59826ed83e6414087fd1e26a5a206a196f650f02c5",
+    "sources/repos/des-science__DES-SN5YR@1.3/0_DATA/DES-SN5YR_DES/DES-SN5YR_DES_HEAD.FITS.gz": "08c1fb41dfe8b4e8a969f205144f94c9f6838a1a895a0fedc75b837fb87fd00a",
+    "sources/repos/des-science__DES-SN5YR@1.3/0_DATA/DES-SN5YR_DES/DES-SN5YR_DES_PHOT.FITS.gz": "10248f0364e90f88626ef19cf5ecf052500bbcbfd27f14f8b94cf8ffbc7dd01c",
+    "scripts/phase2/hierarchy/freeze_folds.py": "91131a0a9a3430cb5f2a6976c5699fd1643c6c0f61474336689fc29deb741801"
+  },
+  "outputs_sha256": {
+    "phase2/hierarchy/folds.csv": "2af1f927ca314190cf24091ebe087e17ea4c5de3528c6798dce69774c988670d"
+  },
+  "configuration": {
+    "primary": "hash modulo5, fold0test, folds1-4train",
+    "secondary": "all5foldcrossvalidation ifcomputationallyfeasible; C3+X1fieldholdout; z>=.5redshiftholdout",
+    "selection_notice": "This freezes official sample IDs, not a statement all fits succeeded or selection is ignorable. Any later exclusion requires explicit reason and identical model sample."
+  },
+  "counts": "{(0, 'DEEP'): 101, (0, 'LOWZ'): 43, (0, 'SHALLOW'): 233, (1, 'DEEP'): 109, (1, 'LOWZ'): 40, (1, 'SHALLOW'): 239, (2, 'DEEP'): 106, (2, 'LOWZ'): 36, (2, 'SHALLOW'): 206, (3, 'DEEP'): 104, (3, 'LOWZ'): 32, (3, 'SHALLOW'): 215, (4, 'DEEP'): 107, (4, 'LOWZ'): 43, (4, 'SHALLOW'): 215}"
+}

@@ -1,0 +1,467 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1.5.2. Simple Image Access (SIA) &#8212; Data Lab  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css" />
+    
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="1.5.3. File Service" href="../FileService/FileService.html" />
+    <link rel="prev" title="1.5.1. Catalog Data Access (TAP/SCS)" href="../CatalogDataAccessTAPSCS/CatalogDataAccessTAPSCS.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../FileService/FileService.html" title="1.5.3. File Service"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../CatalogDataAccessTAPSCS/CatalogDataAccessTAPSCS.html" title="1.5.1. Catalog Data Access (TAP/SCS)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Data Lab  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" ><span class="section-number">1. </span>Using Data Lab</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">1.5. </span>Data Access Interfaces</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">1.5.2. </span>Simple Image Access (SIA)</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><em>Section author: Alice Jacques &lt;<a class="reference external" href="mailto:alice&#46;jacques&#37;&#52;&#48;noirlab&#46;edu">alice<span>&#46;</span>jacques<span>&#64;</span>noirlab<span>&#46;</span>edu</a>&gt;, Knut Olsen &lt;<a class="reference external" href="mailto:knut&#46;olsen&#37;&#52;&#48;noirlab&#46;edu">knut<span>&#46;</span>olsen<span>&#64;</span>noirlab<span>&#46;</span>edu</a>&gt;, Robert Nikutta &lt;<a class="reference external" href="mailto:robert&#46;nikutta&#37;&#52;&#48;noirlab&#46;edu">robert<span>&#46;</span>nikutta<span>&#64;</span>noirlab<span>&#46;</span>edu</a>&gt;</em></p>
+<p><em>Version: 20250924</em></p>
+<section id="simple-image-access-sia">
+<span id="sec-simpleimageaccesssia"></span><span id="index-0"></span><h1><span class="section-number">1.5.2. </span>Simple Image Access (SIA)<a class="headerlink" href="#simple-image-access-sia" title="Permalink to this headline">¶</a></h1>
+<p>The Simple Image Access (SIA) service provides capabilities for the discovery, description, access, and retrieval of multi-dimensional image datasets, including 2-D images as well as datacubes of three or more dimensions. Use of the SIA service requires the external PyVO package, and the URL of the SIA service endpoint that you will use. Data Lab has a general SIA service containing all available images from NOIRLab Science Archive (NSA), as well as a number of survey-specific services.</p>
+<p>The SIA service tool works to identify the set of images in an image collection that overlap the position at which an image cutout is desired. It returns a table of potential images containing information (metadata) typically found in the image headers (filter, exposure time, time of observation, etc.) as well as a URL pointing to the image cutout itself. Getting image cutouts is thus a three-step process:</p>
+<ol class="arabic simple">
+<li><p>choose an image collection</p></li>
+<li><p>call the SIA service for that collection to retrieve information about images that overlap a position of interest</p></li>
+<li><p>retrieve the image cutouts by accessing the URLs for the selected images in the table of information</p></li>
+</ol>
+<section id="choosing-an-image-collection">
+<h2><span class="section-number">1.5.2.1. </span>Choosing an image collection<a class="headerlink" href="#choosing-an-image-collection" title="Permalink to this headline">¶</a></h2>
+<p>Choosing a specific image collection is done by selecting the URL that points to that collection. Here we list the SIA service endpoints for different image collections:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 34%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>DEF_ACCESS_URL</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>calibrated_all</p></td>
+<td><p>All Instrument calibrated images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/calibrated_all</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>calibrated/des_y1</p></td>
+<td><p>DES Year-1 calibrated images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/calibrated/des_y1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>calibrated/des_y2</p></td>
+<td><p>DES Year-2 calibrated images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/calibrated/des_y2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>calibrated/des_y3</p></td>
+<td><p>DES Year-3 calibrated images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/calibrated/des_y3</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>calibrated/des_y4</p></td>
+<td><p>DES Year-4 calibrated images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/calibrated/des_y4</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>calibrated/nsa</p></td>
+<td><p>NSA calibrated images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/calibrated/nsa</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>calibrated/smash_dr1</p></td>
+<td><p>SMASH DR1 calibrated images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/calibrated/smash_dr1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>calibrated/smash_dr2</p></td>
+<td><p>SMASH DR2 calibrated images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/calibrated/smash_dr2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>coadd_all</p></td>
+<td><p>All coadded images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/coadd_all</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>coadd/decaps_dr1</p></td>
+<td><p>DECaPS DR1 coadd images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/coadd/decaps_dr1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>coadd/des_dr1</p></td>
+<td><p>DES DR1 coadd images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/coadd/des_dr1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>coadd/des_sva</p></td>
+<td><p>DES SVA coadd images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/coadd/des_sva</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>coadd/ls_dr8</p></td>
+<td><p>DECaLS DR8 coadd images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/coadd/ls_dr8</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>coadd/ls_dr9</p></td>
+<td><p>DECaLS DR9 coadd images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/coadd/ls_dr9</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>coadd/nsa</p></td>
+<td><p>NSA coadd images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/coadd/nsa</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>coadd/smash_dr1</p></td>
+<td><p>SMASH DR1 coadd images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/coadd/smash_dr1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>coadd/smash_dr2</p></td>
+<td><p>SMASH DR2 coadd images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/coadd/smash_dr2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>decaps_dr1</p></td>
+<td><p>DECaPS DR1 images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/decaps_dr1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>decaps_dr2</p></td>
+<td><p>DECaPS DR2 images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/decaps_dr2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>delve_dr3</p></td>
+<td><p>DELVE DR3 images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/delve_dr3</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>demcels_dr1</p></td>
+<td><p>DeMCELS DR1 images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/demcels_dr1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>des_dr1</p></td>
+<td><p>DES DR1 images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/des_dr1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>des_dr2</p></td>
+<td><p>DES DR2 images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/des_dr2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>des_dr2_se</p></td>
+<td><p>DES DR2 single-epoch images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/des_dr2_se</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>des_sva1</p></td>
+<td><p>DES SVA1 images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/des_sva1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>des_y1</p></td>
+<td><p>DES Year-1 images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/des_y1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>des_y2</p></td>
+<td><p>DES Year-2 images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/des_y2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>des_y3</p></td>
+<td><p>DES Year-3 images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/des_y3</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>des_y4</p></td>
+<td><p>DES Year-4 images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/des_y4</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>gogreen_dr1</p></td>
+<td><p>GOGREEN DR1 images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/gogreen_dr1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>gogreen_dr2</p></td>
+<td><p>GOGREEN DR2 images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/gogreen_dr2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>ls_dr8</p></td>
+<td><p>DECaLS DR8 images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/ls_dr8</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>ls_dr9</p></td>
+<td><p>DECaLS DR9 images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/ls_dr9</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>ls_dr10</p></td>
+<td><p>DECaLS DR10 images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/ls_dr10</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>nsa</p></td>
+<td><p>NOIRLab Science Archive</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/nsa</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>nsc_dr2</p></td>
+<td><p>NOIRLab Source Catalog DR2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/nsc_dr2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>raw/nsa</p></td>
+<td><p>NSA Raw images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/raw/nsa</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>raw_all</p></td>
+<td><p>All Raw images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/raw_all</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>raw/smash_dr1</p></td>
+<td><p>SMASH DR1 raw images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/raw/smash_dr1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>raw/smash_dr2</p></td>
+<td><p>SMASH DR2 raw images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/raw/smash_dr2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>sdss_dr9</p></td>
+<td><p>SDSS DR9 sky-subtracted images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/sdss_dr9</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>smash_dr1</p></td>
+<td><p>SMASH DR1 images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/smash_dr1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>smash_dr2</p></td>
+<td><p>SMASH DR2 images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/smash_dr2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>splus_dr1</p></td>
+<td><p>S-PLUS DR1 images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/splus_dr1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>splus_edr</p></td>
+<td><p>S-PLUS EDR images</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/splus_edr</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>stripe82/calibrated</p></td>
+<td><p>Calibrated images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/calibrated</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>stripe82/coadd</p></td>
+<td><p>Coadd images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/coadd</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>stripe82/decaps_dr1</p></td>
+<td><p>DECAPS DR1 images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/decaps_dr1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>stripe82/des_dr1</p></td>
+<td><p>DES DR1 images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/des_dr1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>stripe82/des_dr2</p></td>
+<td><p>DES DR2 images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/des_dr2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>stripe82/des_sva1</p></td>
+<td><p>DES SVA1 images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/des_sva1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>stripe82/des_y1</p></td>
+<td><p>DES Year-1 images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/des_y1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>stripe82/des_y2</p></td>
+<td><p>DES Year-2 images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/des_y2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>stripe82/des_y3</p></td>
+<td><p>DES Year-3 images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/des_y3</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>stripe82/des_y4</p></td>
+<td><p>DES Year-4 images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/des_y4</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>stripe82/ls_dr8</p></td>
+<td><p>DECaLS DR8 images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/ls_dr8</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>stripe82/ls_dr9</p></td>
+<td><p>DECaLS DR9 images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/ls_dr9</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>stripe82/nsa</p></td>
+<td><p>NOIRLab Science Archive images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/nsa</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>stripe82/nsc_dr2</p></td>
+<td><p>NSC DR2 images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/nsc_dr2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>stripe82/raw</p></td>
+<td><p>Raw images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/raw</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>stripe82/sdss_dr9</p></td>
+<td><p>SDSS DR9 images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/sdss_dr9</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>stripe82/smash_dr1</p></td>
+<td><p>SMASH DR1 images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/smash_dr1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>stripe82/smash_dr2</p></td>
+<td><p>SMASH DR2 images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/smash_dr2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>stripe82/splus_dr1</p></td>
+<td><p>S-PLUS DR1 images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/splus_dr1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>stripe82/splus_edr</p></td>
+<td><p>S-PLUS EDR images in Stripe82</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://datalab.noirlab.edu/sia/stripe82/splus_edr</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="retrieving-image-information">
+<h2><span class="section-number">1.5.2.2. </span>Retrieving image information<a class="headerlink" href="#retrieving-image-information" title="Permalink to this headline">¶</a></h2>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">search</span></code> method of the SIA service object to perform a search within a specified field of view (fov) size. The <code class="docutils literal notranslate"><span class="pre">search</span></code> method takes the following as arguments:</p>
+<p><em>(ra,dec)</em> - a tuple containing the RA and Dec of the object in decimal degrees</p>
+<p><em>fov</em> - a tuple with the size of the cutout in each direction in degrees</p>
+<p>For example, we will pick a location in SDSS Stripe 82 in the subset of images from the NOIRLab Science Archive (nsa) that overlap with SDSS Stripe 82:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">DEF_ACCESS_URL</span> <span class="o">=</span> <span class="s2">&quot;https://datalab.noirlab.edu/sia/stripe82/nsa&quot;</span>
+<span class="o">&gt;</span> <span class="n">svc_stripe82</span> <span class="o">=</span> <span class="n">sia</span><span class="o">.</span><span class="n">SIAService</span><span class="p">(</span><span class="n">DEF_ACCESS_URL</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We use the SDSS Stripe 82-specific SIA service above to retrieve the image information for an image cutout whose fov size is 6x6 arcmin (0.1x0.1 degrees). We want the result to be an Astropy table, so we add <code class="docutils literal notranslate"><span class="pre">.to_table()</span></code> at the end of the call:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">ra</span> <span class="o">=</span> <span class="mf">335.0</span>
+<span class="o">&gt;</span> <span class="n">dec</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="o">&gt;</span> <span class="n">fov</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="o">&gt;</span> <span class="n">imgTable</span> <span class="o">=</span> <span class="n">svc_stripe82</span><span class="o">.</span><span class="n">search</span><span class="p">((</span><span class="n">ra</span><span class="p">,</span><span class="n">dec</span><span class="p">),</span> <span class="p">(</span><span class="n">fov</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">dec</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">),</span> <span class="n">fov</span><span class="p">),</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_table</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>NOTE</strong> the <code class="docutils literal notranslate"><span class="pre">search</span></code> method works in RA and Dec in degrees, and does not account for the convergence of lines of RA toward the poles, so we divide by a <code class="docutils literal notranslate"><span class="pre">cos(dec)</span></code> term in the RA fov argument.</p>
+<p>The result is a table of metadata for images that overlap the search position.</p>
+</section>
+<section id="retrieving-image-cutouts">
+<h2><span class="section-number">1.5.2.3. </span>Retrieving image cutouts<a class="headerlink" href="#retrieving-image-cutouts" title="Permalink to this headline">¶</a></h2>
+<p>In the result table of metadata for images obtained above, the column <code class="docutils literal notranslate"><span class="pre">access_url</span></code> contains the link to retrieve the image cutout. We can filter the table on any of the columns to narrow down the list to just the cutouts we want. Here we’ll select stacked images (<code class="docutils literal notranslate"><span class="pre">proctype=Stack</span></code> and <code class="docutils literal notranslate"><span class="pre">prodtype=image</span></code>) observed in the g filter (<code class="docutils literal notranslate"><span class="pre">obs_bandpass</span></code> that contains the letter ‘g’):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">sel</span> <span class="o">=</span> <span class="p">(</span><span class="n">imgTable</span><span class="p">[</span><span class="s1">&#39;proctype&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">==</span><span class="s1">&#39;Stack&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">imgTable</span><span class="p">[</span><span class="s1">&#39;prodtype&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">==</span><span class="s1">&#39;image&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">startswith</span><span class="p">(</span><span class="n">imgTable</span><span class="p">[</span><span class="s1">&#39;obs_bandpass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span><span class="s1">&#39;g&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>From the filtered table we will pick a row and retrieve the image:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">row</span> <span class="o">=</span> <span class="n">imgTable</span><span class="p">[</span><span class="n">sel</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="o">&gt;</span> <span class="n">url</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;access_url&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span> <span class="c1"># get the download URL</span>
+<span class="o">&gt;</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">show_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">timeout</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">hdu</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="o">&gt;</span> <span class="n">image</span> <span class="o">=</span> <span class="n">hdu</span><span class="o">.</span><span class="n">data</span>
+<span class="o">&gt;</span> <span class="n">hdr</span> <span class="o">=</span> <span class="n">hdu</span><span class="o">.</span><span class="n">header</span>
+<span class="o">&gt;</span> <span class="n">wcs</span> <span class="o">=</span> <span class="n">WCS</span><span class="p">(</span><span class="n">hdr</span><span class="p">)</span> <span class="c1"># WCS info from header to convert pixel coords to world coords</span>
+</pre></div>
+</div>
+<p>Then we’ll display the image. Note that the image might not be square for a variety of reasons, such as that the image cutout ran into a chip edge along one axis.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="o">&gt;</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">wcs</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bone&#39;</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="n">image</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="n">vmax</span><span class="o">=</span><span class="n">image</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">+</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">image</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">/</span><span class="mf">170.</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../../_images/SIA1.png"><img alt="SIA screenshot" src="../../../_images/SIA1.png" style="width: 450.0px; height: 390.5px;" /></a>
+</figure>
+</section>
+<section id="resources-and-references">
+<h2><span class="section-number">1.5.2.4. </span>Resources and References<a class="headerlink" href="#resources-and-references" title="Permalink to this headline">¶</a></h2>
+<p>See our <a class="reference external" href="https://github.com/astro-datalab/notebooks-latest/blob/master/04_HowTos/SiaService/How_to_use_the_Simple_Image_Access_service.ipynb">How To Use SIA Service Jupyter notebook</a> for example usage.</p>
+<p>For more background on the SIA protocol, see the <a class="reference external" href="https://www.ivoa.net/documents/SIA/">IVOA document</a> that describes it.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/DataLabLogo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="../../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">1.5.2. Simple Image Access (SIA)</a><ul>
+<li><a class="reference internal" href="#choosing-an-image-collection">1.5.2.1. Choosing an image collection</a></li>
+<li><a class="reference internal" href="#retrieving-image-information">1.5.2.2. Retrieving image information</a></li>
+<li><a class="reference internal" href="#retrieving-image-cutouts">1.5.2.3. Retrieving image cutouts</a></li>
+<li><a class="reference internal" href="#resources-and-references">1.5.2.4. Resources and References</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../CatalogDataAccessTAPSCS/CatalogDataAccessTAPSCS.html"
+                          title="previous chapter"><span class="section-number">1.5.1. </span>Catalog Data Access (TAP/SCS)</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="../FileService/FileService.html"
+                          title="next chapter"><span class="section-number">1.5.3. </span>File Service</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/UsingAstroDataLab/DataAccessInterfaces/SimpleImageAccessSIA/SimpleImageAccessSIA.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../FileService/FileService.html" title="1.5.3. File Service"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../CatalogDataAccessTAPSCS/CatalogDataAccessTAPSCS.html" title="1.5.1. Catalog Data Access (TAP/SCS)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Data Lab  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" ><span class="section-number">1. </span>Using Data Lab</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">1.5. </span>Data Access Interfaces</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">1.5.2. </span>Simple Image Access (SIA)</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2026, Association of Universities for Research in Astronomy, Inc. (AURA). Contact: &lt;datalab@noirlab.edu&gt;.
+      Last updated on 2026-May-04.
+    </div>
+  </body>
+</html>

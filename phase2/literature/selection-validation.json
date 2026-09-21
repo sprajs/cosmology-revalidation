@@ -1,0 +1,36 @@
+{
+  "checks": [
+    {
+      "check": "density_normalization",
+      "name": "SALT2c",
+      "pass": true
+    },
+    {
+      "check": "density_normalization",
+      "name": "RV",
+      "pass": true
+    },
+    {
+      "check": "density_normalization",
+      "name": "EBV",
+      "pass": true
+    },
+    {
+      "check": "density_normalization",
+      "name": "SALT2x1",
+      "pass": true
+    },
+    {
+      "check": "trigger_against_complete_32_state_enumeration",
+      "pass": true,
+      "probability": 0.7780913578197004
+    },
+    {
+      "check": "host_maps_all_fields_seasons_boundary_probabilities",
+      "pass": true
+    }
+  ],
+  "limits": [
+    "Tests validate this reader and the conditional trigger combinatorics, not full historical SNANA parity, generated density source equality, or final fitted selection."
+  ]
+}

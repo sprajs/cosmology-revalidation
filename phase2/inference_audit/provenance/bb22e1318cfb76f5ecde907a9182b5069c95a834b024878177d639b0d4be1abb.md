@@ -1,0 +1,33 @@
+# Preregistered selected-sample prediction benchmark
+
+Recorded before opening any model's held-out scores. This is a complementary empirical test of which features predict **pre-BBC fitted apparent magnitude** in the observed DES sample. It is not a reconstruction of the parent population, a selection-corrected physical dust inference, or a new acceleration posterior. A separate independent flux check tests the compression into SALT observables. Models learned on a selected sample may capture selection-induced relations as well as astrophysics.
+
+Use the coherent public-accepted-mask refit when available; repeat the leading comparisons on the independently recovered-mask arm. Keep the same original DES members with nominal SNNV19>0.999 and available positive-definite coherent covariance in both arms. Use the already frozen CID folds, with fold0 held out and folds1–4 training. No additional cut chosen from prediction residuals. The high-purity threshold is a declared approximation to reduce contaminants, not a proof of purity or a new unselected population. The classifier uses overlapping flux information, so no additional classification likelihood is multiplied into the regression. Published low-z objects are an optional separately labelled transfer check, not silently added to the primary DES test.
+
+All candidates share a flexible magnitude-redshift curve: coasting distance plus an intercept and linear interpolation through fixed redshift knots [0.01,0.10,0.20,0.35,0.50,0.70,0.90,1.20], with the first relative offset zero. Its q is not fitted. Finite knots and finite Gaussian priors mean the reference curve is not absorbed exactly; reference sensitivity is explicitly required below. Intercept prior N(-19.3,1), relative offsets N(0,0.5). Candidate predictors are:
+
+1. Redshift curve alone.
+2. Stretch alone beyond the curve.
+3. Colour alone beyond the curve.
+4. Linear stretch+colour (Tripp form).
+5. Add a host-mass step.
+6. Add host-dependent colour coefficient as well as the host step.
+7. Add a fixed zero-colour hinge, allowing different red/blue slopes, and a host step.
+8. Add separate redshift evolution of stretch and colour coefficients plus a host step.
+9. A flexible combination of host, host×colour, zero-colour hinge, stretch/colour coefficient evolution and stretch squared.
+
+Host membership is mixed over the declared Gaussian-mass-error probability above logmass10, not treated as known physical progenitor age. Priors for signed magnitude coefficients: stretch N(-0.15,0.2), colour N(3,2), host step N(0,0.3), host×colour and hinge N(0,2), redshift×stretch N(0,0.5), redshift×colour N(0,3), stretch squared N(0,0.1). Evolution uses z/(1+z)-0.2. Per-host residual scales have HalfNormal(0.7) priors common to every model.
+
+The predictive distribution is a normalized conditional density for mB given observed x1,c,z,mass and their quoted covariance **within the selected sample**. Its variance is the refit covariance projected along [1,-dmean/dx1,-dmean/dc], plus the fitted residual variance. This is a declared approximation for errors in predictors; it is not an exact latent-population likelihood. Gaussian residuals are primary. The same nine mean models with fixed-df4 Student residuals are a registered tail sensitivity, with scale chosen so the reported residual variance has the same meaning. A coherent positive covariance is required; no nearest-positive-matrix repair.
+
+Train only on folds1–4. Score each held-out supernova using posterior-integrated conditional log density of apparent magnitude. Report paired differences on identical rows, summed and mean scores, posterior predictive residual coverage, object bootstrap uncertainty and a field-cluster sensitivity. A colour/host predictor must improve unseen magnitude prediction to earn support here. A better score does not establish a unique causal correction or a selection-free luminosity law. The fixed historical P21/BS21/G10 models were themselves tuned using overlapping DES information; their later forward comparison is retrospective predictive checking unless population parameters are relearned without the held-out objects.
+
+Age or grey luminosity evolution cannot be ranked independently of the free redshift curve using these predictors alone. The analysis must report that non-identifiability rather than interpreting a fitted redshift trend as age, dust, or cosmology. Comparison with actual forward-selected simulations and full selection-normalized hierarchical inference remains a separate task.
+
+## Statistical preflight amendments, before held-out outcomes
+
+The independent audit verifies identical membership in both prepared refit arms: 1,063 DES objects, of which 213 are fold0 test objects. `conditional-cohort.json` freezes the exact CID-to-fold mapping; the executable must enforce it, not merely accept an optional intersection flag. All 18 primary mean/tail combinations will have exact posterior-mixture predictive CDF/PIT and 95% quantiles, not call two predictive standard deviations a 95% interval. Within-chain batch score estimates expose Monte Carlo uncertainty separately from object/field sampling uncertainty.
+
+Freeze the following additional **Gaussian** sensitivity runs now for the Tripp, host-step and flexible mean models: independently recovered fit masks; omission of the already identified multimodal training object1307748 (fold1, never change the test set); uniform multiplication of quoted measurement covariance by1.20 as a stress bracket informed by the pilot's largest generalized covariance discrepancy; and alternate reference curves with constant q=0.5 and q=-1. The covariance bracket is not a calibrated full-sample uncertainty prior. These three prespecified representative model complexities are used for sensitivities irrespective of which primary candidate scores best.
+
+The projected covariance is only propagation of residual measurement error. It is **not** a derivation of the actual conditional distribution of mB given noisy measured stretch/colour under a finite latent predictor population. Nonlinear hinges and squared terms introduce additional linearization limitations. Here it defines a normalized descriptive predictive family whose success must be judged on held-out observations; physical regression coefficients, dust parameters and parent-population corrections cannot be inferred from that definition. The independent audit will construct explicit counterexamples. Redshift and shared calibration are conditioned on in this benchmark, so its score uncertainty is not a full cosmological systematic budget.

@@ -1,0 +1,32 @@
+{
+  "purpose": "Misspecified noise injections, fitted with unchanged measured error convention and same SALT pipeline.",
+  "runs": [
+    {
+      "version": "PH2_pilot02_P21_rho000",
+      "input": "phase2/literature/simulations/inputs/PH2_pilot02_P21_rho000.input",
+      "sha256": "08375c553792d55d64c4dc5133ff2382a49bd78cc9c9501bbc5070cad6ac47ab"
+    },
+    {
+      "version": "PH2_pilot02_P21_rho090",
+      "input": "phase2/literature/simulations/inputs/PH2_pilot02_P21_rho090.input",
+      "sha256": "b4880b7bf7be60e3131228d0c3307fe11cfa27e07fe8a528a5c1fa4d42e121d8"
+    },
+    {
+      "version": "PH2_pilot02_P21_noisetrue120",
+      "input": "phase2/literature/simulations/inputs/PH2_pilot02_P21_noisetrue120.input",
+      "sha256": "573094ccc6e93aab342a229b1501c00845e6a5ff99af874c09618897a7bab8af"
+    }
+  ],
+  "source_map": "phase2/official/inputs/SNDATA_ROOT/simlib/DES/DES-SN5YR_DES_FLUXERRMODEL_SIM.DAT",
+  "source_sha256": "2b6d0898fd1992a72cfa2322a79272a9557e8fc4cb98fa3193bd8ee00d2d80d9",
+  "scaled_map": "phase2/literature/simulations/inputs/DES_FLUXERRMODEL_TRUE120_DATA100.DAT",
+  "scaled_map_sha256": "7755a4cc628623162dc72c74fe969fa425052d4cb2dfb9bcb4148b980f6b002b",
+  "definitions": {
+    "rho000": "Disable added-fudge interepoch correlation; template common-mode remains.",
+    "rho090": "Set same-band added-fudge interepoch correlation0.9, total flux correlation is smaller/different.",
+    "noisetrue120": "Multiply true noise scale by1.2 while leaving reported DATA-error scaling1.0. This creates purposeful underreported uncertainty; not a proposed calibrated nominal model."
+  },
+  "source_convention": "snlc_sim.c24303-24313 addedvarianceF=(scale\u00b2-1)*searchvariance;24506-24512 covariance rho*sqrt(FiFj);24654-24674 independentsearch+commonbandtemplate+fudge.",
+  "inference": "Perturbation values are stress brackets, not empirically estimated posterior uncertainties. Compare them to independent real-noise diagnostics before using as scientific uncertainty prior.",
+  "coverage": "Single pilot realizes misspecification and selection effect; frequentist coverage requires repeated independently seeded realizations and confidence intervals on coverage."
+}
