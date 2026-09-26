@@ -1,0 +1,87 @@
+{
+  "scope": "Conditional inference from released corrected distances; no independent calibration or selection reconstruction.",
+  "parameters": [
+    "Om"
+  ],
+  "optimizer_starts": [
+    {
+      "x": [
+        0.3315757656097412
+      ],
+      "objective": 701.4595641324722,
+      "success": true
+    },
+    {
+      "x": [
+        0.3315757873539549
+      ],
+      "objective": 701.459564132472,
+      "success": true
+    },
+    {
+      "x": [
+        0.33157577594072435
+      ],
+      "objective": 701.4595641324715,
+      "success": true
+    },
+    {
+      "x": [
+        0.3315757639825061
+      ],
+      "objective": 701.459564132472,
+      "success": true
+    }
+  ],
+  "mode": [
+    0.33157577594072435
+  ],
+  "mode_chisq": 1402.919128264943,
+  "mode_q0": -0.5026363360889136,
+  "q0_meaning": "model-extrapolated q(0)",
+  "data": {
+    "rows": 1590,
+    "unique_CID": 1473,
+    "input_rows": 1701,
+    "zHD_min": 0.01016,
+    "zHD_max": 2.26137,
+    "covariance_min_eigenvalue": 0.0008071747751720927,
+    "input_covariance_max_asymmetry_mag2": 3.0000000000038676e-08,
+    "magnitude_revision_rows": 0,
+    "offset_projection_error": 4.939382236557321e-13,
+    "interpolation_nodes": 200
+  },
+  "numerical_checks": {
+    "astropy_distance_max_mag": 5.329070518200751e-15,
+    "constant_q_zero_integral_error": 2.220446049250313e-16,
+    "mode_compressed_full_chisq_gap": 1.6648300515953451e-09
+  },
+  "status": "posterior_diagnostics_pass",
+  "valid_for_posterior_summary": true,
+  "autocorrelation_time": [
+    27.938927625566762
+  ],
+  "acceptance_fraction": 0.8082892857142857,
+  "convergence_scope": "Within-ensemble autocorrelation length; independent seeds remain a separate robustness check.",
+  "posterior": {
+    "Om": {
+      "mean": 0.332095341831418,
+      "sd": 0.018216552443544292,
+      "q025_median_q975": [
+        0.2968504271786313,
+        0.3319072274268984,
+        0.36836736052545604
+      ]
+    }
+  },
+  "q0": {
+    "mean": -0.501856987252873,
+    "sd": 0.027324828665316436,
+    "q025_median_q975": [
+      -0.554724359232053,
+      -0.5021391588596524,
+      -0.44744895921181593
+    ]
+  },
+  "P_q0_negative": 1.0
+}
