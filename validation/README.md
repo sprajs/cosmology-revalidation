@@ -1,0 +1,63 @@
+# Validation
+
+The [manuscript](../README.md) is supported by a full workflow replay and separate numerical implementations. The independent checks use the same frozen data and standard numerical libraries; they are not independent observations.
+
+## Published result checks
+
+- All **391 input files** match their recorded sizes and hashes.
+- The **19 default workflow summaries** exactly matched the previous edition in the September 26 replay.
+- All **five supplied alternatives** and **five additional seed runs** completed with their applicable convergence gates.
+- Independent checks found no new numerical defect in the inspected calculations. Physical interpretation and historical reconstruction limits remain explicit.
+
+The [current manifest](manifest.json) verifies the 29 published run records and their outputs. Earlier manifests remain in [provenance/history](../provenance/history/) with their original paths and hashes. The [structure verification](reports/structure-verification.json) records a full fresh campaign after the repository reorganization.
+
+## Independent coverage
+
+| Workflows | Check | Boundary |
+|---|---|---|
+| `cosmology` | Direct distances, full-covariance likelihood, posterior integration and 200 fixed-truth recovery simulations | Upstream covariance and survey selection not regenerated |
+| `bao-shape` | Independently constructed inequalities and constrained projection | Flat geometry and conservative composite-null calibration retained |
+| `ages` | Supplement extraction, matching, WLS/GLS, joint latent Gaussian likelihood and influence | No original age PDFs or exact published LINMIX reconstruction |
+| `populations`, `dust` | Independent clock/delay integration and mixed-source depth integration | Population checks sample three redshifts; dust example is constructed |
+| `des-flux`, `des-predictors` | Fit objectives, held-out densities, gradients, rank diagnostics, paired resampling and extra seed | Frozen accepted epochs and selected sample |
+| `calibration` | Design products and independent Gaussian inference | Conditional on modes, priors and local response approximation |
+| `raisin`, `timing` | Paired accounting, covariance reconstruction, joins, initializer identity and selection | Missing historical covariance operations remain unresolved |
+| `csp-lineage`, `csp-passbands` | Literal row matching and analytic photon integrals | Archive coverage gaps retained; no inferred distance correction |
+| HST imaging and dark workflows | FITS extraction, weights, reference variance, read moments, signed slopes and spatial influence | Science WCS not fully independently reimplemented; native CALWF3 products are frozen inputs |
+| `signed-baseline`, `sign-selection` | Object-level diagnostics, analytic signed fits and adaptive censored likelihood | Censored integral independently refitted for 12/128 replicates; full synthetic workflow replayed |
+
+Detailed notes: [DES](../docs/validation/des.md), [infrared and selection](../docs/validation/infrared.md), [HST](../docs/validation/hst.md). Core numerical results: [core.json](reports/core.json).
+
+## Commands
+
+From the repository root with the verified input bundle:
+
+```bash
+uv sync --frozen --extra predictors
+.venv/bin/python research.py verify
+
+# Inspect, then execute a new complete campaign.
+.venv/bin/python validation/run.py --name next-campaign --plan-only
+.venv/bin/python validation/run.py --name next-campaign
+```
+
+The campaign runs all 29 calculations, points the two age-template fits to the newly generated population table, and then runs the four audits. Existing result directories are refused. Its configuration files and `validation.json` are stored under `results/next-campaign/`.
+
+To audit the published reference results without rerunning the workflows:
+
+```bash
+.venv/bin/python validation/core_checks.py
+.venv/bin/python validation/des_checks.py
+.venv/bin/python validation/raisin_checks.py
+.venv/bin/python validation/hst_checks.py
+.venv/bin/python validation/figures.py
+.venv/bin/python validation/record.py
+```
+
+Audit programs accept `--results` relative to `results/`; DES and core checks also accept the relevant alternative/second-seed locations. See `--help`. Reports under `validation/reports` are refreshed by these commands, so preserve the dated Git version when comparing campaigns. The figure generator always reads the published reference results.
+
+## What the manifests guarantee
+
+The verifier checks input identities, execution status, posterior gates where present, every recorded output hash, and the current audit-code hashes. Historical runs retain their original code hashes; known changes to path handling and project naming are declared in the layout record. Scientific numerical kernels were not changed by the reorganization.
+
+CSV/JSON records and figures are versioned. Bulk inputs and full sampler arrays remain local and must be restored or regenerated to perform all checks. Runtime timestamps and compressed-array bytes can vary across executions; numerical comparisons and scientific gates matter separately from provenance hashes.

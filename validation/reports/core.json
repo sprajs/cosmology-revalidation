@@ -1,0 +1,245 @@
+{
+  "cosmology": {
+    "rows": 1590,
+    "unique_objects": 1473,
+    "direct_full_covariance_mode": 0.3315757830878694,
+    "direct_chi2": 1402.9191282618342,
+    "posterior_mean": 0.33225848135892205,
+    "posterior_sd": 0.01821006172503172,
+    "posterior_95_interval": [
+      0.29720739072520974,
+      0.36860223466706826
+    ],
+    "posterior_q0_mean": -0.5016122779616169,
+    "posterior_q0_sd": 0.02731509258754758,
+    "grid_halving_mean_difference": 5.717648576819556e-15,
+    "direct_vs_workflow_mode_difference": -1.1671648647570976e-08,
+    "direct_vs_workflow_chi2_difference": -3.110017132712528e-09,
+    "grid_vs_mcmc_mean_difference": -5.659088296361414e-05,
+    "chi2_per_approximate_dof": 0.8834503326585857,
+    "conditional_gaussian_lower_tail": 0.00032574184033717023,
+    "lower_tail_scope": "Reference for fixed Gaussian covariance and locally linear two-parameter mean; upstream fitted covariance and selection are not regenerated. Not a permission to rescale errors.",
+    "published_reference": {
+      "url": "https://arxiv.org/abs/2202.04077",
+      "Omega_m": 0.334,
+      "reported_sd": 0.018,
+      "difference_in_published_sd_units": -0.09675103561544256,
+      "interpretation": "Descriptive difference, not an independent tension significance; overlapping data and differing release/pipeline details."
+    },
+    "second_seed": {
+      "mean": 0.332095341831418,
+      "sd": 0.018216552443544292,
+      "within_ensemble_diagnostics_pass": true,
+      "mean_minus_grid": -0.0001631395275040748
+    },
+    "fixed_truth_recovery": {
+      "draws": 200,
+      "seed": 260926731,
+      "true_Omega_m": 0.33,
+      "mean_posterior_mean": 0.3303608905946909,
+      "bias": 0.0003608905946909102,
+      "bias_monte_carlo_se": 0.0012236378476105278,
+      "coverage_68_percent_interval": 0.69,
+      "covered_draws": 138,
+      "coverage_binomial_se": 0.03291081614758285,
+      "scope": "Conditional Gaussian fixed-covariance recovery; no upstream selection or error-model validation. Fixed truth rather than a draw from the prior."
+    }
+  },
+  "ages": {
+    "literal_source_rows": 301,
+    "source_counts": {
+      "G11": 199,
+      "R19": 102
+    },
+    "unmatched_rows": 75,
+    "selected_unique_objects": 196,
+    "independent_regressions": [
+      {
+        "outcome": "hr_corrected",
+        "wls_slope": -0.004167574374560326,
+        "wls_se": 0.006423302698727051,
+        "full_covariance_gls_slope": -0.004949864863904798,
+        "full_covariance_gls_se": 0.00456068734826626,
+        "leave_one_object_slope_range": [
+          -0.006053626446613882,
+          -0.002442541172580934
+        ]
+      },
+      {
+        "outcome": "hr_no_bias",
+        "wls_slope": -0.013268453341855599,
+        "wls_se": 0.006423302698727051,
+        "full_covariance_gls_slope": -0.012940371848948149,
+        "full_covariance_gls_se": 0.00456068734826626,
+        "leave_one_object_slope_range": [
+          -0.015172292445694914,
+          -0.01150209595562292
+        ]
+      },
+      {
+        "outcome": "hr_tripp",
+        "wls_slope": -0.013482202182442522,
+        "wls_se": 0.006423302698727051,
+        "full_covariance_gls_slope": -0.013106574134484187,
+        "full_covariance_gls_se": 0.00456068734826626,
+        "leave_one_object_slope_range": [
+          -0.015390128570421433,
+          -0.011715520745654384
+        ]
+      }
+    ],
+    "latent_block_likelihood_checks": [
+      {
+        "outcome": "hr_corrected",
+        "joint_minus_conditional_nll": -3.453237695794087e-12,
+        "boundary": false
+      },
+      {
+        "outcome": "hr_no_bias",
+        "joint_minus_conditional_nll": -2.7284841053187847e-12,
+        "boundary": true
+      }
+    ],
+    "bias_term_slope_contribution": -0.009100878967295273,
+    "author_residual_diagnostics": [
+      {
+        "sample": "full_G11",
+        "outcome": "author_hr",
+        "n": 199,
+        "fixed_age_wls_slope": -0.029440107605007645,
+        "se": 0.003158287086276904
+      },
+      {
+        "sample": "full_G11",
+        "outcome": "author_hr_original",
+        "n": 199,
+        "fixed_age_wls_slope": -0.026662711503268,
+        "se": 0.003158287086276904
+      },
+      {
+        "sample": "full_R19",
+        "outcome": "author_hr",
+        "n": 102,
+        "fixed_age_wls_slope": -0.03769641335991478,
+        "se": 0.003559545865688855
+      },
+      {
+        "sample": "full_R19",
+        "outcome": "author_hr_original",
+        "n": 102,
+        "fixed_age_wls_slope": -0.03769641335991478,
+        "se": 0.003559545865688855
+      },
+      {
+        "sample": "matched_union",
+        "outcome": "author_hr",
+        "n": 196,
+        "fixed_age_wls_slope": -0.02740681423697574,
+        "se": 0.0028727510139943853
+      },
+      {
+        "sample": "matched_union",
+        "outcome": "author_hr_original",
+        "n": 196,
+        "fixed_age_wls_slope": -0.026335613599327026,
+        "se": 0.0028727510139943853
+      }
+    ],
+    "uncertainty_column_check": {
+      "median_quoted_mu_error": 0.19555299999999998,
+      "median_full_covariance_diagonal_error": 0.1387768656134733,
+      "median_ratio": 1.4048656588268544,
+      "scope": "Tabulated plotting errors and supplied covariance diagonal differ in the frozen author release; this is not introduced by the clean extraction. Cosmology uses the full covariance."
+    },
+    "scope": "Diagnostics on selected age summaries; GLS still treats ages as exact. Leave-one-object is influence sensitivity, not selection correction. No original age PDFs or exact published LINMIX reconstruction."
+  },
+  "populations": {
+    "method": "Independent adaptive ODE clock, inverse interpolation and adaptive scalar integration; all three DTDs at z=0,1,2.5. Other redshifts are not independently sampled.",
+    "checks": [
+      {
+        "z": 0.0,
+        "dtd": "C14_smooth",
+        "independent_mean_gyr": 6.142809904687093,
+        "independent_median_gyr": 6.703171347918497,
+        "max_difference_gyr": 3.055236970084252e-07
+      },
+      {
+        "z": 0.0,
+        "dtd": "cut300",
+        "independent_mean_gyr": 6.142824747898532,
+        "independent_median_gyr": 6.703043776629933,
+        "max_difference_gyr": 3.8564391680040444e-08
+      },
+      {
+        "z": 0.0,
+        "dtd": "W26_cut40",
+        "independent_mean_gyr": 4.275485921546873,
+        "independent_median_gyr": 2.8665405569157025,
+        "max_difference_gyr": 9.961364311195098e-08
+      },
+      {
+        "z": 1.0,
+        "dtd": "C14_smooth",
+        "independent_mean_gyr": 1.5612746617751254,
+        "independent_median_gyr": 1.2631435847457668,
+        "max_difference_gyr": 7.257927889803284e-07
+      },
+      {
+        "z": 1.0,
+        "dtd": "cut300",
+        "independent_mean_gyr": 1.561482240569642,
+        "independent_median_gyr": 1.2629695912457461,
+        "max_difference_gyr": 1.976093577660265e-08
+      },
+      {
+        "z": 1.0,
+        "dtd": "W26_cut40",
+        "independent_mean_gyr": 0.8664781984021676,
+        "independent_median_gyr": 0.3907042184710887,
+        "max_difference_gyr": 1.2389713699434424e-08
+      },
+      {
+        "z": 2.5,
+        "dtd": "C14_smooth",
+        "independent_mean_gyr": 0.6895558050994827,
+        "independent_median_gyr": 0.5802190086231174,
+        "max_difference_gyr": 3.631733828113326e-07
+      },
+      {
+        "z": 2.5,
+        "dtd": "cut300",
+        "independent_mean_gyr": 0.6906739179190007,
+        "independent_median_gyr": 0.5804417474401687,
+        "max_difference_gyr": 8.631746983844835e-09
+      },
+      {
+        "z": 2.5,
+        "dtd": "W26_cut40",
+        "independent_mean_gyr": 0.289447528214982,
+        "independent_median_gyr": 0.15718246907887098,
+        "max_difference_gyr": 2.7112625200498286e-09
+      }
+    ],
+    "max_delay_difference_gyr": 7.257927889803284e-07
+  },
+  "bao": {
+    "independent_inequality_projection": 11.467067091562022,
+    "workflow_difference": -3.375077994860476e-14,
+    "anisotropic_rows": 12,
+    "excluded_isotropic_rows": 1,
+    "interpretation": "Conservative cone-tail result under flat geometry. No CMB likelihood; no interpretation as a present-day q0 probability."
+  },
+  "dust": {
+    "quadrature_max_transmission_error": 1.1102230246251565e-16,
+    "stored_geometry_rows": 18,
+    "interpretation": "Constructed absorption and latent-mean identity, not an empirical dust-population estimate."
+  },
+  "audit_code_sha256": "da33a0dd6620042b88a14f6077aab8653e91d754d66484e850e19468b7363527",
+  "input_sha256": {
+    "data/distances/Pantheon+SH0ES.dat": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8",
+    "data/distances/Pantheon+SH0ES_STAT+SYS.cov": "abf806d966485e64afdb359c87bffc0ecc00d05eff0a31ced66f247385df0fdc",
+    "data/ages/supplement.zip": "c98883adf60efa3ead151d297e1fb1bd2067dddf997e8cf3bc6fe98044c40f04",
+    "data/bao/desi_gaussian_bao_ALL_GCcomb_mean.txt": "9ac154ab583ce759c0f7eef3c978c7c70a6ead2d18774caceadf1a350a640585",
+    "data/bao/desi_gaussian_bao_ALL_GCcomb_cov.txt": "252a143274c8a07c78694c119617d36594f6d7965d00319ca611c6ffb886e509"
+  }
+}

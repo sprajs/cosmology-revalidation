@@ -1,9 +1,0 @@
-# Direct physical-instrument overlap: metadata stop
-
-The present metadata do not establish an independent, nearly simultaneous calibration experiment. Within half a day, the only Jdw/J and Ydw/Y candidates are the known sn2006kf raw-label collision at times 1037.81 and 1037.82. Each band pairing has four Cartesian combinations of two source rows on each side. These are not four independent exposure pairs: even if all four rows were independent exposures, only two disjoint matched pairs exist. The metadata alone establish neither independent photons nor duplicated photometry.
-
-There are no Jdw/Jrc2 pairs even within one day. The larger one-day Jdw/J, Hdw/H and Ydw/Y inventories contain 28/7, 14/4 and 39/8 pair/object counts, respectively. Their different epochs require an explicit phase-evolution or interpolation model and uncertainty, so they do not provide a model-independent direct instrument offset by simple subtraction. Repeated use of one measurement in Cartesian pairs would also create covariance.
-
-The raw archive records physical-filter labels, object names and rounded times but no exposure identifier or reduction provenance. The released merged labels cannot restore that missing information. The next decisive acquisition is exposure/reduction identity and confirmation of whether the sn2006kf labels are independent observations or duplicate/export products. Until that closes, stop the brightness comparison. This is a metadata limitation, not evidence that the filters agree, disagree, or that the observations are duplicated. No magnitudes or errors were compared in this review.
-
-The prospective native timing engineering gate is currently a more concrete next computation because its same-photon identity and source noise can be retained explicitly. A physical WIRC calibration bridge remains scientifically distinct and needs its reference-star/filter and data-lineage closure.

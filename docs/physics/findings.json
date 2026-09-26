@@ -1,0 +1,209 @@
+{
+  "audit_date": "2026-09-21",
+  "scope": "Physical equations underlying inspected first-party kernels and selected consumed vendor routines; not certification of every external package or survey inference.",
+  "findings": [
+    {
+      "id": "FIX-01",
+      "status": "corrected_and_tested",
+      "equations": [
+        "C16",
+        "C18"
+      ],
+      "problem": "efunc with model=qbins fell through to an unrelated dark-energy parameterization.",
+      "correction": "Continuous piecewise E obtained by integrating (1+q)dln(1+z).",
+      "implementation": [
+        "scripts/cosmology/core.py:efunc"
+      ],
+      "evidence": "runs/physics_audit/cosmology-check.json",
+      "historical_result_impact": "Existing qbins distance path did not call this unsupported expansion-rate branch. No cosmology refit claimed."
+    },
+    {
+      "id": "FIX-02",
+      "status": "corrected_and_tested",
+      "equations": [
+        "C18"
+      ],
+      "problem": "Binned comoving distance silently saturated above last bin; q and distance then disagreed.",
+      "correction": "Explicit NumPy domain errors, JIT-compatible invalid JAX output, and pre-sampler data validation.",
+      "implementation": [
+        "scripts/cosmology/core.py:_check_qbin_domain",
+        "scripts/phase2/hierarchy/core.py:distance_qbins",
+        "scripts/phase2/hierarchy/run.py:main"
+      ],
+      "evidence": "runs/physics_audit/cosmology-check.json",
+      "historical_result_impact": "Inspected saved real/synthetic redshifts are inside existing domains; in-domain physical model unchanged."
+    },
+    {
+      "id": "FIX-03",
+      "status": "corrected_and_tested",
+      "equations": [
+        "O05",
+        "O06",
+        "D08"
+      ],
+      "problem": "Nonzero throughput outside spectral support was silently dropped from source flux while full reference normalization remained.",
+      "correction": "Reject evaluation of incomplete bands and retain inclusive model boundary; unused filters may still be prepared.",
+      "implementation": [
+        "scripts/phase2/independent_flux/engine.py:Engine.prepare",
+        "scripts/phase2/independent_flux/engine.py:Engine.flux"
+      ],
+      "evidence": "runs/physics_audit/observation-check.json",
+      "historical_result_impact": "12 saved reference objects / 528 epochs are bitwise unchanged."
+    },
+    {
+      "id": "FIX-04",
+      "status": "corrected_and_tested",
+      "equations": [
+        "D20",
+        "D21"
+      ],
+      "problem": "Uniform-slab attenuation evaluated zero divided by zero in the transparent limit.",
+      "correction": "Exact zero attenuation, stable thin-limit series and physical-domain rejection.",
+      "implementation": [
+        "scripts/standardization/dust_identifiability.py:slab"
+      ],
+      "evidence": "runs/physics_audit/extinction-check.json",
+      "historical_result_impact": "Old positive-depth experiment grid is bitwise unchanged; historical outputs preserved."
+    },
+    {
+      "id": "DOC-01",
+      "status": "notation_corrected",
+      "equations": [
+        "C03"
+      ],
+      "problem": "Earlier acceleration shorthand did not specify energy versus mass density or c=1.",
+      "correction": "Explicit epsilon+3p, or rho+3p/c^2, with cosmological constant counted once.",
+      "implementation": [
+        "docs/first-principles.md"
+      ]
+    },
+    {
+      "id": "PHY-01",
+      "status": "physical_model_choice_unresolved",
+      "equations": [
+        "D02",
+        "D03",
+        "D04",
+        "D16",
+        "D17",
+        "D18",
+        "D19"
+      ],
+      "finding": "Extrapolated low-RV historical and spline laws produce negative extinction for positive input dust, inconsistent with a passive screen.",
+      "evidence": "runs/physics_audit/extinction-check.json",
+      "required_next_test": "Adopt supported nonnegative extinction family and justified dust population, then regenerate/refit matched light curves, selection and bias corrections; compare held-out observables.",
+      "not_established": "Observed dust distribution, selected-sample fraction affected, distance bias or cosmological parameter shift. No arbitrary clamp or population truncation installed."
+    },
+    {
+      "id": "PHY-02",
+      "status": "interpretation_corrected_vendor_preserved",
+      "equations": [
+        "D12",
+        "D17"
+      ],
+      "finding": "F99 normalization parameter AV is not exactly monochromatic A5495 or necessarily the SN broadband AV. Current source comment is inaccurate.",
+      "evidence": "runs/physics_audit/extinction-check.json",
+      "required_next_test": "Use explicit curve normalization and integrate actual spectra/passbands before interpreting broad-band ratios. Renormalization would be a changed model."
+    },
+    {
+      "id": "PHY-03",
+      "status": "missing_physical_bridge_documented",
+      "equations": [
+        "L02",
+        "L07",
+        "L09",
+        "L12",
+        "L15",
+        "L18",
+        "L25",
+        "L31"
+      ],
+      "finding": "Active luminosity model is a trained SALT basis, not an ejecta energy-generation/deposition/transport calculation.",
+      "evidence": "docs/physics-audit/luminosity.md",
+      "required_next_test": "Connect physically varied ejecta/abundances to time-resolved spectra, apply survey observation and selection, refit and test remaining standardized luminosity drift."
+    },
+    {
+      "id": "PHY-04",
+      "status": "empirical_model_support_limitation_reproduced",
+      "equations": [
+        "L31",
+        "O12",
+        "D09"
+      ],
+      "finding": "703 of 27511 sampled native SALT grid nodes permit a negative M0+x1 M1 for at least one x1 in [-3,3].",
+      "evidence": "runs/physics_audit/luminosity-check.json",
+      "required_next_test": "Trace actual fitted parameters, interpolation, phase and passband weights; test a validated alternative before changing learned surfaces.",
+      "not_established": "703 affected observations or a negative integrated flux in any actual fitted epoch."
+    },
+    {
+      "id": "ASM-01",
+      "status": "empirical_assumption",
+      "equations": [
+        "D09",
+        "D12",
+        "O15",
+        "O16",
+        "L34"
+      ],
+      "finding": "SALT colour equals physical reddening and beta equals RV+1 only under additional mapping assumptions, not in general.",
+      "required_next_test": "Physical SED extinction followed by the actual observer/filter/fitting chain; independent multiband or spectral information."
+    },
+    {
+      "id": "ASM-02",
+      "status": "empirical_transport_assumption",
+      "equations": [
+        "P02",
+        "P09",
+        "P10",
+        "P12",
+        "P13",
+        "P14",
+        "P15"
+      ],
+      "finding": "Host age, progenitor delay and selected mean luminosity are different estimands; a local slope times a median cosmic age is not generally the mean physical correction.",
+      "required_next_test": "Consistent host SFH/age definitions, latent delay distributions, selection and transport across redshift; propagate residual correction after existing standardization."
+    },
+    {
+      "id": "ASM-03",
+      "status": "geometry_dynamics_assumption",
+      "equations": [
+        "C01",
+        "C03",
+        "C06",
+        "C07",
+        "C15",
+        "C19",
+        "O23"
+      ],
+      "finding": "Accurate distance integration does not establish flatness, GR matter dynamics, CPL, no luminosity drift or a valid high-redshift Taylor expansion.",
+      "required_next_test": "Prespecified geometry/evolution alternatives constrained by common observations and independent probes."
+    },
+    {
+      "id": "ASM-04",
+      "status": "measurement_selection_assumption",
+      "equations": [
+        "O09",
+        "O10",
+        "O11",
+        "O19",
+        "O21",
+        "O22"
+      ],
+      "finding": "Raw photon counting does not establish Gaussian independent extracted fluxes; shared uncertainty and selection need their own calibrated models.",
+      "required_next_test": "Image/flux recovery, shared-noise diagnostics and end-to-end selection/bias recalibration; avoid duplicate covariance contributions."
+    },
+    {
+      "id": "SCOPE-01",
+      "status": "imported_external_physics",
+      "equations": [
+        "C20",
+        "C21",
+        "C22"
+      ],
+      "finding": "Local BAO ratios and imported CMB chains do not independently solve early-universe perturbations, recombination or instrument/map likelihoods.",
+      "required_next_test": "Separate complete early-universe/likelihood reproduction if those external physical assumptions are to be audited beyond the documented boundary."
+    }
+  ],
+  "source_repository_commit": "17487bf659fcbdeeea072221492bac14b04a0a85",
+  "path_scope": "Implementation and evidence paths refer to the historical source snapshot, not current execution paths."
+}

@@ -1,0 +1,1198 @@
+{
+  "created_utc": "2026-09-26T21:52:42.363813+00:00",
+  "workflow_result_directory": "baseline",
+  "audit_code_sha256": "492bdc0c6aa848706b996d6e591e1a8dd6d8b56b65049a0dc152facd06513a03",
+  "status": "passed",
+  "raisin": {
+    "contrasts": [
+      {
+        "branch": "optical",
+        "variant": "released",
+        "high_minus_low_mag": 0.0012357226895670578,
+        "paired_descriptive_se_mag": 0.0449726308235056,
+        "within_redshift_object_bootstrap_95_percentile_mag": [
+          -0.08802374554874673,
+          0.0026182379285816376,
+          0.0847269889894293
+        ],
+        "leave_one_object_out_range_mag": [
+          -0.010377405538540087,
+          0.021828856999485016
+        ]
+      },
+      {
+        "branch": "optical",
+        "variant": "without_mass",
+        "high_minus_low_mag": 0.030859366787321076,
+        "paired_descriptive_se_mag": 0.04527116111130165,
+        "within_redshift_object_bootstrap_95_percentile_mag": [
+          -0.058340879880130495,
+          0.03177401744702874,
+          0.11725206267708792
+        ],
+        "leave_one_object_out_range_mag": [
+          0.018789851885439003,
+          0.050996114423464106
+        ]
+      },
+      {
+        "branch": "optical",
+        "variant": "without_bias",
+        "high_minus_low_mag": 0.045788228489118524,
+        "paired_descriptive_se_mag": 0.044203964339298595,
+        "within_redshift_object_bootstrap_95_percentile_mag": [
+          -0.04271080510716677,
+          0.04591181520210702,
+          0.12911685417022556
+        ],
+        "leave_one_object_out_range_mag": [
+          0.034364052099830386,
+          0.06578571876649707
+        ]
+      },
+      {
+        "branch": "optical",
+        "variant": "without_bias_or_mass",
+        "high_minus_low_mag": 0.07541187258687253,
+        "paired_descriptive_se_mag": 0.04450961112672107,
+        "within_redshift_object_bootstrap_95_percentile_mag": [
+          -0.013257059202059137,
+          0.0761216891891894,
+          0.15832059749034702
+        ],
+        "leave_one_object_out_range_mag": [
+          0.06353130952380946,
+          0.09495297619047614
+        ]
+      },
+      {
+        "branch": "opticalnir",
+        "variant": "released",
+        "high_minus_low_mag": -0.027098057561937956,
+        "paired_descriptive_se_mag": 0.027341172223679728,
+        "within_redshift_object_bootstrap_95_percentile_mag": [
+          -0.08078549097074203,
+          -0.027267342920589625,
+          0.026331570370082817
+        ],
+        "leave_one_object_out_range_mag": [
+          -0.035363285672204516,
+          -0.019284308951393353
+        ]
+      },
+      {
+        "branch": "opticalnir",
+        "variant": "without_mass",
+        "high_minus_low_mag": 0.02989795455738176,
+        "paired_descriptive_se_mag": 0.028558618683759692,
+        "within_redshift_object_bootstrap_95_percentile_mag": [
+          -0.025082101767366232,
+          0.02943281325982733,
+          0.08575816310531413
+        ],
+        "leave_one_object_out_range_mag": [
+          0.021200495980131222,
+          0.03735109417864925
+        ]
+      },
+      {
+        "branch": "opticalnir",
+        "variant": "without_bias",
+        "high_minus_low_mag": 0.01782485017154302,
+        "paired_descriptive_se_mag": 0.026631095827884435,
+        "within_redshift_object_bootstrap_95_percentile_mag": [
+          -0.03269038205228161,
+          0.01786643619000145,
+          0.06928825453592546
+        ],
+        "leave_one_object_out_range_mag": [
+          0.009715071347005472,
+          0.026149141195310713
+        ]
+      },
+      {
+        "branch": "opticalnir",
+        "variant": "without_bias_or_mass",
+        "high_minus_low_mag": 0.07482086229086274,
+        "paired_descriptive_se_mag": 0.027997734667853005,
+        "within_redshift_object_bootstrap_95_percentile_mag": [
+          0.0213668058236809,
+          0.07539747104247073,
+          0.12977746879021976
+        ],
+        "leave_one_object_out_range_mag": [
+          0.06627885299934119,
+          0.08226706349206386
+        ]
+      }
+    ],
+    "covariance": [
+      {
+        "branch": "nir",
+        "systematic_min_eigenvalue": -2.3735058013366236e-07,
+        "conservative_literal_rounding_operator_bound": 7.918655e-07,
+        "negative_systematic_eigenvalue_within_rounding_bound": true,
+        "total_covariance_min_eigenvalue": 0.013320628707168106,
+        "exported_covariance_diagonal_max_abs": 0.0,
+        "contrast_systematic_variance": 0.0026266236023388167,
+        "variant_outer_product_rank": 14,
+        "unconstrained_span_relative_residual": 0.13453467411029615,
+        "nonnegative_relative_residual": 0.13453625784940107,
+        "meaning": "Even allowing negative coefficients cannot reduce residual below the unconstrained span residual; this diagnoses this centered raw-DLMAG FITOPT 1-28 vector representation, not a defective physical covariance or every possible author source reconstruction."
+      },
+      {
+        "branch": "optical",
+        "systematic_min_eigenvalue": -2.9623916648056986e-07,
+        "conservative_literal_rounding_operator_bound": 1.6895364999999995e-06,
+        "negative_systematic_eigenvalue_within_rounding_bound": true,
+        "total_covariance_min_eigenvalue": 0.009530335789518462,
+        "exported_covariance_diagonal_max_abs": 0.0,
+        "contrast_systematic_variance": 0.0017737989440098348,
+        "variant_outer_product_rank": 22,
+        "unconstrained_span_relative_residual": 0.014376846554890882,
+        "nonnegative_relative_residual": 0.014376846554890502,
+        "meaning": "Even allowing negative coefficients cannot reduce residual below the unconstrained span residual; this diagnoses this centered raw-DLMAG FITOPT 1-28 vector representation, not a defective physical covariance or every possible author source reconstruction."
+      },
+      {
+        "branch": "opticalnir",
+        "systematic_min_eigenvalue": -2.29601311768365e-07,
+        "conservative_literal_rounding_operator_bound": 1.5816435e-06,
+        "negative_systematic_eigenvalue_within_rounding_bound": true,
+        "total_covariance_min_eigenvalue": 0.0066683022875294855,
+        "exported_covariance_diagonal_max_abs": 0.0,
+        "contrast_systematic_variance": 0.002011309573742056,
+        "variant_outer_product_rank": 25,
+        "unconstrained_span_relative_residual": 0.007353077098231404,
+        "nonnegative_relative_residual": 0.0073530770982312855,
+        "meaning": "Even allowing negative coefficients cannot reduce residual below the unconstrained span residual; this diagnoses this centered raw-DLMAG FITOPT 1-28 vector representation, not a defective physical covariance or every possible author source reconstruction."
+      }
+    ],
+    "photometry_totals": {
+      "rows": 23007,
+      "negative": 0,
+      "zero": 0,
+      "nonfinite": 0,
+      "nonpositive_error": 0
+    },
+    "peak_header_gaps_above_0_001_day": [
+      {
+        "CID": "2004ef",
+        "header_peak": 53264.9,
+        "FITRES_peak": 53264.8984,
+        "gap_days": 0.001600000003236346,
+        "header_float32": 53264.8984375,
+        "FITRES_float32": 53264.8984375
+      },
+      {
+        "CID": "2005M",
+        "header_peak": 53406.1,
+        "FITRES_peak": 53406.1016,
+        "gap_days": -0.001600000003236346,
+        "header_float32": 53406.1015625,
+        "FITRES_float32": 53406.1015625
+      },
+      {
+        "CID": "2005al",
+        "header_peak": 53431.1,
+        "FITRES_peak": 53431.1016,
+        "gap_days": -0.001600000003236346,
+        "header_float32": 53431.1015625,
+        "FITRES_float32": 53431.1015625
+      },
+      {
+        "CID": "2005ki",
+        "header_peak": 53706.1,
+        "FITRES_peak": 53706.1016,
+        "gap_days": -0.001600000003236346,
+        "header_float32": 53706.1015625,
+        "FITRES_float32": 53706.1015625
+      },
+      {
+        "CID": "2006et",
+        "header_peak": 53994.6,
+        "FITRES_peak": 53994.6016,
+        "gap_days": -0.001600000003236346,
+        "header_float32": 53994.6015625,
+        "FITRES_float32": 53994.6015625
+      },
+      {
+        "CID": "2006kf",
+        "header_peak": 54041.6,
+        "FITRES_peak": 54041.6016,
+        "gap_days": -0.001600000003236346,
+        "header_float32": 54041.6015625,
+        "FITRES_float32": 54041.6015625
+      },
+      {
+        "CID": "2007A",
+        "header_peak": 54113.4336,
+        "FITRES_peak": 54113.4453,
+        "gap_days": -0.011700000002747402,
+        "header_float32": 54113.43359375,
+        "FITRES_float32": 54113.4453125
+      },
+      {
+        "CID": "2007S",
+        "header_peak": 54144.9,
+        "FITRES_peak": 54144.8984,
+        "gap_days": 0.001600000003236346,
+        "header_float32": 54144.8984375,
+        "FITRES_float32": 54144.8984375
+      },
+      {
+        "CID": "2007as",
+        "header_peak": 54182.4,
+        "FITRES_peak": 54182.3984,
+        "gap_days": 0.001600000003236346,
+        "header_float32": 54182.3984375,
+        "FITRES_float32": 54182.3984375
+      },
+      {
+        "CID": "2007bd",
+        "header_peak": 54207.4,
+        "FITRES_peak": 54207.3984,
+        "gap_days": 0.001600000003236346,
+        "header_float32": 54207.3984375,
+        "FITRES_float32": 54207.3984375
+      },
+      {
+        "CID": "2008bc",
+        "header_peak": 54550.1,
+        "FITRES_peak": 54550.1016,
+        "gap_days": -0.001600000003236346,
+        "header_float32": 54550.1015625,
+        "FITRES_float32": 54550.1015625
+      },
+      {
+        "CID": "2008bf",
+        "header_peak": 54555.1,
+        "FITRES_peak": 54555.1016,
+        "gap_days": -0.001600000003236346,
+        "header_float32": 54555.1015625,
+        "FITRES_float32": 54555.1015625
+      },
+      {
+        "CID": "2008hv",
+        "header_peak": 54817.6,
+        "FITRES_peak": 54817.6016,
+        "gap_days": -0.001600000003236346,
+        "header_float32": 54817.6015625,
+        "FITRES_float32": 54817.6015625
+      },
+      {
+        "CID": "2008ia",
+        "header_peak": 54813.482,
+        "FITRES_peak": 54813.4805,
+        "gap_days": 0.0015000000057625584,
+        "header_float32": 54813.48046875,
+        "FITRES_float32": 54813.48046875
+      },
+      {
+        "CID": "2009P",
+        "header_peak": 54869.1,
+        "FITRES_peak": 54869.1016,
+        "gap_days": -0.001600000003236346,
+        "header_float32": 54869.1015625,
+        "FITRES_float32": 54869.1015625
+      },
+      {
+        "CID": "2009aa",
+        "header_peak": 54878.9,
+        "FITRES_peak": 54878.8984,
+        "gap_days": 0.001600000003236346,
+        "header_float32": 54878.8984375,
+        "FITRES_float32": 54878.8984375
+      },
+      {
+        "CID": "2009ab",
+        "header_peak": 54884.1,
+        "FITRES_peak": 54884.1016,
+        "gap_days": -0.001600000003236346,
+        "header_float32": 54884.1015625,
+        "FITRES_float32": 54884.1015625
+      },
+      {
+        "CID": "2009ad",
+        "header_peak": 54886.9,
+        "FITRES_peak": 54886.8984,
+        "gap_days": 0.001600000003236346,
+        "header_float32": 54886.8984375,
+        "FITRES_float32": 54886.8984375
+      },
+      {
+        "CID": "2009al",
+        "header_peak": 54898.44,
+        "FITRES_peak": 54898.4414,
+        "gap_days": -0.0014000000010128133,
+        "header_float32": 54898.44140625,
+        "FITRES_float32": 54898.44140625
+      },
+      {
+        "CID": "2009ds",
+        "header_peak": 54961.9,
+        "FITRES_peak": 54961.8984,
+        "gap_days": 0.001600000003236346,
+        "header_float32": 54961.8984375,
+        "FITRES_float32": 54961.8984375
+      },
+      {
+        "CID": "DES15E2uc",
+        "header_peak": 57268.4,
+        "FITRES_peak": 57268.3984,
+        "gap_days": 0.001600000003236346,
+        "header_float32": 57268.3984375,
+        "FITRES_float32": 57268.3984375
+      },
+      {
+        "CID": "DES15X2kvt",
+        "header_peak": 57304.9,
+        "FITRES_peak": 57304.8984,
+        "gap_days": 0.001600000003236346,
+        "header_float32": 57304.8984375,
+        "FITRES_float32": 57304.8984375
+      },
+      {
+        "CID": "DES16S1agd",
+        "header_peak": 57644.4,
+        "FITRES_peak": 57644.3984,
+        "gap_days": 0.001600000003236346,
+        "header_float32": 57644.3984375,
+        "FITRES_float32": 57644.3984375
+      },
+      {
+        "CID": "DES16S1bno",
+        "header_peak": 57663.4,
+        "FITRES_peak": 57663.3984,
+        "gap_days": 0.001600000003236346,
+        "header_float32": 57663.3984375,
+        "FITRES_float32": 57663.3984375
+      },
+      {
+        "CID": "DES16X3zd",
+        "header_peak": 57644.4,
+        "FITRES_peak": 57644.3984,
+        "gap_days": 0.001600000003236346,
+        "header_float32": 57644.3984375,
+        "FITRES_float32": 57644.3984375
+      },
+      {
+        "CID": "PScB480464",
+        "header_peak": 56341.4,
+        "FITRES_peak": 56341.3984,
+        "gap_days": 0.001600000003236346,
+        "header_float32": 56341.3984375,
+        "FITRES_float32": 56341.3984375
+      },
+      {
+        "CID": "PScD500301",
+        "header_peak": 56405.6,
+        "FITRES_peak": 56405.6016,
+        "gap_days": -0.001600000003236346,
+        "header_float32": 56405.6015625,
+        "FITRES_float32": 56405.6015625
+      },
+      {
+        "CID": "PScF520062",
+        "header_peak": 56456.1,
+        "FITRES_peak": 56456.1016,
+        "gap_days": -0.001600000003236346,
+        "header_float32": 56456.1015625,
+        "FITRES_float32": 56456.1015625
+      },
+      {
+        "CID": "PScG530251",
+        "header_peak": 56491.6,
+        "FITRES_peak": 56491.6016,
+        "gap_days": -0.001600000003236346,
+        "header_float32": 56491.6015625,
+        "FITRES_float32": 56491.6015625
+      },
+      {
+        "CID": "PScH540087",
+        "header_peak": 56520.1,
+        "FITRES_peak": 56520.1016,
+        "gap_days": -0.001600000003236346,
+        "header_float32": 56520.1015625,
+        "FITRES_float32": 56520.1015625
+      },
+      {
+        "CID": "PScJ440005",
+        "header_peak": 56218.9,
+        "FITRES_peak": 56218.8984,
+        "gap_days": 0.001600000003236346,
+        "header_float32": 56218.8984375,
+        "FITRES_float32": 56218.8984375
+      },
+      {
+        "CID": "PScJ560054",
+        "header_peak": 56575.1,
+        "FITRES_peak": 56575.1016,
+        "gap_days": -0.001600000003236346,
+        "header_float32": 56575.1015625,
+        "FITRES_float32": 56575.1015625
+      }
+    ],
+    "bootstrap_scope": "Descriptive object resampling conditional on these releases, fixed selection and fixed redshift strata. Shared calibration/model systematics and population selection are not incorporated."
+  },
+  "timing": {
+    "missing_joint_CIDs": [
+      "12988",
+      "15434",
+      "25042",
+      "26060",
+      "27456"
+    ],
+    "common_n": 29995,
+    "selected_n": 25606,
+    "simulation_description": "The NIR fitted peak is exactly the stored initializer; the 0.0101-day scatter is therefore not recovered timing precision.",
+    "nir": {
+      "peak_residual_mean_day": -0.00039163193811002817,
+      "peak_residual_population_sd_day": 0.010118411553363491,
+      "distance_residual_mean_mag": 0.032921182197032856,
+      "selected_distance_residual_mean_mag": 0.043643584706709385,
+      "rejected_distance_residual_mean_mag": -0.02963471633629526,
+      "distance_timing_Pearson_r": 0.0023330457504238166,
+      "exact_initializer_matches": 29995
+    },
+    "joint": {
+      "peak_residual_mean_day": -0.06344315052433089,
+      "peak_residual_population_sd_day": 0.5485100132648355,
+      "distance_residual_mean_mag": -0.0028103793965660513,
+      "selected_distance_residual_mean_mag": 0.005433817855190236,
+      "rejected_distance_residual_mean_mag": -0.05090810435178854,
+      "distance_timing_Pearson_r": -0.12950802148494903,
+      "exact_initializer_matches": 156
+    }
+  },
+  "csp_lineage": {
+    "raw_rows": 5491,
+    "intermediate_rows": 5491,
+    "listed_objects": 76,
+    "exact_objects": 73,
+    "exact_nonempty_objects": 65,
+    "empty_object_identities": 8,
+    "mismatches": [
+      {
+        "CID": "2012fr",
+        "archived_SNpy_rows": 0,
+        "released_rows": 134,
+        "source_object_missing_in_this_DR3_archive": true,
+        "in_79_object_cosmology_cohort": false,
+        "predicted_only": 0,
+        "released_only": 134
+      },
+      {
+        "CID": "2012ht",
+        "archived_SNpy_rows": 0,
+        "released_rows": 50,
+        "source_object_missing_in_this_DR3_archive": true,
+        "in_79_object_cosmology_cohort": false,
+        "predicted_only": 0,
+        "released_only": 50
+      },
+      {
+        "CID": "2015F",
+        "archived_SNpy_rows": 0,
+        "released_rows": 57,
+        "source_object_missing_in_this_DR3_archive": true,
+        "in_79_object_cosmology_cohort": false,
+        "predicted_only": 0,
+        "released_only": 57
+      }
+    ],
+    "raw_Jdw_rows": 520,
+    "released_unambiguous_Jdw_rows": 303,
+    "interpretation": "All three converter nonmatches lack source-object rows in this archived DR3 input; they are source-coverage failures, not demonstrated converter errors. Their later dates (2012, 2015) distinguish them from the 2004-2009 DR3 data."
+  },
+  "csp_passbands": {
+    "analytic_piecewise_cubic_max_gap_mag": 2.8293339893181724e-15,
+    "rows": 140,
+    "pairs": {
+      "J_WIRC_minus_RC1": {
+        "equal_BD17_mag_range": [
+          -0.06388293731380841,
+          0.004619130279674735
+        ],
+        "max_abs_phase_contrast_mag": 0.06850206759348315,
+        "max_abs_redshift_contrast_mag": 0.03468626190184296
+      },
+      "H_WIRC_minus_RetroCam": {
+        "equal_BD17_mag_range": [
+          -0.002338351903035691,
+          0.006465999350584938
+        ],
+        "max_abs_phase_contrast_mag": 0.008358917242550952,
+        "max_abs_redshift_contrast_mag": 0.004182629858153535
+      },
+      "Y_WIRC_minus_RetroCam": {
+        "equal_BD17_mag_range": [
+          -0.006886220589778325,
+          0.05794092466607542
+        ],
+        "max_abs_phase_contrast_mag": 0.03444975495827401,
+        "max_abs_redshift_contrast_mag": 0.03756986413657945
+      },
+      "J_RC2_minus_RC1": {
+        "equal_BD17_mag_range": [
+          -0.06391859233236671,
+          0.005821288118070188
+        ],
+        "max_abs_phase_contrast_mag": 0.06730841123099553,
+        "max_abs_redshift_contrast_mag": 0.023544655187546865
+      }
+    },
+    "scope": "Exact integration identity for tabulated piecewise-linear curves. This validates numerical integration, not spectral realism, physical calibration, or a cosmological distance correction."
+  },
+  "signed_baseline": {
+    "180": {
+      "rows": 3476,
+      "negative": 1736,
+      "groups": 40,
+      "Q": 3626.804338084908,
+      "dof": 3436,
+      "Q_per_dof": 1.0555309482202875,
+      "whole_object_bootstrap_Q_per_dof_95_percentile": [
+        0.9301979438564876,
+        1.0509116175847975,
+        1.1919634566081465
+      ],
+      "leave_one_object_out_Q_per_dof_range": [
+        1.0022627948212461,
+        1.081206410239882
+      ],
+      "object_Q_per_dof": [
+        {
+          "CID": "DES16C1cim",
+          "Q_per_dof": 0.9393467165281814
+        },
+        {
+          "CID": "DES16C3cmy",
+          "Q_per_dof": 0.8597312652505704
+        },
+        {
+          "CID": "DES16E1dcx",
+          "Q_per_dof": 1.1929878026459697
+        },
+        {
+          "CID": "DES16E2clk",
+          "Q_per_dof": 0.95961657610818
+        },
+        {
+          "CID": "DES16E2cqq",
+          "Q_per_dof": 0.9952481499515082
+        },
+        {
+          "CID": "DES16S1agd",
+          "Q_per_dof": 1.0150468593208541
+        },
+        {
+          "CID": "DES16S1bno",
+          "Q_per_dof": 0.7957019199507994
+        },
+        {
+          "CID": "DES16S2afz",
+          "Q_per_dof": 0.9834658793751648
+        },
+        {
+          "CID": "DES16X3cry",
+          "Q_per_dof": 1.0634722853517296
+        },
+        {
+          "CID": "DES16X3zd",
+          "Q_per_dof": 1.7144393515492868
+        }
+      ]
+    },
+    "365": {
+      "rows": 2856,
+      "negative": 1428,
+      "groups": 40,
+      "Q": 2896.7679752511576,
+      "dof": 2816,
+      "Q_per_dof": 1.0286818093931667,
+      "whole_object_bootstrap_Q_per_dof_95_percentile": [
+        0.9345553731062556,
+        1.0265148874556322,
+        1.1132896227782845
+      ],
+      "leave_one_object_out_Q_per_dof_range": [
+        0.9932269419125175,
+        1.0478129755049745
+      ],
+      "object_Q_per_dof": [
+        {
+          "CID": "DES16C1cim",
+          "Q_per_dof": 0.9345618069302829
+        },
+        {
+          "CID": "DES16C3cmy",
+          "Q_per_dof": 0.829702191007602
+        },
+        {
+          "CID": "DES16E1dcx",
+          "Q_per_dof": 1.1571693176522684
+        },
+        {
+          "CID": "DES16E2clk",
+          "Q_per_dof": 0.9370877319807216
+        },
+        {
+          "CID": "DES16E2cqq",
+          "Q_per_dof": 0.9666160944292904
+        },
+        {
+          "CID": "DES16S1agd",
+          "Q_per_dof": 1.0885134624068942
+        },
+        {
+          "CID": "DES16S1bno",
+          "Q_per_dof": 0.841948135016228
+        },
+        {
+          "CID": "DES16S2afz",
+          "Q_per_dof": 0.9954194963696682
+        },
+        {
+          "CID": "DES16X3cry",
+          "Q_per_dof": 1.1024331966760441
+        },
+        {
+          "CID": "DES16X3zd",
+          "Q_per_dof": 1.3741753492776998
+        }
+      ]
+    },
+    "scope": "Whole-object bootstrap preserves within-object dependence, but ten selected objects are few and may not be independent across fields. The two nested time cuts are sensitivity analyses, not independent experiments. No Gaussian p-value or empirical error renormalization is inferred."
+  },
+  "sign_selection": {
+    "replicates": 128,
+    "all_signed_closed_GLS_max_amplitude_gap": 4.415524873513377e-08,
+    "positive_only_closed_GLS_max_amplitude_gap": 3.427721040338838e-08,
+    "adaptive_conditional_latent_integral_fit_max_gap": 4.192892441579055e-08,
+    "adaptive_checked_replicates": [
+      0,
+      11,
+      22,
+      33,
+      44,
+      55,
+      66,
+      77,
+      88,
+      99,
+      110,
+      121
+    ],
+    "methods": {
+      "all_signed": {
+        "mean": 0.4069331335102938,
+        "bias": 0.0069331335102937874,
+        "paired_mean_difference_from_all_signed": 0.0,
+        "paired_difference_mcse": 0.0,
+        "paired_normal_95_interval": [
+          0.0,
+          0.0
+        ]
+      },
+      "positive_naive": {
+        "mean": 1.2023353213236003,
+        "bias": 0.8023353213236003,
+        "paired_mean_difference_from_all_signed": 0.7954021878133064,
+        "paired_difference_mcse": 0.02630082309082966,
+        "paired_normal_95_interval": [
+          0.7438525745552803,
+          0.8469518010713325
+        ]
+      },
+      "censored_with_known_schedule": {
+        "mean": 0.39595075255916323,
+        "bias": -0.0040492474408367896,
+        "paired_mean_difference_from_all_signed": -0.010982380951130622,
+        "paired_difference_mcse": 0.008933694827997928,
+        "paired_normal_95_interval": [
+          -0.02849242281400656,
+          0.006527660911745316
+        ]
+      }
+    },
+    "scope": "Simulation-only. Pairing uses identical random draws and reduces Monte Carlo error in method comparison. Neither the generating Gaussian errors nor the known omitted-epoch schedule has been established for the real survey."
+  },
+  "checks": [
+    {
+      "name": "raisin cohort",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "optical released contrast",
+      "passed": true,
+      "absolute_gap": 1.1791782827952346e-15
+    },
+    {
+      "name": "optical released SE",
+      "passed": true,
+      "absolute_gap": 2.0816681711721685e-17
+    },
+    {
+      "name": "optical without_mass contrast",
+      "passed": true,
+      "absolute_gap": 5.759281940243e-16
+    },
+    {
+      "name": "optical without_mass SE",
+      "passed": true,
+      "absolute_gap": 2.0816681711721685e-17
+    },
+    {
+      "name": "optical without_bias contrast",
+      "passed": true,
+      "absolute_gap": 1.3808398868775384e-15
+    },
+    {
+      "name": "optical without_bias SE",
+      "passed": true,
+      "absolute_gap": 1.3877787807814457e-17
+    },
+    {
+      "name": "optical without_bias_or_mass contrast",
+      "passed": true,
+      "absolute_gap": 7.632783294297951e-16
+    },
+    {
+      "name": "optical without_bias_or_mass SE",
+      "passed": true,
+      "absolute_gap": 6.938893903907228e-18
+    },
+    {
+      "name": "optical additive terms closure",
+      "passed": true,
+      "absolute_gap": 1.3877787807814457e-17
+    },
+    {
+      "name": "opticalnir released contrast",
+      "passed": true,
+      "absolute_gap": 2.3245294578089215e-16
+    },
+    {
+      "name": "opticalnir released SE",
+      "passed": true,
+      "absolute_gap": 3.469446951953614e-17
+    },
+    {
+      "name": "opticalnir without_mass contrast",
+      "passed": true,
+      "absolute_gap": 1.8735013540549517e-16
+    },
+    {
+      "name": "opticalnir without_mass SE",
+      "passed": true,
+      "absolute_gap": 2.42861286636753e-17
+    },
+    {
+      "name": "opticalnir without_bias contrast",
+      "passed": true,
+      "absolute_gap": 3.8163916471489756e-16
+    },
+    {
+      "name": "opticalnir without_bias SE",
+      "passed": true,
+      "absolute_gap": 4.85722573273506e-17
+    },
+    {
+      "name": "opticalnir without_bias_or_mass contrast",
+      "passed": true,
+      "absolute_gap": 4.163336342344337e-17
+    },
+    {
+      "name": "opticalnir without_bias_or_mass SE",
+      "passed": true,
+      "absolute_gap": 2.7755575615628914e-17
+    },
+    {
+      "name": "opticalnir additive terms closure",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "nir covariance row z identity",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "nir covariance all/stat z identity",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "nir covariance symmetry",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "optical covariance row z identity",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "optical covariance all/stat z identity",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "optical covariance symmetry",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "opticalnir covariance row z identity",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "opticalnir covariance all/stat z identity",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "opticalnir covariance symmetry",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "photometry rows",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "photometry negative",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "photometry zero",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "photometry nonfinite",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "photometry nonpositive_error",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "timing membership",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "nir timing SD",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "nir timing mean",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "joint timing SD",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "joint timing mean",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "CSP lineage counts",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "baseline Q cut 180",
+      "passed": true,
+      "absolute_gap": 4.547473508864641e-13
+    },
+    {
+      "name": "baseline rows cut 180",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "baseline Q cut 365",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "baseline rows cut 365",
+      "passed": true,
+      "absolute_gap": 0.0
+    },
+    {
+      "name": "all signed GLS amplitude control",
+      "passed": true,
+      "absolute_gap": 4.415524873513377e-08
+    },
+    {
+      "name": "positive-only GLS amplitude control",
+      "passed": true,
+      "absolute_gap": 3.427721040338838e-08
+    },
+    {
+      "name": "adaptive-quadrature censor fit control",
+      "passed": true,
+      "absolute_gap": 4.192892441579055e-08
+    }
+  ],
+  "inspected_inputs_sha256": {
+    "data/csp/filters/H_DUP_TAM_scan_atm.dat": "843c5bdda0d0ee147331246ec9047b6b55e19729819438807d02e3a00a916bff",
+    "data/csp/filters/H_SWO_TAM_scan_atm.dat": "03c70045453ef3990d19ecf4e77298698ad26259fe556bd6a7b96f01bfb32d20",
+    "data/csp/filters/J_DUP_TAM_scan_atm.dat": "e88bac24939ff35a7a1c2dbf9b38a6161eff24152bc3af62f60f74eaf165903f",
+    "data/csp/filters/Jrc1_SWO_TAM_scan_atm.dat": "3939c6b4c446c675afb69c561f5875350bc51895e632cd7a206d29f02b5c53ab",
+    "data/csp/filters/Jrc2_SWO_TAM_scan_atm.dat": "a2769e3129803a478c90b8a3a1eb1e3e6d637fcce5ec607828a126d17c167264",
+    "data/csp/filters/Y_DUP_TAM_scan_atm.dat": "478e4ebb2ef4eb838b2d872ddc72c16d66aab72a6ffb040a68775fab50ff3af6",
+    "data/csp/filters/Y_SWO_TAM_scan_atm.dat": "caa1c6aa2696af7b3567e68101194bf35e08d856b1ec57f58cabce67a91547b4",
+    "data/csp/photometry.tgz": "ea337b375a7da6223b11f2dd6b50e8a4546045c3133719cc66cbf1bdf4795026",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT000.FITRES": "25c7c6601a58834ce11a3dfac5b70880a564fdf9773f59dfec21c4ff90677fd0",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT001.FITRES": "61658a2c2848a8734e4bf1a2efd8e408f4e0603c8dc832845a870753526f96f1",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT002.FITRES": "a5b2b232b4ceca6e4d5c19ee1901ca83fb018ea83498846898eb1553fdf2bf53",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT003.FITRES": "ba9d6056556bde782fc77cd88536e60a3d3eed659725ff4655dc283d604a0b99",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT004.FITRES": "7644d5aed53af6415e6bf9e45eeedb8b86e21a3b1ffbdf410ef08a16487e4ba4",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT005.FITRES": "2a2250e8067b310312aabb0e8b2eff312863cb03bf8d04e7f3075370d5d23d16",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT006.FITRES": "88a193e8700ac4193039e9fcb8169b551dcdeff76956087eb0950c6d43490020",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT007.FITRES": "a27150808666bac6de2d8a459cf8a28e28a8dba2eb30417c7e9ae9dc7a4e433f",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT008.FITRES": "91525ab12f70741b2fdabef2a248a7ce475cabbc63854169243cb8e051fd95ff",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT009.FITRES": "c84b73627b8bfbc3318cf1e6ce469e0f683e02d1d829d511097dca343b4632c4",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT010.FITRES": "dff251bd97703baab5bbb495ab8fcb50ca8271acfcb94076ce71df19d44dbd52",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT011.FITRES": "d9586144dd00d35305f4a2a4b44150d8cf052a01c64b26f6ffcf5c48c9afbfe7",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT012.FITRES": "4bd8bc4c720a93fa16ca97cefb58d56b475ec6934a11918ede902e6b2b9f2756",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT013.FITRES": "70d9dbe4625300019e2cb52ff3efde7d14d2084fa7206ccc57e5a46cdfa82b73",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT014.FITRES": "2c12262dc227852c0cbb101ccd97cf9343c454d8f4c1d2362122e0246771a998",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT015.FITRES": "f8db83111520d1cdfb5ae97a0e80210bc6a478784d9eae45368194173f2c89de",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT016.FITRES": "bdb09a1919a18e959eab48761bd2f11df1aa17dbcab963ed8bb19bbd756c5a72",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT017.FITRES": "dcba35a6650136da154a719eecebae7b99aeb2de09a8f5b3dc87eb4adf14ca80",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT018.FITRES": "2cc58c4d95ec8f2d8c673f9a4543f1e0b7023e34f6c8ed9d05c84f9a4515584e",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT019.FITRES": "0415b05e8793128cdc530b48c3cd747b46b80a0649f3286adfebb8a7a70f5371",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT020.FITRES": "ff947a3d5876f80445912529ecca490b7fe63cf60039332146fc1554c53a3000",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT021.FITRES": "6058fc6ff2eb05283efc4f7a28dfbed7d76d446409bef4b9dbe4d7e9d25be11c",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT022.FITRES": "039affed3b3168cdbd3974469e442765e7fd2a4d8b9112104e0955046ff76869",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT023.FITRES": "a1498aae43b0194161977ee83be8f328a6a9d0c53efdc63969f826dd8a71e891",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT024.FITRES": "ce64c7cf0185b2a5c5149a6dd444f5c16ae100c16e530302d62b87a53763eca3",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT025.FITRES": "753bf8e1bdb6242d36ad8d59f3b96bca8e08201362b9c0bfcb75ccda81b90252",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT026.FITRES": "e35aa423c1051e6ea5e9fc5b20d4a83eee93f74ad41867292667f595dfb547ff",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT027.FITRES": "463a2e6959cb46d6c51a0f4ce53a524ac6aa798e8fd22ea9a4cf3d22ec24f5bb",
+    "data/raisin/distances/w/nir_dist/RAISIN_combined_FITOPT028.FITRES": "df1701192948306d2566f5833e91964145f2756fa30d28ce507455caa67e35cd",
+    "data/raisin/distances/w/nir_syst/RAISIN_all.covmat": "45042c1e690e5093052731b3359c36ba6f287febf2b8abbcbdd97ba820a05f7f",
+    "data/raisin/distances/w/nir_syst/RAISIN_all_lcparams_cosmosis.txt": "14c6b1013be72bc03fb78ac08da33123f4d9cc0ca207e7046077efcfbc0e52be",
+    "data/raisin/distances/w/nir_syst/RAISIN_stat_lcparams_cosmosis.txt": "006a612f797b01ad2d5d8691a98eae8bc97741d0a4ad1f81cc93b510e8f15980",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT000.FITRES": "3c5684c18f85989814214b9dba51c75754774c6bd2d41d40380287ffe2c1cd58",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT001.FITRES": "c5bb559b2c30c23fb4aa5315e6fffe5e5e051d1f861132dd3cf983aa961f1bae",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT002.FITRES": "2eea2697d2b23e1595332384de9b64c67850cea773a7510334212e9d65ef7df8",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT003.FITRES": "090fcd1bc62228501162cb4df365f20f7cb53706714ebb7f6eca23e13326d040",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT004.FITRES": "4806f78c4c70619db010d45431e381b9740333606837a0daa77286f6892df600",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT005.FITRES": "dcdc8082b97b8861d54b6c31bff8c098ce10b4e99b753e8d6ff58058224275c4",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT006.FITRES": "fd95fc0908b8867c069cc54a690a6a5062e8e6747dfc5f8fb52ea4205dc958e9",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT007.FITRES": "a3928996e58db384b8d019f72a63c8ac125655641bb5774b1fd24d7a77f642bd",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT008.FITRES": "a4867b4df88467adce7612183c60f8516da7831ccc578c05f7a10c8ba716f8bc",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT009.FITRES": "2238c158c2f1a52ad8d8e49635ead3f02b8c8ba6c45453ce3d9977d812ae438d",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT010.FITRES": "cb3bc5d51b8e283fb2c4a99256b882c7e9d95648e6f7be3ad6cf6e50864b659f",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT011.FITRES": "939734a1d774d575e9ea4c4df4075182eaa08723683002424dec48bfb0a61a37",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT012.FITRES": "e3115ca9251357b2677fa2decbcfbdcc910b909ef1f73c36d9c912c22a95271f",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT013.FITRES": "7138b3d10c50b217bd4e29ea41799792e1a661d824fd71c8a54dc04e698af148",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT014.FITRES": "d1e09e7c14a6e827e4185de2095f2582788b3d33c0c01273cba7a4d4f5a4bccd",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT015.FITRES": "0b1d17994282648031d82d27bf5aa877f78fc000eda3b40ad26cdaa0458154c2",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT016.FITRES": "833212cd53c6af9b745eb941768a21a77f8fdb6052cd34886f4e8f2a3d664a0e",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT017.FITRES": "a6420e1aa963642adc22853380a113ca7df560f81f2196d0e5f66286fe5c535c",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT018.FITRES": "afb3a4cd32e86652d44cadf0bc3758d5276a1a965b0355218888de64f7227845",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT019.FITRES": "4abcdd8e7d98da20b8ae0eb846cd4e6a00cb7efea152a1ceaaf10a27780a2ec6",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT020.FITRES": "145629d954356a81e9cb8003754c99b30a628a7e406560d6e708a5a4a6a7f79b",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT021.FITRES": "e20ee81f8e5a7982d7a5632cfb21188d911fc5b279ea939435308906b54054f3",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT022.FITRES": "b7670f2bd1f8e4e15a08152e79efc06ae60d108ffba98270524179a3a498afc4",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT023.FITRES": "c435366d28e1d5573a4bb7acb860aa28c224519ea23d862e912317d29d22c479",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT024.FITRES": "58a1b342f324e2b15dd55070eb567038cb482602e7953bf2303433a21bc3220f",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT025.FITRES": "caf71a4420ddfb7671af80c8e363f4acf9ccf4cf24cc4804b8ff56c62eeaab7f",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT026.FITRES": "55a15d1745d77281d473228900fbaeedf588423d84e9db9855de22d1dd660d70",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT027.FITRES": "00ff9beaba72a3c34eefe4e9787d149392f04f9c520d5e989170ebe51348d64f",
+    "data/raisin/distances/w/optical_dist/RAISIN_combined_FITOPT028.FITRES": "6eb7cb5fcc7ceb142311295fbaac0376a39e8cefbe7cf5cf59f025a0daf53314",
+    "data/raisin/distances/w/optical_syst/RAISIN_all.covmat": "50bb22efab11fc3e19b95e256ec874d02d226a38bc18fa60b47b5bc91ff27273",
+    "data/raisin/distances/w/optical_syst/RAISIN_all_lcparams_cosmosis.txt": "f4b3ae16b6ab66bacb451e91f96782066d4335af8d909b73750adecb1aee49cc",
+    "data/raisin/distances/w/optical_syst/RAISIN_stat_lcparams_cosmosis.txt": "a862751412315126ac1dc9b1857987da7b403b9cac534da560acaa87475d9ec9",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT000.FITRES": "a8b79c667ec8132ef657f53a6b4253b770b46ef9de9c25e0a953000d8a2981fd",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT001.FITRES": "7ce4aa4adfe7a887327913bddba9f43ff2edbbdbad1a1f4719d605ad7d652570",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT002.FITRES": "647aa36be7d686e9ce7926fb0552cca612db78de6fd36d10eb465ac9fab6ecbb",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT003.FITRES": "f815a3af2a8c6e6758f9c9192183ea23318101a1ee0f32698d490a069406447d",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT004.FITRES": "72e1e8897a720d57ff76f4ef01e6b74d4aa6fbf9121c299152ef28b95201a78a",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT005.FITRES": "2d026a7b598fc070762aa3b465d62775dfa7f134aeb2d77afa3aa0e6dfa5085d",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT006.FITRES": "1ef992ec0c46c37743c031149a91b55426b13c079f9393097e2f41c24314fdb1",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT007.FITRES": "eb1dad20ba6a8a00e2fa89d75eabc36c669f54624dabbfc4269b96893e71b4b8",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT008.FITRES": "92a7de1461646b8505617548e973a9525dcf79f6bbb2535e1e0893f1d6988e54",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT009.FITRES": "39230fc1ea173eb3b15ae2b82875ae0b1d2e371bc0461d7cbe21b75af28e2d27",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT010.FITRES": "4281c9056ce1c67134c2a54c7a6da817788152072f5e437d682f906fbb654f20",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT011.FITRES": "af58d06bda738ca537e53c7b9e1a226babc5c295d5b3dae4806450e21987fbb2",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT012.FITRES": "b499f2c25d43968b0ae0a5c3dd82f32717f4637f64e0c59bebbb5ad4dc90c936",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT013.FITRES": "1aef2fc3c315a78c9edded92ff37013e3db30e0f75eb564d9418c4d2177e4226",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT014.FITRES": "1f50d2eecae14f1e877859c2ffc473d39a56b5dfb16d8f9bbbbd627518606218",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT015.FITRES": "112f8f47e78edf0a55dd65d5d81e72bcdd5a61c1ee7df4b1e9f09a8230971f5e",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT016.FITRES": "b72e9b755004b528e1ca4538cc2da6302961ea5c430067d2a629783183f98801",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT017.FITRES": "ebc7890dcfe5b821d78fd717e9699463945f029af2b923a059f6be8a62db5c16",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT018.FITRES": "9904af758fd750a1d309d19a8d019396855258303349a5b31c36605b6b04c06e",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT019.FITRES": "a38572c3a867d5fc65d40e906d2080c5929242cd672f365d77715375e063a58c",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT020.FITRES": "6cc75c10614ed0a5495b77396e9880269c5c41343a07abb0114818f60a0f722d",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT021.FITRES": "994084714f7f25bc52bc3fb4f562f59343ffc262e4288d27a17b6a425e8e12ca",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT022.FITRES": "28ddc8e394a66023a751eea9d1cee73c6f129fcb92df110cbbcdd433850ebdaf",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT023.FITRES": "a27db2d416fd8c7fd35c7bb1c3fe787282e2ff8e54e0362526d63c0c3595aa81",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT024.FITRES": "7e37a7d2042284c2078e52681a4ebe400108a6be8f1fc2a93d56c10daa4ec2fc",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT025.FITRES": "36fb099cfe923808552d4b9b9fae3222f4e5f0dd87214ee915324cc5d85452d9",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT026.FITRES": "36faaf97622f227bdc632eaaf13ba0b9414670a6143548a34d7ddf896605863b",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT027.FITRES": "e794f22cb13240e54e41636d67df6dffa977071abd162e72326de859aeac2989",
+    "data/raisin/distances/w/opticalnir_dist/RAISIN_combined_FITOPT028.FITRES": "18e74d0a3babe33e721036438490e563a03d66d3e5c1bef6f9a1d4b014bcfbca",
+    "data/raisin/distances/w/opticalnir_syst/RAISIN_all.covmat": "5b564b4ecfe9e24f26ab05e2005e4a3c14ddeeaba44ddeb44be0b361c6ce3eb1",
+    "data/raisin/distances/w/opticalnir_syst/RAISIN_all_lcparams_cosmosis.txt": "460c8c4b91a582d625e3d20a2e3c9673367be975b03f22f6fa3818a6d7929e8b",
+    "data/raisin/distances/w/opticalnir_syst/RAISIN_stat_lcparams_cosmosis.txt": "2cb0e3e5a1be58454d8b5cd5babff65c1f00e5eeb86458455c710ea8399060f5",
+    "data/raisin/kcor/kcor_CSPDR3_BD17.fits": "9553aa4a7f7fb3e1c1079b24d30a28564e8e69047def455412b0956276fecfa5",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2004ef.PKMJD.DAT": "106d34ab6e2232677fa28ae1622ce6ed4843147bed471e8915155cede7394e3d",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2004eo.PKMJD.DAT": "df942b1c849c021e00d1479b8eeb56790cf8d4dd901a2bfb21372c213e638b92",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2004ey.PKMJD.DAT": "84f1904bf4c088cd7b731f06cb1ce8e708db6c25d012d2f7bbd2dde2493324a7",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2004gu.PKMJD.DAT": "a7f10f2ed8417f09871b9b52f16f57ddaa14ca116af0d481d1ac2dbbe3ac4b6f",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2005M.PKMJD.DAT": "8eaebbc1e87bbc90bf8c8f248511e1d6f0d17a33b751e9512852ffa47dd1c58c",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2005W.PKMJD.DAT": "e2edab74653f2a31af76789f852cec35ebbcf20652a00972b4489cc16ea80555",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2005ag.PKMJD.DAT": "0f6d9d8e1ea73fc8df07f7b584ae58879f182308088fccc255d32a9227645448",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2005al.PKMJD.DAT": "8ec2d3af3e556100854fb224c2ca6bae044fa31370de8b41a0945d2936eccb3f",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2005bl.PKMJD.DAT": "21e946bc02700785b0b8a5ee399124f5d8f1359e85cfd1801720cdd645c460d4",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2005bo.PKMJD.DAT": "b3d4b6bba649bb78d88f34611c2a7135961789211bc0f1981ef983015f04309f",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2005el.PKMJD.DAT": "afae33558859c683c5d5b38771683d53adcd48a5f1ef6e7829ceb0f65af386be",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2005eq.PKMJD.DAT": "aef940c6d607454254cbb6ee5bff4946090c0ab3865e7742e21c9194de4a5e55",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2005hc.PKMJD.DAT": "3f0e73595dfdf2977aa873f7eced2ae6d3eff236474bbadbc34917b47a7c3cbe",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2005hj.PKMJD.DAT": "1918cd3deaf6603aeddf84bee0a0f2f18ee7941f4b8f9b69df5000f2b0656baf",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2005iq.PKMJD.DAT": "de7a785b26d67029f706e207aff1f0fcea6f3bddaa318d2459f547b7d23e6a78",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2005ir.PKMJD.DAT": "49aeb843a02ce539725bcf66a1ce7251e3558e4bb33a8e615bbcc60cbbce6616",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2005kc.PKMJD.DAT": "b6659dc939d0aa58c3b8c559b54381926a2d2766355d7583c2a0e302bf96eba9",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2005ki.PKMJD.DAT": "5452c8278dea4c73ac7a594e8229d82d1e83b38af9f4ba637ef63ecacf74d71c",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2005na.PKMJD.DAT": "d9055ad8502c074994d9240c2f653e7e6184873a220670cb724701420d3fa338",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2006D.PKMJD.DAT": "612516da9e891ce8bc4999df341f1bf5fcae17c1dc7e44fceabd442a369c92c8",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2006ax.PKMJD.DAT": "1dd35c67e672f78c9a3f0094687b2887b21ca12252a8d13ba19cffb96762cd2e",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2006bt.PKMJD.DAT": "513854ec0fefe8a613d3969ac7b81d8c4597897a4235ef2d6977c82f313b65c5",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2006et.PKMJD.DAT": "ee1fa843482d9ccf9e1c5efa5d34fa123dc5151dbf3eed320e0aab28fd3badaa",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2006fw.PKMJD.DAT": "7f61826b35e0bf7d3863e7b3e9c33fd975e6ba32f35b380da7cd7853dc0ae5fa",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2006hx.PKMJD.DAT": "1596a5ed67081cfbfa1b3ac43bb6feef9b1492ebcafdd427f0bf0c9a9305a2b5",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2006is.PKMJD.DAT": "f9bec85fa81806674e45eac254f7bcf49319f0f9c3ed1b2a1515b67acc874cd0",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2006kf.PKMJD.DAT": "55f5787ff86b2503b4a37fff48174e72f5b3a5d01351f8730eb1189088f19c5b",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2006mr.PKMJD.DAT": "6bdb473e4a089c010490202206759d17c733a6f2429f13d16acc368d6abc3fba",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2006py.PKMJD.DAT": "410df3f8c5a418ecf30e554af948ac63762a9f5bab1442434c71c435805e8b97",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007A.PKMJD.DAT": "699b5f8d8308b4075d3a54f34dd50aec701a4dc4bd51a3d0fdc66f3f83cac364",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007S.PKMJD.DAT": "391daca98d7d847f45b515e72b6e01fe89235e838af7b14475cd59058e0974ab",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007af.PKMJD.DAT": "7807448d2c9f3c2fa43eeef17a462f920aef43542a76a8672dd0a7cf9443ae58",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007ai.PKMJD.DAT": "dba3b8ce03b1277fe6f890136e5057276534a65081f8358abba2f5d30d2dc105",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007al.PKMJD.DAT": "6d3ce9711a2166074b7b8ce1e599c60e6189de64147f53ab5a5a1a7573a29434",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007as.PKMJD.DAT": "8beec2da5da889184a01b997beb988b571a590f5743d6a3ae68ffc883ff9d3fa",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007ba.PKMJD.DAT": "f821ac96860287350c14f53475a9ad324d459a22b30109b0be51e32201851cd5",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007bc.PKMJD.DAT": "8c9db8299033b35708a719855a3d1aadea72fb74460152c3ae6a4cdc3e58b39f",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007bd.PKMJD.DAT": "4d144ab1b995f81d811032fa69f36137c4c5f34e16a1042d32919260dfc1f0dc",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007bm.PKMJD.DAT": "102e0beb1aae677550d13567e5aa21c6b16241b99deceac6bb858ca20fa21116",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007ca.PKMJD.DAT": "9fcdb950427b808d2f68c2c40d29cf6187dfb69e6f0fcb07deec844e6b259381",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007jg.PKMJD.DAT": "b7b6e293893723885474d7e5e733f257903fcaa09b367ac8895bc133df12396b",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007jh.PKMJD.DAT": "0c4f2578e0e705c6ea9d95ce7778328a54fe427765f850a6c14db3fa19c37e40",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007le.PKMJD.DAT": "60d7083268482eef93d3da72cf9a374373a9e0633cf96716a75ceaebfe14db3a",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007mm.PKMJD.DAT": "c20c2a1d26c92de49733f24789126853e2594db6eb1c20c98b4629af0aeae39a",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007ol.PKMJD.DAT": "493dcf8ffdb817d85378747a5b55a6b85e1c8c30acf44746f50988ae857e8311",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007on.PKMJD.DAT": "bce58d714981ced5fa2532341904cff5a8bcc0496749eb6559c832ea893afdc7",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007so.PKMJD.DAT": "29e2116000ec6ed753be4e0a97b0b97d7dd3749eddc850e77a2cd4d974d0bc46",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007sr.PEAKMJD.DAT": "d2e7e9975bca5e974ae239ed5add83d06606912b52c3dc52124631844bbcf636",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2007sr.PKMJD.DAT": "0041bee9c4da8bbd10eb92bf1007e12a9fd003672fe2d49177739ca79c2a2bd0",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2008J.PKMJD.DAT": "cda9d9854bbfff85cc7fd87ae4103e74b3117ab8da6dc80e352e1ea6e34743be",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2008ar.PKMJD.DAT": "b583a2ac708d99bc5d8634265d9931ce39aecd6abeea1e5f1eb23ead12ee7573",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2008bc.PKMJD.DAT": "153a45e3e770262d8bb924c3cc6aee1d37123e4824b69af612f3f406e756dd57",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2008bf.PKMJD.DAT": "0de8008c973e6dd3a0d38de7d48eb696d332d5323b9886aac7e80b5b4c794c6f",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2008bi.PKMJD.DAT": "e938a175cb210024bc6ecd20b6758d36820733564b6457d434dd812d2279d13d",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2008bq.PKMJD.DAT": "65ba83e86836f8f7c3e54423cec28750aadbce18d30e8bf21c823113e80c7a58",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2008fp.PKMJD.DAT": "b5e1cce5f178385e488372d3d3eecc2814af9bf8bf640fcc599ea0278e958b7f",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2008gl.PKMJD.DAT": "21a41c6927a0580ee43ac8f81e35c69838e199ee09dae421940f986cd959eff1",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2008gp.PKMJD.DAT": "5c277e909dea9f1a71d130d86235d5fcb7ebd3a9d6e127778ed3c65d99f18e20",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2008hj.PKMJD.DAT": "e37f9cb7cb35a05e7210425e95fad5ba8df1a568951f7ee6e491d84f8a8eaf6d",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2008hu.PKMJD.DAT": "47ec1af5c3ffefb59995851c05c447c6567e0507df4a200b8f38c0524d53abd1",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2008hv.PKMJD.DAT": "0181bdab53be979c868f42262fb72ba9588d3ced0da90c265ee999c274333dc7",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2008ia.PKMJD.DAT": "e38b8909a89819e14539f0421b3eed04625fbed85e59bf9bd82c4fa820238d99",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2009D.PKMJD.DAT": "c4e24ce6502fe2ab7c7ed989b25c6e38c69428114837503cb38d42b234909a94",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2009F.PKMJD.DAT": "ac9c446929d367cda9df7f3016d061b10e30c46249f587d8592ee2dc6f6dbc5a",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2009P.PKMJD.DAT": "3fe26e48569a992d2a3008e12785b9665b96520fdf3b66d0be23d62282654d01",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2009Y.PKMJD.DAT": "b0f4928b2fa9021577664eb6df327b86d3f05f07c7f04ab6facacf72503a7b05",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2009aa.PKMJD.DAT": "c3c2661dce69569b343501322839974e50206d80ab1e84b15e4192b951744a3d",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2009ab.PKMJD.DAT": "7593d3d7e93e7c25f5271d3bab86172bd0b7bc494427c7f10da222c4fdb228fa",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2009ad.PKMJD.DAT": "ddbf72882228d7ea261ff0e126efe3e11206ba944457cf3c67b45bfa3621d596",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2009ag.PKMJD.DAT": "4b938a32594a211cb88ee5307613e500bede15465e4a0866b42fb61015a8b274",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2009al.PKMJD.DAT": "48148f3c6df705c20c9928f5108cc6f3711b5acf514aa988de01eaa55b3e3909",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2009cz.PKMJD.DAT": "3fff762110341872830657745f6286da3650874357d456badf9c44e0193fbaf4",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2009ds.PKMJD.DAT": "ed3d77d0b05c23ba2266312abbf8d9b39dcb6fd5e24934ef338cc0442df8d602",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2009le.PKMJD.DAT": "c7608fad53acd43eb56f30486177134d0c9f703eea62f4b03c26f27dcbe81d2e",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2011iv.PKMJD.DAT": "f1b894403a1e14b9cdcf419689101104c3fc8cf5f3797a9c71ae9ff0853ced9e",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2012fr.PKMJD.DAT": "0244cfaae6d4d6b69cdf2603a4fd5098b6a42fefbb2bdb1ca06128b425ab51ad",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2012ht.PKMJD.DAT": "2de548a21b2a0fe0cd4b7c902ad7af1ccb24f8998f136b45c79c3b9c40c63f5b",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_2015F.PKMJD.DAT": "26409848db0223eab93284cf14801612dec65fa19f54695a10666da00a9fba18",
+    "data/raisin/photometry/RAISIN/CSPDR3_RAISIN/CSPDR3_RAISIN.LIST": "992a85b9dcabdf28213aeac3ae302ea45392c14bc16d376860ac7b7db5b241bb",
+    "data/raisin/photometry/RAISIN/DES_RAISIN/DES15C1nhv.snana.dat": "59d62aba65e7f8dc04d20be3dff767427d0bc6fa83d9617cc534a99db212190e",
+    "data/raisin/photometry/RAISIN/DES_RAISIN/DES15C3odz.snana.dat": "f057a134b4d1c8d4dd9645d2a1900a600f161c26014545b6697ab5398f77f445",
+    "data/raisin/photometry/RAISIN/DES_RAISIN/DES15E2mhy.snana.dat": "9a80890a51144b796eeca6c052a90136f0bfb438797dd32dbda97326b27a5a40",
+    "data/raisin/photometry/RAISIN/DES_RAISIN/DES15E2nlz.snana.dat": "a51f563280e6e75f73b30934290e03d38dd2672c9e8cb8feba0fd8fb25bc862c",
+    "data/raisin/photometry/RAISIN/DES_RAISIN/DES15E2uc.snana.dat": "7a46109214b0b6cb93ef379aed029f48506cad73f9c0f6a1baf79dd4f3b22165",
+    "data/raisin/photometry/RAISIN/DES_RAISIN/DES15X2kvt.snana.dat": "b2a619ce63048e05b2d3aeaa5e8db5d4474adcacdf218ed41b6ef39fc74e5fe6",
+    "data/raisin/photometry/RAISIN/DES_RAISIN/DES15X2mey.snana.dat": "92ef1102b7063d6d1fa6292519816111d8bc9076b1c01cc35e2df27199b0b35c",
+    "data/raisin/photometry/RAISIN/DES_RAISIN/DES15X2nkz.snana.dat": "2fefb160b1b4947343f0602bb06281d8ca228d79785e3fc4efe7a6beb307b231",
+    "data/raisin/photometry/RAISIN/DES_RAISIN/DES16C1cim.snana.dat": "d2f7f295961722b12ff2380d24315f09ff0e90ddec1d7af732c9b047fb818694",
+    "data/raisin/photometry/RAISIN/DES_RAISIN/DES16C2cva.snana.dat": "b59d21865200d6a3a8f818bd4817b478c20a9bc641061bc607bb3c629e7a51ad",
+    "data/raisin/photometry/RAISIN/DES_RAISIN/DES16C3cmy.snana.dat": "54f756c685fbb743228d31c40144b0c34ab7d8239704399b0584f8574503b307",
+    "data/raisin/photometry/RAISIN/DES_RAISIN/DES16E1dcx.snana.dat": "7c2054e08c30be4df8ddb5b6174ceda71ce5b0b81c55f28b15e7e658bb87c463",
+    "data/raisin/photometry/RAISIN/DES_RAISIN/DES16E2clk.snana.dat": "a9c45e3386db6c707c7a93a412d83429d413907a141cba1f726bdeb49dd6d7fc",
+    "data/raisin/photometry/RAISIN/DES_RAISIN/DES16E2cqq.snana.dat": "c395b3004aec61e3ae0491ba7c6458e96e34785caa4a22811759c1b7741f4d35",
+    "data/raisin/photometry/RAISIN/DES_RAISIN/DES16S1agd.snana.dat": "8f7f4142a83403f208a2e6dba2eeb5ae684f663d7ac8408ff7eb389a93a0133a",
+    "data/raisin/photometry/RAISIN/DES_RAISIN/DES16S1bno.snana.dat": "d8b3eebb51641faa56140b2e6a5bd178558b6988dd8e989dfac8b9101e9594e1",
+    "data/raisin/photometry/RAISIN/DES_RAISIN/DES16S2afz.snana.dat": "6919a80524f5fb1a9cf9d3ce961dd60a86f604ee959abc5a820a0539f8d9fe85",
+    "data/raisin/photometry/RAISIN/DES_RAISIN/DES16X3cry.snana.dat": "99419af7ee1ecdb93e26acce981361fc240ddd11ff352e62506583e262809fa3",
+    "data/raisin/photometry/RAISIN/DES_RAISIN/DES16X3zd.snana.dat": "19ffa52b58b8aba8d4e85cf15eb6098c766d411f4b1d1bf2a8736fd52dccf37a",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScA470041.snana.dat": "97f08a66e80fe955cf217c3fe480f29743cdcb940c917c4f1bc8e82666f55f8c",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScA470110.snana.dat": "fb04782df7fa907f964324e47b9a47d56c6796aa1501111a2d669cd5c2994d9f",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScA470240.snana.dat": "c6678d96db8940dc74eb5888ebd115dbd8d2465c1f2583a28b97b9eaea00c302",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScB480464.snana.dat": "bae8aefe9626a3a097b02220ab8397c80d54bcf41bb06c58f74f75c03b47a367",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScB480794.snana.dat": "8fad00652e397c2043c2225d06b52aeedf31e924418ed0e9bb2d444a912b7d9f",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScC490037.snana.dat": "2a0964082bf360112a9c0e761955fa735f95e8781f7ddc569bed66a49faa18f6",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScC490521.snana.dat": "7ba65b9fb664537cb2a5c6d012207c52b044daf4065d4dadb6250102a3d2185d",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScD500100.snana.dat": "2826b4d9c365fa45d72673c94aee991b3ca1ae7f14866dc01df4c8a8bfe19fdd",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScD500301.snana.dat": "e3c413a54c385a5c4adf5ee530afcd3e7f23f88f60938fd674391a9c6f476bc2",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScF510457.snana.dat": "85516a74afcd2e0e8a4bf632ee3888294ae3990a234942db786e9c1f199249c3",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScF520062.snana.dat": "ebc2432b5577b8f3bcac66b91541423299b777cc07ed66c0afbe8fcc0f04b967",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScF520188.snana.dat": "09081116a3f99fd8f57864156d97170e67ae028ed9cbd879dcde36904aa2c87a",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScG530251.snana.dat": "8e8c50483005dcfdf1ae79fc1515c59c2b0743d5eaee395def579f0271f55cd9",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScH540087.snana.dat": "7691e51c7a05ec8f843dbe3a659fdcc4da075c5de04c57c35912f5277f3cb4e6",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScH540118.snana.dat": "a5ba5015b7040d86045aca4a40209e4a539c1f463c204c222356106dbc0a7422",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScJ440005.snana.dat": "c326a6c896742e84d3e0710bf84e3b7b77a937b7254ec703cd558436af149392",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScJ440236.snana.dat": "db2ab41c577a921b215dc5ea1461ec6c536a5f7535aa88e8e154d9aa3d8d2d8e",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScJ550202.snana.dat": "064e2a0aadf3e1a589f65f5689f7d9961168f5fe557d9ccac84565142da4789d",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScJ560027.snana.dat": "e77adf2aa8129c2375522cfe06be4d047133d08cad4d3ee612592400401c47e2",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScJ560054.snana.dat": "c8acd6c94fe355edf89fedac2a893764c49d2b6b3af41ab3a95b0679f85e64de",
+    "data/raisin/photometry/RAISIN/PS1_RAISIN/PScK450339.snana.dat": "97c098438cfebd38b0352167477d136491f3e49e727aaffa6ad33a4909bf6f82",
+    "data/signed/cohort.json": "8f7025b875d56840d336174b4261240fcec5eef5e9bba885965a6850e3347ac5",
+    "data/signed/des_real_01386047.dat": "ba2ff089330d6d9ab3ee3ea7992a1f3de92d8343ca26c9157b740543e9f1f9e6",
+    "data/signed/des_real_01387101.dat": "26644a38f3d4fa5dcb54d8829145d5bf9e01ed54d735f7ec4a1f9e1b3241fe8c",
+    "data/signed/des_real_01389074.dat": "83882fb9fac0514e8d061d141fd62c8f1d82997a4f70bd1d00b5ea397d0b17f7",
+    "data/signed/des_real_01430158.dat": "5c4e664399c2bdf72a11bc8571f5c045e316c37f393fc1db65fba287816912fa",
+    "data/signed/des_real_01490034.dat": "b6fea9b5fe611ebcb55f475a4e9efa16869b781d0f817e1ab910c6b61d38f066",
+    "data/signed/des_real_01500031.dat": "22d1aece732cb270fffff6b39097b785f9590f099acb1ff6d7a366ac54bb1f70",
+    "data/signed/des_real_01504139.dat": "0bfcb9a2fc5f6c994ff68012e12701217e982db917c2933e9650a808e072266a",
+    "data/signed/des_real_01516019.dat": "7404a4f8bcbf2505c96c7fb020648ed96bb06f0de66c5e09af4572aed6c26f92",
+    "data/signed/des_real_01516088.dat": "37a4ac1cb249eee643743aafa859b71ba3c51c695aba07ee9b7f4dd4357b323b",
+    "data/signed/des_real_01536028.dat": "5b9f2a482efff487f0663ccf3ede9a5f9261f40d8f5816b5b588325c10415e6e",
+    "data/timing/nir.FITRES.gz": "c0e6de446c2d4b2179a6570c0a1f166b5384612101fbe5002938a73b8daa3b44",
+    "data/timing/optnir.FITRES.gz": "2a1fb2553ce1d3f34c9617bcb83228044d708ae991964a8e59f5d47eb6fbb4e8",
+    "results/baseline/csp-lineage/summary.json": "69f2cfb9f546f323bc6bfb6e0581446f29c0d757352c843f5dbc29e03ed202fc",
+    "results/baseline/csp-passbands/passband_grid.csv": "3d305c8a078731eab96efac38c983dc7688b7b9e1dc415142e4f1edc3b619c92",
+    "results/baseline/raisin/summary.json": "c5b0bd44054fda903349ba2dd72efc02bd7023d8eed474117f5786c65fb799c9",
+    "results/baseline/sign-selection/recovery.csv": "13fbaa7d13470ebf43afafa52590fc51c6218b083bfd1b9ab81c11ba367b7a60",
+    "results/baseline/sign-selection/run.json": "c9ad2f5b74458f3fc6d33f52772527580ca00aa6ccfe78af34862074832a0ba4",
+    "results/baseline/signed-baseline/summary.json": "53528304240601312eadb14f6208e8e73b7b570228da3dc4e24bc0c70c2e75ce",
+    "results/baseline/timing/summary.json": "7c503678d354695d0dcb4104c847523307f0a06b02388aa91a55b57b091a7180"
+  }
+}

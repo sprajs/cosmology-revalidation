@@ -1,8 +1,0 @@
-{
-  "status": "frozen_before_stage_A",
-  "interpretation": "Root clarified the design's 120-second initial compute cap is a timed Stage A benchmark. Preserve partial support/mask work and stop if reached. Stage B is separately released by root only after Stage A review, with an explicit positive stage_b_seconds_cap in the release JSON. Sensitivities share that Stage B cap; they do not each receive a fresh 120 seconds.",
-  "stage_A_seconds_cap": 120,
-  "stage_B_release_required": true,
-  "stage_B_release_schema": {"authorized_stage_b": true, "stage_a_sha256": "SHA256 of completed stage_a.json", "stage_b_seconds_cap": "positive seconds selected by root after Stage A timing review"},
-  "science_and_selection_changes": "none"
-}

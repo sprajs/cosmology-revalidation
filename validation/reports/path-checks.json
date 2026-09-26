@@ -1,0 +1,25 @@
+{
+  "scope": "New nested output paths reject traversal, absolute paths and overwriting existing results. Successful nested paths are exercised by the full structure-verification campaign.",
+  "checks": [
+    {
+      "name": "../outside-results",
+      "rejected": true,
+      "reason": "ValueError: Result name must be a relative path without dot or parent components"
+    },
+    {
+      "name": "/tmp/outside-cosmology-results",
+      "rejected": true,
+      "reason": "ValueError: Result name must be a relative path without dot or parent components"
+    },
+    {
+      "name": "baseline/dust",
+      "rejected": true,
+      "reason": "FileExistsError: [Errno 17] File exists: '/home/szymon/Documents/ChatGPT/supernova/results/baseline/dust'"
+    },
+    {
+      "name": "nested/../outside-results",
+      "rejected": true,
+      "reason": "ValueError: Result name must be a relative path without dot or parent components"
+    }
+  ]
+}
