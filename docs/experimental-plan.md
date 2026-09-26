@@ -6,6 +6,8 @@ The objective is a reproducible inference of expansion history in which detector
 
 The immediate deliverable is a validated relative-distance measurement. Absolute expansion rate and early-Universe combinations are subsequent, separately identified releases. Existing results have already been inspected: this programme is not retrospectively blinded. New simulations, new holdouts and any newly acquired observations must have their evaluation rules frozen before their outcomes are inspected.
 
+The [age-correction study](age-correction-plan.md) specifies the focused tests of whether existing host/dust corrections absorb the proposed age effect, whether an additional term is needed, and whether the full proposed template would double count. Its [evidence review](age-correction-evidence.md) includes the direct published exchange and later environmental measurements.
+
 This plan builds on the [validated workflows](workflows.md) and [current validation record](../validation/README.md). Its original evidence identities and primary methodology references are retained in the [source manifest](../provenance/literature.json). Historical implementation evidence is linked to a fixed Git snapshot. This document sets the dependency order and admission criteria for a unified measurement.
 
 ## 1. Define the measurement before choosing a correction

@@ -1,0 +1,106 @@
+# Does supernova standardization already correct for age?
+
+**Evidence reviewed through 27 September 2026.** This review separates published claims, our existing calculations and tests still needed. The accompanying [experimental plan](age-correction-plan.md) specifies the data and analyses that could resolve the disagreement. Paper versions, source identities and calculation records are in the [evidence manifest](../provenance/age-correction-literature.json).
+
+**The present evidence does not justify either adding the full proposed age correction to modern distances or declaring that every relevant age effect has already been removed.** There is substantial evidence that supernova properties depend on environment. The unresolved question is how much *redshift-dependent distance bias remains after the actual standardization and selection analysis*. That is different from asking whether age affects supernova physics.
+
+## 1. Three claims that must be distinguished
+
+1. **A physical population effect exists.** Supernova luminosity, colour or light-curve shape varies with progenitor population. Such an effect can be real and already partly accounted for by standardization.
+2. **An additional predictor is needed.** Age predicts brightness after the existing colour, width, host and selection treatment is fitted. This concerns incremental information in a particular sample and model.
+3. **A cosmological correction is needed.** The remaining effect changes the mean inferred distance as the *selected* population changes with redshift. A local association alone does not establish its amplitude or evolution.
+
+“Already corrected” is therefore a quantitative claim about the residual bias of a particular analysis. It is not equivalent to “dust is the only physical cause.” Likewise, an intrinsic environmental effect does not automatically validate a universal linear correction of 0.030 mag per billion years.
+
+The relevant ages differ. A luminosity-weighted spectroscopic age, a mass-weighted photometric host age, a local stellar-population age and the delay between progenitor formation and explosion are not interchangeable measurements. A galaxy may contain old stars and still produce a supernova from a young minority population.
+
+## 2. Evidence for an age or intrinsic environmental effect
+
+The following are author-reported findings, unless explicitly identified as our calculations. Papers reusing a catalogue are separate analyses of shared observations.
+
+| Evidence | What supports the argument | What it does not establish |
+|---|---|---|
+| [Gupta et al. 2011](https://arxiv.org/abs/1107.6003), [Rose et al. 2019](https://arxiv.org/abs/1902.01433) | Host-age associations in SDSS samples; Rose reports an age step of 0.114 ± 0.039 mag and a combined stretch/mass/local-age predictor. | These use older residuals and inferred stellar ages; they do not measure the extra correction remaining in Pantheon+. |
+| [Kang et al. 2020](https://arxiv.org/abs/1912.04903v2), [Lee et al. 2020](https://arxiv.org/abs/2008.12309v2), [Lee et al. 2022](https://arxiv.org/abs/2107.06288v2) | Spectroscopic ages of passive hosts and photometric-age reanalyses support population-dependent luminosity. Lee 2022 interprets age-dependent offsets in the width–luminosity and colour–luminosity relations as an important standardization failure. | Small or overlapping samples, population-synthesis assumptions and historical correction definitions limit transfer to modern survey distances. Spectroscopic stellar age is still not an individual progenitor age. |
+| [Zhang et al. 2021, revised 2022](https://arxiv.org/abs/2012.06215v3) | Reanalysis using age posterior distributions reports local/global slopes −0.035 ± 0.007 and −0.036 ± 0.007 mag/Gyr. This directly challenges treating uncertain ages as exact points. | It reuses earlier environments and residuals. Full posterior handling does not by itself resolve selection, correction overlap or age-model priors. |
+| [Rose et al. 2021](https://arxiv.org/abs/2012.01460) | A simultaneous UNITY analysis of 103 SDSS supernovae finds value in combining host mass and local age. | This is evidence for jointly testing predictors, not proof of the proposed redshift template. It also shows why assigning researchers to two fixed camps is misleading. |
+| [Wang, Huang & Huang 2023](https://arxiv.org/abs/2303.15267v3) | An age-uncertainty analysis retains a weaker, 3.5σ association. | Their cosmological conclusion changes when intrinsic scatter is included; they find ΛCDM remains a good fit in that case. An age association and an overturned acceleration measurement are distinct claims. |
+| [Chung et al. 2025, Paper I](https://arxiv.org/abs/2411.05299v2) | Updated ages and full-distribution regression strengthen the case for an age association. Gaussian-summary slopes are −0.062 ± 0.014 for R19 and −0.047 ± 0.0155 for G11; full-age-posterior estimates are about −0.038 and −0.025 mag/Gyr. The commonly imposed −0.030 slope is not identical to either Gaussian-summary fit. | The G11 residuals include a redshift adjustment estimated from young hosts. Its uncertainty must propagate into the age fit. Our identity audit finds 33 shared SDSS IDs between G11 and R19, so their evidence cannot simply be multiplied as independent samples. |
+| [Son et al. 2025, Paper II](https://doi.org/10.1093/mnras/staf1685) | Combines an age–brightness relation with evolving age distributions; corrected SN+BAO+CMB fits differ strongly from ΛCDM. Removing the explicit DES mass step has little effect in their test. | Removing that one coefficient does not remove host-dependent simulation corrections. Their “coeval” comparison selects young low-redshift hosts, infers the high-redshift population age, and uses a 0.146-mag offset in Figure 10; it is not an entirely measured, correction-free age-matched Hubble diagram. Its YONSEI residuals were supplied privately. |
+| [Park et al. 2026, Paper III](https://doi.org/10.1093/mnras/stag935) | Relates age-dependent standardization offsets to familiar host-property steps using observations and galaxy/progenitor simulations. | Reuses updated ages and historical residuals. Assuming an age slope and predicting a mass step is a consistency test, not unique identification of age. The paper notes limitations in old populations in low-mass host models. |
+| [Chung et al. 2026, published counter-rebuttal](https://doi.org/10.1093/mnras/stag1513) | Reports a steeper slope for a narrower redshift interval, questions the dust prescription, and argues that a smaller progenitor-age contrast requires a steeper converted brightness slope. | The published mock equalizes mean residuals across redshift bins. That operation is not a mathematical requirement of subtracting a ΛCDM distance. The age-mapping compensation must be tested jointly, rather than changing one factor while holding another fixed. |
+
+The [July 2026 correction to Paper I](https://doi.org/10.1093/mnras/stag1210) fixes a plotted G11 age column and corresponding wording. The authors state that the quantitative analysis is unchanged. It is not evidence that the whole age result was withdrawn. For the counter-rebuttal, the August journal version contains tests absent from the May arXiv version; both identities are recorded.
+
+## 3. Evidence that a large extra correction is unwarranted
+
+| Evidence | What supports the argument | What remains open |
+|---|---|---|
+| [Rose et al. 2020](https://arxiv.org/abs/2002.12382v2) | Reanalysis reduces the passive-host age significance to ≤2σ, and about 1σ after excluding one poorly sampled SN. A 254-object Pantheon comparison finds no significant remaining age trend after its corrections. | A null slope is only informative given its age errors, population coverage and statistical power. Later age-posterior analyses of related data disagree. |
+| [Brout & Scolnic 2021](https://arxiv.org/abs/2004.10206v2), [Popovic et al., Dust2Dust](https://arxiv.org/abs/2112.04456v2) | Models with intrinsic colour plus a distribution of dust reddening/extinction reproduce colour-dependent scatter and host-dependent brightness patterns. This gives a concrete mechanism for existing corrections to absorb age-correlated differences. | Successful reproduction of selected summaries is not unique proof of the latent dust explanation. An unmodelled age component may mimic or accompany it. |
+| [Meldorf et al. 2023](https://arxiv.org/abs/2206.06928), [Kelsey et al. 2023](https://arxiv.org/abs/2208.01357v2) | Host dust/colour measurements and colour-dependent environmental steps support a chromatic contribution; some remaining steps decrease after accounting for these properties. | Host attenuation and SN sightline extinction are different quantities. Host colour mixes age, dust and metallicity; these are not direct progenitor-age controls. |
+| [Wiseman et al. 2026](https://doi.org/10.1093/mnras/stag797) | Their corrected Pantheon+ age slope is −0.007 (+0.012/−0.014) mag/Gyr. A low-redshift morphology contrast is 0.037 ± 0.020 mag; DES mass-step evolution is −0.028 ± 0.034 mag per unit redshift. They also model substantially smaller progenitor-age evolution. | Morphology is an imperfect age tracer. A stable mass *difference* does not exclude drift common to both mass groups. Their weak slope cannot establish completeness of corrections if fitting or selection suppresses the detectable age signal. |
+| [Murakami et al. 2026, TITAN hosts](https://arxiv.org/abs/2604.16597v1) | Models 6,983 hosts using UV-to-MIR photometry, star-formation histories and delay-time distributions; infers a mean progenitor age of 3.5 Gyr and roughly 1.5 Gyr cosmic evolution, challenging the large-age-contrast premise. | Ages are model-derived. Its small final brightness-bias estimate also uses the disputed residual–age relation; it is not an independent measurement of both factors. The paper describes underlying catalogue/framework releases as forthcoming. |
+
+The strongest version of the standard-correction argument is that the *combination* of light-curve standardization, host terms and simulation-derived bias corrections suffices over the selected population. A nearly zero fitted residual mass-step coefficient does not imply that no host correction has been applied. The [Pantheon+ analysis](https://arxiv.org/abs/2202.04077v2) and the released distance definitions must be used together when auditing this accounting.
+
+## 4. Evidence that neither simple explanation is complete
+
+**Dust and intrinsic population effects can coexist.** [Wiseman et al. 2022](https://arxiv.org/abs/2207.05583) explores models needing additional intrinsic differences for some host splits. [Wiseman et al. 2023](https://arxiv.org/abs/2302.05341) shows that galaxy-age-dependent dust can reproduce tracer patterns while leaving room for multiple physical drivers. [Popovic et al. 2024](https://doi.org/10.1093/mnras/stae2164) finds shortcomings in tested dust-only models; an intrinsic age step helps without explaining everything. These papers do not support an unconditional “dust has settled the issue” claim.
+
+**Environment has predictive information, but imperfect tracers attenuate it.** [Rigault et al. 2020](https://arxiv.org/abs/1806.03849v2) finds a strong local specific-star-formation association. [Briday et al. 2022](https://arxiv.org/abs/2109.02456) studies how tracer contamination changes measured steps. Their findings motivate measuring several environments on the same objects; a local star-formation step is not itself a calibrated age slope.
+
+**Dust populations may also evolve.** [Popovic et al., ZTF DR2 colour-distribution study](https://arxiv.org/abs/2406.06215) interprets changing colour distributions across a combined volume-limited sample as dust evolution. This supplies an alternative to an age-only redshift trend, conditional on its intrinsic-colour and selection model.
+
+**Alternative light-curve models provide a useful test.** [Thorp et al. 2021](https://arxiv.org/abs/2102.05678v3) and [Thorp & Mandel 2022](https://arxiv.org/abs/2209.10552) jointly examine dust distributions and host steps using optical and near-infrared data. [Ginolin et al. 2026, ZTF BayeSN, v3](https://arxiv.org/abs/2605.06799v3) reports an intrinsic global-mass step of **0.103 ± 0.018 mag** even allowing environmental dust differences. This challenges a universal dust-only interpretation. Its axes are mass and colour, not measured age; it does not establish an extra correction to Pantheon+ distances. ZTF DR2 has acknowledged calibration limitations and is not a cosmology-ready release. Our [source audit](../studies/light_curve_fitting/notes/ztf-source-update.md) also records unresolved sample-mask transitions and unavailable fitted posterior products.
+
+**Training and observational independence differ.** [BayeSN×Dovekie](https://arxiv.org/abs/2606.19429v1) supplies a model/calibration route, but an alternative fit to the same photons is not an independent observing experiment. Training and calibration overlap must be tracked across compilations.
+
+**The age mapping is an experimental target.** [Childress et al. 2014](https://arxiv.org/abs/1409.2951) provides the galaxy/SN-delay framework underlying many claims. [Kim et al. September 2026](https://arxiv.org/abs/2609.12083v1) connects local-age proxies more strongly with stretch than colour, but does not provide a new age–distance-residual measurement. [Kelsey September 2026](https://arxiv.org/abs/2609.16972v1) supplies UV-to-FIR local/global environmental measurements for 90 nearby SNe, without a Hubble-residual analysis. These are useful inputs to a discriminating study, not additional independent confirmations of its cosmological conclusion.
+
+**Other population mechanisms remain viable.** [Magee 2026](https://arxiv.org/abs/2604.22928v1) explores explosion-channel-dependent standardization, explicitly noting sample limitations. An intrinsic environmental effect could reflect age, metallicity, explosion channel, or their mixture. Labelling it “age” needs evidence beyond its being non-dust-like.
+
+**Release corrections matter.** [DES-Dovekie](https://arxiv.org/abs/2511.07517v3) updates calibration, the light-curve model and bias corrections. [Union3.1, revised 21 September 2026](https://arxiv.org/abs/2601.19424v2) documents host-property inconsistencies between compilations. A [public Pantheon+ correction reconstruction](https://github.com/shouvikrc/pantheonplus-hostmass-correction-reconstruction) accompanies [Roy Choudhury 2026](https://arxiv.org/abs/2607.24443v2). Such revisions justify rechecking null tests; they do not identify progenitor age as the cause. Our existing host-mass sensitivity calculation predates the new Union3.1 version and must not be relabelled as its complete reproduction.
+
+Finally, galaxy attenuation cannot simply be equated with point-source extinction: geometry, scattering and population weighting intervene. [Salim et al. 2018](https://arxiv.org/abs/1804.05850) explains that distinction. Our [dust investigation](../studies/dust/notes/standardization-dust.md) constructs explicit examples with different effective attenuation and extinction laws. Thus a disagreement between their fitted R_V values does not alone validate or invalidate a SN dust correction.
+
+## 5. What we have already established ourselves
+
+The preserved [age investigation](../studies/host_ages/notes/age-signal.md) goes deeper than the fixed-template experiment in the manuscript. The values below were checked against its saved numerical records for this review; **the chains were not rerun for this document**.
+
+| Existing calculation | Our result in mag/Gyr | Interpretation |
+|---|---|---|
+| C25 R19 residuals; Gaussian age summaries, LINMIX | −0.06175 ± 0.01466 | Close to the published −0.062 ± 0.014. |
+| C25 G11 adjusted residuals; same estimator | −0.04577 ± 0.01454 | Close to the published −0.047 ± 0.0155. Without the young-host redshift adjustment: −0.03635 ± 0.01505. |
+| Modern fully corrected distances, 196 matched SNe, table errors | −0.00550 ± 0.01203 | Approximately reproduces the weak corrected association. |
+| Approximate Tripp residuals, COVADD variance removed, 0.06 < zHD < 0.20 | −0.03189 ± 0.01183 | Approximately reproduces the steeper narrow-redshift result. This is a different outcome and sample. |
+| Corrected distances with actual covariance-diagonal errors, Gaussian age summaries | −0.00938 ± 0.01132 | Weak association also persists with this error definition. It is not a full-covariance regression. |
+| Full-covariance, single-normal latent-age likelihood, corrected distances | Maximum-likelihood slope −0.01199; profile set [−0.032, +0.010] at Δχ² = 3.84 | Allows zero and substantial negative slopes. Nominal profile threshold; coverage has not been calibrated for this approximate age model. |
+
+Here ± denotes posterior standard deviation for the LINMIX rows. Catalogue overlap choices, age approximations and missing exact author configurations prevent calling these exact reproductions. The manuscript's smaller conditional errors from treating ages as exact answer a different question.
+
+The cumulative sample counts are reproducible: **100, 144, 176, 192, 196** at upper zHD cuts 0.20, 0.25, 0.30, 0.35, 0.42. These nested samples are correlated. An existing paired bootstrap does not establish a significant narrow-minus-full slope difference; comparing their separate significance labels would be misleading.
+
+The mock issue can be stated precisely. If true residual brightness is `Y = b A + noise`, subtracting the *true* distance law leaves the age term. If only Y is then centered within redshift bins, the simple unweighted population regression becomes
+
+`b_centered = b × E[Var(A | Z)] / Var(A)`.
+
+Our controlled simulations recover this attenuation and recover the injected slope when both variables are centered. This establishes an algebraic mechanism, not that a real fitted cosmology enforces bin centering. Measuring the projection introduced by the actual fit is still necessary.
+
+The old host-mass revision sensitivity changes 12 of the 196 matched SNe and leaves the corrected age association weak under the fixed-covariance diagnostic. Separately, the R19 age-code convention issue belongs to that original implementation; it has not been established in the unavailable later Chung code. Neither finding warrants discarding all age evidence.
+
+## 6. The unresolved inference
+
+Our synthesis is that **correction overlap is demonstrated, completeness is not**. Historical and corrected residuals give different age associations, and both sides' selected numerical results are substantially reproducible. The currently available evidence does not uniquely determine whether remaining evolution is negligible, a smaller additional effect, or a substantial signal partly hidden by inference and selection.
+
+A mass step tests a difference between populations. An age correction for cosmology tests an evolving mean. Even a successful local standardization can fail when transported to a different selected population. Conversely, adding an old residual slope to modern corrected distances can overcorrect. The decisive quantity is the bias remaining after the entire analysis, assessed on simulated known truths and independent held-out observations.
+
+Arbitrary achromatic luminosity evolution is exactly degenerate with the SN distance–redshift relation. More SN precision alone cannot resolve unrestricted versions of that ambiguity. Optical–infrared measurements help distinguish chromatic mechanisms; population measurements and independent geometry constrain other directions. Each requires explicit assumptions.
+
+Downstream applications such as [Sah, Rameez & Sarkar 2026](https://arxiv.org/abs/2606.09650) illustrate consequences of imposing an age correction. They are not new measurements proving that the correction is additional. Agreement with BAO/CMB after choosing a template is likewise not an independent physical validation of it.
+
+## 7. Search coverage and boundaries
+
+The search followed the direct 2020–2026 exchange, its age-regression antecedents, dust/environment counterevidence, population mapping, public releases and September updates. It used primary arXiv records, journal articles, author repositories and the previously acquired source archive. Forty arXiv landing pages were requested; successful snapshots and failed requests are recorded separately. Core papers were inspected beyond their abstracts, including published versions where arXiv is older. Peripheral mechanism papers are identified as context in the manifest, not as reproduced experiments.
+
+The live metadata check found the 21 September Union3.1 revision. No later explicit reply to the published Chung counter-rebuttal was located in the targeted search. This is a bounded literature search, not a guarantee that every relevant paper or newly released dataset has been indexed. The [plan](age-correction-plan.md) makes unavailable author products explicit and separates work possible now from work requiring those inputs.
