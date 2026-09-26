@@ -1,0 +1,10 @@
+{
+  "status": "post-score independent arithmetic and influence review; frozen before independent image extraction",
+  "known_outcomes": "Parent reported whole-pixel ratio 4.201565, quadrant A 14.723955 and fixed-aperture ratio 0.547440; these motivated this exploratory review.",
+  "inputs": "Native idbx41onq/idbx43p7q FLT/IMA and byte-preserving first-eight RAW files; existing frozen union mask and aperture positions, no changed measurements or masks.",
+  "verification": "Independently read SCI/ERR; reproduce 5 regions,256 blocks,247 apertures. Circle-square overlaps by independent one-dimensional numerical quadrature; import none of parent analysis.",
+  "influence": "Rank all retained pixels by descending squared paired slope difference, ties raw y then x. Retain top20 globally and top5 of each quadrant. Report top1/5/10/20 cumulative contribution, all output DQ/SAMP category counts and moment sums, and selected RAW/IMA read histories. No deletion, new primary, rescaling, fitted mixture, or significance.",
+  "aperture_relation": "Record whether each influential pixel receives nonzero weight in each fixed aperture; note that squared aperture sums have cross terms and are a distinct estimand.",
+  "interpretation": "Read histories may diagnose a jump or differing persistent signal; assigning detector/CR cause requires source state. Native flags are diagnostics, never eligibility. No full-cohort extension/native code call/build.",
+  "resources": "Bounded local independent arithmetic, approximately five minutes; artifacts additive in independent-score-review only."
+}

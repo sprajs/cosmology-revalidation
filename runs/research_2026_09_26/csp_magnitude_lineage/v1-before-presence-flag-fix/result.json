@@ -1,0 +1,68 @@
+{
+  "raw_NIR_rows": 5491,
+  "SNpy_NIR_rows": 5491,
+  "raw_to_SNpy_complete_decimal_identity": true,
+  "raw_unmatched": 0,
+  "SNpy_unmatched": 0,
+  "changed_filter_groups": {
+    "Jdw": {
+      "raw_rows": 520,
+      "unmatched_after_relabel": 0,
+      "release_rows_with_unique_physical_label": 303,
+      "release_rows_unique_and_converter_exact": 303
+    },
+    "Hdw": {
+      "raw_rows": 496,
+      "unmatched_after_relabel": 0,
+      "release_rows_with_unique_physical_label": 288,
+      "release_rows_unique_and_converter_exact": 288
+    }
+  },
+  "listed_objects": 76,
+  "archive_present_objects": 76,
+  "metadata_exact_objects": 73,
+  "mag_error_exact_objects": 73,
+  "converter_exact_objects": 73,
+  "nonexact_objects": [
+    {
+      "CID": "2012fr",
+      "file": "CSPDR3_2012fr.PKMJD.DAT",
+      "archive_found": true,
+      "expected_NIR_rows": 0,
+      "released_NIR_rows": 134,
+      "metadata_equal": false,
+      "mag_error_equal": false,
+      "full_converter_equal": false,
+      "expected_not_released": 0,
+      "released_not_expected": 134
+    },
+    {
+      "CID": "2012ht",
+      "file": "CSPDR3_2012ht.PKMJD.DAT",
+      "archive_found": true,
+      "expected_NIR_rows": 0,
+      "released_NIR_rows": 50,
+      "metadata_equal": false,
+      "mag_error_equal": false,
+      "full_converter_equal": false,
+      "expected_not_released": 0,
+      "released_not_expected": 50
+    },
+    {
+      "CID": "2015F",
+      "file": "CSPDR3_2015F.PKMJD.DAT",
+      "archive_found": true,
+      "expected_NIR_rows": 0,
+      "released_NIR_rows": 57,
+      "metadata_equal": false,
+      "mag_error_equal": false,
+      "full_converter_equal": false,
+      "expected_not_released": 0,
+      "released_not_expected": 57
+    }
+  ],
+  "release_NIR_rows": 3598,
+  "ambiguous_or_absent_raw_label_rows": 245,
+  "protocol_sha256": "4f358d6239d7d7d5df20c9a39d56f6c0ee1b491f6a2205b3d4a5348bc2fd551b",
+  "scope": "Every NIR row in original archive; all LISTed RAISIN objects; preserve duplicates, unmatched objects/rows and any mismatches. No distance fits or correction inferred from identity alone."
+}

@@ -1,0 +1,1578 @@
+                                               MNRAS 000, 1–20 (2022)                                                Preprint 13 July 2022            Compiled using MNRAS LATEX style file v3.0
+                                                                                                                                                                   FERMILAB-PUB-22-366-PPD
+
+
+
+                                               A galaxy-driven model of type Ia supernova luminosity variations
+                                               P. Wiseman,1★ M. Vincenzi,2,1 M. Sullivan,1 L. Kelsey,3,1 B. Popovic,2 B. Rose,2 D. Brout,4,5
+                                               T. M. Davis,6 C. Frohmaier,3,1 L. Galbany,7,8 C. Lidman,9,10 A. Möller,11 D. Scolnic,2 M. Smith,12
+                                               M. Aguena,13 S. Allam,14 F. Andrade-Oliveira,15 J. Annis,14 E. Bertin,16,17 S. Bocquet,18 D. Brooks,19
+                                               D. L. Burke,20,21 A. Carnero Rosell,22,13,23 M. Carrasco Kind,24,25 J. Carretero,26 F. J. Castander,7,8
+                                               M. Costanzi,27,28,29 M. E. S. Pereira,30 S. Desai,31 H. T. Diehl,14 P. Doel,19 S. Everett,32 I. Ferrero,33
+                                               D. Friedel,24 J. Frieman,14,34 J. García-Bellido,35 M. Gatti,36 E. Gaztanaga,7,8 D. Gruen,18 J. Gschwend,13,37
+
+
+
+
+arXiv:2207.05583v1 [astro-ph.GA] 12 Jul 2022
+                                               G. Gutierrez,14 S. R. Hinton,6 D. L. Hollowood,38 K. Honscheid,39,40 D. J. James,4 M. March,36
+                                               F. Menanteau,24,25 R. Miquel,41,26 R. Morgan,42 A. Palmese,43 F. Paz-Chinchón,24,44 A. Pieres,13,37
+                                               A. A. Plazas Malagón,45 A. K. Romer,46 E. Sanchez,47 V. Scarpine,14 I. Sevilla-Noarbe,47 M. Soares-
+                                               Santos,15 E. Suchyta,48 G. Tarle,15 C. To,39 and T. N. Varga49,50,51
+                                                                                                           (DES Collaboration)
+
+
+                                               Accepted XXX. Received YYY; in original form ZZZ
+
+
+
+                                               ABSTRACT
+                                               Type Ia supernovae (SNe Ia) are used as standardisable candles to measure cosmological distances, but differences remain in
+                                               their corrected luminosities which display a magnitude step as a function of host galaxy properties such as stellar mass and
+                                               rest-frame 𝑈 − 𝑅 colour. Identifying the cause of these steps is key to cosmological analyses and provides insight into SN physics.
+                                               Here we investigate the effects of SN progenitor ages on their light curve properties using a galaxy-based forward model that we
+                                               compare to the Dark Energy Survey 5-year SN Ia sample. We trace SN Ia progenitors through time and draw their light-curve
+                                               width parameters from a bimodal distribution according to their age. We find that an intrinsic luminosity difference between
+                                               SNe of different ages cannot explain the observed trend between step size and SN colour. The data split by stellar mass are
+                                               better reproduced by following recent work implementing a step in total-to-selective dust extinction ratio (𝑅𝑉 ) between low- and
+                                               high-mass hosts, although an additional intrinsic luminosity step is still required to explain the data split by host galaxy 𝑈 − 𝑅.
+                                               Modelling the 𝑅𝑉 step as a function of galaxy age provides a better match overall. Additional age vs. luminosity steps marginally
+                                               improve the match to the data, although most of the step is absorbed by the width vs. luminosity coefficient 𝛼. Furthermore, we
+                                               find no evidence that 𝛼 varies with SN age.
+                                               Key words: supernovae: general – galaxies: evolution – cosmology: observations – dust, extinction
+
+
+
+                                               1 INTRODUCTION                                                              and physics, or progenitor white dwarf mass, age or metallicity), or
+                                                                                                                           in the circumstellar medium (CSM) surrounding the explosion, or in
+                                               Empirical relationships among light-curve properties of type Ia su-
+                                                                                                                           the interstellar medium (ISM) between the SN and the observer (e.g.,
+                                               pernovae (SNe Ia) are routinely used to standardize their peak bright-
+                                                                                                                           dust). Established correlations between the observed SN light-curve
+                                               nesses (Pskovskii 1977; Phillips 1993; Riess et al. 1996; Tripp 1998;
+                                                                                                                           width and the properties of the SN host galaxy, with faster-declining
+                                               Mandel et al. 2017) and facilitate their use as distance indicators
+                                                                                                                           SNe more readily located in more massive, less actively star-forming
+                                               in cosmological measurements (Riess et al. 1998; Perlmutter et al.
+                                                                                                                           galaxies, presumably reflect some of this underlying astrophysics.
+                                               1999; Sullivan et al. 2011; Betoule et al. 2014; Scolnic et al. 2018;
+                                               DES Collaboration et al. 2018; Brout et al. 2022). This standard-              After standardising SN luminosities for SN light-curve width and
+                                               isation typically exploits the ‘faster–fainter’ relation between peak       SN colour, any remaining difference between inferred distances and
+                                               brightness and SN light curve width, and the ‘bluer–brighter’ re-           those predicted by the cosmological model are termed ‘Hubble resid-
+                                               lation between peak brightness and SN optical colour. A detailed            uals’ . These Hubble residuals are also observed to correlate with
+                                               astrophysical understanding of these relationships is not yet in place,     host galaxy properties, both those local to the SN and the integrated
+                                               but they are assumed to derive from physical processes intrinsic to the     global properties. The most commonly used of these correlations
+                                               SN progenitors and their explosions (e.g., SN explosion mechanism           is the between Hubble residual and host galaxy stellar mass (Kelly
+                                                                                                                           et al. 2010; Lampeitl et al. 2010; Sullivan et al. 2010; Childress
+                                                                                                                           et al. 2013), which is typically represented by a step function in
+                                               ★ E-mail: P.S.Wiseman@soton.ac.uk                                           SN peak brightness of order 0.1 mag at a host galaxy stellar mass
+
+                                               © 2022 The Authors
+2      P. Wiseman et al.
+of around log(𝑀∗ /M ) = 10. A similar step in peak brightness is                         2.5
+also observed when considering other host galaxy properties, such as                                     Sim
+specific star-formation rate (sSFR; Sullivan et al. 2010; Rigault et al.                                 DES5YR
+2020), gas phase metallicity (Gallagher et al. 2005; Childress et al.                    2.0
+2013), rest-frame galaxy colour (Roman et al. 2018; Kelsey et al.
+
+
+
+                                                                             Galaxy U − R colour
+2021), and emission line equivalent widths (Dixon et al. 2022). By
+assuming that the step is caused by two populations of SNe Ia that                       1.5
+can be (imperfectly) probed by one of these environmental tracers,
+Briday et al. (2022) showed that the size of the step is correlated with
+the level of population contamination across the step location of the                    1.0
+given host galaxy tracer, with spectroscopically observed local sSFR
+and global stellar mass displaying the least contamination and largest
+steps. One interpretation of local sSFR being the best step tracer is                    0.5
+that SNe Ia of different ages have different standardised luminosities,
+perhaps representing two (or more) SN Ia populations. Indeed, the
+                                                                                         0.0
+case for multiple populations is strengthened by Nicolas et al. (2021)
+who show that the distribution of light-curve widths can be modelled                               8.0   8.5      9.0   9.5   10.0   10.5   11.0   11.5   12.0
+as a combination of a young, slow-declining population and an old,                                             Galaxy stellar mass log(M∗/M )
+fast-declining population.
+   Recent analyses have revealed a dichotomy in sizes of host galaxy
+– Hubble residual steps when the SN samples are divided based on           Figure 1. Rest frame galaxy 𝑈 − 𝑅 colour versus stellar mass for the full
+the colour of the SNe. In the 3-year spectroscopically-confirmed sam-      simulated galaxy catalogue (blue contours) using the star-formation history
+ple of SNe Ia from the Dark Energy Survey (DES3YR; Brout et al.            models from W21, updated to include better quenching prescription. Magenta
+2019a), redder SNe have large steps as a function of host stellar mass,    points are the observed stellar masses and colours from the DES5YR sample
+while bluer SNe have negligible steps (Kelsey et al. 2021). This ef-       of SN Ia host galaxies (K22), and indicate where SN Ia hosts lie in this
+fect is also present in the larger, photometrically-classified DES5YR      parameter space. The vertical dotted line indicates the log( 𝑀∗ /M ) = 10
+sample Kelsey et al. (2022, hereafter K22), who also showed that           location assumed for mass-related transitions throughout this work, while the
+                                                                           horizontal dashed line is located at the corresponding point used to separate
+the effect is present when considering host galaxy rest-frame 𝑈 − 𝑅
+                                                                           galaxy colours, 𝑈 − 𝑅 = 1.
+colour in place of stellar mass.
+   To explain the complex relationships between host galaxy Hubble
+residual steps and SN colour BS21 introduced a framework where
+the slope of the dust extinction law along the SN line-of-sight, as
+governed by the total-to-selective extinction parameter 𝑅𝑉 , is differ-
+ent in low mass (mean 𝑅𝑉 = 2.75) and high mass (mean 𝑅𝑉 = 1.5)
+SN host galaxies. The effect of this model is that dustier SNe are
+redder and fainter, but the level of dimming is different for a SN with    individual stellar populations through a large simulation of galaxies.
+the same colour depending on the stellar mass of its host galaxy.          Results of this qualitative analysis will then be used to inform full
+Recent analysis by Popovic et al. (2021a) of the larger Pantheon+          scale simulations using snana in the future.
+SN Ia compilation (Scolnic et al. 2021) confirms the results from             We base our simulation on a forward model of host galaxy proper-
+BS21, and shows that correcting SN Ia luminosities using this model        ties, and test the effects of galaxy and SN age on the light curves, dust
+may improve their use as cosmological probes. However, although            extinctions and HRs of SNe Ia. While most SN simulations use em-
+the BS21 model reproduces the divergence of the stellar mass step          pirical relationships to assign SNe to host galaxies that have minimal
+as a function of SN colour, K22 show that after correcting for the         information (usually stellar mass and SFR), here we use the stellar
+trend of Hubble residual versus SN colour when split by stellar mass,      mass assembly models of Wiseman et al. (2021, hereafter W21) in
+there remains a small residual step in host galaxy 𝑈 − 𝑅, with SNe         order to create a library of host galaxies for which the stellar age
+in redder galaxies appearing brighter after correction. As this 𝑈 − 𝑅      distribution of the galaxy is known at any given look-back time. We
+colour is related to stellar population age, this suggests there may       then derive a SN progenitor age distribution for each galaxy in the
+also be an age-based effect in addition to dust.                           library, allowing us to trace the age of each simulated SN. In Section
+   In this work, we build upon the model of BS21 to qualitatively          2 we describe the galaxy simulation process and how we use stellar
+investigate the relationships between host galaxy mass, 𝑅𝑉 , galaxy        population synthesis models to translate star-formation histories into
+colour, and age, with the aim of explaining the residual 𝑈 − 𝑅 step ob-    observables used in K22: stellar mass and rest-frame colour. In Sec-
+served by K22 by expanding upon the multiple SN Ia age populations         tion 3 we describe various models that we use to sample light-curve
+modelled by Nicolas et al. (2021).                                         parameters for the SNe, paying notable attention to the SN progeni-
+   Most modern simulations of SN Ia data sets use the SuperNova            tor age and host stellar ages. Section 4 presents a validation that the
+Analysis (snana;Kessler et al. 2009) software which constructs an          model approximates the observed SN parameter distributions and
+accurate representation of how a large sample of SNe would appear          light-curve parameter – host galaxy relations. In Section 5 we evalu-
+in a survey, at the image level, by passing synthesised light curves       ate the models based on their ability to reproduce the Hubble residual
+through telescope responses and survey cadences. In this analysis we       trends with SN colour, and in Section 6 we discuss the interpretations
+build a simplified toy model of the DES-SN survey by approximating         and implications of the results.
+many of the complex steps involved in snana, such as the light                Where appropriate we assume a flat ΛCDM cosmological model
+curve generation and fitting. This streamlining reduces computation        with 𝐻0 = 70 km s−1 Mpc−1 and ΩM = 0.3. Uncertainties are given
+time, allowing us to explore a broad parameter space while tracing         as 1𝜎 confidence intervals.
+
+MNRAS 000, 1–20 (2022)
+                                                                                                              SN Ia host dust and age model                      3
+
+
+
+
+   Galaxy U − R colour
+               2.0
+
+
+               1.5
+
+
+               1.0
+
+
+               0.5
+
+
+               0.0
+                           10−1                       100                       101        1            2           3         4           5           6
+                                     SN Age (Gyr)                                               Galaxy Mean Stellar Age (Gyr)
+
+Figure 2. Left: Galaxy rest frame 𝑈 − 𝑅 colour vs SN progenitor age at the time of explosion for SNe in the simulation. Contours represent lines of equal relative
+density. The horizontal line represents the colour 𝑈 − 𝑅 = 1 used to split observed populations, while the vertical line is the age used to split the young and old
+SN populations. Right: As left, but galaxy rest frame 𝑈 − 𝑅 colour vs galaxy mass weighted mean stellar age. The vertical line shows the 3 Gyr split used for
+distinguishing young and old galaxies.
+
+
+2 GALAXY SIMULATIONS                                                                  Quenched galaxies remain quenched, while non-quenched galaxies
+                                                                                      are subject to being quenched according to a quenching probabil-
+The main aim of this work is to create a realistic simulation of a
+                                                                                      ity. This probability is a function of the stellar mass, similar to the
+population of SNe Ia with an accurate representation of the links be-
+                                                                                      average quenching penalty in the Childress et al. (2014) and W21
+tween the light-curve properties of the SNe and the global properties
+                                                                                      implementations of the model:
+of their host galaxies. This library is then used to link the host galaxy
+properties to Hubble residuals. In this section, we outline the method
+                                                                                                                     log(𝑀∗ ) − log(𝑀𝑄 (𝑧))
+                                                                                                                                          
+used to simulate the SN Ia host galaxies and their properties. In Sec-                                 1
+                                                                                      𝑝 𝑄 (𝑀∗ , 𝑧) =       1 − erf                             − 𝑓Q ,          (1)
+tion 3 we describe how we use the host galaxy library to simulate the                                  2                       𝜎𝑄
+SNe themselves.                                                                       where 𝑓𝑄 is the fraction of the 100 implementations that have already
+   We base our host galaxy simulation on the stellar mass assembly                    quenched. In order to accurately reproduce the star formation main
+models of W21, which themselves are based on those of Childress                       sequence and quenched fraction, we slightly adjust the reference
+et al. (2014). These simple analytical models of galaxy evolution                     quenching mass from W21 by 0.2 dex to:
+are derived empirically from observed relationships between stellar
+mass, SFR and redshift, and take into account mass loss and quench-                                      
+ing.                                                                                  log 𝑀𝑄 (𝑧)/M           = 10.377 + 0.636𝑧 ,                               (2)
+   The ability of the models to reproduce observed stellar mass and
+                                                                                      and the transition scale 𝜎𝑄 from 1.1 to 1.5.
+SFR distributions is presented in Childress et al. (2014) and W21.
+
+                                                                                      2.1.2 Bursts of star formation
+2.1 Updated galaxy models
+                                                                                      A second update to the models of W21 is the addition of random
+In the simulations of W21, galaxies evolve following a deterministic                  bursts of star formation to the models. We add instantaneous, delta-
+set of equations, such that a simulated galaxy represents the average                 function bursts that form stars at a rate of half of the main sequence
+galaxy of a given stellar mass and redshift. While such a prescription                value for the mass and redshift of the galaxy. Bursts occur at a constant
+is adequate for an overall modelling of SN rates as a function of mass                probability of 0.05 for every time step in the simulation.
+and redshift, it does not result in an accurate distribution of host
+galaxy star formation rates, which is important when considering
+host galaxy colours. To mitigate this issue, we update our prescription               2.2 Simulating observable galaxy properties
+of galaxy quenching to be more stochastic. We also add bursts of star
+                                                                                      We build upon the model SFHs by ascribing observable properties
+formation to the models. These two additions are detailed in turn
+                                                                                      to each of the simulated galaxies. In particular, we are interested in
+below.
+                                                                                      the observed and rest frame spectral energy distributions (SEDs),
+                                                                                      which are the observed data used to infer global galaxy properties
+                                                                                      such as stellar mass, SFR, and stellar population age. For the latter,
+2.1.1 Quenching
+                                                                                      we focus on the rest frame absolute magnitudes in Bessell following
+Each galaxy track in the simulation is represented by 100 imple-                      Roman et al. (2018), Kelsey et al. (2021), and K22. In the simulation,
+mentations. At each time step of the simulation, each galaxy im-                      we link the model SFHs (with known stellar mass, SFR, and age
+plementation is designated as either ‘non-quenched’ or ‘quenched’.                    distributions) to synthetic broad-band photometry using a similar
+
+                                                                                                                                       MNRAS 000, 1–20 (2022)
+4      P. Wiseman et al.
+method to that widely used in the inference of those observables: we
+                                                                                                     0.1
+
+
+
+
+                                                                            Bias correction (mag)
+convolve the SFHs with a grid of spectral templates of simple stellar
+populations (SSPs, Section 2.2.1) of different ages, summing up the
+individual SSP spectra according to the relative weights given by the
+SFH to produce a final composite spectrum 𝑆gal . The luminosities                                    0.0
+of the combined spectra are scaled by the stellar mass of the galaxy,
+resulting in an accurate representation of the intrinsic rest-frame
+                                                                                                    −0.1
+galaxy spectra. We add nebular emission from ionised gas (Section
+2.2.2), and apply a reddening due to interstellar dust via attenuation
+(Section 2.2.3). This grid of host galaxies acts as a host galaxy library                                   BBC-1D
+                                                                                                    −0.2    BBC-4D
+from which we sample a realistic SN Ia host population in Section 3.
+                                                                                                           0.2       0.3      0.4       0.5   0.6
+
+2.2.1 Template libraries
+                                                                                                                           Redshift z
+The choice of spectral templates affects the relationship between
+                                                                            Figure 3. Average magnitude of a one-dimensional (BBC-1D; blue circles)
+galaxy properties and observables. We use the common Bruzual &              and four-dimensional (BBC-BS20; magenta diamonds) bias correction as a
+Charlot (2003, hereafter BC03) library, and for consistency with the        function of redshift for a representative simulation. Points show the median
+SN host galaxy literature we generate SSPs with a Chabrier (2003)           in redshift bins; point sizes are proportional to the number of SNe in each
+initial mass function (IMF). The BC03 code draws upon the Padova            redshift bin, while shaded regions show the 16th to 84th percentiles.
+1994 evolutionary tracks (Bertelli et al. 1994). For simplicity, all
+SSPs are generated at solar metallicity (𝑍 ).
+                                                                               The resulting library of simulated galaxy stellar masses and rest-
+                                                                            frame colours are shown in Fig. 1, with DES SN Ia hosts shown
+2.2.2 Nebular emission                                                      to illustrate how the simulation covers the necessary stellar-mass–
+                                                                            colour parameter space from which to accurately draw SN hosts.
+In addition to the stellar continuum, our spectral templates incor-
+porate nebular emission lines from H ii regions. The BC03 models
+do not incorporate nebular emission, and thus we add it separately
+following Boquien et al. (2019). The line strengths are set relative        3 SUPERNOVAE
+to the ionizing photon flux, and are determined by the ratios at solar
+metallicity presented in Inoue (2011). The ionization parameter 𝑈 is        We next describe how we simulate a sample of SNe Ia. This includes
+set at log(𝑈) = −2.                                                         ensuring a realistic association with their host galaxies, accurate
+                                                                            distributions of their light-curve parameters, and the principle effects
+                                                                            introduced by observational noise. We discuss each in turn.
+2.2.3 Dust attenuation
+To arrive at realistic simulation of galaxy spectra, we apply the effects   3.1 SN host galaxy association
+of dust attenuation to the final scaled spectral templates. We add
+                                                                            We start with our simulated galaxy models from Section 2, and take a
+dust according to the attenuation law of Cardelli, Clayton & Mathis
+                                                                            flat distribution in stellar mass over the range 7 < log(𝑀∗ /M ) < 12.
+(1989). For each galaxy there are 15 realisations with dust added in
+                                                                            We use a SN Ia delay-time distribution (DTD), which describes the
+steps of equal size in 𝑉-band extinction 𝐴𝑉 in the range 0 ≤ 𝐴𝑉 ≤
+                                                                            rate at which SNe Ia occur as a function of the delay time 𝜏A since an
+1.5 mag; the final value of 𝐴𝑉 for each host is chosen at a later stage
+                                                                            episode of star formation, and convolve this DTD with each galaxy’s
+along with the SN parameters, such that host has the same reddening
+                                                                            SFH. In our simulations we use the DTD of W21, which takes a
+𝐸 (𝐵−𝑉) as the SN. To calculate the host extinction 𝐴𝑉 we follow the
+                                                                            power-law form with index −1.13 and takes effect 40 Myr after star
+results of Salim et al. (2018) and use a total-to-selective extinction
+                                                                            formation. The result is a SN Ia rate per year in each model galaxy
+𝑅𝑉 of 2.61 for star-forming galaxies with log(𝑀/M ) < 9.5, 2.99
+                                                                            (𝑅G ). We then calculate a volumetric rate of SNe by multiplying 𝑅G
+for 9.5 ≤ log(𝑀/M ) < 10.5, and 3.47 for log(𝑀/M ) ≥ 10.5.
+                                                                            by a stellar-mass function (𝜙(𝑀∗ , 𝑧)) at the redshift of the simulated
+For passive galaxies with log(sSFR) < −11 we follow Salim et al.
+                                                                            galaxy. The combination 𝑅𝐺 × 𝜙(𝑀∗ , 𝑧) is then used as a weighting
+(2018) and assume the quiescent galaxy 𝑅𝑉 of 2.61.
+                                                                            to select a representative sample of SN Ia host galaxies in which
+                                                                            SNe can be simulated. We use the redshift-dependent stellar-mass
+                                                                            function from zfourge (Tomczak et al. 2014).
+2.2.4 Synthetic galaxy photometry
+                                                                               The relationship between observed galaxy colour and SN and
+We convert our simulated galaxy spectra into photometric observ-            galaxy ages is shown in Fig. 2. There is a distinction between the
+ables by multiplying them with the transmission functions of desired        host 𝑈 − 𝑅 populations for young and old SNe, although there is a sig-
+passbands. This is possible with any filter at any wavelength – the         nificant fraction of old SNe that exist in blue hosts. The relationship
+galaxy templates extend from the far ultraviolet to the far infrared        between galaxy colour and galaxy age is even clearer, with very little
+– but here we focus on optical wavelengths. For rest-frame galaxy           crossover between the old-and-red, and young-and-blue populations.
+photometry we calculate absolute magnitudes in the 𝑈𝐵𝑉 𝑅𝐼 filters
+of Bessell (1990) following K22, and in the observer frame we calcu-
+                                                                            3.2 Light curve properties
+late apparent magnitudes in the DES 𝑔𝑟𝑖𝑧 filters (e.g., 𝑚 host    host
+                                                           𝑔 , 𝑚𝑟 ;
+Flaugher et al. 2015) for use in SN survey simulations (e.g., Vincenzi      For each simulated SN in a given host galaxy, we then assign ‘ob-
+et al. 2021).                                                               served’ light-curve properties by drawing randomly from statistical
+
+MNRAS 000, 1–20 (2022)
+                                                                                                          SN Ia host dust and age model                        5
+distributions. We use the standard SALT2 light-curve fitter (Guy et al.        Table 1. Outline of the different SN Ia models used in this analysis.
+2007) framework of 𝑥1 (light-curve width, or ‘stretch’) and 𝑐 (SN
+peak rest-frame optical colour), together with a Tripp (1998)-like               Model name                SN 𝑥1       SN 𝑐                   𝑅𝑉
+standardisation relation that relates the inferred distance modulus                                     distribution   distribution           distribution
+𝜇obs to SN Ia light-curve parameters. In most current SN Ia analyses,
+this takes the form                                                              BS21                         SK16     Gauss + exp (mass)     Step (stellar mass)
+                                                                                 Age 𝑅𝑉                       N21      Gauss + exp (age)      Step (galaxy age)
+𝜇obs = 𝑚 𝐵 − 𝑀 𝐵 + 𝛼𝑥1 − 𝛽𝑐 + 𝜇bias ,                                   (3)      Age 𝑅𝑉 Linear                 N21     Gauss + exp (age)      Linear (WD age)
+
+where 𝑀 𝐵 is the peak SN absolute magnitude in the rest-frame 𝐵
+band, 𝑚 𝐵 is the peak rest-frame apparent magnitude, the 𝛼 and 𝛽 co-
+                                                                               Nicolas et al. (2021) with the 𝑥1 probability distribution represented
+efficients parametrize the stretch–luminosity and colour–luminosity
+                                                                               as a Gaussian mixture model – a combination of two Gaussian distri-
+relationships, and the 𝜇bias term is a correction for biases introduced
+                                                                               butions, one for a ‘young’ SN population and one an ‘old’ population.
+by survey selection effects. Hubble residuals, 𝜇res , can then be cal-
+                                                                               In the Nicolas et al. (2021) model, environmental age is traced by the
+culated using
+                                                                               local specific SFR (lsSFR). SNe in young (high lsSFR) environments
+𝜇res = 𝜇obs − 𝜇model ,                                                  (4)    are assumed to belong solely the old 𝑥1 population, while SNe in old
+                                                                               (low lsSFR) environments can be drawn from either the old or young
+where 𝜇model depends on the cosmological parameters, which in this
+                                                                               𝑥1 modes, with the relative weight of each determined by a mixing
+analysis we hold fixed at our fiducial model.
+                                                                               probability 𝑎 𝑥1 . Since the fraction of old and young SNe varies with
+   This simple framework assumes all colour variation in SNe Ia
+                                                                               redshift, so does the 𝑥1 distribution (see Fig. 8 in Nicolas et al. 2021).
+can be captured in a simple ‘𝛽𝑐’ term. However, we are explicitly
+                                                                                  Instead of using lsSFR as an observational indicator of progenitor
+interested in this analysis in the effect of dust extinction and reddening
+                                                                               age, our simulations allow us to track the progenitors directly. For
+on SNe Ia, and thus we also assign each simulated SN a colour excess
+                                                                               each galaxy, the likelihood that a SN exploding at time 𝑡 0 comes from
+(i.e., 𝐸 (𝐵−𝑉)) due to dust reddening that we denote 𝐸 SN , and a total-
+                                                                               a progenitor of age 𝜏A is
+to-selective extinction parameter 𝑅𝑉 . We next outline the methods
+used to draw the samples for each light-curve and dust parameter.              𝑃(𝑡 0 , 𝜏A ) = 𝜓(𝑡0 − 𝜏A )Φ(𝜏A ) ,                                             (8)
+                                                                               where 𝜓(𝑡 0 − 𝜏A ) is the SFH and Φ(𝜏A ) the DTD. We sample SN
+3.2.1 SN Ia absolute magnitude                                                 age 𝜏A from this distribution, and subsequently derive 𝑥1 from the
+                                                                               age by adapting the Nicolas et al. (2021) prescription
+We simulate SNe using a fixed peak 𝐵-band absolute magnitude of
+𝑀 𝐵 = −19.325 mag. We allow for the possibility of host galaxy                        
+                                                                                      
+                                                                                               N (𝑥1,1 , 𝜎𝑥1 ,1 ),         𝜏A < 𝜏A,thresh
+‘steps’ of size 𝛾, where SNe on either side of a threshold in a given                 
+                                                                                      
+                                                                               𝑥1 ∼        𝑎 𝑥1 × N (𝑥1,1 , 𝜎𝑥1 ,1 )+                                         (9)
+host galaxy property 𝑋 (such as stellar mass) have a factor of Γ × 𝛾                  
+                                                                                       (1 − 𝑎 𝑥 ) × N (𝑥1,2 , 𝜎𝑥 ,2 ),
+                                                                                      
+                                                                                                                            𝜏A > 𝜏A,thresh
+added to their simulated absolute magnitude, where Γ = +0.5 for                                 1                  1
+
+hosts below the threshold and Γ = −0.5 for hosts above the threshold           where 𝑥1, [1,2] and 𝜎𝑥1 , [1,2] are the mean and standard deviation of
+𝑋split . Thus,                                                                 the young and old Gaussians respectively, 𝑎 𝑥1 is the mixing coeffi-
+𝑀 𝐵 = −19.325 + Γ𝑋 × 𝛾 𝑋 mag ,                                          (5)    cient which corresponds to the probability that the progenitor belongs
+                                                                               to the young 𝑥1 mode, and 𝜏A, thresh is the age which separates young
+with                                                                           and old timescales.
+       
+            0.5,   𝑋 < 𝑋split
+Γ𝑋 =                          ,                                         (6)
+           −0.5,   𝑋 ≥ 𝑋split
+                                                                               3.2.3 SN colour
+where 𝑋step is the location of the step in the given host parameter.
+                                                                               We follow the method of BS21, which itself builds on Jha et al.
+                                                                               (2007) and Mandel et al. (2011, 2017). These model the observed
+3.2.2 SN 𝑥1                                                                    SN Ia colour distribution as a combination of an intrinsic colour 𝑐 int
+We include two prescriptions for the SALT2 𝑥1 parameter. The first             and the colour excess due to dust reddening 𝐸 SN . 𝑐 int is normally
+parametrises the 𝑥1 distribution as an asymmetric Gaussian, while              distributed
+the second assumes two Gaussians dependent on the age of the SN                𝑐 int ∼ N (𝑐 int , 𝜎𝑐int ) ,                                                  (10)
+progenitor’s stellar population.
+   The first 𝑥1 population model is used in BS21, which in turn                   and 𝐸 SN is drawn from an exponential distribution following BS21
+follows Scolnic & Kessler (2016), where 𝑥1 is drawn from an asym-
+metric Gaussian model defined by parameters 𝜎− , 𝜎+ , 𝑥1 1 , giving a                          1 −𝐸SN /𝜏𝐸
+probability distribution                                                       𝑃(𝐸 SN ) =        𝑒        ,                                                  (11)
+                                                                                              𝜏𝐸
+         (
+           𝑒 [−( 𝑥1 −𝑥1 ) /2𝜎− ] , 𝑥 1 < 𝑥1
+                         2   2
+                                                                               where 𝜏𝐸 is the mean reddening of the SN population.
+𝑃(𝑥1 ) = [−( 𝑥 −𝑥 ) 2 /2𝜎 2 ]               .                     (7)
+           𝑒      1   1      + ,   𝑥1 > 𝑥1
+    The second 𝑥1 model builds upon the evolving double-Gaussian of            3.2.4 Extinction law 𝑅𝑉
+                                                                               Related to the SN dust reddening 𝐸 SN is the slope of the reddening
+1 We use the notation 𝑥1 instead of the conventional 𝜇 𝑥1 to avoid confusion   law 𝑅𝑉 , such that the absolute 𝑉-band extinction 𝐴𝑉 is
+with the distance modulus 𝜇, and maintain this notation for all parameter
+means.                                                                         𝐴𝑉 = 𝑅𝑉 𝐸 SN ,                                                                (12)
+
+                                                                                                                                      MNRAS 000, 1–20 (2022)
+6       P. Wiseman et al.
+
+Table 2. SN population parameters for the age-based models. Explanation of parameters can be found in Section 3.2.
+
+                               𝑥1,1       𝜎𝑥1 ,1   𝑥1,2    𝜎𝑥1 ,2   𝑎 𝑥1    𝜏A, thresh    𝑐int     𝜎𝑐int     𝜏𝐸 ,1   𝜏𝐸 ,2
+
+                               0.22       0.61     −1.22   0.56     0.38    0.75 Gyr     −0.075    0.042    0.135    0.135
+
+
+and for the 𝐵-band magnitudes typically used in SN Ia analyses,                 3.3 Observables
+𝐴 𝐵 = 𝑅 𝐵 𝐸 SN ≡ (𝑅𝑉 + 1)𝐸 SN .                                      (13)       Given a set of simulated SN Ia light curve parameters, the synthetic
+                                                                                𝑚 𝐵 is then calculated by analogy to equation 3, modified to explicitly
+   We investigate three models for how 𝑅𝑉 varies among SNe. These
+                                                                                distinguish dust from SN colour variations, i.e.,
+are inspired by the model of BS21, where 𝑅𝑉 follows a step with
+stellar mass, and motivated by the evidence that the 𝑥1 distribution is         𝑚 𝐵 = 𝑀 𝐵 + 𝜇(𝑧)sim − 𝛼sim 𝑥1 + 𝛽sim 𝑐 int + 𝐸 SN (𝑅𝑉 + 1) + Δ𝑚 𝐵 , (18)
+related to SN or host galaxy age. Our 𝑅𝑉 that depend on some host
+galaxy property 𝑌 are:                                                          where 𝜇(𝑧)sim is the distance modulus at the simulated redshift 𝑧
+    (i) BS21 (𝑌 = 𝑀∗ ): 𝑅𝑉 is drawn from a Gaussian distribution:               given by the reference cosmology.
+                                                                                   Even following the standardisation of SNe Ia there remains addi-
+𝑅𝑉 ∼ N (𝑅𝑉 , 𝜎𝑅𝑉 ) ,                                                 (14)       tional scatter in their observed 𝑀 𝐵 . We describe this in our simulated
+with 𝑅𝑉 and 𝜎𝑅𝑉 taking on different values for host galaxies on                 SNe using the parameter 𝜎int . We draw an offset (Δ𝑀 𝐵 ) to 𝑀 𝐵 from
+either side of 𝑌split , a split point in stellar mass;                          this scatter according to the distribution:
+   (ii) Age 𝑅𝑉 (𝑌 = 𝜏G ): The same model as BS21, but using mass-
+                                                                                Δ𝑀 𝐵 ∼ N (0, 𝜎int ) .                                              (19)
+weighted mean stellar age of the host galaxy, 𝜏G , instead of host
+stellar mass, as the parameter to split 𝑅𝑉 . 𝜏G is linked to both the           The value of 𝜎int is tuned so that in combination with the rest of
+observed stellar mass and the 𝑈 − 𝑅 colour;                                     the model the overall unexplained scatter in the Hubble residuals
+   (iii) Age 𝑅𝑉 Linear (𝑌 = 𝜏A ): 𝑅𝑉 follows a linear relationship              matches that of the data, which is of the order ∼ 0.1 mag.
+with progenitor age 𝜏𝐴. We parametrise the relationship by fixing the
+value of 𝑅𝑉 for very young (𝑡1 ) and very old (𝑡 2 ) progenitors as
+                          𝑡2    𝑡1
+      𝑡1                 𝑅𝑉  − 𝑅𝑉
+𝑅𝑉 = 𝑅𝑉  + (𝜏A − 𝑡 1 )                ,                              (15)       3.4 Application to DES5YR data
+                           𝑡2 − 𝑡1
+and the standard deviation 𝜎𝑅𝑉 following a similar relationship in              The models introduced above are generic and intended to approxi-
+order to encapsulate having more diverse dust in younger systems:               mate the intrinsic universal properties of SNe Ia. Here we describe the
+                                                                                data set against which we compare the simulations, and the survey-
+                           𝜎𝑅𝑡2 − 𝜎𝑅𝑡1                                          specific additions to the simulation that are necessary in order to
+𝜎𝑅𝑉 = 𝜎𝑅𝑡1 + (𝜏A − 𝑡 1 )       𝑉       𝑉
+                                         .                           (16)
+            𝑉                  𝑡2 − 𝑡1                                          replicate the selection effects of the data set.
+                                                                                   We use an identical sample to that presented in K22: namely a
+                                                                                photometrically classified SN Ia sample using five years of DES ob-
+3.2.5 Mean reddening 𝜏𝐸
+                                                                                servations (DES5YR), as described in Vincenzi et al. (2021) and
+For setting the mean reddening 𝜏𝐸 we follow BS21, fixing the value              Möller et al. (2022), with a redshift limit of 𝑧 ≤ 0.7. Despite the
+separately in low- and high-mass galaxies. We also implement a slight           redshift cut, the sample is magnitude-limited, and thus there are se-
+variation where the split is defined on the mass-weighted mean stellar          lection effects which we must approximate, which we discuss below.
+age of the galaxy.
+
+
+3.2.6 Colour-luminosity coefficient 𝛽                                           3.4.1 Host galaxy spectroscopic efficiency
+As per BS21 we do not assume a universal relationship between                   To be included in the sample, DES SNe Ia require a spectroscopic
+SN peak brightness and 𝑐 int . Instead we allow the coefficient relating        redshift of the host galaxy, and the efficiency of obtaining one in the
+them, denoted 𝛽sim , to vary between SNe, and draw it from a Gaussian           spectroscopic follow-up campaigns is a strong function of host galaxy
+distribution:                                                                   apparent magnitude, 𝑚 𝑟host . Vincenzi et al. (2021) presented the DES
+𝛽sim ∼ N (𝛽, 𝜎𝛽 ) ,                                                  (17)       SN spectroscopic-redshift efficiency function 𝜖 𝑧spec (𝑚 𝑟host ), which
+                                                                                we apply to our simulated SN hosts. In the simulation, we assign
+with mean 𝛽 and standard deviation 𝜎𝛽 . In this model 𝛽sim is inde-             a probability of successfully obtaining a spectroscopic redshift for
+pendent of any host galaxy, progenitor, or dust property.                       each galaxy at random from a Bernoulli distribution with success
+                                                                                probability 𝑝 = 𝜖 𝑧spec (𝑚 𝑟host ). In this work we do not model further
+                                                                                survey efficiencies (e.g., SN detection efficiency; Brout et al. 2019b;
+3.2.7 Stretch-luminosity coefficient 𝛼
+                                                                                Kessler et al. 2019). Therefore, instead of simulating a population of
+For the baseline model we adopt a value of 0.15 for the stretch-                SNe that follows the true intrinsic volumetric rate as a function of
+luminosity coefficient 𝛼sim . In cases where a mass or age luminosity           redshift, we sample redshift from an ad-hoc probability distribution
+step are introduced, the measured value of 𝛼 can be different to the            that matches the observed DES5YR redshift distribution. We find
+input value 𝛼sim . In such cases we vary 𝛼sim such that the measured            that sampling with a probability that increases directly proportional
+value matches that found by K22. We further investigate the effects             to redshift (up until 𝑧 = 0.7) matches the data well. We validate this
+of 𝛼 and its importance in age-based models in Section 6.3.1.                   𝑧 distribution in Section 4.
+
+MNRAS 000, 1–20 (2022)
+                                                                                                       SN Ia host dust and age model                    7
+
+
+
+                    a)                       Sim             b)                                           c)
+                                             DES5YR
+              150
+
+
+
+
+    N (SNe)
+              100
+
+
+               50
+
+
+                0
+                     0.2       0.4      0.6              0.8 8           9       10      11       12            0               1             2
+                               Redshift                          Host galaxy stellar mass                               Host galaxy
+                                                                       log(M∗ /M )                                      U − R colour
+
+
+Figure 4. Population distributions of observed DES5YR SNe Ia compared to SNe Ia samples simulated in this work, in redshift, host galaxy stellar mass, and
+host galaxy rest-frame 𝑈 -𝑅 colour. Counts from the simulation have been scaled to match the total number of DES5YR SNe.
+
+
+
+
+         150
+
+
+
+
+ N SNe
+         100
+
+
+          50                          Gauss + exp (mass)                                                            SK16-like
+                                      Gauss + exp (age)                                                             N21-like
+                                      DES5YR                                                                        DES5YR
+           0
+            −0.3     −0.2      −0.1        0.0        0.1         0.2        0.3 −3        −2          −1           0           1         2         3
+                                  SN colour (c)                                                        SN stretch (x1)
+
+Figure 5. Left: distribution of SN SALT2 colour 𝑐 for DES5YR and simulations drawing 𝑐 from an intrinsic Gaussian and an exponential dust distribution.
+Right: distribution of SN SALT2 stretch 𝑥1 for DES5YR and simulations drawing from an asymmetric Gaussian (yellow dashed) as per Scolnic & Kessler
+(2016) and a double Gaussian based on SN progenitor age (red solid) as per N21.
+
+
+3.4.2 Supernova uncertainties                                                   3.4.3 Bias corrections
+
+                                                                                With simulated brightnesses and light curve parameters, their respec-
+                                                                                tive uncertainties, as well as a redshift distribution that all match the
+                                                                                data, the simulation mimics the selection effects and observational
+                                                                                biases inherent in the data. We therefore calculate the distance mod-
+Without fully simulating SN light curves and their subsequent ob-               uli to each simulated SN Ia using an identical method to K22 using
+servation by the survey, we must approximate the uncertainties on               the BEAMS with Bias Corrections (BBC; Kessler & Scolnic 2017)
+our SN light curve parameters. We simulate uncertainties 𝜎𝑚𝐵 on                 framework. BBC follows the method of Marriner et al. (2011), a 𝜒2
+𝑚 𝐵 by approximating the relationship between 𝜎𝑚𝐵 ,obs and 𝑚 𝐵,obs              minimization of Hubble residuals binned in redshift. The BEAMS
+in the DES5YR data. The uncertainty on 𝑥1 (𝜎𝑥1 ) is then simu-                  part of BBC is not used, as we do not deal with contamination from
+lated according to 𝜎𝑚𝐵 following a linear least-squares fit to the              core-collapse SNe and all simulated SNe are assigned as SNe Ia with
+observed DES5YR 𝜎𝑚𝐵 and 𝜎𝑥1 . The same procedure is followed                    probability 1.0. In BBC, we fit for Eq. 3. We do not fit for the addi-
+for the colour uncertainty, 𝜎𝑐 . A full description of the uncertainties        tional host step terms 𝛾 𝑋 , as we investigate how these terms evolve
+is presented in Appendix A.                                                     as a function of SN colour in this work.
+
+                                                                                                                                    MNRAS 000, 1–20 (2022)
+8                               P. Wiseman et al.
+
+                                1.5
+                                                                           Sim mean
+                                1.0                                        DES5YR mean
+
+
+
+ SN stretch (x1)
+                                0.5
+
+                                0.0
+
+                      −0.5
+
+                      −1.0
+
+                      −1.5
+                                            8           9          10           11          0.0         0.5          1.0          1.5          2.0           2.5
+                                                Host galaxy stellar mass log(M∗/M )                         Host galaxy U − R colour
+
+
+Figure 6. Left: distribution of SN 𝑥1 as a function of host galaxy stellar mass for DES5YR data and simulations using the N21 double Gaussian 𝑥1 model based
+on SN progenitor age; Right: as left, but for host galaxy 𝑈 − 𝑅 colour.
+
+
+
+
+     Mean extinction ratio RV
+                                3.5
+                                                                                                                                              Age Rv Step
+                                3.0                                                                                                           Mass Rv Step
+                                                                                                                                              Age Linear
+                                2.5
+
+                                2.0
+
+                                1.5
+
+                                1.0
+                                      8.5         9.0       9.5   10.0   10.5        11.0         0.0         0.5       1.0         1.5         2.0         2.5
+                                            Host galaxy stellar mass log(M∗/M )                          Host galaxy U − R Colour
+
+
+Figure 7. Left: Relationship between total-to-selective dust extinction 𝑅𝑉 and host galaxy stellar mass for the three models used in this work. Right: As left, but
+shown against host galaxy 𝑈 − 𝑅 colour.
+
+
+   The simplest form of bias correction (𝜇bias ; equation 3) imple-                          effects that have been introduced onto the data, which although not
+mented in BBC is dependent on redshift only: a one-dimensional                               guaranteed has been well validated in the following section. The
+correction (‘BBC-1D’). However, Scolnic & Kessler (2016) showed                              average and range of bias correction magnitudes for both cases are
+that the asymmetric nature of the 𝑐 and 𝑥1 distributions leads to                            shown in Fig. 3 and show that, in particular for the BBC-1D case, the
+distance biases as a function of those parameters, which must be                             corrections are small compared to the step size in the redshift range
+corrected as a function of 𝛼, 𝑥1 , 𝛽, and 𝑐 in addition to 𝑧 (a ‘BBC-                        considered.
+5D’ bias correction). In implementations of such 5D corrections, the
+treatment of relationships between 𝑥1 and host stellar mass must also
+be carefully accounted for to avoid introducing subtle biases (Smith
+                                                                                             3.5 Baseline model
+et al. 2020). Popovic et al. (2021b) introduced a further two dimen-
+sions to account for such correlations between light-curves and host                         For the validation of the model (Section 4), we introduce baseline
+galaxies (‘BBC-7D’), as well as a method that assumes the BS21                               simulations on top of which the dust and luminosity step parameters
+colour model (‘BBC-BS20’).                                                                   are subsequently varied (Section 5). For the BS21 model we fix the
+                                                                                             𝑥1 and 𝑐 population parameters similarly to those used in BS21. We
+   In this work we use the 1D (redshift only) bias correction to vali-                       use the 𝑥1,sim parameters from Scolnic & Kessler (2016), while for
+date and compare models, and also compare our best models to the                             𝑐 sim we use the values in Table 2. The parameters for both 𝑥1,sim and
+data with the BBC-BS20 corrections. We include a 𝑥1 -host mass cor-                          𝑐 sim used in our baseline age-based model are also presented in Table
+relation in the bias correction simulation as per Vincenzi et al. (2021),                    2. Dust parameters 𝑅𝑉 are held constant at 2.75, although 𝑅𝑉 is not
+and for BBC-BS20 we use the best-fit 𝑅𝑉 values from BS21 in the                              important for the validation presented below. The width-luminosity
+bias correction simulation. Both approaches require that the simula-                         coefficient is fixed at 𝛼sim = 0.15 and the colour-luminosity coeffi-
+tion adequately includes the same observational biases and selection                         cient has mean 𝛽 = 1.98 and standard deviation 𝜎𝛽 = 0.35
+
+MNRAS 000, 1–20 (2022)
+                                                                                                 SN Ia host dust and age model                    9
+4 VALIDATION                                                               data well, which implies there is no strong difference in the mean
+                                                                           reddening for SNe in different galaxies, whether they are split by
+Before presenting the results, we describe the metrics used to validate
+                                                                           their stellar mass or their age.
+the simulations introduced in Sections 2 and 3. We validate our model
+                                                                              Both the asymmetric Gaussian model and Gaussian mixture model
+by comparing it to the DES5YR SN Ia data presented in K22. A set of
+                                                                           provide good fits to the 𝑥1 distribution, with the mixture model
+qualitative and quantitative validations are outlined as follows. In the
+                                                                           offering a slightly improved fit around the peak. The best-matching
+following sections, we define the chi-squared statistic on a histogram
+                                                                           parameters for the mixture model are similar to those from N21,
+with both the data and simulation in equivalent bins:
+                                                                           with the only significant difference being the mixture coefficient 𝑎 𝑥1 ,
+                        2                                                for which N21 report ∼ 0.5 while we find 0.38. In our model, the
+      ∑︁ 𝑁𝑖data − 𝑁𝑖sim                                                    value of 𝑎 𝑥1 is degenerate with the choice of age threshold 𝜏𝐴, an
+𝜒2 =                         ,                                      (20)
+       𝑖          𝑒 2𝑖                                                     investigation into which is left for future work. There is a degree of
+                                                                           overfitting, with the best fit model having 𝜒𝜈2 = 0.65, due to the large
+where 𝑁𝑖data is the count of the observed data in the 𝑖th bin, 𝑁𝑖sim       uncertainties on measured 𝑥1 in the SN Ia data.
+is the equivalent for the simulation, and 𝑒 2𝑖 the error on the data          The relationship between 𝑥1 and host galaxy properties is shown
+                  √︃                                                       in Fig. 6. The N21 model implemented in our simulations reproduces
+approximated by 𝑁𝑖data . While this estimate of the error does not
+                                                                           the general trends in the data, but does not achieve the same strength
+take into account uncertainty on the measurements themselves, doing        of relation, despite the one-dimensional 𝑥1 distribution being ad-
+so would require a further level of resampling that would render the       equately replicated (Fig. 5). The likely cause is the inconsistency
+procedure computationally prohibitive. For goodness of fit and model       between the simulated and observed 𝑈 − 𝑅 distribution, due to the
+comparison, we also employ the reduced chi-squared:                        under-representation of passive/red galaxies in the simulation. The
+𝜒𝜈2 = 𝜒2 /𝑁bins .                                                  (21)    underprediction of the slope of the 𝑥1 versus 𝑀∗ relation has conse-
+                                                                           quences in the recovery of the 𝛼 parameter (Dixon 2021; Rose et al.
+                                                                           2021).
+4.1 Host galaxies
+We validate the host galaxy simulations by investigating the one-
+dimensional distributions of redshift, stellar mass (𝑀∗ ), and rest-       5 RESULTS
+frame 𝑈 − 𝑅 (Fig. 4). The overall trend of the redshift distribution       The principle aim of this work is to explain the observed trends
+is recovered by construction, as outlined in Section 3.4.1. The distri-    between Hubble residual and SN 𝑐, with the sample divided by both
+bution of observed 𝑀∗ is well-replicated. The observed distribution        host galaxy 𝑀∗ and host galaxy 𝑈 − 𝑅 colour. In this section, we
+of 𝑈 − 𝑅 is bimodal, and this general behaviour is recovered by the        present the results of simulating a sample of SN Ia host galaxies
+model, although the peak of red galaxies in the simulation lies around     (Section 2), light curve properties (Section 3.2), and fitting their
+𝑈 − 𝑅 ∼ 1.5, compared to the data which peak closer to 1.8. This           Hubble residuals (Section 3.4.3) using different assumptions of the
+difference could be due to a number of reasons, such as the sim-           generative models for 𝑥1 and 𝑅𝑉 and various forms of intrinsic
+plistic treatment of metallicity and an incomplete implementation of       luminosity step.
+galaxy quenching. While not perfect, we proceed satisfied that both           For each of our model variations, all of the parameters defining the
+the observed and simulated distributions can be separated at 𝑈 − 𝑅=1.      population distributions are held fixed apart from three parameters
+Since the Hubble residual steps tested using this split point, differing   of interest, for which we simulate a course grid. These parameters
+shape of the red peak of the distribution should not affect the results    are the two extinction law 𝑅𝑉 parameters and the luminosity step
+significantly.                                                             size. We vary 𝑅𝑉 ,1 between [1.5 − 2.75] in steps of 0.25, 𝑅𝑉 ,2 in
+   We further validate this argument by comparing the observed and         the range [2.5 − 3.75] with steps of 0.25, and 𝛾 𝑋 between [0 − 0.2]
+simulated correlations between 𝑀∗ and 𝑈 − 𝑅 (Fig. 1): the simu-            with steps of 0.05. Future analyses will employ inference techniques
+lations accurately replicate the positive trend between 𝑈 − 𝑅 and          to precisely constrain the best fit parameters of these models for their
+𝑀∗ , as well as the characteristic step from majority blue to major-       use in cosmological analyses, as has been performed for the BS21
+ity red galaxies as their mass increases beyond log(𝑀∗ /M ) = 10.          model in Popovic et al. (2021a). The relationship between simulated
+This qualitative validation reinforces trust that our galaxy evolution     SN 𝑅𝑉 as a function of host galaxy stellar mass and 𝑈 − 𝑅 colour
+model reproduces, on a general level, the complex relationships be-        is shown in Fig. 7, for a representative simulation with 𝑅𝑉 ,1 = 1.75,
+tween galaxy stellar mass, age, and colour, and that the DTD–SFH
+                                                                           𝑅𝑉 ,2 = 3.0. It is clear that an 𝑅𝑉 step in age is better recovered
+convolution selects a representative sample of SN Ia hosts from the
+                                                                           by 𝑈 − 𝑅 colour than stellar mass, and that stellar mass steps are
+global galaxy population.
+                                                                           not particularly well recovered by splitting colour at 𝑈 − 𝑅 = 1,
+                                                                           highlighting the need for both diagnostics.
+                                                                              Each model is compared to the Hubble residuals measured in the
+4.2 Light curve parameters
+                                                                           DES5YR data of K22 split by 𝑀∗ and 𝑈 − 𝑅. A summary of the
+We next validate the simulated distributions of SN 𝑥1 and 𝑐, and           results of our simulations and comparison to the data is presented in
+their relationships with host galaxy attributes 𝑀∗ and 𝑈 − 𝑅. The          Tables 3 & 4.
+simulated distributions are shown in Fig. 5, and the parameters used          Since SNe are simulated stochastically by sampling from a number
+for the baseline age-based model are presented in Table 2.                 of interlinked distributions and a numerical host galaxy library, an
+   The 𝑐 distribution is well-matched by the ‘Gaussian plus dust           analytical evaluation of the relationship between Hubble residual and
+reddening’ model. We find the data are described well (𝜒𝜈2 = 0.95)         𝑐 in the model is not possible. We thus compare the simulated and
+using similar parameters to BS21 for both the intrinsic Gaussian and       observed trends in a similar way to the one-dimensional parameter
+exponential tail, with the mean of the colour distribution shifting        distributions (Section 4.2).
+marginally bluer. We find a single value of 𝜏𝐸 = 0.135 describes the          For each bin 𝑖 in a host galaxy property 𝑋, we group simulated
+
+                                                                                                                          MNRAS 000, 1–20 (2022)
+10                         P. Wiseman et al.
+
+                                            Split on host mass                                                       Split on host U − R colour
+                          0.3          a)    Dust model: Fixed RV                        χ2ν = 4.39            b)                                                 χ2ν = 5.75
+
+
+
+
+Hubble residual (µres)
+                                             RV = 2.50
+                          0.2                Luminosity Step: None
+
+                          0.1
+
+                          0.0
+
+                         −0.1          Sim log(M∗ /M ) < 10                                                    Sim U − R < 1
+                                       Sim log(M∗ /M ) > 10                                                    Sim U − R > 1
+                         −0.2          Data log(M∗ /M ) < 10                                                   Data U − R < 1
+                                       Data log(M∗ /M ) > 10                                                   Data U − R > 1
+                         −0.3
+                          0.3          c)           SN Fixed
+                                             Dust model:  colour
+                                                               RV (c)                    χ2ν = 3.02            d)               SN colour (c)                     χ2ν = 2.69
+
+
+
+
+Hubble residual (µres)
+                                             RV = 2.50
+                          0.2                Luminosity Step: Age, 0.2 mag
+
+                          0.1
+
+                          0.0
+
+                         −0.1
+
+                         −0.2
+
+                         −0.3
+                                −0.2             −0.1           0.0       0.1         0.2         0.3 −0.2             −0.1          0.0         0.1         0.2             0.3
+                                                          SN colour (c)                                                         SN colour (c)
+
+Figure 8. SN Ia Hubble residual versus SN colour, with the DES5YR SN Ia sample shown as the data points and the simulations shown as the solid lines. Left
+hand panels show SNe split by their host stellar mass at split at log( 𝑀 /𝑀∗ ) = 10, and right hand panels show SNe split by their host colour at 𝑈 − 𝑅 = 1. Panel
+a) shows simulations from the baseline model with 𝑅𝑉 fixed across all hosts and no intrinsic luminosity step. Hubble residuals for data and simulations have
+been measured with BBC-1D. b): as the left panel, but for the data and simulations split at a host galaxy rest-frame 𝑈 − 𝑅 colour of 𝑈 − 𝑅 = 1. The 𝜒𝜈2 statistic
+for both comparisons is shown.c): as a) but for simulations with an additional 0.2 mag intrinsic luminosity step at a SN progenitor age of 0.75 Gyr. d): as c) but
+with SNe split by their host galaxy colour.
+
+
+Table 3. Dust population parameters for the models presented in this work when compared to DES5YR data split at host stellar mass log( 𝑀∗ /M ) = 10 (left
+hand panels of Figs. 9 & 10.) 𝑌 represents the host galaxy or SN property used to determine 𝑅𝑉 , while 𝑋 is the property on which an intrinsic luminosity step
+(of magnitude 𝛾𝑋 ; Eq. 6) is placed.
+
+    Model Name                          BiasCor         𝑅𝑉 ,1    𝜎𝑅𝑉 ,1   𝑅𝑉 ,2   𝜎𝑅𝑉 ,2     𝑌        𝑌split          𝑌1        𝑌2         𝑋     𝑋split    𝛾𝑋         2
+                                                                                                                                                                     𝜒𝜈,𝜇    ( 𝑀∗ )
+                                                                                                                                                                         res
+
+    BS21                                    1D          1.75      1.0     3.0      1.0      𝑀∗    1010 M               -         -         𝑀∗   1010 M     0.0           1.63
+    BS21                                    1D          1.75      1.0     3.0      1.0      𝑀∗    1010 M               -         -         𝜏A   0.75 Gyr   0.0           2.03
+    Age 𝑅𝑉                                  1D          1.5       1.0     3.0      1.0      𝜏G     3 Gyr               -         -         𝜏A   0.75 Gyr   0.0           1.94
+    Age 𝑅𝑉                                  1D          1.5       1.0     2.75     1.0      𝜏G     3 Gyr               -         -         𝑀∗   1010 M     0.0           1.86
+    Age 𝑅𝑉 Linear                           1D           1.5      1.0     2.5      1.0      𝜏A        -             0.1 Gyr   10 Gyr       𝜏A   0.75 Gyr   0.15          2.27
+
+
+
+Table 4. Dust population parameters for the models presented in this work when compared to DES5YR data split at host 𝑈 − 𝑅 = 1 (right hand panels of Figs.
+9 & 10.)
+
+    Model Name                          BiasCor         𝑅𝑉 ,1    𝜎𝑅𝑉 ,1   𝑅𝑉 ,2   𝜎𝑅𝑉 ,2     𝑌        𝑌split          𝑌1        𝑌2         𝑋     𝑋split    𝛾𝑋         2
+                                                                                                                                                                     𝜒𝜈,𝜇    (𝑈 − 𝑅)
+                                                                                                                                                                         res
+
+    BS21                                    1D           1.5      1.0      3.0     1.0      𝑀∗    1010 M               -         -         𝑀∗   1010 M     0.10            1.70
+    BS21                                    1D           1.5      1.0      3.0     1.0      𝑀∗    1010 M               -         -         𝜏A   0.75 Gyr   0.10            1.59
+    Age 𝑅𝑉                                  1D          1.75      1.0      2.5     1.0      𝜏G     3 Gyr               -         -         𝜏A   0.75 Gyr   0.15            1.70
+    Age 𝑅𝑉                                  1D           1.5      1.0      2.5     1.0      𝜏G     3 Gyr               -         -         𝑀∗   1010 M      0.1            1.65
+    Age 𝑅𝑉 Linear                           1D           1.5      1.0      2.5     1.0      𝜏A        -             0.1 Gyr   10 Gyr       𝜏A   0.75 Gyr   0.20            1.99
+
+
+
+
+MNRAS 000, 1–20 (2022)
+                                                                                                                                SN Ia host dust and age model                11
+
+                                              Split on host mass                                                        Split on host U − R colour
+                          0.3            a)       Dust model: BS21                          χ2ν = 1.63             b)                                          χ2ν = 2.81
+
+
+
+
+Hubble residual (µres)
+                                                  RV low mass = 2.50, RV high mass = 1.50
+                          0.2                     Luminosity Step: None
+
+                          0.1
+
+                          0.0
+
+                         −0.1            Sim log(M∗ /M ) < 10                                                      Sim U − R < 1
+                                         Sim log(M∗ /M ) > 10                                                      Sim U − R > 1
+                         −0.2            Data log(M∗ /M ) < 10                                                     Data U − R < 1
+                                         Data log(M∗ /M ) > 10                                                     Data U − R > 1
+                         −0.3
+                          0.3            c)              SN BS21
+                                                  Dust model:  colour (c)         χ2ν = 4.93                       d)               SN colour (c)              χ2ν = 1.70
+
+
+
+
+Hubble residual (µres)
+                                                  RV low mass = 3.00, RV high mass = 1.50
+                          0.2                     Luminosity Step: Mass, 0.05 mag
+
+                          0.1
+
+                          0.0
+
+                         −0.1
+
+                         −0.2
+
+                         −0.3
+                                 −0.2             −0.1          0.0          0.1           0.2          0.3 −0.2         −0.1         0.0        0.1          0.2         0.3
+                                                          SN colour (c)                                                             SN colour (c)
+
+Figure 9. SN Ia Hubble residual versus SN colour, as in Fig. 8, but for models with 𝑅𝑉 that varies with host galaxy stellar mass. a): Simulations from the
+BS21 model with 𝑅𝑉 = 2.5 in low mass host galaxies and 𝑅𝑉 = 1.5 in high mass host galaxies. Hubble residuals for data and simulations have been measured
+with BBC-1D; b): as a, but for the data and simulations split host galaxy 𝑈 − 𝑅 = 1. The model that describes the mass-split data well does not reproduce the
+full difference between Hubble residuals split on 𝑈 − 𝑅. c) & d): as a & b but for the model parameters that best describe the 𝑈 − 𝑅 data (right hand panel):
+𝑅𝑉 = 3.0 in low mass host galaxies and 𝑅𝑉 = 1.5 in high mass host galaxies, and an intrinsic luminosity step at log( 𝑀 /M ) = 10 of size 0.1 mag.
+
+
+SNe in the same bins 𝑐 𝑗 as used for the data. The reduced chi-squared                                   5.1 Fixed 𝑅𝑉 , no luminosity step
+is then
+                                                                                                         We begin by simulating SNe from a baseline model with no lumi-
+                                                                                                         nosity step and 𝑅𝑉 fixed at 2.5 across all host galaxies. The resulting
+                                                                                 2                     Hubble residuals shown in Fig. 8 (panels a, b) display a trend with
+                                         𝑋 𝑁bins 𝜇 res,data,𝑖, 𝑗 − 𝜇 res,sim,𝑖, 𝑗                        SN colour 𝑐, as expected due to the effects of parameter migration
+ 2                               1      ∑︁ ∑︁
+𝜒𝜈, 𝜇res =                                                                             ,         (22)    (Scolnic & Kessler 2016), but they do not reproduce the differences
+                                𝑁bins
+                                         𝑖    𝑗                  𝑒 2𝑖, 𝑗
+                                                                                                         between low and high stellar mass, or between blue and red host
+                                                                                                         galaxies. To test whether a simple luminosity step as a function of
+                                                                                                         SN age can explain the diverging Hubble residuals, we add a lumi-
+where 𝜇res,data,𝑖, 𝑗 and 𝜇res,sim,𝑖, 𝑗 are the weighted mean Hubble                                      nosity age step 𝛾 𝜏 𝐴 = 0.2 mag to the simulation (Fig. 8, panels c, d).
+residuals in each host bin 𝑖 and colour bin 𝑗 for data and simulations,                                  Again, the diverging Hubble residuals are not reproduced. Notably
+respectively, and 𝑒 𝑖, 𝑗 is the standard error on the means of the data.                                 the simulated 0.2 mag luminosity step is not recovered in the Hub-
+   Each of the following sections present the results for one model                                      ble residuals, with a step of only around 0.05 mag appearing. The
+of how 𝑅𝑉 varies with host or SN properties. For each model we                                           reasons behind this are discussed in Section 6.3.
+present the data and simulations (Figs. 8-10) split by their stellar
+mass (left-hand panels) and 𝑈 − 𝑅 (right-hand panels). The values
+                                                    2                                                    5.2 𝑅𝑉 split on stellar mass (BS21)
+from our grid search that result in the smallest 𝜒𝜈,  𝜇res for each model
+when split by stellar mass and 𝑈 − 𝑅 are presented in Tables 3 and 4                                     Motivated by the clear signal in the data of diverging Hubble residuals
+respectively. Unless otherwise stated, parameters reported below are                                     as a function of SN 𝑐, we continue by implementing the model of
+determined using a 1D (BBC-1D) bias correction. Corresponding                                            BS21. Our BS21 simulation is shown in Fig. 9 (upper panels), and
+figures and tables for BBC-BS20 can be found in Appendix B. We                                           qualitatively replicates the trend in the data when split by stellar
+stress that the 𝑅𝑉 values here are indicative only, since the generative                                 mass. Simulations with 𝑅𝑉 = 3.0 in low mass galaxies and 1.75 in
+models for the simulated data and bias corrections are not the same.                                     high mass hosts match the data well (𝜒𝜈2 = 1.63), values that are
+A thorough fitting via the method of Popovic et al. (2021a) is left for                                  consistent with those found by BS21 and Popovic et al. (2021a).
+future work.                                                                                                However, this model that describes the mass-split data adequately
+
+                                                                                                                                                       MNRAS 000, 1–20 (2022)
+12                         P. Wiseman et al.
+
+                                            Split on host mass                                          Split on host U − R colour
+                          0.3          a)    Dust model: Galaxy age            χ2ν = 1.94          b)                                            χ2ν = 1.81
+
+
+
+
+Hubble residual (µres)
+                                             RV young = 3.00, RV old = 1.50
+                          0.2                Luminosity Step: None
+
+                          0.1
+
+                          0.0
+
+                         −0.1          Sim log(M∗ /M ) < 10                                        Sim U − R < 1
+                                       Sim log(M∗ /M ) > 10                                        Sim U − R > 1
+                         −0.2          Data log(M∗ /M ) < 10                                       Data U − R < 1
+                                       Data log(M∗ /M ) > 10                                       Data U − R > 1
+                         −0.3
+                          0.3          c)           SN Galaxy
+                                             Dust model:  colourage(c)      χ2ν = 2.38             d)               SN colour (c)                χ2ν = 1.70
+
+
+
+
+Hubble residual (µres)
+                                             RV young = 2.50, RV old = 1.75
+                          0.2                Luminosity Step: Age, 0.15 mag
+
+                          0.1
+
+                          0.0
+
+                         −0.1
+
+                         −0.2
+
+                         −0.3
+                                −0.2         −0.1             0.0   0.1       0.2       0.3 −0.2          −0.1         0.0         0.1         0.2         0.3
+                                                      SN colour (c)                                                 SN colour (c)
+
+Figure 10. SN Ia Hubble residual versus SN colour, as in Fig. 9 but for the model with 𝑅𝑉 changing with galaxy age. a): The model that best fits the SN data
+when split by stellar mass includes 𝑅𝑉 = 3.0 in young hosts, 𝑅𝑉 = 1.5 in old hosts and no intrinsic luminosity step. b): as a, but showing SNe split at host
+galaxy 𝑈 − 𝑅 = 1. c) & d): as for a & b but for the best fitting model to the data split by host 𝑈 − 𝑅 colour: 𝑅𝑉 = 2.5 in young hosts, 𝑅𝑉 = 1.75 in old hosts,
+and a 0.15 mag intrinsic luminosity step at a progenitor age of 0.75 Gyr.
+
+
+performs less well when the data are split by host 𝑈 − 𝑅 colour                             luminosity step is required. When splitting the data on 𝑈 − 𝑅 this
+(𝜒𝜈2 = 2.81), and neither the difference between Hubble residuals in                        model provides a significantly better match than the mass-𝑅𝑉 -step
+blue nor red SNe are matched as well. The best match ( 𝜒𝜈2 = 1.70),                         model of BS21 (when implemented with no further luminosity step,
+shown in the lower panels of Fig. 9, has a steeper extinction law                           i.e. Fig. 10b has 𝜒𝜈2 = 1.70 compared to Fig. 9b with 𝜒𝜈2 = 2.44). The
+in high mass galaxies with 𝑅𝑉 = 1.5, as well as the addition of                             best match to the 𝑈 − 𝑅 split data has a smaller difference between
+an intrinsic 0.1 mag luminosity step on stellar mass. However, the                          𝑅𝑉 values (1.5 and 2.5) plus additional 0.1 mag intrinsic luminosity
+addition of this step has the effect of drastically reducing the quality                    step on stellar mass, or an even smaller 𝑅𝑉 difference (1.75 and
+of the match when the data are split by stellar mass ( 𝜒𝜈2 = 4.93).                         2.5) and a 0.15 mag step on stellar age (Fig. 10, lower panels). As
+                                                                                            described in the results of the previous models, a much smaller step
+                                                                                            is evident in the Hubble residuals than the age step input into the
+5.3 𝑅𝑉 split on galaxy age                                                                  SNe. We address this effect in Section 6.3.
+The BS21 model is able to reproduce the observed trends between
+Hubble residual and SN 𝑐 when split by stellar mass but the model                           5.4 𝑅𝑉 linear with SN age
+requires different parameters and an intrinsic luminosity step when
+matching the data split by host 𝑈 − 𝑅 colour. Motivated by a hypoth-                        Modelling 𝑅𝑉 as a linear function of SN progenitor age is not as suc-
+esis that dust parameters could be driven by stellar age rather than                        cessful as the previous step-based models, with consistently higher
+galaxy mass, we implement the ‘Age 𝑅𝑉 ’ model, which is identical                           𝜒𝜈2 (Tables 3 & 4). This 𝑅𝑉 model is the only one that also requires
+to the BS21 model but with 𝑅𝑉 described by a step function at a                             an age-luminosity step to explain both the mass-split and 𝑈 − 𝑅 split
+mean stellar age of 3 Gyr rather than log(𝑀/M ) = 10. This model                            data, with 𝛾 𝑋 ≥ 0.15 mag.
+also incorporates the age-based Nicolas et al. (2021) model of 𝑥1 .
+   As with the mass-based model, the better matching simulations
+are those with differing 𝑅𝑉 in young and old galaxies, with larger
+                                                                                            6 DISCUSSION
+differences in 𝑅𝑉 required compared to the BS21 model. When
+splitting Hubble residuals on stellar mass (Fig. 10 upper panels, Table                     The results of our comparisons of simulations to data support the
+3), the favoured models ( 𝜒𝜈2 = 1.94) include a similar difference                          notion that the SN colour–luminosity relation in SNe Ia is not linear
+in 𝑅𝑉 between old (1.5) and young (2.75) hosts and no intrinsic                             with SN colour, consistent with the model of BS21 where the dust
+
+MNRAS 000, 1–20 (2022)
+                                                                                                           SN Ia host dust and age model                        13
+
+           0.20
+                            Model: Two Alpha; X: Mass; BBC: 1D
+           0.15
+                                           χ2ν = 5.46                                                             χ2ν = 2.30
+
+           0.10                            χ2ν = 7.02                                                             χ2ν = 2.24
+                                           χ2ν = 6.85                                                             χ2ν = 2.38
+
+           0.05
+
+
+   µres    0.00
+
+
+          −0.05
+
+
+          −0.10         αyoung = 0.30,αold = 0.10,γM∗ = 0.1                                    αyoung = 0.30,αold = 0.10,γM∗ = 0.1
+                        αyoung = 0.10,αold = 0.30,γM∗ = 0.1                                    αyoung = 0.10,αold = 0.30,γM∗ = 0.1
+                        αyoung = 0.15,αold = 0.15,γM∗ = 0.1                                    αyoung = 0.15,αold = 0.15,γM∗ = 0.1
+          −0.15
+                        DES5YR global log(M∗ /M ) < 10                                         DES5YR global U − R < 1
+                        DES5YR global log(M∗ /M ) > 10                                         DES5YR global U − R > 1
+          −0.20
+                          −0.1           0.0            0.1           0.2            0.3         −0.1            0.0           0.1            0.2           0.3
+                                                   c                                                                      c
+
+
+Figure 11. Left: As Fig. 10 with fixed 𝑅𝑉 (𝑅𝑉 ,1 = 2.0; 𝑅𝑉 ,2 = 3.75, 𝑌 = 𝜏G ), an intrinsic mass step 𝛾𝑀∗ = 0.1 mag, and varying 𝛼sim for young and old
+populations of SNe. There is no significant difference in the trend of HRs with 𝑐, nor the size of the measured mass step, despite large variations in 𝛼sim ; Right:
+as left, but for host galaxy 𝑈 − 𝑅 colour. As with mass, there is no significant difference in the HRs despite large variations in 𝛼sim and the recovered 𝑈 − 𝑅
+step is not affected.
+
+
+extinction law along the line-of-sight to SNe Ia correlates with the                 by different relationships seen between dust and different galaxy de-
+global properties of host galaxies. The reason for, and best tracer of,              scriptors. While Reddy et al. (2018) and Salim et al. (2018) show that
+the difference in 𝑅𝑉 is less clear and is discussed in the following                 𝑅𝑉 increases with stellar mass for star-forming galaxies, Salim et al.
+sections. As with the previous section, the discussion here focuses on               (2018) also show that 𝑅𝑉 is lower in passive (and starburst) galaxies
+BBC-1D bias corrections, but the results are consistent when using                   than those on the star forming main sequence, and that the 𝑅𝑉 of
+BBC-BS20 bias corrections.                                                           star-forming galaxies is more closely related to its overall extinction
+                                                                                     𝐴𝑉 than its stellar mass. However, the quiescent galaxies in Salim
+                                                                                     et al. (2018) still have an average 𝑅𝑉 of 2.61, far greater than that
+6.1 𝑅𝑉 in young, low mass galaxies                                                   found here and indicating that the SNe do not trace the average dust
+We find no significant difference in the fit quality when the 𝑅𝑉                     composition in the galaxy. We note however that the SN 𝑅𝑉 mea-
+changes with stellar mass or stellar age, the two of which are them-                 surements are somewhat dependent on the assumed SALT2 colour
+selves strongly correlated. When implementing the BS21 model we                      law, rendering direct comparisons less informative.
+find 𝑅𝑉 ,2 is broadly consistent with the results from BS21 and
+Popovic et al. (2021a) when splitting on stellar mass. When 𝑅𝑉
+changes with stellar age the simulations are more consistent with the                6.3 The effect of intrinsic luminosity steps
+data across both stellar mass and 𝑈 − 𝑅, but 2.5 ≤ 𝑅𝑉 ,2 ≤ 3.0 are                   While models of an 𝑅𝑉 step in stellar mass or galaxy age provide
+generally smaller than the 3.0 in Popovic et al. (2021a). These values               reasonable matches to the Hubble residuals split by either stellar mass
+for 𝑅𝑉 consistent with those typically measured in SN Ia light curves                or host 𝑈 − 𝑅 colour, they do not fully match both host properties
+and spectra for similar hosts, with Cikota et al. (2016) finding 𝑅𝑉                  simultaneously – different 𝑅𝑉 steps are required to match mass and
+values of 2.71 ± 1.58 in spiral galaxies.                                            to match 𝑈 − 𝑅. Furthermore, K22 show that there are residual steps
+                                                                                     in the data in one parameter (e.g. stellar mass) if the effect of another
+                                                                                     (e.g. 𝑈 − 𝑅) is subtracted. We find that in general the step seen in our
+6.2 𝑅𝑉 in old, high mass galaxies
+                                                                                     simulated HRs is smaller in 𝑈 − 𝑅 than in 𝑀∗ , but that step is rarely
+In all of the models trialled the 𝑅𝑉 value in high mass/old galax-                   fully removed using 𝑅𝑉 only and that adding an intrinsic luminosity
+ies (𝑅𝑉 ,1 ) is required to be significantly lower than that for low                 step is required. However, such a step introduces a number of its own
+mass/young galaxies in order to replicate the trends of Hubble resid-                issues.
+ual against SN colour. Generally, lower values are preferred when                       Firstly we consider adding a step based on the SN age. We find
+the data are split on 𝑈 − 𝑅. Values in the range 1.5 ≤ 𝑅𝑉 ,1 ≤ 1.75                  that adding a 0.2 mag step has only a marginal effect on the HRs –
+indicate the dust in older, more massive SN hosts is composed mainly                 instead, the best fit value 𝛼 is much smaller than the simulated value
+of small grains leading to a steep extinction curve. How this observa-               𝛼sim . This effect is caused in this model by the dependence on age of
+tion relates to studies of the general galaxy population is complicated              both the intrinsic step and 𝑥1 , which act on the SN luminosity in the
+
+                                                                                                                                        MNRAS 000, 1–20 (2022)
+14      P. Wiseman et al.
+opposite direction to each other. Such an affect has been observed          and data are caused by physical effects that have not been fully incor-
+before (e.g. Rose et al. 2021), who suggest that steps 𝛾 𝑋 should be fit    porated or accurately implemented in the model. The relationships
+simultaneously with the other nuisance parameters. However, with            between the 𝑅𝑉 along a SN sight line and its host galaxy properties
+the step size evolving with SN colour, this is not trivial.                 are evidently more complicated that a simple step function of galaxy
+  An intrinsic mass step is affected much less absorbed by 𝛼, with a        age or stellar mass – when dealing with integrated galaxy attenuation,
+0.1 mag step able to explain the 𝑈 − 𝑅 data for most 𝑅𝑉 model and           𝑅𝑉 is inversely correlated with 𝐴𝑉 , which we have not included in
+bias correction combinations (e.g. Fig. 9). However, this means that        the model for SN 𝑅𝑉 . Meanwhile, 𝐴𝑉 correlates strongly with stellar
+the discrepancy between models with an intrinsic mass step and the          mass (Zahid et al. 2013), meaning the 𝑅𝑉 of galaxies also increases
+data split by mass is much larger than when the intrinsic step is on        with stellar mass (Salim et al. 2018). On the contrary, the results of
+age and no particularly good combinations are found.                        BS21, Popovic et al. (2021a), and this work, indicate that 𝑅𝑉 on SN
+                                                                            sight lines decreases with stellar mass, suggesting that SN sight lines
+                                                                            are systematically different than those of the integrated galaxy light.
+6.3.1 Varying the width-luminosity coefficient 𝛼                            Meanwhile, Salim et al. (2018) also show that galaxies with old stel-
+                                                                            lar populations have lower 𝑅𝑉 than those with young populations,
+Neither an intrinsic luminosity step based on SN age or host mass
+                                                                            which is in line with the age – 𝑅𝑉 steps found here. Because our the
+are able to simultaneously model the data split by stellar mass and
+                                                                            models track individual stellar populations, it is possible to use our
+by 𝑈 − 𝑅. One logical explanation for this is that the relationships
+                                                                            method to compare the predictions to measurements from integral
+between SN age, 𝑥1 , and 𝛼 are linked with different strengths to the
+                                                                            field spectroscopy (e.g. Galbany et al. 2014, 2016, 2018) to measure
+host parameters 𝑀∗ and 𝑈 − 𝑅. The 𝑈 − 𝑅 colour traces age more
+                                                                            dust properties in the very local environments of SNe, which we
+directly than 𝑀∗ , and with the bimodal N21 model 𝑥1 is strongly
+                                                                            defer to future work.
+linked to SN age, meaning intrinsic steps in luminosity are washed
+                                                                               Our model has no implementation of a relation between galaxy
+out by being absorbed into the alpha parameter, and this occurs more
+                                                                            mass and metallicity. Metallicity is strongly correlated with stellar
+strongly in the age-like 𝑈 − 𝑅 than 𝑀∗ which is less related to SN age.
+                                                                            mass and more weakly with SFR (e.g. Yates et al. 2012), is tied
+To counter this effect, we hypothesise that the two 𝑥1 populations
+                                                                            to the SFH (Bellstedt et al. 2020) as well as affecting the strengths
+could follow different intrinsic values of 𝛼 while simultaneously
+                                                                            of nebular emission lines (e.g. Kewley & Ellison 2008), themselves
+having different mean absolute magnitudes.
+                                                                            affecting the 𝑈 − 𝑅 colour. If there is an intrinsic correlation between
+   To test the two-𝛼 hypothesis we run a further set of simulations. We
+                                                                            metallicity and SN luminosity (e.g. Höflich et al. 1998; Kasen et al.
+fix 𝑅𝑉 to those from the best Age-𝑅𝑉 model as measured with BBC-
+                                                                            2009; Moreno-Raya et al. 2016) it may affect the observed mass
+1D and as compared to data split by mass: (𝑅𝑉 ,1 = 1.5, 𝑅𝑉 ,2 = 3.0).
+                                                                            and age steps in different amounts, but be hidden amongst the more
+We simulate over a new grid, varying 𝛼sim from 0.05 to 0.30 for the
+                                                                            dominant 𝑅𝑉 effects.
+young and old populations, as well as the intrinsic luminosity step 𝛾 𝑋 .
+The combinations of 𝛼sim and 𝛾 𝑋 that we investigate are constrained
+by the fitted 𝛼. For 𝑋, we trial both mass and age steps between zero
+and 0.25 mag.                                                               7 CONCLUSIONS AND FUTURE WORK
+   The results of varying 𝛼sim are summarised in Fig. 11, for which
+                                                                            This work presents a host-galaxy oriented framework for simulating
+the models included a 0.1 mag step on 𝑀∗ . Varying 𝛼sim for the
+                                                                            populations of SNe Ia in a cosmological context. We trace stellar
+young and old SNe makes no difference to the inferred step in either
+                                                                            population ages throughout the build up of stellar mass of galaxies,
+𝑀∗ or 𝑈 − 𝑅 and does not solve the discrepancy between the size of
+                                                                            and use this information combined with the SN Ia DTD from W21
+recovered steps – whatever the values of 𝛼sim , the resulting HRs are
+                                                                            in order to associate SNe to hosts at realistic rates. The resulting host
+split much more strongly by 𝑀∗ than by 𝑈 − 𝑅. The same results were
+                                                                            galaxy library is made available to the community for use in future
+found when including a 0.2 mag luminosity step on SN age. These
+                                                                            cosmological SN Ia simulations2 . SNe are then simulated according
+simulations thus indicate a universal value for 𝛼 even if the SNe are
+                                                                            to their host galaxy properties as highlighted below:
+divided into two populations of 𝑥1 . Such a lack of bimodality for 𝛼
+is consistent with previous results, e.g. Sullivan et al. (2011).              • light curve width 𝑥1 is drawn from a two-population age-based
+                                                                            model based on N21, which accurate reproduces the 𝑥1 distribution.
+                                                                            The 𝑥1 vs stellar mass and 𝑥1 vs 𝑈 − 𝑅 relations are also relatively
+6.3.2 Reconciling mass and 𝑈 − 𝑅 steps                                      well modelled, although the strength of the relation is stronger in the
+                                                                            data than we recover in the model.
+With multiple 𝛼 values improbable, we investigate whether the dis-
+                                                                               • we that 68% of SNe in old environments belong to the low-
+crepancy is caused by limitations in our model. For example, the
+                                                                            stretch mode. Further work is necessary in order to determine the
+smooth SFHs lead to a single Gaussian distribution of 𝑈 − 𝑅 while
+                                                                            cause of these two modes, whether they are related to the progenitor
+the data show bimodality, while the simulation also slightly underesti-
+                                                                            scenario, white dwarf composition, or explosion mechanism, and
+mates the number of hosts in the stellar mass range 9 ≤ log(𝑀/M ).
+                                                                            why the transition occurs around 0.75 Gyr;
+Although Fig. 1 shows that the models do reproduce the 𝑀∗ –𝑈 − 𝑅
+                                                                               • SN colour 𝑐 is well described by a combination of an intrinsic
+relation in general, there may be subtle second order effects intro-
+                                                                            Gaussian and a supplementary exponential distribution attributed to
+ducing inconsistencies for individual simulated SNe. Such effects
+                                                                            dust reddening. The DES5YR data is best modelled by very similar
+include the treatment of metallicity which is fixed at solar in the
+                                                                            values to those for the Pantheon+ dataset (Popovic et al. 2021a).
+simulation but evolves over both the mass and redshift range of the
+data (e.g. Tremonti et al. 2004; Zahid et al. 2014), the lack of bursts     By running simulations and data through the same BBC framework
+of star formation in the simulation, the choice of BC03 templates for
+the simulation, and incorrect modelling of survey selection effects.
+These effects will be investigated in subsequent work.                      2 https://github.com/wisemanp/des_sn_hosts/tree/main/
+   A second possibility is that the inconsistencies between the model       simulations/data
+
+MNRAS 000, 1–20 (2022)
+                                                                                               SN Ia host dust and age model                  15
+we obtain distance estimates and compare the evolution of the Hubble           Funding for the DES Projects has been provided by the U.S. De-
+residuals with 𝑐. Our results support the findings of BS21 and Popovic      partment of Energy, the U.S. National Science Foundation, the Min-
+et al. (2021a) that the extinction law slope 𝑅𝑉 changes depending           istry of Science and Education of Spain, the Science and Technology
+on host galaxy properties. Additionally we find that:                       Facilities Council of the United Kingdom, the Higher Education
+                                                                            Funding Council for England, the National Center for Supercomput-
+   • if galaxy age is the driver of 𝑅𝑉 change, then the evolution is        ing Applications at the University of Illinois at Urbana-Champaign,
+different to if it is driven by stellar mass. However the change (with      the Kavli Institute of Cosmological Physics at the University of
+mass) is opposite to that observed in the galaxy population, while          Chicago, the Center for Cosmology and Astro-Particle Physics at
+the change with age is consistent with the difference between star          the Ohio State University, the Mitchell Institute for Fundamental
+forming and passive galaxies;                                               Physics and Astronomy at Texas A&M University, Financiadora de
+   • when Hubble residuals are split based on host stellar mass, the        Estudos e Projetos, Fundação Carlos Chagas Filho de Amparo à
+𝑅𝑉 models can fully explain the trends between Hubble residual and          Pesquisa do Estado do Rio de Janeiro, Conselho Nacional de Desen-
+𝑐;                                                                          volvimento Científico e Tecnológico and the Ministério da Ciência,
+   • when the data are split by host 𝑈 − 𝑅, the addition of an intrinsic    Tecnologia e Inovação, the Deutsche Forschungsgemeinschaft and
+luminosity step to the model slightly improves the fit to the data.         the Collaborating Institutions in the Dark Energy Survey.
+   • there is no preference for the intrinsic luminosity step to be based      The Collaborating Institutions are Argonne National Laboratory,
+on stellar mass or SN age, but neither are able to simultaneously           the University of California at Santa Cruz, the University of Cam-
+reproduce the data when split by host stellar mass and by host 𝑈 − 𝑅.       bridge, Centro de Investigaciones Energéticas, Medioambientales y
+   • varying the width-luminosity coefficient 𝛼 between populations         Tecnológicas-Madrid, the University of Chicago, University Col-
+does not solve the discrepancy.                                             lege London, the DES-Brazil Consortium, the University of Edin-
+   The reason for the discrepancy is therefore either a shortcoming of      burgh, the Eidgenössische Technische Hochschule (ETH) Zürich,
+the simulation or an unmodelled physical effect such as metallicity.        Fermi National Accelerator Laboratory, the University of Illinois at
+                                                                            Urbana-Champaign, the Institut de Ciències de l’Espai (IEEC/CSIC),
+   Future work will build upon the host galaxy models developed
+                                                                            the Institut de Física d’Altes Energies, Lawrence Berkeley National
+here. In order to test for effects such as metallicity, the galaxy evolu-
+                                                                            Laboratory, the Ludwig-Maximilians Universität München and the
+tion model needs to be treated in a more complex way by introducing
+                                                                            associated Excellence Cluster Universe, the University of Michigan,
+metallicity evolution and bursts of star formation. Such models have
+                                                                            NSF’s NOIRLab, the University of Nottingham, The Ohio State Uni-
+been used in the modelling of SN Ia rates and DTDs (e.g. Gandhi
+                                                                            versity, the University of Pennsylvania, the University of Portsmouth,
+et al. 2022) and can be extended to cosmological implementation
+                                                                            SLAC National Accelerator Laboratory, Stanford University, the Uni-
+using the methods outlined in this paper.
+                                                                            versity of Sussex, Texas A&M University, and the OzDES Member-
+                                                                            ship Consortium.
+                                                                               Based in part on observations at Cerro Tololo Inter-American
+                                                                            Observatory at NSF’s NOIRLab (NOIRLab Prop. ID 2012B-0001;
+SOFTWARE                                                                    PI: J. Frieman), which is managed by the Association of Universities
+All software used in this publication are publicly avail-                   for Research in Astronomy (AURA) under a cooperative agreement
+able. The SN and galaxy evolution code can be found at                      with the National Science Foundation.
+https://github.com/wisemanp/des_sn_hosts. Additionally we made                 The DES data management system is supported by the Na-
+extensive use of numpy (Harris et al. 2020), Astropy (Astropy Col-          tional Science Foundation under Grant Numbers AST-1138766
+laboration et al. 2018), matplotlib (Hunter 2007), SciPy (Virtanen          and AST-1536171. The DES participants from Spanish institutions
+et al. 2020), and pandas (McKinney 2010).                                   are partially supported by MICINN under grants ESP2017-89838,
+                                                                            PGC2018-094773, PGC2018-102021, SEV-2016-0588, SEV-2016-
+                                                                            0597, and MDM-2015-0509, some of which include ERDF funds
+                                                                            from the European Union. IFAE is partially funded by the CERCA
+                                                                            program of the Generalitat de Catalunya. Research leading to these re-
+ACKNOWLEDGEMENTS                                                            sults has received funding from the European Research Council under
+We thank the referee Mickael Rigault for comments which signifi-            the European Union’s Seventh Framework Program (FP7/2007-2013)
+cantly improved this paper. P.W. acknowledges support from the Sci-         including ERC grant agreements 240672, 291329, and 306478. We
+ence and Technology Facilities Council (STFC) grant ST/R000506/1.           acknowledge support from the Brazilian Instituto Nacional de Ciên-
+M.S acknowledges support from EU/FP7-ERC grant 615929. L.K.                 cia e Tecnologia (INCT) do e-Universo (CNPq grant 465376/2014-
+thanks the UKRI Future Leaders Fellowship for support through the           2).
+grant MR/T01881X/1. L.G. acknowledges financial support from                   This manuscript has been authored by Fermi Research Alliance,
+the Spanish Ministerio de Ciencia e Innovación (MCIN), the Agen-            LLC under Contract No. DE-AC02-07CH11359 with the U.S. De-
+cia Estatal de Investigación (AEI) 10.13039/501100011033, and the           partment of Energy, Office of Science, Office of High Energy Physics.
+European Social Fund (ESF) "Investing in your future" under the
+2019 Ramón y Cajal program RYC2019-027683-I and the PID2020-
+115253GA-I00 HOSTFLOWS project, from Centro Superior de In-
+vestigaciones Científicas (CSIC) under the PIE project 20215AT016,
+                                                                            DATA AVAILABILITY
+and the program Unidad de Excelencia María de Maeztu CEX2020-
+001058-M. This project has received funding from the European               The light curves for the DES-SN photometric SN Ia cata-
+Research Council (ERC) under the European Union’s Horizon 2020              logue and associated host galaxy data will be made avail-
+research and innovation program (grant agreement number 759194 -            able as part of the DES5YR SN cosmology analysis at
+USNAC).                                                                     https://des.ncsa.illinois.edu/releases/sn.
+
+                                                                                                                         MNRAS 000, 1–20 (2022)
+16       P. Wiseman et al.
+REFERENCES                                                                       Möller A., et al., 2022, eprint arxiv:2201.11142
+                                                                                 Moreno-Raya M. E., Mollá M., López-Sánchez Á. R., Galbany L., Vílchez
+Astropy Collaboration et al., 2018, The Astronomical Journal, 156, 123               J. M., Rosell A. C., Domínguez I., 2016, The Astrophysical Journal, 818,
+Bellstedt S., et al., 2020, Monthly Notices of the Royal Astronomical Society,       L19
+    498, 5581                                                                    Nicolas N., et al., 2021, Astronomy & Astrophysics, 649, A74
+Bertelli G., et al., 1994, Astronomy and Astrophysics Supplement Series,         Perlmutter S., et al., 1999, The Astrophysical Journal, 517, 565
+    106, 275                                                                     Phillips M. M., 1993, The Astrophysical Journal, 413, L105
+Bessell M. S., 1990, Publications of the Astronomical Society of the Pacific,    Popovic B., Brout D., Kessler R., Scolnic D., 2021a, eprint arxiv:2112.04456
+    102, 1181                                                                    Popovic B., Brout D., Kessler R., Scolnic D., Lu L., 2021b, The Astrophysical
+Betoule M., et al., 2014, Astronomy & Astrophysics, 568, A22                         Journal, 913, 49
+Boquien M., Burgarella D., Roehlly Y., Buat V., Ciesla L., Corre D., Inoue       Pskovskii I. P., 1977, SvA, 21, 675
+    A. K., Salas H., 2019, Astronomy & Astrophysics, 622, A103                   Reddy N. A., et al., 2018, The Astrophysical Journal, 853, 56
+Briday M., et al., 2022, Astronomy & Astrophysics, 657, A22                      Riess A. G., Press W. H., Kirshner R. P., 1996, The Astrophysical Journal,
+Brout D., Scolnic D., 2021, The Astrophysical Journal, 909, 26                       473, 88
+Brout D., et al., 2019a, The Astrophysical Journal, 874, 106                     Riess A. G., et al., 1998, The Astronomical Journal, 116, 1009
+Brout D., et al., 2019b, The Astrophysical Journal, 874, 150                     Rigault M., et al., 2020, Astronomy & Astrophysics, 644, A176
+Brout D., et al., 2022, eprint arxiv:2202.04077                                  Roman M., et al., 2018, Astronomy & Astrophysics, 615, A68
+Bruzual G., Charlot S., 2003, Monthly Notices of the Royal Astronomical          Rose B. M., Rubin D., Strolger L., Garnavich P. M., 2021, The Astrophysical
+    Society, 344, 1000                                                               Journal, 909, 28
+Cardelli J. A., Clayton G. C., Mathis J. S., 1989, The Astrophysical Journal,    Salim S., Boquien M., Lee J. C., 2018, The Astrophysical Journal, 859, 11
+    345, 245                                                                     Scolnic D., Kessler R., 2016, The Astrophysical Journal, 822, L35
+Chabrier G., 2003, Publications of the Astronomical Society of the Pacific,      Scolnic D. M., et al., 2018, The Astrophysical Journal, 859, 101
+    115, 763                                                                     Scolnic D., et al., 2021, eprint arxiv:2112.03863
+Childress M., et al., 2013, Astrophysical Journal, 770, 108                      Smith M., et al., 2020, Monthly Notices of the Royal Astronomical Society,
+Childress M. J., Wolf C., Zahid H. J., 2014, Monthly Notices of the Royal            494, 4426
+    Astronomical Society, 445, 1898                                              Sullivan M., et al., 2010, Monthly Notices of the Royal Astronomical Society,
+Cikota A., Deustua S., Marleau F., 2016, The Astrophysical Journal, 819, 152         406, no
+DES Collaboration et al., 2018, Physical Review Letters, 122, 171301             Sullivan M., et al., 2011, Astrophysical Journal, 737, 102
+Dixon S., 2021, Publications of the Astronomical Society of the Pacific, 133,    Tomczak A. R., et al., 2014, The Astrophysical Journal, 783, 85
+    054501                                                                       Tremonti C. A., et al., 2004, The Astronomical Journal, 613, 898
+Dixon M., et al., 2022, eprint arXiv: 2206.12085                                 Tripp R., 1998, Astronomy and Astrophysics, 331, 815
+Flaugher B., et al., 2015, The Astronomical Journal, 150, 150                    Vincenzi M., et al., 2021, Monthly Notices of the Royal Astronomical Society,
+Galbany L., et al., 2014, Astronomy & Astrophysics, 572, 22                          505, 2819
+Galbany L., et al., 2016, Monthly Notices of the Royal Astronomical Society,     Virtanen P., et al., 2020, Nature Methods, 17, 261
+    455, 4087                                                                    Wiseman P., et al., 2021, Monthly Notices of the Royal Astronomical Society,
+Galbany L., et al., 2018, The Astrophysical Journal, 855, 107                        506, 3330
+Gallagher J. S., et al., 2005, The Astrophysical Journal, 634, 210               Yates R. M., Kauffmann G., Guo Q., 2012, Monthly Notices of the Royal
+Gandhi P. J., Wetzel A., Hopkins P. F., Shappee B. J., Wheeler C., Faucher-          Astronomical Society, 422, 215
+    Giguère C.-A., 2022, eprint arxiv:2202.10477                                 Zahid H. J., Yates R. M., Kewley L. J., Kudritzki R. P., 2013, Astrophysical
+Guy J., et al., 2007, Astronomy & Astrophysics, 466, 11                              Journal, 763, 92
+Harris C. R., et al., 2020, Nature, 585, 357                                     Zahid H. J., Dima G. I., Kudritzki R.-P., Kewley L. J., Geller M. J., Hwang
+Höflich P., Wheeler J., Thielemann F., 1998, The Astrophysical Journal, 495,         H. S., Silverman J. D., Kashino D., 2014, The Astrophysical Journal, 791,
+    617                                                                              130
+Hunter J. D., 2007, Computing in Science and Engineering, 9, 99
+Inoue A. K., 2011, Monthly Notices of the Royal Astronomical Society, 415,
+    2920
+Jha S., Riess A. G., Kirshner R. P., 2007, The Astrophysical Journal, 659, 122
+                                                                                 APPENDIX A: SIMULATING UNCERTAINTIES
+Kasen D., Röpke F. K., Woosley S. E., 2009, Nature, 460, 869                     We simulate uncertainties 𝜎𝑚𝐵 on 𝑚 𝐵 by approximating the rela-
+Kelly P. L., Hicken M., Burke D. L., Mandel K. S., Kirshner R. P., 2010,         tionship between 𝜎𝑚𝐵 ,obs and 𝑚 𝐵,obs in the observed data set of
+    Astrophysical Journal, 715, 743
+                                                                                 K22.
+Kelsey L., et al., 2021, Monthly Notices of the Royal Astronomical Society,
+    501, 4861                                                                                  
+Kelsey L., Sullivan M., Wiseman P., Smith M., Vincenzi M., Scolnic D.,                             N (𝜎𝑚𝐵 , 𝜎𝜎𝑚𝐵 )
+    Brout D., 2022, MNRAS, in prep
+                                                                                 𝜎𝑚𝐵 ∼ Max                         ,                                    (A1)
+                                                                                                       0.025
+Kessler R., Scolnic D., 2017, The Astrophysical Journal, 836, 56
+Kessler R., et al., 2009, Astrophysical Journal Supplement Series, 185, 32       where
+Kessler R., et al., 2019, Monthly Notices of the Royal Astronomical Society,
+                                                                                 𝜎𝑚𝐵 = 10 (0.395(𝑚𝐵 −1.5)−10) + 0.03 ,                                  (A2)
+    485, 1171
+Kewley L. J., Ellison S. L., 2008, The Astrophysical Journal, 681, 1183          where 𝜎𝑚𝐵 is represented by the dashed line in Fig. A1. The scatter
+Lampeitl H., et al., 2010, Monthly Notices of the Royal Astronomical Society,    on the uncertainties 𝜎𝜎𝑚𝐵 also increases as a function of 𝑚 𝐵 :
+    401, 2331                                                                                  
+Mandel K. S., Narayan G., Kirshner R. P., 2011, The Astrophysical Journal,                       0.003(𝑚 𝐵 − 20)
+    731, 120
+                                                                                 𝜎𝜎𝑚𝐵 = Max                       .                              (A3)
+                                                                                                      0.003
+Mandel K. S., Scolnic D. M., Shariff H., Foley R. J., Kirshner R. P., 2017,
+    The Astrophysical Journal, 842, 93                                           The uncertainty 𝜎𝑚𝐵 is calculated after the intrinsic 𝑚 𝐵 has been
+Marriner J., et al., 2011, ApJ, 740, 72                                          adjusted for 𝑥1 and 𝑐 via Eq. 18.
+McKinney W., 2010, in PROC. OF THE 9th PYTHON IN SCIENCE CONF.                      Uncertainties on 𝑥1 and 𝑐 are estimated by linear least squares fits
+    pp 56–61, doi:10.25080/Majora-92bf1922-00a                                   to the DES5YR 𝜎𝑥1 − 𝜎𝑚𝐵 and 𝜎𝑐 − 𝜎𝑚𝐵 relations respectively. The
+
+MNRAS 000, 1–20 (2022)
+                                                                                          SN Ia host dust and age model      17
+
+
+         0.14           Sim
+                        DES5YR
+
+         0.12
+
+
+         0.10
+
+
+
+  σ mB
+         0.08
+
+
+         0.06
+
+
+         0.04
+
+
+         0.02
+
+
+         0.00
+                   20              21             22           23           24
+                                                      mB
+
+
+Figure A1. The relationship between peak 𝐵-band brightness 𝑚𝐵 and its
+uncertainty, 𝜎𝑚𝐵 . Points are from the DES5YR data and the relationship
+used in Eq. A2.
+
+
+
+         1.25           Sim
+                        DES5YR
+         1.00
+
+         0.75
+  σ x1
+         0.50
+
+         0.25
+
+         0.00
+         0.10
+
+         0.08
+
+         0.06
+   σc
+         0.04
+
+         0.02
+
+         0.00
+            0.02   0.03     0.04        0.05   0.06    0.07   0.08   0.09   0.10   0.11
+                                                  σ mB
+
+
+Figure A2. Relationships between 𝜎𝑚𝐵 and 𝜎𝑥1 (upper), and 𝜎𝑐 lower.
+Points are from the DES5YR data and the relationship used in Eq. A2.
+
+
+observed and fitted relationships between the uncertainties are shown
+in Figs. A1 & A2. We use these uncertainties to add noise to 𝑚 𝐵 ,
+𝑥1 , and 𝑐 by drawing them randomly from Gaussian distributions
+centred at 0 as per Eq. 19.
+
+
+APPENDIX B: BBC-BS20 BIAS CORRECTIONS
+Here we present results in the same was as Section 5 but with Hubble
+residuals measured using a BBC-BS20 bias correction, which inher-
+ently assumes 𝑅𝑉 changing with stellar mass. The models shown in
+Figs. B1-B3 correspond to the best match parameters when splitting
+on stellar mass (blue) and 𝑈 − 𝑅 (green), which are presented in
+Tables B1 and B2 respectively.
+
+
+
+                                                                                                           MNRAS 000, 1–20 (2022)
+18                         P. Wiseman et al.
+
+Table B1. Dust population parameters for the models presented in this work when compared to DES5YR data split at host log( 𝑀∗ /M ) = 10 and fit with
+BBC-BS20 (left hand panels of Figs. B1-B3.)
+
+    Model Name                          BiasCor       𝑅𝑉 ,1    𝜎𝑅𝑉 ,1   𝑅𝑉 ,2   𝜎𝑅𝑉 ,2     𝑌        𝑌split          𝑌1        𝑌2         𝑋     𝑋split    𝛾𝑋         2
+                                                                                                                                                                   𝜒𝜈,𝜇    (𝑈 − 𝑅)
+                                                                                                                                                                       res
+
+    BS21                                    BS20       2.5      1.0     3.25     1.0      𝑀∗    1010 M               -         -         𝑀∗   1010 M     0.00           1.16
+    BS21                                    BS20      2.25      1.0      3.0     1.0      𝑀∗    1010 M               -         -         𝜏A   0.75 Gyr   0.05           1.23
+    Age 𝑅𝑉                                  BS20      1.75      1.0     3.25     1.0      𝜏G     3 Gyr               -         -         𝜏A   0.75 Gyr    0.0           1.11
+    Age 𝑅𝑉                                  BS20      1.75      1.0     3.25     1.0      𝜏G     3 Gyr               -         -         𝑀∗   1010 M      0.0           1.11
+    Age 𝑅𝑉 Linear                           BS20       1.5      1.0     3.75     1.0      𝜏A        -             0.1 Gyr   10 Gyr       𝜏A   0.75 Gyr   0.20           1.40
+
+
+
+Table B2. Dust population parameters for the models presented in this work when compared to DES5YR data split at host 𝑈 − 𝑅 = 1 and fit with BBC-BS20
+(right hand panels of Figs. B1-B3.)
+
+    Model Name                          BiasCor       𝑅𝑉 ,1    𝜎𝑅𝑉 ,1   𝑅𝑉 ,2   𝜎𝑅𝑉 ,2     𝑌        𝑌split          𝑌1        𝑌2         𝑋     𝑋split    𝛾𝑋         2
+                                                                                                                                                                   𝜒𝜈,𝜇    (𝑈 − 𝑅)
+                                                                                                                                                                       res
+
+    BS21                                    BS20      2.25      1.0     3.25     1.0      𝑀∗    1010 M               -         -         𝑀∗   1010 M      0.1           0.80
+    BS21                                    BS20      1.75      1.0     3.75     1.0      𝑀∗    1010 M               -         -         𝜏A   0.75 Gyr   0.05           0.76
+    Age 𝑅𝑉                                  BS20      2.0       1.0      2.5     1.0      𝜏G     3 Gyr               -         -         𝜏A   0.75 Gyr   0.15           0.89
+    Age 𝑅𝑉                                  BS20      1.5       1.0      2.5     1.0      𝜏G     3 Gyr               -         -         𝑀∗   1010 M     0.05           0.82
+    Age 𝑅𝑉 Linear                           BS20       1.5      1.0     3.75     1.0      𝜏A        -             0.1 Gyr   10 Gyr       𝜏A   0.75 Gyr   0.20           1.22
+
+
+
+                                             Split on host mass                                                    Split on host U − R colour
+                          0.3          a)     Dust model: BS21                         χ2ν = 1.16            b)                                                 χ2ν = 1.45
+
+
+
+
+Hubble residual (µres)
+                                              RV low mass = 3.25, RV high mass = 2.50
+                          0.2                 Luminosity Step: None
+
+                          0.1
+
+                          0.0
+
+                         −0.1          Sim log(M∗ /M ) < 10                                                  Sim U − R < 1
+                                       Sim log(M∗ /M ) > 10                                                  Sim U − R > 1
+                         −0.2          Data log(M∗ /M ) < 10                                                 Data U − R < 1
+                                       Data log(M∗ /M ) > 10                                                 Data U − R > 1
+                         −0.3
+                          0.3          c)            SN BS21
+                                              Dust model:  colour (c)         χ2ν = 3.52                     d)               SN colour (c)                     χ2ν = 0.80
+
+
+
+
+Hubble residual (µres)
+                                              RV low mass = 3.25, RV high mass = 2.25
+                          0.2                 Luminosity Step: Mass, 0.1 mag
+
+                          0.1
+
+                          0.0
+
+                         −0.1
+
+                         −0.2
+
+                         −0.3
+                                −0.2           −0.1           0.0       0.1         0.2         0.3 −0.2             −0.1          0.0         0.1         0.2            0.3
+                                                        SN colour (c)                                                         SN colour (c)
+
+Figure B1. BS21 models as Fig. 9 but where Hubble residuals for data and simulations have been measured with BBC-BS20. a): Simulations from the BS21
+model with 𝑅𝑉 = 3.25 in low mass host galaxies and 𝑅𝑉 = 2.5 in high mass host galaxies; b): as a, but for the data and simulations split host galaxy 𝑈 − 𝑅 = 1.
+c) & d): as a & b but for the model parameters that best describe the 𝑈 − 𝑅 data (right hand panel): 𝑅𝑉 = 3.25 in low mass host galaxies and 𝑅𝑉 = 2.25 in
+low mass host galaxies, and an intrinsic luminosity step at log( 𝑀 /M ) = 10 of size 0.1 mag.
+
+
+
+
+MNRAS 000, 1–20 (2022)
+                                                                                                                         SN Ia host dust and age model           19
+
+                                                Split on host mass                                          Split on host U − R colour
+                              0.3          a)    Dust model: Galaxy age            χ2ν = 1.11          b)                                 χ2ν = 1.06
+
+
+
+
+    Hubble residual (µres)
+                                                 RV young = 3.25, RV old = 1.75
+                              0.2                Luminosity Step: None
+
+                              0.1
+
+                              0.0
+
+                             −0.1          Sim log(M∗ /M ) < 10                                        Sim U − R < 1
+                                           Sim log(M∗ /M ) > 10                                        Sim U − R > 1
+                             −0.2          Data log(M∗ /M ) < 10                                       Data U − R < 1
+                                           Data log(M∗ /M ) > 10                                       Data U − R > 1
+                             −0.3
+                              0.3          c)           SN Galaxy
+                                                 Dust model:  colourage(c)      χ2ν = 1.84             d)               SN colour (c)     χ2ν = 0.89
+
+
+
+
+    Hubble residual (µres)
+                                                 RV young = 2.50, RV old = 2.00
+                              0.2                Luminosity Step: Age, 0.2 mag
+
+                              0.1
+
+                              0.0
+
+                             −0.1
+
+                             −0.2
+
+                             −0.3
+                                    −0.2         −0.1             0.0   0.1       0.2       0.3 −0.2         −0.1         0.0     0.1    0.2       0.3
+                                                          SN colour (c)                                                 SN colour (c)
+
+Figure B2. Age-𝑅𝑉 split models as Fig. 10, but where Hubble residuals for data and simulations have been measured with BBC-BS20.
+
+
+
+                                                Split on host mass                                          Split on host U − R colour
+                              0.3          a)    Dust model: Galaxy age         χ2ν = 1.11             b)                                 χ2ν = 1.37
+
+
+
+
+    Hubble residual (µres)
+                                                 RV young = 3.25, RV old = 1.75
+                              0.2                Luminosity Step: None
+
+                              0.1
+
+                              0.0
+
+                             −0.1          Sim log(M∗ /M ) < 10                                        Sim U − R < 1
+                                           Sim log(M∗ /M ) > 10                                        Sim U − R > 1
+                             −0.2          Data log(M∗ /M ) < 10                                       Data U − R < 1
+                                           Data log(M∗ /M ) > 10                                       Data U − R > 1
+                             −0.3
+                              0.3          c)           SN Galaxy
+                                                 Dust model:  colourage(c)       χ2ν = 1.61            d)               SN colour (c)     χ2ν = 0.82
+
+
+
+
+    Hubble residual (µres)
+                                                 RV young = 2.50, RV old = 1.50
+                              0.2                Luminosity Step: Mass, 0.05 mag
+
+                              0.1
+
+                              0.0
+
+                             −0.1
+
+                             −0.2
+
+                             −0.3
+                                    −0.2         −0.1             0.0   0.1       0.2       0.3 −0.2         −0.1         0.0     0.1    0.2       0.3
+                                                          SN colour (c)                                                 SN colour (c)
+
+       Figure B3. As Fig. B3 but for the models best fitting when introducing an intrinsic stellar mass step instead of a SN age step.
+
+
+
+
+                                                                                                                                               MNRAS 000, 1–20 (2022)
+20       P. Wiseman et al.
+  1 School of Physics and Astronomy, University of Southampton, Southampton, SO17 1BJ, UK
+  2 Department of Physics, Duke University Durham, NC 27708, USA
+  3 Institute of Cosmology and Gravitation, University of Portsmouth, Portsmouth, PO1 3FX, UK
+  4 Center for Astrophysics | Harvard & Smithsonian, 60 Garden Street, Cambridge, MA 02138, USA
+  5 Einstein Fellow
+  6 School of Mathematics and Physics, University of Queensland, Brisbane, QLD 4072, Australia
+  7 Institut d’Estudis Espacials de Catalunya (IEEC), 08034 Barcelona, Spain
+  8 Institute of Space Sciences (ICE, CSIC), Campus UAB, Carrer de Can Magrans, s/n, 08193 Barcelona, Spain
+  9 Centre for Gravitational Astrophysics, College of Science, The Australian National University, ACT 2601, Australia
+  10 The Research School of Astronomy and Astrophysics, Australian National University, ACT 2601, Australia
+  11 Centre for Astrophysics & Supercomputing, Swinburne University of Technology, Victoria 3122, Australia
+  12 Univ Lyon, Univ Claude Bernard Lyon 1, CNRS, IP2I Lyon / IN2P3, IMR 5822, F-69622 Villeurbanne, France
+  13 Laboratório Interinstitucional de e-Astronomia - LIneA, Rua Gal. José Cristino 77, Rio de Janeiro, RJ - 20921-400, Brazil
+  14 Fermi National Accelerator Laboratory, P. O. Box 500, Batavia, IL 60510, USA
+  15 Department of Physics, University of Michigan, Ann Arbor, MI 48109, USA
+  16 CNRS, UMR 7095, Institut d’Astrophysique de Paris, F-75014, Paris, France
+  17 Sorbonne Universités, UPMC Univ Paris 06, UMR 7095, Institut d’Astrophysique de Paris, F-75014, Paris, France
+  18 University Observatory, Faculty of Physics, Ludwig-Maximilians-Universität, Scheinerstr. 1, 81679 Munich, Germany
+  19 Department of Physics & Astronomy, University College London, Gower Street, London, WC1E 6BT, UK
+  20 Kavli Institute for Particle Astrophysics & Cosmology, P. O. Box 2450, Stanford University, Stanford, CA 94305, USA
+  21 SLAC National Accelerator Laboratory, Menlo Park, CA 94025, USA
+  22 Instituto de Astrofisica de Canarias, E-38205 La Laguna, Tenerife, Spain
+  23 Universidad de La Laguna, Dpto. Astrofísica, E-38206 La Laguna, Tenerife, Spain
+  24 Center for Astrophysical Surveys, National Center for Supercomputing Applications, 1205 West Clark St., Urbana, IL 61801, USA
+  25 Department of Astronomy, University of Illinois at Urbana-Champaign, 1002 W. Green Street, Urbana, IL 61801, USA
+  26 Institut de Física d’Altes Energies (IFAE), The Barcelona Institute of Science and Technology, Campus UAB, 08193 Bellaterra (Barcelona)
+  Spain
+  27 Astronomy Unit, Department of Physics, University of Trieste, via Tiepolo 11, I-34131 Trieste, Italy
+  28 INAF-Osservatorio Astronomico di Trieste, via G. B. Tiepolo 11, I-34143 Trieste, Italy
+  29 Institute for Fundamental Physics of the Universe, Via Beirut 2, 34014 Trieste, Italy
+  30 Hamburger Sternwarte, Universität Hamburg, Gojenbergsweg 112, 21029 Hamburg, Germany
+  31 Department of Physics, IIT Hyderabad, Kandi, Telangana 502285, India
+  32 Jet Propulsion Laboratory, California Institute of Technology, 4800 Oak Grove Dr., Pasadena, CA 91109, USA
+  33 Institute of Theoretical Astrophysics, University of Oslo. P.O. Box 1029 Blindern, NO-0315 Oslo, Norway
+  34 Kavli Institute for Cosmological Physics, University of Chicago, Chicago, IL 60637, USA
+  35 Instituto de Fisica Teorica UAM/CSIC, Universidad Autonoma de Madrid, 28049 Madrid, Spain
+  36 Department of Physics and Astronomy, University of Pennsylvania, Philadelphia, PA 19104, USA
+  37 Observatório Nacional, Rua Gal. José Cristino 77, Rio de Janeiro, RJ - 20921-400, Brazil
+  38 Santa Cruz Institute for Particle Physics, Santa Cruz, CA 95064, USA
+  39 Center for Cosmology and Astro-Particle Physics, The Ohio State University, Columbus, OH 43210, USA
+  40 Department of Physics, The Ohio State University, Columbus, OH 43210, USA
+  41 Institució Catalana de Recerca i Estudis Avançats, E-08010 Barcelona, Spain
+  42 Physics Department, 2320 Chamberlin Hall, University of Wisconsin-Madison, 1150 University Avenue Madison, WI 53706-1390
+  43 Department of Astronomy, University of California, Berkeley, 501 Campbell Hall, Berkeley, CA 94720, USA
+  44 Institute of Astronomy, University of Cambridge, Madingley Road, Cambridge CB3 0HA, UK
+  45 Department of Astrophysical Sciences, Princeton University, Peyton Hall, Princeton, NJ 08544, USA
+  46 Department of Physics and Astronomy, Pevensey Building, University of Sussex, Brighton, BN1 9QH, UK
+  47 Centro de Investigaciones Energéticas, Medioambientales y Tecnológicas (CIEMAT), Madrid, Spain
+  48 Computer Science and Mathematics Division, Oak Ridge National Laboratory, Oak Ridge, TN 37831
+  49 Excellence Cluster Origins, Boltzmannstr. 2, 85748 Garching, Germany
+  50 Max Planck Institute for Extraterrestrial Physics, Giessenbachstrasse, 85748 Garching, Germany
+  51 Universitäts-Sternwarte, Fakultät für Physik, Ludwig-Maximilians Universität München, Scheinerstr. 1, 81679 München, Germany
+
+
+
+This paper has been typeset from a TEX/LATEX file prepared by the author.
+
+
+
+
+MNRAS 000, 1–20 (2022)
+

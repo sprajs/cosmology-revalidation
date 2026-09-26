@@ -1,0 +1,20 @@
+{
+  "scope": "Synthetic-only two-object normalized optical likelihood runtime check, both D priors; no observed flux or NIR data",
+  "source_sha256": "ddd90b3afc8674ce583ad9beb5fa07f77b06d8d2fdc4437bd389d5cb12990d94",
+  "forward_result_sha256": "bf71833613fa946ff5bd160046579b759e7e68dc32fc3771069ae0bf5dee53af",
+  "CPUs": 2,
+  "wall_cap_seconds": 180,
+  "arms": [
+    "LCDM",
+    "broad"
+  ],
+  "warmup_per_arm": 80,
+  "discarded_draws_per_arm": 20,
+  "NUTS_fields": [
+    "num_steps",
+    "diverging",
+    "accept_prob"
+  ],
+  "bins": 2400,
+  "broad_D": "uniform mu20..50 convolved Normal gray .088, direct stable logCDFdifference; independent mu quadrature gate"
+}

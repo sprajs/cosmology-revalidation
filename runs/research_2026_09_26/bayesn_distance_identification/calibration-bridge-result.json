@@ -1,0 +1,139 @@
+{
+  "status": "No photometry transformed or posterior fitted; native and released reference systems audited separately.",
+  "filter_count": 23,
+  "pilot_metadata": [
+    {
+      "CID": "2005ki",
+      "N_raw": 310,
+      "bands": [
+        "B",
+        "H",
+        "J",
+        "Y",
+        "g",
+        "i",
+        "m",
+        "n",
+        "r",
+        "u",
+        "y"
+      ],
+      "PEAKMJD": 53706.1,
+      "MWEBV": 0.027,
+      "zHEL": 0.0192,
+      "zHD": 0.01989,
+      "negative_flux_rows": 0,
+      "nonpositive_error_rows": 0,
+      "duplicate_peak_headers": 1
+    },
+    {
+      "CID": "2009ad",
+      "N_raw": 128,
+      "bands": [
+        "B",
+        "H",
+        "Y",
+        "g",
+        "i",
+        "j",
+        "n",
+        "r",
+        "u"
+      ],
+      "PEAKMJD": 54886.9,
+      "MWEBV": 0.096,
+      "zHEL": 0.0284,
+      "zHD": 0.02834,
+      "negative_flux_rows": 0,
+      "nonpositive_error_rows": 0,
+      "duplicate_peak_headers": 1
+    },
+    {
+      "CID": "PScD500301",
+      "N_raw": 211,
+      "bands": [
+        "H",
+        "J",
+        "g",
+        "i",
+        "r",
+        "z"
+      ],
+      "PEAKMJD": 56405.6,
+      "MWEBV": 0.0077,
+      "zHEL": 0.325,
+      "zHD": 0.32557,
+      "negative_flux_rows": 0,
+      "nonpositive_error_rows": 0,
+      "duplicate_peak_headers": 2
+    },
+    {
+      "CID": "PScJ550202",
+      "N_raw": 143,
+      "bands": [
+        "H",
+        "J",
+        "g",
+        "i",
+        "r",
+        "z"
+      ],
+      "PEAKMJD": 56571.0,
+      "MWEBV": 0.0394,
+      "zHEL": 0.422,
+      "zHD": 0.42007,
+      "negative_flux_rows": 0,
+      "nonpositive_error_rows": 0,
+      "duplicate_peak_headers": 2
+    },
+    {
+      "CID": "DES15E2mhy",
+      "N_raw": 300,
+      "bands": [
+        "H",
+        "g",
+        "i",
+        "r",
+        "z"
+      ],
+      "PEAKMJD": 57347.5,
+      "MWEBV": 0.0063,
+      "zHEL": 0.4391,
+      "zHD": 0.43865,
+      "negative_flux_rows": 0,
+      "nonpositive_error_rows": 0,
+      "duplicate_peak_headers": 2
+    },
+    {
+      "CID": "DES16S1agd",
+      "N_raw": 263,
+      "bands": [
+        "H",
+        "g",
+        "i",
+        "r",
+        "z"
+      ],
+      "PEAKMJD": 57644.4,
+      "MWEBV": 0.0559,
+      "zHEL": 0.504,
+      "zHD": 0.50348,
+      "negative_flux_rows": 0,
+      "nonpositive_error_rows": 0,
+      "duplicate_peak_headers": 2
+    }
+  ],
+  "nonzero_SNphot_offsets": [],
+  "reference_delta_range_mag": [
+    -0.02351589754917966,
+    0.03953577436802215
+  ],
+  "shape_difference_range_half_L1": [
+    3.506675594055918e-17,
+    0.00865311634616538
+  ],
+  "flux_error_rule": "If coordinate scaling is used, error_new=S*error_old and C_new=S*C_old*S.T; differing filters additionally require SED transport.",
+  "KCOR_primary_units": "per Angstrom: checked current pinned SNANA kcor.c wr_fits_PRIMARY plus source spectral magnitude values; ignore obsolete per10A header description",
+  "forward_bridge": "Use exact released KCOR curves, primary spectra and primary magnitudes as custom BayeSN filters; this preserves raw FLUXCAL/error coordinates and avoids any unsupported scalar transport.",
+  "caveat": "Controlled release-native bridge, not execution-linked 2024 BayeSN preprocessing. Rounded10Angstrom KCOR tables require convergence check."
+}

@@ -1,0 +1,28 @@
+{
+  "status": "Pure source-law and toy probability algebra, no real observed likelihoods",
+  "F99": {
+    "RV_domain": [
+      1.2,
+      6.0
+    ],
+    "RV_grid_N": 4097,
+    "wavelength_domain_A": [
+      3000,
+      18500
+    ],
+    "each_RV_min": "all cubic stationary points and wavelength endpoints",
+    "minimum_A_over_AV": 0.13394817773125034,
+    "minimum_RV_grid": 6.0,
+    "caveat": "Dense RV verification, not empirical validation of the law or a universal physical RV bound."
+  },
+  "proper_prior_predictive": {
+    "joint_over_optical_logdensity": -0.7529671149313077,
+    "independent_grid_vs_quad_log_error": 2.3649970870565085e-12,
+    "noise_includes_negative_optical_flux": true
+  },
+  "amplitude": {
+    "D": "mu+gray, grayNormal(0,.088\u00b2)",
+    "broad": "muUniform20..50, convolved Normal; integrate normalized density in D",
+    "prediction": "p(NIR|opt)=integral p(NIR|latent,D)p(latent,D|opt); preserve entire common latent draw across all NIR rows"
+  }
+}

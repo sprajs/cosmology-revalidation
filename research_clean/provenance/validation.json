@@ -1,0 +1,398 @@
+{
+  "created_utc": "2026-09-26T10:39:34.136820+00:00",
+  "status": "passed",
+  "workflow_count": 19,
+  "all_primary_workflows_reexecuted": true,
+  "extra_checks": {
+    "three_independent_astropy_distance_cases_max_mag": 5.329070518200751e-15,
+    "piecewise_q_analytic_limits": true,
+    "distance_and_slab_domain_rejections": true,
+    "compiled_covariance_numpy_error": 1.4210854715202004e-14,
+    "compiled_projection_gradient_fd_error": 3.3913725161482944e-09,
+    "portable_copy_raisin_and_hst": true,
+    "public_download_stdout": "Restored data/bao/desi_gaussian_bao_ALL_GCcomb_mean.txt",
+    "public_download_exact_sha256": "9ac154ab583ce759c0f7eef3c978c7c70a6ead2d18774caceadf1a350a640585",
+    "corrupt_input_stops_before_analysis": true,
+    "no_legacy_absolute_paths_in_executable_code": true,
+    "local_document_links": true,
+    "parent_result_landmarks": true,
+    "paired_contrasts_parent_table_sha256": "defc67cc939b90315d94da3e0fc19b700001556512d5ecbb35aa3de0f74fc115",
+    "dark_reproduction": {
+      "raw_quadrant_gamma": {
+        "scalars": 3136,
+        "max_absolute_difference": 0.0,
+        "rtol": 1e-10,
+        "atol": 1e-08
+      },
+      "raw_quadrant_mean": {
+        "scalars": 448,
+        "max_absolute_difference": 0.0,
+        "rtol": 1e-10,
+        "atol": 1e-08
+      },
+      "raw_block_gamma": {
+        "scalars": 100352,
+        "max_absolute_difference": 0.0,
+        "rtol": 1e-10,
+        "atol": 1e-08
+      },
+      "raw_block_mean": {
+        "scalars": 14336,
+        "max_absolute_difference": 0.0,
+        "rtol": 1e-10,
+        "atol": 1e-08
+      },
+      "raw_quadrants": {
+        "scalars": 1152,
+        "max_absolute_difference": 0.0,
+        "rtol": 1e-10,
+        "atol": 1e-10
+      },
+      "raw_blocks": {
+        "scalars": 4096,
+        "max_absolute_difference": 0.0,
+        "rtol": 1e-10,
+        "atol": 1e-10
+      },
+      "raw_apertures": {
+        "scalars": 23712,
+        "max_absolute_difference": 7.105427357601002e-15,
+        "rtol": 1e-10,
+        "atol": 1e-10
+      },
+      "raw_categories": {
+        "scalars": 32,
+        "max_absolute_difference": 0.0,
+        "rtol": 1e-10,
+        "atol": 1e-10
+      },
+      "calibrated_regions": {
+        "scalars": 25,
+        "max_absolute_difference": 2.3646862246096134e-11,
+        "rtol": 1e-10,
+        "atol": 1e-10
+      },
+      "calibrated_blocks": {
+        "scalars": 1280,
+        "max_absolute_difference": 4.263256414560601e-14,
+        "rtol": 1e-10,
+        "atol": 1e-10
+      },
+      "calibrated_apertures": {
+        "scalars": 1235,
+        "max_absolute_difference": 3.941291737419306e-15,
+        "rtol": 1e-10,
+        "atol": 1e-10
+      },
+      "calibrated_influence": {
+        "scalars": 2,
+        "max_absolute_difference": 0.0,
+        "rtol": 1e-10,
+        "atol": 1e-10
+      },
+      "independent_circle_quadrature": {
+        "cells": 867,
+        "max_absolute_difference": 2.372130269989725e-13
+      },
+      "reference_results_sha256": {
+        "runs/research_2026_09_26/raisin_hst_pixel_feasibility/dark_ramp_execution/read-matrix.npz": "ddfe9fde6553964f7ea7d35bbada0c5b73a391a01bae81ebaf490113f01b70a7",
+        "runs/research_2026_09_26/raisin_hst_pixel_feasibility/dark_ramp_execution/pair-quadrant-power.csv": "c4e0dd8734c6ab6a2e27235a321eb3c0a3b236b1236891001c7e49a8e8f4db33",
+        "runs/research_2026_09_26/raisin_hst_pixel_feasibility/dark_ramp_execution/block-pair-power.csv": "0e29570df72447e1536719bcf0f32542a4ff66ab1ac2fca1982fe29677e06cee",
+        "runs/research_2026_09_26/raisin_hst_pixel_feasibility/dark_ramp_execution/aperture-pair-power.csv": "deeef1ae0328314ec6a9e4117b14b11c9dad1c53452635fa50bd5ce2107119c4",
+        "runs/research_2026_09_26/raisin_hst_pixel_feasibility/calwf3_dark_prefix/independent-score-review/result.json": "ab38ad670d197d9443ded878f216b8e22f191af194fb9bee16ef8504b8437876"
+      }
+    },
+    "portable_copy_new_dark_workflows": true
+  },
+  "runs": [
+    {
+      "workflow": "cosmology",
+      "status": "passed",
+      "elapsed_seconds": 16.644396551986574,
+      "configuration": {
+        "model": "lcdm",
+        "data": "sn",
+        "seed": 41001,
+        "steps": 7000,
+        "burn": 1500,
+        "walkers": 40,
+        "tau": 0.5,
+        "correction_csv": null,
+        "correction_column": "delta_mu",
+        "correction_scale": 1.0,
+        "amplitude": "none",
+        "optimize_only": false
+      },
+      "run_record": "results/cosmology/run.json",
+      "summary": "results/cosmology/summary.json",
+      "run_sha256": "cdbba4c8d0e28074d9fd183a9dcc09f29010213641dd51d662c78ad43c11a3f8",
+      "summary_sha256": "6b2f4b7c8242d4115d2b72a062c256a1b30b8aba400699118caaf981050d25c4"
+    },
+    {
+      "workflow": "bao-shape",
+      "status": "passed",
+      "elapsed_seconds": 0.4087595430028159,
+      "configuration": {
+        "draws": 5000,
+        "seed": 260926
+      },
+      "run_record": "results/bao-shape/run.json",
+      "summary": "results/bao-shape/summary.json",
+      "run_sha256": "7a5acbdb3812233214fcbf791b42369192bfd088ed276a414ac5a9a5d4d17023",
+      "summary_sha256": "b2ff5b9d890e7f4b57c93810fbc01db417d7de3ad62e7bf20765c019ccff252d"
+    },
+    {
+      "workflow": "ages",
+      "status": "passed",
+      "elapsed_seconds": 0.8109636770095676,
+      "configuration": {
+        "overlap": "G11_first",
+        "zmin": 0.06,
+        "zmax": 0.42,
+        "latent_age_fit": true
+      },
+      "run_record": "results/ages/run.json",
+      "summary": "results/ages/summary.json",
+      "run_sha256": "905ddb3b7da1fdcca47d37d596e9fcbfeb0ae2fe7f2a4cb544dc8a4330845ab2",
+      "summary_sha256": "666256415d6f5366993b29f0a70ebfbfec68ec647ef793580f5bf4cd07fe7d01"
+    },
+    {
+      "workflow": "populations",
+      "status": "passed",
+      "elapsed_seconds": 2.3059558950044448,
+      "configuration": {
+        "cosmology": "son_cpl_H63p6",
+        "sfh": "B13",
+        "delay_points": 12001,
+        "clock_points": 60001
+      },
+      "run_record": "results/populations/run.json",
+      "summary": "results/populations/summary.json",
+      "run_sha256": "7232fc0fd9833c0a2b58a288fa519e79999cbfead3c65393db51da838e504583",
+      "summary_sha256": "dfb2c71f1eb49c75eaf02ed9475de84c956bef00f2140e9e1d9507998d9c8d0f"
+    },
+    {
+      "workflow": "dust",
+      "status": "passed",
+      "elapsed_seconds": 0.0017064150015357882,
+      "configuration": {},
+      "run_record": "results/dust/run.json",
+      "summary": "results/dust/summary.json",
+      "run_sha256": "81995027dd6a4c9bda4687c9fafc94606128ad1925694b4f32ac0fc29a034b9f",
+      "summary_sha256": "4e015441176b534edcb9c1a693948c32fdefcc3e5ec7dee097a97dc0da31ee8e"
+    },
+    {
+      "workflow": "des-flux",
+      "status": "passed",
+      "elapsed_seconds": 5.812508232003893,
+      "configuration": {
+        "objects": "all",
+        "interpolations": [
+          "sncosmo",
+          "scipy"
+        ],
+        "two_starts": true,
+        "heldout_epochs": true
+      },
+      "run_record": "results/des-flux/run.json",
+      "summary": "results/des-flux/summary.json",
+      "run_sha256": "749f4b9f94393f6d1aadbba5e3fed76522eae464f51487ae249e6e83ba2e11b1",
+      "summary_sha256": "11b64bea9959793eb6e5f7c1ef8023a2f3b6db50f23825a932a3566388391b8a"
+    },
+    {
+      "workflow": "des-predictors",
+      "status": "passed",
+      "elapsed_seconds": 22.33853836200433,
+      "configuration": {
+        "model": "tripp",
+        "noise": "gaussian",
+        "warmup": 1200,
+        "draws": 2000,
+        "chains": 4,
+        "seed": 2026092160,
+        "reference": "coasting",
+        "covariance_scale": 1.0
+      },
+      "run_record": "results/des-predictors/run.json",
+      "summary": "results/des-predictors/summary.json",
+      "run_sha256": "cf7c3d00784f91d912390162473fa1dc4695ae727778145d7ea21e68e6b340a8",
+      "summary_sha256": "5c3d5e72e0dafca88a3ae73be3bbaea5cf1d2a02efb0aa6e2c44f7b34134c7a9"
+    },
+    {
+      "workflow": "calibration",
+      "status": "passed",
+      "elapsed_seconds": 0.008100531995296478,
+      "configuration": {},
+      "run_record": "results/calibration/run.json",
+      "summary": "results/calibration/summary.json",
+      "run_sha256": "75261dddd97d5e66559e425bcada4081598084ed05c9d15ea4eb4d0eaa2bf5ca",
+      "summary_sha256": "acffc2feaef238c7796c1eb952c3907836a7ed62c62f6febfebbadf2d936f330"
+    },
+    {
+      "workflow": "raisin",
+      "status": "passed",
+      "elapsed_seconds": 0.6298096519894898,
+      "configuration": {},
+      "run_record": "results/raisin/run.json",
+      "summary": "results/raisin/summary.json",
+      "run_sha256": "f382bd0569d77ebfd9e71be673e7b2a65a7c40e092cd38f4c6d6182bb3869696",
+      "summary_sha256": "c5b0bd44054fda903349ba2dd72efc02bd7023d8eed474117f5786c65fb799c9"
+    },
+    {
+      "workflow": "timing",
+      "status": "passed",
+      "elapsed_seconds": 1.6901460779918125,
+      "configuration": {},
+      "run_record": "results/timing/run.json",
+      "summary": "results/timing/summary.json",
+      "run_sha256": "43d3519fd30f2d532cbaa7174ce98c13822c7c9f32259936997ad2104b57a394",
+      "summary_sha256": "7c503678d354695d0dcb4104c847523307f0a06b02388aa91a55b57b091a7180"
+    },
+    {
+      "workflow": "csp-lineage",
+      "status": "passed",
+      "elapsed_seconds": 0.08907415599969681,
+      "configuration": {},
+      "run_record": "results/csp-lineage/run.json",
+      "summary": "results/csp-lineage/summary.json",
+      "run_sha256": "44a16c9e7ecffcd8666ca8528c061149a4eedbda1a11781f7f125cf549fcb072",
+      "summary_sha256": "69f2cfb9f546f323bc6bfb6e0581446f29c0d757352c843f5dbc29e03ed202fc"
+    },
+    {
+      "workflow": "csp-passbands",
+      "status": "passed",
+      "elapsed_seconds": 0.1680582080007298,
+      "configuration": {
+        "phase_days": [
+          -7,
+          0,
+          7,
+          10,
+          15,
+          20,
+          30
+        ],
+        "redshifts": [
+          0,
+          0.01,
+          0.03,
+          0.05,
+          0.08
+        ]
+      },
+      "run_record": "results/csp-passbands/run.json",
+      "summary": "results/csp-passbands/summary.json",
+      "run_sha256": "265967e0e9ff9fda4c28c71b7a03a304d95d1a93dafcc46618b88ad9c31692cb",
+      "summary_sha256": "774b7cc67c24af18f4506d87dce65a98f464426c248ecaecab723cc8b958cb56"
+    },
+    {
+      "workflow": "hst-repeat",
+      "status": "passed",
+      "elapsed_seconds": 0.4991949210088933,
+      "configuration": {
+        "bootstrap_draws": 2000,
+        "seed": 260926
+      },
+      "run_record": "results/hst-repeat/run.json",
+      "summary": "results/hst-repeat/summary.json",
+      "run_sha256": "f1bc042160b3a1e75a8563ed2ae1d8f64b840ac49c7754cc8a84986996101115",
+      "summary_sha256": "0b2c2ca68f4a6a9c70723c00c418f49bc0bad8fe67a7751c017669d023e1c115"
+    },
+    {
+      "workflow": "hst-geometry",
+      "status": "passed",
+      "elapsed_seconds": 78.63839761499548,
+      "configuration": {},
+      "run_record": "results/hst-geometry/run.json",
+      "summary": "results/hst-geometry/summary.json",
+      "run_sha256": "108d2f52b83c8674486ed3f6757e87322a17b816adefbf64e6d3e1e34aea96b3",
+      "summary_sha256": "a0505cb8d2de3d335e9dc6d9b299e4c983d29407214fc40479b1fb829e0ad759"
+    },
+    {
+      "workflow": "hst-flat",
+      "status": "passed",
+      "elapsed_seconds": 1.3166250519861933,
+      "configuration": {},
+      "run_record": "results/hst-flat/run.json",
+      "summary": "results/hst-flat/summary.json",
+      "run_sha256": "f43cdf99bfd21f39aa21beb68c140d232891b1cd438b613700e7e25cfe658394",
+      "summary_sha256": "43783fefdab527d0988b257d6d5e15e337b407f97abdb9c8950496ed8c117afb"
+    },
+    {
+      "workflow": "hst-dark-raw",
+      "status": "passed",
+      "elapsed_seconds": 8.310295521994703,
+      "configuration": {},
+      "run_record": "results/hst-dark-raw/run.json",
+      "summary": "results/hst-dark-raw/summary.json",
+      "run_sha256": "f474dbc7e460ef07c024a2151bbf537274f547f9b275baefb6e16a1aa7240467",
+      "summary_sha256": "bff4db1a64a79ebaa5e51640431c1d2ae24b5491bdf88caa694e1f5bb10dc9a6"
+    },
+    {
+      "workflow": "hst-dark-calibrated",
+      "status": "passed",
+      "elapsed_seconds": 5.620123030996183,
+      "configuration": {},
+      "run_record": "results/hst-dark-calibrated/run.json",
+      "summary": "results/hst-dark-calibrated/summary.json",
+      "run_sha256": "976ede2f78adc857362c3c406ee6e6aab003114dc66c4ed081f852610cb78ce8",
+      "summary_sha256": "e2cf6c93aa9a75b2088083f204fbec202c6dba04e0afa9de1ef76e285af01340"
+    },
+    {
+      "workflow": "signed-baseline",
+      "status": "passed",
+      "elapsed_seconds": 0.06579043599776924,
+      "configuration": {
+        "cut_days": [
+          180,
+          365
+        ]
+      },
+      "run_record": "results/signed-baseline/run.json",
+      "summary": "results/signed-baseline/summary.json",
+      "run_sha256": "da0eec145478bc61a26ba66cc6d69ded4bac6d60690a08f21182a1d0fa446425",
+      "summary_sha256": "53528304240601312eadb14f6208e8e73b7b570228da3dc4e24bc0c70c2e75ce"
+    },
+    {
+      "workflow": "sign-selection",
+      "status": "passed",
+      "elapsed_seconds": 0.5657877159974305,
+      "configuration": {
+        "replicates": 128,
+        "seed": 26092703,
+        "true_amplitude": 0.4,
+        "epochs": 24
+      },
+      "run_record": "results/sign-selection/run.json",
+      "summary": "results/sign-selection/summary.json",
+      "run_sha256": "3ae6be8d7243df7ef95f36a59ea397624126ca4a90d79de150f863c69246ca3f",
+      "summary_sha256": "136fcedd7d9700104d3526f6d2bf8e61500b7504fe59dab4070d37e615984004"
+    }
+  ],
+  "limits": [
+    "Replays begin at the explicitly documented input levels. Frozen DES derivatives are not regenerated from raw detector data.",
+    "Successful computation does not certify physical identification, real-noise independence, selection closure or every optional configuration.",
+    "Independent numerical checks supplement the code-level gates; they are not independent observational datasets.",
+    "Calibrated HST dark scoring begins with frozen local CALWF3 3.7.3 FLTs; this edition does not rerun the native calibration build. Raw dark moments are freshly extracted from all fourteen original RAWs."
+  ],
+  "inventory": {
+    "python_files": 40,
+    "python_physical_lines": 5051,
+    "markdown_files": 11,
+    "markdown_words_whitespace_approx": 6322,
+    "frozen_inputs": 391,
+    "data_bytes": 748024788
+  },
+  "one_time_curation": {
+    "checked_utc": "2026-09-26T10:39:51.062572+00:00",
+    "previous_edition_sha256": "3539bf601bfdc64a3d646e54f63a13ccf4f5cdd79bcbee4c4c93a5dce957f300",
+    "source_hash_changes_in_previous_curated_code": [],
+    "added_workflows": [
+      "hst-dark-raw",
+      "hst-dark-calibrated"
+    ],
+    "selection": "Completed repeatable HST dark calculations added; BayeSN implementation/runtime checks and incomplete 64-draw timing diagnostics are outside completed scientific workflows.",
+    "automation_id": "one-time-clean-research-update",
+    "monitor_status": "paused; no further runs scheduled"
+  }
+}

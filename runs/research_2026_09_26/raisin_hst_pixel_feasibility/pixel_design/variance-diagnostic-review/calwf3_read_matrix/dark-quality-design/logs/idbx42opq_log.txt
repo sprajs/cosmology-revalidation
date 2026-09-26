@@ -1,0 +1,165 @@
+2016318015433-I-INFO -------------- Data Partitioning Started: idbx42opq ------------
+2016318015433-I-INFO Partitioning from POD file: lz_f1e3_133_0002528525
+2016318015433-I-INFO OSF_PROCESSING: for idbx42opq
+2016318015433-I-INFO DP_dan_present:  DAN file found- will archive pod and dan files
+2016318015433-I-INFO DPI_task::DP_close_oldobs:  SDF lines = 17407, expected pkts = 1088 (single readout), total pkts = 17408
+2016318015433-I-INFO DPI_task::DP_close_oldobs:  17392 Science packets, 16 Engineering (ULX) packets, 0 Bad pkts
+2016318015433-I-INFO DP_close_files:  ...idbx42opq.pkx was closed
+2016318015433-I-INFO DP_close_files:  ...idbx42opq.bdx was closed
+2016318015433-I-INFO DP_close_files:  ...idbx42opq.ulx was closed
+2016318015433-I-INFO DP_close_files:  ...idbx42opq.pki was closed
+2016318015433-I-INFO DP_close_files:  ...idbx42opq.uli was closed
+2016318015433-I-INFO DPI_task::DP_close_oldobs:  -------------- Data Partitioning Ended:   idbx42opq ------------
+2026162213007-I-INFO ss_SupportSchedule:  -------------- Support Schedule Started: idbx42opq ------------
+2026162213008-I-INFO ss_SupportSchedule:  -------------- Support Schedule Completed: idbx42opq ------------
+2026162213009-I-INFO dv_DataValidation:  -------------- Data Validation Started: idbx42opq ------------
+2026162213009-I-INFO dv_Instrument::assign_first_key: from qolink_sms.start_time= 2016.317:17:52:32
+2026162213009-I-INFO dv_Instrument::assign_first_key: assigned first_keys for 2016.317:17:52:32 using yurintab date: 2016.312:00:00:00
+2026162213009-I-INFO dv_DataValidation:  -------------- Data Validation Completed: idbx42opq ------------
+2026162213009-I-INFO ----------- World Coordinate System Started: idbx42opq ---------
+2026162213009-I-INFO ----------- World Coordinate System Ended:   idbx42opq ---------
+2026162213009-I-INFO gc_GenericConversion:  -------------- Generic Conversion Started: idbx42opq ------------
+2026162213009-I-INFO GC_load_...s: ...idbx42opq.dvx maxgroup=16
+2026162213009-I-INFO GC_load_...s: ...idbx42opq.dgx maxgroup=0
+2026162213009-I-INFO GC_load_...s: ...idbx42opq.dcx maxgroup=16
+2026162213009-W-WARN GCI_IR_tdf: TDF down for 16 out of 16 readouts 
+2026162213009-I-INFO GCI_IR_tdf: EXPFLAG ... set to INDETERMINATE
+2026162213009-I-INFO GCI_IR_set_times: EXPSTART set to   5.770474482402E+04 (mjd) 
+2026162213009-I-INFO GCI_IR_set_times: EXPEND   set to   5.770475295995E+04 (mjd) 
+2026162213009-I-INFO GCI_IR_exptime_t_ro: imgsetup1 = FullImag; hversion = 29
+2026162213009-I-INFO GCI_IR_exptime: t_ro = 2.91181
+2026162213009-I-INFO GCI_IR_exptime: EXPTIME  set to           702.938171 (sec) 
+2026162213009-I-INFO GCI_construct_SCI: opened fits file ...idbx42opq_raw.fits
+2026162213011-I-INFO GCI_extension: This is an IR image ABCD
+2026162213011-I-INFO gc_GenericConversion:  -------------- Generic Conversion Completed: idbx42opq ------------
+2026162213012-I-INFO-exposure_times-Start ------ Exposure Times Updater for idbx42opq ------
+2026162213012-I-INFO-exposure_times-UPDATE_EXPOSURE_TIMES is False. No update necessary.
+2026162213012-I-INFO-exposure_times-  End ------ Exposure Times Updater Nothing to do for idbx42opq ------
+2026162213012-I-INFO-exposure_times-  End ------ Exposure Times Updater Nothing to do for idbx42opq ------
+
+git tag: 97040e9-dirty
+git branch: main
+HEAD @: 97040e9890e4705e3776787a4f4ed85511533688
+
+
+CALBEG*** CALWF3 -- Version 3.7.3 (Jan-07-2026) ***
+Begin    11-Jun-2026 21:32:52 UTC
+
+
+Input    idbx42opq_raw.fits
+loading asn
+
+LoadAsn:  Processing SINGLE exposure
+Trying to open idbx42opq_raw.fits...
+Read in Primary header from idbx42opq_raw.fits...
+
+
+
+CALBEG*** WF3IR -- Version 3.7.3 (Jan-07-2026) ***
+Begin    11-Jun-2026 21:32:52 UTC
+Input    idbx42opq_raw.fits
+Output   idbx42opq_flt.fits
+Trying to open idbx42opq_raw.fits...
+Read in Primary header from idbx42opq_raw.fits...
+APERTURE IR
+FILTER   Blank
+DETECTOR IR
+Reading data from idbx42opq_raw.fits ...
+
+CCDTAB   iref$t2c16200i_ccd.fits
+CCDTAB   PEDIGREE=Ground
+CCDTAB   DESCRIP =Reference data based on Thermal-Vac #3, gain=2.5 results for IR-4
+CCDTAB   DESCRIP =Readnoise,gain,saturation from TV3,MEB2 values. ISRs 2008-25,39,50
+    readnoise =20.2,19.8,19.9,20.1
+    gain =2.34,2.37,2.31,2.38
+
+DQICORR  PERFORM
+DQITAB   iref$3562029fi_bpx.fits
+DQITAB   PEDIGREE=INFLIGHT 08/10/2016 09/09/2017
+DQITAB   DESCRIP =Bad Pixel Table generated using Cycle 24 Flats and Darks-----------
+DQICORR  COMPLETE
+
+ZSIGCORR OMIT
+
+BLEVCORR PERFORM
+OSCNTAB  iref$q911321mi_osc.fits
+OSCNTAB  PEDIGREE=GROUND
+OSCNTAB  DESCRIP =Initial values for ground test data processing
+BLEVCORR COMPLETE
+
+ZOFFCORR PERFORM
+ZOFFCORR COMPLETE
+
+NOISCORR PERFORM
+Uncertainty array initialized.
+NOISCORR COMPLETE
+
+NLINCORR PERFORM
+NLINFILE iref$a2412448i_lin.fits
+NLINFILE PEDIGREE=INFLIGHT 29/03/2011 25/11/2012
+NLINFILE DESCRIP =Non-linearity, pixel-based correction from WFC3 on-orbit frames
+NLINCORR detected 1285 saturated pixels in imset 16
+NLINCORR detected 1348 saturated pixels in imset 15
+NLINCORR detected 1423 saturated pixels in imset 14
+NLINCORR detected 1454 saturated pixels in imset 13
+NLINCORR detected 1476 saturated pixels in imset 12
+NLINCORR detected 1488 saturated pixels in imset 11
+NLINCORR detected 1494 saturated pixels in imset 10
+NLINCORR detected 1501 saturated pixels in imset 9
+NLINCORR detected 1506 saturated pixels in imset 8
+NLINCORR detected 1514 saturated pixels in imset 7
+NLINCORR detected 1518 saturated pixels in imset 6
+NLINCORR detected 1527 saturated pixels in imset 5
+NLINCORR detected 1530 saturated pixels in imset 4
+NLINCORR detected 1532 saturated pixels in imset 3
+NLINCORR detected 1544 saturated pixels in imset 2
+NLINCORR detected 1546 saturated pixels in imset 1
+NLINCORR COMPLETE
+
+DARKCORR OMIT
+
+PHOTCORR OMIT
+
+UNITCORR PERFORM
+UNITCORR COMPLETE
+
+CRCORR   PERFORM
+CRREJTAB iref$u6a1748ri_crr.fits
+CRIDCALC using 4 sigma rejection threshold
+               256 bad DQ mask
+               4 max CRs for UNSTABLE
+183 pixels detected as unstable
+CRCORR   COMPLETE
+
+FLATCORR OMIT
+Writing calibrated readouts to idbx42opq_ima.fits
+Writing final image to idbx42opq_flt.fits
+ with trimx = 5,5, trimy = 5,5
+
+
+End      11-Jun-2026 21:32:57 UTC
+
+*** WF3IR complete ***
+
+
+End      11-Jun-2026 21:32:57 UTC
+
+*** CALWF3 complete ***
+CALWF3 completion for idbx42opq_raw.fits
+[INFO    ] ENVVAR ASTROMETRY_COMPUTE_APOSTERIORI found, setting 'align to gaia' to True.
+[INFO    ] ENVVAR ASTROMETRY_APPLY_APRIORI found, setting 'align with apriori' to True.
+[INFO    ] ENVVAR PIPELINE_RESET_IDCTAB not found, setting 'reset idctab in flt if different from raw' to default of False.
+[INFO    ] ENVVAR PIPELINE_QUALITY_TESTING not found, setting 'QA statistics' to default of False.
+[INFO    ] astrodrizzle skipped
+[INFO    ] *** Drizzlepac Processing Version 3.11.0***
+[INFO    ] 21:33:02 (11-Jun-2026): astrodrizzle processing not requested for idbx42opq_raw.fits.
+[INFO    ]        astrodrizzle will not be run at this time.
+[INFO    ] 21:33:02 (11-Jun-2026): Finished processing idbx42opq_flt.fits in 0.12 seconds
+
+[INFO    ] astrodrizzle completed
+2026163235126 INFO src=ac_xxx_OWL.run_task fsn=idbx42opq msg="-------------- After Calibration Started for   idbx42opq --------------"
+2026163235126 INFO src=ac_xxx_OWL-hst_missionquery.__init__ msg="HST_Mission_db connection to ... ..."
+2026163235126 INFO src=ac_xxx_OWL-HstScienceDataset.__init__ fsn=idbx42opq msg="Opening connection to ..., ..."
+2026163235126 INFO src=ac_xxx_OWL-hst_missionquery.get_proposal_id fsn=idbx42opq msg="returning 14537 for idbx42opq"
+2026163235126 INFO src=ac_xxx_OWL.update_quality_...s fsn=idbx42opq msg="No pdq_summary_update records found for idbx42opq."
+2026163235126 INFO src=ac_xxx_OWL.run_task fsn=idbx42opq msg="-------------- After Calibration Completed for idbx42opq --------------"

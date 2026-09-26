@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-09-26T03:02:37.560972+00:00",
+  "stage": "Before DES design results; only released CID/IDSURVEY/zHD/zHEL/MUERR_FINAL and covariance are read. No MU or observed distance residual is read/scored.",
+  "estimand": "Relative total standardized-luminosity/opacity/calibration/selection drift: r_DES(z)-5log10[(DM/rd)/z], with one free common magnitude/ruler intercept. Future r_DES=MU-5log10[(1+zHEL)zHD], but MU is not loaded here.",
+  "assumptions": "Published DES distances have MUERR_FINAL statistical/BEAMS uncertainty; STAT+SYS matrix contains additional systematic covariance. Use C=systematic matrix+diag(MUERR_FINAL^2) exactly once, as release README and SN-only likelihood specify; STATONLY is zero and not added. Constant comoving ruler, standard distance duality, released Gaussian effective-redshift BAO approximation, unknown cross-probe covariance taken zero for forecast only. No LCDM fit, H0 or rd calibration.",
+  "selection": "Read DES-SN5YR_HD.csv in exact file order, restrict IDSURVEY==10 without sorting or magnitude-dependent cuts; preserve the corresponding full-matrix row indices. Check selected CID/redshift/uncertainty against HD+MetaData in identical release order. DES zHD is interpolation coordinate; zHEL enters only the unscored future geometric expression. BAO DM nodes inside DES zHD support; exclude DV and DH, use marginal DM covariance submatrix.",
+  "interpolation": "Local GLS polynomial in [ln(1+z)-ln(1+z_node)]/halfwidth, primary degree2 halfwidth.10. Frozen sensitivities degree2 widths.075,.125 and degree3 width.10. Marginal local C in each GLS; cross-node errors from W Cfull W^T. No kernel tuning with outcomes.",
+  "admission": "For every frozen interpolation design: >=20 distinct CID, >=5 distinct CID strictly each side, full polynomial rank, condition number<1e8, max named-test-curve interpolation bias<=.005mag. Interpolation tests are a finite sensitivity set, not a bound over arbitrary smooth histories.",
+  "recovery_curves": "Flat constant-w Om in[.15,.3,.5], w in[-1.5,-1,-.5]; positive kinematic E=(1+z)^(1+q0+q1)exp[-q1*z/(1+z)], q0 in[-1,0,.5], q1 in[0,1,2]. Test r=5log10[(integral dz/E)/z]. Curves test approximation only, not priors or fits.",
+  "power": "If >=2 nodes admitted, estimate Gaussian forecast SE for drift linear in ln(1+z) normalized to1 between min/max admitted nodes. Profile intercept. Power at two-sided5% for endpoint differences .02,.05,.10mag. Retain inter-node SN covariance. BAO log delta-method approximation verified with50000 Gaussian draws, seed260926117.",
+  "stop": "Do not score observed drift in this script. This DES branch shares supernovae/analysis ancestry with other released compilations and is not an independent-dataset multiplication with Pantheon+. Broad BAO redshift kernels are unresolved; interpolation recovery alone does not validate compressed likelihood under arbitrary histories. No opacity attribution or cosmology correction.",
+  "input_sha256": {
+    "sources/repos/des-science__DES-SN5YR@1.3/4_DISTANCES_COVMAT/DES-SN5YR_HD.csv": "95ab1e9f5460a056de37d2b4e28df73ce0c7fd471baba9fb37f1667f41b7901c",
+    "sources/repos/des-science__DES-SN5YR@1.3/4_DISTANCES_COVMAT/DES-SN5YR_HD+MetaData.csv": "80e081d13145a7ee66730b59826ed83e6414087fd1e26a5a206a196f650f02c5",
+    "sources/repos/des-science__DES-SN5YR@1.3/4_DISTANCES_COVMAT/STAT+SYS.txt.gz": "20bc94a881893235a94fc5a1b1c995f4b35bfae333996c2a0ce2696cb05381f2",
+    "sources/repos/des-science__DES-SN5YR@1.3/4_DISTANCES_COVMAT/STATONLY.txt.gz": "89f296a26f9bb500ccfebb173420d80deb609243e424534a31d8fe7befa05fda",
+    "sources/repos/des-science__DES-SN5YR@1.3/4_DISTANCES_COVMAT/README.md": "51608e967635573ae40fbc61d02b3f9d8b37194b21f082b85a62d906a75fc9b2",
+    "sources/repos/des-science__DES-SN5YR@1.3/5_COSMOLOGY/SN_only_cosmosis_likelihood.py": "182accbc5aba24e13c31638a38011c01903d5554ca2e895e0cbf5908a647c545",
+    "sources/repos/CobayaSampler__bao_data/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_mean.txt": "9ac154ab583ce759c0f7eef3c978c7c70a6ead2d18774caceadf1a350a640585",
+    "sources/repos/CobayaSampler__bao_data/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_cov.txt": "252a143274c8a07c78694c119617d36594f6d7965d00319ca611c6ffb886e509",
+    "scripts/research_2026_09_26/sn_bao_des_design.py": "3b24fa19f7877c6f21ab1d89921e9486aac3f89a98c0c17e4ffae34a237b7a86"
+  }
+}

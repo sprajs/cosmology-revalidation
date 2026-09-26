@@ -1,0 +1,26 @@
+{
+  "status": "Frozen before any seven-band BD17-minus-VegaB outcomes",
+  "scope": "No fits, simulations, KCOR execution, source-version choices after outcome, or calibration offsets",
+  "repository": "obscode/snpy",
+  "commit": "3b97ef08e48b4d535f587d19a14eb2d0ea3a7f33",
+  "operative_standard": "VegaB from snpy/filters/standards/Vega/standards.dat = alpha_lyr_stis_005.ascii; VegaB=0 in all seven selected LCO filter declarations",
+  "reference_spectrum": "phase2/official/inputs/SNDATA_ROOT/standards/bd_17d4708_stisnic_007.dat (exact RAISIN KCOR BD17_SED)",
+  "filter_mapping": [
+    {"result_label":"Y", "snpy_filter":"Swope/Y", "snpy_curve":"Y_SWO_TAM_scan_atm.dat", "raisin_magref":"8.626"},
+    {"result_label":"y", "snpy_filter":"Dupont/Ydw", "snpy_curve":"Y_DUP_TAM_scan_atm.dat", "raisin_magref":"8.6135"},
+    {"result_label":"J", "snpy_filter":"Swope/J", "snpy_curve":"J_old_retrocam_swope_atm.dat", "raisin_magref":"8.4129"},
+    {"result_label":"j", "snpy_filter":"Swope/Jrc2", "snpy_curve":"J_SWO_TAM_scan_atm.dat", "raisin_magref":"8.4192"},
+    {"result_label":"H", "snpy_filter":"Swope/H", "snpy_curve":"H_SWO_TAM_scan_atm.dat", "raisin_magref":"8.1216"},
+    {"result_label":"h", "snpy_filter":"Dupont/Hdw", "snpy_curve":"H_DUP_TAM_scan_atm.dat", "raisin_magref":"8.1221"},
+    {"result_label":"WIRC-J", "snpy_filter":"Dupont/Jdw", "snpy_curve":"J_DUP_TAM_scan_atm.dat", "raisin_magref":null}
+  ],
+  "source_method": "For each standard independently, integrate S(lambda)*f_lambda(lambda)*lambda/(hc) d lambda using SNooPy pinned source default: linearly interpolate filter onto spectrum grid, zero outside filter bounds, Simpson integration. Set ZP so VegaB synthetic magnitude is the registry VegaB=0. Report m_BD17=-2.5log10(F_BD17/F_VegaB). Independent trapezoid integration on the union of star and filter knots is a numerical cross-check, not a choice to improve agreement.",
+  "comparison": "Report all six signed differences from RAISIN MAGREF and whether they lie within half a final printed digit: Y 0.0005, y 0.00005, J 0.00005, j 0.00005, H 0.00005, h 0.00005 mag. The WIRC-J result has no released MAGREF comparator. Preserve every mismatch; do not shift the reference spectrum or filter, infer a common offset, or replace the paper/README zero-point branch.",
+  "input_hashes": {
+    "snpy_source": "17c608828cc851d680e0e48be411e82884995086f84151b565144c97c7609d60",
+    "snpy_standard_registry": "82032c8c3d98c2ef83821d6aa13be890cf2237e2df8d01f70dc3623b15c3c037",
+    "vegaB_spectrum": "852d8d42e2a32199dd9117d66d5090ddfcbdeef1c5b922b70ee817c33c932f57",
+    "raisin_bd17_spectrum": "309fb66fefae837368f5462e8faea27762f5d087c92bc0440996b63c43222b59",
+    "raisin_kcor_input": "1831091b3b9255593a10a5087d378dc8eff1299801d6403fdca13d5bf4923e8d"
+  }
+}

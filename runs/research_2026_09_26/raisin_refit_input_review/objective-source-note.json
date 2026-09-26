@@ -1,0 +1,39 @@
+{
+  "source": "phase2/official/build/SNANA-current/src/snlc_fit.F90",
+  "sha256": "c3ae0005d186ce7e9696f91c97f1516fba44b238148b3eacfb9b26958accc72b",
+  "findings": [
+    {
+      "function": "FCNSNLC",
+      "lines": [
+        3941,
+        3945
+      ],
+      "finding": "FITCHI2 excludes CHI2INI prior terms included in minimization; comparing exported FITCHI2 alone is not comparing the full per-iteration minimand."
+    },
+    {
+      "function": "FCNCHI2_PRIOR",
+      "lines": [
+        4847,
+        4849
+      ],
+      "finding": "Peak penalty uses PEAKMJD minus INIVAL(IPAR_PEAKMJD), not directly the original photometry-header peak."
+    },
+    {
+      "function": "FITINI_PARVAL",
+      "lines": [
+        7919,
+        7950
+      ],
+      "finding": "For later iterations INIVAL is previous-iteration FITVAL plus FITERR times INIVAL_SHIFT_ERRFRAC (default zero). Thus the peak-penalty center changes during the fitting sequence."
+    },
+    {
+      "function": "default settings",
+      "lines": [
+        6815,
+        6816
+      ],
+      "finding": "INIVAL_SHIFT_ERRFRAC defaults to zero; full/free/B log also records zero."
+    }
+  ],
+  "implication": "Preserve the native algorithm as a conditional pipeline comparator, but do not label it a fixed-header Gaussian-prior posterior or rank different iteration states by exported data chi-square alone. A stable scientific profile needs a fixed measurement mask, stated covariance treatment and actual objective."
+}

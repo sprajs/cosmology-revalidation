@@ -1,0 +1,72 @@
+{
+  "status": "PASS; separately frozen post-result sensitivity, no native fits or validation coefficient tuning",
+  "COLORLAW_amplitude": 0.5773502691896257,
+  "COLORLAW_covariance_factor": 0.3333333333333333,
+  "original_amplitude": 0.3,
+  "original_covariance_factor": 0.09,
+  "column_multiplier": 1.9245008972987525,
+  "unchanged_first_eleven_mode_columns": true,
+  "discovery_objects": 43,
+  "validation_objects": 1020,
+  "models": {
+    "systematics_only": {
+      "SVD_conditional_gain": 50.46264631794045,
+      "R_difference_gain": 50.46264631793989,
+      "independent_absolute_difference": 5.542233338928781e-13,
+      "original_gain": 50.07086791664292,
+      "change_from_original": 0.39177840129752894,
+      "validation_design_rank": 12
+    },
+    "systematics_plus_observer": {
+      "SVD_conditional_gain": 58.76330288146556,
+      "R_difference_gain": 58.76330288146575,
+      "independent_absolute_difference": 1.8474111129762605e-13,
+      "original_gain": 58.752182718734154,
+      "change_from_original": 0.011120162731408811,
+      "validation_design_rank": 14
+    },
+    "systematics_plus_isotropic_griz_observer": {
+      "SVD_conditional_gain": 58.68861460576071,
+      "R_difference_gain": 58.68861460576071,
+      "independent_absolute_difference": 0.0,
+      "original_gain": 58.681580290857,
+      "change_from_original": 0.007034314903712868,
+      "validation_design_rank": 14
+    }
+  },
+  "observer_log_ratios": {
+    "systematics_plus_observer": 8.300656563525116,
+    "systematics_plus_isotropic_griz_observer": 8.225968287820265
+  },
+  "observer_log_ratio_changes": {
+    "inherited": -0.38065823856612013,
+    "isotropic": -0.3847440863938161
+  },
+  "fixed_original_observer": {
+    "information": 46.34581465698972,
+    "centered_matched_product": 21.599998562736637,
+    "conditional_Gaussian_Z": 3.172842118345093,
+    "conditional_Gaussian_one_sided_tail": 0.0007547729468326115,
+    "full_fixed_direction_shift_gain": -1.5729087657582213
+  },
+  "fixed_original_observer_changes": {
+    "information": -0.2567259772102872,
+    "centered_matched_product": -0.4766893732422375,
+    "conditional_Gaussian_Z": -0.061076761846112326,
+    "conditional_Gaussian_one_sided_tail": 0.00014425228684406596,
+    "full_fixed_direction_shift_gain": -0.34832638463709387
+  },
+  "scope": "This bounds one paper/config weighting sensitivity in a finite-mode model; it does not identify the original executed weight, calibrate the full systematic budget, or measure a correction.",
+  "inputs_sha256": {
+    "runs/research_2026_09_26/shared_mode_review/colorlaw_weight_sensitivity.py": "7ce08cb3a0bee67e20f63675e38af483e96f3f15e02df35388359fd864a2157d",
+    "runs/research_2026_09_26/shared_mode_review/colorlaw-weight-protocol.md": "94f7f25eef4df32c642f288c58255ca0f9e02fb98a3c898aa8f26e7dcee891d0",
+    "runs/research_2026_09_26/shared_mode_review/check_observed_scores.py": "c3fe25a30bc3c0a0c33ef0bb58487c793152c53426a55cd0624b6a26102e4b88",
+    "runs/research_2026_09_26/astra_design/expanded12/discovery-projected-modes.npz": "323bfe317739d814e14a04a561542846e8c5978cc745180a5fbdd79951b7beaa",
+    "runs/research_2026_09_26/astra_design/expanded12/validation-projected-modes.npz": "a6b85a072f6b4f2c9aca1722ce83e4da885526613caa48e20c0b991f24a7d5ab",
+    "runs/research_2026_09_26/astra_design/expanded12/result.json": "e38023291a4f80837bc9aba1b472b136d1abc72dea5fc5a4ecf5cb696207732a",
+    "runs/research_2026_09_26/astra_design/validation1020/frozen-discovery-coefficients.npz": "5db1dabdc832fa3a3d8ba47f47fd365e36f5bb0d5eb556b95c609153697145a0",
+    "papers/text/2401.02945v2.txt": "ea5cc48d3cda4ad2cf9df425e827cdd0dfb4401960be7293e16125205673f75b",
+    "sources/repos/des-science__DES-SN5YR@1.3/7_PIPPIN_FILES/base_files/lcfit/fitopts.yml": "4097dfb9dda5624058735d049463bd331620b38eb72e930f64103a8652203091",
+    "phase2/official/build/SNANA-2fe0f56/util/create_covariance.py": "2fe1c701d76fb3fcf258c229d12f833eb4239dc8ddaaf1f9a0afa75f46ff40d7"
+  }
+}

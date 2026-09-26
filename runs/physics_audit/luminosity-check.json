@@ -1,0 +1,62 @@
+{
+  "scope": "Independent equation/limit checks, not validation of actual ejecta or SALT training.",
+  "constants": {
+    "day_seconds": 86400.0,
+    "solar_mass_g": 1.98847e+33,
+    "atomic_mass_unit_g": 1.66053906892e-24,
+    "mean_lives_days": {
+      "Ni56": 8.8,
+      "Co56": 111.3
+    },
+    "energies_MeV": {
+      "Ni_gamma": 1.75,
+      "Co_gamma_including_annihilation": 3.61,
+      "Co_positron_kinetic": 0.12
+    }
+  },
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3"
+  },
+  "decay_chain": {
+    "analytic_vs_independent_ODE_max_number_fraction_error": 1.61259894326804e-13,
+    "energy_integral_relative_error": 2.220446049250313e-16,
+    "energy_per_initial_solar_mass_erg": 1.8774694127622776e+50,
+    "two_exponential_coefficients_erg_s_per_solar_mass": {
+      "Ni_term": 6.442594804626657e+43,
+      "Co_term": 1.4429907122234946e+43
+    },
+    "Co_power_fraction_underestimate_if_buildup_factor_omitted": 0.07906558849955077,
+    "Co_population_peak_days": 24.246897547714976
+  },
+  "one_zone_diffusion": {
+    "parameters": {
+      "initial_Ni_solar_mass": 0.6,
+      "diffusion_time_days": 13.0,
+      "gamma_escape_time_days": 35,
+      "positron_kinetic_trapping": 1
+    },
+    "peak_days_after_explosion": 15.287079429118378,
+    "peak_luminosity_erg_s": 1.4276012567177468e+43,
+    "peak_L_over_deposited_Q": 1.0000000000012024,
+    "peak_L_over_undeposited_decay_power": 0.9947811257912897,
+    "quadrature_vs_ODE_max_relative_error": 2.4420726263035667e-10,
+    "time_weighted_energy_identity_max_fractional_residual": 4.100934336462099e-12
+  },
+  "blackbody_limit": {
+    "dimensionless_Planck_integral": 6.493939402266829,
+    "derived_sigma_W_m2_K4": 5.6703744191844314e-08,
+    "relative_error_vs_scipy_constant": 0.0
+  },
+  "SALT_empirical_support": {
+    "scope": "Native grid and x1 in [-3,3]; no actual epoch/passband impact inferred.",
+    "nodes_in_phase_minus15_to45_wavelength_3500_to8000": 27511,
+    "nodes_allowing_negative_M0_plus_x1_M1_in_that_rectangle": 703,
+    "inputs_sha256": {
+      "phase2/official/portable_pilot/assets/salt3_template_0.dat.gz": "0b8f0ea7116b7514b9987e5d6e99878c145f23ab16545fbd071ebf64bc40196e",
+      "phase2/official/portable_pilot/assets/salt3_template_1.dat.gz": "e1e388af6452dd9b0fd1bc17ef1d91c23249978b2f2dc9f646cd9b443b1f6262"
+    }
+  },
+  "script_sha256": "5d2f08235d39865ece762cb9743a427c0695c22b917661668fa53337715d4b3d",
+  "passed": true
+}

@@ -1,0 +1,21 @@
+{
+  "inputs_sha256": {
+    "sources/repos/CobayaSampler__sn_data/PantheonPlus/Pantheon+SH0ES.dat": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8",
+    "scripts/assumption_audit/map_dust.py": "67a581d73948f522900afaf96382928359a7b84eaf4def0e547bff7fa661c706",
+    "data/dust/csfd-v2/sfd_ebv.fits": "0a048fefec9a9e3a6c27f9218fee2aed0f9617804cd852b9adbfeeb96df24be4",
+    "data/dust/csfd-v2/csfd_ebv.fits": "379017a424b6f50e98d03df1eac7417750dc0ceba31a34441c63ea182ce01f6e",
+    "data/dust/csfd-v2/mask.fits": "cd5cef870251f60a6d93aab9b16852e20bb09ef3beae3059563dac2e47dd8c1e",
+    "data/dust/csfd-v2/readme.txt": "0074f667253ad0e491033c2954589aa043e5d132331bc08f19c3c3897609a2d2"
+  },
+  "outputs_sha256": {
+    "runs/assumption_audit/foreground-map-summary.json": "7a041f4da0262d4989fac0721d84cb53788763dc4a6a2e8b5c5884d9e2b5eb2b",
+    "runs/assumption_audit/foreground-map-samples.csv": "9b5026afd0bf8afb58486848b3aca9f4a61fb6e4f540ec8685d8d67a44766173"
+  },
+  "source_urls": {
+    "sfd_ebv.fits": "https://lambda.gsfc.nasa.gov/data/foregrounds/CSFD/sfd_ebv.fits",
+    "csfd_ebv.fits": "https://lambda.gsfc.nasa.gov/data/foregrounds/CSFD/csfd_ebv.fits",
+    "mask.fits": "https://lambda.gsfc.nasa.gov/data/foregrounds/CSFD/mask.fits",
+    "readme.txt": "https://lambda.gsfc.nasa.gov/data/foregrounds/CSFD/readme.txt"
+  },
+  "environment": "project .venv plus astropy-healpix==1.1.2, installed separately"
+}

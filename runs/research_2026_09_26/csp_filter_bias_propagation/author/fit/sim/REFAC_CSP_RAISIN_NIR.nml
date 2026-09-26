@@ -1,0 +1,78 @@
+# Automatic translation for legacy LCFIT file CSP_RAISIN_NIR.nml
+
+CONFIG:
+  OUTDIR: $RAISIN_ROOT/cosmo/output/fit_nir/CSP_RAISIN_NIR_SIM
+  BATCH_INFO: "sbatch $SBATCH_TEMPLATES/SBATCH_DEFAULT.TEMPLATE 12"
+  VERSION:
+  - CSP_RAISIN_SIM
+  - CSP_RAISIN_SIM_AVSYS
+  - CSP_RAISIN_SIM_AVSYS_2
+  - CSP_RAISIN_SIM_STSYS
+
+#END_YAML
+
+  &SNLCINP
+	 PRIVATE_DATA_PATH = '$RAISIN_ROOT/cosmo/data/Photometry'
+
+	 VERSION_PHOTOMETRY = 'CSP_RAISIN_SIM'
+	 KCOR_FILE = '$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_BD17.fits'
+	 USE_MINOS = False
+
+	 NFIT_ITERATION = 3
+	 INTERP_OPT		= 1
+
+	 SNTABLE_LIST = 'FITRES(text:key)'
+	 TEXTFILE_PREFIX  = 'output/fit_nir/CSP_RAISIN_NIR_SIM'
+	 
+	 LDMP_SNFAIL = T
+	 USE_MWCOR = F
+
+	 H0_REF	  = 70.0
+	 OLAM_REF =	 0.70
+	 OMAT_REF =	 0.30
+	 W0_REF	  = -1.00
+
+	 SNCID_LIST	   =  0
+	 CUTWIN_CID	   =  0, 20000000
+	 SNCCID_LIST   =  ''
+	 SNCCID_IGNORE =  
+
+	 cutwin_redshift   = 0.01, 2.0
+	 cutwin_Nepoch	  =	 1
+
+	 RV_MWCOLORLAW = 3.1
+	 !OPT_MWCOLORLAW = 99
+	 OPT_MWEBV = 1
+	 MWEBV_SCALE = 1.00
+	 MWEBV_SHIFT = 0.0
+
+
+	 MAGOBS_SHIFT_PRIMARY = ' '
+	 EPCUT_SNRMIN = ''
+	 ABORT_ON_NOEPOCHS = F
+
+  &END
+  &FITINP
+
+	 FITMODEL_NAME	= '$RAISIN_ROOT/cosmo/snoopy.B18'
+	 OPT_PRIOR_AV = 0
+
+         PRIOR_MJDSIG            = 5.0
+         PRIOR_LUMIPAR_RANGE = -5.0, 5.0
+         INIVAL_SHAPE = 1.0
+         INISTP_SHAPE = 0.0
+         INIVAL_AV = 0.0
+         INISTP_AV = 0.0
+         INISTP_PEAKMJD = 0.0
+         INIVAL_RV = 1.518
+
+	 !OPT_COVAR = 1
+	 OPT_XTMW_ERR = 1
+	 OPT_COVAR_FLUX = 0
+	 TREST_REJECT  = -15.0, 45.0
+	 NGRID_PDF	   = 0
+
+	 FUDGEALL_ITER1_MAXFRAC = 0.02
+	 FILTLIST_FIT = 'YyJjH'
+
+  &END

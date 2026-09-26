@@ -1,0 +1,53 @@
+--- /home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/astra_design/raisin_signed_refit/fixed-c-profile/snlc_fit.original.F90	2026-09-26 04:55:12.035159806 +0100
++++ /home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/astra_design/raisin_signed_refit/fixed-c-profile/native-build/src/snlc_fit.F90	2026-09-26 04:55:12.032775596 +0100
+@@ -4010,6 +4010,13 @@
+         ,NFITDATA_FILT(0:MXFILT_OBS), NDMPFCN(0:MXFILT_OBS)
+ 
+     character cfilt*1
++    ! RAISIN optional mean-only oracle; original objective/mask/C are untouched.
++    logical, save :: raisin_stream_done = .false.
++    integer raisin_status, raisin_id, raisin_row, raisin_epoch, raisin_filter
++    character(len=16) raisin_environment
++    double precision raisin_pars(4), raisin_shape(2), raisin_means(MXFIT_DATA)
++    double precision raisin_tobs, raisin_wavecor, raisin_avwarp
++    double precision raisin_magkcor(2), raisin_xtav, raisin_xtmw, raisin_magerr
+ 
+     DOUBLE PRECISION  & 
+          ZSN, ZZ, CHI2INI, SHAPEPAR(2), DISTPAR, COLORPAR  & 
+@@ -4682,6 +4689,36 @@
+           TRIM(SNLC_CCID),irow,(COVMAT2(irow,icol),icol=1,NFITDATA)
+       ENDDO
+     ENDIF
++    IF (LFLAG_LAST_MN .and. ITER==NFIT_ITERATION .and. .not.raisin_stream_done) THEN
++      raisin_stream_done=.true.
++      call get_environment_variable('RAISIN_PROBE_STREAM',raisin_environment,status=raisin_status)
++      IF (raisin_status==0 .and. trim(raisin_environment)=='1') THEN
++        write(6,'(A,1X,I6)') 'RAISIN_READY:',NFITDATA
++        call flush(6)
++        DO
++          read(5,*,iostat=raisin_status) raisin_id,raisin_pars
++          IF (raisin_status/=0) EXIT
++          IF (raisin_id<0) EXIT
++          raisin_shape(1)=raisin_pars(2)
++          raisin_shape(2)=XVAL(IPAR_SHAPE2)
++          DO raisin_row=1,NFITDATA
++            raisin_epoch=EPLIST_FIT(raisin_row)
++            raisin_filter=I4EP_ALL(raisin_epoch,IEP_IFILT_OBS)
++            ifitdata_usrfun=raisin_row
++            raisin_tobs=R8EP_MJD(raisin_row)-raisin_pars(4)
++            raisin_wavecor=dble(R4EP_ALL(raisin_epoch,JEP_WAVECOR))
++            raisin_means(raisin_row)=USRFUN(ITER,raisin_filter,ZSN,raisin_tobs, &
++              raisin_wavecor,raisin_shape,raisin_pars(1),raisin_pars(3),RVHOST,MWEBV, &
++              .false.,raisin_avwarp,raisin_magkcor,raisin_xtav,raisin_xtmw,raisin_magerr)
++          ENDDO
++          write(6,'(A,1X,I10,1X,I6,1X,*(ES25.17E3,1X))') 'RAISIN_MEAN:', &
++            raisin_id,NFITDATA,raisin_pars,(raisin_means(raisin_row),raisin_row=1,NFITDATA)
++          call flush(6)
++        ENDDO
++        write(6,'(A)') 'RAISIN_STREAM_END'
++        call flush(6)
++      ENDIF
++    ENDIF
+     RETURN
+   END SUBROUTINE FCNSNLC
+ 

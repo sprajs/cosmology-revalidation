@@ -1,0 +1,36 @@
+{
+  "scope": "Frozen constructed nonlinear ambiguity, fixed C/mask; no physical correction or model evidence.",
+  "objects": 1020,
+  "epochs": 39606,
+  "all_gates_pass": false,
+  "failed_ids": [
+    "1250357",
+    "1620051",
+    "1304183"
+  ],
+  "errors": [],
+  "exact_high255_low255_contrasts": {},
+  "nonlinear_mean_change_comparisons": {},
+  "descriptive_observed_local_fit_scores": {},
+  "verification": {
+    "optimizer_runs": 10284,
+    "max_fisher_gradient": 0.0004191872340002258,
+    "max_jacobian_halfstep_relative_error": 6.501028903199931e-06,
+    "max_start_mag_disagreement": 2.1084990094302395e-05,
+    "max_start_chi2_disagreement": 2.361171880238544e-08
+  },
+  "total_object_cpu_wall_seconds": 462.41373518484033,
+  "timing_quantiles_seconds": [
+    0.4478144884997164,
+    0.5559581698988041,
+    0.680863095217137,
+    0.8487372169984155
+  ],
+  "official_mean_sensitivity_objects": 14,
+  "limitations": [
+    "Same independent sncosmo generator/fitter; exact SNANA covariance does not make the mean exact SNANA.",
+    "No population prior probability for the constructed SED or observer modes.",
+    "Fixed covariance and retrospective accepted masks; no covariance feedback, training, classifier/selection or BBC.",
+    "Observed objective changes are descriptive local fitted-flux scores, not integrated evidence."
+  ]
+}

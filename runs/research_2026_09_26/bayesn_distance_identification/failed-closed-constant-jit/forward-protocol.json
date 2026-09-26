@@ -1,0 +1,35 @@
+{
+  "parent_protocol_sha256": "12a49f9c4da298f2f6fc87c3049dd20bd24712735fecb7a4764217f1f52f0e42",
+  "scope": "Conditional forward operator and finite-derivative Fisher only; raw flux values never enter objective or derivatives.",
+  "resolution_sequence": [
+    300,
+    600,
+    1200,
+    2400
+  ],
+  "fiducial": {
+    "AV": 0.3,
+    "RV": 3.1,
+    "theta": 0.0,
+    "epsilon_white": "42zero values",
+    "D": "flatLCDM(73.24,.28) at frozen zHD, used only for signal scale in design"
+  },
+  "derivative_steps": {
+    "D": 0.0001,
+    "AV": 0.0001,
+    "RV": 0.001,
+    "theta": 0.0001,
+    "eps_white": 0.0001
+  },
+  "noise": "Quoted FLUXCALERR squared; measurement covariance diagonal; no SALT modelC or SN outcome residual.",
+  "masks": "fixed header PEAKMJD, strict -10<phase<40; excludeu; full1%-peak throughput interval must lie in3000..18500A rest range; no S/N cut",
+  "gates": {
+    "successive_max_error_over_quoted_sigma": 0.1,
+    "relative_derivative_halfstep_error": 0.0001,
+    "gray_gauge_relative_flux_error": 1e-12,
+    "AV0_RV_derivative_max": 1e-12
+  },
+  "Fisher": "dustAV,RV with nuisanceD,theta,42eps; compare originalDprior vs noDprior, same unit normal theta/eps prior; separately profile all nuisances without intrinsic priors",
+  "physical_support": "OriginalRV>=.5 kept in parent model; law negative-extinction support independently recorded in protocol-addendum.json; no clamping.",
+  "resource": "2CPU affinity; no posterior sampling; stop after finite sixobject gate."
+}

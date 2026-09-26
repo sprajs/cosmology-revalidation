@@ -1,0 +1,39 @@
+{
+  "pass": true,
+  "author_fit_nml_blobs": [
+    {
+      "source_path": "fit/sim/REFAC_DES_RAISIN_NIR.nml",
+      "sha256": "265eb1bd1bc4118e32bce1b56dac9c67c0adfab291bac4fc2d26321e70ff260f",
+      "git_blob": "fe32e0ec664f65ced6e79b2b4dcfc6409069c81d",
+      "closed": true
+    },
+    {
+      "source_path": "fit/sim/DES_RAISIN_NIR.nml",
+      "sha256": "6839e9384ef46687bd4bc78bfa29b737ba735f7e26234be9032f967fda5c92b8",
+      "git_blob": "9430b4ee974b043df6fba38370aaf6276a2090a0",
+      "closed": true
+    }
+  ],
+  "author_nml_fixed_JH": {
+    "fit/sim/REFAC_DES_RAISIN_NIR.nml": true,
+    "fit/sim/DES_RAISIN_NIR.nml": true
+  },
+  "available_simulation_chain": {
+    "nominal_sim_uses_SIMLIB_peak": true,
+    "nominal_sim_sigma_search_peak_0p01": true,
+    "sim_parser_aliases_search_sigma": true,
+    "sim_gaussian_peak_rule": true,
+    "sim_stores_SEARCH_PEAKMJD": true,
+    "text_writer_uses_SEARCH_PEAKMJD": true,
+    "text_reader_maps_PEAKMJD": true
+  },
+  "qualification": "This available simulated-header path is not shown to have generated the released observed DES16 PEAKMJD headers or the effective published bias correction.",
+  "source_sha256": {
+    "runs/research_2026_09_26/raisin_simulation_assets/timing/acquisition.json": "deab6a27b2a46b33fd9083be164dbae70935ae2e71998086b649a785cef94c10",
+    "runs/research_2026_09_26/raisin_sign_source/sim/inputs/DES/sim_DES_SNOOPY.input": "6a576dbd1745e4b770c3ddccc08636b2c7387637fa28870906948a2e1bb751cf",
+    "runs/research_2026_09_26/raisin_nir_timing_sensitivity/SNANA-v11_03c-source/src/snlc_sim.c": "57b77a338fbbc7b21ef058ce734d9c119f51d9ad6cdbaeb1197095b8da7782f4",
+    "runs/research_2026_09_26/raisin_nir_timing_sensitivity/SNANA-v11_03c-source/src/sntools_dataformat_text.c": "728be14ce553e6ba46df5cc3b7c10db816a9ad04530e1cdc652776caa30c6b71",
+    "runs/research_2026_09_26/raisin_differential/mass-threshold/code-tree.json": "1702b38dbcc672f620a1c101396e6b6d6b2a32e42e2d2e5daa1fdde988a3913a",
+    "runs/research_2026_09_26/raisin_nir_timing_sensitivity/timing_source_review.py": "3f53abaa03cf85cf21a5fe9d75a49055863144bcb5559a5fb985af85d7cdf219"
+  }
+}

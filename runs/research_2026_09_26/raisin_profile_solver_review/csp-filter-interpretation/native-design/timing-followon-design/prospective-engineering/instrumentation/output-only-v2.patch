@@ -1,0 +1,53 @@
+--- original/snlc_sim.c
++++ instrumented/snlc_sim.c
+@@ -229,6 +229,7 @@
+   for ( ilc = 1; ilc <= INPUTS.NGEN ; ilc++ ) {
+ 
+     NGENLC_TOT++;
++    if(getenv("PROSP_LEDGER") != NULL) { printf("PROSP_ATTEMPT %d %d\n", NGENLC_TOT, ilc); }
+ 
+     if ( INPUTS.TRACE_MAIN  ) { dmp_trace_main("01", ilc) ; }
+ 
+@@ -10825,6 +10826,7 @@
+   // ----------- BEGIN --------------
+ 
+   ilc = ilc_orig = *ILC ;
++  if(getenv("PROSP_LEDGER") != NULL) { printf("PROSP_REJECT %d %d %d %s\n", NGENLC_TOT, *ILC, GENLC.CID, REJECT_STAGE); }
+   FREEHOST_GALID(SNHOSTGAL.IGAL);
+ 
+   if ( strcmp(REJECT_STAGE,"GENRANGE") == 0 ) {
+@@ -21059,6 +21061,14 @@
+   GENLC.PEAKMJD_SMEAR   = gen_peakmjd_smear(); 
+   SNDATA.SEARCH_PEAKMJD = GENLC.PEAKMJD_SMEAR;
+ 
++  if (getenv("PROSP_LEDGER") != NULL) {
++    printf("PROSP_EVENT %d %d %d %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %d %d\n", NGENLC_TOT, GENLC.CID, GENLC.SIMLIB_ID, GENLC.PEAKMJD, GENLC.PEAKMJD_SMEAR, GENLC.REDSHIFT_HELIO, GENLC.REDSHIFT_CMB, GENLC.DLMU, GENLC.SHAPEPAR, GENLC.AV, GENLC.RV, GENLC.MWEBV, GENLC.MWEBV_SMEAR, GENLC.MWEBV_ERR, GENLC.NEPOCH, GENLC.ACCEPTFLAG_FORCE);
++    int prosp_ep;
++    for(prosp_ep=1; prosp_ep<=GENLC.NEPOCH; prosp_ep++) {
++      printf("PROSP_ROW %d %d %d %.17g %d %.17g %.17g %d %d %d %d %d %d %d\n", NGENLC_TOT, GENLC.CID, prosp_ep, SNDATA.MJD[prosp_ep], GENLC.IFILT_OBS[prosp_ep], (double)SNDATA.FLUXCAL[prosp_ep], (double)SNDATA.FLUXCAL_ERRTOT[prosp_ep], SNDATA.PHOTFLAG[prosp_ep], GENLC.OBSFLAG_GEN[prosp_ep], GENLC.OBSFLAG_WRITE[prosp_ep], GENLC.OBSFLAG_PEAK[prosp_ep], GENLC.OBSFLAG_TEMPLATE[prosp_ep], SIMLIB_OBS_GEN.ISTORE_RAW[prosp_ep], SIMLIB_OBS_GEN.IDEXPT[prosp_ep]);
++    }
++  }
++
+   return ;
+ 
+ }  // end of snlc_to_SNDATA
+@@ -23418,6 +23428,7 @@
+     { sqerr_ran = -fluxTrue; }
+   
+   // update reported error in data file
++  double prosp_variance_before = FLUXNOISE->SQSIG_FINAL_DATA; /* output-only snapshot */
+   double SIG_FINAL_TRUE  = sqrt(FLUXNOISE->SQSIG_FINAL_DATA); // local use
+ 
+   SQSIG_TMP = FLUXNOISE->SQSIG_FINAL_DATA + sqerr_ran;
+@@ -23519,6 +23530,11 @@
+ 
+   // check for really crazy flux values
+   check_crazyFlux(epoch, FLUXNOISE);
++
++  /* Output-only prospective noise ledger: no model/RNG calls. */
++  if (getenv("PROSP_LEDGER") != NULL) {
++    printf("PROSP_NOISE %d %d %d %s %s %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %.17g %d %d %d %d\n", NGENLC_TOT, GENLC.CID, epoch, BAND, FIELD, SIMLIB_OBS_GEN.MJD[epoch], GENLC.epoch_rest[epoch], fluxTrue, fluxObs, FLUXNOISE->SQSIG_SRC, FLUXNOISE->SQSIG_SKY, FLUXNOISE->SQSIG_ZP, FLUXNOISE->SQSIG_TSRC, FLUXNOISE->SQSIG_TSKY, FLUXNOISE->SQSIG_HOST_PHOT, prosp_variance_before, FLUXNOISE->SQSIG_RAN, FLUXNOISE->SQSIG_FINAL_DATA, FLUXNOISE->SQSIG_CALC_DATA, FLUXNOISE->SQSIG_FINAL_TRUE[TYPE_FLUXNOISE_S], FLUXNOISE->SQSIG_FINAL_TRUE[TYPE_FLUXNOISE_SZ], FLUXNOISE->SQSIG_FINAL_TRUE[TYPE_FLUXNOISE_T], FLUXNOISE->SQSIG_FINAL_TRUE[TYPE_FLUXNOISE_F], FLUXNOISE->SQSIG_FINAL_TRUE[TYPE_FLUXNOISE_SUM], GAURAN_SZ, GAURAN_T, GAURAN_F, SHIFT_SZ, SHIFT_T, SHIFT_F, FLUXNOISE->Npe_over_FLUXCAL, FLUXNOISE->NADU_over_Npe, GENLC.flux[epoch], GENLC.fluxerr_data[epoch], FLUXNOISE->NEA, npe_above_sat, OVP, INPUTS.SMEARFLAG_FLUX, FLUXNOISE->INDEX_REDCOV);
++  }
+   
+   if ( epoch == -7 ) 
+     { dumpEpoch_fluxNoise_apply(fnam,epoch,FLUXNOISE); }

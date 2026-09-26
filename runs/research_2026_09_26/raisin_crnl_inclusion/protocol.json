@@ -1,0 +1,14 @@
+{
+  "status": "frozen_before_calibration-value_inspection",
+  "question": "Whether WFC3/IR count-rate nonlinearity/reciprocity correction is demonstrably included in, demonstrably absent from inspected code, or unresolved for released RAISIN HST magnitudes and their calibration systematic budget",
+  "source_scope": [
+    "Exact RAISIN_cosmo author repository commit b888214a5cbae38ac0bf886488ce7734f5b77e87: photometry ingestion/update, released DES16E1dcx SNANA data, HST calibration and nominal systematic configuration/results, source-tree inventory for upstream pixel reduction scripts",
+    "RAISIN primary paper arXiv:2201.07801v2 photometry method, Appendix A and calibration systematic descriptions/references",
+    "Official STScI WFC3 IR count-rate nonlinearity, CALWF3 NLINCORR and photometric calibration documentation/2019 ISR",
+    "Explicitly named hstphot/PythonPhot public source at an exact resolved commit only for implementation capability; do not assume those commits/versions executed by RAISIN"
+  ],
+  "search_terms": ["count-rate nonlinearity", "reciprocity failure", "CRNL", "linearity", "NLINCORR", "zeropoint", "aperture correction", "CALSPEC", "P330E", "HSTCAL", "F125W", "F160W"],
+  "outcomes": ["proven included with execution-linked source", "proven absent in specifically inspected step", "historical execution unresolved"],
+  "rules": "Missing keywords are only negative evidence for searched assets, not proof of historical omission. Separate detector count-level NLINCORR from flux-dependent count-rate correction and distinguish bright-standard zero points, aperture correction, host-noise correction, template subtraction and global calibration systematics. Do not estimate or apply object corrections without counts/rates and execution provenance.",
+  "limits": {"new_source_bytes": 15000000, "elapsed_seconds": 600, "science_images_or_native_fits": 0}
+}

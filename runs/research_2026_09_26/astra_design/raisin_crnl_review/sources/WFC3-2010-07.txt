@@ -1,0 +1,504 @@
+                                                        WFC3 Instrument Science Report 2010-07
+
+
+
+First On-orbit Measurements of the WFC3-IR
+                   Count-rate Non-Linearity
+                                                                                          A. G. Riess
+                                                                                       March 10, 2010
+
+
+ABSTRACT
+Previous HgCdTe detectors on HST have suffered from a count-rate dependent non-linearity,
+motivating an investigation of a similar effect on the WFC3-IR detector. An initial measurement of
+this effect was made by comparing the photometry of star clusters observed over a wide dynamic
+range and at overlapping wavelengths in WFC3-IR and NICMOS and/or ACS-WFC. Utilizing a
+color term to account for differences in the observed bandpasses, we find a significant detection of
+a non-linearity in WFC3-IR photometry which is in the same direction but a few times smaller than
+that of NICMOS. From 235 stars in 47Tuc observed with WFC3-IR in F110W and F160W and in
+similar bandpasses in NICMOS Camera 2, we measure a non-linearity of WFC3-IR of 0.011+/-
+0.0023 and 0.010+/-0.0025 mag per dex, respectively, over a range of 10 magnitudes (4 dex). An
+independent measurement utilizes 1390 stars in NGC 3603 observed with ACS-WFC F850LP and
+WFC3-IR F098M and yields a very similar result, 0.010 +/- 0.0033 mag/dex. The consistency of
+this measurement from two different comparison detectors of different technology indicates this
+result is robust. The impact of this non-linearity is that photometry of faint (i.e., sky dominated)
+sources calibrated with WFC3-IR zeropoints will appear 0.04 +/-0.01 mag too faint.
+
+
+
+Introduction
+Experience with the HST NICMOS HgCdTe infrared detectors revealed a number of non-
+linearities associated with photon counting. The well-known non-linearity of detected counts with
+total incident flux (i.e., the signal non-linearity) is characterized by varying the integration time of
+a standard source, in the lab or on-orbit (Hilbert 2008) and calibrating its effect. Far more
+pernicious is a non-linearity with count-rate, also referred to as a failure of reciprocity or the
+“Bohlin Effect” (Bohlin, Linder, Riess 2005). While the mechanism of this type of non-linearity is
+not yet fully understood, it appears to result from charge trapping (Smith et al. 2007). Its presence
+has been well-established both in laboratory measurements of similar detector types as well as on-
+WFC3 Instrument Science Report 2010-07
+orbit in a direct manner; through the measured difference between source and source plus
+background light. That the same sources vary (as a power law) in their apparent count rate in the
+presence of additional lamp light indicates that the critical detector parameter is the rate, not the
+integrated signal or signal history.
+
+For NICMOS the size of the effect depended somewhat on the camera (which changes the pixel
+size and count rate) and filter (which changes the energy flux), ranging from a 6% to 10% loss in
+measured flux per factor of ten decrease in flux in F110W for Camera 2 and 1, respectively. The
+non-linearity diminishes toward the red, reaching 3% for Camera 2 for F160W. For typical, faint
+science sources (i.e., below the sky) the net effect can be quite large because photometry
+zeropoints are established with stars which are 10 magnitudes or 4 dex brighter. Thus the net
+effect on the faint end of science photometry (i.e., sky-dominated) in the blue is 0.2 to 0.4 mag
+when using the extrapolation from zeropoint calibration to the sky flux. The size of the effect was
+unchanged between Cycles 7 and 14 as seen in archival data taken with flat lamps on and off
+despite the 12 degree cooler running temperature in Cycle 14 (de Jong et al. 2006)
+
+Because the count-rate non-linearity was not detected in NICMOS until late in the development
+cycle of WFC3, a similar lamp assembly with the ability to add flux to an external measurement
+was not employed in the WFC3 IR channel. However, we expect the size of the effect to be
+smaller for WFC3-IR based on the reduced level of persistence, a more visible result of charge
+trapping. To produce a varying count-rate on the WFC3 IR detectors we intend to observe a star
+cluster during cycle 17 under near-CVZ-like conditions, thus varing the incident sky flux
+accompanying stellar sources between the day and night side of the orbit (GO 11933).
+
+An alternative approach to externally increasing the count-rate and comparing the result is to
+measure a sequence of stellar count-rates whose relative values have previously been
+independently determined. Because this method relies on both the reliability of the other detector
+as well as on corrections for the different parts of the observed spectral energy distributions (i.e.,
+astrophysical knowledge), it is not as direct as the method of adding background light. If the
+comparisons are made with well-understood astronomical sources (e.g., stars) over similar
+wavelength ranges observed with well-characterized detectors, the results should provide valuable
+constraints. Even better would be to use more than one independent detector to verify the results.
+Here we use both ACS-WFC and NICMOS as independent calibrators for WFC3-IR of count-rate
+sequences in star clusters. NICMOS HgCdTe detectors can be corrected for their non-linearity
+over the relevant brightness range using the coefficients from de Jong et al. (2006) any apparent
+non-linearity remaining in the comparison should be due to WFC3-IR. For ACS-WFC,
+observations at the red end of its sensitivity fairly well match the blue end sensitivity of WFC3-IR.
+CCDs also have far superior linearity to HgCdTe detectors (Gilliland 2004) making this a valuable
+comparison. We use archival data to carry out this comparison.
+
+Analysis
+
+To meaure the count-rate dependence of WFC3-IR we assume the magnitude of a star in a WFC3-
+IR band, x, i.e., m_x, can be expressed as a transformation of the magnitude in an independent
+detector and passband, m_y and its color, m_y-m_z. To account for diffences in zeropoints and
+aperture corrections, we will reference all magnitudes to the same standard star, P330E, measured
+in the same sized aperture. Hence we define the following relation:
+                                                  2
+                                                          WFC3 Instrument Science Report 2010-07
+
+m_ystar-m_yp330e=a0*(m_xstar-m_xp330e)+ a1*[(m_ystar-m_yp330e)-(m_zstar-m_zp330e)] (1)
+
+
+where a1 is a conventional color term and a0 is the parameter of interest, i.e., the non-linearity
+between WFC3-IR and another detector. Bold face denotes an array of measurements and red
+type are terms relating to stellar color. Our asumed functional form of the non-linearity, is the
+same as de Jong et al. (2006), where the true count rate, cr=fluxα where α=2-a0 . The color term,
+a1, may be determined synthetically using the iraf package synphot in stsdas to empirically
+measure the color relation using model stellar SEDs or treated empirically as a nuisance parameter
+in a 2-parameter simultaneous fit for a0 and a1 in equation (1). We do both below, employing
+synphot to constrain the color term and then combine that constraint with the simultaneous fit to
+improve upon this estimate.
+
+
+We use the following matrix format to compactly express equation (1), minimize the χ2 statistic
+and determine the free parameters:
+
+
+               y=Lq                    (2)
+
+
+               χ2=(y-Lq)TC-1(y-Lq) (3)
+
+
+where y=[(m_ystar-m_yp330e) - a1*[(m_ystar-m_yp330e)-(m_zstar-m_zp330e)], 0] with a1 and its
+uncertainty, σa1, estimated from synphot,
+
+
+q=(a0, Δa1)
+
+
+and
+
+
+L is the matrix, L=
+
+
+                  (m_xstar-m_xp330e)         (m_ystar-m_yp330e)-(m_zstar-m_zp330e)
+
+
+                  0                          1
+
+
+and C is the error matrix of the measurements. As we have already corrected the stellar
+magnitudes for the synphot-based estimate of the color term, a1, the new parameter Δa1 is the delta
+color correction determined from the data. While the first n linear equations (where n=# stars)
+follow from equation (1), the last entry in y, the last row in L, and the last corner entry of C
+accommodate the simple relation, 0= Δa1 ± σa1 thus including the constraint on the color term from
+synphot. Including this term provides emprically for a perturbation to the color term if warranted
+
+                                                   3
+WFC3 Instrument Science Report 2010-07
+by the data and the final color term will be given by a1+Δa1.
+
+
+The maximum likelihood estimate of q is given by (LTC-1L)-1LTC-1y with standard errors (LTC-1L)-1
+(Rybicki and Press 1992). With this formalism we now proceed to its application to WFC3-IR,
+ACS and NICMOS stellar magnitudes.
+
+
+NICMOS, Camera 2 to WFC3-IR
+We identified two archival NICMOS Camera 2 pointings of 47Tuc which overlap a field of
+WFC3-IR in the same filters. The fields are located 6’ West of the core, one of which is shown in
+Figure 1.
+
+
+
+
+  Figure 1: NIC2 field in 47Tuc F110W (left) and corresponding region in WFC3-IR F110W (right).
+
+
+Table 1 gives the datasets employed.
+
+Table 1: WFC3/IR
+Filter   Exposure time(sec) Date   Target Proposal ID
+F110W 746.1          2009-07-17 47TUC      11453
+F160W 1645.4         2009-07-17 47TUC      11453
+F110W 1.8            2009-07-13 P330E      11451
+F160W 1.8            2009-07-13 P330E      11451
+
+NICMOS, Camera 2:
+Filter Exposure time (sec) Date   Target Proposal ID
+F110W 511.6        2004-10-27 47tuc_1     10015
+F110W 575.4        2004-10-27 47tuc_2     10015
+F160W 511.6        2004-10-27 47tuc_1     10015
+F160W 575.4        2004-10-27 47tuc_2     10015
+
+                                                     4
+                                                         WFC3 Instrument Science Report 2010-07
+
+F110W 9.674496          2005-07-08 P330-E             10381
+F160W 23.92448          2005-07-08 P330-E             10381
+
+For NICMOS, the data was obtained from the archive, consisting of 8, 1 minute dithers processed
+through calnica in stsdas to produce *cal.fits files. We then used multidrizzle to produce a single,
+rectified image. The same was done for the standard star P330E and the observations of P330E
+were selected to be as close in time as possible to those of 47Tuc. For WFC3-IR, the datasets were
+obtained from the archive and processed through calwfc3 to produce *flt.fits files. These were
+then combined in mutidrizzle as well using an up-to-date geometric distortion table. A geometric
+transformation between NICMOS and WFC3-IR observations of 47Tuc in the same filter was
+determined from ~100 of the brightest matched stars in the field with free parameters of scale,
+rotation, x and y shifts. The transformation was then used to identify 235 matching stars in the two
+cameras in the two fields. Aperture photometry with radii of 0.2” was measured for all stars
+relative to P330E. All stars were well-detected (signal-to-noise > 20) allowing us measure their
+individual centroids without a centering photometric bias (which may occur for signal-to-noise <
+4). We estimated the color term, a1, synthetically as described in the Appendix. The result was a
+determination of 0.14 ± 0.04 and -0.14 ± 0.04 (NICMOS minus WFC3-IR per magnitude of
+NICMOS F110-F160W) for F110W and F160W, respectively. The color terms reflect the
+extended red response of NICMOS in F160W which has a pivot wavelength 0.7 microns redder
+than WFC3 and the bluer effective wavelength for NICMOS F110W by 0.3 microns in the pivot
+(because the WFC3-IR response is flatter than NICMOS). The NICMOS magnitudes were
+corrected for the count-rate non-linearity using the results from de Jong et al. (2006).
+
+Table 2:
+Comparisons
+
+                Transform     a0            mag/dex           Δa1         Mean             stars
+WFC3 Filter                                                               Dispersion (mag)
+
+
+F160W          NIC2, F160W    0.996 +/-     0.010 +/-0.0022   0.018 +/-   0.11             227
+                              0.0009                          0.016
+
+
+F110W          NIC2, F110W    0.996 +/-     0.011 +/- 0.0022 0.003 +/-    0.11             213
+                              0.0009                         0.013
+
+
+F098M          ACS, F850lp    0.996 +/-     0.011 +/- 0.0031 -0.065 +/-   0.09             1406
+                              0.0012                         0.003
+
+
+The fits are shown in Figure 2 and 3. An iterative 2.5 σ clipping (P > 99%) was used to reduce the
+influence of outliers in the tails. The resulting, delta color terms, Δa1, are both consistent with zero
+with uncertainties of ~0.015 mag, indicating that the fits’ empirical color term is consistent with
+synphot and of somewhat greater precision. Similar departures from linearity are detected (at ~5 σ
+confidence) for each filter, thus we see no evidence of a wavelength dependence at the present
+precision. The implied correction for background-limited WFC3-IR photometry (the sky begins to
+dominate the source counts ~10 magnitudes or 4 dex fainter than P330E) is 0.04 +/- 01 mag in the
+
+                                                  5
+WFC3 Instrument Science Report 2010-07
+sense that WFC3-IR magnitudes are brighter by this amount than measured using standard star
+zeropoints. The faintest stars in the fit are 10.5 magnitudes fainter than P330E (i.e., 23rd mag) but
+the quality of the fit is probably limited to about 9 magnitudes fainter, leaving little extrapolation
+of the fit down to the sky level.
+
+
+
+
+Figure 2: WFC3-IR F110W vs. NICMOS, Camera 2 F110W for 235 stars in 47Tuc. The upper panel shows the
+difference in photometry with both sets refenced to the same standard star, P330E. The middle panel shows the
+residuals from the transformation between the two sets, utilizing a color term and a non-linearity term. The bottom
+panel shows the residuals as a function of stellar color.
+
+
+
+
+                                                         6
+                                                    WFC3 Instrument Science Report 2010-07
+
+
+
+
+Figure 3: As Figure 2 but for F160W.
+
+
+
+
+ACS-WFC to WFC3-IR
+
+ACS-WFC F850lp provides the closest match to any WFC3-IR filter. Specifically F098M has
+about 50% overlap with F850lp in integrated throughput. The filter pivot wavelengths are 9030 A
+and 9860 A for F850lp and F098m, respectively. The difference between the F850lp and F098m is
+somewhat larger than between the filters of NICMOS and WFC3, but readily correctable with a
+color term determined for stars.
+
+
+                                              7
+WFC3 Instrument Science Report 2010-07
+We identified observations of the open cluster NGC 3603 obtained in ACS-WFC3 F850lp (and
+F550m) as well as for WFC3-IR F098M. These are given in Table 3 and shown in Figure 4.
+These were retrieved from the archive and processed through multidrizzle as described before.
+
+After registration, 1390 stars were identified at high significance (signal to noise > 20) between the
+matching frames. We did not include any stars redder than the M7 star VDB to avoid
+extrapolating our knowledge of the color relations (see Appendix). Photometry was initially
+measured with apertures of radius 0.24” and for ACS the photometry was corrected for imperfect
+CTE using the results of Chiamerge and Sirianni (2009). The color term determined from synphot
+was 0.10+/-0.03 for F850lp minus F098m per magnitude of color F550m-F850lp but this was
+revised in the fit by -0.06, indicating either somewhat better red response for ACS or blue response
+for WFC3-IR. The data for NGC 3603 had much better leverage on the color term than the
+NICMOS fit (or synphot) due to the large color range and quantity of stars. As shown in Figure 5,
+the residuals tighten considerably at a fixed brightness due purely to the color term.
+
+The result for the WFC3-IR non-linearity is quite consistent with that derived from ACS as for
+NICMOS, yielding 0.013 +/- 0.0031 mag/dex (compared to F110W of 0.011 +/- 0.0023 mag/dex
+and F160W of 0.010 +/- 0.0025 mag/dex). As CCD’s have far smaller non-linearities than IR
+detectors (ACS in particular; see Gilliland 2004), the independence of this result provides strong
+evidence that the measured non-linearities for WFC3-IR are robust.
+
+A small tail of residuals in the fit is evident in the negative direction. These can be seen in the
+histogram of Figure 6 where this tail is seen to contain about 3% of the sample in excess of a
+normal distribution. Because these points also have errors which are 35% larger, they have very
+little of the total weight, about 1.5%, in the fit. The sense of these residuals is of these stars being
+fainter in WFC3-IR or brighter than ACS within the stellar aperture. These are likely from the
+latter as cosmic rays residuals remain in the ACS data which was composed from only 2 dithers.
+Future data sets would benefit with a greater number of cosmic ray splits, but the overall fit is little
+affected due to the low weight of these tails in the fit. As a test we repeated the fits reducing the
+stellar apertures to 0.16”, a reduction in aperture area and included cosmic ray residuals of more
+than half. The result is 0.011 +/- 0.0029 mag/dex with a reduced dispersion from 0.10 mag to 0.08
+mag. Indeed the population of the negative tail drops as seen in Figure 6 and Figure 7, but the
+overall affect on the non-linearity is modest and is not a simple function of the aperture radius (as
+seen by measuring at a third radius, r=0.2”). For consistency we chose an aperture for our final
+result in Table 2 and Figure 5 between these two, radius=0.2”, which is the same as for the
+NICMOS comparison.
+
+
+
+
+                                                  8
+                                  WFC3 Instrument Science Report 2010-07
+
+
+
+
+Figure 4: Field of NGC 3603
+
+
+
+
+                              9
+WFC3 Instrument Science Report 2010-07
+
+
+
+
+Figure 5: As Figure 2 but for WFC3-IR F098M vs. ACS-WFC F850LP
+
+
+
+
+                                                 10
+                                                                 WFC3 Instrument Science Report 2010-07
+
+
+
+
+Figure 6: Histogram of residuals for WFC3-IR F098M vs. ACS-WFC F850LP with a photometry aperture radius of
+0.24”, compared to a gaussian with a dispersion of 0.08 mag. A small tail of negative residuals is apparent and likely
+arises from cosmic ray residuals in the ACS image (which was composed from only 2 dithers) but these have little
+affect on the fit.
+
+
+
+
+                                                         11
+WFC3 Instrument Science Report 2010-07
+
+
+
+
+Table 3: ACS-WFC
+
+Filter   Exposure time(sec) Date   Target Proposal ID
+
+F850LP      6.0          2006-01-18 P330E      10374
+
+F550M       678.0        2005-12-29 NGC3603 10602
+
+F850LP      678.0        2005-12-29 NGC3603 10602
+
+WFC3-IR
+
+F098M       3196.9        2009-08-27 NGC-3603 11360
+
+F098M             1.8     2009-08-13 P330E      11451
+
+
+
+
+                                         12
+                                                                    WFC3 Instrument Science Report 2010-07
+
+
+
+
+Figure 7: Same as Figure 6 but for r=0.16” sized aperture. The smaller aperture from Figure 6 reduces the impact of
+cosmic ray residuals in the ACS data and the negative tail, but overall has negligible affect on the fit.
+
+
+Discussion
+  As non-linearity and persistence both appear to arise from the phenomenon of charge trapping
+(Smith et al. 2007, M. Regan, private communication), the former from the capture of charge and
+the latter from its release, it may be insightful to compare the relative persistence of WFC3-IR and
+NICMOS to compare to their relative non-linearity. In Figure 8 we show the level of persistence
+as a function of the prior illumination for WFC3-IR determined from the well-dithered
+observations of 47 Tuc. (The resemblance of the data to a Fermi-Dirac distribution probably
+relates to the occupation statistics of charge traps. In this case prior illumination controls the
+likelihood that traps are occupied, analogous to how the Fermi level determines the energy levels
+of electrons at a fixed temperature or in this case saturation level.) We can compare this
+persistence level to that seen in NICMOS (Figure 9), both shown after one e-fold of the decay of
+persistence after prior illumination. As seen, the overall persistence for WFC3-IR is less by a
+factor of 2 to 3 compared to NICMOS. Thus it appears that the trap density is lower for WFC3-IR
+than NICMOS by a factor of 2-3, an observation which also provides a basic test of the non-
+linearities presented in the previous section.
+
+
+                                                           13
+WFC3 Instrument Science Report 2010-07
+
+
+
+
+Figure 8: . WFC3-IR persistsnce level as a function of total prior illumination. A function characterizing the time
+decay of persistence (a double exponential as also used for NICMOS by Bergeron et al) was used to account for a
+small decay of persistence, a factor of 1.33, during the 76 seconds between exposures. The function in red is of the
+form of a Fermi-Dirac distribution (e-cts/sat+1)-1 where cts is prior illumination in counts and sat is the saturation of in
+counts of the pixel. Presumably the process motivating this function is that the prior illumination determines the
+likelihood that a trap is occupied.
+
+
+
+
+                                                             14
+                                                                 WFC3 Instrument Science Report 2010-07
+
+
+
+
+   Figure 9: Persistence versus prior illumination observed for NICMOS (black crosses) compared to
+   that determined for WFC3-IR (red line), each after an e-fold of persistence decay. As seen, the level
+   of persistence is a factor of 2-3 greater for NICMOS than for WFC3-IR, which agrees with their
+   relative ratio of non-linearity.
+
+
+
+
+Conclusions
+
+By comparing star cluster photometry between WFC3-IR, NICMOS Camera 2, and ACS-WFC we
+find a consistent value of non-linearity of 0.010 +/- 0.0025 mag/dex which is independent of
+wavelength at the present measurement precision. Future tests of this effect will be made in a
+more direct manner, by comparing the photometry of a star cluster with and without the presence
+of background light from the bright Earth limb. It is quite likely that the non-linearity we find is
+indeed dependent on count-rate as it is in the same direction as that found in NICMOS and a factor
+of a few smaller, both results expected from laboratory tests. However, future tests are important
+to better relate the effect to the conditions of the observation. The present calibration suggests that
+faint photometry measured at or below the sky level (i.e., 4 dex fainter than the standard star
+P330E used to set the WFC3-IR zeropoint) should be corrected 0.04 +/- 0.01 mag brighter to
+account for this non-linearity.
+
+                                                        15
+WFC3 Instrument Science Report 2010-07
+
+
+Acknowledgments
+We express thanks to members of the WFC3 Team at STScI and Goddard for helpful discussions
+as well as Mike Regan and Eddie Bergeron at STScI. Additional thanks to Susana Deustua for
+reviewing this document.
+
+Appendix:
+
+Color Terms derived from synphot
+
+
+
+
+Figure A1. Synthetic color terms for NICMOS F110W and F160W versus WFC3 F110W and
+F160W.
+
+In this appendix we show the synthetic determination of the color terms which provides the first
+estimate before a subsequent, empirical determination of a delta color term.
+
+We use the sequence of Castelli and Kurucz (2004) stellar models to determine the synthetic color
+terms. The models, available in the iraf library stsdas.synphot.calcspec, include temperatures
+down to T=3500 degrees and we used those suitable for metal poor (Z=-0.2), main sequence
+
+                                               16
+                                                        WFC3 Instrument Science Report 2010-07
+
+(gravity=g50) stars. We augmented this set with the addition of a very late type spectro-
+photometric standard star (VD8, an M7 dwarf) to extend the cool, red range of the calibration.
+The synthetic photometry was calculated using the iraf package stsdas.synphot.calcphot which
+includes the throughput of the telescope optics, instrument and filters. The color term is the
+magnitude difference between WFC3 and NICMOS (or ACS) divided by the color (NICMOS or
+ACS) of the stars. The fit (solid line) and estimated uncertainty of 0.04 (dotted line) is made to the
+color range relevant for the 47Tuc stars shown by the red points. A delta color term representing
+a correction to the synthetic value is determined from the empirical data as the term Δa1 in
+equation 1.
+
+
+
+
+Figure A2: Same as Figure A1 but for ACS F850lp vs. WFC3 F098m.
+
+References
+Bohlin, R., Lindler, D., and Riess, A, 2005, NICMOS ISR 2005-002, “Grism Sensitivities and
+Apparent Non-linearity”
+De Jong, R., Bergeron, E., Riess, A, Bohlin, R. 2006, NICMOS ISR 2006-001, “NICMOS count-
+rate dependent non-linearity tests using flatfield lamps”
+Gilliland, R., 2004, ACS ISR 2004-01, “ACS CCD Gains, Full Well Depths, and Linearity up to
+and Beyond Saturation”
+
+                                                 17
+WFC3 Instrument Science Report 2010-07
+
+Hilbert, B, 2008, WFC3 ISR 2008-39, “WFC3 TV3: Testing: IR Channel Nonlinearity correction”
+Smith, R., Zavodny, M., Bonati, M. and Rahmer, G., 2007, SPIE NSS2007, “Image Persistence in
+1.7 micron cut-off HgCdTe Focal Plane Arrays for SNAP”
+
+
+
+
+                                            18
+

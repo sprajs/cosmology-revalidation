@@ -1,0 +1,1469 @@
+[
+  {
+    "path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/lcfitting/REFAC_CSP_RAISIN_nir_sys.nml",
+    "sha256": "fad0400d12ad5fe028f9381174620c109d9438749f8f976f719ae6f69c0ebf13",
+    "modes": [
+      {
+        "FITOPT": 1,
+        "tag": "MWEBV",
+        "command": "MWEBV_SCALE 0.95"
+      },
+      {
+        "FITOPT": 2,
+        "tag": "HST_CAL",
+        "command": "MAGOBS_SHIFT_ZP_PARAMS 0 0.00714 0"
+      },
+      {
+        "FITOPT": 3,
+        "tag": "VPEC",
+        "command": "HEADER_OVERRIDE_FILE 'vpec_sys_raisin.list'"
+      },
+      {
+        "FITOPT": 4,
+        "tag": "MASS_DIVIDE",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 5,
+        "tag": "MASS_STEP",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 6,
+        "tag": "LCFITTER",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 7,
+        "tag": "CSP_Y_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'Y 0.03 y 0.03'"
+      },
+      {
+        "FITOPT": 8,
+        "tag": "CSP_J_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'J 0.02 j 0.02'"
+      },
+      {
+        "FITOPT": 9,
+        "tag": "CSP_H_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'H 0.02'"
+      },
+      {
+        "FITOPT": 10,
+        "tag": "CSP_B_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'B 0.01'"
+      },
+      {
+        "FITOPT": 11,
+        "tag": "CSP_V_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'o 0.01 m 0.01 n 0.01'"
+      },
+      {
+        "FITOPT": 12,
+        "tag": "CSP_g_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'g 0.01'"
+      },
+      {
+        "FITOPT": 13,
+        "tag": "CSP_r_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'r 0.01'"
+      },
+      {
+        "FITOPT": 14,
+        "tag": "CSP_i_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'i 0.01'"
+      },
+      {
+        "FITOPT": 15,
+        "tag": "PS1_g_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 16,
+        "tag": "PS1_r_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 17,
+        "tag": "PS1_i_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 18,
+        "tag": "PS1_z_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 19,
+        "tag": "DES_g_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 20,
+        "tag": "DES_r_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 21,
+        "tag": "DES_i_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 22,
+        "tag": "DES_z_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 23,
+        "tag": "BIASCOR_SHAPE_LOWZ",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 24,
+        "tag": "BIASCOR_AV_1",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 25,
+        "tag": "BIASCOR_SHAPE_HIGHZ",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 26,
+        "tag": "BIASCOR_AV_2",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 27,
+        "tag": "KCOR",
+        "command": "KCOR_FILE '$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_BD17_sys.fits'"
+      },
+      {
+        "FITOPT": 28,
+        "tag": "TMPL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 29,
+        "tag": "RV",
+        "command": "INIVAL_RV 3.1"
+      }
+    ],
+    "settings": {
+      "KCOR_FILE": "'$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_BD17.fits'",
+      "HEADER_OVERRIDE_FILE": "'$RAISIN_ROOT/cosmo/vpec_baseline_raisin.list'",
+      "FITMODEL_NAME": "'$RAISIN_ROOT/cosmo/snoopy.B18'",
+      "INIVAL_SHAPE": "1.0",
+      "INISTP_SHAPE": "0.0",
+      "INIVAL_AV": "0.0",
+      "INISTP_AV": "0.0",
+      "INISTP_PEAKMJD": "0.0",
+      "INIVAL_RV": "1.518",
+      "OPT_COVAR_FLUX": "0",
+      "TREST_REJECT": "-15.0, 45.0",
+      "FILTLIST_FIT": "'YyJjH'"
+    }
+  },
+  {
+    "path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/lcfitting/REFAC_CSP_RAISIN_optical_sys.nml",
+    "sha256": "c283926a7747a7ac3b319e7887e1bf9b01fc815d1d73c707961abd70e49c512c",
+    "modes": [
+      {
+        "FITOPT": 1,
+        "tag": "MWEBV",
+        "command": "MWEBV_SCALE 0.95"
+      },
+      {
+        "FITOPT": 2,
+        "tag": "HST_CAL",
+        "command": "MAGOBS_SHIFT_ZP_PARAMS 0 0.00714 0"
+      },
+      {
+        "FITOPT": 3,
+        "tag": "VPEC",
+        "command": "HEADER_OVERRIDE_FILE '$RAISIN_ROOT/meta/vpec_sys_raisin.list'"
+      },
+      {
+        "FITOPT": 4,
+        "tag": "MASS_DIVIDE",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 5,
+        "tag": "MASS_STEP",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 6,
+        "tag": "LCFITTER",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 7,
+        "tag": "CSP_Y_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'Y 0.03 y 0.03'"
+      },
+      {
+        "FITOPT": 8,
+        "tag": "CSP_J_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'J 0.02 j 0.02'"
+      },
+      {
+        "FITOPT": 9,
+        "tag": "CSP_H_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'H 0.02'"
+      },
+      {
+        "FITOPT": 10,
+        "tag": "CSP_B_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'B 0.01'"
+      },
+      {
+        "FITOPT": 11,
+        "tag": "CSP_V_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'o 0.01 m 0.01 n 0.01'"
+      },
+      {
+        "FITOPT": 12,
+        "tag": "CSP_g_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'g 0.01'"
+      },
+      {
+        "FITOPT": 13,
+        "tag": "CSP_r_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'r 0.01'"
+      },
+      {
+        "FITOPT": 14,
+        "tag": "CSP_i_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'i 0.01'"
+      },
+      {
+        "FITOPT": 15,
+        "tag": "PS1_g_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 16,
+        "tag": "PS1_r_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 17,
+        "tag": "PS1_i_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 18,
+        "tag": "PS1_z_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 19,
+        "tag": "DES_g_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 20,
+        "tag": "DES_r_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 21,
+        "tag": "DES_i_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 22,
+        "tag": "DES_z_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 23,
+        "tag": "BIASCOR_SHAPE_LOWZ",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 24,
+        "tag": "BIASCOR_AV_1",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 25,
+        "tag": "BIASCOR_SHAPE_HIGHZ",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 26,
+        "tag": "BIASCOR_AV_2",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 27,
+        "tag": "KCOR",
+        "command": "KCOR_FILE '$RAISIN_ROOT/kcor/kcor_CSPDR3_BD17_sys.fits'"
+      },
+      {
+        "FITOPT": 28,
+        "tag": "TMPL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 29,
+        "tag": "RV",
+        "command": "INIVAL_RV 3.1"
+      }
+    ],
+    "settings": {
+      "KCOR_FILE": "'$RAISIN_ROOT/kcor/kcor_CSPDR3_BD17.fits'",
+      "HEADER_OVERRIDE_FILE": "'$RAISIN_ROOT/meta/vpec_baseline_raisin.list'",
+      "FITMODEL_NAME": "'snoopy.B18'",
+      "INIVAL_SHAPE": "1.0",
+      "INIVAL_AV": "0.0",
+      "INIVAL_RV": "1.518",
+      "OPT_COVAR_FLUX": "0",
+      "TREST_REJECT": "-7.0, 45.0",
+      "FILTLIST_FIT": "'Bomngri'"
+    }
+  },
+  {
+    "path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/lcfitting/REFAC_CSP_RAISIN_opticalnir_sys.nml",
+    "sha256": "25a6b69eb1c5ecdbd22c1a74bf5cfe4db65df90f0fe1938d00e702cd2cbb51e7",
+    "modes": [
+      {
+        "FITOPT": 1,
+        "tag": "MWEBV",
+        "command": "MWEBV_SCALE 0.95"
+      },
+      {
+        "FITOPT": 2,
+        "tag": "HST_CAL",
+        "command": "MAGOBS_SHIFT_ZP_PARAMS 0 0.00714 0"
+      },
+      {
+        "FITOPT": 3,
+        "tag": "VPEC",
+        "command": "HEADER_OVERRIDE_FILE 'vpec_sys_raisin.list'"
+      },
+      {
+        "FITOPT": 4,
+        "tag": "MASS_DIVIDE",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 5,
+        "tag": "MASS_STEP",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 6,
+        "tag": "LCFITTER",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 7,
+        "tag": "CSP_Y_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'Y 0.03 y 0.03'"
+      },
+      {
+        "FITOPT": 8,
+        "tag": "CSP_J_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'J 0.02 j 0.02'"
+      },
+      {
+        "FITOPT": 9,
+        "tag": "CSP_H_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'H 0.02'"
+      },
+      {
+        "FITOPT": 10,
+        "tag": "CSP_B_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'B 0.01'"
+      },
+      {
+        "FITOPT": 11,
+        "tag": "CSP_V_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'o 0.01 m 0.01 n 0.01'"
+      },
+      {
+        "FITOPT": 12,
+        "tag": "CSP_g_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'g 0.01'"
+      },
+      {
+        "FITOPT": 13,
+        "tag": "CSP_r_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'r 0.01'"
+      },
+      {
+        "FITOPT": 14,
+        "tag": "CSP_i_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'i 0.01'"
+      },
+      {
+        "FITOPT": 15,
+        "tag": "PS1_g_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 16,
+        "tag": "PS1_r_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 17,
+        "tag": "PS1_i_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 18,
+        "tag": "PS1_z_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 19,
+        "tag": "DES_g_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 20,
+        "tag": "DES_r_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 21,
+        "tag": "DES_i_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 22,
+        "tag": "DES_z_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 23,
+        "tag": "BIASCOR_SHAPE_LOWZ",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 24,
+        "tag": "BIASCOR_AV_1",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 25,
+        "tag": "BIASCOR_SHAPE_HIGHZ",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 26,
+        "tag": "BIASCOR_AV_2",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 27,
+        "tag": "KCOR",
+        "command": "KCOR_FILE '$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_BD17_sys.fits'"
+      },
+      {
+        "FITOPT": 28,
+        "tag": "TMPL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 29,
+        "tag": "RV",
+        "command": "INIVAL_RV 3.1"
+      }
+    ],
+    "settings": {
+      "KCOR_FILE": "'$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_BD17.fits'",
+      "HEADER_OVERRIDE_FILE": "'$RAISIN_ROOT/cosmo/vpec_baseline_raisin.list'",
+      "FITMODEL_NAME": "'$RAISIN_ROOT/cosmo/snoopy.B18'",
+      "INIVAL_SHAPE": "1.0",
+      "INIVAL_AV": "0.0",
+      "INIVAL_RV": "1.518",
+      "OPT_COVAR_FLUX": "0",
+      "TREST_REJECT": "-7.0, 45.0",
+      "FILTLIST_FIT": "'BomngriYyJjH'"
+    }
+  },
+  {
+    "path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/lcfitting/REFAC_DES_RAISIN_nir_sys.nml",
+    "sha256": "ad2656a9e5047447499039532e32cd3e811ce5fa8d6779cc433d305e7e4d9689",
+    "modes": [
+      {
+        "FITOPT": 1,
+        "tag": "MWEBV",
+        "command": "MWEBV_SCALE 0.95"
+      },
+      {
+        "FITOPT": 2,
+        "tag": "HST_CAL",
+        "command": "MAGOBS_SHIFT_ZP_PARAMS 0 0.00714 0"
+      },
+      {
+        "FITOPT": 3,
+        "tag": "VPEC",
+        "command": "HEADER_OVERRIDE_FILE 'vpec_sys_raisin.list'"
+      },
+      {
+        "FITOPT": 4,
+        "tag": "MASS_DIVIDE",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 5,
+        "tag": "MASS_STEP",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 6,
+        "tag": "LCFITTER",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 7,
+        "tag": "CSP_Y_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 8,
+        "tag": "CSP_J_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 9,
+        "tag": "CSP_H_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 10,
+        "tag": "CSP_B_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 11,
+        "tag": "CSP_V_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 12,
+        "tag": "CSP_g_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 13,
+        "tag": "CSP_r_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 14,
+        "tag": "CSP_i_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 15,
+        "tag": "PS1_g_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 16,
+        "tag": "PS1_r_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 17,
+        "tag": "PS1_i_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 18,
+        "tag": "PS1_z_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 19,
+        "tag": "DES_g_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'g 0.006'"
+      },
+      {
+        "FITOPT": 20,
+        "tag": "DES_r_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'r 0.006'"
+      },
+      {
+        "FITOPT": 21,
+        "tag": "DES_i_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'i 0.006'"
+      },
+      {
+        "FITOPT": 22,
+        "tag": "DES_z_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'z 0.006'"
+      },
+      {
+        "FITOPT": 23,
+        "tag": "BIASCOR_SHAPE_LOWZ",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 24,
+        "tag": "BIASCOR_AV_1",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 25,
+        "tag": "BIASCOR_SHAPE_HIGHZ",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 26,
+        "tag": "BIASCOR_AV_2",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 27,
+        "tag": "KCOR",
+        "command": "KCOR_FILE '$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR_sys.fits'"
+      },
+      {
+        "FITOPT": 28,
+        "tag": "TMPL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 29,
+        "tag": "RV",
+        "command": "INIVAL_RV 3.1"
+      }
+    ],
+    "settings": {
+      "KCOR_FILE": "'$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR.fits'",
+      "HEADER_OVERRIDE_FILE": "'$RAISIN_ROOT/cosmo/vpec_baseline_raisin.list'",
+      "FITMODEL_NAME": "'$RAISIN_ROOT/cosmo/snoopy.B18'",
+      "INIVAL_SHAPE": "1.0",
+      "INISTP_SHAPE": "0.0",
+      "INIVAL_AV": "0.0",
+      "INISTP_AV": "0.0",
+      "INISTP_PEAKMJD": "0.0",
+      "INIVAL_RV": "1.518",
+      "OPT_COVAR_FLUX": "0",
+      "TREST_REJECT": "-15.0, 45.0",
+      "FILTLIST_FIT": "'JH'"
+    }
+  },
+  {
+    "path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/lcfitting/REFAC_DES_RAISIN_optical_sys.nml",
+    "sha256": "32a7c36fcd0cea92abc6a9471465c44266a54536e8ac43c2f7b85b251d850830",
+    "modes": [
+      {
+        "FITOPT": 1,
+        "tag": "MWEBV",
+        "command": "MWEBV_SCALE 0.95"
+      },
+      {
+        "FITOPT": 2,
+        "tag": "HST_CAL",
+        "command": "MAGOBS_SHIFT_ZP_PARAMS 0 0.00714 0"
+      },
+      {
+        "FITOPT": 3,
+        "tag": "VPEC",
+        "command": "HEADER_OVERRIDE_FILE 'vpec_sys_raisin.list'"
+      },
+      {
+        "FITOPT": 4,
+        "tag": "MASS_DIVIDE",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 5,
+        "tag": "MASS_STEP",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 6,
+        "tag": "LCFITTER",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 7,
+        "tag": "CSP_Y_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 8,
+        "tag": "CSP_J_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 9,
+        "tag": "CSP_H_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 10,
+        "tag": "CSP_B_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 11,
+        "tag": "CSP_V_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 12,
+        "tag": "CSP_g_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 13,
+        "tag": "CSP_r_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 14,
+        "tag": "CSP_i_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 15,
+        "tag": "PS1_g_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 16,
+        "tag": "PS1_r_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 17,
+        "tag": "PS1_i_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 18,
+        "tag": "PS1_z_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 19,
+        "tag": "DES_g_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'g 0.006'"
+      },
+      {
+        "FITOPT": 20,
+        "tag": "DES_r_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'r 0.006'"
+      },
+      {
+        "FITOPT": 21,
+        "tag": "DES_i_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'i 0.006'"
+      },
+      {
+        "FITOPT": 22,
+        "tag": "DES_z_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'z 0.006'"
+      },
+      {
+        "FITOPT": 23,
+        "tag": "BIASCOR_SHAPE_LOWZ",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 24,
+        "tag": "BIASCOR_AV_1",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 25,
+        "tag": "BIASCOR_SHAPE_HIGHZ",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 26,
+        "tag": "BIASCOR_AV_2",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 27,
+        "tag": "KCOR",
+        "command": "KCOR_FILE '$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR_sys.fits'"
+      },
+      {
+        "FITOPT": 28,
+        "tag": "TMPL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 29,
+        "tag": "RV",
+        "command": "INIVAL_RV 3.1"
+      }
+    ],
+    "settings": {
+      "KCOR_FILE": "'$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR.fits'",
+      "HEADER_OVERRIDE_FILE": "'$RAISIN_ROOT/cosmo/vpec_baseline_raisin.list'",
+      "FITMODEL_NAME": "'$RAISIN_ROOT/cosmo/snoopy.B18'",
+      "INIVAL_SHAPE": "1.0",
+      "INIVAL_AV": "0.0",
+      "INIVAL_RV": "1.518",
+      "OPT_COVAR_FLUX": "0",
+      "TREST_REJECT": "-7.0, 45.0",
+      "FILTLIST_FIT": "'griz'"
+    }
+  },
+  {
+    "path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/lcfitting/REFAC_DES_RAISIN_opticalnir_sys.nml",
+    "sha256": "68e584af1c2f472c5ad0ef1702ec581a29790b90c8e1adee112a1425af333888",
+    "modes": [
+      {
+        "FITOPT": 1,
+        "tag": "MWEBV",
+        "command": "MWEBV_SCALE 0.95"
+      },
+      {
+        "FITOPT": 2,
+        "tag": "HST_CAL",
+        "command": "MAGOBS_SHIFT_ZP_PARAMS 0 0.00714 0"
+      },
+      {
+        "FITOPT": 3,
+        "tag": "VPEC",
+        "command": "HEADER_OVERRIDE_FILE 'vpec_sys_raisin.list'"
+      },
+      {
+        "FITOPT": 4,
+        "tag": "MASS_DIVIDE",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 5,
+        "tag": "MASS_STEP",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 6,
+        "tag": "LCFITTER",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 7,
+        "tag": "CSP_Y_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 8,
+        "tag": "CSP_J_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 9,
+        "tag": "CSP_H_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 10,
+        "tag": "CSP_B_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 11,
+        "tag": "CSP_V_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 12,
+        "tag": "CSP_g_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 13,
+        "tag": "CSP_r_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 14,
+        "tag": "CSP_i_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 15,
+        "tag": "PS1_g_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 16,
+        "tag": "PS1_r_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 17,
+        "tag": "PS1_i_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 18,
+        "tag": "PS1_z_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 19,
+        "tag": "DES_g_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'g 0.006'"
+      },
+      {
+        "FITOPT": 20,
+        "tag": "DES_r_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'r 0.006'"
+      },
+      {
+        "FITOPT": 21,
+        "tag": "DES_i_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'i 0.006'"
+      },
+      {
+        "FITOPT": 22,
+        "tag": "DES_z_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'z 0.006'"
+      },
+      {
+        "FITOPT": 23,
+        "tag": "BIASCOR_SHAPE_LOWZ",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 24,
+        "tag": "BIASCOR_AV_1",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 25,
+        "tag": "BIASCOR_SHAPE_HIGHZ",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 26,
+        "tag": "BIASCOR_AV_2",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 27,
+        "tag": "KCOR",
+        "command": "KCOR_FILE '$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR_sys.fits'"
+      },
+      {
+        "FITOPT": 28,
+        "tag": "TMPL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 29,
+        "tag": "RV",
+        "command": "INIVAL_RV 3.1"
+      }
+    ],
+    "settings": {
+      "KCOR_FILE": "'$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR.fits'",
+      "HEADER_OVERRIDE_FILE": "'$RAISIN_ROOT/cosmo/vpec_baseline_raisin.list'",
+      "FITMODEL_NAME": "'$RAISIN_ROOT/cosmo/snoopy.B18'",
+      "INIVAL_SHAPE": "1.0",
+      "INIVAL_AV": "0.0",
+      "INIVAL_RV": "1.518",
+      "OPT_COVAR_FLUX": "0",
+      "TREST_REJECT": "-7.0, 45.0",
+      "FILTLIST_FIT": "'grizJH'"
+    }
+  },
+  {
+    "path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/lcfitting/REFAC_PS1_RAISIN_nir_sys.nml",
+    "sha256": "88fbc63a280b55fb6b03af7f262ba5e8b287a728fc2b09c1b2302d75aca4f717",
+    "modes": [
+      {
+        "FITOPT": 1,
+        "tag": "MWEBV",
+        "command": "MWEBV_SCALE 0.95"
+      },
+      {
+        "FITOPT": 2,
+        "tag": "HST_CAL",
+        "command": "MAGOBS_SHIFT_ZP_PARAMS 0 0.00714 0"
+      },
+      {
+        "FITOPT": 3,
+        "tag": "VPEC",
+        "command": "HEADER_OVERRIDE_FILE 'vpec_sys_raisin.list'"
+      },
+      {
+        "FITOPT": 4,
+        "tag": "MASS_DIVIDE",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 5,
+        "tag": "MASS_STEP",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 6,
+        "tag": "LCFITTER",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 7,
+        "tag": "CSP_Y_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 8,
+        "tag": "CSP_J_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 9,
+        "tag": "CSP_H_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 10,
+        "tag": "CSP_B_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 11,
+        "tag": "CSP_V_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 12,
+        "tag": "CSP_g_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 13,
+        "tag": "CSP_r_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 14,
+        "tag": "CSP_i_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 15,
+        "tag": "PS1_g_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'g 0.003'"
+      },
+      {
+        "FITOPT": 16,
+        "tag": "PS1_r_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'r 0.003'"
+      },
+      {
+        "FITOPT": 17,
+        "tag": "PS1_i_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'i 0.003'"
+      },
+      {
+        "FITOPT": 18,
+        "tag": "PS1_z_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'z 0.003'"
+      },
+      {
+        "FITOPT": 19,
+        "tag": "DES_g_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 20,
+        "tag": "DES_r_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 21,
+        "tag": "DES_i_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 22,
+        "tag": "DES_z_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 23,
+        "tag": "BIASCOR_SHAPE_LOWZ",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 24,
+        "tag": "BIASCOR_AV_1",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 25,
+        "tag": "BIASCOR_SHAPE_HIGHZ",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 26,
+        "tag": "BIASCOR_AV_2",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 27,
+        "tag": "KCOR",
+        "command": "KCOR_FILE '$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR_sys.fits'"
+      },
+      {
+        "FITOPT": 28,
+        "tag": "TMPL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 29,
+        "tag": "RV",
+        "command": "INIVAL_RV 3.1"
+      }
+    ],
+    "settings": {
+      "KCOR_FILE": "'$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR.fits'",
+      "HEADER_OVERRIDE_FILE": "'$RAISIN_ROOT/cosmo/vpec_baseline_raisin.list'",
+      "FITMODEL_NAME": "'$RAISIN_ROOT/cosmo/snoopy.B18'",
+      "INIVAL_SHAPE": "1.0",
+      "INISTP_SHAPE": "0.0",
+      "INIVAL_AV": "0.0",
+      "INISTP_AV": "0.0",
+      "INISTP_PEAKMJD": "0.0",
+      "INIVAL_RV": "1.518",
+      "OPT_COVAR_FLUX": "0",
+      "TREST_REJECT": "-15.0, 45.0",
+      "FILTLIST_FIT": "'JH'"
+    }
+  },
+  {
+    "path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/lcfitting/REFAC_PS1_RAISIN_optical_sys.nml",
+    "sha256": "6a3d91173cd9603a251e474a2921b9ae5aad97ebd2cec9a5b3cee7d6369fb0c4",
+    "modes": [
+      {
+        "FITOPT": 1,
+        "tag": "MWEBV",
+        "command": "MWEBV_SCALE 0.95"
+      },
+      {
+        "FITOPT": 2,
+        "tag": "HST_CAL",
+        "command": "MAGOBS_SHIFT_ZP_PARAMS 0 0.00714 0"
+      },
+      {
+        "FITOPT": 3,
+        "tag": "VPEC",
+        "command": "HEADER_OVERRIDE_FILE 'vpec_sys_raisin.list'"
+      },
+      {
+        "FITOPT": 4,
+        "tag": "MASS_DIVIDE",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 5,
+        "tag": "MASS_STEP",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 6,
+        "tag": "LCFITTER",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 7,
+        "tag": "CSP_Y_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 8,
+        "tag": "CSP_J_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 9,
+        "tag": "CSP_H_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 10,
+        "tag": "CSP_B_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 11,
+        "tag": "CSP_V_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 12,
+        "tag": "CSP_g_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 13,
+        "tag": "CSP_r_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 14,
+        "tag": "CSP_i_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 15,
+        "tag": "PS1_g_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'g 0.003'"
+      },
+      {
+        "FITOPT": 16,
+        "tag": "PS1_r_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'r 0.003'"
+      },
+      {
+        "FITOPT": 17,
+        "tag": "PS1_i_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'i 0.003'"
+      },
+      {
+        "FITOPT": 18,
+        "tag": "PS1_z_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'z 0.003'"
+      },
+      {
+        "FITOPT": 19,
+        "tag": "DES_g_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 20,
+        "tag": "DES_r_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 21,
+        "tag": "DES_i_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 22,
+        "tag": "DES_z_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 23,
+        "tag": "BIASCOR_SHAPE_LOWZ",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 24,
+        "tag": "BIASCOR_AV_1",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 25,
+        "tag": "BIASCOR_SHAPE_HIGHZ",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 26,
+        "tag": "BIASCOR_AV_2",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 27,
+        "tag": "KCOR",
+        "command": "KCOR_FILE '$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR_sys.fits'"
+      },
+      {
+        "FITOPT": 28,
+        "tag": "TMPL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 29,
+        "tag": "RV",
+        "command": "INIVAL_RV 3.1"
+      }
+    ],
+    "settings": {
+      "KCOR_FILE": "'$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR.fits'",
+      "HEADER_OVERRIDE_FILE": "'$RAISIN_ROOT/cosmo/vpec_baseline_raisin.list'",
+      "FITMODEL_NAME": "'$RAISIN_ROOT/cosmo/snoopy.B18'",
+      "INIVAL_SHAPE": "1.0",
+      "INIVAL_AV": "0.0",
+      "INIVAL_RV": "1.518",
+      "OPT_COVAR_FLUX": "0",
+      "TREST_REJECT": "-7.0, 45.0",
+      "FILTLIST_FIT": "'griz'"
+    }
+  },
+  {
+    "path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/lcfitting/REFAC_PS1_RAISIN_opticalnir_sys.nml",
+    "sha256": "83ab26d4381376d21892e6adc33ab2decbc3237317a0ddb501f2b972d50b866b",
+    "modes": [
+      {
+        "FITOPT": 1,
+        "tag": "MWEBV",
+        "command": "MWEBV_SCALE 0.95"
+      },
+      {
+        "FITOPT": 2,
+        "tag": "HST_CAL",
+        "command": "MAGOBS_SHIFT_ZP_PARAMS 0 0.00714 0"
+      },
+      {
+        "FITOPT": 3,
+        "tag": "VPEC",
+        "command": "HEADER_OVERRIDE_FILE 'vpec_sys_raisin.list'"
+      },
+      {
+        "FITOPT": 4,
+        "tag": "MASS_DIVIDE",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 5,
+        "tag": "MASS_STEP",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 6,
+        "tag": "LCFITTER",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 7,
+        "tag": "CSP_Y_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 8,
+        "tag": "CSP_J_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 9,
+        "tag": "CSP_H_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 10,
+        "tag": "CSP_B_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 11,
+        "tag": "CSP_V_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 12,
+        "tag": "CSP_g_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 13,
+        "tag": "CSP_r_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 14,
+        "tag": "CSP_i_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 15,
+        "tag": "PS1_g_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'g 0.003'"
+      },
+      {
+        "FITOPT": 16,
+        "tag": "PS1_r_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'r 0.003'"
+      },
+      {
+        "FITOPT": 17,
+        "tag": "PS1_i_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'i 0.003'"
+      },
+      {
+        "FITOPT": 18,
+        "tag": "PS1_z_SURVCAL",
+        "command": "MAGOBS_SHIFT_ZP 'z 0.003'"
+      },
+      {
+        "FITOPT": 19,
+        "tag": "DES_g_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 20,
+        "tag": "DES_r_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 21,
+        "tag": "DES_i_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 22,
+        "tag": "DES_z_SURVCAL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 23,
+        "tag": "BIASCOR_SHAPE_LOWZ",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 24,
+        "tag": "BIASCOR_AV_1",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 25,
+        "tag": "BIASCOR_SHAPE_HIGHZ",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 26,
+        "tag": "BIASCOR_AV_2",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 27,
+        "tag": "KCOR",
+        "command": "KCOR_FILE '$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR_sys.fits'"
+      },
+      {
+        "FITOPT": 28,
+        "tag": "TMPL",
+        "command": "FITOPT000"
+      },
+      {
+        "FITOPT": 29,
+        "tag": "RV",
+        "command": "INIVAL_RV 3.1"
+      }
+    ],
+    "settings": {
+      "KCOR_FILE": "'$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR.fits'",
+      "HEADER_OVERRIDE_FILE": "'$RAISIN_ROOT/cosmo/vpec_baseline_raisin.list'",
+      "FITMODEL_NAME": "'$RAISIN_ROOT/cosmo/snoopy.B18'",
+      "INIVAL_SHAPE": "1.0",
+      "INIVAL_AV": "0.0",
+      "INIVAL_RV": "1.518",
+      "OPT_COVAR_FLUX": "0",
+      "TREST_REJECT": "-7.0, 45.0",
+      "FILTLIST_FIT": "'grizJH'"
+    }
+  }
+]

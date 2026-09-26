@@ -1,0 +1,31 @@
+--- engineering8/ledger
++++ conditional64/ledger
+@@ -1,11 +1,11 @@
+ # Controlled prospective experiment, not historical simulation reproduction.
+ SIMLIB_FILE: ../../inputs-v2/cadence.simlib
+-SIMLIB_NREPEAT: 8
++SIMLIB_NREPEAT: 64
+ SIMLIB_IDLOCK: 11
+ USE_SIMLIB_PEAKMJD: 1
+ USE_SIMLIB_REDSHIFT: 1
+ NGEN_LC: 0
+-NGENTOT_LC: 8
++NGENTOT_LC: 64
+ CIDOFF: 0
+ GENVERSION: PTE
+ GENSOURCE: RANDOM
+@@ -32,7 +32,7 @@
+ GENSIGMA_MWEBV: 0
+ GENSHIFT_MWEBV: 0
+ GENSCALE_MWEBV: 1
+-RANSEED: 26092671
++RANSEED: 26092672
+ SMEARFLAG_FLUX: 1
+ SMEARFLAG_ZEROPT: 0
+ FLUXERRMODEL_FILE: ../../inputs-v2/error-map.dat
+@@ -58,4 +58,4 @@
+ GENSIGMA_RV: 0 0
+ GENRANGE_AV: 0 0
+ GENTAU_AV: 0.2
+-PATH_SNDATA_SIM: /home/szymon/Documents/ChatGPT/supernova/phase2/pte/generation-v5/ledger/output
++PATH_SNDATA_SIM: /home/szymon/Documents/ChatGPT/supernova/phase2/pt64/generation/ledger/output

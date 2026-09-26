@@ -1,0 +1,15 @@
+{
+  "status": "frozen_before_numeric_outcomes",
+  "scope": "Descriptive analysis-level selection accounting of coherent 2021 archived DES simulation FITRES, not generation/detection selection or a bias correction",
+  "source_revision": "RAISIN_cosmo commit 446424f998de1d43ceb32a408900937c1a499ec9, immediately preceding 2021-11-11 FITRES; exact apply_all_cuts and get_sigint bodies byte-identical to pinned 2022 source",
+  "cohort": "All 30000 unique NIR FITRES CIDs; require joint CID to evaluate its fitted AV, RV, and STRETCH; no outcome-based filter",
+  "cuts": ["joint CID exists", "optnir.AV < 0.3 * optnir.RV", "0.75 < optnir.STRETCH < 1.185"],
+  "summary": "Counts and overlap of exclusions; SIM_AV, SIM_STRETCH, SIM_RV and fitted AV moments; timing offsets PKMJDINI/SIM_PKMJD, NIR PKMJD/SIM_PKMJD, joint PKMJD/SIM_PKMJD, joint-minus-NIR peak before/after cuts. Fixed zHD bins [0,.2,.3,.4,.5,.6,1], including empty bins. Unweighted NIR and joint DLMAG-SIM_DLMAG per-bin moments only if source truth verified and values finite/non-sentinel.",
+  "estimation": "No sigint reconstruction, cosmological mu, weighted bias, native fit, or causal decomposition. Report source formula and whether imported cosmo module is available.",
+  "quantiles": [0, 0.05, 0.16, 0.5, 0.84, 0.95, 1],
+  "inputs": {
+    "nir": "../astra_design/raisin_timing_assets/author_20211111/nir.FITRES.gz",
+    "optnir": "../astra_design/raisin_timing_assets/author_20211111/optnir.FITRES.gz",
+    "cut_source": "source/cosmo_sys-20211107.py"
+  }
+}

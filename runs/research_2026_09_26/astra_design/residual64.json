@@ -1,0 +1,187 @@
+{
+  "scope": "Retrospective 64-object linearized nuisance-projected flux-residual transport; no physical correction/cosmology inference.",
+  "objects": 64,
+  "epochs": 2581,
+  "fields": {
+    "C3": 13,
+    "X3": 12,
+    "E2": 11,
+    "S2": 6,
+    "S1": 5,
+    "C1": 4,
+    "E1": 4,
+    "C2": 3,
+    "X2": 3,
+    "X1": 3
+  },
+  "low_classifier_probability_count": 21,
+  "arms": {
+    "measurement_plus_model": {
+      "candidate_scores": {
+        "object_observer_0.01": 12.50328844340829,
+        "field_observer_0.01": 12.832775978123102,
+        "object_observer_0.02": 13.47259887210965,
+        "field_observer_0.02": 13.91256212381076,
+        "object_observer_0.05": 13.417761437314164,
+        "field_observer_0.05": 13.881542588343454,
+        "object_rest_phase_0.01": 0.7658025747351298,
+        "field_rest_phase_0.01": 1.1314544057957732,
+        "object_rest_phase_0.02": 1.6848313473614787,
+        "field_rest_phase_0.02": 2.190952364572551,
+        "object_rest_phase_0.05": 3.1189258705318137,
+        "field_rest_phase_0.05": 3.9246951067173357
+      },
+      "max_score": 13.91256212381076,
+      "gaussian_arm_max_tail": {
+        "count": 0,
+        "draws": 10000,
+        "plus_one_tail": 9.999000099990002e-05,
+        "binomial_95_interval": [
+          0.0,
+          0.0003688199146187622
+        ]
+      },
+      "object_sign_arm_max_tail": {
+        "count": 1,
+        "draws": 10000,
+        "plus_one_tail": 0.00019998000199980003,
+        "binomial_95_interval": [
+          2.5317775934746866e-06,
+          0.0005570369979470473
+        ]
+      },
+      "field_sign_arm_max_fraction": 0.0078125,
+      "projected_chi2": 2319.5035956332267,
+      "projected_dimension": 2325,
+      "observer_singular_values": [
+        326.61230464833153,
+        150.00045125503345,
+        6.35552375628672
+      ],
+      "rest_phase_singular_values": [
+        153.85260450157995,
+        31.823346193189703,
+        6.855332175862827
+      ],
+      "subspace_canonical_correlations": [
+        0.967651306493315,
+        0.4230080273284942,
+        0.18438779923842097
+      ]
+    },
+    "measurement_only": {
+      "candidate_scores": {
+        "object_observer_0.01": 30.457543635464496,
+        "field_observer_0.01": 31.511071463208886,
+        "object_observer_0.02": 31.133385567709226,
+        "field_observer_0.02": 32.29058727358914,
+        "object_observer_0.05": 30.85869715858754,
+        "field_observer_0.05": 32.099308548128974,
+        "object_rest_phase_0.01": 10.603291076445146,
+        "field_rest_phase_0.01": 11.901433104636034,
+        "object_rest_phase_0.02": 20.716226186920927,
+        "field_rest_phase_0.02": 23.562216100240292,
+        "object_rest_phase_0.05": 25.714456485124757,
+        "field_rest_phase_0.05": 31.173881977834576
+      },
+      "max_score": 32.29058727358914,
+      "gaussian_arm_max_tail": {
+        "count": 0,
+        "draws": 10000,
+        "plus_one_tail": 9.999000099990002e-05,
+        "binomial_95_interval": [
+          0.0,
+          0.0003688199146187622
+        ]
+      },
+      "object_sign_arm_max_tail": {
+        "count": 2905,
+        "draws": 10000,
+        "plus_one_tail": 0.29057094290570945,
+        "binomial_95_interval": [
+          0.2816139446206159,
+          0.29950821092063806
+        ]
+      },
+      "field_sign_arm_max_fraction": 0.240234375,
+      "projected_chi2": 3314.1425816906926,
+      "projected_dimension": 2325,
+      "observer_singular_values": [
+        875.2497944561046,
+        249.43316227862798,
+        14.813259153405438
+      ],
+      "rest_phase_singular_values": [
+        438.7702463945404,
+        69.20922041032625,
+        21.742052440028896
+      ],
+      "subspace_canonical_correlations": [
+        0.9870223998499779,
+        0.48629109357543704,
+        0.03166980411015429
+      ]
+    }
+  },
+  "global_gaussian_Bonferroni_two_arm_tail": 0.00019998000199980003,
+  "max_score_all_24": 32.29058727358914,
+  "global_object_sign_tail": {
+    "count": 2905,
+    "draws": 10000,
+    "plus_one_tail": 0.29057094290570945,
+    "binomial_95_interval": [
+      0.2816139446206159,
+      0.29950821092063806
+    ]
+  },
+  "global_field_sign_exact_fraction": 0.240234375,
+  "field_sign_assignments": 1024,
+  "power": {
+    "measurement_plus_model_observer_i_minus_r": {
+      "injected_amplitude": 0.05,
+      "known_direction_snr": 13.332371092341127,
+      "conservative_global_5percent_power": 1.0
+    },
+    "measurement_plus_model_host_RV3p1": {
+      "injected_amplitude": 0.05,
+      "known_direction_snr": 1.3503196004049212,
+      "conservative_global_5percent_power": 0.1167
+    },
+    "measurement_plus_model_phase_colour": {
+      "injected_amplitude": 0.05,
+      "known_direction_snr": 7.683880671645085,
+      "conservative_global_5percent_power": 1.0
+    },
+    "measurement_only_observer_i_minus_r": {
+      "injected_amplitude": 0.05,
+      "known_direction_snr": 32.03393470825654,
+      "conservative_global_5percent_power": 1.0
+    },
+    "measurement_only_host_RV3p1": {
+      "injected_amplitude": 0.05,
+      "known_direction_snr": 3.066559213098925,
+      "conservative_global_5percent_power": 0.6242
+    },
+    "measurement_only_phase_colour": {
+      "injected_amplitude": 0.05,
+      "known_direction_snr": 21.935368364461414,
+      "conservative_global_5percent_power": 1.0
+    }
+  },
+  "seed": 26092678,
+  "simulations": 10000,
+  "limitations": [
+    "Linearized published-coordinate nuisance refit, not nonlinear likelihood refit.",
+    "Model covariance is archived sncosmo variant, not exact official SNANA.",
+    "Sign symmetry and independent blocks may fail after selection/clipping or shared model error.",
+    "All 64 include imperfect photometric Ia probabilities; no classifier-selected transport claimed.",
+    "Ridge scales and small empirical templates do not define complete physical alternatives."
+  ],
+  "inputs_sha256": {
+    "runs/salt_dust_audit/flux_response/matrices.npz": "a63d65a7651f680c97af46a62c841f3a005c1135788e8217c50d1d2c12feeffc",
+    "runs/salt_dust_audit/flux_response/selected_objects.csv": "4112cf4b4b22ef7d159b521ab10f2b232cf0cab72ea8da087647ba967a3a7c0c",
+    "phase2/hierarchy/data/conditioned-multistart-best/rows.csv": "ddfa2760a2682522402109961b962a5bf36c896ebe76254930762af3f6b6ec4d",
+    "runs/research_2026_09_26/astra_design/residual64-protocol.md": "226eeffe276d2966cc05d241eddb90117b397ec8cccc92f3b9bf5aa1dc9b9a83"
+  },
+  "source_sha256": "e96a35d4c8b137ff2c3a49d64307f6753c882e54d55e3eed760a5de89ea6203f"
+}

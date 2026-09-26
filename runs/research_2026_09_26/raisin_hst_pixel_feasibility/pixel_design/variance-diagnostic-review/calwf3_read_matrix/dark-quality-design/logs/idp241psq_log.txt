@@ -1,0 +1,163 @@
+2017311233403-I-INFO -------------- Data Partitioning Started: idp241psq ------------
+2017311233403-I-INFO Partitioning from POD file: lz_f157_035_0000017997
+2017311233403-I-INFO OSF_PROCESSING: for idp241psq
+2017311233403-I-INFO DP_dan_present:  DAN file found- will archive pod and dan files
+2017311233404-I-INFO DPI_task::DP_close_oldobs:  SDF lines = 17407, expected pkts = 1088 (single readout), total pkts = 17408
+2017311233404-I-INFO DPI_task::DP_close_oldobs:  17392 Science packets, 16 Engineering (ULX) packets, 0 Bad pkts
+2017311233405-I-INFO DP_close_files:  ...idp241psq.pkx was closed
+2017311233405-I-INFO DP_close_files:  ...idp241psq.bdx was closed
+2017311233405-I-INFO DP_close_files:  ...idp241psq.ulx was closed
+2017311233405-I-INFO DP_close_files:  ...idp241psq.pki was closed
+2017311233405-I-INFO DP_close_files:  ...idp241psq.uli was closed
+2017311233405-I-INFO DPI_task::DP_close_oldobs:  -------------- Data Partitioning Ended:   idp241psq ------------
+2026167070635-I-INFO ss_SupportSchedule:  -------------- Support Schedule Started: idp241psq ------------
+2026167070636-I-INFO ss_SupportSchedule:  -------------- Support Schedule Completed: idp241psq ------------
+2026167070636-I-INFO dv_DataValidation:  -------------- Data Validation Started: idp241psq ------------
+2026167070636-I-INFO dv_Instrument::assign_first_key: from qolink_sms.start_time= 2017.311:17:19:36
+2026167070636-I-INFO dv_Instrument::assign_first_key: assigned first_keys for 2017.311:17:19:36 using yurintab date: 2016.312:00:00:00
+2026167070636-I-INFO dv_DataValidation:  -------------- Data Validation Completed: idp241psq ------------
+2026167070636-I-INFO ----------- World Coordinate System Started: idp241psq ---------
+2026167070636-I-INFO ----------- World Coordinate System Ended:   idp241psq ---------
+2026167070637-I-INFO gc_GenericConversion:  -------------- Generic Conversion Started: idp241psq ------------
+2026167070637-I-INFO GC_load_...s: ...idp241psq.dvx maxgroup=16
+2026167070637-I-INFO GC_load_...s: ...idp241psq.dgx maxgroup=0
+2026167070637-I-INFO GC_load_...s: ...idp241psq.dcx maxgroup=16
+2026167070637-I-INFO GCI_IR_set_times: EXPSTART set to   5.806472195545E+04 (mjd) 
+2026167070637-I-INFO GCI_IR_set_times: EXPEND   set to   5.806473009138E+04 (mjd) 
+2026167070637-I-INFO GCI_IR_exptime_t_ro: imgsetup1 = FullImag; hversion = 29
+2026167070637-I-INFO GCI_IR_exptime: t_ro = 2.91181
+2026167070637-I-INFO GCI_IR_exptime: EXPTIME  set to           702.938171 (sec) 
+2026167070637-I-INFO GCI_construct_SCI: opened fits file ...idp241psq_raw.fits
+2026167070640-I-INFO GCI_extension: This is an IR image ABCD
+2026167070640-I-INFO gc_GenericConversion:  -------------- Generic Conversion Completed: idp241psq ------------
+2026167070641-I-INFO-exposure_times-Start ------ Exposure Times Updater for idp241psq ------
+2026167070641-I-INFO-exposure_times-UPDATE_EXPOSURE_TIMES is False. No update necessary.
+2026167070641-I-INFO-exposure_times-  End ------ Exposure Times Updater Nothing to do for idp241psq ------
+2026167070641-I-INFO-exposure_times-  End ------ Exposure Times Updater Nothing to do for idp241psq ------
+
+git tag: 97040e9-dirty
+git branch: main
+HEAD @: 97040e9890e4705e3776787a4f4ed85511533688
+
+
+CALBEG*** CALWF3 -- Version 3.7.3 (Jan-07-2026) ***
+Begin    16-Jun-2026 07:08:08 UTC
+
+
+Input    idp241psq_raw.fits
+loading asn
+
+LoadAsn:  Processing SINGLE exposure
+Trying to open idp241psq_raw.fits...
+Read in Primary header from idp241psq_raw.fits...
+
+
+
+CALBEG*** WF3IR -- Version 3.7.3 (Jan-07-2026) ***
+Begin    16-Jun-2026 07:08:08 UTC
+Input    idp241psq_raw.fits
+Output   idp241psq_flt.fits
+Trying to open idp241psq_raw.fits...
+Read in Primary header from idp241psq_raw.fits...
+APERTURE IR
+FILTER   Blank
+DETECTOR IR
+Reading data from idp241psq_raw.fits ...
+
+CCDTAB   iref$t2c16200i_ccd.fits
+CCDTAB   PEDIGREE=Ground
+CCDTAB   DESCRIP =Reference data based on Thermal-Vac #3, gain=2.5 results for IR-4
+CCDTAB   DESCRIP =Readnoise,gain,saturation from TV3,MEB2 values. ISRs 2008-25,39,50
+    readnoise =20.2,19.8,19.9,20.1
+    gain =2.34,2.37,2.31,2.38
+
+DQICORR  PERFORM
+DQITAB   iref$3562028ni_bpx.fits
+DQITAB   PEDIGREE=INFLIGHT 02/10/2017 28/10/2018
+DQITAB   DESCRIP =Bad Pixel Table generated using Cycle 25 Flats and Darks-----------
+DQICORR  COMPLETE
+
+ZSIGCORR OMIT
+
+BLEVCORR PERFORM
+OSCNTAB  iref$q911321mi_osc.fits
+OSCNTAB  PEDIGREE=GROUND
+OSCNTAB  DESCRIP =Initial values for ground test data processing
+BLEVCORR COMPLETE
+
+ZOFFCORR PERFORM
+ZOFFCORR COMPLETE
+
+NOISCORR PERFORM
+Uncertainty array initialized.
+NOISCORR COMPLETE
+
+NLINCORR PERFORM
+NLINFILE iref$a2412448i_lin.fits
+NLINFILE PEDIGREE=INFLIGHT 29/03/2011 25/11/2012
+NLINFILE DESCRIP =Non-linearity, pixel-based correction from WFC3 on-orbit frames
+NLINCORR detected 1285 saturated pixels in imset 16
+NLINCORR detected 1349 saturated pixels in imset 15
+NLINCORR detected 1423 saturated pixels in imset 14
+NLINCORR detected 1452 saturated pixels in imset 13
+NLINCORR detected 1477 saturated pixels in imset 12
+NLINCORR detected 1486 saturated pixels in imset 11
+NLINCORR detected 1494 saturated pixels in imset 10
+NLINCORR detected 1500 saturated pixels in imset 9
+NLINCORR detected 1506 saturated pixels in imset 8
+NLINCORR detected 1513 saturated pixels in imset 7
+NLINCORR detected 1519 saturated pixels in imset 6
+NLINCORR detected 1524 saturated pixels in imset 5
+NLINCORR detected 1527 saturated pixels in imset 4
+NLINCORR detected 1537 saturated pixels in imset 3
+NLINCORR detected 1543 saturated pixels in imset 2
+NLINCORR detected 1550 saturated pixels in imset 1
+NLINCORR COMPLETE
+
+DARKCORR OMIT
+
+PHOTCORR OMIT
+
+UNITCORR PERFORM
+UNITCORR COMPLETE
+
+CRCORR   PERFORM
+CRREJTAB iref$u6a1748ri_crr.fits
+CRIDCALC using 4 sigma rejection threshold
+               256 bad DQ mask
+               4 max CRs for UNSTABLE
+200 pixels detected as unstable
+CRCORR   COMPLETE
+
+FLATCORR OMIT
+Writing calibrated readouts to idp241psq_ima.fits
+Writing final image to idp241psq_flt.fits
+ with trimx = 5,5, trimy = 5,5
+
+
+End      16-Jun-2026 07:08:14 UTC
+
+*** WF3IR complete ***
+
+
+End      16-Jun-2026 07:08:14 UTC
+
+*** CALWF3 complete ***
+CALWF3 completion for idp241psq_raw.fits
+[INFO    ] ENVVAR ASTROMETRY_COMPUTE_APOSTERIORI found, setting 'align to gaia' to True.
+[INFO    ] ENVVAR ASTROMETRY_APPLY_APRIORI found, setting 'align with apriori' to True.
+[INFO    ] ENVVAR PIPELINE_RESET_IDCTAB not found, setting 'reset idctab in flt if different from raw' to default of False.
+[INFO    ] ENVVAR PIPELINE_QUALITY_TESTING not found, setting 'QA statistics' to default of False.
+[INFO    ] astrodrizzle skipped
+[INFO    ] *** Drizzlepac Processing Version 3.11.0***
+[INFO    ] 07:08:17 (16-Jun-2026): astrodrizzle processing not requested for idp241psq_raw.fits.
+[INFO    ]        astrodrizzle will not be run at this time.
+[INFO    ] 07:08:17 (16-Jun-2026): Finished processing idp241psq_flt.fits in 0.10 seconds
+
+[INFO    ] astrodrizzle completed
+2026168105804 INFO src=ac_xxx_OWL.run_task fsn=idp241psq msg="-------------- After Calibration Started for   idp241psq --------------"
+2026168105804 INFO src=ac_xxx_OWL-hst_missionquery.__init__ msg="HST_Mission_db connection to ... ..."
+2026168105804 INFO src=ac_xxx_OWL-HstScienceDataset.__init__ fsn=idp241psq msg="Opening connection to ..., ..."
+2026168105804 INFO src=ac_xxx_OWL-hst_missionquery.get_proposal_id fsn=idp241psq msg="returning 14986 for idp241psq"
+2026168105804 INFO src=ac_xxx_OWL.update_quality_...s fsn=idp241psq msg="No pdq_summary_update records found for idp241psq."
+2026168105804 INFO src=ac_xxx_OWL.run_task fsn=idp241psq msg="-------------- After Calibration Completed for idp241psq --------------"

@@ -1,0 +1,156 @@
+{
+  "status": "Administrative restart prepared only; no native execution",
+  "failed_attempt": "v5 output parent was absent; native init_simFiles uses mkdir without -p, before the main event loop. The log never reaches Begin Generating Lightcurves and no output directory, FITS or DUMP event exists. Source ordering establishes no GENFLUX_DRIVER invocation in this attempt.",
+  "source_order": {
+    "source": "runs/research_2026_09_26/astra_design/raisin_timing_assets/snana_v11_04d/source/src/snlc_sim.c",
+    "init_simFiles_before_event_banner": [
+      204,
+      221
+    ],
+    "mkdir_without_p": [
+      27392,
+      27395
+    ],
+    "GENFLUX_DRIVER_in_event_loop": 308
+  },
+  "frozen_input_files_reverified": 55,
+  "input_binary_seed_gate_changes": false,
+  "before_inventory": {
+    "original": [
+      "generation-v5/original/execution.json",
+      "generation-v5/original/native.log",
+      "generation-v5/original/sim.input"
+    ],
+    "ledger": [
+      "generation-v5/ledger/sim.input"
+    ],
+    "noiseless": [
+      "generation-v5/noiseless/sim.input"
+    ]
+  },
+  "archived_paths": [
+    {
+      "old": "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/generation-v5/original/native.log",
+      "archived": "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/restart-v5-output-parent/failed-attempt/native.log",
+      "sha256": "3584649a4f436685bc924399ddae6cdb39280ff14e5bcf154252dfe152299571",
+      "bytes": 14550
+    },
+    {
+      "old": "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/generation-v5/original/execution.json",
+      "archived": "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/restart-v5-output-parent/failed-attempt/execution.json",
+      "sha256": "5d06bcbf31e15815ec46234626f5448e2302ff4abc5f8b6d6af231e9c4daf58e",
+      "bytes": 570
+    },
+    {
+      "old": "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/generation-failure-v5.json",
+      "archived": "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/restart-v5-output-parent/failed-attempt/generation-failure-v5.json",
+      "sha256": "ea8fdd50cdf8a87487a9f8501895581eb56ede4e136ba8d1374ab5ed03cb5ef6",
+      "bytes": 284
+    }
+  ],
+  "preflight": [
+    {
+      "branch": "original",
+      "input_sha256": "83639a882ea1b9b09f75f9116bc5d72728f2d3014fdc1fb6d70e36530901c0aa",
+      "output_parent": "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/generation-v5/original/output",
+      "output_parent_writable": true,
+      "native_version_subdirectory_absent": true,
+      "binary_sha256": "2eb561be3ee2f752ae6cefc8f4d6e53a8ce9093ec2fa8081aa96c817c88754cb",
+      "source_inputs": {
+        "SIMLIB_FILE": {
+          "resolved": "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/inputs-v2/cadence.simlib",
+          "readable": true,
+          "sha256": "856cf82ced53af97a5c9803738b6eb60a3a475872f305bcc403529da0e23a9c5"
+        },
+        "GENMODEL": {
+          "resolved": "/home/szymon/Documents/ChatGPT/supernova/sources/repos/djones1040__RAISIN_DataRelease@a383c4b/model/snoopy.B18",
+          "readable": true,
+          "sha256": {
+            "SNooPy_B18.fits": "29808a319e7ee5e1ea89ab101c2181e92e2f7752d93e18f8d7b49e10a2400829",
+            "snoopy.info": "6827e3411270fd2e7347c758de1823b923a5eae4602685cfe0fa63121836bc01"
+          }
+        },
+        "KCOR_FILE": {
+          "resolved": "/home/szymon/Documents/ChatGPT/supernova/sources/repos/djones1040__RAISIN_DataRelease@a383c4b/kcor/kcor_DES_NIR.fits",
+          "readable": true,
+          "sha256": "3f30eb20020fe0b8bacb30cce90910cd2c84a2cce3b2f3b3235d586dbe2ff6d9"
+        },
+        "FLUXERRMODEL_FILE": {
+          "resolved": "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_simulation_assets/author/sim/inputs/DES/DES3YR_SIM_ERRORFUDGES.DAT",
+          "readable": true,
+          "sha256": "35b66e03244894db58b8ebaa4e3cbf6186b81cd3705196b8ed1b30e87cef8d0d"
+        }
+      }
+    },
+    {
+      "branch": "ledger",
+      "input_sha256": "f0e951881419375efaddd6091394219fe651bf9e47562e39dee8f09c5a691815",
+      "output_parent": "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/generation-v5/ledger/output",
+      "output_parent_writable": true,
+      "native_version_subdirectory_absent": true,
+      "binary_sha256": "9c540d19b88b359601fdcbb2f7e01afc279ed35d899f51eef76312ca0150ad63",
+      "source_inputs": {
+        "SIMLIB_FILE": {
+          "resolved": "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/inputs-v2/cadence.simlib",
+          "readable": true,
+          "sha256": "856cf82ced53af97a5c9803738b6eb60a3a475872f305bcc403529da0e23a9c5"
+        },
+        "GENMODEL": {
+          "resolved": "/home/szymon/Documents/ChatGPT/supernova/sources/repos/djones1040__RAISIN_DataRelease@a383c4b/model/snoopy.B18",
+          "readable": true,
+          "sha256": {
+            "SNooPy_B18.fits": "29808a319e7ee5e1ea89ab101c2181e92e2f7752d93e18f8d7b49e10a2400829",
+            "snoopy.info": "6827e3411270fd2e7347c758de1823b923a5eae4602685cfe0fa63121836bc01"
+          }
+        },
+        "KCOR_FILE": {
+          "resolved": "/home/szymon/Documents/ChatGPT/supernova/sources/repos/djones1040__RAISIN_DataRelease@a383c4b/kcor/kcor_DES_NIR.fits",
+          "readable": true,
+          "sha256": "3f30eb20020fe0b8bacb30cce90910cd2c84a2cce3b2f3b3235d586dbe2ff6d9"
+        },
+        "FLUXERRMODEL_FILE": {
+          "resolved": "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_simulation_assets/author/sim/inputs/DES/DES3YR_SIM_ERRORFUDGES.DAT",
+          "readable": true,
+          "sha256": "35b66e03244894db58b8ebaa4e3cbf6186b81cd3705196b8ed1b30e87cef8d0d"
+        }
+      }
+    },
+    {
+      "branch": "noiseless",
+      "input_sha256": "bd2d3765e4570e3dc0f3276e48efdd4e8777ba1d6d1281811a8dd35c2b3ac7b0",
+      "output_parent": "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/generation-v5/noiseless/output",
+      "output_parent_writable": true,
+      "native_version_subdirectory_absent": true,
+      "binary_sha256": "9c540d19b88b359601fdcbb2f7e01afc279ed35d899f51eef76312ca0150ad63",
+      "source_inputs": {
+        "SIMLIB_FILE": {
+          "resolved": "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/inputs-v2/cadence.simlib",
+          "readable": true,
+          "sha256": "856cf82ced53af97a5c9803738b6eb60a3a475872f305bcc403529da0e23a9c5"
+        },
+        "GENMODEL": {
+          "resolved": "/home/szymon/Documents/ChatGPT/supernova/sources/repos/djones1040__RAISIN_DataRelease@a383c4b/model/snoopy.B18",
+          "readable": true,
+          "sha256": {
+            "SNooPy_B18.fits": "29808a319e7ee5e1ea89ab101c2181e92e2f7752d93e18f8d7b49e10a2400829",
+            "snoopy.info": "6827e3411270fd2e7347c758de1823b923a5eae4602685cfe0fa63121836bc01"
+          }
+        },
+        "KCOR_FILE": {
+          "resolved": "/home/szymon/Documents/ChatGPT/supernova/sources/repos/djones1040__RAISIN_DataRelease@a383c4b/kcor/kcor_DES_NIR.fits",
+          "readable": true,
+          "sha256": "3f30eb20020fe0b8bacb30cce90910cd2c84a2cce3b2f3b3235d586dbe2ff6d9"
+        },
+        "FLUXERRMODEL_FILE": {
+          "resolved": "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_simulation_assets/author/sim/inputs/DES/DES3YR_SIM_ERRORFUDGES.DAT",
+          "readable": true,
+          "sha256": "35b66e03244894db58b8ebaa4e3cbf6186b81cd3705196b8ed1b30e87cef8d0d"
+        }
+      }
+    }
+  ],
+  "native_seconds_carried": 18.17832454199379,
+  "native_seconds_remaining": 101.82167545800621,
+  "native_activity_not_reset_or_moved": true,
+  "restart": "Invoke the unchanged run_engineering_v5.py generation with the same release only when root chooses to resume; the original executor can open fresh x-mode logs after the disclosed archive moves. No wrapper or recompilation is needed."
+}

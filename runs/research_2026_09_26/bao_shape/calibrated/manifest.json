@@ -1,0 +1,24 @@
+{
+  "created_utc": "2026-09-25T23:56:47.565770+00:00",
+  "inputs_sha256": {
+    "sources/repos/CobayaSampler__bao_data/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_mean.txt": "9ac154ab583ce759c0f7eef3c978c7c70a6ead2d18774caceadf1a350a640585",
+    "sources/repos/CobayaSampler__bao_data/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_cov.txt": "252a143274c8a07c78694c119617d36594f6d7965d00319ca611c6ffb886e509"
+  },
+  "executed_source_sha256": "435946368c7b57ec4c8094451aeaa8a09ff91d748a76817cbf8f6dcb40403fcf",
+  "registered_plan_sha256": "3d4850d1b43de82ffd7e12361ebb020a2e128fa7d2079021cf072c5f7b3b163c",
+  "argv": [
+    "scripts/research_2026_09_26/bao_shape.py",
+    "--draws",
+    "10000",
+    "--name",
+    "calibrated"
+  ],
+  "outputs_sha256": {
+    "runs/research_2026_09_26/bao_shape/calibrated/endpoints.csv": "6c4f56bcc2d48c87ed19717f8aa0fb4a29bd464359157480685ff43713c64be5",
+    "runs/research_2026_09_26/bao_shape/calibrated/calibration.npz": "edafe62ed40e3209b130031d59f8aa613f033e453a991a8c369be6cb4cf9e026",
+    "runs/research_2026_09_26/bao_shape/calibrated/geometry.npz": "7e9c209fed9968da5abadf4a64bdbf3a75489694a029cde651fd92a9720cd46e",
+    "runs/research_2026_09_26/bao_shape/calibrated/results.json": "68ee32d0df7b911c13f295419c31d2a8e463cb69d5f21d392c03706f31c8f13d"
+  },
+  "numpy_version": "2.2.6",
+  "source_capture": "before data calculations; exact copies in run directory"
+}

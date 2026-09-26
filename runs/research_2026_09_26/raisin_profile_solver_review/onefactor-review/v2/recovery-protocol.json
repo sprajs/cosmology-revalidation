@@ -1,0 +1,74 @@
+{
+  "status": "Frozen design only; no recovery draws or estimator fits launched",
+  "truth": {
+    "amplitude": 1.0,
+    "template": "h_i=0.5*sqrt(C_ii), all74coordinates; not a supernova SED or observed fitted mean"
+  },
+  "covariance": "Fixed B reference C only, diag(d)+vvT; conditional engineering generator, not established extraction covariance",
+  "realizations": 128,
+  "randomness": {
+    "bit_generator": "PCG64",
+    "new_noise_seed": 202609260731,
+    "independent_archive_seed": 202609260732,
+    "per_draw": "One scalar Z then74epsilon; y=h+vZ+sqrt(d)*epsilon; same y across all estimators"
+  },
+  "four_estimators": [
+    "full signed Gaussian",
+    "naive retained-positive Gaussian",
+    "joint censored known-cadence likelihood",
+    "full-sign-pattern-conditioned likelihood: joint censor minus full orthant log probability"
+  ],
+  "extra_control": "One independently generated archived-positive mask; new signed noise on it, ordinary marginal Gaussian",
+  "amplitude_domain": [
+    0.0,
+    4.0
+  ],
+  "optimization": {
+    "analytic": [
+      "signed Gaussian",
+      "naive positive Gaussian",
+      "frozen-mask Gaussian"
+    ],
+    "proper_likelihoods": "129 then257 point amplitude grids0..4; retain endpoints/every sampled local maximum; continuously polish all brackets; preserve ties/nonidentification",
+    "xtol": 1e-08,
+    "fine_coarse_loglikelihood_tolerance": 1e-07,
+    "fine_coarse_amplitude_tolerance": 1e-05,
+    "quadrature_orders": [
+      64,
+      128,
+      256
+    ],
+    "max_loglikelihood_quadrature_error": 1e-08,
+    "independent_adaptive_checks": "At truth and all candidate optima for both proper likelihoods; refuse unsupported cases rather than score as zero"
+  },
+  "boundaries": "Retain zero/upper boundary counts and unidentified all-negative conditional cases; no regenerated draws; distance undefined at zero, report finite subset membership",
+  "outputs": [
+    "per-draw noiseless mean/noise/y/signmask and archive mask",
+    "amplitude bias,RMSE,paired differences with MCSE",
+    "score at true amplitude and MCSE",
+    "deltaD=-2.5log10(a) separately with zero/failed/tied counts",
+    "minima,quadrature/support/resource failures and domain boundaries"
+  ],
+  "score_step": {
+    "central": 0.0001,
+    "half": 5e-05,
+    "absolute_derivative_agreement": 1e-06
+  },
+  "resource": {
+    "workers": 1,
+    "initial_benchmark_realizations": 8,
+    "maximum_elapsed_seconds": 600,
+    "numerical_scalar_fits": 256,
+    "analytic_amplitude_evaluations": 384,
+    "preserve_partial": true
+  },
+  "limitations": "Finite-sample MLE bias/Jensen effects remain with a correct likelihood. No SN model fitting, population transport, event selection or physical/cosmology correction.",
+  "inputs_sha256": {
+    "runs/research_2026_09_26/raisin_profile_solver_review/onefactor-review/v2/recovery-kernel.py": "52ac4f277e96d61b6b3a32f10417fb013d4416b09a5432a38d2e513b7f4668dc",
+    "runs/research_2026_09_26/raisin_profile_solver_review/onefactor-review/v2/recovery-design.npz": "b42b12f4132d070b3c07a189307e208674e81f23f3c2e8c332730c5bf02add34",
+    "runs/research_2026_09_26/astra_design/raisin_signed_refit/fixed-c-profile/global-profile/native-profiles.npz": "a7fd4cb87e0fb825e0135d99ca0f3cc86b5369f654742e376b8f619f444d3f70",
+    "runs/research_2026_09_26/raisin_profile_solver_review/onefactor-review/v2/review.py": "b36311997397b9d5fa18a389a2df377f388184949912ff39c7113b064445f267",
+    "runs/research_2026_09_26/raisin_profile_solver_review/onefactor-review/v2/result.json": "5e61932fd6f96ab427f24da34a3010360edad555b53b70aa3e2754b2c7c4fd9b",
+    "runs/research_2026_09_26/raisin_profile_solver_review/onefactor-review/v2/prepare_recovery.py": "8ac6be07b5780cdbb917e937a0f7cf92c38f831dead89a513679753df0164c63"
+  }
+}

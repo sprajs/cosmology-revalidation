@@ -1,0 +1,28 @@
+{
+  "arguments": {
+    "data": "phase2/hierarchy/data/conditioned-multistart-best",
+    "name": "main_student4_evolution",
+    "model": "evolution",
+    "noise": "student4",
+    "warmup": 600,
+    "draws": 1000,
+    "chains": 4,
+    "seed": 2026092160,
+    "reference": "coasting",
+    "cov_scale": 1.0,
+    "omit_training_cid": null,
+    "progress": false,
+    "output_root": "runs/research_2026_09_26/conditional"
+  },
+  "n_train": 850,
+  "n_test": 213,
+  "features": [
+    "x",
+    "c",
+    "host",
+    "x_evolution",
+    "c_evolution"
+  ],
+  "plan": "docs/phase2/conditional-prediction-plan.md",
+  "qualification": "Empirical conditional apparent-magnitude prediction in selected high-purity DES sample, from pre-BBC fits; no population/selection-free cosmology/dust identification."
+}

@@ -1,0 +1,73 @@
+{
+  "status": "frozen metadata-only MAST search before query",
+  "scope": "public WFC3/IR calibration DARK ramps near two current science visits; no image pixels, no FITS science downloads, no noise outcomes",
+  "official_api": "https://mast.stsci.edu/api/v0/invoke",
+  "docs": [
+    "https://mast.stsci.edu/api/v0/_services.html",
+    "https://mast.stsci.edu/api/v0/_c_a_o_mfields.html",
+    "https://mast.stsci.edu/api/v0/_productsfields.html"
+  ],
+  "science_visit_midpoints_mjd": {
+    "search": 57715.6503,
+    "template": 58077.6242
+  },
+  "tiered_time_windows_days": [
+    30,
+    180
+  ],
+  "tier_rule": "query \u00b130 days for each visit; widen that visit to \u00b1180 only if fewer than four exact metadata-eligible DARK/SPARS50/full-frame/NSAMP>=8 public roots",
+  "caom_filters": {
+    "obs_collection": [
+      "HST"
+    ],
+    "instrument_name": [
+      "WFC3/IR"
+    ],
+    "intentType": [
+      "calibration"
+    ],
+    "dataproduct_type": [
+      "image"
+    ],
+    "target_name_freeText": "%DARK%",
+    "dataRights": [
+      "public"
+    ]
+  },
+  "fallback": "if target_name wildcard returns no observations in a visit, repeat once without target_name and inspect calibration targets only; do not infer target from image data",
+  "required_header_metadata": [
+    "DETECTOR",
+    "SUBARRAY",
+    "SUBTYPE",
+    "SAMP_SEQ",
+    "NSAMP",
+    "EXPSTART",
+    "EXPTIME",
+    "ATODGN*",
+    "READNSE*"
+  ],
+  "optional_header_metadata": [
+    "CAL_VER",
+    "DARKFILE",
+    "NLINFILE",
+    "ZSIGFILE",
+    "PFLTFILE",
+    "DFLTFILE",
+    "LFLTFILE",
+    "UNITCORR",
+    "FLATCORR",
+    "CRCORR",
+    "ZERO*",
+    "SAMP_TIMES"
+  ],
+  "read_pattern_gate": "SPARS50 and NSAMP>=8; NSAMP>8 only first-eight-prefix conditional on matching exact per-read timing/zero convention",
+  "ranking": "absolute EXPSTART distance from corresponding science visit, then rootname; 4\u20138 repeated same-layout candidates per visit if available; no signal/noise ranking",
+  "products": "metadata list and HTTP Range FITS headers only for nearest candidates, RAW preferred and IMA availability logged; no FITS science bytes",
+  "limits": {
+    "metadata_total_bytes": 20000000,
+    "wall_seconds": 300,
+    "workers": 1,
+    "header_candidate_roots_per_visit": 40
+  },
+  "interpretation": "RAW pairs preferred for future work; IMA/FLT may reuse DARKFILE trained on selected darks, so not independent master-dark validation; no actual covariance measured"
+}

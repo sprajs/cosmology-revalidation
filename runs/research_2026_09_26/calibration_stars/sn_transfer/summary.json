@@ -1,0 +1,110 @@
+{
+  "scope": "Fixed descriptive stellar-extinction branch offsets applied to observed magnitude convention using original trained SALT and fixed native covariance; no fitted amplitude or calibration/selection/BBC closure.",
+  "sign": "Positive delta adds to observed magnitude; fitted parameters shift +R_zp delta. Residual log likelihood changes -r_perp dot v_perp minus norm(v_perp)^2/2.",
+  "summaries": [
+    {
+      "library": "calspec23",
+      "weighting": "measurement_only",
+      "subset": "all64",
+      "objects": 64,
+      "fixed_score_gain": 3.3179845214582935,
+      "template_SNR": 0.4689928839558027,
+      "shift_mean_mag": 0.0007744730653592739,
+      "shift_centered_RMS_mag": 0.002481045741045673,
+      "high_minus_low_z_quartile_shift_mag": 0.002974194029917599,
+      "shift_min_mag": -0.0042601943620562775,
+      "shift_max_mag": 0.009912205874027254
+    },
+    {
+      "library": "calspec23",
+      "weighting": "measurement_only",
+      "subset": "highIa43",
+      "objects": 43,
+      "fixed_score_gain": 2.085068525863543,
+      "template_SNR": 0.3944357517047919,
+      "shift_mean_mag": 0.0005501965335917624,
+      "shift_centered_RMS_mag": 0.0022019890121329337,
+      "high_minus_low_z_quartile_shift_mag": 0.0020991551281429365,
+      "shift_min_mag": -0.0042601943620562775,
+      "shift_max_mag": 0.009912205874027254
+    },
+    {
+      "library": "calspec23",
+      "weighting": "measurement_plus_model",
+      "subset": "all64",
+      "objects": 64,
+      "fixed_score_gain": 1.450236885156109,
+      "template_SNR": 0.2756973640946691,
+      "shift_mean_mag": 0.0008856997967436727,
+      "shift_centered_RMS_mag": 0.0024664179753677447,
+      "high_minus_low_z_quartile_shift_mag": 0.0032549121772966674,
+      "shift_min_mag": -0.004263517399499644,
+      "shift_max_mag": 0.009913800490299487
+    },
+    {
+      "library": "calspec23",
+      "weighting": "measurement_plus_model",
+      "subset": "highIa43",
+      "objects": 43,
+      "fixed_score_gain": 1.0549462916228245,
+      "template_SNR": 0.23995858423778804,
+      "shift_mean_mag": 0.0006481945016212849,
+      "shift_centered_RMS_mag": 0.0021969435385237,
+      "high_minus_low_z_quartile_shift_mag": 0.0024129571086848817,
+      "shift_min_mag": -0.004263517399499644,
+      "shift_max_mag": 0.009913800490299487
+    },
+    {
+      "library": "stis_ngsl_v2",
+      "weighting": "measurement_only",
+      "subset": "all64",
+      "objects": 64,
+      "fixed_score_gain": 0.6407289530199854,
+      "template_SNR": 0.09097865827287537,
+      "shift_mean_mag": -0.0014262790327374277,
+      "shift_centered_RMS_mag": 0.00044212185004905964,
+      "high_minus_low_z_quartile_shift_mag": 0.00043964705401260606,
+      "shift_min_mag": -0.002448828758095384,
+      "shift_max_mag": 0.00018162801818685185
+    },
+    {
+      "library": "stis_ngsl_v2",
+      "weighting": "measurement_only",
+      "subset": "highIa43",
+      "objects": 43,
+      "fixed_score_gain": 0.3732373851318532,
+      "template_SNR": 0.07373114339528264,
+      "shift_mean_mag": -0.0014630919788148184,
+      "shift_centered_RMS_mag": 0.0003944019525013498,
+      "high_minus_low_z_quartile_shift_mag": 0.00027666981162548666,
+      "shift_min_mag": -0.002448828758095384,
+      "shift_max_mag": 0.00018162801818685185
+    },
+    {
+      "library": "stis_ngsl_v2",
+      "weighting": "measurement_plus_model",
+      "subset": "all64",
+      "objects": 64,
+      "fixed_score_gain": 0.27577800569999045,
+      "template_SNR": 0.05217015019863776,
+      "shift_mean_mag": -0.0014052702347021485,
+      "shift_centered_RMS_mag": 0.0004378461222407514,
+      "high_minus_low_z_quartile_shift_mag": 0.0004913878246535068,
+      "shift_min_mag": -0.0024501168649485906,
+      "shift_max_mag": 0.00018184635757424131
+    },
+    {
+      "library": "stis_ngsl_v2",
+      "weighting": "measurement_plus_model",
+      "subset": "highIa43",
+      "objects": 43,
+      "fixed_score_gain": 0.1979549466371204,
+      "template_SNR": 0.04524345817333501,
+      "shift_mean_mag": -0.0014446604120995881,
+      "shift_centered_RMS_mag": 0.0003911191551869493,
+      "high_minus_low_z_quartile_shift_mag": 0.00033658441319914635,
+      "shift_min_mag": -0.0024501168649485906,
+      "shift_max_mag": 0.00018184635757424131
+    }
+  ]
+}

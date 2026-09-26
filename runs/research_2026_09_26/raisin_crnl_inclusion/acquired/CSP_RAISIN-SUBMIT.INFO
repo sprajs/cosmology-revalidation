@@ -1,0 +1,114 @@
+
+# Required info 
+CWD:         /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/fit
+ARG_LIST:    REFAC_CSP_RAISIN_nir_sys.nml
+TIME_STAMP_NSEC:   60179    # submit time; Nsec since midnight
+TIME_STAMP_SUBMIT: 2021-12-27 16:43:00.198237    
+SUBMIT_MODE:       BATCH 
+MERGE_MODE:       DEFAULT 
+SCRIPT_DIR:       /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/output/fit_nir_sys/CSP_RAISIN/SPLIT_JOBS_LCFIT 
+DONE_STAMP_LIST:  ['ALL.DONE'] 
+CLEANUP_FLAG:     1 
+N_JOB_TOT:        42     # total number of jobs (excludes sym links)
+N_DONE_TOT:       90     # total number of done files (includes sym links)
+N_JOB_SPLIT:      3     # njob to merge per task after processing
+N_CORE:           45     # number of cores 
+N_CORE_WITH_JOBS: 42   # n_core with jobs 
+FORCE_CRASH_PREP:    False 
+FORCE_CRASH_MERGE:   False
+FORCE_ABORT_MERGE:   False
+
+
+# Fit info
+N_JOB_LINK:          48   # Njob with link to FITOPT000
+JOBFILE_WILDCARD:    '*SPLIT*' 
+TABLE_FORMATS:       ['TEXT', 'HBOOK', 'ROOT'] 
+USE_TABLE_FORMAT:    [True, False, False] 
+IGNORE_FITOPT:       False
+PRIVATE_DATA_PATH:   $RAISIN_ROOT/cosmo/data/Photometry 
+FLAG_USE_SAME_EVENTS:   0   # >0 -> FITOPT>0 uses events from FITOPT000
+
+VERSION_LIST: 
+  - CSPDR3_RAISIN
+
+FITOPT_LIST: 
+  - ['FITOPT000', None, ''] 
+  - ['FITOPT001', 'MWEBV', 'MWEBV_SCALE 0.95'] 
+  - ['FITOPT002', 'HST_CAL', 'MAGOBS_SHIFT_ZP_PARAMS 0 0.00714 0'] 
+  - ['FITOPT003', 'VPEC', "HEADER_OVERRIDE_FILE '$RAISIN_ROOT/cosmo/vpec_sys_raisin.list'"] 
+  - ['FITOPT004', 'MASS_DIVIDE', 'FITOPT000'] 
+  - ['FITOPT005', 'MASS_STEP', 'FITOPT000'] 
+  - ['FITOPT006', 'LCFITTER', 'FITOPT000'] 
+  - ['FITOPT007', 'CSP_Y_SURVCAL', "MAGOBS_SHIFT_ZP 'Y 0.03 y 0.03'"] 
+  - ['FITOPT008', 'CSP_J_SURVCAL', "MAGOBS_SHIFT_ZP 'J 0.02 j 0.02'"] 
+  - ['FITOPT009', 'CSP_H_SURVCAL', "MAGOBS_SHIFT_ZP 'H 0.02'"] 
+  - ['FITOPT010', 'CSP_B_SURVCAL', "MAGOBS_SHIFT_ZP 'B 0.01'"] 
+  - ['FITOPT011', 'CSP_V_SURVCAL', "MAGOBS_SHIFT_ZP 'o 0.01 m 0.01 n 0.01'"] 
+  - ['FITOPT012', 'CSP_g_SURVCAL', "MAGOBS_SHIFT_ZP 'g 0.01'"] 
+  - ['FITOPT013', 'CSP_r_SURVCAL', "MAGOBS_SHIFT_ZP 'r 0.01'"] 
+  - ['FITOPT014', 'CSP_i_SURVCAL', "MAGOBS_SHIFT_ZP 'i 0.01'"] 
+  - ['FITOPT015', 'PS1_g_SURVCAL', 'FITOPT000'] 
+  - ['FITOPT016', 'PS1_r_SURVCAL', 'FITOPT000'] 
+  - ['FITOPT017', 'PS1_i_SURVCAL', 'FITOPT000'] 
+  - ['FITOPT018', 'PS1_z_SURVCAL', 'FITOPT000'] 
+  - ['FITOPT019', 'DES_g_SURVCAL', 'FITOPT000'] 
+  - ['FITOPT020', 'DES_r_SURVCAL', 'FITOPT000'] 
+  - ['FITOPT021', 'DES_i_SURVCAL', 'FITOPT000'] 
+  - ['FITOPT022', 'DES_z_SURVCAL', 'FITOPT000'] 
+  - ['FITOPT023', 'BIASCOR_SHAPE_LOWZ', 'FITOPT000'] 
+  - ['FITOPT024', 'BIASCOR_AV_1', 'FITOPT000'] 
+  - ['FITOPT025', 'BIASCOR_SHAPE_HIGHZ', 'FITOPT000'] 
+  - ['FITOPT026', 'BIASCOR_AV_2', 'FITOPT000'] 
+  - ['FITOPT027', 'KCOR', "KCOR_FILE '$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_BD17_sys.fits'"] 
+  - ['FITOPT028', 'TMPL', 'FITOPT000'] 
+  - ['FITOPT029', 'RV', 'INIVAL_RV 3.1'] 
+
+LINK_FITOPT000_LIST: ['FITOPT004', 'FITOPT005', 'FITOPT006', 'FITOPT015', 'FITOPT016', 'FITOPT017', 'FITOPT018', 'FITOPT019', 'FITOPT020', 'FITOPT021', 'FITOPT022', 'FITOPT023', 'FITOPT024', 'FITOPT025', 'FITOPT026', 'FITOPT028']
+
+
+SBATCH_LIST:  # [CPU,PID,JOB_NAME] 
+  - [   0, 15779160, REFAC_CSP_RAISIN_nir_sys.nml-CPU0000 ] 
+  - [   1, 15779161, REFAC_CSP_RAISIN_nir_sys.nml-CPU0001 ] 
+  - [   2, 15779162, REFAC_CSP_RAISIN_nir_sys.nml-CPU0002 ] 
+  - [   3, 15779163, REFAC_CSP_RAISIN_nir_sys.nml-CPU0003 ] 
+  - [   4, 15779164, REFAC_CSP_RAISIN_nir_sys.nml-CPU0004 ] 
+  - [   5, 15779165, REFAC_CSP_RAISIN_nir_sys.nml-CPU0005 ] 
+  - [   6, 15779166, REFAC_CSP_RAISIN_nir_sys.nml-CPU0006 ] 
+  - [   7, 15779167, REFAC_CSP_RAISIN_nir_sys.nml-CPU0007 ] 
+  - [   8, 15779168, REFAC_CSP_RAISIN_nir_sys.nml-CPU0008 ] 
+  - [   9, 15779169, REFAC_CSP_RAISIN_nir_sys.nml-CPU0009 ] 
+  - [  10, 15779170, REFAC_CSP_RAISIN_nir_sys.nml-CPU0010 ] 
+  - [  11, 15779171, REFAC_CSP_RAISIN_nir_sys.nml-CPU0011 ] 
+  - [  12, 15779172, REFAC_CSP_RAISIN_nir_sys.nml-CPU0012 ] 
+  - [  13, 15779173, REFAC_CSP_RAISIN_nir_sys.nml-CPU0013 ] 
+  - [  14, 15779174, REFAC_CSP_RAISIN_nir_sys.nml-CPU0014 ] 
+  - [  15, 15779175, REFAC_CSP_RAISIN_nir_sys.nml-CPU0015 ] 
+  - [  16, 15779176, REFAC_CSP_RAISIN_nir_sys.nml-CPU0016 ] 
+  - [  17, 15779177, REFAC_CSP_RAISIN_nir_sys.nml-CPU0017 ] 
+  - [  18, 15779178, REFAC_CSP_RAISIN_nir_sys.nml-CPU0018 ] 
+  - [  19, 15779179, REFAC_CSP_RAISIN_nir_sys.nml-CPU0019 ] 
+  - [  20, 15779180, REFAC_CSP_RAISIN_nir_sys.nml-CPU0020 ] 
+  - [  21, 15779181, REFAC_CSP_RAISIN_nir_sys.nml-CPU0021 ] 
+  - [  22, 15779182, REFAC_CSP_RAISIN_nir_sys.nml-CPU0022 ] 
+  - [  23, 15779183, REFAC_CSP_RAISIN_nir_sys.nml-CPU0023 ] 
+  - [  24, 15779184, REFAC_CSP_RAISIN_nir_sys.nml-CPU0024 ] 
+  - [  25, 15779185, REFAC_CSP_RAISIN_nir_sys.nml-CPU0025 ] 
+  - [  26, 15779186, REFAC_CSP_RAISIN_nir_sys.nml-CPU0026 ] 
+  - [  27, 15779187, REFAC_CSP_RAISIN_nir_sys.nml-CPU0027 ] 
+  - [  28, 15779188, REFAC_CSP_RAISIN_nir_sys.nml-CPU0028 ] 
+  - [  29, 15779189, REFAC_CSP_RAISIN_nir_sys.nml-CPU0029 ] 
+  - [  30, 15779190, REFAC_CSP_RAISIN_nir_sys.nml-CPU0030 ] 
+  - [  31, 15779191, REFAC_CSP_RAISIN_nir_sys.nml-CPU0031 ] 
+  - [  32, 15779192, REFAC_CSP_RAISIN_nir_sys.nml-CPU0032 ] 
+  - [  33, 15779193, REFAC_CSP_RAISIN_nir_sys.nml-CPU0033 ] 
+  - [  34, 15779194, REFAC_CSP_RAISIN_nir_sys.nml-CPU0034 ] 
+  - [  35, 15779195, REFAC_CSP_RAISIN_nir_sys.nml-CPU0035 ] 
+  - [  36, 15779196, REFAC_CSP_RAISIN_nir_sys.nml-CPU0036 ] 
+  - [  37, 15779197, REFAC_CSP_RAISIN_nir_sys.nml-CPU0037 ] 
+  - [  38, 15779198, REFAC_CSP_RAISIN_nir_sys.nml-CPU0038 ] 
+  - [  39, 15779199, REFAC_CSP_RAISIN_nir_sys.nml-CPU0039 ] 
+  - [  40, 15779200, REFAC_CSP_RAISIN_nir_sys.nml-CPU0040 ] 
+  - [  41, 15779201, REFAC_CSP_RAISIN_nir_sys.nml-CPU0041 ] 
+  - [  42, 15779202, REFAC_CSP_RAISIN_nir_sys.nml-CPU0042 ] 
+  - [  43, 15779203, REFAC_CSP_RAISIN_nir_sys.nml-CPU0043 ] 
+  - [  44, 15779204, REFAC_CSP_RAISIN_nir_sys.nml-CPU0044 ] 

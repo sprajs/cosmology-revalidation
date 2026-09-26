@@ -1,0 +1,58 @@
+{
+  "status": "Numerical readiness FAIL; do not infer a preferred correction, global minimum, or likelihood interval",
+  "native_multistart_fits": 240,
+  "native_profile_fits": 20,
+  "cases": 80,
+  "same_mask_cases": 76,
+  "common_likelihood_proven_cases": 0,
+  "all_native_ERRFLAG_zero": true,
+  "all_multistart_cov_positive": true,
+  "max_parameter_range": {
+    "DLMAG": 0.22406387329101562,
+    "AV": 0.13268215581774712,
+    "STRETCH": 0.19384503364562988,
+    "PKMJD": 1.52734375
+  },
+  "cases_DLMAG_spread_above_0p001": 28,
+  "cases_DLMAG_spread_above_0p01": 20,
+  "printed_prior_range": [
+    0.0,
+    0.0012
+  ],
+  "profiles": {
+    "DES16C1cim": {
+      "points": 7,
+      "same_mask_as_original": 7,
+      "accepted_counts": [
+        74
+      ],
+      "DLMAG_range": 0.0121917724609375,
+      "data_chi2_range": 0.01049041748046875
+    },
+    "DES16E1dcx": {
+      "points": 6,
+      "same_mask_as_original": 6,
+      "accepted_counts": [
+        92
+      ],
+      "DLMAG_range": 0.00618743896484375,
+      "data_chi2_range": 0.114715576171875
+    },
+    "DES16S1agd": {
+      "points": 7,
+      "same_mask_as_original": 7,
+      "accepted_counts": [
+        58
+      ],
+      "DLMAG_range": 0.008861541748046875,
+      "data_chi2_range": 0.08190155029296875
+    }
+  },
+  "corrections": [
+    "FITCHI2 excludes CHI2INI; prior added here is rounded log output, not exact FCN dump.",
+    "Peak prior center updates to previous iteration fit, not immutable header peak. The header sets initial seed.",
+    "Final C uses previous iteration model and MW error, even with OPT_COVAR_FLUX=0. Same mask does not establish a common objective.",
+    "The original fields best_start_by_objective/comparable_objective/conditionally_preferred must not be used for scientific ranking.",
+    "20 local profile points were executed; the original resource prose said 21 but one out-of-grid endpoint was omitted before execution."
+  ]
+}

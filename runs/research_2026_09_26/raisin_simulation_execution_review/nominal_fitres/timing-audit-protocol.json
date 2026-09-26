@@ -1,0 +1,16 @@
+{
+  "status": "frozen before numeric timing inspection",
+  "inputs": {
+    "nir": {"path": "nir.FITRES.gz", "git_blob": "7dd16e0978e2be4f09ebdc14698aaeca902df26e"},
+    "optnir": {"path": "optnir.FITRES.gz", "git_blob": "53b5efe4c8804b19873b427fba27e0eb70aad0ed"}
+  },
+  "schema_gate": "Both FITRES have CID, PKMJDINI, PKMJD, PKMJDERR, SIM_PKMJD, STRETCH, STRETCHERR, AV, AVERR, ERRFLAG_FIT, CUTFLAG_SNANA, SIM_LIBID and common version headers; stop if parsing or uniqueness fails.",
+  "grain": "Every SN: row in each nominal FITRES, including failed fits; no quality or selection cut. Pair by exact CID only after uniqueness and simulation truth-column agreement checks; preserve unmatched rows.",
+  "validity": "Numerically finite decimal peak values, with any value <= -8 or >= 999999 treated as a sentinel. Report sentinel and nonnumeric counts by column; retain all original strings. No imputation.",
+  "primary_differences_days": ["PKMJDINI - SIM_PKMJD", "PKMJD - SIM_PKMJD", "PKMJD - PKMJDINI", "optnir PKMJD - nir PKMJD on common valid CID", "optnir PKMJDINI - nir PKMJDINI on common valid CID"],
+  "strata": ["all valid rows", "ERRFLAG_FIT == 0", "ERRFLAG_FIT != 0", "CUTFLAG_SNANA == 0", "CUTFLAG_SNANA != 0"],
+  "summaries": "For each difference and stratum: n, mean, population SD, median, median absolute deviation, min/max, q01/q05/q95/q99, and counts/fractions |difference| <= 0.01, 0.03, 0.05 days. Preserve decimal text precision and compute differences using Decimal values; mark summaries limited by printed precision.",
+  "fixed_error_audit": "Report zero, negative, positive, nonfinite and sentinel counts for PKMJDERR, STRETCHERR, AVERR, plus unique printed values when few. Cross-tab with ERRFLAG_FIT. Do not treat zero printed errors as exact model truth without source confirmation.",
+  "identity_checks": "CID uniqueness each arm; common-CID equality of SIM_PKMJD, SIM_LIBID, SIM_TYPE_INDEX, SIM_STRETCH and SIM_AV at printed precision, with discrepancy rows preserved.",
+  "interpretation": "The source recipe's 0.01-day GENSIGMA_SEARCH_PEAKMJD is a descriptive reference for initializer-minus-simulation truth only if PKMJDINI is source-confirmed to use SEARCH_PEAKMJD. Do not infer an execution hash chain, full selection, bias, or cosmology. Optical fitted peak is never substituted for simulation truth."
+}

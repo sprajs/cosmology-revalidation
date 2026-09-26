@@ -1,0 +1,66 @@
+{
+  "scope": "Source proof of true minimizer start; first evaluated XVAL was not separately instrumented. Bound transformation can cause machine precision roundoff. Actual entry shifts and differing convergence trajectories are also saved.",
+  "source_chain": [
+    {
+      "path": "phase2/official/build/SNANA-v11_04k/src/snana.car",
+      "sha256": "e34661b1f2eb77b97c06b47308c782009ba34b7d2b4f5071f6583ed4d837f688",
+      "lines": [
+        9441,
+        9474
+      ],
+      "note": "FITPAR_PREP returns then INIVAL/INISTP passed unchanged to MNFIT_DRIVER",
+      "text": "          CALL FITPAR_PREP ( iter, IERR )  ! init fit params\n          if ( IERR .NE. 0 ) then\n            ERRFLAG_FIT = IERR\n            write(6,40) ITER, SNLC_CCID(1:ISNLC_LENCCID)\n40          format(T5,'FITPAR_PREP PROBLEM => SKIP FIT-ITER=', \n     &              I2,'  for  CID=',A )\n            GOTO 410          ! bad init => skip fit-iteration\n          endif\n\n          if ( STDOUT_UPDATE ) THEN\n            WRITE(GLOBAL_BANNER,44) ISN, SNLC_CCID(1:ISNLC_LENCCID), \n     &           NFITPAR_MN, ITER\n            CALL PRBANNER(GLOBAL_BANNER)\n44          format(T5,'CALL MNFIT_DRIVER for ISN=',I5,\n     &           3x,'CID=',A, 3x, 'NFITPAR=',I3, 3x,'iter=',I1 )\n          endif\n\nc call main driver for fitter. \nc Note that all returned output from MNFIT_DRIVER goes to common blocks.\n\n          CALL MNFIT_DRIVER ( \n     &       SNLC_CID, NFITPAR_MN                 ! (I)\n     &      ,INIVAL, INISTP, INIBND               ! (I)\n     &      ,PARNAME_STORE                        ! (I)\n     &      ,USE_MINOS_LOCAL                      ! (I)\n     &      ,MINUIT_PRINT_LEVEL                   ! (I)\n     &      ,FITVAL(1,iter)                       ! (O)\n     &      ,FITERR_PLUS(1,iter)                  ! (O)\n     &      ,FITERR_MINUS(1,iter)                 ! (O)\n     &      ,FITCHI2_MIN                          ! (O)\n     &      ,NFIXPAR, ERRTYPE                     ! (O)\n     &      ,MNSTAT_COV                           ! (O)\n     &      ,IERR                                 ! (O)\n     &            )   "
+    },
+    {
+      "path": "phase2/official/build/SNANA-v11_04k/src/snana.car",
+      "sha256": "e34661b1f2eb77b97c06b47308c782009ba34b7d2b4f5071f6583ed4d837f688",
+      "lines": [
+        36748,
+        36841
+      ],
+      "note": "MNPARM receives INIVAL; FITVAL cleared separately. Dummy initial callback returns on zero ITER/ISN and never replaces MINUIT U. MINIMIZE uses initialized MINUIT parameters.",
+      "text": "      CALL MNINIT(IUNIN,IUOUT,IUWRI)\n\n      PARG(1) = DBLE(PRINT_LEVEL)\n      CALL MNEXCM(FCNSNLC, 'SET PRI', PARG, 1, IERR, USRFUN )\n+SELF.\n\nC Define parameters in MINUIT\n\n      DO IPAR = 1, NFITPAR\n\n+SELF,IF=MINUIT.\n         CALL MNPARM(IPAR, PARNAME(IPAR)\n     &       ,INIVAL(IPAR), INISTP(IPAR)\n     &       ,INIBND(1,IPAR)   ! lo-bound\n     &       ,INIBND(2,IPAR)   ! hi-bound\n     &       ,IERR   ) \n+SELF.\n         IF ( IERR .NE. 0 ) THEN\n            WRITE (6,'(A,A10,A)') '  ERROR initializing ', \n     &            PARNAME(ipar), '  with MNPARM '\n            RETURN\n         ENDIF\n\nc init fit params\n         FITVAL(ipar)       = 0.0\n         FITERR_PLUS(ipar)  = 0.0\n         FITERR_MINUS(ipar) = 0.0\n         ERRTYPE(ipar)      = 0\n\nC Set list of fixed parameters with step size = 0\n\n         IF ( INISTP(IPAR) .EQ. 0.0 ) THEN\n            NFIXPAR = NFIXPAR + 1\n            FIXLIST(NFIXPAR) = DFLOAT(IPAR)\n         ENDIF\n\n      ENDDO\n\n      CALL FLUSH(6)\n\nc --------------------------------------------\nc fix param if its step size is zero\n\n      IF ( NFIXPAR .GT. 0 ) THEN\n\n+SELF,IF=MINUIT.\n         CALL MNEXCM(FCNSNLC,'FIX',FIXLIST, NFIXPAR,IERR,USRFUN)\n+SELF.\n         IF ( IERR .NE. 0 ) THEN\n            WRITE (6,'(A)') '  ERROR fixing parameters'\n            RETURN\n         ENDIF\n      ENDIF\n\nc call FCN function with init flag: IFLAG=2\n      IFLAG = 2\n+SELF,IF=MINUIT.\n      CALL FCNSNLC ( NFITPAR, GRAD, chi2, FITVAL, IFLAG, USRFUN )\n+SELF.\n\nC Set Strategy 2 for more accurate derivative calculation\n\n      NARG = 1\n      STRATEGY = DBLE(2.0)   ! 1=default,  2 => better results \n\n      IF ( DO_PRINT ) THEN\n        print*,'  Set MINUIT STRATEGY = ', int(STRATEGY)\n      ENDIF\n\n+SELF,IF=MINUIT.\n      CALL MNEXCM(FCNSNLC,'SET STR', STRATEGY, NARG, IERR, USRFUN )\n+SELF.\n      MAXCALLS = dble(30000.0)\n\nC Actually do the fit\n\n      IF ( DO_PRINT ) THEN\n        PRINT *,' '\n        PRINT *,' ------------------------------------------------ '\n      ENDIF\n\n+SELF,IF=MINUIT.\n      IF ( USE_MINOS ) THEN\n        CALL MNEXCM(FCNSNLC, 'MINOS', MAXCALLS, NARG, IERR, USRFUN)\n        IF ( DO_PRINT ) THEN\n          PRINT *,'  MNFIT_DRIVER: MINOS returns IERR = ', IERR\n        ENDIF\n      ELSE\n        CALL MNEXCM(FCNSNLC, 'MINIMIZE', MAXCALLS, 0, IERR, USRFUN)\n        IF ( DO_PRINT ) THEN\n          PRINT *,'  MNFIT_DRIVER: MIGRAD returns IERR = ', IERR\n        ENDIF\n      ENDIF\n+SELF."
+    },
+    {
+      "path": "phase2/official/build/SNANA-v11_04k/src/minuit.F",
+      "sha256": "17fa1bb924dbdc62b7b87023155762b8fab1410034bd36df187aaa15e641d159",
+      "lines": [
+        8760,
+        8776
+      ],
+      "note": "MNPARM stores U(K)=UK",
+      "text": "      IF (DANGER .EQ. 0.)\n     +     CALL MNWARN('W','PARAM DEF','STARTING VALUE IS AT LIMIT.')\n  200 CONTINUE\nC                           . . . input OK, set values, arrange lists,\nC                                    calculate step sizes GSTEP, DIRIN\n      CFROM = 'PARAMETR'\n      NFCNFR = NFCN\n      CSTATU= 'NEW VALUES'\n      NU = MAX(NU,K)\n      CPNAM(K) = CNAMK\n      U(K) = UK\n      ALIM(K) = A\n      BLIM(K) = B\n      NVARL(K) = NVL\nC                             K is external number of new parameter\nC           LASTIN is the number of var. params with ext. param. no.< K\n      LASTIN = 0"
+    },
+    {
+      "path": "phase2/official/build/SNANA-v11_04k/src/minuit.F",
+      "sha256": "17fa1bb924dbdc62b7b87023155762b8fab1410034bd36df187aaa15e641d159",
+      "lines": [
+        372,
+        384
+      ],
+      "note": "MNAMIN maps current internal X to external U and calls FCN(U)",
+      "text": "     +          CVRSN*6,  COVMES(0:3)*22, CSTATU*10, CHPT*1\n      LOGICAL   LWARN, LREPOR, LIMSET, LNOLIM, LNEWMN, LPHEAD\n      EXTERNAL FCN,FUTIL\n      NPARX = NPAR\n      IF (ISW(5) .GE. 1) WRITE (ISYSWR,'(/A,A)') ' FIRST CALL TO ',\n     + 'USER FUNCTION AT NEW START POINT, WITH IFLAG=4.'\n      CALL MNEXIN(X)\n      CALL FCN(NPARX,GIN,FNEW,U,4,FUTIL)\n      NFCN = NFCN + 1\n      AMIN = FNEW\n      EDM = BIGEDM\n      CALL FLUSH(6)\n      RETURN"
+    },
+    {
+      "path": "phase2/official/build/SNANA-v11_04k/src/minuit.F",
+      "sha256": "17fa1bb924dbdc62b7b87023155762b8fab1410034bd36df187aaa15e641d159",
+      "lines": [
+        7743,
+        7759
+      ],
+      "note": "MNMIGR uses MNAMIN when minimum is undefined",
+      "text": "     N/MN7CPT/ CHPT(MAXCPT)\n     o/MN7XCR/ XMIDCR ,YMIDCR ,XDIRCR ,YDIRCR ,KE1CR  ,KE2CR\n      CHARACTER CTITL*50, CWORD*(MAXCWD), CUNDEF*10, CFROM*8,\n     +          CVRSN*6,  COVMES(0:3)*22, CSTATU*10, CHPT*1\n      LOGICAL   LWARN, LREPOR, LIMSET, LNOLIM, LNEWMN, LPHEAD\n      EXTERNAL FCN,FUTIL\n      DIMENSION GS(MNI), STEP(MNI),  XXS(MNI), FLNU(MNI), VG(MNI)\n      LOGICAL LDEBUG\n      PARAMETER (TOLER=0.05)\n      IF (NPAR .LE. 0)  RETURN\n      IF (AMIN .EQ. UNDEFI)  CALL MNAMIN(FCN,FUTIL)\n      LDEBUG = (IDBG(4) .GE. 1)\n      CFROM = 'MIGRAD  '\n      NFCNFR = NFCN\n      NFCNMG = NFCN\n      CSTATU= 'INITIATE  '\n      ISWTR = ISW(5) - 2*ITAUR"
+    },
+    {
+      "path": "phase2/official/build/SNANA-v11_04k/src/snlc_fit.car",
+      "sha256": "ff79b219f88fc167b15301efddfd376771d8cc114b1ffed5968f7a81e29c7628",
+      "lines": [
+        4358,
+        4372
+      ],
+      "note": "Zero-valued dummy FITVAL initial callback returns before model evaluation",
+      "text": "         NFITDATA_LOC = NFITDATA + NFITDATA_REJECT \n      ELSE\n         NFITDATA_LOC = NFITDATA\n      ENDIF\n\nc extract parameters into local variables\n\n      ITER       = int ( XVAL(IPAR_ITER) )\n      ISN        = int ( XVAL(IPAR_ISN)  )\n      if ( ITER .EQ. 0 .OR. ISN .EQ. 0 ) RETURN\n\n      FIRST_ITER = FIRST_ITERATION(ITER) \n\n      COLORPAR    = XVAL(IPAR_AV)       !  AV or c\n      AVRV        = XVAL(IPAR_AVRV) "
+    }
+  ],
+  "binary_sha256": "716d5c235468329e878bd56e678cfa55b2a316f333c36ec411e9a320c1770938"
+}

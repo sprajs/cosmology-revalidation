@@ -1,0 +1,19 @@
+{
+  "created_utc": "2026-09-26T02:57:23.936357+00:00",
+  "stage": "Before design results, no SN apparent-magnitude column read by this workstream. These releases were previously analysed elsewhere in the project.",
+  "estimand": "Relative total standardized-luminosity/opacity/calibration/selection drift: r_SN(z)-5log10[(DM/rd)/z], with one free common magnitude/ruler intercept. r_SN=m_b_corr-5log10[(1+zHEL)zHD].",
+  "assumptions": "Published standardized magnitudes and total covariance retained. Constant comoving ruler, standard distance duality, released Gaussian effective-redshift BAO approximation, unknown cross-probe covariance taken zero for forecast only. No LCDM fit, H0 or rd calibration.",
+  "selection": "SN zHD>.01 as existing released-product branch; preserve duplicate observation rows and full covariance. BAO DM nodes inside SN redshift support; exclude DV and DH, use marginal DM covariance submatrix.",
+  "interpolation": "Local GLS polynomial in [ln(1+z)-ln(1+z_node)]/halfwidth, primary degree2 halfwidth.10. Frozen sensitivities degree2 widths.075,.125 and degree3 width.10. Marginal local C in each GLS; cross-node errors from W Cfull W^T. No kernel tuning with outcomes.",
+  "admission": "For every frozen interpolation design: >=20 distinct CID, >=5 distinct CID strictly each side, full polynomial rank, condition number<1e8, max named-test-curve interpolation bias<=.005mag. Interpolation tests are a finite sensitivity set, not a bound over arbitrary smooth histories.",
+  "recovery_curves": "Flat constant-w Om in[.15,.3,.5], w in[-1.5,-1,-.5]; positive kinematic E=(1+z)^(1+q0+q1)exp[-q1*z/(1+z)], q0 in[-1,0,.5], q1 in[0,1,2]. Test r=5log10[(integral dz/E)/z]. Curves test approximation only, not priors or fits.",
+  "power": "If >=2 nodes admitted, estimate Gaussian forecast SE for drift linear in ln(1+z) normalized to1 between min/max admitted nodes. Profile intercept. Power at two-sided5% for endpoint differences .02,.05,.10mag. Retain inter-node SN covariance. BAO log delta-method approximation verified with50000 Gaussian draws, seed260926117.",
+  "stop": "Do not score observed drift in this script. Broad BAO redshift kernels are unresolved; interpolation recovery alone does not validate compressed likelihood under arbitrary histories. No opacity attribution or cosmology correction.",
+  "input_sha256": {
+    "sources/repos/CobayaSampler__sn_data/PantheonPlus/Pantheon+SH0ES.dat": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8",
+    "sources/repos/CobayaSampler__sn_data/PantheonPlus/Pantheon+SH0ES_STAT+SYS.cov": "abf806d966485e64afdb359c87bffc0ecc00d05eff0a31ced66f247385df0fdc",
+    "sources/repos/CobayaSampler__bao_data/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_mean.txt": "9ac154ab583ce759c0f7eef3c978c7c70a6ead2d18774caceadf1a350a640585",
+    "sources/repos/CobayaSampler__bao_data/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_cov.txt": "252a143274c8a07c78694c119617d36594f6d7965d00319ca611c6ffb886e509",
+    "scripts/research_2026_09_26/sn_bao_design.py": "30d5d0c47b3ad3ba312e37385e62ac0363bb6a9507432a0a48aa2657b7df4830"
+  }
+}

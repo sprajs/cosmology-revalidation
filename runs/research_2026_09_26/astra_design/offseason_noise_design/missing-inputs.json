@@ -1,0 +1,48 @@
+{
+  "status": "Physical-noise scoring stopped at unresolved extraction-provenance gate; design only. No new baseline flux/noise results.",
+  "candidate_source": "Original DES SMP HEAD/PHOT; frozen 323 rows before phase -60,317 passing declared metadata quality",
+  "minimum_inputs": [
+    {
+      "item": "Epoch extraction status",
+      "required_fields": [
+        "CID",
+        "constituent exposure IDs",
+        "released PHOT row mapping",
+        "free fitted amplitude versus fixed/reference status",
+        "original DiffImg peak and window",
+        "time-frame convention",
+        "quality-flag definitions"
+      ],
+      "purpose": "Establish whether early released rows are independent transient-flux measurements; do not infer this from their observed flux distribution."
+    },
+    {
+      "item": "Joint extraction uncertainty or controlled re-extraction",
+      "required_fields": [
+        "host/position posterior or propagated covariance",
+        "reference-image membership",
+        "nightly averaging weights and constituent exposures",
+        "calibration/PSF/zeropoint processing identity"
+      ],
+      "purpose": "Separate common host/reference uncertainty from epoch fluctuations; if unavailable, fit free pre-explosion amplitudes with held-out reference/host information."
+    },
+    {
+      "item": "Matching simulation baseline epochs",
+      "required_fields": [
+        "pre-explosion noise-only measurements outside current -40..100 generated window",
+        "same cadence/host/background support",
+        "documented shared-noise components",
+        "same detection, measured peak and classifier selection"
+      ],
+      "purpose": "Compare selection-conditioned real and simulation baselines; current P21/G10 have zero phase<=-60 support."
+    }
+  ],
+  "not_substitutes": [
+    "Fixed-zero SMP reference amplitudes",
+    "DIFFIMG noise residuals",
+    "SALT early-phase extrapolation",
+    "Post+100-day flux assumed zero",
+    "A looser phase cut chosen for sample size",
+    "Independent Gaussian epochs appended to already selected simulations"
+  ],
+  "existing_scored_results": "Prior DIFFIMG audits remain historical reduction-specific results; this task does not repeat or expand their scores."
+}

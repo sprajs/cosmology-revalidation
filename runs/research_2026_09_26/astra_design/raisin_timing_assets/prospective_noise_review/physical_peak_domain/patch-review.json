@@ -1,0 +1,54 @@
+{
+  "verdict": "PASS for bounded private build; native identity/recovery remain unexecuted gates",
+  "scope": "Source-only independent review, no builds/native calls/pixel or flux outcomes",
+  "verified_base_equals_existing_support_source": true,
+  "expected_source_hashes_match": true,
+  "manual_reviews": [
+    "all117 stored R8 times, no flux or truth values in bounds",
+    "first hook after overrides, later hook before early return",
+    "fixed cadence/z/MJDOFF/tables/bounds asserted across iterations",
+    "FCN guard after prior rejection but before physical mean, includes SIGMA_ONLY bypass",
+    "USRFUN guard before template/extinction/KCOR and old output-only trace, applies to auxiliary rest calls in their actual phase",
+    "absent/0 environment disabled path has no native-array writes",
+    "enabled invalid calls abort, no phase clipping or row pruning",
+    "native relative/absolute peak conversions and R8/R4 endpoints consistent for current MJDOFF0",
+    "summary edge_peak is all-trial contact, final boundary flag must derive from final state"
+  ],
+  "files": [
+    {
+      "path": "phase2/pte/restricted-peak-engineering/restricted-peak.patch",
+      "sha256": "56cca25289e2c053961985bddb38fced6a23e1fc71e3f8fb748fa03ffe0f9e8f",
+      "bytes": 10875
+    },
+    {
+      "path": "phase2/pte/restricted-peak-engineering/static-result.json",
+      "sha256": "f7d9d87665dd381bf672d0f226b1cd81734ac8dd14fb9e8f17770c304f3e4870",
+      "bytes": 2284
+    },
+    {
+      "path": "phase2/pte/restricted-peak-engineering/snlc_fit.base.car",
+      "sha256": "c32cb746dfc769ad9ea454dc5dd0f3a4b1ad5d79b0f371b033216aa635e3e784",
+      "bytes": 600224
+    },
+    {
+      "path": "phase2/pte/restricted-peak-engineering/genmag_snoopy.base.c",
+      "sha256": "594dab05d1c6fc9da24336a9c84263263b83d6ebf5fe59a5a4a4128de771ac11",
+      "bytes": 11556
+    },
+    {
+      "path": "phase2/pte/restricted-peak-engineering/build/src/snlc_fit.car",
+      "sha256": "54a013388053d10e4998a356422dda77743d0f90dbd2158e44155960fc5d2236",
+      "bytes": 601601
+    },
+    {
+      "path": "phase2/pte/restricted-peak-engineering/build/src/genmag_snoopy.c",
+      "sha256": "e67cc924a2813c3c6813d5acb162639bdf2a90c8e94088c63ce824b75906c38f",
+      "bytes": 11641
+    },
+    {
+      "path": "phase2/pte/restricted-peak-engineering/build/src/prosp_peak_domain.h",
+      "sha256": "d0bddc2535fdcb71cd723a947e7ece64fbae2f74b4febbd7aeff9d37bdc81fd7",
+      "bytes": 7765
+    }
+  ]
+}

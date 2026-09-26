@@ -1,0 +1,18 @@
+{
+  "inputs_sha256": {
+    "protocol.json": "884a4ac87f6495a07346b5c5626df4b491f79bc7ad145f6703f8351cf57690ec",
+    "phase-window-amendment.json": "3778ec016e0405cc0c44dc039e98f9ecbc48ba18c6b4c336d7fc611cb7b3e54d",
+    "author-acquisition.json": "c769168f874c23aad2e829452e2d9bcb83081f1269a5de9a99b9a2e397bacff3",
+    "author-lineage.csv": "601ed7694f607d093b817af7550ff9717f1b3b3ad06e3204319e527aa0368ff8",
+    "original-retention.csv": "c1ad613f6f4aa8b8a8e3d11af5ae8c70f0d3e822c97c3c7f89b7f7b232e97ea5",
+    "code-tree.json": "1702b38dbcc672f620a1c101396e6b6d6b2a32e42e2d2e5daa1fdde988a3913a"
+  },
+  "counts": {
+    "author_products_identical": 17,
+    "negative_candidates": 2286,
+    "des16_negative_candidates": 2243,
+    "des16_negative_historical_fit_window": 33,
+    "des15_negative_candidates": 43
+  },
+  "caveat": "DES16 positive flux rows agree to product rounding, but their errors do not all agree to 0.001; 2015 precursor positives have changed flux and error. Native refit restoration using author-negative errors therefore requires an explicit conditional bridge, not an exact byte-level restoration."
+}

@@ -1,0 +1,42 @@
+{
+  "scope": "Resource-only amendment before any2021baseline fit; v1inputs,protocol,runner,freeze preserved",
+  "per_native_process_seconds": 60,
+  "combined_2021_baseline_pair_seconds": 120,
+  "original_total_pilot_seconds": 600,
+  "earlier_native_ledger": [
+    {
+      "path": "runs/research_2026_09_26/raisin_simulation_timing_pilot/fits/baseline/execution.json",
+      "sha256": "f3666063b443b5521cd6a13fccd69311797c17a2601c3d8e9b99a2686b754341",
+      "wall_seconds": 0.1644768469996052
+    },
+    {
+      "path": "runs/research_2026_09_26/raisin_simulation_timing_pilot/fits_authorgrid/baseline/execution.json",
+      "sha256": "03c23967a612ccb07c201b4b31528f8f7178d5d80efa3b6b8bd6b90953ca1935",
+      "wall_seconds": 0.7656021209986648
+    },
+    {
+      "path": "runs/research_2026_09_26/raisin_simulation_timing_pilot/fits_authorgrid/baseline_copy/execution.json",
+      "sha256": "65c4a434ee206ae4dbab5f832bb803b0b3405fb92c906aa4f4e2c8342cd89521",
+      "wall_seconds": 0.7655003420077264
+    },
+    {
+      "path": "runs/research_2026_09_26/raisin_simulation_timing_pilot/fits_model/baseline/execution.json",
+      "sha256": "b51271311a28a24e7040940f1dd43795d37390bfcf8593a9d1ea9cc22cd92d36",
+      "wall_seconds": 0.8155394089990295
+    },
+    {
+      "path": "runs/research_2026_09_26/raisin_simulation_timing_pilot/fits_model/baseline_copy/execution.json",
+      "sha256": "75027f01809c64402e0ac34c092cf14ed49cafaec89dbe7bbf87c873736552eb",
+      "wall_seconds": 0.8162028139922768
+    },
+    {
+      "path": "runs/research_2026_09_26/raisin_simulation_timing_pilot/fits_mw94/baseline/execution.json",
+      "sha256": "78d26935cc9ede174750fe811b7e0c0387d617ace0e4798b65323b92cdedb525",
+      "wall_seconds": 0.21452439000131562
+    }
+  ],
+  "earlier_native_wall_seconds": 3.5418459229986183,
+  "carry_rule": "Before each branch compute spent2021pair time from immutable completed branch execution.json; perprocess timeout=min(60,120-pairspent,600-earlierspent-pairspent). Failbeforelaunch whennonpositive. No resetbetweenbaselineandcopy.",
+  "science_changes": null,
+  "SNANA_DIR_length": 119
+}

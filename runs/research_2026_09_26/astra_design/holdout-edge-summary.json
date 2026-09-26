@@ -1,0 +1,72 @@
+{
+  "status": "PASS native fixed-mask mean/coordinate/row identity and finite-step comparison on four edge objects; all four outside primary quality",
+  "objects": [
+    {
+      "arm": "P21",
+      "CID": 19675,
+      "archived_quality": false,
+      "primary_quality_classifier_affected": false,
+      "native_minus_Python_M": 0.0110404874216329,
+      "native_minus_Python_I": -1.3855764781633972e-05,
+      "native_minus_Python_G": 0.0110474153040238,
+      "half_minus_full_native_M": -1.0224876501041535e-12,
+      "half_minus_full_native_I": -1.3290063494153515e-13,
+      "half_minus_full_native_G": -9.56042536803814e-13,
+      "projector_spectral_difference": 0.5285166916625091
+    },
+    {
+      "arm": "P21",
+      "CID": 14533,
+      "archived_quality": false,
+      "primary_quality_classifier_affected": false,
+      "native_minus_Python_M": 0.0165781232410071,
+      "native_minus_Python_I": -0.0002852464846019,
+      "native_minus_Python_G": 0.016720746483308,
+      "half_minus_full_native_M": -1.4010531266098886e-05,
+      "half_minus_full_native_I": 3.432141349943296e-08,
+      "half_minus_full_native_G": -1.4027691972846867e-05,
+      "projector_spectral_difference": 0.7391974969895168
+    },
+    {
+      "arm": "G10",
+      "CID": 980,
+      "archived_quality": false,
+      "primary_quality_classifier_affected": false,
+      "native_minus_Python_M": 0.0420436405538357,
+      "native_minus_Python_I": -0.0005342180004594,
+      "native_minus_Python_G": 0.0423107495540654,
+      "half_minus_full_native_M": 2.5671100631801183e-05,
+      "half_minus_full_native_I": -3.3226370220001923e-07,
+      "half_minus_full_native_G": 2.583723248290122e-05,
+      "projector_spectral_difference": 0.4356747800381938
+    },
+    {
+      "arm": "G10",
+      "CID": 6801,
+      "archived_quality": false,
+      "primary_quality_classifier_affected": false,
+      "native_minus_Python_M": -0.020580483086804,
+      "native_minus_Python_I": -0.0001608889251887,
+      "native_minus_Python_G": -0.0205000386242097,
+      "half_minus_full_native_M": -1.4478100142378825e-11,
+      "half_minus_full_native_I": 5.017273285745118e-14,
+      "half_minus_full_native_G": -1.4503186513889748e-11,
+      "projector_spectral_difference": 0.6126802919283648
+    }
+  ],
+  "maximum_original_Python_score_reproduction_error": 1.0061396160665481e-16,
+  "initial_failures": "hold_edge/ and hold_edgeb/ retain failed fixed probes; x1-minus14533 outside hard-coded native INIBND[-5,5], not merely outputFITWIN. hold_jm/ retains missing PHOT file logs; copied HEADER kept original PHOTFILE basename, resolved byte-identical hardlink.",
+  "measurement_amendment": "Derivative-only PHOTFLAG29 mask freezes exact original accepted raw rows, no reclipping/phasecut; native C from original free fit remains scoring C. x1 derivative 14533 uses inward difference at native\u22125boundary; other derivatives central. No scientific mask/mean/C/score changed.",
+  "scope": "Model-ledger selection while score process was underway, before aggregates inspected; no global native-J bound; all-success control only because all four fail archived quality.",
+  "hashes": {
+    "runs/research_2026_09_26/astra_design/hold_jm/result.json": "17a8cee4292962f842a2c9cdb38a8dcef3675be221805219c14ca2c3d04619e0",
+    "runs/research_2026_09_26/astra_design/hold_jh/result.json": "231dd7a22548842920fa3fa9a7af4fcb9d62960a37a09575fd3fde01c97fedba",
+    "runs/research_2026_09_26/astra_design/hold_jm/mask-ledger.json": "68d230d3e86acaed21ae2981f9c149e6592ed225bc0b26845e05f7becae81402",
+    "runs/research_2026_09_26/astra_design/hold_jh/mask-ledger.json": "68d230d3e86acaed21ae2981f9c149e6592ed225bc0b26845e05f7becae81402",
+    "runs/research_2026_09_26/astra_design/holdout-edge-quality.json": "da1ab2d547002f603c8da0c4b6e6ca579b4afea40aa43935c2570e25491d718a",
+    "runs/research_2026_09_26/astra_design/check_holdout_edges.py": "4729223d3f0733b6d4f9a530e689a7f70a993ce509b30310af40027504978836",
+    "runs/research_2026_09_26/astra_design/native_holdout_masked_gate.py": "635f46413e6d9f0ff253c437701deeeef3d9fbb110abedbbc2e118e2c8cc2613",
+    "runs/research_2026_09_26/astra_design/native_holdout_masked_recover.py": "c9129f72ba01ee1d1e74b136e527736a4a2f4473f8b61672d05f34c4d409fdda",
+    "runs/research_2026_09_26/astra_design/native_holdout_masked_half.py": "b9744955ffe0a8ca1b5ae49ef0c7ea420795ead4072eac7770b42e8b22712fd4"
+  }
+}

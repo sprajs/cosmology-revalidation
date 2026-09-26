@@ -1,0 +1,111 @@
+{
+  "title": "Prospective64 conditional native same-photon peak study",
+  "state": "frozen before generation; each stage needs root release",
+  "main_question": "At this fixed native mean/cadence/noise setting, what changes in NIR distance error when the same photons determine a joint grizJH peak instead of supplying the true peak?",
+  "population_scope": "Conditional distribution over native measurement noise only. No survey population, selection correction, historical reproduction, dust posterior or cosmology fit.",
+  "generation": {
+    "seed": 26092672,
+    "engineering_seed_separate": 26092671,
+    "NGEN_LC": 0,
+    "NGENTOT_LC": 64,
+    "SIMLIB_NREPEAT": 64,
+    "SIMLIB_IDLOCK": 11,
+    "unique_stochastic_draws": 64,
+    "replay": "Same64 re-generated once with unchanged minimally bounds-repaired comparison generator solely to require exact table-column equality to output-ledger generator. 128 native attempts,64 unique science draws.",
+    "attempt_gate": "Exactly64 PROSP_ATTEMPT sequential records,64 unique ordered CIDs1..64,zero PROSP_REJECT,zero forced accepts; all written rows/noise records joined by CID+epoch. No refill/reseed.",
+    "truth": {
+      "peak": 57707.80078125,
+      "zHEL_equal_zCMB": 0.453000009059906,
+      "shape": 1,
+      "AV": 0,
+      "RV": 1.5180000066757202,
+      "MWEBV": 0.006,
+      "MWerror": 0,
+      "MWlaw": 94,
+      "amplitude": "Source R8 DLMU from fixed Om.3,Ode.7,w\u22121,H070; not rounded SIM_DLMAG"
+    },
+    "same_inputs": "Exact engineering inputs-v2 cadence117, empirical SNooPy_B18,KCOR,noise-map,full FIELD and conditions. Only seed,count/repeat and new output paths differ.",
+    "noise": "Native flux Gaussian draws and realized-flux-dependent quoted variance retained. Intrinsic OIR/model/lensing scatter remains disabled. No field remapping; zero template/fudge variance and nonsaturation gates retained.",
+    "data_precision": "Native FITS MJD1D R8,flux/error1E R4. Source17digit ledger retains true and reported variance components,draws,flags and all signs.",
+    "noiseless_reuse": "Validated deterministic engineering control reused only with identical binaries/physical inputs; every new64 mean and true variance component must also exactly match engineering deterministic reference by physical epoch. First8 stochastic outcomes are not pooled."
+  },
+  "source_identity": {
+    "generator": "v11_04d 10ec91297e4482d593cb5d3d055b10d4aa915071 plus exactly2 gen_cutwin array-extent repairs, optional output-only ledger; not unpatched historical reproduction",
+    "fit": "Previously validated private restricted-domain plus MNPARM-local start-only binary; no new compilation, model or objective changes"
+  },
+  "fitting": {
+    "fixed_nuisance": "shape1,AV0,RV1.518,MW94 and same native covariance prescriptions",
+    "peak_domain": "Fixed all117 R8 metadata intersection of SNooPy[-20,70] and KCOR[-20,85] = [57671.342999365806,57715.067000181196] absolute MJD, all iterations; all-mean prephysical refusal. Tabulated support is not independent empirical validation.",
+    "peak_prior": "Native sigma5day prior with iteration recentering preserved. First actual\u00b12 MINUIT start does not move shared INIVAL/prior center; later histories may differ.",
+    "joint_jobs": [
+      "joint12",
+      "joint9",
+      "joint_minus",
+      "joint_plus"
+    ],
+    "joint_starts": "Identical nominal NML; private first-MNPARM-only\u22122/+2days; actual MNPOUT readback and shared firstprior/pregrid records checked for every64. No grid-initializer substitute.",
+    "nir_jobs": [
+      "NIR_true12",
+      "NIR_true9",
+      "NIR_trueminus",
+      "NIR_trueplus",
+      "NIR_estimated12",
+      "NIR_estimated9",
+      "NIR_estimatedminus",
+      "NIR_estimatedplus",
+      "NIR_null12"
+    ],
+    "nir_intervention": "Only PEAKMJD R4 byte fields change, source HEAD otherwise exact; original PHOT file shared. Estimated peak from nominaljoint12 rounded once toR4. Fixedshape/AV; D refit.",
+    "nir_starts": "Actual postinitD\u00b1.2, original controls unchanged. Null HEAD whole-file exact and full native model/error/W/objective/FITRES equality.",
+    "no_Q_winner": "Nominal12 is fixed primary. No outcome selection of optimizer branch."
+  },
+  "gates": {
+    "all64": "Complete64 membership in each job or entire-stage failure; exact117/6 exposures every saved callback; all original signed data/error/flags unchanged",
+    "native_flags": "ERRFLAG_FIT0 and CUTFLAG_SNANA3(passbits)",
+    "objective": "rWr+prior+sigma agrees within1e\u22127, finite SPD C",
+    "convergence": "Lasttwoiteration and9vs12/control |deltaD|\u2264.001mag, |deltapeak|\u2264.01day; lasttwo whitened C operatornorm\u2264.001; fixedC positive-amplitude stationary distance\u2264.001mag",
+    "support": "Positive perCID auditcounts, no unsupported/nonfinite/overflow/abort; all finalpeaks withinoriginal\u00b14day engineeringguard, separate fromphysicaldomain",
+    "starts": "Actual first MNPOUT shift\u00b12within.004day and exactly0later; firstsharedINIVAL/prior/pregrid unchanged; NIR Dshift\u00b1.2within1e\u22124mag",
+    "fixedpeak": "Every NIR callback peak exactly its armHEAD",
+    "null": "Exact model/error/phase/entry/weights/objective records, scienceFITRES, fullHEAD bytes, samePHOTfile and domain/supportsummaries",
+    "no_effect_threshold": true
+  },
+  "estimands": {
+    "per_draw": "eta = assignedR4 jointpeak\u2212truepeak; e0=D_NIR_truepeak\u2212Dtruth; e1=D_NIR_assignedpeak\u2212Dtruth; delta=e1\u2212e0. InternalR8 eta and peakquantization separately retained.",
+    "summary": "Mean, sampleSD(ddof1), MCSE(mean)=SD/sqrt64; rawsecondmoments and their sampleSD/sqrt64. No independent timing smear.",
+    "joint": "Full samplecovariance(ddof1) for[eta,e0,e1,delta]; six rawcrossmoments with MCSE; covariance MCSE from delete-one jackknife. These finite-sample MC uncertainty estimates are conditional on the fixed model/noise experiment.",
+    "retention": "All64 draws, signs and flags; failures tabulated and downstream estimation withheld on a gatefailure. No success-only mean, no replacement draws, no optional sample enlargement/stopping by effect.",
+    "engineering8": "Never pooled into64 summaries. Previously observed paired effects did not select seed/truth/membership/gates."
+  },
+  "administrative_controls": {
+    "short_alias": "/home/szymon/Documents/ChatGPT/supernova/phase2/pt64",
+    "readonly_inputs": "inputs-v2 symlink to exact priorinputs, allbinary/referencehashes bound",
+    "private_registries": "Separate generator and fitter SNDATA_ROOT with same reference symlinks. Generator may write its own SIMregistry; fitregistry remains empty. No shared registry modification.",
+    "readme": "Copy originalREADME with oneblankafterDOCUMENTATION, exactalltokens/YAML; firstsixlinetokens<60. HEAD/PHOT/LIST remain native.",
+    "head": "Verified rawBINTABLE bytepatch only, no Astropy serialization; newnull exact filehash.",
+    "failures": "Existing8 attempts and all historical failures immutable; new64 failures/logs retained, no autoretry"
+  },
+  "resources": {
+    "workers": 1,
+    "generation_seconds": 120,
+    "native_fit_seconds": 600,
+    "per_process_seconds": 90,
+    "output_bytes": 2000000000,
+    "process_RSS_bytes": 2000000000,
+    "plain_logs": true,
+    "forecasts": {
+      "engineering_actual_all_controls_seconds": 35.22853134901379,
+      "engineering_actual13_main_jobs_seconds": 19.070691973000066,
+      "linear64_main_seconds": 152.56553578400053,
+      "generation_seconds_rough": 4,
+      "plain_output_bytes_rough": 1250000000
+    },
+    "notes": "Budgets fixed before64 outcomes; sequential compact final-state retention between controls avoids holding every history. Record native and checkerRSS, outputsize, perprocess walltimes. No builds/HMC."
+  },
+  "stages": [
+    "generation",
+    "joint",
+    "nir"
+  ],
+  "release": "Each stage root release contains protocol_sha256,freeze_sha256,stages. No photons or fits authorized by preparation alone."
+}

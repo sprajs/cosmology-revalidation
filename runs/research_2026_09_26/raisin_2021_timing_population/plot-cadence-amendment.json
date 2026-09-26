@@ -1,0 +1,10 @@
+{
+ "status":"Frozen before 2021 LCPLOT band-count calculation",
+ "reason":"The fixed first500 membership CSV is a 2022-era metadata ledger. Its CID list was used only as a predetermined cohort, but its z/LIBID and J/H columns must not be assumed coherent with the recovered 2021 FITRES pair. Preserve v1 result and derive physical accepted J/H cadence from the exact 2021-coherent LCPLOT file instead.",
+ "unchanged":"All FITRES timing summaries, CID cohorts, redshift values, thresholds, and missing-ID accounting in protocol.json; no outcome-based CID selection",
+ "plot_source":"runs/research_2026_09_26/raisin_simulation_execution_review/nominal_fitres/lcplot-feasibility/FITOPT000.LCPLOT.gz",
+ "plot_sha256":"6aeb02bab3648daad6435405bbd1c9ab7f8f4db6949bf24ab00cba7296de6f97",
+ "existing_exact_join":"runs/research_2026_09_26/astra_design/raisin_timing_assets/historical-coherence-500.csv",
+ "existing_join_result_sha256":"1fc7b396b5d0e9fb8a181bf8c699a1d6b5d8948cbed56338f0805e1864a84cea",
+ "method":"Parse OBS rows with DATAFLAG=1, exact CID and BAND J/H; require all 500 fixed CIDs, each accepted count=NIR FITRES NDOF+1 and match prior 2021 coherence ledger. Report inherited 2022 CSV z/LIBID mismatch counts solely as provenance; use 2021 FITRES z/LIBID. No plot flux, chi2, fitted distance or residual analyzed."
+}

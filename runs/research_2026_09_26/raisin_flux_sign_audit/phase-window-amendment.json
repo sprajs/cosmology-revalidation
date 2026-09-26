@@ -1,0 +1,14 @@
+{
+  "frozen_utc": "2026-09-26T03:12:02.974908+00:00",
+  "before_phase_window_retention_outcomes": true,
+  "original_protocol_sha256": "884a4ac87f6495a07346b5c5626df4b491f79bc7ad145f6703f8351cf57690ec",
+  "nml_sha256": {
+    "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/lcfitting/REFAC_DES_RAISIN_optical_sys.nml": "32a7c36fcd0cea92abc6a9471465c44266a54536e8ac43c2f7b85b251d850830",
+    "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/lcfitting/REFAC_PS1_RAISIN_optical_sys.nml": "6a3d91173cd9603a251e474a2921b9ae5aad97ebd2cec9a5b3cee7d6369fb0c4"
+  },
+  "additional_phase_window_descriptive_checks": [
+    "-7<=rest_phase<=45 for RAISIN optical fitting NML",
+    "-10<=rest_phase<=40 for separately planned M20 BayeSN domain"
+  ],
+  "rules": "Use RAISIN photometry header PEAKMJD and REDSHIFT_HELIO for rest phase of all original DES DIFFIMG rows in 17 aliases; count original negative/zero/positive and RAISIN-retained by exact band/MJD under primary tolerance inside/outside each window. Same for all optical bands. Do not refit, infer likelihood or attribute historical bias from omission alone."
+}

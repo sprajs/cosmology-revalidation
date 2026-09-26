@@ -1,0 +1,28 @@
+{
+  "status": "Additive checker correction and resume freeze; no new native execution",
+  "scientific_protocol_sha256": "376a8abb276f8ec917e8c9313a527e2bd9f44c4370a38bf6a50fd26496ddfb80",
+  "semantic_corrections": [
+    {
+      "old": "CUTFLAG_SNANA==0",
+      "new": "CUTFLAG_SNANA==3 and unchanged ERRFLAG_FIT==0",
+      "source": "snana.car:1679 identifies passbits0,1;21625 sets bit0 for successful SN cuts;9337 sets bit1 on last-iteration ERRFLAG0. Zero meant neither condition passed, so the original success checker was inverted.",
+      "scope": "Correct interpretation of frozen success intent; no event/epoch cut or failure threshold relaxed."
+    },
+    {
+      "old": "Compare observed MJD to float32(PHOT.MJD)",
+      "new": "Compare observed MJD exactly to double(PHOT.MJD)",
+      "source": "sndata.h208 MJD double; sntools_dataformat_fits.c614 writes1D and3398 reads RD_SNFITSIO_DBL; snana.car808 defines SNLC8_MJD. Existing117 row logs independently match native FITS double exactly.",
+      "scope": "FITS route differs from previously audited rounded text/plot export; no epoch changed or tolerance introduced. Header PEAKMJD, flux and error remain native R4."
+    }
+  ],
+  "support": "Current authoritative joint log has one summary; emitter registers exactly one atexit callback. Strict missing/duplicate/overflow/nonfinite/bad-call checks remain unchanged. Earlier apparent duplication was from printing the same line twice during inspection.",
+  "reuse": "Completed original/support joint logs, FITRES, NML and execution records are hash-bound and rechecked. Resume invokes only the pending noiseless NIR job, then exactly the already declared noisy jobs if their stage is released. It never regenerates or reruns the successful joint jobs.",
+  "outputs": "New native work uses fits-resume/ at same relative depth. Checker gate reports go to this additive review folder, not old fit folders. Original failure record persists.",
+  "thresholds": "All distance, peak, covariance, stationarity, mask, support and model-residual tolerances unchanged. Existing joint checks pass; pending NIR prevents a full noiseless pass.",
+  "full_null": "full_null_check.py independently compares every saved model/entry/measurement/weight/objective record, all FITRES science rows, exact HEAD arrays and same PHOT file for true-peak versus null arms. It is prepared before noisy outcomes; it is not yet an executed null result.",
+  "budget": {
+    "cap_seconds": 120,
+    "carried_native_seconds": 21.184965763997752
+  },
+  "release": "Root release must bind original protocol-v5.json and freeze-checker-resume.json. No native execution in preparation."
+}

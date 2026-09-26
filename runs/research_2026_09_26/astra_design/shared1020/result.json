@@ -1,0 +1,203 @@
+{
+  "scope": "Post-validation exploratory attribution through nine native coupled calibration/SALT finite variants; discovery-conditioned shared Gaussian second-moment approximation, not full release-systematic posterior.",
+  "discovery_objects": 43,
+  "validation_objects": 1020,
+  "validation_epochs": 39606,
+  "validation_projected_dimension": 35526,
+  "nine_mode_parameter_data_epoch_identity": true,
+  "models": {
+    "calibration_only": {
+      "joint_validation_predictive_gain_over_zero": 49.80344108227234,
+      "independent_QR_predictive_gain": 49.80344108227216,
+      "independent_error": -1.8474111129762605e-13,
+      "discovery_latent_posterior_mean": [
+        -0.16349851205053723,
+        0.5848954395402305,
+        0.6108680339178574,
+        -0.3183262988500983,
+        0.38124544480485767,
+        0.2234827630220631,
+        0.31082042048921626,
+        -0.3485354459673115,
+        1.6371734135293634
+      ],
+      "discovery_latent_posterior_sd": [
+        0.9539335199908134,
+        0.9546357266282887,
+        0.889922676889272,
+        0.9626444608974715,
+        0.978456858188562,
+        0.9753016184654767,
+        0.9739668081270869,
+        0.9830565286015867,
+        0.8046440608099595
+      ],
+      "fixed_discovery_posterior_mean_validation_gain": 43.50146471415047,
+      "discovery_log_marginal_gain_over_zero": 3.116041305884207,
+      "validation_noise_design_information_trace": 37.998048598106294,
+      "conditioning": "Shared joint latent posterior learned only on43 discovery objects; shared posterior uncertainty integrated once on1020 validation objects."
+    },
+    "calibration_plus_observer": {
+      "joint_validation_predictive_gain_over_zero": 58.74707935470373,
+      "independent_QR_predictive_gain": 58.7470793547043,
+      "independent_error": 5.684341886080801e-13,
+      "discovery_latent_posterior_mean": [
+        -0.0961117183375001,
+        -0.031770656237771644,
+        0.0296751627195197,
+        -0.02705737542069686,
+        0.18008008614597826,
+        -0.07214171427774174,
+        0.1486733832641334,
+        -0.15983391566802518,
+        0.16980961767072533,
+        -0.246788093651789,
+        0.9198837408455852,
+        -1.0576137551359162
+      ],
+      "discovery_latent_posterior_sd": [
+        0.9713010294005843,
+        0.9855117101596036,
+        0.9796415816892761,
+        0.9877191545505178,
+        0.982676952728064,
+        0.9843677419645809,
+        0.9862789051669989,
+        0.9900852787650032,
+        0.9427226798059062,
+        0.7934781523298362,
+        0.4502570196693119,
+        0.6448324233077881
+      ],
+      "fixed_discovery_posterior_mean_validation_gain": 26.43962160302212,
+      "discovery_log_marginal_gain_over_zero": 5.539562750962531,
+      "validation_noise_design_information_trace": 975.5954491464181,
+      "conditioning": "Shared joint latent posterior learned only on43 discovery objects; shared posterior uncertainty integrated once on1020 validation objects."
+    },
+    "calibration_plus_isotropic_griz_observer": {
+      "joint_validation_predictive_gain_over_zero": 58.67793877245599,
+      "independent_QR_predictive_gain": 58.67793877245679,
+      "independent_error": 8.029132914089132e-13,
+      "discovery_latent_posterior_mean": [
+        -0.07948630044720156,
+        -0.10613864188519795,
+        -0.05218972946039707,
+        0.014436859610490904,
+        0.1553301878389926,
+        -0.0998897975412984,
+        0.13861358655030304,
+        -0.13452151357095476,
+        0.015898733598938453,
+        -0.17984596230299676,
+        0.8093261724679438,
+        -0.8063192384774371
+      ],
+      "discovery_latent_posterior_sd": [
+        0.9706726638904306,
+        0.9877359159659124,
+        0.9797905577134671,
+        0.9876210500478033,
+        0.9829059105496784,
+        0.9845507252382574,
+        0.9858933504876919,
+        0.9901711927018078,
+        0.9547406553936305,
+        0.9015875688739788,
+        0.29236957081030585,
+        0.5426610724174419
+      ],
+      "fixed_discovery_posterior_mean_validation_gain": 17.676424815853096,
+      "discovery_log_marginal_gain_over_zero": 6.084497137827244,
+      "validation_noise_design_information_trace": 782.9709677732646,
+      "conditioning": "Shared joint latent posterior learned only on43 discovery objects; shared posterior uncertainty integrated once on1020 validation objects."
+    }
+  },
+  "conditional_predictive_log_ratio_calibration_plus_observer_vs_calibration": 8.943638272431386,
+  "original_frozen_observer_direction_after_calibration_null_conditioning": {
+    "score_gain_for_conditional_mean_shift": -0.9643747172910295,
+    "matched_filter_centered": 22.519062922886263,
+    "information": 46.966875280354586,
+    "conditional_Gaussian_Z": 3.285901046634311,
+    "conditional_Gaussian_one_sided_tail": 0.0005082835750212048,
+    "qualification": "Direction fixed by discovery, residual centred on calibration-only discovery posterior and shared predictive covariance used. Partial nine-mode model; not original validation significance or full-budget rejection."
+  },
+  "joint_model_discovery_observer_griz_mean_mag": [
+    -0.00493576187303578,
+    0.0076903621588424,
+    0.018397674816911704,
+    -0.021152275102718325
+  ],
+  "isotropic_prior_sensitivity": {
+    "coefficient_covariance": [
+      [
+        0.0006000000000000001,
+        -0.0002,
+        -0.00019999999999999998
+      ],
+      [
+        -0.0002,
+        0.0006000000000000001,
+        -0.00019999999999999996
+      ],
+      [
+        -0.0002,
+        -0.00019999999999999996,
+        0.0006
+      ]
+    ],
+    "physical_band_covariance": [
+      [
+        0.0006000000000000001,
+        -0.0002000000000000001,
+        -0.0002,
+        -0.00019999999999999998
+      ],
+      [
+        -0.00020000000000000006,
+        0.0006000000000000002,
+        -0.00020000000000000012,
+        -0.00019999999999999998
+      ],
+      [
+        -0.0002,
+        -0.00020000000000000012,
+        0.0006000000000000001,
+        -0.00019999999999999996
+      ],
+      [
+        -0.0002,
+        -0.00019999999999999998,
+        -0.00019999999999999996,
+        0.0006
+      ]
+    ],
+    "inherited_physical_prior_total_variance": 0.0024000000000000002,
+    "isotropic_physical_prior_total_variance": 0.0024000000000000002,
+    "conditional_predictive_log_ratio_vs_calibration": 8.874497690183645
+  },
+  "limitations": [
+    "Nine finite variations interpreted as Gaussian modes with source amplitude scale .3, no renormalization. This is a new epoch-level second-moment model.",
+    "The same latent variables connect discovery and validation; no independent validation covariance inflation is used.",
+    "CALSPEC and other released systematics omitted. Fragilistic sample coverage is anisotropic; wavelength-shift covariance/seed mapping not established.",
+    "Nominal fixed masks, C and local tangent; no selection/classification/BBC/SALT retraining likelihood regeneration.",
+    "The observer prior remains .02^2I in inherited [g-r,i-r,z-r] coordinates, not isotropic in an orthonormal zero-sum4-band gauge.",
+    "All model definitions here were frozen after the earlier validation result, so this is exploratory attribution rather than pristine hypothesis confirmation."
+  ],
+  "source_sha256": "8390a42eccf13c97c5fadfa93bc42465cba9566fd87d422a64689e273757781d",
+  "protocol_sha256": "aeb9503b4fddbd7260333c906bd1cd3879ff64b4fa956a0680d69cde56981007",
+  "input_sha256": {
+    "shared1020/input-manifest.json": "8e76d9d9c40f6e20f19b43922a533d3ab079a4d9863fa3f9ca3ac93912d15f37",
+    "shared1020/prior-amendment-manifest.json": "9bcdbdf35cbcca17bcfcc18bcd17a0c8dfa67432f7fa7dc7919ee60c52a28396",
+    "shared43/projected-modes.npz": "cd86b7e2f151f07aa942dff9db81507a1c7fd7b3912fe198a6259dfd9a97edf4",
+    "validation1020/frozen-discovery-coefficients.npz": "5db1dabdc832fa3a3d8ba47f47fd365e36f5bb0d5eb556b95c609153697145a0",
+    "shared1020/model001/objectives/manifest.json": "c84756738e7eab2051049ec2c552f1508cd7aaa294b06569bd68ee5c86f3d7cf",
+    "shared1020/model002/objectives/manifest.json": "c0f7a2dad82621b842d176f9ad701f70ee9cab6b96db3f9185dab7ff07ebaba5",
+    "shared1020/model003/objectives/manifest.json": "bc5faf9875df9f87e51f59c75fba73633c7b15096c7967f5b308e9ff8c5a3184",
+    "shared1020/model004/objectives/manifest.json": "5e450d71eb5ca68862cfa5cb1e4615dfb8949ea5d764bddbf6dddc9ada01ede6",
+    "shared1020/model005/objectives/manifest.json": "f243673c05f7a8c3e9a1ab726b24e3f964176a0b60f72c9516e020e3c3f71f00",
+    "shared1020/model006/objectives/manifest.json": "95a7dbb05cb966d8b77e5ff6d5e1e727317465f97b4b5354211466bd1919ef88",
+    "shared1020/model007/objectives/manifest.json": "b738d6b755df4f10b604bfb6c8f05b64ba28e1586ecb48eb05756f20b1f08ddd",
+    "shared1020/model008/objectives/manifest.json": "9be61bda3192bf15d85a2ed008d027db1ccce143a4bbab27c13e0d65536a7cd2",
+    "shared1020/model009/objectives/manifest.json": "3934decd05f23f06e117d8c7331c782e7c2970df82fd7116b0000af6e6c99907"
+  }
+}

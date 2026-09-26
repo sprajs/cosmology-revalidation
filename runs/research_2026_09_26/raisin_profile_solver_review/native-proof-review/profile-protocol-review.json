@@ -1,0 +1,28 @@
+{
+  "status": "Conditional approval of a restricted-domain numerical pilot; pre-score guard amendment requested",
+  "profile_scores_read": false,
+  "protocol_sha256": "9e128dfc60be4579f0c1825d49b06a9e2102867f2ab2793ccd744b77286e73e6",
+  "runner_sha256": "500cf3397bd2a92e7fcbb8be7e004bb1d7f07e21d7e1c6b0b2a7ea7a810f35c2",
+  "accepted": [
+    "One B anchor covariance; A uses inverse of marginal C_AA",
+    "Raw A/B shared flux and errors exactly identical",
+    "Shared fixed header peak and native mean operator",
+    "Secondary full-B covariance frozen at pre-existing A-anchor coordinates",
+    "All supported stored shape cells sampled with coarse/fine grids and local AV branches",
+    "Explicit AV[-1,2] restricted domain, resource cap and no physical dust/cosmology claim"
+  ],
+  "required_guard_clarifications": [
+    "Handle and record nonpositive/clipped native means and q<=0 before analytic amplitude division",
+    "Validate native multiplicative flux scaling at competitive profiled amplitudes; existing plus/minus.15 proof is local",
+    "Include actual min+k*float32step algorithm boundaries and both sides in addition to stored knots; mismatch reaches1.24e-7",
+    "Record covariance asymmetry before numerical symmetrization; prohibit statistical PSD repair",
+    "Distinguish computational completion from numerical gate pass; populated pair values are not certified when coarse/fine, boundary or unsupported-domain gates fail"
+  ],
+  "interpretive_limits": [
+    ".001-mag/.001-Q coarse-fine gates are pilot numerical tolerances, not confidence levels",
+    "No global claim outside AV[-1,2], and distant sampled endpoints do not prove absence of all outer minima",
+    "Correct Gaussian marginal covariance is not selection-conditioned covariance",
+    "Analytic amplitude normal-equation closure is arithmetic, not global shape/AV convergence",
+    "Do not compare raw A/B minimum quadratics as model evidence or multiply their shared measurements independently"
+  ]
+}

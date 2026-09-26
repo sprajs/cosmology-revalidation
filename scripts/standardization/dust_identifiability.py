@@ -17,7 +17,20 @@ ROOT=Path(__file__).resolve().parents[2]
 OUT=ROOT/'runs/standardization/dust_identifiability'; OUT.mkdir(parents=True,exist_ok=True)
 K=2.5/np.log(10)
 
-def slab(tau):return -2.5*np.log10(-np.expm1(-np.asarray(tau))/np.asarray(tau))
+def slab(tau):
+    """Absorption-only uniform-slab attenuation, including the transparent limit."""
+    tau=np.asarray(tau,dtype=float)
+    if np.any(~np.isfinite(tau)) or np.any(tau<0):
+        raise ValueError('Slab optical depth must be finite and nonnegative')
+    transmission=np.ones_like(tau)
+    np.divide(-np.expm1(-tau),tau,out=transmission,where=tau!=0)
+    attenuation=np.asarray(-2.5*np.log10(transmission))
+    # The logarithm loses relative accuracy when transmission approaches one.
+    # -ln[(1-exp(-tau))/tau] = tau/2 - tau^2/24 + tau^4/2880 + O(tau^6).
+    thin=tau<1e-4
+    t=tau[thin]
+    attenuation[thin]=K*(t/2-t*t/24+t**4/2880)
+    return attenuation
 def result(rv,tau,limit=.5):
     av=float(slab(tau));ab=float(slab(tau*(1+1/rv)))
     f=min(1,limit/(K*tau*(1+1/rv)))

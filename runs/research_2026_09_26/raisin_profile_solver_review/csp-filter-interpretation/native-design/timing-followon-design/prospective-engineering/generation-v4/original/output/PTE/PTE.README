@@ -1,0 +1,106 @@
+DOCUMENTATION: 
+  SURVEY:       DES
+  GENMODEL:     snoopy.B18 
+  HOST_MACHINE: (null) 
+  USERNAME:  szymon 
+  SNDATA_ROOT:  /home/szymon/Documents/ChatGPT/supernova/phase2/official/inputs/SNDATA_ROOT 
+  SNANA_DIR:     /home/szymon/Documents/ChatGPT/supernova/phase2/pte/build-v11_04d 
+  SNANA_VERSION: v11_04d 
+  CWD:   /home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/generation-v4/original 
+DOCUMENTATION_END: 
+
+ FULL_DESCRIPTION: 
+	 SIMLIB filename  : ../../inputs-v2/cadence.simlib (NREPEAT=8) 
+	 SIMLIB SURVEY    : DES  (TELESCOPE=CTIO, MINOBS=1) 
+	 SIMLIB UNITS     : ARCSEC_FWHM for PSF,  ADU_PER_SQPIXEL for SKYSIG 
+	 SIMLIB MSKOPT   : 32 
+	 SIMLIB ID LOCKED to LIBID : 11 
+	 NEWMJD_DIF       : 576.00  minutes (defines trigger epoch)
+	 Generation VERSION: PTE 
+	 Generation source : RANDOM 
+	 Generation FILTERS: grizJH 
+	 Rest-frame FILTERS: BVugriYJH  for  model=snoopy.B18
+	 KCOR lookup tables: ../../inputs-v2/kcor.fits 
+	 KCOR lookup  time : Trest
+	 AVwarp option for SED : color from Jha table 
+	 Flux-smearing is ON 
+	 Reported flux-uncertainty includes SKY+GALAXY+SOURCE
+	 Zeropt-smearing is OFF 
+	 Host-galaxy shot-noise  is OFF 
+	 Host-galaxy image-noise  is OFF 
+	 MilkyWay extinction  is ON  
+	    Color law: CCM89+ODonell94  (OPT_MWCOLORLAW=94) 
+	    E(B-V): FILE value (SIMLIB or data header)   (OPT_MWEBV=1)
+	    sigma(MWEBV) = 0.00*MWEBV + 0.00  
+	    shift(MWEBV) = 0.000 mag 
+
+ *********************************** 
+   SIMULATED VOLUME, TIME, RATE(POWERLAW)
+	 Survey dOmega  = 1.0418e-11 steradians  ( 0.00000 PI) 
+	 Redshift range =  0.4000 -  0.5000
+	 <redsfhit>     =  0.4528  (volume-weighted) 
+	 Survey Volume  = 1.0424e-02  sr*(MPc/h70)^3 
+	 Survey Time    =  0.0548  years/season 
+	 Co-moving Time =  0.0377  years/season  [ T/(1+<z>) ] 
+	 Co-moving V*T  = 3.9315e-04  sr*(MPc/h70)^3 * yr / season 
+	 POWERLAW MODEL:  1.70e-05*(1+z)^2.11  (0.0 < z < 4.0) 
+	    MODEL-RATE(z=0.40) = 3.458e-05/Mpc^3/yr    
+	 Calculated Number of EVENTS per season = 1.469787e-08 
+
+
+  GENERATION RANGES: 
+	 ==> Override gen-values with SIMLIB header values.
+	 Generate Redshift :  0.400 to  0.500  using  SIMLIB values. 
+	 REDSHIFT_FINAL is ZCMB_GEN smeared by :  0.00000 
+	 v(cmb)=0 -> REDSHIFT_HELIO=REDSHIFT_CMB (legacy option)
+	 Peculiar Velocity (VPEC) Gauss sigma: 0.0 km/sec
+	 grizJH   ZP   offsets :  0.000  0.000  0.000  0.000  0.000  0.000 
+	 grizJH  MODEL offsets :  0.000  0.000  0.000  0.000  0.000  0.000 
+	 grizJH  exposure times: 1.0000 1.0000 1.0000 1.0000 1.0000 1.0000 
+	 RA       : -360.00 to 360.00  deg
+	 PEAKMJD  :  57700.0 to  57720.0   
+	 PEAKMJD-estimate  : 1.0000 
+	 Trest    :   -15.00 to    45.00  days 
+	 RISETIME-SHIFT(days) SIGMA(lo,hi) : 0.0 , 0.0  (Mean= 0.0) 
+	 FALLTIME-SHIFT(days) SIGMA(lo,hi) : 0.0 , 0.0  (Mean= 0.0) 
+	 Shape-par(STRETCH): Peak=1.00  SIG-+= 0.000,0.000  SKEW=0.00,0.00  BND=1.00,1.00
+
+  Host Extinction Parameters: 
+	 RV : Peak=1.52  SIG-+= 0.000,0.000  SKEW=0.00,0.00  BND=1.52,1.52
+	 Gen-Range for AV  : 0.00 to 0.00  (model=CCM89) 
+	 dN/dAV = exp(-AV/0.20) + GaussNONE 
+
+  Z-dependent SN-parameter shifts:  None. 
+
+  Intrinsic MAG-smearing models (sigma clip -3.0 to  3.0) : 
+   Model 1: Coherent MAG-smearing (GENMAG_SMEAR) :  0.000  
+   Model 2: passband MAG-smearing is OFF 
+   Model 3:  model-smear is OFF  
+   Model 4: intrinsic scatter matrix is OFF 
+   Model 5: GENMAG_SMEAR_USRFUN is  OFF 
+
+  AVWARP_OVERFLOWS:  NONE. 
+
+  Cosmology Parameters: 
+	 H0 =  70.00 km/s per MPc 
+	 Omega_{M,L} =  0.300,  0.700   w0,wa = -1.00,0.000  
+
+ --------------------------------------------------- 
+  Software-Pipeline Search Efficiency (MINOBS=2) from 
+
+  Spectroscopic Efficiency : 
+	 No spec-eff option specified ==> 100% efficiency. 
+
+  Unconfirmed zHOST Efficiency : 100% 
+
+  APPLY_SEARCHEFF_OPT=0 --> No trigger requirements 
+  SNTYPE(Ia) = 1(SPEC)  and 101(PHOT) 
+ --------------------------------------------------- 
+
+  HOSTLIB Summary: None. 
+
+  Fudges on SIMLIB Seeing Conditions: NONE. 
+
+MAP: SIMLIB_FILE: ../../inputs-v2/cadence.simlib
+MAP: KCOR_FILE: ../../inputs-v2/kcor.fits
+MAP: FLUXERRMODEL_FILE: ../../inputs-v2/error-map.dat

@@ -1,0 +1,48 @@
+{
+  "epoch_audit": {
+    "max_abs_MJD_matching_difference_day": 0.0019000000029336661,
+    "same_time_candidates_resolved_by_flux_and_uniqueness": 4,
+    "dataflag_meaning": "From actual LCPLOT:1 accepted,-1 rejected; missing means not present in fitter plot data. Source SNLC SNLCPLOT packs NFITDATA+NFITDATA_REJECT and IEP_REJECT. All source row references in this file zero-based.",
+    "N_accepted_but_injection_unsupported": 0,
+    "N_acceptance_changes": 0,
+    "N_objects_changed_in_accepted_epochs": 4
+  },
+  "standardization_coefficients": {
+    "alpha": 0.16087,
+    "beta": 3.1178,
+    "source": "original DES tag1.3 4_DISTANCES_COVMAT/README.md; held fixed, no BBC"
+  },
+  "classification": "Actual SNANA nonlinear paired refit of selected mock counterfactuals, using hybrid noise-preserving flux injection. No final BBC/cosmology bias estimated.",
+  "N_requested": 24,
+  "N_baseline_written": 24,
+  "N_floor_written": 24,
+  "baseline_vs_noop_max_abs_numeric_difference": 0.0,
+  "baseline_vs_existing_reference_max_abs_numeric_difference": 0.0,
+  "quality_proxy": "ERRFLAG_FIT=0, |x1|<3, |c|<.3, x1ERR<1, PKMJDERR<2, FITPROB>.001; not complete BBC/classifier selection.",
+  "summaries": [
+    {
+      "role": "comparison_control",
+      "N": 12,
+      "N_both_fits": 12,
+      "N_baseline_quality_proxy": 12,
+      "N_floor_quality_proxy": 12,
+      "fixed_standardization_delta_mu_median": 0.0,
+      "fixed_standardization_delta_mu_min": 0.0,
+      "fixed_standardization_delta_mu_max": 0.0,
+      "max_abs_delta_c": 0.0,
+      "max_abs_delta_mB": 0.0
+    },
+    {
+      "role": "low_RV_stress",
+      "N": 12,
+      "N_both_fits": 12,
+      "N_baseline_quality_proxy": 12,
+      "N_floor_quality_proxy": 12,
+      "fixed_standardization_delta_mu_median": 0.0,
+      "fixed_standardization_delta_mu_min": 0.0,
+      "fixed_standardization_delta_mu_max": 0.0006548857674036622,
+      "max_abs_delta_c": 0.0002481415867804926,
+      "max_abs_delta_mB": 0.00010299682616832229
+    }
+  ]
+}

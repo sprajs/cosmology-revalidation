@@ -1,0 +1,19 @@
+DOCUMENTATION:
+    PURPOSE:  Light-curve data for the RAISIN cosmology analysis
+    REF:
+    - AUTHOR: Jones et al., 2022, ApJ, submitted
+      ADS:    https://ui.adsabs.harvard.edu/abs/2022arXiv220107801J/abstract
+    INTENT:    Nominal
+    USAGE_KEY: VERSION_PHOTOMETRY = 'RAISIN/DES_RAISIN'
+    USAGE_CODE: snlc_fit.exe
+    VALIDATE_SCIENCE: Jones et al., 2022, ApJ, submitted
+    METADATA:
+    - MWEBV: from SFD98 with SF2011 corrections (uncertainties are 5%)
+    - VPEC:  from $SNANA_DIR/util/get_vpec.py, SNANA version 11_04e
+    - REDSHIFT_CMB: from $SNANA_DIR/util/get_vpec.py, SNANA version 11_04e
+    NOTES:
+    - PEAKMJD are estimated using SNooPy fitting to optical+NIR data
+    VERSION:
+    - DATE: 2022-03
+      AUTHOR: D. Jones
+DOCUMENTATION_END:

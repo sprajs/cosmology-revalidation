@@ -1,0 +1,37 @@
+{
+  "scope": "Post-run numerical verification of a hypothetical fixed-vector response; not a measured calibration bias.",
+  "data_magnitude_correction_griz": [
+    0.005228459879847558,
+    -0.007837205691786042,
+    -0.019264603517739853,
+    0.021873349329678337
+  ],
+  "frozen_residual_dimming_griz": [
+    -0.005228459879847558,
+    0.007837205691786042,
+    0.019264603517739853,
+    -0.021873349329678337
+  ],
+  "correction_is_negative_frozen_pattern": true,
+  "covariance_rule": "C_new=S C S, chol(C_new)=S chol(C) for positive diagonal S; whitening L^-1(f/S-y) is exact",
+  "local_sign": "For S=exp(-K dmag), f/S=f+K f dmag+O(dmag^2); local refit shift solves J delta=-K f dmag",
+  "second_start": [
+    0.05,
+    0.25,
+    0.03,
+    2.0
+  ],
+  "fit_pairs": 6,
+  "all_success": true,
+  "max_abs_shift_difference_mag": 1.0578794963633786e-07,
+  "max_abs_chi2_difference": 6.622258297284134e-12,
+  "max_abs_cholesky_error": 3.552713678800501e-15,
+  "max_abs_whitened_residual_error": 4.2049697057677804e-15,
+  "high_z_object": {
+    "CID": "1339232",
+    "zHEL": 0.9693700075149536,
+    "delta_standardized_mag": 0.17887034394536294,
+    "chi2_change": -0.007971406543425985
+  },
+  "interpretation": "Large high-z fitted-distance change with negligible residual chi2 change is weak identification under this conditional frozen pattern; not evidence of an observed bias."
+}

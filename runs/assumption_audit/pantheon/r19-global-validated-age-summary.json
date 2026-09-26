@@ -1,0 +1,73 @@
+{
+  "hosts": 103,
+  "draws_total": 105059947,
+  "draws_valid": 103771926,
+  "draws_excluded": 1288021,
+  "hosts_with_excluded_draws": 86,
+  "max_host_invalid_fraction": 0.13769803921568627,
+  "all_violations": {
+    "nonfinite_parameter": 0,
+    "logZ_bound": 81195,
+    "dust_bound": 266870,
+    "tau_bound": 14051,
+    "start_bound": 114430,
+    "transition_bound": 5397,
+    "phi_bound": 1212778,
+    "c_bound": 0
+  },
+  "negative_tau_draws": 5186,
+  "age_change_conditional_on_valid_draws": {
+    "mean": 0.8817527982399601,
+    "median": 0.4196236557119919,
+    "min": -0.4358397549640758,
+    "max": 5.979844661488011,
+    "n_abs_gt_p1": 73,
+    "n_abs_gt_p5": 50,
+    "n_abs_gt_1": 29,
+    "original_median_below4": 24,
+    "fsps_median_below4": 19,
+    "n_crossing_4Gyr": 5
+  },
+  "invalid_draw_exclusion_median_impact_max_Gyr": 0.07256325299803645,
+  "source_validation": {
+    "max_host_median_abs_error": 8.151861408123295e-10,
+    "max_host_p99_abs_error": 0.00013321224397166986,
+    "max_host_max_abs_error": 0.5323597950125656,
+    "Tcmb0_counts": {
+      "0.0": 103
+    }
+  },
+  "posterior_correlations": {
+    "original_age_dust_corr": {
+      "min": -0.6672311037498767,
+      "median": -0.11759194824362895,
+      "max": 0.2210522825898256,
+      "n_abs_gt_p5": 4
+    },
+    "fsps_age_dust_corr": {
+      "min": -0.7013885649917803,
+      "median": -0.19875696105947077,
+      "max": 0.12239611394068178,
+      "n_abs_gt_p5": 6
+    },
+    "original_age_logZ_corr": {
+      "min": -0.6217207576896756,
+      "median": -0.1592699903630266,
+      "max": 0.4241636757361444,
+      "n_abs_gt_p5": 5
+    },
+    "fsps_age_logZ_corr": {
+      "min": -0.7691176779949068,
+      "median": -0.304488867438227,
+      "max": 0.41724002683292694,
+      "n_abs_gt_p5": 15
+    },
+    "dust_logZ_corr": {
+      "min": -0.8930158508924594,
+      "median": -0.30063572322986454,
+      "max": 0.5277127207677013,
+      "n_abs_gt_p5": 33
+    }
+  },
+  "limitation": "All archived draws were audited. Age shifts condition on the explicitly counted subset accepted by the stated MC-Age prior and finite original age. Invalid draws cannot be repaired as posterior samples by merely recalculating ages. No photometry was refit and no claim is made about private C25 posterior values or cosmological impact."
+}

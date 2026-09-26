@@ -1,0 +1,1 @@
+SYNTHETIC START-LOG UNIT FIXTURE; no new native process or optimization. Prior/objective tokens come from already saved nominal outputs, and start/readback tokens are constructed solely to test schema/assertions. Never use as a scientific fit.

@@ -1,0 +1,45 @@
+{
+  "status": "PASS_STATIC_AND_SAVED_TEST_REVIEW",
+  "scope": "No native build, fits, photons or rerun of collaborator executables",
+  "patch_sha256": "6d1b6ce87d632224c411e6d8cb80b167cae93485e3e72db0977d362285d5cd05",
+  "checks": [
+    {
+      "case": "absent",
+      "captured_native_MNPOUT_values": 48,
+      "max_delta_error": 0
+    },
+    {
+      "case": "zero",
+      "captured_native_MNPOUT_values": 48,
+      "max_delta_error": 0
+    },
+    {
+      "case": "minus",
+      "captured_native_MNPOUT_values": 48,
+      "max_delta_error": 0
+    },
+    {
+      "case": "plus",
+      "captured_native_MNPOUT_values": 48,
+      "max_delta_error": 0
+    }
+  ],
+  "saved_peer_cases": 11,
+  "science_qualification": "First-iteration objective function and shared prior/covariance initialization are unchanged. ITER1 model-dependent W may differ at different coordinates; later native covariance and recentered prior can differ with trajectory. This is iterative-estimator start stability, not a fixed-objective global-minimum certificate.",
+  "inputs": {
+    "phase2/pte/restricted-peak-engineering/start-only-hook/start-only.patch": "6d1b6ce87d632224c411e6d8cb80b167cae93485e3e72db0977d362285d5cd05",
+    "phase2/pte/restricted-peak-engineering/start-only-hook/source/prosp_minuit_start.h": "38027fe0b92bd803c453c197d91064a4a2596c145ac248c2988ca9d8954506de",
+    "phase2/pte/restricted-peak-engineering/start-only-hook/source/snana.car": "98783d22cae174ccbc1015c10d68641025abaac95d6dc78262998fc91a221f73",
+    "phase2/pte/restricted-peak-engineering/start-only-hook/snana.base.car": "3e123bfa8e201ecfda774c61ad1aef3234354842950976dd75c5162852498330",
+    "phase2/pte/restricted-peak-engineering/start-only-hook/genmag_snoopy.base.c": "e67cc924a2813c3c6813d5acb162639bdf2a90c8e94088c63ce824b75906c38f",
+    "phase2/pte/restricted-peak-engineering/start-only-hook/test-result.json": "43eff2e0453ceb86e09197c7e209e8e971b2dcca108d4919c1b528b8a214fc1f",
+    "phase2/pte/restricted-peak-engineering/start-only-hook/unit_driver.f90": "b40b6fa0b0967b3293dc9f0f8412ca7813bd4d9d8b2d313b7d9c238fc810a92d",
+    "phase2/pte/restricted-peak-engineering/start-only-hook/test.py": "e24d4b16f8322c92571f43d81026a36946f69e72fa47277719da5c01e8d64ba7",
+    "phase2/pte/restricted-peak-engineering/start-only-hook/absent.log": "d64ea8ab06e606d27e00782effd0ebebb0ed2f3cf25832591e971f2454877e16",
+    "phase2/pte/restricted-peak-engineering/start-only-hook/zero.log": "d64ea8ab06e606d27e00782effd0ebebb0ed2f3cf25832591e971f2454877e16",
+    "phase2/pte/restricted-peak-engineering/start-only-hook/minus.log": "09178635814598c29e3f372832634f6374a6a1e8b11849822cf54589b5be7306",
+    "phase2/pte/restricted-peak-engineering/start-only-hook/plus.log": "bc3db37a03e99f89436a406c24c4fb3484454cb7d30eff795621e9f4c9d5947f",
+    "phase2/pte/restricted-peak-engineering/build/src/snlc_fit.car": "54a013388053d10e4998a356422dda77743d0f90dbd2158e44155960fc5d2236",
+    "phase2/pte/restricted-peak-engineering/build/src/minuit.F": "17fa1bb924dbdc62b7b87023155762b8fab1410034bd36df187aaa15e641d159"
+  }
+}

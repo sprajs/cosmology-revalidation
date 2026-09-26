@@ -1,0 +1,148 @@
+{
+  "status": "Independent saved-native proof check passes; no new fits",
+  "hash_checks": {
+    "input_count": 8,
+    "output_count": 44,
+    "all_pass": true
+  },
+  "FITRES_all_columns_identical": 65,
+  "FITRES_differences": {},
+  "original_binary_source_match_refit_manifest": {
+    "phase2/official/build/SNANA-current/bin/snlc_fit.exe": true,
+    "phase2/official/build/SNANA-current/src/snlc_fit.F90": true
+  },
+  "LCPLOT_all_target_rows_identical": 893,
+  "LCPLOT_DATAFLAG_counts": {
+    "1": 74,
+    "-1": 419,
+    "0": 400
+  },
+  "runs": {
+    "reference": {
+      "epochs": 74,
+      "npz_raw_log_exact": true,
+      "identical_final_callbacks": 2,
+      "C_cholesky_vs_export_max_abs": 4.547473508864641e-13,
+      "W_symmetry_max_abs": 1.3552527156068805e-20,
+      "C_min_eigenvalue": 7.073520065816254,
+      "quadratic_plus_prior_minus_native_FCN": 5.684341886080802e-14,
+      "prior_chi2": 0.0
+    },
+    "fixed": {
+      "epochs": 74,
+      "npz_raw_log_exact": true,
+      "identical_final_callbacks": 2,
+      "C_cholesky_vs_export_max_abs": 4.547473508864641e-13,
+      "W_symmetry_max_abs": 2.710505431213761e-20,
+      "C_min_eigenvalue": 7.073520103389342,
+      "quadratic_plus_prior_minus_native_FCN": -2.842170943040401e-14,
+      "prior_chi2": 0.0
+    },
+    "distance_plus": {
+      "epochs": 74,
+      "npz_raw_log_exact": true,
+      "identical_final_callbacks": 2,
+      "C_cholesky_vs_export_max_abs": 9.094947017729282e-13,
+      "W_symmetry_max_abs": 1.3552527156068805e-20,
+      "C_min_eigenvalue": 7.070042981685001,
+      "quadratic_plus_prior_minus_native_FCN": -2.2737367544323206e-13,
+      "prior_chi2": 0.0
+    },
+    "distance_minus": {
+      "epochs": 74,
+      "npz_raw_log_exact": true,
+      "identical_final_callbacks": 2,
+      "C_cholesky_vs_export_max_abs": 4.547473508864641e-13,
+      "W_symmetry_max_abs": 3.3881317890172014e-20,
+      "C_min_eigenvalue": 7.078103663596005,
+      "quadratic_plus_prior_minus_native_FCN": -2.2737367544323206e-13,
+      "prior_chi2": 0.0
+    },
+    "sorted": {
+      "epochs": 74,
+      "npz_raw_log_exact": true,
+      "identical_final_callbacks": 2,
+      "C_cholesky_vs_export_max_abs": 4.547473508864641e-13,
+      "W_symmetry_max_abs": 2.710505431213761e-20,
+      "C_min_eigenvalue": 7.073520103389452,
+      "quadratic_plus_prior_minus_native_FCN": -2.842170943040401e-14,
+      "prior_chi2": 0.0
+    },
+    "reversed": {
+      "epochs": 74,
+      "npz_raw_log_exact": true,
+      "identical_final_callbacks": 2,
+      "C_cholesky_vs_export_max_abs": 4.547473508864641e-13,
+      "W_symmetry_max_abs": 1.6940658945086007e-20,
+      "C_min_eigenvalue": 7.073520103389426,
+      "quadratic_plus_prior_minus_native_FCN": 0.0,
+      "prior_chi2": 0.0
+    }
+  },
+  "probes": {
+    "fixed": {
+      "actual_DLMAG_offset": 0.0,
+      "float32_seed_exact": true,
+      "pointwise_mean_scaling_max_relative": 0.0,
+      "mean_scaling_max_quoted_sigma": 0.0,
+      "C_fractional_Frobenius_change_from_reference": 2.969549849919419e-08
+    },
+    "distance_plus": {
+      "actual_DLMAG_offset": 0.15000152587890625,
+      "float32_seed_exact": true,
+      "pointwise_mean_scaling_max_relative": 2.0586925765606636e-09,
+      "mean_scaling_max_quoted_sigma": 2.3193985738865944e-08,
+      "C_fractional_Frobenius_change_from_reference": 0.002835088367435465
+    },
+    "distance_minus": {
+      "actual_DLMAG_offset": -0.14999771118164062,
+      "float32_seed_exact": true,
+      "pointwise_mean_scaling_max_relative": 2.0586401705685696e-09,
+      "mean_scaling_max_quoted_sigma": 3.057482692593849e-08,
+      "C_fractional_Frobenius_change_from_reference": 0.0037373454575487714
+    },
+    "sorted": {
+      "actual_DLMAG_offset": 0.0,
+      "float32_seed_exact": true,
+      "pointwise_mean_scaling_max_relative": 0.0,
+      "mean_scaling_max_quoted_sigma": 0.0,
+      "C_fractional_Frobenius_change_from_reference": 2.9695498525101203e-08
+    },
+    "reversed": {
+      "actual_DLMAG_offset": 0.0,
+      "float32_seed_exact": true,
+      "pointwise_mean_scaling_max_relative": 0.0,
+      "mean_scaling_max_quoted_sigma": 0.0,
+      "C_fractional_Frobenius_change_from_reference": 2.969549852191267e-08
+    }
+  },
+  "amplitude": {
+    "independent_amplitude": 1.0002038776176378,
+    "independent_DLMAG": 42.57600394601274,
+    "independent_data_quadratic": 93.98758585949474,
+    "kernel_amplitude_difference": -8.881784197001252e-16,
+    "kernel_DLMAG_difference": 7.105427357601002e-15,
+    "kernel_data_quadratic_difference": -2.842170943040401e-14,
+    "reported_amplitude_difference": -2.220446049250313e-16,
+    "reported_DLMAG_difference": 7.105427357601002e-15,
+    "reported_quadratic_difference": 0.0
+  },
+  "A_B_restriction": {
+    "A_positive_rows": 65,
+    "B_signed_rows": 74,
+    "removed_nonpositive_rows": 9,
+    "shared_raw_flux_and_errors_exact": true,
+    "A_C_min_eigenvalue": 7.073520067447548,
+    "inverse_marginalC_vs_precision_Schur_max_abs": 2.7755575615628914e-17,
+    "incorrect_W_principal_block_fractional_difference": 1.5460305425440942e-07,
+    "rule": "A covariance is C_B[A,A], then invert. W_B[A,A] is conditional precision and must not be used as marginal precision."
+  },
+  "scope": "One fixed-peak modern native state only. No global profile or observed sign-correction inferred.",
+  "inputs_sha256": {
+    "runs/research_2026_09_26/astra_design/raisin_signed_refit/native-profile-gate-v2/manifest.json": "a2313d2565e42c232761bd33e3d5878d227410e9503e1f9f1325a6ae5c3d7e68",
+    "runs/research_2026_09_26/astra_design/raisin_signed_refit/native-profile-gate-v2/protocol.json": "f56fd0a278fdd2a2548f0bf1d1b181d8103678d761894f5ade8f6d4ec0bbe6fe",
+    "runs/research_2026_09_26/raisin_profile_solver_review/fixed_covariance_profile.py": "6b6a0ac09a74d1f8dc0bbe4f8e277fc58295e23d51d24c4a278555ee81bd2cde",
+    "runs/research_2026_09_26/raisin_profile_solver_review/native-proof-review/verify_native_proof.py": "4688af2a6322e1c9f2e045b44d27b9fa5527cb18222d98e4cd1490c31c95ed50",
+    "runs/research_2026_09_26/astra_design/raisin_signed_refit/data/RSR_A/DES16C1cim.snana.dat": "1032d185fef60b5a9f130cbb99e20aa7d87e2ff5362cfc85fb210999c436de3d"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "environment": {
+    "python": "3.12.14",
+    "jax": "0.6.2",
+    "jaxlib": "0.6.2",
+    "backend": "cpu",
+    "x64": true,
+    "XLA_FLAGS": "--xla_cpu_multi_thread_eigen=false intra_op_parallelism_threads=1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "n_train": 850,
+  "numpy": {
+    "v_row161": [
+      1.0,
+      0.20623263862481683,
+      -3.4957056719902764
+    ],
+    "variance_row161": 0.032937023385652325,
+    "variance_sum": 33.51923262732985
+  },
+  "fused_eager": {
+    "v_row161": [
+      1.0,
+      0.20623263862481683,
+      -3.4957056719902764
+    ],
+    "variance_row161": 0.032937023385652325,
+    "variance_sum": 33.519232627329856,
+    "max_abs_v_error": 0.0,
+    "max_abs_variance_error": 2.7755575615628914e-17,
+    "grad_variance_sum": [
+      -88.54629360885976,
+      13.197675581788143
+    ]
+  },
+  "fused_jit": {
+    "v_row161": [
+      1.0,
+      0.0,
+      -3.2894730333654594
+    ],
+    "variance_row161": 0.01961851974045799,
+    "variance_sum": 1226.0651347512908,
+    "max_abs_v_error": 3.4957056719902764,
+    "max_abs_variance_error": 16.697421199571252,
+    "grad_variance_sum": [
+      759.0323816559572,
+      759.0323816559572
+    ]
+  },
+  "split_jit": {
+    "v_row161": [
+      1.0,
+      0.20623263862481683,
+      -3.4957056719902764
+    ],
+    "variance_row161": 0.032937023385652325,
+    "variance_sum": 33.519232627329856,
+    "max_abs_v_error": 0.0,
+    "max_abs_variance_error": 2.7755575615628914e-17,
+    "grad_variance_sum": [
+      -88.54629360885976,
+      13.197675581788143
+    ]
+  }
+}

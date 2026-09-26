@@ -1,0 +1,430 @@
+FILE /home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/restricted-peak-engineering/start-only-hook/build/src/snlc_fit.car
+SHA256 54a013388053d10e4998a356422dda77743d0f90dbd2158e44155960fc5d2236
+1848: c functions
+1849:      
+1850:       LOGICAL LFITFUN_FILT, FIRST_ITERATION
+1851:       INTEGER NEAREST_IFILT_REST
+1852: 
+1853:       REAL*8   USRFUN
+1854:       EXTERNAL USRFUN
+1855: 
+1856: C ---------- BEGIN -------------
+1857: 
+1858:       IERR = 0  ! init to OK
+1859: 
+1860:       FIRST_ITER = FIRST_ITERATION(ITER) .and. (.not. LREPEAT_ITER)
+1861: 
+1862:       NEXT_ITER  = ((.not. FIRST_ITER) .and. (ITER > 1)) 
+1863:      &            .or. LREPEAT_ITER 
+1864: 
+1865:       if ( FIRST_ITER ) NEXT_ITER = .FALSE.
+1866: 
+1867:       IF ( FIRST_ITER .and. OPT_FILTER_UPDATE .GT. 0 ) THEN
+1868: 
+1869:         IF ( LSED_FITMODEL ) CALL SEDMODEL_INI(1,IERR)
+1870: 
+2038:             endif
+2039: 
+2040:          endif
+2041: 
+2042:       ENDDO
+2043:  
+2044: c set range of observer filters to evaluate for each obs filter.
+2045: c This is needed for the color transformation and for U -> U-BX+B
+2046: 
+2047:       CALL SET_IFILT_OBS()
+2048: 
+2049:       IF ( NFILT_FIT .EQ. 0 ) THEN
+2050:          print*,' '
+2051:          print*,' FITPAR_PREP WARNING for CID ', SNLC_CCID
+2052:          print*,'   Found no valid observer frame filters to fit.'
+2053:          print*,'   '
+2054:          IERR = ERRFLAG_FITPREP_NOFILTERS
+2055:          RETURN
+2056:       ENDIF
+2057: 
+2058: c init EP_XXX arrays ( before calling FITINI_ADJUST)
+2059:       CALL FITINI_EPVAR(iter)
+2060: 
+2061: c set INIVAL and INISTP arrays.
+2062:       CALL FITINI_PARVAL(iter)
+2063: 
+2064: c init linear FITCOV arrays
+2065:       OPT = 1  ! bit 1 => print info to stdout
+2066:       CALL FITINI_COV(OPT, ITER, FITVAL(1,ITER-1), IERR)
+2067:       IF ( IERR .NE. 0 ) RETURN
+2068: 
+2069: c check for photoZ fit (after FITINI_COV)
+2070:       IF ( DOFIT_PHOTOZ ) CALL FITINI_PHOTOZ(iter)
+2071: 
+2072: c adjust fitpar based on initial Fdata/Fmodel ratios.
+2318:          ENDIF
+2319:       ENDIF
+2320: 
+2321: c --------------------------------------------
+2322: c Jan 2016: fit iteration again if cov matrix has not converged
+2323: 
+2324:       DO_REFIT =
+2325:      &     OPT_MNSTAT_COV > 0 .and.  ! user option
+2326:      &     LAST               .and.  ! last fit iteration
+2327:      &     MNSTAT_COV < 3     .and.  ! MINUIT status
+2328:      &     (.not. LREPEAT_ITER)      ! not already repeating
+2329: 
+2330:       IF ( DO_REFIT ) THEN
+2331:          write(6,46) MNSTAT_COV, CCID
+2332: 46       format(T5,'Bad COV matrix (MNSTAT_COV=',I2,') ' 
+2333:      &              '-> repeat fit for CID=',A12 )
+2334:          ERRFLAG = ERRFLAG_REPEAT_ITER  ! -1
+2335:          RETURN
+2336:       ENDIF
+7168:       OPT_PRIOR      = 1
+7169:       OPT_PRIOR_AV   = 1
+7170:       OPT_PRIOR_SIMEFF = 0
+7171:       OPT_SIMEFF     = 0   ! obsolete ; abort if set to non-zero
+7172: 
+7173:       OPT_MNSTAT_COV = 1   ! 1-> repeat fit on MNSTAT_COV<3 (bad cov)
+7174: 
+7175:       SIMFIT_IDEAL_PRESCALE = 0  ! zero --> OFF
+7176: 
+7177: c init to wide open
+8085: C ---------- BEGIN -------------
+8086: 
+8087:       FIRST_ITER = FIRST_ITERATION(ITER) .and. (.not. LREPEAT_ITER)
+8088: 
+8089:       IF ( ITER .EQ. 1 ) THEN
+8090:          ITER_LAST = 1
+8091:       ELSE
+8092:          ITER_LAST = ITER - 1
+8093:       ENDIF
+8094: 
+8095: c init everything to BIDON value or to value of last iteration
+8096: 
+8097:       DO ipar = 1, NFITPAR_MN
+8098:         IF ( FIRST_ITER ) then
+8099:            INIVAL(ipar)       =  -9.0
+8100:            INISTP(ipar)       =   0.0
+8101:         ELSE 
+8102:            VALTMP = FITVAL(ipar,ITER_LAST)
+8103:            ERRTMP =  FITERR(ipar,ITER_LAST) 
+8104:            INIVAL(ipar) =  VALTMP + ERRTMP*INIVAL_SHIFT_ERRFRAC
+8105:            INISTP(ipar) =  ERRTMP
+8106:         ENDIF
+8107:       ENDDO
+8108: 
+8109: 
+8110: c always modify ITERation parameter
+8111:       ipar            = IPAR_ITER
+8112:       INIVAL(IPAR)    = DBLE(iter)
+8113:       INISTP(IPAR)    = 0.0
+8114: 
+8115: c --------------------------------
+8116: c special code to emulate Julien's SALT2 recipe
+8117:       JG = OPT_SALT2FIT .EQ. 4  ! emulate Julien/snfit (for debug)
+8118:       if ( JG .and. ITER > 1 ) then !
+8119:            INISTP(IPAR_SHAPE) = INISTP_SHAPE  ! restore
+8120:       endif
+8121: 
+8122: c check special fitting options
+8123:       CALL FITRESTMAG_PREP(ITER)
+8124:       CALL FITMAGDIF_PREP(ITER)
+8125:       CALL SIMFIT_IDEAL_PREP(ITER)
+8126: 
+8127: c continue below on 1st iteration only.
+8128:       IF ( .NOT. FIRST_ITER ) THEN
+8129:          CALL PROSP_BOUND_FITPAR(ITER)
+8130:          RETURN
+8131:       ENDIF
+8132: 
+8133:       SIMCHI2_CHEAT  = 0.0
+FILE /home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/restricted-peak-engineering/start-only-hook/build/src/snana.car
+SHA256 98783d22cae174ccbc1015c10d68641025abaac95d6dc78262998fc91a221f73
+9180:       ENDIF
+9181: 
+9182:       CALL EXEC_REFORMAT()
+9183: 
+9184: +SELF,IF=SNFIT.
+9185: 
+9186: c do the fit
+9187: 
+9188:        NPLOT_CONT    = 0   ! rest number of contour plots
+9189:        ITER          = 0
+9190:        LREPEAT_ITER  = .FALSE.
+9191:        LREPEAT_MINOS = .FALSE.
+9192:        REJECT_FIT    = .FALSE.
+9193:        NCALL_MNFIT   = 0
+9194:        
+9195:        N_SNLC_FIT = N_SNLC_FIT + 1
+9196: 
+9197:        DO 410 WHILE( iter < NFIT_ITERATION .and. .NOT.REJECT_FIT)
+9198: 
+9199:           ITER = ITER + 1
+9200:           LAST_ITER = ( ITER .EQ. NFIT_ITERATION )
+9201: 
+9202:           IF ( ITER==1 ) THEN
+9203:               USE_MINOS_LOCAL = .FALSE.
+9204:           ELSE
+9205:               USE_MINOS_LOCAL = (USE_MINOS .or. LREPEAT_MINOS)
+9206:           ENDIF
+9207:       
+9208:           CALL FITPAR_PREP ( iter, IERR )  ! init fit params
+9209:           if ( IERR .NE. 0 ) then
+9210:             ERRFLAG_FIT = IERR
+9211:             write(6,40) ITER, SNLC_CCID(1:ISNLC_LENCCID)
+9212: 40          format(T5,'FITPAR_PREP PROBLEM => SKIP FIT-ITER=', 
+9213:      &              I2,'  for  CID=',A )
+9214:             GOTO 410          ! bad init => skip fit-iteration
+9215:           endif
+9216: 
+9217:           write(6,43)
+9218:           WRITE(6,44) ISN, SNLC_CCID(1:ISNLC_LENCCID), 
+9219:      &           NFITPAR_MN, ITER
+9220: 44        format(T5,'CALL MNFIT_DRIVER for ISN=',I5,
+9221:      &         3x,'CID=',A, 3x, 'NFITPAR=',I3, 3x,'iter=',I1 )
+9222:           write(6,43)
+9223: 43        FORMAT(/,T2, 60('#'), / )
+9224: 
+9225: c call main driver for fitter. 
+9226: c Note that all returned output from MNFIT_DRIVER goes to common blocks.
+9227: 
+9228:           CALL MNFIT_DRIVER ( 
+9229:      &       SNLC_CID, NFITPAR_MN                 ! (I)
+9230:      &      ,INIVAL, INISTP, INIBND               ! (I)
+9231:      &      ,PARNAME_STORE                        ! (I)
+9232:      &      ,USE_MINOS_LOCAL                      ! (I)
+9233:      &      ,MINUIT_PRINT_LEVEL                   ! (I)
+9234:      &      ,FITVAL(1,iter)                       ! (O)
+9235:      &      ,FITERR_PLUS(1,iter)                  ! (O)
+9236:      &      ,FITERR_MINUS(1,iter)                 ! (O)
+9237:      &      ,FITCHI2_MIN                          ! (O)
+9238:      &      ,NFIXPAR, ERRTYPE                     ! (O)
+9239:      &      ,MNSTAT_COV                           ! (O)
+9240:      &      ,IERR                                 ! (O)
+9241:      &            )   
+9242: 
+9243: c avoid infinite loop with MNFIT calls ...
+9244:          NCALL_MNFIT = NCALL_MNFIT + 1
+9245:          IF  ( NCALL_MNFIT .GT. 2*MXITER ) THEN
+9246:             write(c1err,641) 2*MXITER, SNLC_CCID
+9247:             write(c2err,642) NFIT_ITERATION
+9248: 641         format('MNFIT_DRIVER called > ',I3,' times for CID=',A) 
+9249: 642         format('even though NFIT_ITERATION = ', I2 )
+9250:             CALL  MADABORT(FNAM, C1ERR, C2ERR ) 
+9251:          ENDIF
+9252: 
+9253: c  store fit results
+9254: 
+9255:          CALL MNFIT_STOREPAR(iter,IERR) 
+9256: 
+9257: c analyze results: returns ERRFLAG_FIT
+9258: c  =  0 => OK; keep SN
+9259: c  >  0 => discard fit
+9260: c  = -1 => decrement ITER and try again (e.g., for photoZ spike) 
+9261: 
+9262:           CALL FITPAR_ANA ( isn, iter, ERRFLAG_FIT )
+9263: 
+9264: c check ERRFLAG_FIT
+9265:           CALL SNANA_ERRFLAG_FIT(iter,ERRFLAG_FIT)
+9266:           if ( ERRFLAG_FIT > 0 ) REJECT_FIT = .TRUE.
+9267:  
+9268: 410     CONTINUE  ! end of iteration loop
+9269: 
+9270:         print*,'    Finished fitting CID = ', 
+9271:      &               SNLC_CCID(1:ISNLC_LENCCID)
+9272:         print*,' ' 
+9363: 
+9364: c check option to redo fit-iteration 
+9365:       if ( ERRFLAG .EQ. -1 ) then
+9366:          ITER         = ITER - 1 
+9367:          LREPEAT_ITER = .TRUE.
+9368:       else
+9369:          LREPEAT_ITER = .FALSE.
+9370:       endif
+9371:       
+9372:       RETURN
+36675:       IF ( USE_MINOS ) THEN
+36676:         PRINT *,' '
+36677:         PRINT *,'   MNFIT_DRIVER: fit with MINOS '
+36678:           CALL MNEXCM(FCNSNLC, 'MINOS', MAXCALLS, NARG, IERR, USRFUN)
+36679:         PRINT *,'  MNFIT_DRIVER: MINOS returns IERR = ', IERR
+36680:       ELSE
+36681: 
+36682: cc      PRINT *,'   MNFIT_DRIVER: begin fit with MIGRAD '
+36683: cc      CALL MNEXCM(FCNSNLC, 'MIGRAD', MAXCALLS, NARG, IERR, USRFUN)
+36684: 
+36685:         PRINT *,'   MNFIT_DRIVER: begin fit with MINIMIZE '
+36686:         CALL MNEXCM(FCNSNLC, 'MINIMIZE', MAXCALLS, 0, IERR, USRFUN)
+36687:         PRINT *,'  MNFIT_DRIVER: MIGRAD returns IERR = ', IERR
+36688:       ENDIF
+36689: +SELF.
+36690: 
+36691:       PRINT *,' ------------------------------------------------ '
+36692: 
+36693: c -------------------------------------------
+36694: c get the fit result
+36695:   
+36696:       PRINT *,' ' 
+36697:       PRINT *,'   MNFIT_DRIVER: extract fit parameters with MNPOUT' 
+36698:       CALL FLUSH(6)
+36699: 
+36700:       DO 44 IPAR = 1, NFITPAR
+36701: 
+36702:         LFIX = ( INISTP(ipar) .EQ. 0.0 ) 
+36703: 
+36704: +SELF,IF=MINUIT.
+36705:         CALL MNPOUT(  IPAR, PARNAME(IPAR)
+36706:      &              , FITVAL(IPAR), ERRSYM
+36707:      &              , BND1,BND2, IVARBL )
+36708: 
+36709:         CALL MNERRS( IPAR, EPLUS, EMINUS, EPARAB, GLOBCC )
+36710: +SELF.
+36711: 
+36712: c xxxxxxxxxxxxxxxxxxxxxxxx
+36713: c        print*, IPAR, ': ERR(EPARAB)=', sngl(EPARAB)
+36714: c     &            ,'  ERR(+-) = ', sngl(EPLUS), sngl(EMINUS)
+36715: c xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+36716: 
+36717: c take average of +- errors (note that EMINUS is negative)
+36718: c If MINOS errors are zero, then use parabolic error above.
+36719: 
+36720:         if ( EPLUS .GT. 0.0 .and. EMINUS .LT. 0.0 ) THEN
+36721:            FITERR_PLUS(IPAR)   = EPLUS
+36722:            FITERR_MINUS(IPAR)  = EMINUS
+36723:            ERRTYPE(ipar)       = ERRTYPE_MINOS
+36724:         else
+36725:            FITERR_PLUS(IPAR)   = +ERRSYM
+36726:            FITERR_MINUS(IPAR)  = -ERRSYM
+36727:            ERRTYPE(ipar)       = ERRTYPE_PARAB
+36728:         endif
+36729: 
+36730: 44    CONTINUE  ! end of loop over IPAR
+36731: 
+36732: 
+36733: +SELF,IF=MINUIT.
+36734: c -------------------------------------------------------
+36735: c get chi2 and status; fill FITCHI2 return arg
+36736: c From Minuit manual, here are the ISTAT values from MNSTAT:
+36737: c
+36738: c ISTAT  meaning
+36739: c  0    Not calculated at all
+36740: c  1    Diagonal approximation only, not accurate
+36741: c  2    Full matrix, but forced positive-definite
+36742: c  3    Full accurate covariance matrix 
+36743: c          (After MIGRAD, this is the indication of normal convergence.)
+36744: 
+36745:       CALL MNSTAT(FITCHI2, FEDM, ERRDEF, NPARI, NPARX, ISTAT)
+36746:       MNSTAT_COV = ISTAT  ! 3=OK
+36747: +SELF.
+36748: 
+36749: c ----------------------------------
+36750: c Prepare contours
+36751: 
+36752:       DO i = 1, NPLOT_CONT
+36753:   
+36754: +SELF,IF=MINUIT.
+36755:          CALL MNCONT ( FCNSNLC
+36756:      &       , IPAR_CONT(1,i)  ! (I) 1st parameter for contour
+36757:      &       , IPAR_CONT(2,i)  ! (I) 2nd param
+36758:      &       , NPT_CONT(i)     ! (I) number of contour points
+36759:      &       , VCONT8(1,1,i)   ! (O) par1 contour array
+36760:      &       , VCONT8(1,2,i)   ! (O) par2 contour array
+36761:      &       , NPT_FOUND(i)    ! (O) 
+36762:      &       , USRFUN )
+36763: +SELF.
+36764: 
+36765:       ENDDO
+36766: 
+36767: c Stop fit and make LAST call to function
+36768: 
+36769: +SELF,IF=MINUIT.
+36770:       CALL MNEXCM(FCNSNLC, 'EXIT',  dble(0.0), 0, IERR, USRFUN )
+36771: +SELF.
+36772:       PRINT *,'  MNFIT_DRIVER: EXIT returns IERR = ', IERR
+36773:       CALL FLUSH(6)
+36774: 
+36775: c ---------------------------------
+36776:       RETURN
+36777:       END
+36778: 
+FILE /home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/restricted-peak-engineering/start-only-hook/build/src/minuit.F
+SHA256 17fa1bb924dbdc62b7b87023155762b8fab1410034bd36df187aaa15e641d159
+3690:       DATA CNAME(36) / 'GRADIENT  ' /
+3691:       DATA CNAME(37) / 'MATOUT    ' /
+3692:       DATA CNAME(38) / 'ERROR DEF ' /
+3693:       DATA CNAME(39) / 'LIMITS    ' /
+3694:       DATA CNAME(40) / 'PUNCH     ' /
+3695:       DATA NNTOT/40/
+3696: C      IERFLG is now (94.5) defined the same as ICONDN in MNCOMD
+3697: CC            = 0: command executed normally
+3698: CC              1: command is blank, ignored
+3699: CC              2: command line unreadable, ignored
+3700: CC              3: unknown command, ignored
+3701: CC              4: abnormal termination (e.g., MIGRAD not converged)
+3702: CC              9: reserved
+3703: CC             10: END command
+3704: CC             11: EXIT or STOP command
+3705: CC             12: RETURN command
+3706:       LK = LEN(COMAND)
+3707:       IF (LK .GT. MAXCWD) LK=MAXCWD
+3778: C                                        . . . . . . . . . . simplex
+3779:   300 CALL MNSIMP(FCN,FUTIL)
+3780:       IF (ISW(4) .LT. 1)  IERFLG = 4
+3781:       GO TO 5000
+3782: C                                        . . . . . . migrad, minimize
+3783:   400 CONTINUE
+3784:       NF = NFCN
+3785:       APSI = EPSI
+3786:       CALL MNMIGR(FCN,FUTIL)
+3787:       CALL MNWERR
+3788:       IF (ISW(4) .GE. 1)         GO TO 5000
+3789:         IERFLG = 4
+3790:       IF (ISW(1) .EQ. 1)         GO TO 5000
+3791:       IF (CWORD(1:3) .EQ. 'MIG') GO TO 5000
+3792:       NFCNMX = NFCNMX + NF - NFCN
+3793:       NF = NFCN
+3794:       CALL MNSIMP(FCN,FUTIL)
+3795:       IF (ISW(1) .EQ. 1)  GO TO 5000
+3796:       NFCNMX = NFCNMX + NF - NFCN
+3797:       CALL MNMIGR(FCN,FUTIL)
+3798:          IF (ISW(4) .GE. 1)  IERFLG = 0
+3799:       CALL MNWERR
+3800:       GO TO 5000
+3801: C                                        . . . . . . . . . . minos
+3802:   500 CONTINUE
+3970:         IFLAG = 3
+3971:         IF (ISW(5) .GE. 0)
+3972:      +WRITE (ISYSWR,'(/A/)') ' CALL TO USER FUNCTION WITH IFLAG = 3'
+3973:         NPARX = NPAR
+3974:         CALL FCN(NPARX,GIN,F,U,IFLAG,FUTIL)
+3975:         NFCN = NFCN + 1
+3976:         FVAL3 = F
+3977:       ENDIF
+3978:       IERFLG = 11
+3979:       IF (CWORD(1:3) .EQ. 'END')  IERFLG = 10
+3980:       IF (CWORD(1:3) .EQ. 'RET')  IERFLG = 12
+3981:       GO TO 5000
+3982: C                                        . . . . . . . . . . clear
+3983:  2200 CONTINUE
+3984:       CALL MNCLER
+12522: *
+12523: * d506dp.inc
+12524: *
+12525: C ************ DOUBLE PRECISION VERSION *************
+12526:       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+12527: CC       User-called
+12528: CC       Provides the user with information concerning the current status
+12529: CC          of the current minimization. Namely, it returns:
+12530: CC        FMIN: the best function value found so far
+12531: CC        FEDM: the estimated vertical distance remaining to minimum
+12532: CC        ERRDEF: the value of UP defining parameter uncertainties
+12533: CC        NPARI: the number of currently variable parameters
+12534: CC        NPARX: the highest (external) parameter number defined by user
+12535: CC        ISTAT: a status integer indicating how good is the covariance
+12536: CC           matrix:  0= not calculated at all
+12537: CC                    1= approximation only, not accurate
+12538: CC                    2= full matrix, but forced positive-definite
+12539: CC                    3= full accurate covariance matrix
+12540: CC
+12541: *
+12542: * $Id: minuit.F,v 1.5 2017/09/11 22:25:21 rkessler Exp $
+12543: *
+12544: * $Log: minuit.F,v $

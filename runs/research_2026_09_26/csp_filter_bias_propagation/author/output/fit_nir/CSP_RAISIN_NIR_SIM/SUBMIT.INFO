@@ -1,0 +1,54 @@
+
+# Required info 
+CWD:         /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/fit/sim
+ARG_LIST:    REFAC_CSP_RAISIN_NIR.nml
+TIME_STAMP_NSEC:   48913    # submit time; Nsec since midnight
+TIME_STAMP_SUBMIT: 2021-11-11 13:35:17.373372    
+SUBMIT_MODE:       BATCH 
+SCRIPT_DIR:       /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/output/fit_nir/CSP_RAISIN_NIR_SIM/SPLIT_JOBS_LCFIT 
+DONE_STAMP_LIST:  ['ALL.DONE'] 
+CLEANUP_FLAG:     1 
+N_JOB_TOT:        12     # total number of jobs (excludes sym links)
+N_DONE_TOT:       12     # total number of done files (includes sym links)
+N_JOB_SPLIT:      3     # njob to merge per task after processing
+N_CORE:           12     # number of cores 
+N_CORE_WITH_JOBS: 12   # n_core with jobs 
+FORCE_CRASH_PREP:    False 
+FORCE_CRASH_MERGE:   False
+FORCE_ABORT_MERGE:   False
+
+
+# Fit info
+N_JOB_LINK:          0   # Njob with link to FITOPT000
+JOBFILE_WILDCARD:    '*SPLIT*' 
+TABLE_FORMATS:       ['TEXT', 'HBOOK', 'ROOT'] 
+USE_TABLE_FORMAT:    [True, False, False] 
+IGNORE_FITOPT:       False
+PRIVATE_DATA_PATH:   $RAISIN_ROOT/cosmo/data/Photometry 
+FLAG_USE_SAME_EVENTS:   0   # >0 -> FITOPT>0 uses events from FITOPT000
+
+VERSION_LIST: 
+  - CSP_RAISIN_SIM
+  - CSP_RAISIN_SIM_AVSYS
+  - CSP_RAISIN_SIM_AVSYS_2
+  - CSP_RAISIN_SIM_STSYS
+
+FITOPT_LIST: 
+  - ['FITOPT000', None, ''] 
+
+LINK_FITOPT000_LIST: []
+
+
+SBATCH_LIST:  # [CPU,PID,JOB_NAME] 
+  - [   0, 51788537, REFAC_CSP_RAISIN_NIR.nml-CPU0000 ] 
+  - [   1, 51788539, REFAC_CSP_RAISIN_NIR.nml-CPU0001 ] 
+  - [   2, 51788540, REFAC_CSP_RAISIN_NIR.nml-CPU0002 ] 
+  - [   3, 51788542, REFAC_CSP_RAISIN_NIR.nml-CPU0003 ] 
+  - [   4, 51788544, REFAC_CSP_RAISIN_NIR.nml-CPU0004 ] 
+  - [   5, 51788546, REFAC_CSP_RAISIN_NIR.nml-CPU0005 ] 
+  - [   6, 51788548, REFAC_CSP_RAISIN_NIR.nml-CPU0006 ] 
+  - [   7, 51788549, REFAC_CSP_RAISIN_NIR.nml-CPU0007 ] 
+  - [   8, 51788552, REFAC_CSP_RAISIN_NIR.nml-CPU0008 ] 
+  - [   9, 51788553, REFAC_CSP_RAISIN_NIR.nml-CPU0009 ] 
+  - [  10, 51788555, REFAC_CSP_RAISIN_NIR.nml-CPU0010 ] 
+  - [  11, 51788557, REFAC_CSP_RAISIN_NIR.nml-CPU0011 ] 

@@ -1,0 +1,21 @@
+--- /home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/astra_design/raisin_signed_refit/cohort_profile_engine_v2.py	2026-09-26 05:23:34.854063657 +0100
++++ /home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/astra_design/raisin_signed_refit/cohort_profile_engine_v3.py	2026-09-26 05:28:45.039980744 +0100
+@@ -9,6 +9,7 @@
+ import native_profile_gate_v2 as ng
+ from native_mean_oracle import Oracle,OUT
+ from check_results import table
++from oracle_prefix_gate import check as prefix_gate
+ G=Path(os.environ['RAISIN_PROFILE_CASE']);CID=os.environ['RAISIN_PROFILE_CID'];ng.CID=CID
+ original_config=ng.config
+ def short_output_config(*args,**kwargs):
+@@ -54,6 +55,10 @@
+         sub=C[np.ix_(ix,ix)];L=np.linalg.cholesky((sub+sub.T)/2);T=np.linalg.solve(L,np.eye(len(ix)));y=T@ref['data_flux'][ix]
+         metrics.append(dict(label=anchor+'anchor_'+arm,indices=ix,T=T,y=y))
+     oracle=Oracle(G/'stream',pars=pars);assert oracle.n==len(kb)
++    try:
++      gate=prefix_gate(G/'stream/fit.log',nom,CID,pars);p.save(G/'stream-prefix-gate.json',gate)
++    except Exception:
++      oracle.close();raise
+     cache={};history=[];vectors=[];started=time.monotonic();branches=[];violations=[]
+     class Limit(Exception):pass
+     def evaluate(s,av):

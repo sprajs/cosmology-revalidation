@@ -1,0 +1,29 @@
+{
+  "orthant_quad_log_gap": 0.0,
+  "dense_gaussian_log_gap": 0.0,
+  "generator_factor_precision": 0.0864,
+  "recovery": {
+    "all_signed": {
+      "mean": 0.4069331335102938,
+      "bias": 0.0069331335102937874,
+      "sd": 0.342993019375646,
+      "mcse_of_mean": 0.030435708842726675,
+      "boundary_fits": 0
+    },
+    "positive_naive": {
+      "mean": 1.2023353213236003,
+      "bias": 0.8023353213236003,
+      "sd": 0.2900157136146286,
+      "mcse_of_mean": 0.025734733130890013,
+      "boundary_fits": 0
+    },
+    "censored_with_known_schedule": {
+      "mean": 0.39595075255916323,
+      "bias": -0.0040492474408367896,
+      "sd": 0.3675531498527072,
+      "mcse_of_mean": 0.0326150680078196,
+      "boundary_fits": 0
+    }
+  },
+  "scope": "A clean, explicitly specified synthetic experiment, not a replay of every historical recovery design. All-signed, naive positive-only and full-schedule censored likelihoods use the same draws. Knowing omitted signs and the eligible schedule is an assumption; no real survey noise or selection law is inferred."
+}

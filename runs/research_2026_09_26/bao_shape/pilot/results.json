@@ -1,0 +1,182 @@
+{
+  "scope": "Flat constant-ruler BAO-only no-acceleration cone; not q0, raw-catalogue validation, or a physical correction measurement.",
+  "statistic": 11.467067091562056,
+  "dimension": 12,
+  "inequalities": 22,
+  "coasting_amplitude_g": 32.38740896280138,
+  "coasting_chisq": 185.9451120171026,
+  "calibration": {
+    "vertex_global_bound": {
+      "exceedances": 422,
+      "draws": 1000,
+      "fraction": 0.422,
+      "binomial_95_interval": [
+        0.39115789791476957,
+        0.4533026467184305
+      ],
+      "plus_one_tail": 0.4225774225774226
+    },
+    "coasting_pointwise": {
+      "exceedances": 320,
+      "draws": 1000,
+      "fraction": 0.32,
+      "binomial_95_interval": [
+        0.29115371088134856,
+        0.3499103818528666
+      ],
+      "plus_one_tail": 0.3206793206793207
+    },
+    "fitted_null_pointwise": {
+      "exceedances": 121,
+      "draws": 1000,
+      "fraction": 0.121,
+      "binomial_95_interval": [
+        0.10142580723074798,
+        0.14283576268156786
+      ],
+      "plus_one_tail": 0.12187812187812187
+    }
+  },
+  "global_95percent_threshold": 20.502781485913168,
+  "power": {
+    "0.2": {
+      "injected_c_over_H0rd": 26.903105515103924,
+      "nominal_global_5percent_rejection": {
+        "exceedances": 1000,
+        "draws": 1000,
+        "fraction": 1.0,
+        "binomial_95_interval": [
+          0.9963179161031344,
+          1
+        ],
+        "plus_one_tail": 1.0
+      },
+      "noiseless_cone_distance": 95.87227343401342
+    },
+    "0.3": {
+      "injected_c_over_H0rd": 29.57277067492734,
+      "nominal_global_5percent_rejection": {
+        "exceedances": 364,
+        "draws": 1000,
+        "fraction": 0.364,
+        "binomial_95_interval": [
+          0.3341163374441288,
+          0.39468710511955307
+        ],
+        "plus_one_tail": 0.3646353646353646
+      },
+      "noiseless_cone_distance": 11.672113261829118
+    },
+    "0.4": {
+      "injected_c_over_H0rd": 31.8047279076003,
+      "nominal_global_5percent_rejection": {
+        "exceedances": 2,
+        "draws": 1000,
+        "fraction": 0.002,
+        "binomial_95_interval": [
+          0.00024230111687723185,
+          0.007205838911457497
+        ],
+        "plus_one_tail": 0.002997002997002997
+      },
+      "noiseless_cone_distance": 0.6272589945326997
+    }
+  },
+  "radial_only": {
+    "statistic": 3.067827146313446,
+    "kkt_error": 1.2343505469316892e-14,
+    "global_tail_bound": {
+      "exceedances": 621,
+      "draws": 1000,
+      "fraction": 0.621,
+      "binomial_95_interval": [
+        0.5901106284630275,
+        0.6511746693049582
+      ],
+      "plus_one_tail": 0.6213786213786214
+    }
+  },
+  "validation": {
+    "ray_feasibility_min": 0.0,
+    "independent_observed_statistic": 11.467067091562022,
+    "independent_observed_success": true,
+    "observed_kkt_error": 6.439293542825908e-14,
+    "marginal_row_order": [
+      1,
+      3,
+      5,
+      7,
+      9,
+      12,
+      2,
+      4,
+      6,
+      8,
+      10,
+      11
+    ],
+    "max_independent_statistic_difference": 5.556103133130819e-09,
+    "max_kkt_error": 9.758860386455126e-14,
+    "max_pointwise_null_domination_violation": -2.53874922924372,
+    "common_scale_statistic_difference": 1.1723955140041653e-13,
+    "constant_q_minimum_slack": {
+      "-0.5": -7.462730841054672,
+      "0": -3.552713678800501e-15,
+      "0.5": 0.02217143934709398,
+      "1.0": 0.028457887322108633
+    }
+  },
+  "constraint_labels": [
+    "positive_g_0",
+    "lower_integral_0",
+    "positive_g_1",
+    "lower_integral_1",
+    "monotone_g_1",
+    "upper_integral_1",
+    "positive_g_2",
+    "lower_integral_2",
+    "monotone_g_2",
+    "upper_integral_2",
+    "positive_g_3",
+    "lower_integral_3",
+    "monotone_g_3",
+    "upper_integral_3",
+    "positive_g_4",
+    "lower_integral_4",
+    "monotone_g_4",
+    "upper_integral_4",
+    "positive_g_5",
+    "lower_integral_5",
+    "monotone_g_5",
+    "upper_integral_5"
+  ],
+  "fitted_slack": [
+    33.00478690863344,
+    -3.552713678800501e-15,
+    33.00478690863344,
+    1.7763568394002505e-15,
+    0.0,
+    0.0,
+    33.00478690863344,
+    0.0,
+    0.0,
+    0.0,
+    32.79877244726185,
+    -3.552713678800501e-15,
+    0.20601446137159485,
+    0.03757863029978026,
+    32.28106440453982,
+    0.03513789931637845,
+    0.5177080427220275,
+    0.0,
+    28.743047097238154,
+    0.5858157216093467,
+    3.538017307301665,
+    0.45118472223872885
+  ],
+  "settings": {
+    "draws": 1000,
+    "seed": 260926,
+    "name": "pilot"
+  }
+}

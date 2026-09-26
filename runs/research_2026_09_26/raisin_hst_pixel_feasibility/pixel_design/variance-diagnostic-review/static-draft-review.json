@@ -1,0 +1,33 @@
+{
+  "status": "static draft review; requested corrections pending final hash review",
+  "reviewed_utc": "2026-09-26T07:47:28.409410+00:00",
+  "science_pixels_read": false,
+  "native_or_pixel_executor_invoked": false,
+  "sources": [
+    {
+      "source": "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_hst_pixel_feasibility/pixel_execution/geometry.py",
+      "sha256": "600ce4afaaccc14800636bb23635f157ff4f85137604c2bf5e9f438457c3959a",
+      "snapshot": "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_hst_pixel_feasibility/pixel_design/variance-diagnostic-review/reviewed-draft-600ce4afaacc-geometry.py"
+    },
+    {
+      "source": "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_hst_pixel_feasibility/pixel_execution/run.py",
+      "sha256": "bb6903a77cbf27e9c5c6fd3be2de84fa14c8d22ba4c9f564367ad2eb7f1df9c2",
+      "snapshot": "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_hst_pixel_feasibility/pixel_design/variance-diagnostic-review/reviewed-draft-bb6903a77cbf-run.py"
+    }
+  ],
+  "passes": [
+    "Source masks use only design1&3 exposures in bothvisits",
+    "Native aperture/annulus weights and retained-area masked normalization correct",
+    "PAM and PHOTFLAM transform signal and covariance consistently",
+    "Common-template covariance uses HDHtranspose",
+    "FITS header-only scaling check: no BZERO/BSCALE forSCI/ERR/DQ inall8, so unscaled read is valid",
+    "Radius/reversal sensitivities labelled dependent, no residual cuts"
+  ],
+  "requested_corrections": [
+    "Applybranch<30stopbeforeanybranchaperturesums",
+    "Enforceoriginal3-per-occupied-tile rule forresampling withoutdroppingpositions",
+    "Preserveprimarysummarybefore sensitivity-timeout/geometricfailure",
+    "RecordcompleteDQbit and invalid-value reason counts",
+    "Requirefinitepositivevariance and preservecompletedStageArows if timeout"
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "status": "FROZEN before any prospective photon generation or fit; root release required",
+  "question": "Can the actual native generator/fitter recover a controlled known template and support a same-photon pure peak intervention, with complete native precision/noise accounting?",
+  "scope": "8 engineering stochastic draws at one metadata-selected cadence; conditional template/noise/measurement/weighting experiment, no survey selection bias or corrected cosmology",
+  "historical_failure": "Archived first8 timing precision gate remains failed. No archived paired timing branch, outcome-selected membership, substituted SIMLIB times, or loosened historical gate.",
+  "source_commit": "SNANA v11_04d 10ec91297e4482d593cb5d3d055b10d4aa915071",
+  "truth": {
+    "SIMLIB_ID": 11,
+    "shape": 1,
+    "AV": 0,
+    "RV": 1.5180000066757202,
+    "peak": 57707.80078125,
+    "peak_source": 57707.8,
+    "peak_shift_days": 0.00078125,
+    "redshift": 0.453000009059906,
+    "VEL_CMBAPEX": 0,
+    "VPEC": 0,
+    "MWEBV_from_SIMLIB": 0.006,
+    "MW_errors": 0,
+    "MWlaw": 94,
+    "cosmology_for_synthetic_amplitude": {
+      "Om": 0.3,
+      "Ode": 0.7,
+      "w": -1,
+      "H0": 70
+    },
+    "distance_truth": "GENLC.DLMU R8 ledger, not rounded FITRES SIM_DLMAG",
+    "trained_model": "Released empirical SNooPy_B18 grid and DES/NIR KCOR unchanged; no assertion that training is cosmology independent."
+  },
+  "cadence": {
+    "source_rows": 735,
+    "fixed_rows": 117,
+    "bands": {
+      "g": 27,
+      "r": 28,
+      "i": 28,
+      "z": 28,
+      "J": 3,
+      "H": 3
+    },
+    "selection": "Single metadata-only restphase[-15,45] using declared exact controlled peak/z. Source exposure times and observing conditions unchanged. No sign/SNR/fit-success epoch cuts.",
+    "fit_epoch_guard": [
+      -20,
+      70
+    ],
+    "domain": "[-20,70] is tabulated model support, not independently validated empirical phase range. KCOR phase[-20,85],z[0,.699999988079071].",
+    "fixedmask": "Exact117 joint and6NIR at every saved callback and all branches. Free peak\u00b1100 native bounds unchanged; all-mean-call support counter gates all actual evaluations. No plotting."
+  },
+  "generation": {
+    "seed": 26092671,
+    "NGEN_LC": 0,
+    "NGENTOT_LC": 8,
+    "fixed_attempt_caveat": "Native GENRANGE rejection still decrements its loop even with NGENTOT. Require actual attempt count8, no rejects/forced accepts and8written events; never refill/reseed after failure.",
+    "distinct_random_realizations": 8,
+    "extra_controls": "One replay of identical8attempts with original generator for exact instrumentation identity, plus one SMEARFLAG_FLUX0 deterministic mean control. Total native attempts17 including replay; nine unique engineered records, eight stochastic.",
+    "stages": [
+      "original8",
+      "ledger8",
+      "noiseless1"
+    ],
+    "no_intrinsic_scatter": "GENMAG_SMEAR_MODELNAME NONE, GENMAG_SMEAR0, GENMODEL_ERRSCALE0, lensing0. OIR J19 absent. This is a deliberate mean/noise engineering model.",
+    "observation_noise": "Native SMearflag_flux1, Gaussian search draws with source+sky+read variance and any native template/fudge handling. Flux errors retain native realized-flux variance adjustment. Author fluxerr map retained without field remap; source predicts identity for this FIELD, T/F variance0 must be confirmed.",
+    "selection": "APPLY_SEARCHEFF_OPT0 and APPLY_CUTWIN_OPT0, all signed measurements retained; conditional cadence, not an unconditional survey simulator.",
+    "peak_header": "GENSIGMA_SEARCH_PEAKMJD0 AND OPT_SETPKMJD0 explicitly. Zero sigma alone leaves native max-flux peak finder active."
+  },
+  "precision": {
+    "internal": "R8 source truth, fluxTrue/fluxObs in photoelectrons, random draws, true variance components, reported pre/postvariance, conversions, flags written17digits. NO claims that all stored input is R8.",
+    "native_input": "Original native FITS: MJD1D and FLUXCAL/FLUXCALERR1E. Fit directly reads native files. Internal fitter uses its own R4 epoch/parameter coordinates; audit exact expected R4 MJD plus original R4 flux/error. No LCPLOT reconstruction.",
+    "stage_meaning": "PROSP_NOISE fluxTrue/fluxObs are after template-source subtraction/saturation. Source variance is pre-subtraction. Engineering requires both mechanisms absent before applying simple shift/variance identities.",
+    "ledger_completeness": "One noise record per generated CID+epoch, no duplicates, every written exposure matched; all signs/flags preserved. Schema-v2 gauss_SZ names actual source variable."
+  },
+  "fits": {
+    "model": "Same native empirical SNooPy_B18/KCOR, MW94. Fixedshape1,AV0,RV1.518. Native model-error/MW C remains as source implemented; not asserted equal to generative covariance.",
+    "peak_estimator": "Free native D and peak from the SAME grizJH photon realization. No free shape/AV import. Native prior sigma5days is always active and iteratively recentered; this is not a prior-free or external timing estimate.",
+    "target_arms": [
+      "NIR D with exact representable truth peak",
+      "same NIR D with native R4 joint fitted peak"
+    ],
+    "intervention": "Only PEAKMJD column of copied native HEAD changes; same PHOT file, flux/error/flag pairs, redshifts and nuisance fixed. Null adapter writes original peak and must give exact science state.",
+    "iterations": [
+      9,
+      12
+    ],
+    "starts": "Joint12 absolute peak truth,truth\u22122,truth+2; source ignored INIVAL_PEAKMJD_SHIFT is not used. NIR12 actual post-init D center and\u00b1.2 via existing source-audited hook. Actual entry offsets verified.",
+    "gate_order": [
+      "generation ledger/native table identity",
+      "noiseless original/support-fitter equality and mean recovery",
+      "joint8 numerical/support gates",
+      "NIRtrue/fittedpeak8 numerical/support/null gates"
+    ],
+    "no_Q_ranking": "All predefined cases retained; no lowest-Q branch selection, no cross-row likelihood ratio, no GaussianML claim for covariance-iteration fixed point."
+  },
+  "gates": {
+    "membership": "All8 or stop; every117/6row multiset and all native flux/error pairs exact under documented read conversion.",
+    "instrumentation": "All native generator HEAD/PHOT table columns exact; original vs support-fitter FITRES science rows and every saved mean/W/objective exact.",
+    "support": "Each expectedCID summary present, positive mean-call count, no overflow/nonfinite/unsupported calls; all actual USRFUN phase/shape/z within tables. Final |peak\u2212truth|\u22644observerdays.",
+    "noiseless_distance_mag": 0.001,
+    "noiseless_peak_days": 0.01,
+    "noiseless_max_abs_residual_over_quoted_error": 0.02,
+    "objective_arithmetic_abs": 1e-07,
+    "covariance": "Finite SPD; finaltwoiterations ||Cprev^\u22121/2(Cnew\u2212Cprev)Cprev^\u22121/2||2\u2264.001",
+    "distance_numerical_mag": 0.001,
+    "peak_numerical_days": 0.01,
+    "scalar_stationarity": "Frozen-final-C positive amplitude analytic distance shift\u2264.001mag",
+    "entry_start": "Peakoffsetwithin.004d of prescribed\u00b12 and Doffsetwithin.0001mag of\u00b1.2",
+    "null": "Exact D/peak and all unchanged measurement rows; same nativePHOT identity",
+    "reported_noise": "Record source true and reported variance separately; no goodness-of-fit expectedQ/dof gate against the wrong C."
+  },
+  "estimands": "Only engineering per-draw \u03b7=peak_fitted\u2212peak_truth, D_NIR_truthpeak\u2212Dtruth, D_NIR_fittedpeak\u2212Dtruth and paired\u0394D. Preserve \u03b7/noise/error correlations. No estimate of missing historical population timing bias, no additive independent timing variance.",
+  "failure": "Stop downstream stage on first source/numerical/support/input failure, preserve all attempted outputs and resource ledger. No extra draws, gates, parameter constraints, field remap, noise model or membership repair without a separately frozen follow-up. A gate pass only permits designing the next independent64; it does not authorize or freeze it.",
+  "resources": {
+    "workers": 1,
+    "native_total_seconds": 120,
+    "per_process_seconds": 40,
+    "builds_separate_seconds": {
+      "generator_total": 21.92088460600644,
+      "fit_support_total": 15.194471253998927
+    },
+    "planned_native_processes": 19,
+    "planned_fit_records": 107,
+    "forecast": "Small fixed-shape native fits; hard cap120s inclusive all replay/null/start/iteration controls. Stop rather than lower gates if cap reached.",
+    "no_HMC": true
+  },
+  "authoritative_inputs": {
+    "cadence": "inputs-v2/cadence.simlib",
+    "generation": "generation-v3/*/sim.input",
+    "fit_template": "inputs-v2/fit-template-v3.nml",
+    "noise_schema": "instrumentation/schema-v2.json",
+    "fit_support": "fit-support/schema.json",
+    "executor": "run_engineering.py",
+    "drafts": "Earlier malformed inputs/ and generation-v2 settings preserved pre-execution; corrections input-amendment-v3.json."
+  }
+}

@@ -1,0 +1,28 @@
+SURVEY:          DES                                     
+FILTERS:         griz
+IDSURVEY:              10
+NEVT_TOT:           19706
+NEVT_LC_CUTS:       19699
+NEVT_HOST_ZSPEC:     8200
+NEVT_HOST_ZPHOT:        0
+NEVT_SPECTRA:        0
+NEVT_LCFIT_CUTS:        0
+ 
+MASK_zSOURCE_LC_CUTS:          # redshift sources for LC_CUTS
+#    += 1 -> zSPEC_HOST
+#    += 2 -> zSPEC_SN
+#    += 4 -> zPHOT_HOST(mean+stdev or quantiles)
+#    += 8 -> zPHOT_HOST(quantiles)
+#     MASK:     NEVT(MASK=val)    NEVT(MASK&val)
+  -      0:     19699             19699
+ 
+ 
+MASK_zSOURCE_LCFIT_CUTS:       # redshift sources for LCFIT_CUTS
+#    += 1 -> zSPEC_HOST
+#    += 2 -> zSPEC_SN
+#    += 4 -> zPHOT_HOST(mean+stdev or quantiles)
+#    += 8 -> zPHOT_HOST(quantiles)
+#     MASK:     NEVT(MASK=val)    NEVT(MASK&val)
+ 
+CPU_MINUTES:         0.20
+ABORT_IF_ZERO:      19699

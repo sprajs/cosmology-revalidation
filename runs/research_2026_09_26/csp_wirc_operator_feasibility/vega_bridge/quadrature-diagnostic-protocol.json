@@ -1,0 +1,7 @@
+{
+  "status": "Post-comparison numerical diagnostic; original frozen protocol and comparison-result.json unchanged",
+  "reason": "The pinned SNooPy default Simpson rule on irregular stellar wavelength grids differs from union-grid trapezoid by 0.00014 to 0.00387 mag across the seven bands, larger than published MAGREF precision. Check numerical integration of the same fixed piecewise-linear tabulated spectra and filters without altering any source choice or fitting offsets.",
+  "method": "Integrate lambda times the product of linearly interpolated filter and star SED on every union-knot interval with two-point Gauss-Legendre quadrature. The integrand is cubic within each interval; this is exact for the piecewise-linear input convention. Report differences versus frozen Simpson and union-grid trapezoid, and versus published MAGREF solely as a diagnostic; no replacement of the preregistered primary comparison or reinterpretation of origin.",
+  "inputs": "Exactly the seven spectra/filter mappings and hashes in comparison-protocol.json; no new source version",
+  "no_calibration_fit": true
+}

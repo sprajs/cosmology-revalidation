@@ -1,0 +1,14 @@
+{
+  "status": "Design only, deferred pending coherent2021 rounded-epoch baseline; never historical replay",
+  "purpose": "Smallest conditional test of replacing an almost-known true peak by a peak estimated from the same noisy optical+NIR event",
+  "cadence_selection": "Source SIMLIB11: lowest numeric LIBID containing bothJ andH, selected from metadata only. Retain source opticalgriz andJH epochs, backgrounds, zeropoints and flags; no invention of missing cadence.",
+  "generation": "Native SNANA v11_04d with pinned B18/KCOR/SIMLIB and source photometric noise. Freeze a fresh seed and generated-attempt identity; retain fullprecision HEAD/PHOT and all rejected attempts. Nominal supported truthstretch1,AV0,RV1.518, source redshift/peak. Fixed truth deliberately isolates timing and does not represent the fitted parent population.",
+  "sample": {"engineering": "8 independent noise draws, not reused in later score", "conditional_mechanism_pilot": "64 independent draws at the one fixed cadence/truth after engineering gates", "pairing": "Exactly identical latent event/noise/photometry across each fit branch"},
+  "primary_branches": ["NIR distance with fixed true peak,shape1,AV0", "Joint optical+NIR peak anddistance fit withshape1,AV0 fixed; insert its peak into NIR distance fit on identicalJHdata"],
+  "noise_and_scatter": "Begin with source photon/background noise and disabled intrinsic scatter as an explicit controlledmechanism arm; then a separatelydeclared OIR.J19 sensitivity on pairedlatent draws if first gate passes. Never infer a missing survey scatter correction by adding this result to existingOIR scatter.",
+  "peak_initialization": "Same frozen measured/search-peak construction for every joint fit. Record source neartruth0.01dayheader separately; compare truefixedNIR baseline with estimatedpeak, not chosen offsets. A broader measured-initialization experiment is distinct.",
+  "mask_handling": "Primary fixedcommon valid-phase JH mask; separatelyledger any normalnativephase-mask changes underestimatedpeak. Do not compare objectives acrossdifferentmasks aslikelihoodratios.",
+  "numerical_gates": "Native noiseless recovery; exact sharedHEAD/PHOT identity; deterministic secondstarts; allfailures/bounds retained. Since shape/dust arefixed, a bounded one-dimensionalpeak profile plus validatedpositive-amplitudeprofile canindependentlycheckglobalnumericaloptimum underfrozencovariance. Any nativecovarianceupdate comparison is a separatealgorithmicgate, not assumedclosed.",
+  "estimand": "Paired distance change and dispersion conditional on thiscadence/truth/noisemodel, with Monte Carlo standard errors, plus peak-error ledger. No physical-null p, realpopulationbias, or cosmologycorrection.",
+  "execution_authorized": false
+}

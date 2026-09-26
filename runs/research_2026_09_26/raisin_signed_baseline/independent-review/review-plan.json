@@ -1,0 +1,10 @@
+{
+  "created_utc": "2026-09-26T03:34:59.984898+00:00",
+  "status": "Prior root baseline result read, independent verification not outcome blind.",
+  "method": "Parse all ten author raw files directly using source VARLIST. Apply exact strict MJD<peak-180 and <-365 masks, all griz and finite positive error. Compute inverse-variance intercept, Q and dof by scalar sums. Enumerate unordered epoch pairs; recompute normalized difference squares and projected residual pair products with explicit off-diagonal covariance subtraction. Compare source rows, all40 groups per cut, pair summaries and flag strata to root files, preserving two masks. No new cuts or physical p-values.",
+  "inputs_sha256": {
+    "runs/research_2026_09_26/raisin_signed_baseline/protocol.json": "fbaac7dca06161c53b6c180af4281ddbe1bcf98e91b81efdb73a9d1e92085d3d",
+    "scripts/research_2026_09_26/raisin_signed_baseline.py": "b5c86e4a7bf8a707a4ae2555a8a0e121779a81cfaafc5dd9c5097f46e2c569fc",
+    "runs/research_2026_09_26/astra_design/raisin_signed_refit/cohort.csv": "09bfc181d90886377aa7f7970b8016e2c9738dd84951443ee3126accf70665ae"
+  }
+}

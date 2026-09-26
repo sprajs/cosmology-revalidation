@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-09-21",
+  "bias_free_established": false,
+  "global_bias_bound": null,
+  "global_bias_bound_reason": "Physical population, selection and luminosity-evolution alternatives are not uniquely identified. Conditional matrix propagation cannot create an empirical bound on omitted mean-model bias.",
+  "combination_rule": "Do not add all listed quantities in quadrature. Some are alternate models, some are shared covariance modes, and some remain unquantified. Preserve joint nuisance covariance, cross-object response and already-included release components.",
+  "channels": [
+    {
+      "id": "SALT_COLOR_DUST",
+      "assumption": "A phase-independent empirical SALT colour coordinate suffices to transport colour-dependent luminosity across the selected population.",
+      "status": "conditional_response_quantified_physical_decomposition_not_identified",
+      "evidence": ["docs/salt-dust-audit/salt-model-assumptions.md", "runs/salt_dust_audit/flux_response/response.csv", "runs/salt_dust_audit/flux_response/matrices.npz"],
+      "uncertainty": "Signed per-object responses to added extinction are supplied; their perturbation amplitudes are not inferred dust posteriors.",
+      "needed": "Selection-aware population comparison, independent colour dimensions and optical/NIR/spectral transfer tests."
+    },
+    {
+      "id": "F99_IMPLEMENTATION",
+      "assumption": "Historical and current SNANA option 99 implement the same extinction curve.",
+      "status": "false_version_dependent_response_measured",
+      "evidence": ["runs/salt_dust_audit/snana_extinction/results.json", "runs/salt_dust_audit/snana_extinction/monochromatic_response_matrix.csv"],
+      "uncertainty": "Exact-minus-approximate monochromatic response, independently verified; not itself a distance correction.",
+      "needed": "Paired simulation, fitting, selection and BBC response with the same calibration/training to isolate full effect."
+    },
+    {
+      "id": "F99_PHYSICAL_SUPPORT",
+      "assumption": "The adopted extinction family remains an attenuating physical screen throughout the simulated RV support.",
+      "status": "counterexample_verified_in_occupied_mock_support",
+      "evidence": ["runs/salt_dust_audit/snana_mock_support/results.json", "runs/salt_dust_audit/f99_support/summary.json", "runs/salt_dust_audit/f99_support/broadband_grid.csv", "runs/salt_dust_audit/snana_stress/results.json"],
+      "uncertainty": "Frequency of fixed-wavelength negative extinction in written simulations and constructed broadband consequence recorded. An actual-SNANA fixed-sample floor stress changes 4 of 12 low-RV mocks, with maximum pre-BBC standardized shift 0.000655 mag; 12 matched controls are unchanged. This does not bound the population/selection/BBC effect or establish a true correction.",
+      "needed": "Refit physically admissible dust-law/population alternatives, then rerun selection and BBC with shared seeds and simulation-noise controls."
+    },
+    {
+      "id": "DUST_POPULATION",
+      "assumption": "Released mass/redshift-conditioned intrinsic colour, RV and reddening PDFs describe the relevant parent and selected populations.",
+      "status": "configuration_quantified_empirical_transport_unproven",
+      "evidence": ["docs/salt-dust-audit/snana-implementation.md", "runs/salt_dust_audit/snana_population/"],
+      "uncertainty": "Probability-grid normalizations, tails, mass interpolation and parameter response are conditional on those grids; they are not observed population frequencies.",
+      "needed": "Held-out colour/luminosity/scatter/host tests, flexible distributions and prior sensitivity with valid selection normalization."
+    },
+    {
+      "id": "MW_DUST",
+      "assumption": "Foreground map normalization, law and spatial variation are adequately represented in training and fitting.",
+      "status": "released_covariance_and_direct_flux_response_quantified",
+      "evidence": ["runs/salt_dust_audit/matrix_audit/", "runs/salt_dust_audit/flux_response/"],
+      "uncertainty": "Shared released MW modes and conditional per-object extinction responses retained. Applying another .86 scale to already-scaled HEAD values would double-correct this diagnostic.",
+      "needed": "Joint map/calibration/training uncertainty and sky-dependent validation, without counting the same released mode twice."
+    },
+    {
+      "id": "CALIBRATION_TRAINING",
+      "assumption": "Passband/zeropoint variations and retrained surfaces span the relevant shared calibration uncertainty.",
+      "status": "release_modes_and_collinearity_recorded_group_overlap_resolved_signed_realizations_missing",
+      "evidence": ["docs/salt-dust-audit/correction-matrices.md", "docs/salt-dust-audit/salt-model-assumptions.md", "runs/salt_dust_audit/flux_response/response.csv"],
+      "uncertainty": "Covariance factors have arbitrary eigenvector signs; source perturbation realizations cannot be uniquely reconstructed from covariance alone. CALSPEC overlaps the calibration/SALT group; removing this double count resolves Dovekie's component-sum discrepancy numerically. The original release has an unassigned positive remainder.",
+      "needed": "Signed paired output vectors and original remainder provenance, consistent retraining and gauge alignment."
+    },
+    {
+      "id": "SALT_MODEL_DIMENSION",
+      "assumption": "Two trained surfaces and one colour law span luminosity-relevant spectral/time variation.",
+      "status": "published_counterevidence_to_completeness_cosmological_size_unestablished",
+      "evidence": ["docs/salt-dust-audit/salt-model-assumptions.md", "docs/salt-dust-audit/theory-model-grid-audit.json"],
+      "uncertainty": "Additional phase-dependent colour structure is a documented alternative; this audit does not convert another survey's residual trend into a DES correction.",
+      "needed": "Matched retraining and survey-transfer injections using additional spectral/time modes."
+    },
+    {
+      "id": "FIT_COVARIANCE",
+      "assumption": "A coherent local Hessian and SALT residual covariance accurately represent the measurement likelihood.",
+      "status": "algebra_and_grid_positivity_checked_likelihood_coverage_conditional",
+      "evidence": ["docs/salt-dust-audit/theory-model-grid-audit.json", "docs/salt-dust-audit/flux-response-review.json", "docs/phase2/data-audit.md"],
+      "uncertainty": "Keep amplitude/shape/colour cross-covariances. Local positivity does not prove Gaussian tails, coverage or an adequate mean SED.",
+      "needed": "Flux-level coverage with model mismatch, clipping, repeated epochs and tails."
+    },
+    {
+      "id": "RELEASE_COVARIANCE_FORMAT",
+      "assumption": "Matrix filenames and all individual components can be interpreted as interchangeable additive covariances.",
+      "status": "false_formats_differ_and_single_component_precision_matters",
+      "evidence": ["docs/salt-dust-audit/correction-matrices.md", "runs/salt_dust_audit/matrix_audit/verification.json"],
+      "uncertainty": "Original systematic covariance versus Dovekie packed total precision are handled separately. Whitened signed eigenspectra and reconstruction tolerances are preserved; no silent PSD repair.",
+      "needed": "Higher-precision component provenance for indefiniteness and the original release's unassigned remainder; do not double-count grouped CALSPEC; use verified full released likelihood for current inference."
+    },
+    {
+      "id": "BBC_SELECTION",
+      "assumption": "Simulator-conditioned bias maps transport to the real selected population over fitted colour, stretch, mass and redshift.",
+      "status": "central_unvalidated_population_dependence",
+      "evidence": ["docs/salt-dust-audit/snana-implementation.md", "docs/phase2/literature-selection.md"],
+      "uncertainty": "Released alternative systematic modes do not establish completeness of the model family or a universal correction matrix.",
+      "needed": "Generated/selected/refitted truth tracking, mismatched-generator recovery, support/importance-weight diagnostics, classification and survey transfer."
+    },
+    {
+      "id": "HOST_AGE_DUST",
+      "assumption": "Residual host/age luminosity, intrinsic colour and reddening can be separated from the available summary observables.",
+      "status": "structural_nonidentifiability_without_extra_constraints",
+      "evidence": ["docs/salt-dust-audit/salt-model-assumptions.md", "docs/correction-ledger.md"],
+      "uncertainty": "Exact latent reparameterizations preserve colour and magnitude. Removing an explicit mass step does not undo mass-dependent simulated bias correction.",
+      "needed": "Additional observables or disclosed restrictive population assumptions; propagate host-estimator uncertainty and avoid applying an old age slope twice."
+    },
+    {
+      "id": "LUMINOSITY_EVOLUTION_COSMOLOGY",
+      "assumption": "Admitted luminosity evolution cannot mimic the inferred distance-redshift shape.",
+      "status": "exact_degeneracy_if_both_functions_unrestricted",
+      "evidence": ["docs/salt-dust-audit/salt-model-assumptions.md", "runs/salt_dust_audit/matrix_audit/"],
+      "uncertainty": "Local cosmology/dust/design collinearities are recorded. No finite global physical bias bound follows from SN magnitudes alone under arbitrary luminosity drift.",
+      "needed": "Restricted and physically tested evolution models or additional independent information; report conditional inference and prior dependence."
+    }
+  ]
+}

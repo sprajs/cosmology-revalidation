@@ -1,0 +1,57 @@
+{
+  "scope": "Synthetic means and covariance-only checks, no observed outcomes.",
+  "kernel_sha256": "ed4c52369914f8cdbb291605de414c9aeae63af6bca4ff4506cda0f438ea26a2",
+  "synthetic_design": {
+    "dimensions": [
+      2,
+      4,
+      16,
+      74
+    ],
+    "factor_precisions": [
+      0.01,
+      0.25,
+      0.5
+    ],
+    "diagonal_variance": "logspace0.5to2",
+    "SNR": [
+      -3.0,
+      0.0,
+      3.0
+    ],
+    "signs": [
+      "allpositive",
+      "alternating"
+    ]
+  },
+  "near_mode_boundary": {
+    "dimensions": [
+      2,
+      16
+    ],
+    "factor_precision": [
+      0.25,
+      0.5
+    ],
+    "target_modes": [
+      -4.01,
+      -3.99,
+      3.99,
+      4.01
+    ]
+  },
+  "native_design": "Native C_B only; standardized mean -10,-3,0,3,10; allpositive,alternating,first9negative patterns.",
+  "reference": "Independent stable erfcx inverse-Mills derivative; bracket exact latent mode; mode-scaled scipy adaptive integration on mode +/-12; strong log concavity bounds omitted tails.",
+  "acceptance_tolerance_log_probability": 2e-10,
+  "orders": [
+    64,
+    128,
+    256
+  ],
+  "tail_guard_stresses": [
+    -1000000.0,
+    -1000000000000.0,
+    -1e+150
+  ],
+  "analytic_checks": "Strong scalar; empty; independent; explicit sparse covariance refusal; synthetic conditional posterior latent against adaptive integration."
+}

@@ -1,0 +1,35 @@
+# Coherent 2021 RAISIN simulated-fit cut accounting
+
+This is an accounting of **already fitted** DES simulation rows, not generated or detected-event selection. The source snapshot is the Nov 11, 2021 NIR FITRES (30,000 CIDs) and matching optical+NIR FITRES (29,995 CIDs), both reporting SNANA v11_04d. The frozen [protocol](../../runs/research_2026_09_26/raisin_2021_selection_accounting/protocol.json), [script](../../scripts/research_2026_09_26/raisin_2021_selection_accounting.py), [result](../../runs/research_2026_09_26/raisin_2021_selection_accounting/result.json), and [hash manifest](../../runs/research_2026_09_26/raisin_2021_selection_accounting/manifest.json) preserve this analysis. Protocol SHA-256 `90fd599c…`, script SHA-256 `d829e607…` were fixed before reading numeric outcomes. A separate standard-library parser reproduced every exclusion count in [independent-count-check.json](../../runs/research_2026_09_26/raisin_2021_selection_accounting/independent-count-check.json).
+
+The pinned author `cosmo_sys.py` is a later Jan 2022 version. I retrieved the Nov 7, 2021 source blob `86551f…`, and independently verified that **the same blob belongs to the Nov 11 FITRES commit `aaa709e`**. Its `apply_all_cuts` and `get_sigint` bodies are byte-identical to the pinned version. Thus there is no **cut-logic** version mismatch, although repository co-location does not prove this exact script executed on this exact fit snapshot. In `apply_biascor`, [2021 source lines 382–383](../../runs/research_2026_09_26/raisin_2021_selection_accounting/source/cosmo_sys-20211107.py:382) apply `apply_all_cuts(frsim,froptsim,False)` to NIR and `apply_all_cuts(froptsim,froptsim,False)` to joint fits. The function requires a matching joint CID, fitted joint `AV < 0.3*RV`, and fitted joint `0.75 < STRETCH < 1.185`, all strict. It does not cut on latent simulated AV/stretch. These are analysis cuts applied after simulation and fitting.
+
+| Stage / overlap | Rows |
+|---|---:|
+| NIR FITRES | 30,000 |
+| Missing joint CID | 5 |
+| Joint CID, fail AV only | 2,138 |
+| Joint CID, fail stretch only | 2,109 |
+| Joint CID, fail both | 142 |
+| Pass both | 25,606 |
+
+Missing joint CIDs are `12988, 15434, 25042, 26060, 27456`. The resulting accepted fraction is 25,606/30,000 = 85.35% of the archived NIR fits. It must not be called a generating, cadence, detection, or observed-sample efficiency.
+
+Across all 30,000 NIR fits, latent `SIM_AV` mean/SD is 0.15187/0.15046 mag, `SIM_STRETCH` 0.99434/0.13401, and `SIM_RV` 1.51801/0.00101. Among 25,606 passing rows these become 0.12638/0.11045, 0.99338/0.11974, and 1.51801/0.00101. The joint fitted `AV` mean/SD shifts from 0.15308/0.20220 in all 29,995 matched rows to 0.11571/0.14655 after cuts. The NIR fit fixes `AV=0`, `STRETCH=1`, and `RV=1.518` for these outputs; the joint fitted parameters govern the cuts. Full quantiles, fitted moments and all six redshift bins are in the machine-readable result.
+
+The NIR initializer/fixed peak minus `SIM_PKMJD` has mean/SD −0.000391/0.010119 observer days before cuts and −0.000389/0.010114 afterward. Joint fitted peak minus truth has −0.06344/0.54851 days before and −0.03780/0.47763 after. Thus the near-truth NIR time persists in the source-revision coherent subset. The timing distribution shift in the joint fit is descriptive selection on fitted shape/color, not proof of an optical timing correction.
+
+| zHD bin | NIR | Pass | Mean latent AV before → after | Mean NIR `(DLMAG−SIM_DLMAG)` before → after (mag) |
+|---|---:|---:|---:|---:|
+| [0,.2) | 0 | 0 | empty | empty |
+| [.2,.3) | 3,931 | 3,232 | .17600 → .13590 | .03540 → .04283 |
+| [.3,.4) | 5,803 | 4,945 | .16004 → .13162 | .04080 → .04670 |
+| [.4,.5) | 16,886 | 14,499 | .14778 → .12533 | .03044 → .04329 |
+| [.5,.6) | 2,726 | 2,381 | .13137 → .11441 | .02949 → .04048 |
+| [.6,1] | 654 | 549 | .12549 → .10267 | .02639 → .04396 |
+
+The last column is only an **unweighted archived-fit residual** for a fixed, already-fitted cohort. The exact v11_04d simulator source computes `GENLC.DLMU` through `gen_distanceMag(zCMB,zHEL)` and `gen_dLmag`, writes it as `SNDATA.SIM_DLMU` ([snlc_sim.c](../../runs/research_2026_09_26/raisin_2021_selection_accounting/source/snlc_sim-v11_04d.c:10276)); the FITRES reader maps `SIM_DLMU` into `SIM_DLMAG` ([snana.car](../../runs/research_2026_09_26/raisin_2021_selection_accounting/source/snana-v11_04d.car:4704)). The simulator's lensing term is separately stored. Both exact tag source files were Git-blob checked in [source-manifest.json](../../runs/research_2026_09_26/raisin_2021_selection_accounting/source-manifest.json). No row has a nonpositive/sentinel `SIM_DLMAG`. This verifies that the column denotes the simulator distance modulus, but the residual is not itself the RAISIN weighted bias correction or a causal dust term.
+
+The [2021 bias-correction code](../../runs/research_2026_09_26/raisin_2021_selection_accounting/source/cosmo_sys-20211107.py:385) first computes `sigint` from **uncentered** `DLMAG−cosmo.mu(zHD)` by scanning `0,0.005,…,0.295` and minimizing the difference of `sum(resid²/(DLMAGERR²+sigint²))/(N−1)` from 1. It inflates the printed `DLMAGERR` in quadrature, then weights `DLMAG−SIM_DLMAG` locally in redshift by **`1/sqrt(DLMAGERR²+sigint²)`**. The later [Jan 2022 code](../../runs/research_2026_09_26/raisin_differential/mass-threshold/code/raisin_cosmo/cosmo_sys.py:412) changes this to inverse-variance `1/(DLMAGERR²+sigint²)`. This is a real source-branch difference even though the cut and `sigint` scan are unchanged. The imported `cosmo` module is not present in the pinned author tree, and the execution environment/normalization of `cosmo.mu` is unavailable here. I did not substitute a cosmology, estimate `sigint`, or reconstruct either weighted bias. The code and stored fits establish a model-dependent population/cut assumption; they do not close the historical correction execution chain.
+
+A separately frozen [weight-rule sensitivity](../../runs/research_2026_09_26/raisin_2021_selection_accounting/weight_sensitivity/report.md) scans every source `sigint` grid value on this same 25,606-row cohort under both documented weight formulas. It reports full weighted-mean and effective-sample-size curves, without choosing a sigma or calling the curves the historical corrections.

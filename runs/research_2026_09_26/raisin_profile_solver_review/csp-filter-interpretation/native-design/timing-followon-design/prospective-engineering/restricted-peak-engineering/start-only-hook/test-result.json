@@ -1,0 +1,119 @@
+{
+  "status": "PASS",
+  "native_fitter_builds": 0,
+  "native_fits": 0,
+  "photons": 0,
+  "standalone": "Exact existing native minuit.o used only for MNINIT/MNPARM/MNPOUT, no FCN/minimizer/photometry. Test-only INTRAC stub reports noninteractive.",
+  "native_minuit_object_sha256": "9bbc88ab0568b229a5e4bad888f37fb58383c5fa2755beae2ef9a7336dc2cea7",
+  "checks": [
+    {
+      "case": "absent",
+      "returncode": 0,
+      "expected": 0,
+      "captured_MNPOUT_parameters": 48,
+      "pass": true
+    },
+    {
+      "case": "zero",
+      "returncode": 0,
+      "expected": 0,
+      "captured_MNPOUT_parameters": 48,
+      "pass": true
+    },
+    {
+      "case": "minus",
+      "returncode": 0,
+      "expected": 0,
+      "captured_MNPOUT_parameters": 48,
+      "pass": true
+    },
+    {
+      "case": "plus",
+      "returncode": 0,
+      "expected": 0,
+      "captured_MNPOUT_parameters": 48,
+      "pass": true
+    },
+    {
+      "case": "fixed",
+      "returncode": 87,
+      "expected": 87,
+      "captured_MNPOUT_parameters": 2,
+      "pass": true
+    },
+    {
+      "case": "outside",
+      "returncode": 87,
+      "expected": 87,
+      "captured_MNPOUT_parameters": 2,
+      "pass": true
+    },
+    {
+      "case": "invalid",
+      "returncode": 87,
+      "expected": 87,
+      "captured_MNPOUT_parameters": 2,
+      "pass": true
+    },
+    {
+      "case": "nan",
+      "returncode": 87,
+      "expected": 87,
+      "captured_MNPOUT_parameters": 2,
+      "pass": true
+    },
+    {
+      "case": "no_domain",
+      "returncode": 87,
+      "expected": 87,
+      "captured_MNPOUT_parameters": 2,
+      "pass": true
+    },
+    {
+      "case": "missed_readback",
+      "returncode": 87,
+      "expected": 87,
+      "captured_MNPOUT_parameters": 2,
+      "pass": true
+    },
+    {
+      "case": "later_changed",
+      "returncode": 87,
+      "expected": 87,
+      "captured_MNPOUT_parameters": 6,
+      "pass": true
+    }
+  ],
+  "source_sha256": {
+    "source/snana.car": "98783d22cae174ccbc1015c10d68641025abaac95d6dc78262998fc91a221f73",
+    "source/genmag_snoopy.c": "8e6c549c7c57394f46fc3135a6472a51a84de3a497d21e8c35debcec4eb15d28",
+    "source/prosp_minuit_start.h": "38027fe0b92bd803c453c197d91064a4a2596c145ac248c2988ca9d8954506de",
+    "start-only.patch": "6d1b6ce87d632224c411e6d8cb80b167cae93485e3e72db0977d362285d5cd05"
+  },
+  "commands": [
+    [
+      "cc",
+      "-O1",
+      "-std=c99",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wformat=2",
+      "-c",
+      "unit_wrapper.c",
+      "-o",
+      "unit_wrapper.o"
+    ],
+    [
+      "/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/bin/gfortran",
+      "-B/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/lib/gcc/x86_64-pc-linux-gnu/16",
+      "-B/usr/lib/gcc/x86_64-pc-linux-gnu/16/",
+      "-fsecond-underscore",
+      "unit_driver.f90",
+      "unit_wrapper.o",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/restricted-peak-engineering/build/obj/minuit.o",
+      "-o",
+      "unit_driver"
+    ]
+  ]
+}

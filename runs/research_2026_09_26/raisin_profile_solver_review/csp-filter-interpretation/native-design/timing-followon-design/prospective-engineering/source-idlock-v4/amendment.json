@@ -1,0 +1,21 @@
+{
+  "status": "frozen source-only v4 amendment before any rerun",
+  "previous_protocol_sha256": "070e27abe844f247123735c5edd751ad6a97278ac2d174ddf542cedef336815c",
+  "previous_freeze_sha256": "5ce27047102b741ff8c6d4fc3a7ba451226a8268276a2525b4a0fec09193fbd8",
+  "source_sha256": "37d8afef19220d2ba0504db777b654694fe07cdf993819555dcec26bf26e7ba8",
+  "reason": "keep_SIMLIB_HEADER compares nonnegative GENLC.SIMLIB_IDLOCK literally to actual LIBID; SIMLIB_findStart copiesINPUTS.IDLOCK toGENLC.1 does not select first actualLIBID in this source path.",
+  "sole_scientific_input_change": "SIMLIB_IDLOCK1\u219211. Output directory version changes only to preserve failed artifact. Seed/model/truth/noise/cadence/selection/gates untouched.",
+  "failure_preservation": {
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/generation-failure.json": "c8089def1a0ef34f2f1ba129a00b3e3d5c1ecd0d6cc9c52df4632a94e9c056e0",
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/native-activity.json": "4e68ecbb7e426850cac11e5f6ffae91703ca2fe11136816ac2d2d12bad8fd486",
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/generation-v3/original/native.log": "f44dfef978114ebf1023deff10151292c077058f311cb11aad145e5ad58a416c",
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/generation-v3/original/execution.json": "a2de18f8fba21c797b84dd08acef4ca9bcfc89e67a7e69c246a67ab66b72afb2"
+  },
+  "files": {
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/source-idlock-v4/inputs.patch": "99c9a61951f4f49be03f668cccaaf79afcf62129518aab3c82eeb1a586a4907a",
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/source-idlock-v4/executor.patch": "175d04f8dfd7cb5efbceeeba90f9cdbce1edac6a412ce6ed096ceb8fd806095f",
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/source-idlock-v4/source-evidence.json": "c692a7fa5e6eb91f5c5b65e84b62a5d295a4ec2bd222e4383a3eae3d47409d98"
+  },
+  "native_preexisting_seconds": 17.047889647001284,
+  "no_native_execution_by_this_script": true
+}

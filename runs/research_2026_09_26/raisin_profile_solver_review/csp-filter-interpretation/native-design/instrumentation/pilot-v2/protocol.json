@@ -1,0 +1,89 @@
+{
+  "scope": "Output-only nominal equivalence, no changed-filter arm. Exact prepared NML and vpec copied, data symlink to same prepared pilot nominal data.",
+  "hashes": {
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/instrumentation/SNANA-v11_04k-output/bin/snlc_fit.exe": "623ec5c00015874a7b99fb2c33a14c02529678695c8738a08934ac437c7962fb",
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/instrumentation/SNANA-v11_04k-output/src/snlc_fit.car": "113e362aae26ad19ae2ecfa9de626f663136d4c3c95f7d25b5cc8a73dfd1b80a",
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/instrumentation/build-amendment-v2.json": "3a53b5665e5c127051f202e786e3fc1ee51ba7cebecfcf9c2bd450dc4c55da37",
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/instrumentation/output-only-v2.patch": "530d2385704f4d1a5cec772ee01f8885d47dfe08554d348ab7f91762c94103ee",
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/instrumentation/pilot-v2/fits/nominal/fit.nml": "12dae3812904d0327f69d4c971f6255f035a977244b03444c6a4428751e43aff",
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/instrumentation/pilot-v2/fits/nominal/vpec.list": "bb8f94290a1060a218f7ed2bf019a9fa5b0b02dfbdef94e9e70d8dd7e907861a",
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/instrumentation/run_nominal_v2.py": "9d594a4dff3e24ec97b9dd793f284eefd19d7821891c5818fb45e51dc9148a13",
+    "runs/research_2026_09_26/csp_native_filter_response/fits/nominal/fit.FITRES.TEXT": "4ad769238eccce50eaeb0602d3018e832002bc04d50d6870afeef1bfd2ef30b2",
+    "runs/research_2026_09_26/csp_native_filter_response/fits/nominal/fit.LCPLOT.TEXT": "2410ddbc6ed9bc18af9c5ce7b118fc471e029f3955cb189be26666ed5a7fce5b",
+    "runs/research_2026_09_26/csp_native_filter_response/cohort-preparation/pilot/data/nominal/CSPDR3_RAISIN/CSPDR3_2004ef.PKMJD.DAT": "106d34ab6e2232677fa28ae1622ce6ed4843147bed471e8915155cede7394e3d",
+    "runs/research_2026_09_26/csp_native_filter_response/cohort-preparation/pilot/data/nominal/CSPDR3_RAISIN/CSPDR3_2005hc.PKMJD.DAT": "3f0e73595dfdf2977aa873f7eced2ae6d3eff236474bbadbc34917b47a7c3cbe",
+    "runs/research_2026_09_26/csp_native_filter_response/cohort-preparation/pilot/data/nominal/CSPDR3_RAISIN/CSPDR3_RAISIN.LIST": "582fd7d7d9551becb1ee3a977824c93cece0a804bad78c5755560bfb74215ddf",
+    "runs/research_2026_09_26/csp_native_filter_response/cohort-preparation/pilot/data/nominal/CSPDR3_RAISIN/CSPDR3_RAISIN.README": "df10cce9290ee2084da16c1227d73c3f815afd512f0f4fc08b7360bf5a3aa7d7"
+  },
+  "timeout_seconds": 30,
+  "schemas": {
+    "CSP_ENTRY": [
+      "CID",
+      "ITER",
+      "NFITDATA",
+      "USE_FITCOV",
+      "LREPEAT_ITER",
+      "D_entry",
+      "shape_entry",
+      "AV_entry",
+      "peak_entry_absolute",
+      "D_step",
+      "shape_step",
+      "AV_step",
+      "peak_step",
+      "D_previous",
+      "shape_previous",
+      "AV_previous",
+      "peak_previous_absolute"
+    ],
+    "CSP_ROW": [
+      "CID",
+      "ITER",
+      "accepted_index",
+      "source_epoch",
+      "band",
+      "MJD",
+      "Trest",
+      "modelF",
+      "model_mag_error",
+      "dataF",
+      "data_error",
+      "z",
+      "MWEBV",
+      "rest_filter_mean_wavelength",
+      "fudge_flux_error",
+      "model_flux_error",
+      "rest_lambda_fit_min",
+      "rest_lambda_fit_max"
+    ],
+    "CSP_OBJECTIVE": [
+      "CID",
+      "ITER",
+      "NFITDATA",
+      "USE_FITCOV",
+      "totalQ",
+      "priorQ",
+      "sigmaQ",
+      "D",
+      "shape",
+      "AV",
+      "peak_absolute",
+      "peak_prior_center_absolute",
+      "search_peak",
+      "MJDOFF"
+    ],
+    "CSP_WROW": [
+      "CID",
+      "ITER",
+      "row",
+      "inverse_covariance_row..."
+    ],
+    "CSP_WDIAG": [
+      "CID",
+      "ITER",
+      "row",
+      "inverse_variance"
+    ]
+  },
+  "blocks": "Rows followed by OBJECTIVE and W. Preserve every block and all entry markers."
+}

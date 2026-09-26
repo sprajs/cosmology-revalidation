@@ -1,0 +1,7479 @@
+Carnegie Supernova Project-II: Near-infrared spectral diversity and template of Type Ia Supernovae
+// Restore the saved color scheme preference, or
+  // enact the browser preference if "automatic", 
+  // without expecting DOM load to have completed.
+  //
+  // Also restore any saved readingmode and ToC display preferences.
+  function initializeReadingPreferences() {
+    let saved_theme = localStorage.getItem("ar5iv_theme") || "automatic";
+    if (saved_theme === "automatic") {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        saved_theme = "dark";
+      }
+    }
+    if (saved_theme == "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+
+    const tocDisplay = localStorage.getItem('arxiv_html_paper_toc_display');
+    if (tocDisplay) {
+      document.documentElement.setAttribute("data-toc-display", tocDisplay);
+    }
+    const readingMode = localStorage.getItem('arxiv_html_paper_reading_mode');
+    if (readingMode) {
+      document.documentElement.setAttribute("data-reading-mode", readingMode);
+    }
+    // Pre-apply spinout-banner dismissal here, before the banner paints, so it
+    // never flashes in only to be hidden later by the deferred arxiv-header.js.
+    // Key matches arxiv-header.js: "arxiv-banner-dismissed:" + data-banner-name.
+    if (localStorage.getItem('arxiv-banner-dismissed:spinout-nonprofit')) {
+      document.documentElement.setAttribute("data-banner-dismissed", "");
+    }
+  }
+  // Run as soon as JS starts, to minimize repainting
+  initializeReadingPreferences();
+/* Banner pre-dismissal (set above before paint -> no flash-then-hide) and
+     reading-mode chrome hiding. */
+  html[data-banner-dismissed] .ds-announcement { display: none; }
+  html[data-reading-mode="enabled"] .ds-announcement,
+  html[data-reading-mode="enabled"] .ds-site-footer { display: none; }
+  /* Keep the announcement text dark on the Open-Blue band in both colour themes
+     (otherwise it inherits the paper's warm-wash text in dark mode and washes out). */
+  .ds-announcement-text { color: var(--arxiv-ink, #1c1a17); }
+Report GitHub Issue
+×
+Title:
+Content selection saved. Describe the issue below:
+Description:
+Submit without GitHub
+Submit in GitHub
+arXiv is now an independent nonprofit!
+Learn more
+×
+Back to arXiv
+Why HTML?
+Report Issue
+Back to Abstract
+Download PDF
+Abstract
+I
+Introduction
+II
+Sample
+II.1
+Selection Criteria
+II.2
+Sample Characteristics
+II.3
+Spectrophotometric Accuracy
+III
+Methods
+III.1
+Data Preparation
+III.2
+Dimensionality Reduction
+III.3
+Modeling Parameter Dependence
+III.4
+Strategies for Selecting PCs
+IV
+Results
+IV.1
+Spectral Templates
+IV.2
+K-correction Uncertainties
+IV.3
+Impact on Cosmology
+V
+Conclusion
+References
+A
+NIR spectra sample tables
+B
+Alternative Method: Conditional Variational Autoencoder
+C
+Gaussian Process Regression Kernel parameters
+License: CC BY 4.0
+arXiv:2211.05998v2 [astro-ph.HE] 17 Mar 2023
+Carnegie Supernova Project-II: Near-infrared spectral diversity and template of Type Ia Supernovae
+Facilities:
+Magellan Baade Telescope (FIRE), Swope Telescope
+Journal:
+ApJ
+Astropy
+[
+3
+,
+4
+]
+, Pandas
+[
+65
+,
+70
+]
+, PyTorch
+[
+71
+]
+, scikit-learn
+[
+73
+]
+, SNooPy
+[
+13
+]
+.
+Jing Lu (陆晶)
+Affiliation:
+Department of Physics, Florida State University, 77 Chieftan Way, Tallahassee, FL 32306, USA
+Eric Y. Hsiao (蕭亦麒)
+Affiliation:
+Department of Physics, Florida State University, 77 Chieftan Way, Tallahassee, FL 32306, USA
+Mark M. Phillips
+Affiliation:
+Carnegie Observatories, Las Campanas Observatory, Colina El Pino, Casilla 601, Chile
+Christopher R. Burns
+Affiliation:
+The Observatories of the Carnegie Institution for Science, 813 Santa Barbara St., Pasadena, CA 91101, USA
+Chris Ashall
+Affiliation:
+Department of Physics, Virginia Tech, Blacksburg, VA 24061, USA
+Nidia Morrell
+Affiliation:
+Carnegie Observatories, Las Campanas Observatory, Colina El Pino, Casilla 601, Chile
+Lawrence Ng
+Affiliation:
+Department of Physics, Florida State University, 77 Chieftan Way, Tallahassee, FL 32306, USA
+Sahana Kumar
+Affiliation:
+Department of Physics, Florida State University, 77 Chieftan Way, Tallahassee, FL 32306, USA
+Melissa Shahbandeh
+Affiliation:
+Department of Physics and Astronomy, Johns Hopkins University, Baltimore, MD 21218, USA
+Affiliation:
+Space Telescope Science Institute, 3700 San Martin Drive, Baltimore, MD 21218, USA
+Peter Hoeflich
+Affiliation:
+Department of Physics, Florida State University, 77 Chieftan Way, Tallahassee, FL 32306, USA
+E. Baron
+Affiliation:
+Homer L. Dodge Department of Physics and Astronomy, University of Oklahoma, 440 W. Brooks, Rm 100, Norman, OK USA
+Affiliation:
+Hamburger Sternwarte, Gojenbergsweg 112, 21029 Hamburg, Germany
+Syed Uddin
+Affiliation:
+George P. and Cynthia Woods Mitchell Institute for Fundamental Physics and Astronomy, Department of Physics and Astronomy, Texas A&M University, College Station, TX, 77843, USA
+Maximilian D. Stritzinger
+Affiliation:
+Department of Physics and Astronomy, Aarhus University, Ny Munkegade, DK-8000 Aarhus C, Denmark
+Nicholas B. Suntzeff
+Affiliation:
+George P. and Cynthia Woods Mitchell Institute for Fundamental Physics and Astronomy, Department of Physics and Astronomy, Texas A&M University, College Station, TX, 77843, USA
+Charles Baltay
+Affiliation:
+Physics Department, Yale University, 217 Prospect Street, New Haven, CT 06511, USA
+Scott Davis
+Affiliation:
+Department of Physics, Florida State University, 77 Chieftan Way, Tallahassee, FL 32306, USA
+Tiara R. Diamond
+Affiliation:
+Private astronomer, tiaradiamond@gmail.com
+Gaston Folatelli
+Affiliation:
+Facultad de Ciencias Astronómicas y Geofísicas, Universidad Nacional de La Plata, Instituto de Astrofísica de La Plata (IALP), CONICET, Paseo del Bosque S/N, B1900FWA La Plata, Argentina
+Affiliation:
+Kavli Institute for the Physics and Mathematics of the Universe (WPI), The University of Tokyo, 5-1-5 Kashiwanoha, Kashiwa, Chiba 277-8583, Japan
+Francisco Förster
+Affiliation:
+Millennium Institute of Astrophysics, Casilla 36-D,7591245, Santiago, Chile
+Affiliation:
+Departamento de Astronomía, Universidad de Chile, Casilla 36-D, Santiago, Chile
+Jonathan Gagné
+Affiliation:
+Planétarium Rio Tinto Alcan, Espace pour la Vie, 4801 av. Pierre-de Coubertin, Montréal, Québec, Canada
+Affiliation:
+Carnegie Observatories, Las Campanas Observatory, Colina El Pino, Casilla 601, Chile
+Lluís Galbany
+Affiliation:
+Institute of Space Sciences (ICE, CSIC), Campus UAB, Carrer de Can Magrans, s/n, E-08193 Barcelona, Spain
+Affiliation:
+Institut d’Estudis Espacials de Catalunya (IEEC), E-08034 Barcelona, Spain
+Christa Gall
+Affiliation:
+DARK, Niels Bohr Institute, University of Copenhagen, Jagtvej 128, 2200 Copenhagen, Denmark
+Santiago González-Gaitán
+Affiliation:
+CENTRA - Centro de Astrofísica e Gravitação, Instituto Superior Técnico, Av. Rovisco Pais 1, 1049-001, Lisbon, Portugal
+Simon Holmbo
+Affiliation:
+Department of Physics and Astronomy, Aarhus University, Ny Munkegade, DK-8000 Aarhus C, Denmark
+Robert P. Kirshner
+Affiliation:
+TMT International Observatory, 100 West Walnut Street, Pasadena, CA 91124
+Affiliation:
+California Institute of Technology, 1216 E. California Boulevard, Pasadena, CA 91125
+Kevin Krisciunas
+Affiliation:
+George P. and Cynthia Woods Mitchell Institute for Fundamental Physics and Astronomy, Department of Physics and Astronomy, Texas A&M University, College Station, TX, 77843, USA
+G. H. Marion
+Affiliation:
+Department of Astronomy, University of Texas, 1 University Station C1400, Austin, TX 78712, USA
+Saul Perlmutter
+Affiliation:
+Lawrence Berkeley National Laboratory, Department of Physics, 1 Cyclotron Road, Berkeley, CA 94720, USA
+Affiliation:
+Physics Department, University of California at Berkeley, Berkeley, CA 94720, USA
+Priscila J. Pessi
+Affiliation:
+Facultad de Ciencias Astronómicas y Geofísicas, Universidad Nacional de La Plata, Paseo del Bosque S/N, B1900FWA, La Plata, Argentina
+Anthony L. Piro
+Affiliation:
+The Observatories of the Carnegie Institution for Science, 813 Santa Barbara St., Pasadena, CA 91101, USA
+David Rabinowitz
+Affiliation:
+Physics Department, Yale University, 217 Prospect Street, New Haven, CT 06511, USA
+Stuart D. Ryder
+Affiliation:
+School of Mathematical and Physical Sciences, Macquarie University, NSW 2109, Australia
+Affiliation:
+Astronomy, Astrophysics and Astrophotonics Research Centre, Macquarie University, Sydney, NSW 2109, Australia
+David J. Sand
+Affiliation:
+Department of Astronomy and Steward Observatory, University of Arizona, 933 N Cherry Avenue, Tucson, AZ 85719, USA
+Accepted XXX
+Abstract
+We present the largest and most homogeneous collection of near-infrared (NIR) spectra of Type Ia supernovae (SNe Ia): 339 spectra of 98 individual SNe obtained as part of the Carnegie Supernova Project-II.
+These spectra, obtained with the FIRE spectrograph on the 6.5 m Magellan Baade telescope, have a spectral range of 0.8–2.5
+μ
+\mu
+m.
+Using this sample, we explore the NIR spectral diversity of SNe Ia and construct a template of spectral time series as a function of the light-curve-shape parameter, color stretch
+s
+B
+​
+V
+s_{BV}
+.
+Principal component analysis is applied to characterize the diversity of the spectral features and reduce data dimensionality to a smaller subspace.
+Gaussian process regression is then used to model the subspace dependence on phase and light-curve shape and the associated uncertainty.
+Our template is able to predict spectral variations that are correlated with
+s
+B
+​
+V
+s_{BV}
+, such as the hallmark NIR features: Mg II at early times and the
+H
+H
+-band break after peak.
+Using this template reduces the systematic uncertainties in K-corrections by
+∼
+\sim
+90% compared to those from the Hsiao template.
+These uncertainties, defined as the mean K-correction differences computed with the color-matched template and observed spectra, are on the level of
+4
+×
+10
+−
+4
+4\times 10^{-4}
+mag on average.
+This template can serve as the baseline spectral energy distribution for light-curve fitters and can identify peculiar spectral features that might point to compelling physics.
+The results presented here will substantially improve future SN Ia cosmological experiments, for both nearby and distant samples.
+Keywords:
+cosmology: observations – supernovae: general
+I
+Introduction
+Type Ia supernovae (SNe Ia) provide excellent luminosity distances thanks to their empirically standardizable properties, such as the correlations between the intrinsic peak luminosity and the light-curve shape
+[
+81
+,
+76
+]
+, as well as the color
+[
+95
+]
+.
+The comparison of the high-redshift SNe Ia with the low-redshift sample led to the first evidence for cosmic acceleration
+[
+31
+,
+84
+,
+74
+]
+.
+By mapping out the expansion history of the Universe, SNe Ia have become an essential tool for understanding the nature of dark energy
+[
+85
+,
+94
+,
+87
+,
+12
+, e.g.]
+.
+The precision of SN Ia cosmology is now limited by systematic errors that cannot be reduced by simply observing more SNe.
+These include uncertainties introduced by photometric calibration, evolutionary effects, host-galaxy environment, and uncertain extinction laws.
+Observations in the near-infrared (NIR) offer a promising direction to achieve more accurate results for cosmology
+[
+6
+,
+91
+,
+15
+,
+5
+,
+45
+, e.g.]
+with several advantages compared to the optical.
+The NIR region is less affected by dust extinction, minimizing the reliance on uncertain dust laws
+[
+16
+,
+53
+,
+44
+, e.g.]
+.
+The bias toward low-reddening objects in high-redshift observations is also minimized in the NIR, reducing the systematic differences between the colors of low- and high-redshift SN Ia samples.
+Furthermore, both theory
+[
+46
+]
+and observations
+[
+54
+,
+102
+,
+62
+,
+24
+,
+47
+]
+have shown that SNe Ia have more uniform peak luminosities in the NIR.
+Therefore, smaller light-curve-shape correction is needed to standardize normal SNe Ia in the NIR
+[
+54
+,
+20
+,
+28
+, e.g.]
+, which could reduce the systematic errors caused by potential evolutionary effects.
+Due to the lack of sufficient NIR data, the majority of the empirical light-curve fitters currently available for SN cosmology rely on optical data only and have not yet included NIR coverage.
+The only three light-curve models that cover NIR so far are
+SuperNovae in object-oriented Python
+[
+13
+,
+14
+,
+SNooPy
+;]
+, the hierarchical Bayesian SED Model for SNe Ia
+[
+62
+,
+60
+,
+61
+,
+BayeSN
+;]
+, and
+SALT3-NIR
+[
+80
+]
+.
+K-corrections are necessary to allow for the comparison of rest-frame magnitudes of objects at various redshifts
+[
+69
+]
+.
+Several efforts have been made to improve the accuracy of the K-corrections for SNe Ia, such as the utilization of the cross-filter K-corrections for high-redshift SNe Ia
+[
+49
+]
+and the construction of time-series spectral templates
+[
+67
+,
+39
+]
+of the spectral energy distribution (SED).
+Uncertainties in the K-corrections, caused by intrinsic variations in the broadband colors and spectral features, directly affect the error budget of the distance measurements
+[
+39
+,
+7
+, e.g.]
+.
+As the next generation of space telescopes such as the James Webb Space Telescope and the Nancy Grace Roman Space Telescope (RST) look further to the red, an accurate description of how the SN Ia SED varies in the NIR is important for a wide range of applications.
+It is particularly crucial for any NIR SN Ia dark energy experiments, whether explicit K-correction calculations are needed or not.
+For example, in the case of SALT3
+[
+48
+]
+, an accurate underlying SED model is required to evade K-correction calculation.
+However, current NIR spectral templates have room for improvements.
+For example, the NIR region of the spectral template of
+Hsiao et al. [39]
+and
+Hsiao [43]
+is only based on 52 NIR spectra of 30 SNe Ia compiled by
+Marion et al. [63]
+, a sample too small to adequately capture intrinsic variations.
+Further complicating the matter, the features in the regions of strong telluric absorptions are completely obscured due to its narrow range of redshifts in this sample.
+As in the optical, the NIR spectral features of SNe Ia are highly correlated with the light-curve shape, the primary parameter
+[
+43
+]
+.
+The correlation is especially evident in the
+H
+H
+-band break
+[
+40
+,
+1
+,
+2
+, e.g.]
+, the most prominent SN Ia spectral feature in the NIR
+[
+52
+,
+101
+]
+.
+This suggests that the SEDs can be accurately predicted given only the light-curve shape
+[
+39
+,
+43
+]
+.
+Characterizing the NIR spectroscopic diversity of SNe Ia became one of the main motivations for the second stage of the Carnegie Supernova Project
+[
+78
+,
+42
+, CSP-II;]
+.
+CSP recognizes the potential of NIR observations and contributed high-precision observations of hundreds of SNe Ia over the past roughly two decades.
+The first phase of CSP
+[
+32
+, CSP-I; 2004-2009;]
+aimed to construct a data set of both optical and NIR light curves in well-understood and calibrated photometric systems
+[
+18
+,
+93
+,
+55
+]
+with telescopes located at Las Campanas Observatory.
+A separate high-redshift (
+0.1
+<
+z
+<
+0.7
+0.1<z<0.7
+) component of the project produced a NIR Hubble diagram in the rest-frame
+i
+i
+band and examined the potential of shifting SN Ia cosmology toward the red
+[
+25
+]
+.
+CSP-II (2011-2015) focused on building the low-redshift optical and NIR anchor with an unbiased sample of SNe Ia in the smooth Hubble flow
+[
+78
+]
+.
+A second component of the project aimed to obtain a statistically significant sample of NIR spectra
+[
+42
+]
+for SNe of all types
+[
+19
+,
+88
+, e.g.,]
+.
+In collaboration with the Harvard-Smithsonian Center for Astrophysics (CfA) Supernova Group, a large sample was mainly acquired using the then newly commissioned Folded-port InfraRed Echellette
+[
+89
+, FIRE;]
+mounted on the Magellan Baade telescope.
+Over the course of the CSP-II campaign, 620 NIR spectra of 149 SNe Ia were obtained.
+The CSP-II sample is much larger than those in previous works (roughly an order of magnitude increase), and most observations are accompanied by accurate photometry.
+The vast majority of the SNe Ia have time-series NIR spectroscopic observations and complementary photometry, such that the phases of the spectra and the light-curve-shape parameters of the SNe Ia can be accurately determined.
+Another key improvement is in the regions of strong telluric absorption.
+The high throughput of FIRE, in combination with the large aperture of Baade, provided an adequate signal to recover the SN flux in the telluric regions for most of our spectra.
+Using this data set, we construct NIR time-series spectral templates as a function of phase and light-curve-shape parameter.
+In this paper, we present the NIR spectra obtained by the CSP-II and a new set of NIR spectral templates constructed using this data set.
+Section
+II
+describes the selection criteria and characteristics of the sample used.
+In Section
+III
+, the methodology of the template construction is described in detail.
+The properties of the template and its impact on cosmology are discussed in Section
+IV
+.
+Finally, a summary is presented in Section
+V
+.
+In this work, unless noted otherwise, the phase is relative to the time of the rest-frame
+B
+B
+-band light-curve maximum.
+II
+Sample
+In this section, we describe the data set used in this work.
+The sample of NIR spectra comes entirely from the CSP-II
+[
+78
+,
+42
+]
+.
+Approximately three-quarters of SN Ia spectra were obtained using FIRE in the high-throughput prism mode.
+In contrast with the majority of other NIR spectrographs, this configuration of FIRE consistently provides an adequate signal in the regions of heavy telluric absorption to enable telluric corrections.
+Using the P
+α
+\alpha
+P-Cygni feature in our sample of type II SN (SN II) spectra, the telluric corrections were shown to recover the feature to 10% precision or better in 70% of our sample
+[
+19
+]
+.
+The conventional notion that features in the telluric regions can only be obtained by space-based or airborne observatories is no longer correct.
+The features in the telluric regions are crucial, as they will inevitably be shifted into observed filters when we study SNe Ia at a range of redshifts.
+This was the main difficulty in obtaining accurate NIR K-correction uncertainties in past studies
+[
+7
+, e.g.,]
+.
+For this reason, as well as to ensure the homogeneity of the data set, we opted to only include FIRE spectra taken in the prism mode
+1
+1
+1
+Note that a few FIRE spectra obtained by the CSP-II were taken in the echelle mode.
+for this work.
+This amounts to an initial sample of 461 NIR spectra of 142 SNe Ia which we narrowed through the selection criteria described below.
+The spectra observed in FIRE prism mode have an approximate wavelength coverage from 0.8 to 2.5
+μ
+\mu
+m, and resolutions of R
+∼
+\sim
+500, 450, and 300 in the
+J
+J
+,
+H
+H
+, and
+K
+K
+bands, respectively.
+Details of the observations and data reduction can be found in
+Hsiao et al. [42]
+.
+Figure 1:
+The number of spectra and SNe Ia as each selection criterion is applied.
+II.1
+Selection Criteria
+With the goal of constructing spectral templates as a function of the color-stretch parameter
+[
+14
+,
+s
+B
+​
+V
+s_{BV}
+;]
+and phase, the following selection criteria were applied in this order:
+•
+Spectra of SNe Ia that belong to one of the following peculiar subgroups: 02cx-like
+[
+58
+]
+, 02ic-like
+[
+30
+]
+, 03fg-like
+[
+38
+]
+, and Ca-strong
+[
+27
+]
+were removed due to their peculiar spectral features.
+This step excludes 39 spectra of 14 SNe.
+•
+Each SN must have a reliable time of the
+B
+B
+-band maximum (
+T
+max
+B
+T_{\text{max}}^{B}
+) and each spectrum must have a phase that is less than or equal to 100 days.
+This step further excludes 83 spectra of 30 SNe Ia.
+•
+Each spectrum was visually inspected for significant host-galaxy contamination by comparing with spectra in a similar parameter space.
+This final step further excludes 8 spectra of 4 SNe.
+Out of the initial 461 spectra of 142 SNe, 331 spectra of 94 SNe Ia remain after the three-step sample cut.
+Figure
+1
+illustrates the change of sample size after applying each selection criterion.
+All spectra that passed through the first two steps, 339 spectra of 98 SNe, are available in the CSP website
+2
+2
+2
+https://csp.obs.carnegiescience.edu/data
+.
+A log of these spectra is listed in Appendix
+A
+.
+T
+max
+B
+T_{\text{max}}^{B}
+and the
+s
+B
+​
+V
+s_{BV}
+of the sample SNe were obtained by fitting multiband CSP light curves using
+SNooPy
+with
+max_model
+.
+An arbitrary cutoff phase was set at 100 days relative to
+B
+B
+-band maximum, well past the phase range relevant for light-curve fitting.
+The peculiar SNe Ia were identified based on their light curves and optical spectra.
+Note that spectra of the slow-declining 91T-like
+[
+21
+,
+77
+]
+and fast-declining 91bg-like
+[
+22
+,
+57
+]
+SNe Ia were kept in the sample intentionally for the following reasons:
+1) Their NIR spectral features, while extreme, were shown to extend the properties of normal SNe Ia
+[
+33
+,
+41
+,
+79
+, e.g.,]
+.
+2) Studies have shown that 91bg-like and fast-declining SNe Ia in general are standardizable and do not impact Hubble constant measurements significantly
+[
+14
+,
+35
+,
+79
+,
+104
+, e.g.,]
+.
+3) The inclusion of these SNe will help broaden the
+s
+B
+​
+V
+s_{BV}
+baseline since they are on the edges of the distribution.
+Only 8 spectra show significant host contamination.
+These are usually SNe Ia situated close to the host galaxy core and taken at late phases when the background flux is comparable to or higher than the SN itself.
+The effects are shallow spectral slope and more diluted spectral features especially toward the red end.
+These were easy to identify through visual inspection and comparison to other spectra at similar phases.
+They also showed up as outliers during the dimensionality reduction step (Section
+III.2
+) if there were included.
+Figure 2:
+Characteristics of the selected sample of NIR spectra.
+The top panels present the distributions of spectra in redshift,
+s
+B
+​
+V
+s_{BV}
+, host galaxy
+r
+r
+-band absolute magnitude and phase; the bottom panels show the distributions of SNe in redshift,
+s
+B
+​
+V
+s_{BV}
+, host galaxy
+r
+r
+-band absolute magnitude, as well as the number of spectra per SN.
+The green and orange distributions represent SNe discovered by targeted and untargeted surveys, respectively.
+The median value of each total distribution is indicated with a vertical dash-dotted line.
+For comparison, the distributions (normalized to peak) of the full CSP-II SNe Ia sample from
+Phillips et al. [78]
+are plotted with dashed lines in the lower panels.
+II.2
+Sample Characteristics
+The final sample of spectra that passed the selection criteria (331 spectra of 94 SNe) cover a wide range of heliocentric redshift,
+s
+B
+​
+V
+s_{BV}
+, and phase (see Figure
+2
+).
+A full range in
+s
+B
+​
+V
+s_{BV}
+and phase is desirable as the goal here is to build a set of spectral templates as a function of
+s
+B
+​
+V
+s_{BV}
+and phase.
+A wide range in redshift is also useful as spectral features are shifted out of regions that are heavily affected by telluric absorption.
+The sample SNe cover a heliocentric redshift range of
+0.003
+≤
+z
+≤
+0.087
+0.003\leq z\leq 0.087
+with a median of 0.021 and a color stretch range of
+0.48
+≤
+s
+B
+​
+V
+≤
+1.30
+0.48\leq s_{BV}\leq 1.30
+with a median of 0.97.
+The
+r
+r
+-band absolute magnitudes of the host galaxies are obtained using the Z-PEG
+[
+56
+]
+SED software following the procedure described in
+Uddin et al. [96]
+.
+The majority of the SNe Ia (70%) in this sample were discovered by untargeted searches.
+This is the result of the survey strategy of CSP-II, designed to avoid bias towards bright and large host galaxies
+[
+78
+]
+.
+As shown in the bottom panels of Figure
+2
+, SNe from untargeted searches extend out to higher redshifts and cover a wider range of the host galaxy absolute magnitude compared to those from targeted searches.
+They also have a similar distribution in
+s
+B
+​
+V
+s_{BV}
+except for a possible excess at the bright and slowly-declining end.
+The normalized distributions of the full CSP-II SNe Ia sample
+[
+78
+, combined “Physics” and “Cosmology” samples from]
+are also shown in Figure
+2
+.
+The selected sample for the template is representative of the full CSP-II sample in terms of
+s
+B
+​
+V
+s_{BV}
+.
+Figure 3:
+Two-dimensional histogram of the spectra/SNe in (phase,
+s
+B
+​
+V
+s_{BV}
+) with marginal distributions.
+The bin size is 5 days for phase and 0.05 for
+s
+B
+​
+V
+s_{BV}
+.
+Each non-empty bin has a black label to show the number of spectra, with an additional red label beneath indicating the number of SNe if there are more than 1 spectrum that belongs to the same SN.
+The gray filled distribution represents the most well-sampled SN 2012fr in the selected data set.
+Next, we examine the distribution of the sample spectra and SNe in phase
+−
+s
+B
+​
+V
+-s_{BV}
+space (see Figure
+3
+).
+Unsurprisingly, most spectra were taken near maximum light and belong to normal-bright SNe Ia.
+The sample spectra have a median
+s
+B
+​
+V
+s_{BV}
+of 0.98 and a median phase of 14 days.
+Figure
+3
+then identifies the data that would provide the most improvement for the next iteration of template building: NIR spectra of fast-declining SNe in general, particularly at late phases.
+These observations are naturally difficult as these SNe are rare, intrinsically faint, and fade more rapidly than normal-bright SNe.
+Our approach is to model the dependence of spectroscopic properties on phase and
+s
+B
+​
+V
+s_{BV}
+as a hypersurface in the phase
+−
+s
+B
+​
+V
+-s_{BV}
+space (Section
+III.3
+).
+The dearth of data in certain regions and the over-reliance on individual well-observed SNe (e.g., SN 2012fr has 25 spectra in the sample) may produce potential biases if the data represent the extremes in the respective bins.
+The best way to improve this is a larger sample which fills in the phase
+−
+s
+B
+​
+V
+-s_{BV}
+space.
+To characterize this potential bias, we compare the templates built with and without the 25 spectra of SN 2012fr in Section
+IV.1
+.
+Figure 4:
+Comparison between the observed spectroscopic and photometric colors for the selected sample, color-coded by phase.
+Both are corrected for MW extinction.
+The solid lines in the top panels correspond to the ideal one-to-one correlations.
+The resulting RMS is approximately 0.2 mag in both
+Y
+−
+J
+Y-J
+and
+J
+−
+H
+J-H
+, and represents the upper bound in the spectrophotometric uncertainty, as this figure includes the uncertainty in the light-curve interpolation.
+In the bottom panels, the horizontal solid and dashed lines represent the mean and the dispersion of the residuals, respectively, with the values printed in the lower left corner.
+Figure 5:
+Time evolution of the sample spectroscopic colors in rest frame.
+The spectra were corrected for MW extinctions.
+The points are color-coded by the
+s
+B
+​
+V
+s_{BV}
+of the SNe.
+To aid the visualization, Gaussian process regression (GPR) fits of the phase and
+s
+B
+​
+V
+s_{BV}
+dependence are plotted as solid curves.
+The flux calibration of the spectra is accurate enough to preserve these correlations.
+II.3
+Spectrophotometric Accuracy
+Since there are no spectrophotometric standard stars in the NIR that can be observed by FIRE, flux calibration was done using telluric standards
+[
+42
+]
+.
+Each standard is a A0V star similar to Vega observed at a similar airmass, usually immediately before or after the science observation.
+The flux calibration is performed simultaneously with the telluric correction given the
+B
+B
+and
+V
+V
+magnitudes of the A0V star, following the procedures outlined by
+Vacca et al. [97]
+.
+Here, we examine the spectrophotometric accuracy of our sample NIR spectra calibrated using this method in terms of the relative colors.
+Note that the vast majority of the spectra were observed at parallactic angle to prevent the change of spectroscopic colors caused by the slit loss.
+To assess the spectrophotometric accuracy after flux calibration, the synthetic broadband
+Y
+−
+J
+Y-J
+and
+J
+−
+H
+J-H
+colors measured directly from the spectra are compared to those from the corresponding light curves.
+All spectra were corrected for Milky-Way (MW) extinction using the
+Schlafly & Finkbeiner [86]
+dust map and the
+Fitzpatrick [23]
+law assuming
+R
+V
+=
+3.1
+R_{V}=3.1
+.
+Spectroscopic colors were then measured from synthetic photometry using
+Y
+​
+J
+​
+H
+YJH
+filters.
+Due to the design of CSP-II, the photometric coverage has typically nightly cadence in the optical but has large gaps in the NIR
+[
+78
+]
+.
+Here, we took advantage of the simultaneous optical-to-NIR light-curve fitting of
+SNooPy
+, using the
+SNooPy
+models to interpolate the sparse data in the NIR.
+The MW extinction-corrected
+Y
+−
+J
+Y-J
+and
+J
+−
+H
+J-H
+colors interpolated to the dates of the spectroscopic observations were then taken as the comparison photometric colors.
+The comparison between the observed spectroscopic and photometric colors is shown in Figure
+4
+.
+The root-mean-square (RMS) of the difference between spectroscopic and photometric colors is around 0.2 mag in both
+Y
+−
+J
+Y-J
+and
+J
+−
+H
+J-H
+, with the mean systematic difference within 0.1 mag.
+Furthermore,
+Hsiao et al. [42]
+showed that the median color differences between 13 NIR spectra and well-sampled light curves are 0.08 mag in
+Y
+−
+J
+Y-J
+and 0.03 mag in
+J
+−
+H
+J-H
+.
+This indicates that the spectrophotometric accuracy of this sample of NIR spectra (without the contribution of the interpolation uncertainty) is roughly at the
+10
+−
+20
+10-20
+% level.
+Another way to examine the spectroscopic colors is to look at their evolution over time.
+Figure
+5
+shows the resulting time evolution of the spectroscopic
+Y
+−
+J
+Y-J
+and
+J
+−
+H
+J-H
+colors.
+There is clear evidence that the color evolution depends heavily on the
+s
+B
+​
+V
+s_{BV}
+parameter, indicating that the spectroscopic colors are accurate enough to preserve such a signal.
+To avoid incurring further uncertainty from the interpolation of sparse data and the narrower phase coverage of
+SNooPy
+, we chose
+not
+to match the spectroscopic colors to the photometric colors in this work.
+III
+Methods
+The goal of this work is to empirically construct a set of NIR spectral templates of SNe Ia based on observed data.
+The templates aim to quantify the following spectral properties: the time evolution, the correlation with a light-curve-shape parameter, and the remaining diversity in the form of statistical flux uncertainties.
+A summary of the procedure is outlined here and the details are given below.
+1.
+The spectra that satisfy the selection criteria are organized onto a common rest-frame wavelength grid (Section
+III.1
+).
+2.
+Principal Component Analysis
+[
+72
+, PCA;]
+is performed in order to reduce the dimensionality of the data set and characterize the spectral properties (Section
+III.2
+).
+3.
+Gaussian Process Regression
+[
+82
+, GPR;]
+is then employed to model the dependence of the PCA results on phase and a light-curve-shape parameter (Section
+III.3
+).
+The final result can be used to reconstruct the normalized SN Ia SED, as well as the associated uncertainties, given the phase and the light-curve shape of a SN Ia.
+The focus of building the template was placed on the spectral features, since in SN Ia cosmological studies, the broadband colors can be corrected by matching photometric colors but the spectral features cannot.
+Alternatively, we also explored a neural network approach using a conditional variational autoencoder (cVAE).
+The cVAE approach is able to produce promising results similar to those from the PCA+GPR method while being more flexible, see Appendix
+B
+for a discussion of the advantages and disadvantages of this proposed method.
+III.1
+Data Preparation
+As the entire data set is observed with a single instrument and configuration by design, it is possible to create a common rest-frame wavelength grid that is representative of the pixel grid and can minimize the interpolation uncertainties.
+First, an average wavelength grid is determined by taking the mean calibrated wavelength of the sample spectra at each pixel in the observer frame.
+This wavelength grid was then de-redshifted by the median redshift of the sample (
+z
+median
+=
+0.021
+z_{\rm{median}}=0.021
+).
+Finally, the sampling frequency of the grid was doubled by adding a mid-point between neighboring points, forming a rest-frame wavelength grid with 3673 wavelength points.
+The resulting wavelength interval ranges from
+∼
+\sim
+3 Å in the
+Y
+Y
+band to
+∼
+\sim
+9 Å in the
+K
+K
+band.
+All sample spectra were de-redshifted to the rest frame and corrected for Milky-Way (MW) extinction using the
+Schlafly & Finkbeiner [86]
+dust map and the
+Fitzpatrick [23]
+law assuming
+R
+V
+=
+3.1
+R_{V}=3.1
+.
+They were then interpolated onto the common wavelength grid described above.
+Note that, to prevent spurious flux values from dominating the PCA, sigma clipping was performed before the interpolation, removing all flux values 5-
+σ
+\sigma
+above or below the local mean with an average window size of 100 Å.
+If PCA is performed directly on the observed spectra covering so wide of a wavelength range as the NIR, the principal components (PCs) would be dominated by regions of relatively high intrinsic flux (e.g., the
+z
+z
+and
+Y
+Y
+bands) and spurious variations (e.g., the telluric regions and at the edges of the spectra).
+The model SEDs need to include the more subtle variations of the spectral features.
+To achieve this, dimensionality reduction was performed in seven wavelength regions.
+The wavelength regions were somewhat arbitrarily defined but designed to correspond to the
+z
+​
+Y
+​
+J
+​
+H
+​
+K
+zYJHK
+3
+3
+3
+z
+z
+as Sloan Digital Sky Survey z,
+Y
+​
+J
+​
+H
+YJH
+as CSP-II du Pont
++
++
+RetroCam
+Y
+​
+J
+​
+H
+YJH
+[
+78
+]
+, and
+K
+K
+as CSP-I du Pont
++
++
+WIRC
+K
+S
+K_{S}
+[
+18
+]
+. The CSP filter functions are available on the web at
+https://csp.obs.carnegiescience.edu/data/filters
+and in the Python package
+SNooPy
+[
+13
+]
+.
+filters with some overlap.
+The overlapping region ranges from
+∼
+\sim
+90 Å between W1&W2 to
+∼
+\sim
+370 Å between W6&W7, with roughly 50 sampling points in each.
+The seven wavelength regions are presented graphically in the top panel of Figure
+6
+and tabulated in Table
+1
+.
+Figure 6:
+Top panel:
+Definition of the wavelength regions. W1, W2, W3, W5, and W7 roughly correspond to the
+z
+​
+Y
+​
+J
+​
+H
+​
+K
+zYJHK
+filters (dark gray solid curves), respectively, while W4 and W6 correspond to regions of strong atmosphere telluric absorptions (light gray lines on top; de-redshifted by the median redshift of the SNe sample
+z
+=
+0.021
+z=0.021
+).
+A spectrum of SN 2012fr at +13 days past
+B
+B
+-band maximum (red line) is plotted for illustration.
+Bottom Panels:
+The distribution of the S/N of each wavelength region.
+The dash-dotted horizontal lines mark the median S/N.
+The dashed horizontal lines mark the selection criterion of S/N
+≥
+\geq
+3.
+The gray stacked distributions in W4 and W6 represent the spectra that have poor telluric corrections.
+The gray stacked distribution in W7 (
+K
+K
+band) indicates the spectra with spurious flux at the edge.
+Additional selection criteria were imposed on the sample spectra in each wavelength region:
+•
+Each spectrum must have a median signal-to-noise ratio (S/N)
+≥
+\geq
+3.
+•
+In the telluric regions, W4 and W6, spectra that are over- or under-corrected for telluric absorptions were excluded by visual inspection.
+•
+In region W7 (
+K
+K
+band), spectra with spurious flux values at the edge of the detector were excluded by visual inspection.
+Separating a spectrum into wavelength regions has the added benefit that if the spectrum for example has poor telluric corrections, we do not have to discard other wavelength regions containing useful information.
+Approximately two thirds of the sample have reliable telluric corrections, consistent with what we found in our SN II sample using the Pa
+α
+\alpha
+feature
+[
+19
+]
+.
+The distributions of the S/N in each region are presented in the lower panels of Figure
+6
+, and the final sample count and median S/N in each wavelength region are tabulated in Table
+1
+.
+The S/N is highest in the
+Y
+Y
+band and decreases toward the blue and the red.
+As expected, the lowest sample count and S/N are found in the telluric regions, W4 and W6, with the median S/N staying above 10.
+Table 1:
+Wavelength regions for dimensionality reduction.
+Region
+Filter
+a
+a
+Corresponding filter overlapping the most with defined wavelength region.
+λ
+start
+\lambda_{\text{start}}
+λ
+end
+\lambda_{\text{end}}
+Median
+Sample
+b
+b
+Number of spectra after additional selection in each region, see Section
+III.1
+.
+N
+PC
+c
+c
+Number of PCs kept for template construction, see Section
+III.4
+.
+(
+μ
+​
+m
+)
+(\mu\text{m})
+(
+μ
+​
+m
+)
+(\mu\text{m})
+S/N
+Counts
+W1
+z
+z
+0.8100
+0.9328
+35
+331
+11
+W2
+Y
+Y
+0.9240
+1.1072
+47
+331
+11
+W3
+J
+J
+1.0925
+1.3041
+31
+327
+10
+W4
+d
+d
+Regions of strong telluric absorptions.
+⋯
+\cdots
+1.2865
+1.4423
+14
+220
+5
+W5
+H
+H
+1.4198
+1.7314
+27
+328
+10
+W6
+d
+d
+Regions of strong telluric absorptions.
+⋯
+\cdots
+1.6931
+1.9361
+16
+238
+6
+W7
+K
+K
+1.8989
+2.3300
+20
+291
+8
+III.2
+Dimensionality Reduction
+A SN Ia spectrum contains a large number of elements, but they do not vary independently.
+Spectral variations are largely captured by only a few parameters
+[
+68
+, e.g.,]
+.
+It is thus possible to drastically reduce the dimensionality of SN Ia spectroscopic data, and PCA was chosen as the statistical technique for this purpose.
+It is widely used for modeling the SN spectra
+[
+39
+,
+19
+,
+88
+, e.g.,]
+.
+PCA produces an orthogonal set of eigenvectors or PCs ranked by their eigenvalues, which give a measure of the amount of data variation they capture.
+In this work, the matrix diagonalization was done using the Python package
+scikit-learn
+[
+73
+]
+.
+As mentioned in Section
+III.1
+, the data were separated into wavelength regions in order to capture subtle variations.
+In each wavelength region, flux elements were placed on a uniform wavelength grid and normalized to have the same integrated flux in the region before PCA.
+Our chosen light-curve parameter is the color-stretch parameter
+s
+B
+​
+V
+s_{BV}
+, since
+Δ
+​
+m
+15
+​
+(
+B
+)
+\Delta m_{15}(B)
+and SALT
+x1
+do not reliably classify fast decliners
+[
+14
+]
+.
+The PCA operation has no knowledge of the phase and
+s
+B
+​
+V
+s_{BV}
+labels for each spectrum nor the wavelength value for each flux element.
+Figure 7:
+The first 10 PCs and the reconstructed spectra in each wavelength region.
+The PCs are ranked by the amount of data variation they describe (labeled on top of each panel in percent variation per PC and the cumulative percent variation).
+The solid curve on the bottom of each panel is the PC.
+The rainbow-colored curves are the PC-reconstructed spectra with 2
+σ
+\sigma
+variation on top of the mean (dashed curve).
+Figure 8:
+The projections of the input spectra onto the first 10 PCs.
+They are plotted with respect to the phase and color-coded using their
+s
+B
+​
+V
+s_{BV}
+values.
+The solid lines connect the spectra of the same SN.
+In the higher ranking PCs, the projections are highly correlated with phase and
+s
+B
+​
+V
+s_{BV}
+in many PCs and wavelength regions,
+for example, PC2 and PC3 in W5 (
+H
+H
+band) and PC1 and PC2 in W2 (
+Y
+Y
+band).
+The resulting PCs are presented in Figure
+7
+.
+Note that, in the figure, the PCs in the overlapped area between neighboring wavelength regions are not expected to be connected, since PCA is independently performed in each region.
+In regions W1 to W6, it takes less than 5 PCs to capture
+>
+>
+90% of the variations.
+Regions W2 and W3 (
+Y
+Y
+and
+J
+J
+bands), in particular, only required 2 PCs each, indicating that the spectra are rather uniform.
+On the other hand, W7 (
+K
+K
+band) requires 6 PCs to reach 90% of the variation, perhaps hinting at substantial diversity.
+Figure
+7
+also shows the reconstructed spectra of 2
+σ
+\sigma
+variation on top of the mean spectrum.
+Familiar spectral features in the NIR then emerge, such as the Ca II IR triplet in W1 (
+z
+z
+band), Mg II in W2 (
+Y
+Y
+band), the
+H
+H
+-band break in W5 (
+H
+H
+band), and Co II in W7 (
+K
+K
+band).
+Another example of the captured information can be found in PC1 and PC3 of W1 and W2, which appear to describe the strength and velocity of the spectral features, respectively, in both regions.
+Each input spectrum can then be projected onto a PC in the multidimensional data space, providing an associated projection value.
+Mathematically, each input spectrum
+f
+m
+→
+\vec{f_{m}}
+of
+n
+n
+flux elements is then represented by the sum of all PCs
+ξ
+i
+→
+\vec{\xi_{i}}
+weighted by the projections
+p
+i
+,
+m
+p_{i,m}
+:
+f
+m
+→
+=
+∑
+i
+=
+1
+n
+p
+i
+,
+m
+​
+ξ
+i
+→
++
+f
+mean
+→
+\vec{f_{m}}=\sum_{i=1}^{n}p_{i,m}\vec{\xi_{i}}+\vec{f_{\mathrm{mean}}}
+(1)
+The projections are shown in Figure
+8
+with respect to phase and
+s
+B
+​
+V
+s_{BV}
+.
+It is clear that the first several PCs in all regions have strong dependence on phase and
+s
+B
+​
+V
+s_{BV}
+.
+The dependence is the weakest in the telluric regions W4 and W6 because of the lower S/N of the input data and the general lack of strong features.
+W5 (
+H
+H
+band) shows particularly strong dependence in the top four PCs, giving confidence that the most prominent spectral features in the NIR can be well predicted with light curves alone.
+This offers the motivation for the next step: modeling the dependence of spectral properties, represented by the PC projections, as a hypersurface in phase-
+s
+B
+​
+V
+s_{BV}
+space.
+III.3
+Modeling Parameter Dependence
+In the previous step, the spectral data have been reduced in dimensionality such that each spectrum is represented by a few PC projections.
+Here, we will determine the dependence of the spectral properties on phase and
+s
+B
+​
+V
+s_{BV}
+.
+The method chosen to map the projection hypersurface in phase-
+s
+B
+​
+V
+s_{BV}
+space is GPR.
+GPR has been shown to be successful at interpolating supernova light-curve data with intermittently missing data
+[
+99
+,
+75
+, e.g.]
+.
+The data characteristics are similar here (Figure
+3
+).
+It also has the advantage of producing an uncertainty estimate to the hypersurface, which allows the construction of not only the spectral templates but also the statistical flux uncertainties.
+In this work, GPR was performed using the Python package
+scikit-learn
+[
+73
+]
+.
+An example of the resulting hypersurface is shown in Fig.
+9
+, successfully capturing the spectral properties as a function of phase and
+s
+B
+​
+V
+s_{BV}
+.
+Figure 9:
+An example of the GPR mapping of the projection hypersurface in phase-
+s
+B
+​
+V
+s_{BV}
+space.
+The side view of the hypersurface with various
+s
+B
+​
+V
+s_{BV}
+slices is color coded by
+s
+B
+​
+V
+s_{BV}
+.
+Note that the side view of the data is the same as the one plotted in Fig.
+8
+.
+The
+R
+2
+R^{2}
+value noted on top of the figure is the coefficient of determination of the GPR prediction.
+The example shown is of PC1 in W5 (
+H
+H
+band) and has one of the highest
+R
+2
+R^{2}
+values in our analysis.
+The kernel setup for the GPR in this work was a constant kernel multiplied by a radial-basis function (RBF) kernel plus a white noise kernel
+4
+4
+4
+The initial length scales for the RBF kernel adopted in this work are 10 and 0.1 for phase and
+s
+B
+​
+V
+s_{BV}
+, respectively.
+.
+The hyperparameters are optimized by maximizing the log-marginal likelihood. The details of the initial hyperparameter setting and optimal values can be found in Appendix
+C
+.
+Before performing GPR, the projection outliers were excluded by clipping spectra with projection values 5-
+σ
+\sigma
+above or below the mean.
+The remaining projection values were then normalized to range from 0 to 1 to ensure consistency across all wavelength regions and PCs while maintaining a uniform kernel setup.
+With the hypersurface in hand, one can obtain the modeled PC projection value and the associated uncertainties for each PC in each wavelength region, given the phase and
+s
+B
+​
+V
+s_{BV}
+.
+Once it was decided which PCs are to be included, template spectra were then constructed via reverse transformation to return the projections to flux space.
+Finally, the spectra from individual wavelength regions were merged by matching the integrated flux in the overlapping regions and using the weighted average flux
+5
+5
+5
+Linear weights were assigned to the flux points such that the spectrum edges have the lowest weights.
+.
+Now the question becomes: what is the minimum number of PCs necessary to describe the spectroscopic diversity and how to select them efficiently?
+This is addressed in Section
+III.4
+.
+An important feature of the new template is flux uncertainty estimation, indicating the confidence of the SED prediction.
+For example, the lack of data in certain parameter space translates to larger uncertainties in the template.
+The flux uncertainties were determined using procedures similar to the template spectra construction and a Monte Carlo approach.
+First, for each wavelength region and PC, the PC projection value was independently re-sampled 1,000 times, assuming that the GPR hypersurface uncertainty has a Gaussian distribution.
+Crucially, we included all top 20 PCs for the uncertainty estimate, regardless of whether the PCs were included in the template construction.
+This is because those PCs not included in the template construction represent the observed SED variations that were not captured by the template.
+Each set of the re-sampled PC projections was then reverse transformed to the original flux space.
+The ratio of the template flux over the standard deviation of the re-sampled fluxes at each wavelength was then taken as the “S/N”.
+Finally, the S/N in the seven wavelength regions were merged by taking the weighted mean in the overlapping areas.
+An example of the template construction and the merging process can be found in Figure
+10
+.
+Note that the choice of the number of iterations is based on the convergence of the median S/N.
+The PCA+GPR method we have presented here is robust, but has some limitations.
+First, it requires interpolations of the flux and their uncertainties onto a common wavelength grid prior to PCA.
+Secondly, PCA is a linear transformation and may require more dimensions to fully capture the variations in complex data distributions.
+Thirdly, GPR results are sensitive to the kernel design
+[
+92
+, e.g.,]
+.
+Furthermore, the dimension reduction and template generation parts do not communicate with each other, for example, one cannot improve the other iteratively.
+In Appendix
+B
+, we show that the neural network approach using cVAE can circumvent some of these drawbacks and achieve similar results.
+However, the spectral features in the telluric region are not well modeled with the cVAE approach compared with the current method.
+Figure 10:
+Example of the template construction in W1 (
+z
+z
+band; left panel) and the merging process (right panel) of a maximum light spectrum of
+s
+B
+​
+V
+=
+1
+s_{BV}=1
+.
+In each wavelength region, the template flux is constructed by inverse-transforming the selected PCs (marked with filled red circles in the top-left example plot) that are predicted by GPR;
+and the template uncertainty is represented by the standard deviation of the inverse-transformed flux of 1000 sets of randomly sampled PCs assuming Gaussian error given the GPR prediction uncertainty.
+Then the template fluxes in neighboring regions are merged together by normalizing the integrated flux and taking the weighted flux in the overlapping region.
+The plotted example template in each region is normalized by the integrated flux in the overlapping area with the previous region.
+The flux uncertainties are connected together through taking the weighted mean S/N in the overlapping area.
+The inset in the right panel shows an example of such merging process between W6 and W7.
+The division of the seven wavelength regions is plotted in the background.
+III.4
+Strategies for Selecting PCs
+(a)
+Percentage of total variance captured
+(b)
+GPR
+R
+2
+R^{2}
+scores
+(c)
+Comparison of PC selection strategies
+Figure 11:
+(a):
+The cumulative total variance percentage of the first 20 PCs in each wavelength region.
+(b):
+The heat map of the GPR scores of the first 20 PCs in each wavelength region, represented by the coefficient of determination (R
+2
+; which normally ranges from 0 to 1).
+Greater
+R
+2
+R^{2}
+means the GPR model captures more variance in the dataset.
+(c):
+Comparison of three different strategies for PC selections in each wavelength region (see text for details). The y-axis is the median
+χ
+2
+\chi^{2}
+per degree of freedom of the spectra sample, treating the template spectra as the expected value and the (number of points – number of PCs) as the degree of freedom.
+We adopt GPR score
+R
+2
+≥
+0.2
+R^{2}\geq 0.2
+as our PC selection rule for template construction, as it efficiently reaches better
+χ
+2
+\chi^{2}
+per degree of freedom with fewer PCs compared to other strategies.
+We considered three strategies for selecting the PCs for template construction:
+1.
+Use the first
+N
+N
+PCs and keep
+N
+N
+fixed for all wavelength regions.
+2.
+Use the first
+N
+N
+PCs that capture a total variance that exceeds a fixed threshold in each wavelength region.
+3.
+Use only the PCs with GPR coefficient of determination (
+R
+2
+R^{2}
+) scores that exceed a fixed threshold in each wavelength region.
+The
+R
+2
+R^{2}
+measures how well the GPR hypersurface predicts the PC projections of sample spectra and is defined as follows:
+R
+2
+=
+1
+−
+∑
+i
+(
+p
+i
+observed
+−
+p
+i
+expected
+)
+2
+∑
+i
+(
+p
+i
+observed
+−
+p
+observed
+¯
+)
+2
+,
+R^{2}=1-\frac{\sum_{i}\left(p_{i}^{\mathrm{observed}}-p_{i}^{\mathrm{expected}}\right)^{2}}{\sum_{i}\left(p_{i}^{\mathrm{observed}}-\overline{p^{\mathrm{observed}}}\right)^{2}},
+(2)
+where
+p
+i
+observed
+p_{i}^{\mathrm{observed}}
+is the PC projection of the
+i
+th
+spectrum;
+p
+i
+expected
+p_{i}^{\mathrm{expected}}
+is the GPR predicted PC projection given the same phase and
+s
+B
+​
+V
+s_{BV}
+values of the
+i
+th
+spectrum;
+and
+p
+observed
+¯
+\overline{p^{\mathrm{observed}}}
+is the mean of the PC projections of the sample spectra.
+A larger
+R
+2
+R^{2}
+value means that the GPR hypersurface captures more of the data variance.
+A value of
+R
+2
+R^{2}
+approaching 0 means that the predictions are close to the mean of projections and largely independent of the parameters.
+To compare the three strategies quantitatively, we utilized the
+χ
+2
+\chi^{2}
+test:
+χ
+2
+=
+∑
+i
+(
+f
+i
+observed
+−
+f
+i
+expected
+)
+2
+σ
+i
+2
+,
+\chi^{2}=\sum_{i}\frac{\left(f_{i}^{\mathrm{observed}}-f_{i}^{\mathrm{expected}}\right)^{2}}{\sigma_{i}^{2}},
+(3)
+where
+f
+i
+observed
+f_{i}^{\mathrm{observed}}
+is the observed spectrum flux of the
+i
+th
+spectrum,
+f
+i
+expected
+f_{i}^{\mathrm{expected}}
+is the predicted template spectrum flux given the same phase and
+s
+B
+​
+V
+s_{BV}
+values of the
+i
+th
+spectrum, and the observed flux errors were used as the uncertainties
+σ
+i
+\sigma_{i}
+.
+Note that the template uncertainties are not considered since they might be correlated with the observed flux uncertainties.
+Each
+f
+i
+observed
+f_{i}^{\mathrm{observed}}
+used for the test was color-corrected to match the color of
+f
+i
+expected
+f_{i}^{\mathrm{expected}}
+before the comparison.
+The degrees of freedom (dof) were taken as the number of flux points minus the number of PCs used.
+Excluding the spectra with poor telluric correction and spurious flux values at the
+K
+K
+-band edge (see Section
+III.1
+), 225 observed spectra among the sample were used for the
+χ
+2
+\chi^{2}
+test.
+Each wavelength region requires a different number of PCs to reach a total variance threshold.
+For example, the telluric regions W4 and W6, as well as W7 (
+K
+K
+band) require more PCs to capture 95% of the data variance than the other regions, see panel (a) of Figure
+11
+.
+As expected, the GPR
+R
+2
+R^{2}
+scores are the highest for the top-ranking PCs, as shown in panel (b) of Figure
+11
+.
+However, they are not ordered perfectly, revealing some lower-ranked PCs with strong dependence on phase and
+s
+B
+​
+V
+s_{BV}
+.
+Note that the GPR
+R
+2
+R^{2}
+scores are generally lower in the telluric regions W4 and W6.
+While this result may be revealing real spectral behavior, it more likely points to the observational challenges in these regions.
+The performance of the three proposed PC selection strategies was then assessed via the
+χ
+2
+\chi^{2}
+test.
+In panel (c) of Figure
+11
+, we plot the average number of PCs required across wavelength regions versus the median reduced
+χ
+2
+\chi^{2}
+for each strategy.
+Using a GPR
+R
+2
+R^{2}
+score threshold (strategy 3) shows a clear advantage over the other two strategies, as it requires fewer PCs in order to reach the same accuracy in the SED prediction.
+For example, to reach a reduced
+χ
+2
+∼
+1.43
+\chi^{2}\sim 1.43
+, the average number of PCs needed is 15 for strategy 1, 13 (total variance of
+≥
+99.5
+%
+\geq 99.5\%
+) for strategy 2, and 8 (
+R
+2
+≥
+0.2
+R^{2}\geq 0.2
+) for strategy 3.
+This trend is consistent if we take the template uncertainties into consideration for the calculation, but the reduced
+χ
+2
+\chi^{2}
+values are consistently lower.
+Hence, we adopted strategy 3 with a threshold of
+R
+2
+≥
+0.2
+R^{2}\geq 0.2
+.
+The number of PCs used in each region are listed in Table
+1
+.
+The GPR hyperparameters of the selected PCs are all converged to the optimal values, except the RBF length scale for
+s
+B
+​
+V
+s_{BV}
+of PC1 in W4 (telluric) region, see details in Appendix
+C
+.
+Note that even though some higher-ranked PCs are omitted when constructing the template flux, it is crucial to include these when estimating the uncertainties in the spectral template.
+Having PC projections that are highly correlated with phase and
+s
+B
+​
+V
+s_{BV}
+would be ideal for constructing spectral templates.
+However, spectral features with low GRP
+R
+2
+R^{2}
+scores could aid the search for a secondary parameter for improving SN Ia standardization or even point to interesting physics.
+For example, the early-phase NIR spectra of the transitional SN Ia iPTF13ebh has been shown to have strong C I features, most notably in the
+Y
+Y
+band
+[
+41
+]
+.
+These spectra also have the most extreme PC projection values compared with other spectra at early phases, such as PC2, PC6, PC7, PC8 and PC10 in W2 (
+Y
+Y
+band; see Figure
+8
+).
+IV
+Results
+Following the methodology set forth in Section
+III
+, the NIR spectral templates of SNe Ia and corresponding statistical uncertainties can be constructed as a function of phase and the light-curve parameter
+s
+B
+​
+V
+s_{BV}
+using PCA+GPR.
+In this section, we present the resulting NIR spectral templates and check how well they reproduce observed spectra.
+Here, we use K-corrections to assess the accuracies of the templates, even though they do not need to be explicitly calculated for spectrophotometric experiments or SED-based light-curve fitters.
+The new NIR spectral template is available on the CSP website
+6
+6
+6
+https://csp.obs.carnegiescience.edu/data
+and will be implemented in
+SNooPy
+[
+13
+]
+, in where the NIR template can be attached to the optical region of the time-stretched (
+t
+stretched
+=
+t
+/
+s
+B
+​
+V
+t_{\mathrm{stretched}}=t/s_{BV}
+) Hsiao template
+[
+39
+]
+.
+IV.1
+Spectral Templates
+The template spectra constructed using the PCA + GPR method are able to replicate the spectral diversity in the sample spectra.
+In Figure
+12
+, we highlight the spectral dependence on
+s
+B
+​
+V
+s_{BV}
+in three wavelength regions and epochs: pre-maximum in the
+Y
+Y
+band, and post-maximum in the
+H
+H
+and
+K
+K
+bands.
+Figure 12:
+Comparisons between template (top panels) and observed spectra (bottom panels) for a range of light-curve color-stretch parameter
+s
+B
+​
+V
+s_{BV}
+.
+The columns present the diversity for pre-maximum spectra around
+−
+10
+-10
+days in the
+Y
+Y
+band (left), post-maximum spectra around
+12
+12
+days in the
+H
+H
+band (center), and post-maximum spectra around
+30
+30
+days in the
+K
+K
+band.
+In each panel, the spectra are normalized to have the same integrated flux in the wavelength region shown.
+Figure 13:
+Comparison between template and observed spectra in the training sample.
+The panels show three well-observed time series from the FIRE sample: (top)
+s
+B
+​
+V
+=
+0.63
+s_{BV}=0.63
+, a fast decliner, (middle)
+s
+B
+​
+V
+=
+0.91
+s_{BV}=0.91
+, an average object, and (bottom)
+s
+B
+​
+V
+=
+1.20
+s_{BV}=1.20
+, a slow decliner.
+The new spectral template is shown by the solid colored curves with its 1-
+σ
+\sigma
+uncertainty, while the Hsiao template is shown as blue dashed curves.
+All observed spectra were color corrected to match the colors of the template spectra for presentation.
+The left panels of Figure
+12
+present the pre-maximum spectra in the
+Y
+Y
+band at around
+−
+10
+-10
+days.
+At these early phases, the photosphere arises in the outer and intermediate layers of the ejecta.
+Faster declining and fainter SNe clearly show stronger Mg II
+λ
+\lambda
+1.0092 and
+λ
+\lambda
+1.0927
+μ
+\mu
+m features.
+The additional absorption feature on the blue wing of Mg II
+λ
+\lambda
+1.0927
+μ
+\mu
+m is captured by the template and appears to be only present in subluminous SNe Ia.
+This feature has been identified to be unburned C I
+λ
+\lambda
+1.0693
+μ
+\mu
+m in several fast decliners: SN 1999by
+[
+33
+]
+, iPTF13ebh
+[
+41
+]
+, SN 2012ij
+[
+59
+]
+, and SN 2015bp
+[
+103
+]
+.
+An alternative identification of He I
+λ
+\lambda
+1.0830
+μ
+\mu
+m has also been proposed in the context of the double-detonation scenario
+[
+11
+]
+.
+At around two weeks past maximum, the prominent
+H
+H
+-band break is at its peak strength
+[
+40
+, e.g.,]
+.
+The template shows drastic differences in the profile shapes between slow and fast declining SNe Ia (middle panels of Figure
+12
+).
+These variations have been investigated in previous studies.
+The strength of the
+H
+H
+-band break at its peak varies strongly with the light-curve decline rate
+[
+40
+,
+41
+]
+.
+The velocity of the blue edge of the
+H
+H
+-band break measures the
+56
+Ni distribution and is also strongly correlated with
+s
+B
+​
+V
+s_{BV}
+[
+1
+,
+2
+]
+.
+In the region between
+1.6
+−
+1.7
+1.6-1.7
+μ
+\mu
+m, the spectral local minimum in a slow decliner is in contrast to a local emission feature in a fast decliner, which may be the result of a photosphere well within the central Ni-rich region
+[
+33
+]
+.
+Any viable explosion scenario needs to be able to explain these trends.
+At approximately one month past maximum, the photosphere has receded to reveal the iron-peak elements in the inner layers.
+The
+K
+K
+band is dominated by multiple lines of Co II at this epoch
+[
+29
+, e.g.,]
+.
+Interestingly, the template only shows a mild dependence of the feature shapes on the light-curve shape (right panels of Figure
+12
+).
+The observed spectra show a range of feature strength but a weaker correlation with
+s
+B
+​
+V
+s_{BV}
+compared to the
+H
+H
+band.
+This perhaps points to a secondary parameter or contribution from a different spectral line that is not associated with the decay products of
+N
+56
+​
+i
+{}^{56}Ni
+.
+In Figure
+13
+, we present the time-series comparison between our new template, the template of
+Hsiao et al. [39]
+updated to include the NIR
+[
+43
+]
+, and the observed spectra within our sample.
+Note that the Hsiao template gives the average SED that is designed to match a stretch
+s
+=
+1
+s=1
+SN Ia.
+For the Hsiao template, the variation with light-curve shape is accounted for through matching the time on the stretched time axis (
+t
+stretched
+=
+t
+/
+s
+B
+​
+V
+t_{\mathrm{stretched}}=t/s_{BV}
+), assuming that a fast decliner also has a more rapid spectral evolution.
+Within the training sample, three well-observed SNe were selected for comparison: iPTF13ebh (
+s
+B
+​
+V
+=
+0.63
+s_{BV}=0.63
+) representing a fast decliner, SN 2013gy (
+s
+B
+​
+V
+=
+0.91
+s_{BV}=0.91
+) representing an average object, SN 2013hh (
+s
+B
+​
+V
+=
+1.20
+s_{BV}=1.20
+) representing a slow decliner.
+As expected, the Hsiao template performs well when tasked to match an average SN Ia.
+On the other hand, the new template performs well for all
+s
+B
+​
+V
+s_{BV}
+and shows a clear advantage at the extremes.
+This result demonstrates that the spectral feature dependence on the light-curve shape cannot be solely described by the speed of the evolution.
+Figure 14:
+Comparison between template and observed spectra that were
+not
+included in the training sample.
+The new spectral template is shown by the solid colored curves with its 1-
+σ
+\sigma
+uncertainty, while the Hsiao template is shown as blue dashed curves.
+The left panel shows comparisons with the sample of
+Marion et al. [63]
+, and the template is color-coded by
+s
+B
+​
+V
+s_{BV}
+.
+The right panels show two subluminous SNe Ia from literature: (top) SN 1999by
+[
+33
+]
+with
+s
+B
+​
+V
+=
+0.63
+s_{BV}=0.63
+, and (bottom) SN 2015bp
+[
+103
+]
+with
+s
+B
+​
+V
+=
+0.67
+s_{BV}=0.67
+.
+All observed spectra were color corrected to match the colors of the template spectra to focus on the spectral features.
+Table 2:
+List of SNe Ia used for spectral comparison from the sample of
+Marion et al. [63]
+.
+SN
+z
+z
+Δ
+​
+m
+15
+​
+(
+B
+)
+\Delta m_{15}(B)
+Δ
+​
+m
+15
+​
+(
+B
+)
+\Delta m_{15}(B)
+ref.
+s
+B
+​
+V
+s_{BV}
+a
+a
+Converted from
+Δ
+​
+m
+15
+​
+(
+B
+)
+\Delta m_{15}(B)
+using equation (4) of
+Burns et al. [14]
+.
+(mag)
+2000dk
+0.017
+1.66
+Wang et al. [100]
+0.70
+2005am
+0.008
+1.61
+Höflich et al. [34]
+0.72
+2000dm
+0.015
+1.51
+Wang et al. [100]
+0.77
+2002ha
+0.014
+1.37
+Wang et al. [100]
+0.83
+2001br
+0.021
+1.32
+Wang et al. [100]
+0.85
+2004ab
+0.006
+1.27
+Chakradhari et al. [17]
+0.88
+2001en
+0.016
+1.23
+Wang et al. [100]
+0.90
+2002cr
+0.010
+1.19
+Wang et al. [100]
+0.91
+2002ef
+0.024
+1.18
+Wang et al. [100]
+0.92
+2003cg
+0.004
+1.17
+Wang et al. [100]
+0.92
+2003W
+0.020
+1.15
+Wang et al. [100]
+0.93
+2001bg
+0.007
+1.14
+Wang et al. [100]
+0.94
+2000dn
+0.032
+1.13
+Wang et al. [100]
+0.94
+2002fk
+0.007
+1.02
+Wang et al. [100]
+0.99
+2003du
+0.017
+1.00
+Wang et al. [100]
+1.00
+2004bk
+0.023
+0.98
+Wang et al. [100]
+1.01
+2004bv
+0.011
+0.98
+Wang et al. [100]
+1.01
+2001fe
+0.014
+0.96
+Wang et al. [100]
+1.02
+2001bf
+0.016
+0.83
+Wang et al. [100]
+1.08
+2001dl
+0.021
+0.80
+Marion et al. [64]
+1.09
+Ideally, the performance of the new template should be assessed using an independent sample.
+In the left panel of Figure
+14
+, the new and Hsiao templates are compared to the sample of
+Marion et al. [63]
+.
+Note that the phases relative to
+V
+m
+​
+a
+​
+x
+V_{max}
+listed by
+Marion et al. [63]
+were converted to phases relative to
+B
+m
+​
+a
+​
+x
+B_{max}
+assuming that
+V
+m
+​
+a
+​
+x
+V_{max}
+occurs 2 days after
+B
+m
+​
+a
+​
+x
+B_{max}
+.
+Also note that
+Δ
+​
+m
+15
+​
+(
+B
+)
+\Delta m_{15}(B)
+values were converted to
+s
+B
+​
+V
+s_{BV}
+using Equation 4 of
+Burns et al. [14]
+.
+The sources of
+Δ
+​
+m
+15
+​
+(
+B
+)
+\Delta m_{15}(B)
+values are tabulated in Table
+2
+.
+Overall, the new template provides a better match than the Hsiao template especially for low and high
+s
+B
+​
+V
+s_{BV}
+values, such as SN 2005am (
+s
+B
+​
+V
+=
+0.72
+s_{BV}=0.72
+).
+There are three notable disagreements for the NIR Ca II triplet: SN 2003W at
+−
+-
+6 days, SN 2004bv at
+−
+-
+3 days, and SN 2001bf at 6 days.
+These could point to real diversity in the feature that is not captured by the template or observational artifacts near the short wavelength limit of the detector.
+As discussed in Section
+II.2
+, the small number of NIR spectra of subluminous SNe Ia, especially at the late phase, is a limiting factor for the template at this particular phase space.
+Here, the template is compared to the spectra of two subluminous SNe from the literature: SN 1999by (
+s
+B
+​
+V
+=
+0.42
+s_{BV}=0.42
+;
+Hoeflich et al. 33
+) and SN 2015bp (
+s
+B
+​
+V
+=
+0.67
+s_{BV}=0.67
+;
+Wyatt et al. 103
+), shown in the right panel of Figure
+14
+.
+These spectra were not included in our training sample.
+The spectra of SN 2015bp at various phases, including at more than 1 month past maximum, are well represented by the new template.
+This is despite the time gap of 50 days in the four FIRE spectra of SN 2015bp included in the training sample.
+Because of the limited range in the light-curve shape of our sample, reproducing the spectral features of SN 1999by with such a low
+s
+B
+​
+V
+s_{BV}
+requires extrapolation on the hypersurface with GPR.
+Nevertheless, the spectral features of the template match exceptionally well to those of SN 1999by.
+Note especially that the C I features at early times were reproduced and are stronger than those of SN 2015bp.
+The Hsiao template simply fails at these low
+s
+B
+​
+V
+s_{BV}
+values.
+Figure 15:
+Comparison of the template spectroscopic colors (solid curves) and
+SNooPy
+light-curve model colors for various
+s
+B
+​
+V
+s_{BV}
+values (dashed curves).
+The uncertainties on the
+SNooPy
+colors come from the uncertainties on the light-curve templates.
+In the bottom panels, the residuals are shown along with the mean (solid gray lines).
+The mean and RMS values are also labeled.
+We also checked the broadband colors of the new template using the
+SNooPy
+model.
+The broadband colors of the new spectral template and the light-curve model of
+SNooPy
+are in general agreement within 0.2 mag for all colors and
+s
+B
+​
+V
+s_{BV}
+values (Figure
+15
+).
+The large discrepancies at the early phases may be due to the lack of observed data.
+The general agreement gives assurance that the merging of the seven wavelength regions at the last step of the template construction preserves the broadband color information.
+Note, however, that the spectral template should always be color-matched to the observed photometric colors of the SN Ia in question during the light-curve fitting process.
+Another test we did is to address the potential training bias toward SN 2012fr, the best-observed SN in the sample, with 25 spectra out of the total 331 sample spectra.
+Following the methodology of leave-one-out cross validation, we constructed another template without SN 2012fr following the same methodology to compare with the template built with the whole sample.
+The two templates were color-corrected to have the matching broadband colors.
+The maximum flux difference is around 6% in the region near 0.85
+μ
+\mu
+m, where SN 2012fr presents the detached high-velocity Ca II feature at early times.
+In general, the differences between the two templates are negligible, with a median flux difference less than 1%.
+IV.2
+K-correction Uncertainties
+We utilized the definitions of K-correction uncertainties from
+Hsiao et al. [39]
+to evaluate the performance of the new template.
+K-corrections obtained using the template spectra (
+K
+t
+​
+e
+​
+m
+​
+p
+K_{temp}
+) were compared to those from observed spectra of our sample (
+K
+o
+​
+b
+​
+s
+K_{obs}
+) for different combinations of filters and redshifts.
+The RMS and the mean of the K-correction differences were then taken as the statistical and systematic uncertainties, respectively.
+The K-correction uncertainties were also compared to those computed using the Nugent
+[
+67
+]
+and Hsiao
+[
+39
+]
+templates.
+The computations were done using the
+SNooPy
+package, while the template spectra were color-corrected to match the broadband
+Y
+​
+J
+​
+H
+YJH
+colors of the observed spectra before the computation.
+Note that these uncertainty measurements were designed solely to evaluate how well the template can predict the spectral features of the observed spectra.
+The broadband colors of the template were corrected to match those of the observed spectra, as it is common practice in light-curve fitting to correct the template to the observed colors.
+These estimates do not include other effects, such as the uncertainty in the relative flux calibration discussed in Section
+II.2
+.
+In the most ideal case, one should assess the performance of the new template using a validation set of observed spectra that is completely independent of the template training set.
+In the NIR, the sample size is severely restricted by the telluric region, as discussed in Section
+III.1
+.
+There is currently no spectral sample with reliable telluric regions besides the FIRE sample presented here, and after inspecting the telluric corrections, our sample was reduced by roughly 1/3.
+Given this difficulty, we chose to evaluate its performance using a cross-validation technique described below.
+First, a subsample with reliable telluric regions was chosen to form a “validation” pool.
+Next, we randomly selected 66 spectra from this pool to form the validation set, which constitutes 20% of the entire sample.
+The remaining 80% of the entire sample was then used as the training set.
+The training set was used to construct a template with the procedures outlined in Section
+III
+, while the validation set was used to estimate the K-correction uncertainties.
+The process of splitting the sample, constructing the template, and estimating the K-correction uncertainties was repeated for 1,000 iterations.
+The resulting uncertainty estimates converge rather quickly, generally after 50 iterations, while the 1,000 iterations yielded Gaussian-like distributions.
+Figure
+16
+presents the K-correction uncertainties as a function of redshift for several cases of single-filter K-corrections at low redshifts and cross-filter K-corrections at high redshifts.
+The mean and standard deviation of the 1,000 iterations are shown as solid curves and shaded regions, respectively.
+The observer-frame filters for the high-redshift cases are the Wide Field Instrument (WFI)
+F
+​
+129
+F129
+,
+F
+​
+159
+F159
+, and
+F
+​
+184
+F184
+filters of the RST
+[
+36
+]
+7
+7
+7
+https://roman.gsfc.nasa.gov/science/WFI_technical.html
+.
+The remaining filters are of RetroCam on the du Pont Telescope, measured by
+Rheault et al. [83]
+.
+As shown in the upper panels of Figure
+16
+, the statistical K-correction uncertainties of the new template are significantly reduced compared to the previous templates.
+For example, at
+z
+=
+0.05
+z=0.05
+, improvements of 0.09, 0.03, 0.02 mag in
+Y
+Y
+,
+J
+J
+, and
+H
+H
+band, respectively, can be gained by switching from the Hsiao template to the new one.
+Note that the result of
+Boldt et al. [7]
+that the smallest uncertainties can be found in the
+Y
+Y
+band is not reproduced here.
+From a larger sample, we found that all
+Y
+​
+J
+​
+H
+YJH
+bands yield similar uncertainties.
+For cross-filter K-corrections, a minimum would be present at a redshift where the observed and rest-frame filters are aligned
+[
+49
+]
+.
+On average, there is a 0.02 mag improvement in statistical uncertainty compared to the Hsiao template in cross-filter K-corrections.
+The lower panels of Figure
+16
+demonstrate that the systematic K-correction uncertainties are essentially eliminated by adopting the new template.
+This is true for all the redshifts and filter combinations considered here, and represents as 0.1 mag improvements in some cases.
+The improvements in the
+Y
+Y
+-band are the most evident.
+Since the broad-band colors of the template spectra were matched to the observed spectra before the comparison, these uncertainty estimates indicate the ability of the template to predict the spectral feature profile shapes.
+Figure 16:
+K-correction uncertainties of the new template compared to those of the Nugent
+[
+67
+]
+and Hsiao
+[
+39
+]
+templates.
+The RMS and the mean of the K-correction differences between the template and observed spectra are taken as the statistical (top panels) and the systematic (bottom panels) uncertainties.
+The mean and standard deviation of the 1,000 iterations are shown as solid curves and shaded regions, respectively. (See text for details.)
+The filters used are the
+Y
+​
+J
+​
+H
+YJH
+scans of du Pont + RetroCam, as well as the proposed RST + WFI
+F
+​
+129
+F129
+,
+F
+​
+158
+F158
+, and
+F
+​
+184
+F184
+filters.
+Figure 17:
+The K-corrections of our new template compared to the previous Hsiao template
+[
+39
+,
+43
+]
+at maximum light
+T
+max
+B
+T_{\text{max}}^{B}
+.
+Both templates are color corrected to match the
+SNooPy
+light-curve templates, which is a function of
+s
+B
+​
+V
+s_{BV}
+.
+The bottom panels plot the K-correction differences between the two templates:
+Δ
+\Delta
+K = K(New template)
+−
+-
+K(Hsiao).
+Note that the variation in K-corrections of the new template is caused by both the diversity of the temporal spectral features and the broadband colors, while the variation of the Hsiao template is only reflecting the color variation of the
+SNooPy
+light-curve templates in
+s
+B
+​
+V
+s_{BV}
+.
+The K-correction differences can be substantial, such as for slow decliners at redshift
+∼
+\sim
+0.1, the
+Δ
+\Delta
+K in Y band is as large as 0.3 mag.
+Figure 18:
+Simulating the effects of an evolving
+s
+B
+​
+V
+s_{BV}
+distribution as a function of redshift.
+Left panels:
+Three redshift bins are considered: one local and two at high redshifts.
+The
+s
+B
+​
+V
+s_{BV}
+distributions are assumed to be Gaussian with the mean converted from the stretch values taken from
+Howell et al. [37]
+.
+The vertical dashed lines mark the mean of the distribution in each bin.
+Right panels:
+The distributions of the resulting peak-magnitude K-correction differences are shown, assuming the distribution of
+s
+B
+​
+V
+s_{BV}
+in the corresponding left panel.
+The definition of
+Δ
+\Delta
+K is the same as in Figure
+17
+.
+The vertical dashed lines mark the mean of the distribution in each panel.
+The red solid vertical line marks the position of
+Δ
+\Delta
+K = 0.
+IV.3
+Impact on Cosmology
+Here, we explore the impact of adopting the new SN Ia NIR spectral template on cosmological analyses, both at low (e.g., Hubble constant measurements) and high (e.g., dark energy measurements) redshifts.
+We first examine the impact on the NIR peak magnitude of adopting the new template on the low-redshift end in single-filter K-corrections.
+The results are presented in comparison to the Hsiao template in Figure
+17
+.
+Note that we chose to make the calculations at
+B
+B
+-band maximum for convenience, and the analysis yielded a rough estimate of potential magnitude change around peak magnitude.
+Both templates are scaled and color-corrected to match the
+Y
+​
+J
+​
+H
+YJH
+magnitudes of the
+SNooPy
+light-curve template, which is a function of
+s
+B
+​
+V
+s_{BV}
+.
+Recall that the Hsiao template at peak is a single spectrum and does not account for the variation of spectral features.
+The spread of roughly 0.1 mag in K-corrections at
+z
+=
+0.1
+z=0.1
+results entirely from color corrections.
+On the other hand, the new template at peak is a series of spectra that are a function of
+s
+B
+​
+V
+s_{BV}
+.
+Figure
+17
+shows the difference between the two templates in terms of the K-correction as a function of redshift.
+It essentially reflects the fact that the diversity is not only in the broad-band colors but also in the spectral features.
+Not accounting for the variation of spectral features as a function of
+s
+B
+​
+V
+s_{BV}
+can cause errors in K-corrections as large as 0.3 mag in
+Y
+Y
+and 0.1 mag in
+J
+J
+at
+z
+=
+0.1
+z=0.1
+.
+Also note that the two templates show the largest difference in slow decliners (high
+s
+B
+​
+V
+s_{BV}
+values).
+The prominent
+H
+H
+-band feature is at maximum strength around 12 days after the maximum.
+Both slow and fast decliners show K-correction differences as large as 0.1 mag at
+z
+=
+0.1
+z=0.1
+.
+For cosmological analyses using distant SNe Ia, the redshift evolution of the SN Ia population is an important factor to consider.
+Based on previous high-redshift surveys, the SN Ia population at high redshifts tend to be slower decliners and have higher optical light-curve stretch values on average
+[
+37
+,
+66
+, e.g.,]
+.
+This would introduce an additional systematic shift in the K-corrections if the template SEDs do not reflect the spectral feature variations with light-curve shape.
+We simulate such a scenario, considering a shifting
+s
+B
+​
+V
+s_{BV}
+distribution at three different redshifts.
+In the left panels of Figure
+18
+, three populations of SNe Ia are presented at three different redshifts, simulating the distribution of SN Ia light-curve shapes observed locally and at high redshifts
+[
+37
+,
+85
+]
+.
+The mean of the
+s
+B
+​
+V
+s_{BV}
+distributions shifts by as much as 5% from the local sample to
+z
+=
+1.12
+z=1.12
+.
+We then calculated K-corrections to the rest-frame
+Y
+Y
+band and examined the difference between the new and Hsiao templates at
+B
+B
+-band maximum.
+The resulting K-correction differences from the corresponding
+s
+B
+​
+V
+s_{BV}
+distribution are presented in the right panels of Figure
+18
+.
+The observer-frame filters for the two high-redshift bins,
+H
+H
+and
+K
+K
+, align well with the rest-frame
+Y
+Y
+band at each redshift.
+The effective wavelength of the de-redshifted
+H
+H
+(
+z
+=
+z=
+0.56) and
+K
+K
+(
+z
+z
+=1.12) bands match that of the rest-frame
+Y
+Y
+band within 0.02
+μ
+\mu
+m.
+Even so, the K-correction differences are systematic and significant, with the mean of 0.10, 0.01, 0.07 mag at
+z
+=
+0.03
+,
+0.56
+,
+1.12
+z=0.03,0.56,1.12
+, respectively.
+The results again highlight the importance of accounting for the spectral feature variations as a function of light-curve shape
+[
+45
+, e.g.,]
+.
+V
+Conclusion
+We present 339 NIR spectra of 98 SNe Ia observed with Baade + FIRE by the CSP-II
+[
+78
+,
+42
+]
+, the largest and the most homogeneous NIR spectral sample of SNe Ia to date.
+Among those, 331 spectra of 94 SNe Ia were used to construct the most accurate NIR spectral template as a function of a light-curve-shape parameter.
+The spectra maintain a spectrophotometric accuracy on the level of
+10
+−
+20
+10-20
+%, allowing for examination of the broad-band colors along with the spectral features.
+The telluric regions are crucial when we study SNe Ia at a range of redshifts.
+Thankfully, the high-throughput nature of the FIRE NIR spectrograph enables consistent and reliable telluric corrections for
+∼
+\sim
+70% of the sample.
+The aim is to obtain an accurate description of the SN Ia SED in the NIR as a function of phase and
+s
+B
+​
+V
+s_{BV}
+.
+To achieve this, we first utilized PCA to reduce the dimensionality of the data set, then used GPR to model the hypersurface in phase and
+s
+B
+​
+V
+s_{BV}
+space.
+The wavelength grid was divided into seven regions in order to fully utilize the sample and to avoid the PCA results being dominated by spurious pixels or intrinsically high flux.
+The GPR
+R
+2
+R^{2}
+score has proven to be an efficient metric for selecting which PCs to include for the reconstruction of the SED, capturing the most data variation while using the least number of PCs.
+The GPR approach also allowed the estimation of the flux uncertainty for each template SED.
+The new template successfully captures the diversity of the broad-band colors and spectral features as a function of phase and
+s
+B
+​
+V
+s_{BV}
+.
+The hallmark SN Ia NIR features, such as Mg II at early times and the
+H
+H
+-band break past maximum, are recreated in the template SED.
+In NIR, SNe Ia have more spectral variation than in the optical that cannot be simply described by the varying speed of the evolution for SNe Ia with a range of decline rates.
+The template is also able to predict the SED shapes of spectra that are not in the training sample and produce photometric colors consistent with the
+SNooPy
+light-curve model.
+Using the cross-validation method, randomly splitting the sample into training and testing sets, a drastic decrease in the K-correction uncertainty is shown compared to previous templates.
+The new template essentially eliminates any systematic K-correction uncertainties with a 90% improvement compared to the Hsiao template
+[
+43
+]
+.
+Simulations of low- and high-redshift cosmological analyses illustrate problems with assuming a fixed template that does not vary with
+s
+B
+​
+V
+s_{BV}
+.
+The new spectral template will be implemented in
+SNooPy
+8
+8
+8
+https://github.com/obscode/snpy
+[
+13
+]
+and is available on GitHub
+9
+9
+9
+https://github.com/DeerWhale/BYOST
+along with the source code.
+It can also be adopted as the baseline SED for other light-curve fitters, such as
+BayeSN
+[
+62
+,
+60
+,
+61
+]
+.
+As the template fully captures the spectral behaviors of normal SNe Ia, the PCs can be used to identify peculiar features, interesting physics, and possible secondary parameters that could improve their cosmological utility.
+It will, for example, be revealing to cross-compare these NIR-based PCs with the 3-parameter nonlinear parameterization of the optical spectral behaviors of SNe Ia developed by
+Boone et al. [9]
+from a similarly untargeted sample of 173 SNe, which leads to a much improved (sigma
+∼
+\sim
+0.08 mag) dispersion in cosmological distance measurements
+[
+10
+]
+.
+The machine-learning techniques developed here will also have a wide range of applications for detecting and modeling the variation in a large and multidimensional data set.
+Finally, understanding the NIR spectral diversity represents a crucial step forward for future SN Ia cosmological experiments, such as that to be conducted on the Nancy Grace Roman Space Telescope.
+Acknowledgments
+The authors would like to thank the referee for providing helpful comments.
+We thank the technical, scientific staff, and support astronomers of the Las Campanas Observatory for all the support over the years.
+The CSP-II has been supported by NSF grants AST-1008343, AST-1613426, AST-1613455, AST-1613472, and the Danish Agency for Science and Technology and Innovation through a Sapere Aude Level 2 grant (PI: M.S.).
+We thank Prof. Sean Dobbs and Dr. Daniel Lersch for the useful discussion.
+The Aarhus supernova group is funded by an Experiment grant (# 28021) from the Villum FONDEN, and by a project 1 grant (#8021-00170B) from the Independent Research Fund Denmark (IRFD).
+C.A. acknowledges STSci grant JWST-GO-02114.032-A.
+C.G. is supported by a research grant (25501) by the VILLUM FONDEN.
+E.B. acknowledges NASA Grant 80NSSC20K0538 and STSci grant JWST-GO-02114.032-A.
+L.G. acknowledges financial support from the Spanish Ministerio de Ciencia e Innovación (MCIN), the Agencia Estatal de Investigación (AEI) 10.13039/501100011033, and the European Social Fund (ESF) ”Investing in your future” under the 2019 Ramón y Cajal program RYC2019-027683-I and the PID2020-115253GA-I00 HOSTFLOWS project, from Centro Superior de Investigaciones Científicas (CSIC) under the PIE project 20215AT016, and the program Unidad de Excelencia María de Maeztu CEX2020-001058-M.
+S.G.G. acknowledges support by FCT under Project CRISP PTDC/FIS-AST-31546/2017 and Project No. UIDB/00099/2020.
+References
+[1]
+Ashall, C., Hoeflich, P., Hsiao, E. Y., et al. 2019a,
+ApJ, 878, 86, doi:
+10.3847/1538-4357/ab204b
+[2]
+Ashall, C., Hsiao, E. Y., Hoeflich, P., et al. 2019b,
+ApJ, 875, L14, doi:
+10.3847/2041-8213/ab1654
+[3]
+Astropy Collaboration, Robitaille, T. P., Tollerud, E. J., et al. 2013,
+A&A, 558, A33, doi:
+10.1051/0004-6361/201322068
+[4]
+Astropy Collaboration, Price-Whelan, A. M., Sipőcz, B. M., et al.
+2018, AJ, 156, 123, doi:
+10.3847/1538-3881/aabc4f
+[5]
+Avelino, A., Friedman, A. S., Mandel, K. S., et al. 2019, ApJ, 887,
+106, doi:
+10.3847/1538-4357/ab2a16
+[6]
+Barone-Nugent, R. L., Lidman, C., Wyithe, J. S. B., et al. 2012,
+MNRAS, 425, 1007, doi:
+10.1111/j.1365-2966.2012.21412.x
+[7]
+Boldt, L. N., Stritzinger, M. D., Burns, C., et al. 2014, PASP, 126,
+324, doi:
+10.1086/676019
+[8]
+Boone, K. 2021, AJ, 162, 275, doi:
+10.3847/1538-3881/ac2a2d
+[9]
+Boone, K., Aldering, G., Antilogus, P., et al. 2021a,
+ApJ, 912, 70, doi:
+10.3847/1538-4357/abec3c
+[10]
+—. 2021b, ApJ, 912, 71, doi:
+10.3847/1538-4357/abec3b
+[11]
+Boyle, A., Sim, S. A., Hachinger, S., & Kerzendorf, W. 2017, A&A,
+599, A46, doi:
+10.1051/0004-6361/201629712
+[12]
+Brout, D., Scolnic, D., Popovic, B., et al. 2022, ApJ, 938, 110,
+doi:
+10.3847/1538-4357/ac8e04
+[13]
+Burns, C. R., Stritzinger, M., Phillips, M. M., et al. 2011, AJ, 141,
+19, doi:
+10.1088/0004-6256/141/1/19
+[14]
+—. 2014, ApJ, 789, 32, doi:
+10.1088/0004-637X/789/1/32
+[15]
+Burns, C. R., Parent, E., Phillips, M. M., et al. 2018, ApJ, 869, 56,
+doi:
+10.3847/1538-4357/aae51c
+[16]
+Cardelli, J. A., Clayton, G. C., & Mathis, J. S. 1989, ApJ, 345, 245,
+doi:
+10.1086/167900
+[17]
+Chakradhari, N. K., Sahu, D. K., Anupama, G. C., & Prabhu, T. P. 2018,
+MNRAS, 474, 2502, doi:
+10.1093/mnras/stx2839
+[18]
+Contreras, C., Hamuy, M., Phillips, M. M., et al. 2010, AJ, 139, 519,
+doi:
+10.1088/0004-6256/139/2/519
+[19]
+Davis, S., Hsiao, E. Y., Ashall, C., et al. 2019, ApJ, 887, 4,
+doi:
+10.3847/1538-4357/ab4c40
+[20]
+Dhawan, S., Jha, S. W., & Leibundgut, B. 2018, A&A, 609, A72,
+doi:
+10.1051/0004-6361/201731501
+[21]
+Filippenko, A. V., Richmond, M. W., Matheson, T., et al.
+1992a, ApJ, 384, L15, doi:
+10.1086/186252
+[22]
+Filippenko, A. V., Richmond, M. W., Branch, D., et al.
+1992b, AJ, 104, 1543, doi:
+10.1086/116339
+[23]
+Fitzpatrick, E. L. 1999, PASP, 111, 63, doi:
+10.1086/316293
+[24]
+Folatelli, G., Phillips, M. M., Burns, C. R., et al. 2010, AJ, 139,
+120, doi:
+10.1088/0004-6256/139/1/120
+[25]
+Freedman, W. L., Burns, C. R., Phillips, M. M., et al. 2009, ApJ, 704,
+1036, doi:
+10.1088/0004-637X/704/2/1036
+[26]
+Gabbard, H., Messenger, C., Heng, I. S., Tonolini, F., &
+Murray-Smith, R. 2022, Nature Physics, 18, 112,
+doi:
+10.1038/s41567-021-01425-7
+[27]
+Galbany, L., Ashall, C., Höflich, P., et al. 2019, A&A, 630, A76,
+doi:
+10.1051/0004-6361/201935537
+[28]
+Galbany, L., de Jaeger, T., Riess, A., et al. 2022, arXiv e-prints,
+arXiv:2209.02546.
+https://arxiv.org/abs/2209.02546
+[29]
+Gall, E. E. E., Taubenberger, S., Kromer, M., et al. 2012, MNRAS, 427,
+994, doi:
+10.1111/j.1365-2966.2012.21999.x
+[30]
+Hamuy, M., Phillips, M., Suntzeff, N., & Maza, J. 2003, IAU Circ.,
+8151, 2
+[31]
+Hamuy, M., Phillips, M. M., Suntzeff, N. B., et al. 1996, AJ, 112,
+2391, doi:
+10.1086/118190
+[32]
+Hamuy, M., Folatelli, G., Morrell, N. I., et al. 2006, PASP, 118, 2,
+doi:
+10.1086/500228
+[33]
+Hoeflich, P., Gerardy, C. L., Fesen, R. A., & Sakai, S. 2002, ApJ,
+568, 791, doi:
+10.1086/339063
+[34]
+Höflich, P., Krisciunas, K., Khokhlov, A. M., et al. 2010, ApJ,
+710, 444, doi:
+10.1088/0004-637X/710/1/444
+[35]
+Hoogendam, W. B., Ashall, C., Galbany, L., et al. 2022, ApJ, 928, 103,
+doi:
+10.3847/1538-4357/ac54aa
+[36]
+Hounsell, R., Scolnic, D., Foley, R. J., et al. 2018, ApJ, 867, 23,
+doi:
+10.3847/1538-4357/aac08b
+[37]
+Howell, D. A., Sullivan, M., Conley, A., & Carlberg, R. 2007, ApJ,
+667, L37, doi:
+10.1086/522030
+[38]
+Howell, D. A., Sullivan, M., Nugent, P. E., et al. 2006, Nature, 443,
+308, doi:
+10.1038/nature05103
+[39]
+Hsiao, E. Y., Conley, A., Howell, D. A., et al. 2007, ApJ, 663, 1187,
+doi:
+10.1086/518232
+[40]
+Hsiao, E. Y., Marion, G. H., Phillips, M. M., et al. 2013, ApJ, 766,
+72, doi:
+10.1088/0004-637X/766/2/72
+[41]
+Hsiao, E. Y., Burns, C. R., Contreras, C., et al. 2015, A&A, 578, A9,
+doi:
+10.1051/0004-6361/201425297
+[42]
+Hsiao, E. Y., Philips, M. M., Marion, G. H., et al. 2019, PASP, 131,
+014002, doi:
+10.1088/1538-3873/aae961
+[43]
+Hsiao, Y. C. E. 2009, PhD thesis, University of Victoria, Canada
+[44]
+Johansson, J., Cenko, S. B., Fox, O. D., et al. 2021, ApJ, 923, 237,
+doi:
+10.3847/1538-4357/ac2f9e
+[45]
+Jones, D. O., Mandel, K. S., Kirshner, R. P., et al. 2022, ApJ, 933,
+172, doi:
+10.3847/1538-4357/ac755b
+[46]
+Kasen, D. 2006, ApJ, 649, 939, doi:
+10.1086/506588
+[47]
+Kattner, S., Leonard, D. C., Burns, C. R., et al. 2012, PASP, 124,
+114, doi:
+10.1086/664734
+[48]
+Kenworthy, W. D., Jones, D. O., Dai, M., et al. 2021, ApJ, 923, 265,
+doi:
+10.3847/1538-4357/ac30d8
+[49]
+Kim, A., Goobar, A., & Perlmutter, S. 1996, PASP, 108, 190,
+doi:
+10.1086/133709
+[50]
+Kingma, D. P., & Ba, J. 2014, arXiv e-prints, arXiv:1412.6980.
+https://arxiv.org/abs/1412.6980
+[51]
+Kingma, D. P., & Welling, M. 2013, Auto-Encoding Variational Bayes, arXiv,
+doi:
+10.48550/ARXIV.1312.6114
+[52]
+Kirshner, R. P., Willner, S. P., Becklin, E. E., Neugebauer, G., &
+Oke, J. B. 1973, ApJ, 180, L97, doi:
+10.1086/181161
+[53]
+Krisciunas, K., Hastings, N. C., Loomis, K., et al. 2000, ApJ, 539,
+658, doi:
+10.1086/309263
+[54]
+Krisciunas, K., Phillips, M. M., & Suntzeff, N. B. 2004, ApJ, 602,
+L81, doi:
+10.1086/382731
+[55]
+Krisciunas, K., Contreras, C., Burns, C. R., et al. 2017, AJ, 154,
+211, doi:
+10.3847/1538-3881/aa8df0
+[56]
+Le Borgne, D., & Rocca-Volmerange, B. 2002, A&A, 386, 446,
+doi:
+10.1051/0004-6361:20020259
+[57]
+Leibundgut, B., Kirshner, R. P., Phillips, M. M., et al. 1993, AJ,
+105, 301, doi:
+10.1086/116427
+[58]
+Li, W., Filippenko, A. V., Chornock, R., et al. 2003, PASP, 115, 453,
+doi:
+10.1086/374200
+[59]
+Li, Z., Zhang, T., Wang, X., et al. 2022, ApJ, 927, 142,
+doi:
+10.3847/1538-4357/ac4e17
+[60]
+Mandel, K. S., Narayan, G., & Kirshner, R. P. 2011, ApJ, 731, 120,
+doi:
+10.1088/0004-637X/731/2/120
+[61]
+Mandel, K. S., Thorp, S., Narayan, G., Friedman, A. S., & Avelino,
+A. 2022, MNRAS, 510, 3939, doi:
+10.1093/mnras/stab3496
+[62]
+Mandel, K. S., Wood-Vasey, W. M., Friedman, A. S., & Kirshner, R. P.
+2009, ApJ, 704, 629, doi:
+10.1088/0004-637X/704/1/629
+[63]
+Marion, G. H., Höflich, P., Gerardy, C. L., et al. 2009, AJ, 138,
+727, doi:
+10.1088/0004-6256/138/3/727
+[64]
+Marion, G. H., Höflich, P., Vacca, W. D., & Wheeler, J. C. 2003,
+ApJ, 591, 316, doi:
+10.1086/375290
+[65]
+McKinney Wes. 2010, in Proceedings of the 9th Python in Science
+Conference, ed. Stéfan van der Walt & Jarrod Millman, 56 – 61,
+doi:
+10.25080/Majora-92bf1922-00a
+[66]
+Nicolas, N., Rigault, M., Copin, Y., et al. 2021, A&A, 649, A74,
+doi:
+10.1051/0004-6361/202038447
+[67]
+Nugent, P., Kim, A., & Perlmutter, S. 2002, PASP, 114, 803,
+doi:
+10.1086/341707
+[68]
+Nugent, P., Phillips, M., Baron, E., Branch, D., & Hauschildt, P.
+1995, ApJ, 455, L147, doi:
+10.1086/309846
+[69]
+Oke, J. B., & Sandage, A. 1968, ApJ, 154, 21, doi:
+10.1086/149737
+[70]
+pandas development team, T. 2020, pandas-dev/pandas: Pandas, latest, Zenodo,
+doi:
+10.5281/zenodo.3509134
+[71]
+Paszke, A., Gross, S., Massa, F., et al. 2019, in Advances in Neural
+Information Processing Systems, ed. H. Wallach, H. Larochelle,
+A. Beygelzimer, F. d'Alché-Buc, E. Fox, & R. Garnett,
+Vol. 32 (Curran Associates, Inc.).
+https://proceedings.neurips.cc/paper/2019/file/bdbca288fee7f92f2bfa9f7012727740-Paper.pdf
+[72]
+Pearson, K. 1901, The London, Edinburgh, and Dublin Philosophical Magazine and
+Journal of Science, 2, 559, doi:
+10.1080/14786440109462720
+[73]
+Pedregosa, F., Varoquaux, G., Gramfort, A., et al. 2011, Journal of Machine
+Learning Research, 12, 2825
+[74]
+Perlmutter, S., Aldering, G., Goldhaber, G., et al. 1999, ApJ, 517,
+565, doi:
+10.1086/307221
+[75]
+Pessi, P. J., Hsiao, E. Y., Folatelli, G., et al. 2022, MNRAS, 510,
+4929, doi:
+10.1093/mnras/stab3593
+[76]
+Phillips, M. M. 1993, ApJ, 413, L105, doi:
+10.1086/186970
+[77]
+Phillips, M. M., Wells, L. A., Suntzeff, N. B., et al. 1992, AJ, 103,
+1632, doi:
+10.1086/116177
+[78]
+Phillips, M. M., Contreras, C., Hsiao, E. Y., et al. 2019, PASP, 131,
+014001, doi:
+10.1088/1538-3873/aae8bd
+[79]
+Phillips, M. M., Ashall, C., Burns, C. R., et al. 2022, ApJ, 938, 47,
+doi:
+10.3847/1538-4357/ac9305
+[80]
+Pierel, J. D. R., Jones, D. O., Kenworthy, W. D., et al. 2022, ApJ,
+939, 11, doi:
+10.3847/1538-4357/ac93f9
+[81]
+Pskovskii, I. P. 1977, Soviet Ast., 21, 675
+[82]
+Rasmussen, C. E., & Williams, C. K. I. 2006, Gaussian Processes for Machine
+Learning (Adaptive Computation and Machine Learning) (The MIT Press)
+[83]
+Rheault, J. P., Mondrik, N. P., DePoy, D. L., Marshall, J. L., &
+Suntzeff, N. B. 2014, in Society of Photo-Optical Instrumentation Engineers
+(SPIE) Conference Series, Vol. 9147, Ground-based and Airborne
+Instrumentation for Astronomy V, ed. S. K. Ramsay, I. S. McLean, &
+H. Takami, 91475L, doi:
+10.1117/12.2063560
+[84]
+Riess, A. G., Filippenko, A. V., Challis, P., et al. 1998, AJ, 116,
+1009, doi:
+10.1086/300499
+[85]
+Riess, A. G., Strolger, L.-G., Casertano, S., et al. 2007, ApJ, 659,
+98, doi:
+10.1086/510378
+[86]
+Schlafly, E. F., & Finkbeiner, D. P. 2011, ApJ, 737, 103,
+doi:
+10.1088/0004-637X/737/2/103
+[87]
+Scolnic, D. M., Jones, D. O., Rest, A., et al. 2018, ApJ, 859, 101,
+doi:
+10.3847/1538-4357/aab9bb
+[88]
+Shahbandeh, M., Hsiao, E. Y., Ashall, C., et al. 2022, ApJ, 925, 175,
+doi:
+10.3847/1538-4357/ac4030
+[89]
+Simcoe, R. A., Burgasser, A. J., Schechter, P. L., et al. 2013, PASP,
+125, 270, doi:
+10.1086/670241
+[90]
+Sohn, K., Lee, H., & Yan, X. 2015, in Advances in Neural Information
+Processing Systems, ed. C. Cortes, N. Lawrence, D. Lee, M. Sugiyama, &
+R. Garnett, Vol. 28 (Curran Associates, Inc.).
+https://proceedings.neurips.cc/paper/2015/file/8d55a249e6baa5c06772297520da2051-Paper.pdf
+[91]
+Stanishev, V., Goobar, A., Amanullah, R., et al. 2018, A&A, 615, A45,
+doi:
+10.1051/0004-6361/201732357
+[92]
+Stevance, H. F., & Lee, A. 2022, arXiv e-prints, arXiv:2206.14816.
+https://arxiv.org/abs/2206.14816
+[93]
+Stritzinger, M. D., Phillips, M. M., Boldt, L. N., et al. 2011, AJ,
+142, 156, doi:
+10.1088/0004-6256/142/5/156
+[94]
+Suzuki, N., Rubin, D., Lidman, C., et al. 2012, ApJ, 746, 85,
+doi:
+10.1088/0004-637X/746/1/85
+[95]
+Tripp, R. 1998, A&A, 331, 815
+[96]
+Uddin, S. A., Mould, J., Lidman, C., Ruhlmann-Kleider, V., & Zhang,
+B. R. 2017, ApJ, 848, 56, doi:
+10.3847/1538-4357/aa8df7
+[97]
+Vacca, W. D., Cushing, M. C., & Rayner, J. T. 2003, PASP, 115, 389,
+doi:
+10.1086/346193
+[98]
+Villar, V. A., Hosseinzadeh, G., Berger, E., et al. 2020, ApJ, 905,
+94, doi:
+10.3847/1538-4357/abc6fd
+[99]
+Vincenzi, M., Sullivan, M., Firth, R. E., et al. 2019, MNRAS, 489,
+5802, doi:
+10.1093/mnras/stz2448
+[100]
+Wang, X., Chen, J., Wang, L., et al. 2019, ApJ, 882, 120,
+doi:
+10.3847/1538-4357/ab26b5
+[101]
+Wheeler, J. C., Höflich, P., Harkness, R. P., & Spyromilio, J.
+1998, ApJ, 496, 908, doi:
+10.1086/305427
+[102]
+Wood-Vasey, W. M., Friedman, A. S., Bloom, J. S., et al. 2008, ApJ,
+689, 377, doi:
+10.1086/592374
+[103]
+Wyatt, S. D., Sand, D. J., Hsiao, E. Y., et al. 2021, ApJ, 914, 57,
+doi:
+10.3847/1538-4357/abf7c3
+[104]
+Yang, J., Wang, L., Suntzeff, N., et al. 2022, ApJ, 938, 83,
+doi:
+10.3847/1538-4357/ac8c97
+Appendix A
+NIR spectra sample tables
+In this work, we publish 339 NIR spectra of 98 SNe Ia obtained by the CSP-II that passed the first two selection criteria outlined in Section
+II.1
+.
+Table
+A1
+presents the information of the SNe Ia and spectra.
+Note that the
+T
+max
+B
+T_{\text{max}}^{B}
+and the
+s
+B
+​
+V
+s_{BV}
+of the sample SNe were obtained by fitting multiband CSP light curves with
+SNooPy
+.
+The phases are relative to
+T
+max
+B
+T_{\text{max}}^{B}
+.
+The spectral data and the information in this table are available in the CSP website (
+https://csp.obs.carnegiescience.edu/data
+).
+Table A1:
+Summary of SNe Ia and spectra used in this work.
+1
+1
+footnotetext:
+Total on-target exposure time excluding overhead.
+SN name
+z
+h
+​
+e
+​
+l
+​
+i
+​
+o
+z_{helio}
+T
+B
+m
+​
+a
+​
+x
+{}_{max}^{B}
+s
+B
+​
+V
+s_{BV}
+Spec
+UT date
+MJD
+Phase
+Exp.
+1
+S/N
+(MJD)
+counts
+[day]
+[day]
+[s]
+(in
+H
+H
+)
+ASASSN-14ad
+0.0264
+56692.70
+±
+\pm
+0.50
+1.013
+±
+\pm
+0.040
+6
+2014-02-08
+56696.40
+3.6
+571
+10
+2014-02-15
+56703.39
+10.4
+1141
+2
+2014-02-22
+56710.32
+17.2
+380
+8
+2014-02-27
+56715.31
+22.0
+1014
+13
+2014-03-10
+56726.23
+32.7
+1014
+16
+2014-03-25
+56741.25
+47.3
+1522
+8
+ASASSN-14hp
+0.0389
+56929.53
+±
+\pm
+0.06
+1.077
+±
+\pm
+0.041
+1
+2014-11-05
+56966.13
+35.2
+1522
+6
+ASASSN-14hu
+0.0216
+56935.24
+±
+\pm
+0.04
+1.050
+±
+\pm
+0.041
+2
+2014-11-05
+56966.30
+30.4
+2029
+15
+2014-12-08
+56999.08
+62.5
+1268
+6
+ASASSN-14jc
+0.0113
+56955.60
+±
+\pm
+0.57
+0.914
+±
+\pm
+0.040
+1
+2014-11-05
+56966.34
+10.6
+1522
+46
+ASASSN-14jg
+0.0148
+56960.74
+±
+\pm
+0.56
+1.300
+±
+\pm
+0.043
+4
+2014-11-05
+56966.17
+5.3
+1014
+30
+2014-12-08
+56999.01
+37.7
+480
+33
+2014-12-14
+57005.06
+43.7
+507
+20
+2015-01-14
+57036.04
+74.2
+1902
+11
+ASASSN-14lo
+0.0199
+57001.70
+±
+\pm
+0.60
+0.950
+±
+\pm
+0.044
+1
+2014-12-14
+57005.33
+3.6
+507
+6
+ASASSN-14lp
+0.0051
+57015.29
+±
+\pm
+0.03
+1.027
+±
+\pm
+0.040
+6
+2014-12-14
+57005.34
+−
+-
+9.9
+380
+184
+2014-12-20
+57011.35
+−
+-
+3.9
+697
+264
+2015-01-14
+57036.26
+20.9
+253
+189
+2015-01-28
+57050.29
+34.8
+507
+169
+2015-02-04
+57057.34
+41.8
+254
+168
+2015-03-07
+57088.31
+72.6
+285
+123
+ASASSN-14lq
+0.0262
+56996.15
+±
+\pm
+0.76
+1.005
+±
+\pm
+0.047
+1
+2014-12-14
+57005.04
+8.7
+1014
+9
+ASASSN-14lw
+0.0209
+57013.73
+±
+\pm
+0.07
+1.156
+±
+\pm
+0.041
+3
+2014-12-14
+57005.08
+−
+-
+8.5
+507
+23
+2015-01-05
+57027.08
+13.1
+2029
+14
+2015-01-14
+57036.08
+21.9
+1522
+24
+ASASSN-14me
+0.0178
+57019.83
+±
+\pm
+0.50
+1.078
+±
+\pm
+0.040
+3
+2015-01-05
+57027.11
+7.2
+1014
+23
+2015-01-14
+57036.12
+16.0
+1014
+27
+2015-01-28
+57050.07
+29.7
+507
+50
+ASASSN-14mw
+0.0274
+57029.06
+±
+\pm
+0.04
+1.063
+±
+\pm
+0.041
+3
+2015-01-05
+57027.15
+−
+-
+1.9
+1268
+13
+2015-01-14
+57036.15
+6.9
+1268
+9
+2015-01-28
+57050.10
+20.5
+1014
+21
+ASASSN-14my
+0.0205
+57030.75
+±
+\pm
+0.05
+0.921
+±
+\pm
+0.040
+3
+2015-01-05
+57027.28
+−
+-
+3.4
+761
+21
+2015-01-14
+57036.22
+5.4
+1522
+21
+2015-01-28
+57050.24
+19.1
+507
+34
+ASASSN-15aj
+0.0109
+57035.46
+±
+\pm
+0.07
+0.830
+±
+\pm
+0.041
+2
+2015-01-14
+57036.18
+0.7
+761
+56
+2015-01-28
+57050.14
+14.5
+507
+68
+ASASSN-15as
+0.0287
+57036.52
+±
+\pm
+0.26
+1.077
+±
+\pm
+0.042
+2
+2015-01-14
+57036.31
+−
+-
+0.2
+761
+14
+2015-01-28
+57050.17
+13.3
+1014
+16
+ASASSN-15ba
+0.0231
+57044.34
+±
+\pm
+0.57
+0.965
+±
+\pm
+0.040
+2
+2015-01-28
+57050.32
+5.8
+507
+17
+2015-03-07
+57088.38
+43.0
+1014
+15
+ASASSN-15be
+0.0219
+57049.54
+±
+\pm
+0.06
+1.140
+±
+\pm
+0.040
+2
+2015-01-28
+57050.04
+0.5
+504
+24
+2015-03-07
+57088.00
+37.6
+888
+7
+ASASSN-15bm
+0.0208
+57054.21
+±
+\pm
+0.04
+0.989
+±
+\pm
+0.040
+3
+2015-01-28
+57050.34
+−
+-
+3.8
+507
+36
+2015-02-04
+57057.37
+3.1
+824
+35
+2015-03-07
+57088.39
+33.5
+761
+40
+ASASSN-15cd
+0.0343
+57052.79
+±
+\pm
+0.09
+1.001
+±
+\pm
+0.040
+1
+2015-01-28
+57050.20
+−
+-
+2.5
+507
+9
+ASASSN-15eb
+0.0165
+57081.98
+±
+\pm
+0.19
+0.820
+±
+\pm
+0.044
+1
+2015-03-07
+*
+*
+Spectra not included in the final sample for templates construction due to host contamination.
+57088.06
+6.0
+634
+140
+ASASSN-15fr
+0.0334
+57108.75
+±
+\pm
+0.60
+0.905
+±
+\pm
+0.045
+1
+2015-04-07
+57119.11
+10.0
+1522
+8
+ASASSN-15ga
+0.0066
+57115.88
+±
+\pm
+0.63
+0.500
+±
+\pm
+0.051
+3
+2015-04-02
+57114.29
+−
+-
+1.6
+507
+83
+2015-04-07
+57119.24
+3.3
+761
+56
+2015-04-12
+57124.18
+8.2
+761
+40
+ASASSN-15go
+0.0189
+57124.12
+±
+\pm
+0.07
+1.072
+±
+\pm
+0.041
+1
+2015-04-11
+57123.97
+−
+-
+0.1
+507
+30
+ASASSN-15gr
+0.0243
+57126.42
+±
+\pm
+0.14
+1.031
+±
+\pm
+0.040
+1
+2015-04-12
+57124.00
+−
+-
+2.4
+1014
+38
+ASASSN-15hf
+0.0062
+57137.22
+±
+\pm
+0.05
+0.939
+±
+\pm
+0.040
+1
+2015-06-02
+*
+*
+Spectra not included in the final sample for templates construction due to host contamination.
+57175.06
+37.6
+1141
+156
+ASASSN-15hx
+0.0083
+57151.60
+±
+\pm
+0.03
+1.034
+±
+\pm
+0.040
+1
+2015-06-01
+57174.13
+22.3
+507
+142
+CSS121114
+a
+a
+CSS121114:090202+101800.
+0.037
+56244.99
+±
+\pm
+0.68
+1.158
+±
+\pm
+0.049
+1
+2012-12-03
+56264.32
+18.6
+951
+8
+LSQ11bk
+0.0403
+55912.30
+±
+\pm
+0.20
+1.071
+±
+\pm
+0.043
+2
+2011-12-18
+55913.13
+0.8
+3170
+7
+2011-12-21
+55916.20
+3.8
+1807
+6
+LSQ11ot
+0.0273
+55927.65
+±
+\pm
+0.05
+0.982
+±
+\pm
+0.040
+2
+2012-01-15
+55941.17
+13.2
+2916
+11
+2012-02-03
+55960.18
+31.7
+1200
+10
+LSQ11pn
+0.0327
+55929.28
+±
+\pm
+0.06
+0.507
+±
+\pm
+0.041
+1
+2012-01-16
+55942.06
+12.4
+761
+10
+LSQ12btn
+0.0542
+56032.08
+±
+\pm
+0.19
+0.832
+±
+\pm
+0.041
+2
+2012-04-19
+56036.09
+3.8
+1200
+6
+2012-04-30
+56047.01
+14.2
+3170
+4
+LSQ12fuk
+0.0206
+56233.53
+±
+\pm
+0.56
+1.003
+±
+\pm
+0.040
+2
+2012-11-05
+56236.31
+2.7
+1268
+48
+2012-12-03
+56264.23
+30.1
+1268
+54
+LSQ12fxd
+0.0312
+56246.40
+±
+\pm
+0.04
+1.161
+±
+\pm
+0.040
+7
+2012-11-05
+56236.34
+−
+-
+9.8
+1902
+32
+2012-11-09
+56240.36
+−
+-
+5.9
+951
+14
+2012-11-11
+56242.38
+−
+-
+3.9
+540
+26
+2012-11-19
+56250.29
+3.8
+1050
+27
+2012-11-25
+56256.25
+9.6
+1902
+22
+2012-12-03
+56264.28
+17.3
+2536
+31
+2013-01-03
+56295.29
+47.4
+2378
+10
+LSQ12gdj
+0.0303
+56253.62
+±
+\pm
+0.07
+1.167
+±
+\pm
+0.041
+5
+2012-11-19
+56250.14
+−
+-
+3.4
+1200
+36
+2012-11-25
+56256.17
+2.5
+1902
+16
+2012-12-03
+56264.10
+10.2
+2219
+15
+2012-12-27
+56288.06
+33.4
+2694
+24
+2013-01-03
+56295.06
+40.2
+2853
+15
+LSQ12hzj
+0.0334
+56301.51
+±
+\pm
+0.08
+0.970
+±
+\pm
+0.040
+1
+2013-01-06
+56298.24
+−
+-
+3.2
+1585
+8
+LSQ13aiz
+0.0092
+56436.83
+±
+\pm
+0.05
+0.964
+±
+\pm
+0.040
+2
+2013-05-19
+56431.17
+−
+-
+5.6
+507
+118
+2013-07-16
+56489.05
+51.7
+1268
+34
+LSQ13dsm
+0.0424
+56670.06
+±
+\pm
+0.04
+0.908
+±
+\pm
+0.040
+3
+2014-01-01
+56658.23
+−
+-
+11.4
+2029
+5
+2014-01-09
+56666.15
+−
+-
+3.8
+1014
+13
+2014-01-14
+56671.15
+1.0
+1014
+5
+LSQ13pf
+0.086
+56373.38
+±
+\pm
+0.91
+0.917
+±
+\pm
+0.055
+1
+2013-03-25
+56376.26
+2.6
+1426
+2
+LSQ13ry
+0.0298
+56395.46
+±
+\pm
+0.03
+0.880
+±
+\pm
+0.040
+2
+2013-04-01
+56383.11
+−
+-
+12
+1945
+7
+2013-04-04
+56386.18
+−
+-
+9
+1014
+9
+LSQ14ajn
+0.021
+56734.73
+±
+\pm
+0.08
+0.654
+±
+\pm
+0.040
+2
+2014-03-18
+56734.16
+−
+-
+0.6
+1014
+43
+2014-03-25
+56741.20
+6.3
+1014
+28
+LSQ14xi
+0.0507
+56720.29
+±
+\pm
+0.08
+1.142
+±
+\pm
+0.041
+1
+2014-02-27
+56715.33
+−
+-
+4.7
+761
+13
+LSQ15aae
+0.0516
+57116.02
+±
+\pm
+0.08
+1.226
+±
+\pm
+0.041
+1
+2015-06-02
+57175.27
+56.3
+2536
+3
+MASTER J030559
+b
+b
+MASTER OT J030559.89+043238.2.
+0.0282
+56658.31
+±
+\pm
+0.08
+1.140
+±
+\pm
+0.041
+3
+2014-01-01
+56658.16
+−
+-
+0.1
+1014
+11
+2014-01-09
+56666.05
+7.5
+1014
+16
+2014-01-14
+56671.10
+12.4
+1014
+5
+OGLE-2014-SN-019
+0.0359
+56717.88
+±
+\pm
+0.12
+0.905
+±
+\pm
+0.043
+1
+2014-02-27
+*
+*
+Spectra not included in the final sample for templates construction due to host contamination.
+56715.14
+−
+-
+2.6
+1014
+104
+PS1-14ra
+0.0281
+56724.54
+±
+\pm
+0.08
+0.778
+±
+\pm
+0.040
+3
+2014-03-10
+56726.28
+1.7
+1395
+7
+2014-03-18
+56734.33
+9.5
+1522
+22
+2014-03-25
+56741.32
+16.3
+1522
+17
+PS15sv
+0.0333
+57113.54
+±
+\pm
+0.09
+1.113
+±
+\pm
+0.042
+3
+2015-04-02
+57114.38
+0.8
+1014
+20
+2015-04-07
+57119.38
+5.6
+1014
+10
+2015-06-01
+57174.29
+58.8
+1522
+4
+PSN J13471211
+c
+c
+PSN J13471211-2422171.
+0.0199
+57070.43
+±
+\pm
+0.13
+0.720
+±
+\pm
+0.040
+1
+2015-03-07
+57088.32
+17.5
+507
+42
+PTF11qnr
+0.0162
+55903.58
+±
+\pm
+0.04
+0.807
+±
+\pm
+0.041
+3
+2011-12-16
+55911.04
+7.3
+1395
+17
+2011-12-18
+55913.04
+9.3
+507
+7
+2011-12-21
+55916.04
+12.3
+1522
+16
+iPTF13duj
+0.0169
+56601.30
+±
+\pm
+0.16
+1.158
+±
+\pm
+0.042
+4
+2013-10-25
+56590.11
+−
+-
+11
+1268
+8
+2013-11-14
+56610.04
+8.6
+1014
+21
+2013-11-20
+56616.02
+14.5
+1522
+17
+2013-11-30
+56626.01
+24.3
+1014
+34
+iPTF13dym
+0.0421
+56609.83
+±
+\pm
+0.65
+0.517
+±
+\pm
+0.047
+1
+2013-11-20
+*
+*
+Spectra not included in the final sample for templates construction due to host contamination.
+56616.05
+6.0
+1268
+70
+iPTF13ebh
+0.0133
+56623.29
+±
+\pm
+0.03
+0.632
+±
+\pm
+0.040
+9
+2013-11-14
+56610.16
+−
+-
+13
+3170
+12
+2013-11-16
+56612.18
+−
+-
+11
+507
+13
+2013-11-20
+56616.11
+−
+-
+7.1
+1522
+46
+2013-11-30
+56626.09
+2.8
+1141
+53
+2013-12-09
+56635.08
+11.6
+1522
+26
+2013-12-14
+56640.06
+16.5
+1014
+50
+2013-12-20
+56646.06
+22.5
+1014
+29
+2013-12-27
+56653.03
+29.4
+1014
+14
+2014-01-01
+56658.03
+34.3
+1014
+8
+iPTF14aaf
+0.0588
+56741.26
+±
+\pm
+0.08
+1.169
+±
+\pm
+0.041
+1
+2014-03-18
+56734.31
+−
+-
+6.6
+1268
+8
+iPTF14w
+0.0189
+56669.93
+±
+\pm
+0.03
+0.743
+±
+\pm
+0.040
+7
+2014-01-09
+56666.34
+−
+-
+3.5
+507
+42
+2014-01-14
+56671.31
+1.4
+507
+20
+2014-02-08
+56696.36
+25.9
+1014
+28
+2014-02-15
+56703.33
+32.8
+1522
+6
+2014-02-22
+56710.24
+39.6
+1522
+10
+2014-02-27
+56715.27
+44.5
+1014
+9
+2014-03-18
+*
+*
+Spectra not included in the final sample for templates construction due to host contamination.
+56734.13
+63.0
+1522
+24
+iPTF14yw
+0.017
+56729.46
+±
+\pm
+0.08
+0.854
+±
+\pm
+0.041
+4
+2014-03-10
+56726.20
+−
+-
+3.2
+1522
+37
+2014-03-18
+56734.19
+4.7
+1014
+38
+2014-03-25
+56741.17
+11.5
+1014
+17
+2014-04-23
+56770.15
+40.0
+1522
+13
+iPTF14yy
+0.043
+56733.30
+±
+\pm
+0.06
+0.837
+±
+\pm
+0.041
+1
+2014-03-18
+56734.24
+0.9
+1522
+10
+SN 2011iv
+t
+t
+SNe discovered by targeted search.
+0.0065
+55906.08
+±
+\pm
+0.05
+0.701
+±
+\pm
+0.041
+8
+2011-12-16
+55911.19
+5.1
+254
+154
+2011-12-18
+55913.18
+7.1
+254
+141
+2011-12-21
+55916.25
+10.1
+211
+118
+2012-01-07
+55933.11
+26.9
+480
+142
+2012-01-15
+55941.09
+34.8
+1014
+47
+2012-01-19
+55945.19
+38.9
+380
+74
+2012-02-03
+55960.11
+53.7
+1200
+98
+2012-03-03
+55989.08
+82.5
+1014
+23
+SN 2011iy
+t
+t
+SNe discovered by targeted search.
+0.0043
+55893.24
+±
+\pm
+0.23
+1.033
+±
+\pm
+0.040
+6
+2011-12-18
+55913.32
+20.0
+317
+113
+2011-12-21
+55916.36
+23.0
+180
+105
+2012-01-07
+55933.28
+39.9
+480
+128
+2012-01-19
+55945.39
+51.9
+285
+132
+2012-02-03
+55960.26
+66.7
+1200
+136
+2012-03-03
+55989.29
+95.6
+2536
+50
+SN 2011jh
+t
+t
+SNe discovered by targeted search.
+0.0078
+55931.06
+±
+\pm
+0.02
+0.789
+±
+\pm
+0.040
+7
+2012-01-07
+55933.31
+2.2
+960
+74
+2012-01-15
+55941.34
+10.2
+1902
+71
+2012-01-19
+55945.35
+14.2
+380
+74
+2012-02-03
+55960.22
+28.9
+1200
+93
+2012-03-03
+55989.24
+57.7
+1268
+40
+2012-04-08
+56025.10
+93.3
+2874
+8
+2012-04-11
+56028.13
+96.3
+2536
+8
+SN 2011jt
+0.0278
+55928.66
+±
+\pm
+0.86
+0.955
+±
+\pm
+0.048
+1
+2012-01-07
+55933.36
+4.6
+1320
+3
+SN 2012G
+0.0258
+55948.85
+±
+\pm
+0.05
+1.158
+±
+\pm
+0.040
+1
+2012-02-04
+55961.28
+12.1
+840
+12
+SN 2012U
+t
+t
+SNe discovered by targeted search.
+0.0197
+55944.72
+±
+\pm
+1.01
+0.905
+±
+\pm
+0.046
+1
+2012-02-03
+55960.04
+15.0
+1200
+28
+SN 2012ah
+t
+t
+SNe discovered by targeted search.
+0.0124
+55975.16
+±
+\pm
+0.71
+0.905
+±
+\pm
+0.046
+1
+2012-03-03
+55989.13
+13.8
+507
+19
+SN 2012ar
+0.0282
+55991.31
+±
+\pm
+0.53
+0.809
+±
+\pm
+0.040
+4
+2012-03-03
+55989.39
+−
+-
+1.9
+1902
+22
+2012-04-08
+56025.35
+33.1
+1902
+6
+2012-04-11
+56028.33
+36.0
+2536
+10
+2012-04-30
+56047.31
+54.5
+3804
+6
+SN 2012bl
+t
+t
+SNe discovered by targeted search.
+0.0187
+56018.76
+±
+\pm
+0.55
+1.081
+±
+\pm
+0.043
+8
+2012-04-08
+56025.39
+6.5
+1268
+29
+2012-04-11
+56028.39
+9.5
+1744
+27
+2012-04-18
+56035.40
+16.3
+1800
+27
+2012-04-21
+56038.39
+19.3
+1650
+26
+2012-04-30
+56047.40
+28.1
+1902
+38
+2012-05-07
+56054.39
+35.0
+2536
+54
+2012-06-10
+56088.26
+68.2
+1744
+9
+2012-06-26
+56104.40
+84.1
+2378
+7
+SN 2012bo
+t
+t
+SNe discovered by targeted search.
+0.0254
+56021.04
+±
+\pm
+0.50
+1.160
+±
+\pm
+0.041
+6
+2012-04-08
+56025.17
+4.0
+2029
+16
+2012-04-11
+56028.17
+7.0
+1902
+17
+2012-04-18
+56035.30
+13.9
+1200
+14
+2012-04-21
+56038.32
+16.9
+1200
+8
+2012-04-30
+56047.10
+25.4
+1902
+32
+2012-05-07
+56054.10
+32.2
+2536
+15
+SN 2012fr
+t
+t
+SNe discovered by targeted search.
+0.0055
+56243.32
+±
+\pm
+0.02
+1.107
+±
+\pm
+0.040
+26
+2012-10-31
+*
+*
+Spectra not included in the final sample for templates construction due to host contamination.
+56231.37
+−
+-
+11.9
+240
+15
+2012-11-02
+56233.38
+−
+-
+9.9
+240
+174
+2012-11-03
+56234.37
+−
+-
+8.9
+240
+115
+2012-11-04
+56235.38
+−
+-
+7.9
+240
+155
+2012-11-05
+56236.28
+−
+-
+7
+634
+280
+2012-11-07
+56238.36
+−
+-
+4.9
+254
+206
+2012-11-08
+56239.36
+−
+-
+3.9
+254
+203
+2012-11-11
+56242.36
+−
+-
+1
+240
+249
+2012-11-14
+56245.37
+2.0
+240
+113
+2012-11-16
+56247.37
+4.0
+240
+125
+2012-11-19
+56250.21
+6.9
+240
+158
+2012-11-20
+56251.38
+8.0
+240
+65
+2012-11-21
+56252.37
+9.0
+240
+104
+2012-11-25
+56256.22
+12.8
+761
+167
+2012-11-28
+56259.17
+15.8
+254
+92
+2012-12-01
+56262.27
+18.8
+254
+134
+2012-12-03
+56264.20
+20.8
+761
+162
+2012-12-13
+56274.34
+30.8
+507
+154
+2012-12-20
+56281.09
+37.6
+507
+106
+2012-12-27
+56288.16
+44.6
+1014
+109
+2012-12-30
+56291.25
+47.7
+761
+161
+2013-01-03
+56295.18
+51.6
+507
+153
+2013-01-06
+56298.09
+54.5
+1014
+131
+2013-01-11
+56303.03
+59.4
+507
+128
+2013-02-02
+56325.03
+81.3
+507
+85
+2013-02-16
+56339.02
+95.2
+634
+48
+SN 2012gm
+t
+t
+SNe discovered by targeted search.
+0.0148
+56261.65
+±
+\pm
+0.02
+0.987
+±
+\pm
+0.040
+2
+2012-11-25
+56256.09
+−
+-
+5.5
+1078
+45
+2012-12-03
+56264.02
+2.3
+1522
+44
+SN 2012hd
+t
+t
+SNe discovered by targeted search.
+0.0119
+56265.53
+±
+\pm
+0.04
+0.888
+±
+\pm
+0.040
+5
+2012-11-25
+56256.19
+−
+-
+9.2
+602
+47
+2012-12-03
+56264.15
+−
+-
+1.4
+1141
+47
+2012-12-27
+56288.12
+22.3
+1522
+79
+2013-01-03
+56295.10
+29.2
+1014
+64
+2013-01-06
+56298.07
+32.2
+761
+36
+SN 2012hr
+t
+t
+SNe discovered by targeted search.
+0.0076
+56288.91
+±
+\pm
+0.02
+0.973
+±
+\pm
+0.040
+12
+2012-12-20
+56281.20
+−
+-
+7.7
+1268
+100
+2012-12-27
+56288.20
+−
+-
+0.7
+888
+162
+2012-12-30
+56291.27
+2.3
+761
+140
+2013-01-03
+56295.21
+6.2
+1014
+101
+2013-01-06
+56298.17
+9.2
+1014
+110
+2013-02-02
+56325.05
+35.9
+888
+103
+2013-02-05
+56328.23
+39.0
+1014
+25
+2013-02-16
+56339.03
+49.7
+507
+48
+2013-02-28
+56351.10
+61.7
+507
+34
+2013-03-20
+56371.04
+81.5
+1014
+14
+2013-03-25
+56376.04
+86.5
+1014
+12
+2013-04-01
+56383.07
+93.5
+1014
+11
+SN 2012ht
+t
+t
+SNe discovered by targeted search.
+0.0036
+56295.75
+±
+\pm
+0.03
+0.869
+±
+\pm
+0.040
+11
+2012-12-30
+56291.30
+−
+-
+4.4
+888
+228
+2013-01-03
+56295.35
+−
+-
+0.4
+1648
+174
+2013-01-06
+56298.32
+2.6
+1014
+133
+2013-01-12
+56304.38
+8.6
+300
+64
+2013-02-02
+56325.19
+29.3
+1014
+136
+2013-02-05
+56328.30
+32.4
+507
+44
+2013-02-16
+56339.13
+43.2
+634
+74
+2013-02-28
+56351.23
+55.3
+761
+42
+2013-03-20
+56371.11
+75.1
+634
+16
+2013-03-25
+56376.12
+80.1
+761
+13
+2013-04-01
+56383.14
+87.1
+1014
+15
+SN 2012id
+t
+t
+SNe discovered by targeted search.
+0.0157
+56287.03
+±
+\pm
+0.94
+0.824
+±
+\pm
+0.052
+3
+2012-12-30
+56291.22
+4.1
+1014
+44
+2013-01-03
+56295.13
+8.0
+1268
+32
+2013-01-06
+56298.13
+10.9
+1902
+28
+SN 2012ij
+t
+t
+SNe discovered by targeted search.
+0.011
+56302.54
+±
+\pm
+0.05
+0.536
+±
+\pm
+0.041
+3
+2013-01-06
+56298.36
+−
+-
+4.1
+2536
+77
+2013-02-02
+56325.21
+22.4
+1014
+26
+2013-02-05
+56328.32
+25.5
+1141
+8
+SN 2013E
+t
+t
+SNe discovered by targeted search.
+0.0094
+56308.22
+±
+\pm
+0.49
+1.131
+±
+\pm
+0.040
+10
+2013-01-06
+56298.28
+−
+-
+9.8
+1522
+113
+2013-01-12
+56304.40
+−
+-
+3.8
+300
+42
+2013-02-02
+56325.11
+16.7
+761
+100
+2013-02-05
+56328.28
+19.9
+507
+68
+2013-02-16
+56339.06
+30.5
+634
+96
+2013-02-28
+56351.15
+42.5
+634
+58
+2013-03-06
+56357.36
+48.7
+634
+42
+2013-03-20
+56371.08
+62.3
+507
+35
+2013-03-25
+56376.08
+67.2
+507
+35
+2013-04-01
+56383.21
+74.3
+1014
+25
+SN 2013H
+t
+t
+SNe discovered by targeted search.
+0.0155
+56309.92
+±
+\pm
+0.49
+1.048
+±
+\pm
+0.040
+4
+2013-02-02
+56325.08
+14.9
+1014
+43
+2013-02-05
+56328.26
+18.1
+1014
+13
+2013-02-16
+56339.11
+28.7
+634
+46
+2013-02-28
+56351.13
+40.6
+761
+25
+SN 2013M
+t
+t
+SNe discovered by targeted search.
+0.0349
+56323.63
+±
+\pm
+0.07
+0.943
+±
+\pm
+0.040
+3
+2013-02-02
+56325.29
+1.6
+1395
+16
+2013-02-05
+56328.37
+4.6
+1268
+8
+2013-02-28
+56351.31
+26.7
+1268
+16
+SN 2013U
+t
+t
+SNe discovered by targeted search.
+0.0345
+56335.05
+±
+\pm
+0.59
+1.239
+±
+\pm
+0.041
+2
+2013-02-16
+56339.08
+3.9
+1268
+14
+2013-02-28
+56351.20
+15.6
+1902
+8
+SN 2013aa
+t
+t
+SNe discovered by targeted search.
+0.004
+56343.42
+±
+\pm
+0.04
+1.002
+±
+\pm
+0.040
+7
+2013-02-28
+56351.39
+7.9
+190
+155
+2013-03-06
+56357.40
+13.9
+42
+91
+2013-03-20
+56371.24
+27.7
+190
+142
+2013-03-25
+56376.33
+32.8
+211
+136
+2013-04-01
+56383.31
+39.7
+444
+182
+2013-04-03
+56385.39
+41.8
+127
+152
+2013-05-19
+56431.25
+87.5
+507
+84
+SN 2013aj
+t
+t
+SNe discovered by targeted search.
+0.0091
+56361.37
+±
+\pm
+0.04
+0.800
+±
+\pm
+0.040
+6
+2013-03-06
+56357.38
+−
+-
+4
+254
+84
+2013-03-20
+56371.22
+9.8
+380
+84
+2013-03-25
+56376.31
+14.8
+507
+115
+2013-04-01
+56383.24
+21.7
+761
+94
+2013-04-03
+56385.38
+23.8
+211
+56
+2013-05-19
+56431.21
+69.2
+951
+10
+SN 2013ay
+t
+t
+SNe discovered by targeted search.
+0.0157
+56375.41
+±
+\pm
+0.64
+0.494
+±
+\pm
+0.044
+2
+2013-04-01
+56383.34
+7.8
+1268
+40
+2013-04-03
+56385.41
+9.8
+761
+49
+SN 2013az
+0.0373
+56380.92
+±
+\pm
+0.62
+0.768
+±
+\pm
+0.047
+1
+2013-04-01
+56383.05
+2.0
+1522
+9
+SN 2013bc
+0.0225
+56384.42
+±
+\pm
+0.58
+0.481
+±
+\pm
+0.046
+1
+2013-04-03
+56385.31
+0.9
+1014
+26
+SN 2013bz
+0.0192
+56409.65
+±
+\pm
+0.07
+1.152
+±
+\pm
+0.041
+1
+2013-05-19
+56431.19
+21.1
+1110
+41
+SN 2013ct
+0.0038
+56411.31
+±
+\pm
+0.38
+1.002
+±
+\pm
+0.040
+3
+2013-05-22
+*
+*
+Spectra not included in the final sample for templates construction due to host contamination.
+56434.43
+23.0
+254
+131
+2013-07-16
+56489.33
+77.7
+1268
+90
+2013-07-29
+*
+*
+Spectra not included in the final sample for templates construction due to host contamination.
+56502.27
+90.6
+1585
+10
+SN 2013fy
+t
+t
+SNe discovered by targeted search.
+0.0308
+56600.03
+±
+\pm
+0.54
+1.174
+±
+\pm
+0.041
+6
+2013-11-14
+56610.09
+9.8
+1268
+13
+2013-11-20
+56616.07
+15.6
+1014
+14
+2013-11-30
+56626.04
+25.2
+1014
+18
+2013-12-09
+56635.03
+34.0
+1902
+12
+2013-12-14
+56640.02
+38.8
+1522
+13
+2013-12-20
+56646.03
+44.6
+1902
+6
+SN 2013fz
+t
+t
+SNe discovered by targeted search.
+0.0206
+56601.67
+±
+\pm
+0.52
+1.015
+±
+\pm
+0.040
+7
+2013-11-14
+56610.30
+8.5
+761
+30
+2013-11-20
+56616.25
+14.3
+1014
+36
+2013-11-30
+56626.32
+24.2
+507
+41
+2013-12-14
+56640.29
+37.8
+507
+20
+2013-12-20
+56646.26
+43.7
+1014
+26
+2013-12-27
+56653.23
+50.5
+1522
+16
+2014-01-01
+56658.26
+55.5
+1014
+14
+SN 2013gv
+t
+t
+SNe discovered by targeted search.
+0.0341
+56639.56
+±
+\pm
+0.06
+0.845
+±
+\pm
+0.041
+4
+2013-12-09
+56635.13
+−
+-
+4.3
+1014
+8
+2013-12-14
+56640.10
+0.5
+1522
+6
+2013-12-20
+56646.14
+6.4
+1014
+7
+2014-01-01
+56658.13
+18.0
+1014
+8
+SN 2013gy
+0.014
+56648.75
+±
+\pm
+0.04
+0.911
+±
+\pm
+0.040
+12
+2013-12-09
+56635.25
+−
+-
+13.3
+1522
+22
+2013-12-14
+56640.22
+−
+-
+8.4
+1014
+40
+2013-12-20
+56646.21
+−
+-
+2.5
+507
+78
+2013-12-27
+56653.20
+4.4
+507
+42
+2014-01-01
+56658.19
+9.3
+507
+44
+2014-01-09
+56666.12
+17.1
+507
+80
+2014-01-14
+56671.13
+22.1
+507
+54
+2014-02-08
+56696.12
+46.7
+507
+12
+2014-02-15
+56703.12
+53.6
+1268
+5
+2014-02-22
+56710.08
+60.5
+1014
+14
+2014-02-27
+56715.05
+65.4
+1014
+11
+2014-03-18
+56734.02
+84.1
+1268
+6
+SN 2013hh
+t
+t
+SNe discovered by targeted search.
+0.013
+56638.82
+±
+\pm
+0.58
+1.203
+±
+\pm
+0.049
+6
+2013-12-14
+56640.35
+1.5
+761
+41
+2013-12-20
+56646.34
+7.4
+1014
+58
+2013-12-27
+56653.32
+14.3
+1014
+41
+2014-01-01
+56658.34
+19.3
+507
+58
+2014-01-09
+56666.35
+27.2
+507
+63
+2014-01-14
+56671.32
+32.1
+507
+36
+SN 2013hn
+t
+t
+SNe discovered by targeted search.
+0.0151
+56642.94
+±
+\pm
+0.69
+0.821
+±
+\pm
+0.048
+4
+2013-12-20
+56646.36
+3.4
+888
+47
+2013-12-27
+56653.35
+10.3
+761
+21
+2014-01-01
+56658.35
+15.2
+634
+52
+2014-01-14
+56671.34
+28.0
+507
+33
+SN 2014D
+0.0082
+56665.27
+±
+\pm
+0.70
+0.958
+±
+\pm
+0.046
+2
+2014-01-09
+56666.37
+1.1
+380
+41
+2014-01-14
+56671.36
+6.0
+507
+46
+SN 2014I
+0.03
+56683.56
+±
+\pm
+0.04
+0.916
+±
+\pm
+0.040
+5
+2014-02-08
+56696.14
+12.2
+507
+7
+2014-02-15
+56703.19
+19.1
+951
+7
+2014-02-22
+56710.14
+25.8
+1014
+16
+2014-02-27
+56715.12
+30.6
+1014
+17
+2014-03-10
+56726.06
+41.3
+1014
+10
+SN 2014Z
+t
+t
+SNe discovered by targeted search.
+0.0213
+56721.92
+±
+\pm
+0.70
+0.980
+±
+\pm
+0.049
+1
+2014-03-08
+56724.02
+2.1
+507
+12
+SN 2014ao
+0.0141
+56767.84
+±
+\pm
+0.08
+0.881
+±
+\pm
+0.040
+2
+2014-04-23
+56770.05
+2.2
+1522
+61
+2014-06-05
+56813.96
+45.5
+951
+4
+SN 2014at
+t
+t
+SNe discovered by targeted search.
+0.0322
+56774.05
+±
+\pm
+0.05
+0.948
+±
+\pm
+0.040
+2
+2014-04-23
+56770.40
+−
+-
+3.5
+2029
+21
+2014-06-06
+56814.31
+39.0
+761
+10
+SN 2014du
+0.0324
+56968.63
+±
+\pm
+0.10
+0.815
+±
+\pm
+0.041
+1
+2014-11-05
+56966.21
+−
+-
+2.3
+2536
+5
+SN 2014eg
+0.0186
+56991.23
+±
+\pm
+0.07
+1.183
+±
+\pm
+0.041
+1
+2014-12-08
+56999.05
+7.7
+507
+22
+SN 2015F
+0.0049
+57106.85
+±
+\pm
+0.03
+0.884
+±
+\pm
+0.040
+5
+2015-03-14
+57095.01
+−
+-
+11.8
+1014
+116
+2015-04-02
+57114.22
+7.3
+761
+93
+2015-04-06
+57118.97
+12.1
+507
+101
+2015-04-12
+57124.07
+17.1
+507
+112
+2015-06-01
+57174.96
+67.8
+1014
+25
+SN 2015bo
+0.0162
+57076.02
+±
+\pm
+0.11
+0.505
+±
+\pm
+0.040
+1
+2015-03-07
+57088.35
+12.1
+1014
+36
+SN 2015bp
+0.0041
+57112.67
+±
+\pm
+0.04
+0.692
+±
+\pm
+0.040
+4
+2015-04-02
+57114.36
+1.7
+507
+149
+2015-04-07
+57119.29
+6.6
+507
+84
+2015-04-12
+57124.22
+11.5
+507
+81
+2015-06-01
+57174.21
+61.3
+1268
+30
+Appendix B
+Alternative Method: Conditional Variational Autoencoder
+Figure B1:
+Comparisons between templates constructed using the current PCA+GPR method (green solid lines) and the cVAE method (orange dotted lines).
+Selected observed spectra from
+Marion et al. [63]
+, which are not included in the training process of either template, are also presented in the background for comparison (gray solid lines).
+All comparison spectra are color-corrected to match the broadband colors.
+Regions of strongest telluric absorptions are marked with vertical gray bands.
+As we mentioned in Section
+III
+, the current PCA+GPR method has some limitations.
+Here we propose an alternative machine-learning method, using extensions of the autoencoder network, that could circumvent the drawbacks in the current approach.
+Autoencoders have been employed in astronomy with rising popularity in recent years
+[
+98
+,
+8
+,
+26
+, e.g.]
+.
+An autoencoder is a type of neural network architecture that couples an encoder neural network and a decoder neural network, with some reduction in dimensionality at their connection point.
+This reduced space is known as the latent space of the network, and can be seen as a nonlinear subspace, in comparison with the linearly transformed subspace that is formed from PCA.
+The dimensionality of the latent space is akin to the choice of the number of PC dimensions used for template generation.
+The network is forced to reconstruct the inputs utilizing the fewest dimensions while incurring some reconstruction loss that can be minimized.
+A variational autoencoder
+[
+51
+, VAE;]
+extends its predecessor by encoding for random variables.
+Typically, this is chosen to be a vector of means and variances for a set of Gaussian random variables. Decoding random samples from the latent space gives access to the probability density function of generated templates.
+An additional regularization (Kullback-Leibler divergence) term is added to the loss function of the standard VAE architecture that attempts to maintain some level of continuity in the latent space by guiding the embeddings to be more Gaussian distributed.
+This makes template generation smoother. Furthermore, an extension to the VAE architecture can be made by conditioning the encoder and decoder on external variables, e.g., phase and
+s
+B
+​
+V
+s_{BV}
+.
+This addition is known as a conditional VAE
+[
+90
+, cVAE;]
+and allows us to output template spectra for given phase and
+s
+B
+​
+V
+s_{BV}
+inputs continuously, without requiring an additional GPR step.
+Here, a cVAE for template generation is implemented in the
+pyTorch
+[
+71
+]
+framework, and its performance will be analyzed.
+The encoder is constructed as a feed-forward neural network consisting of four layers containing 3673, 128, 32, and 5 nodes, respectively.
+Rectified linear units are used as activations.
+The decoder neural network, in this case, mirrors the encoder with the exception that the first node contains 5+2 nodes (the +2 is reserved for conditioning the decoder on the template parameters).
+The cVAE is optimized using the Adam optimizer
+[
+50
+]
+with a learning rate of
+10
+−
+3
+10^{-3}
+and a batch size of 16.
+The model is trained for 500 iterations.
+Under the current settings, the computation time of cVAE is 4 times longer than the PCA+GPR method, at around 40 minutes and 13 minutes, respectively.
+However, the time would depend on the hardware and the choice of iterations.
+Figure
+B1
+shows a comparison of the templates generated by PCA+GPR and the proposed cVAE method.
+The current PCA+GPR method still provides the best results, with a median
+χ
+2
+/
+d
+​
+o
+​
+f
+\chi^{2}/dof
+of 1.43 while compared to observed spectra (see Section
+III.4
+).
+The templates constructed with cVAE method yield a median
+χ
+2
+/
+d
+​
+o
+​
+f
+\chi^{2}/dof
+of 1.76.
+The current data set might not be large enough to train the cVAE to adequately separate the signal from the noise, especially in the telluric regions and the noisy edge of the
+K
+K
+band.
+Further exploration, such as refining selection criteria and training for more iterations, is required to further investigate the causes of deficiencies in these regions.
+However, there are caveats in this comparison of the resulting templates.
+The input data of cVAE and the PCA+GPR method do not have the same structure: the input data of cVAE is
+not
+split into wavelength regions and the input data is normalized in both mean and standard deviation, whereas the input data for PCA is only normalized by mean in each column.
+Additionally, only
+∼
+\sim
+70% of the sample is included for training in the cVAE approach due to the limitation of the reliable telluric regions, which essentially reduces the training size by 30% in the
+z
+​
+Y
+​
+J
+​
+H
+zYJH
+and 20% in the
+K
+K
+band compared to the PCA+GPR method.
+The proposed cVAE architecture requires fixed wavelength grid as an input, similar to PCA. A useful extension to this would be to support sequence inputs of varying length, thereby skipping any implicit biases that can be introduced by the interpolation preprocessing step. One clear and natural pathway forward would be to incorporate long short-term memory (LSTM) or recurrent neural network (RNN) nodes. Here, a single node takes in an entire sequence, element by element, and contains an internal state that allows information from previous elements of a sequence to affect the output for the next element. Using a sequence approach is also beneficial in that different regions can be ignored, e.g., wavelength regions that have poor telluric corrections.
+In summary, the cVAE approach has the following potential advantages over PCA+GPR: it can naturally deal with irregular/missing data and unifies the two-step PCA+GPR procedure allowing the template generation and dimensionality reduction steps to communicate.
+However, it appears that a larger data set is needed to better harvest the potential of this method.
+Appendix C
+Gaussian Process Regression Kernel parameters
+In this section, we present the details of the GPR kernel set up and the optimal hyperparameters, as well as a demonstration of how the length scales of the RBF kernel affect the template spectra.
+In section
+III.3
+, GPR was used to establish the average dependence of the PC projection values
+on phase and decline-rate,
+p
+i
+​
+(
+p
+​
+h
+​
+a
+​
+s
+​
+e
+,
+s
+B
+​
+V
+)
+p_{i}\left(phase,s_{BV}\right)
+. With
+p
+i
+​
+(
+p
+​
+h
+​
+a
+​
+s
+​
+e
+,
+s
+B
+​
+V
+)
+p_{i}\left(phase,s_{BV}\right)
+, one
+can “look up” the PC projections and construct the average SED of a SN Ia for any particular value of
+s
+B
+​
+V
+s_{BV}
+and phase.
+GPR has the advantage of being non-parametric, in the sense that no particular functional form is chosen
+to represent
+p
+i
+​
+(
+p
+​
+h
+​
+a
+​
+s
+​
+e
+,
+s
+B
+​
+V
+)
+p_{i}\left(phase,s_{BV}\right)
+.
+Rather, GPR determines a mean function which is constrained by the data and a covariance function, called the kernel, that controls the amplitude and scale over which this function can vary.
+For the kernel, we choose the sum of a RBF covariance function and a white noise term, which has 4
+free hyperparameters and can be represented as the following:
+k
+​
+e
+​
+r
+​
+n
+​
+e
+​
+l
+=
+C
+×
+RBF
+⁡
+(
+ℓ
+phase
+,
+ℓ
+s
+BV
+)
++
+W
+⁡
+(
+σ
+)
+.
+kernel=C\times\rm{RBF}(\ell_{phase},\ell_{s_{BV}})+\rm{W}(\sigma).
+(C1)
+C is a constant, representing the amplitude of the RBF kernel,
+ℓ
+p
+​
+h
+​
+a
+​
+s
+​
+e
+\ell_{phase}
+and
+ℓ
+s
+B
+​
+V
+\ell_{s_{BV}}
+are the length scales of the RBF kernel for phase and
+s
+B
+​
+V
+s_{BV}
+, and
+σ
+\sigma
+is the noise level of the white noise kernel,
+W
+W
+.
+The values of these hyperparameters are determined by
+scikit-learn
+by maximizing the log-marginal likelihood.
+All 4 parameters are given uniform priors.
+The shape of the probability hypersurface is a complicated one, with obvious degeneracies. The most
+severe occurs when
+σ
+\sigma
+becomes larger than the variations due to
+s
+B
+​
+V
+s_{BV}
+and/or phase.
+In this case, the RBF scales (
+ℓ
+p
+​
+h
+​
+a
+​
+s
+​
+e
+\ell_{phase}
+and/or
+ℓ
+s
+B
+​
+V
+\ell_{s_{BV}}
+) no longer matter and therefore
+do not converge to fixed values.
+In these cases, the resulting
+p
+i
+​
+(
+p
+​
+h
+​
+a
+​
+s
+​
+e
+,
+s
+B
+​
+V
+)
+p_{i}\left(phase,s_{BV}\right)
+are
+simply constant with respect to phase and/or
+s
+B
+​
+V
+s_{BV}
+.
+The optimal hyperparameters of all GPRs are presented in Figure
+C1
+.
+Around half of the GPRs, especially those of the lower rank PCs, do not have converged length scales, in
+which case we set the scale equal to 10
+5
+, effectively making the GPR independent of that parameter.
+However, our PC selection strategy (GPR R
+2
+≥
+0.2
+{}^{2}\geq 0.2
+; see Section
+III.4
+) was able to screen out the vast majority of GPR fits that have these convergence issues.
+The only selected PC that has not fully converged is PC1 of W4 (telluric) region, which has a
+ℓ
+s
+B
+​
+V
+=
+10
+5
+\ell_{s_{BV}}=10^{5}
+.
+In general, for the templates presented in this work, the median optimal length scales of the selected PCs are 18 days and 0.43 for phase and
+s
+B
+​
+V
+s_{BV}
+, respectively.
+The optimal length scales for phase are similar to the best-fit length scale for the
+SNooPy
+light-curve template (
+∼
+\sim
+30 days), which were also constructed with GPR.
+PCs that have relatively short optimal length scales may indicate spectral features that evolve faster than the photometry, such as those due to ionization changes.
+While our analysis provides optimal values for the four hyperparameters, there are associated uncertainties in their values.
+It is therefore worth considering the effects of varying each hyperparameter with respect to the constructed SN Ia SED.
+In other words, how do uncertainties in the hyperparameters propagate to uncertainties in the final SN Ia SED?
+Since the phase and
+s
+B
+​
+V
+s_{BV}
+are the two input parameters for the template, the temporal spectra are likely to vary with their RBF length scales the most.
+To illustrate how each of the length scales affect the final template, we keep one length scale at
+the optimal value, while varying the other by 1
+σ
+\sigma
+Median Absolute Deviation (MAD).
+The MAD of
+ℓ
+p
+​
+h
+​
+a
+​
+s
+​
+e
+\ell_{phase}
+and
+ℓ
+s
+B
+​
+V
+\ell_{s_{BV}}
+among selected PCs are 6.6 and 0.22, respectively.
+The resulting test templates are shown in Figure
+C2
+, where variations in
+ℓ
+p
+​
+h
+​
+a
+​
+s
+​
+e
+\ell_{phase}
+are plotted above the data as a sequence from blue to yellow lines and variations in
+ℓ
+s
+B
+​
+V
+\ell_{s_{BV}}
+are plotted below as a sequence from red to blue lines.
+On the left, we plot SN 1999by at
++
+14.0
++14.0
+days, which has a decline rate
+s
+B
+​
+V
+=
+0.42
+s_{BV}=0.42
+and on the right, we plot SN 2015 at
++
+47.2
++47.2
+days, which has a decline rate
+s
+B
+​
+V
+=
+0.67
+s_{BV}=0.67
+.
+These were chosen to represent points in the phase-
+s
+B
+​
+V
+s_{BV}
+space that are sparsely sampled by the training data (see
+Figure
+3
+).
+SN 1999by, being on the low edge of the
+s
+B
+​
+V
+s_{BV}
+distribution, shows a larger variation when varying
+ℓ
+s
+B
+​
+V
+\ell_{s_{BV}}
+than in the case of SN2015bp, which resides in a better-sampled part of the
+s
+B
+​
+V
+s_{BV}
+distribution.
+It should be emphasized that the “errors” seen in
+C2
+are exaggerated since the real variations in
+ℓ
+p
+​
+h
+​
+a
+​
+s
+​
+e
+\ell_{phase}
+and
+ℓ
+s
+B
+​
+V
+\ell_{s_{BV}}
+due to uncertainties are lower (on the order of 0.2 days and 0.1, respectively). Nevertheless, it illustrates that improvements can be made by adding more training data in those areas that are sparsely sampled in
+s
+B
+​
+V
+s_{BV}
+and phase, particularly fast-declining SNe at late phases.
+Figure C1:
+The heatmaps of the optimal hyperparameters of GPRs.
+From left to right are the constant (C), RBF kernel length scale for phase (
+ℓ
+p
+​
+h
+​
+a
+​
+s
+​
+e
+\ell_{phase}
+), RBF kernel length scale for
+s
+B
+​
+V
+s_{BV}
+(
+ℓ
+s
+B
+​
+V
+\ell_{s_{BV}}
+), and White kernel noise level (
+σ
+\sigma
+), respectively.
+The selected PCs for the template constructions with GPR R
+2
+≥
+0.2
+{}^{2}\geq 0.2
+(see Section
+III.4
+) are indicated with labels.
+Figure C2:
+Comparison between the test templates with varying length scales, the observed spectra, and the optimal template.
+The phase and
+s
+B
+​
+V
+s_{BV}
+length scales are varied by 1
+σ
+\sigma
+median absolute deviation and are plotted on the top and bottom of the observed spectrum, respectively.
+The template is less robust against varying length scales in regions of the parameter space that are not well-modeled, such as
+s
+B
+​
+V
+=
+0.42
+s_{BV}=0.42
+(left panel).
+The right panel shows the same comparison but at
+s
+B
+​
+V
+=
+0.67
+s_{BV}=0.67
+and phase
+=
++
+47.2
+=+47.2
+days, which is on the border of extrapolation.
+Note that the spectra are color-matched in this comparison.
+Experimental support, please
+view the build logs
+for errors. Generated by
+L
+A
+T
+E
+xml
+.
+Instructions for reporting errors
+We are continuing to improve HTML versions of papers, and your feedback helps enhance accessibility and mobile
+      support. To report errors in the HTML that will help us improve conversion and rendering, choose any of the
+      methods listed below:
+Click the "Report Issue"
+(
+)
+button, located in the page header.
+Tip:
+You can select the relevant text first, to include it in your report.
+Our team has already identified
+the following issues
+. We appreciate your time reviewing and reporting rendering errors we
+      may not have found yet. Your efforts will help us improve the HTML versions for all readers, because disability
+      should not be a barrier to accessing research. Thank you for your continued support in championing open access for
+      all.
+Have a free development cycle? Help support accessibility at arXiv! Our collaborators at LaTeXML maintain a
+list of packages that need conversion
+, and welcome
+developer contributions
+.
+We gratefully acknowledge support from
+        our
+major funders
+,
+member institutions
+,
+,
+        and all contributors.
+About
+·
+Help
+·
+Contact
+·
+Subscribe
+·
+Copyright
+·
+Privacy
+·
+Accessibility
+·
+Operational Status
+(opens in new tab)
+Major funding support from

@@ -1,0 +1,33 @@
+{
+  "scope": "Post-result implementation-gate sensitivity selected solely by nonpositive integrated model means; no residual-based outlier rejection",
+  "affected_CIDs": [
+    "1250665",
+    "1288083",
+    "1314317",
+    "1336942",
+    "1646092",
+    "1703026",
+    "1933258",
+    "1936353"
+  ],
+  "rows": 10,
+  "selection": "Native Python mean<=0 OR exported official mean<=0 in unchanged SED ledger",
+  "primary_sensitivity": "Full rows/exact native mean and C, replace approximate nuisance J with direct native central differences at saved coordinates",
+  "secondary_sensitivity": "Remove only10 flagged rows; use marginal C submatrix and refit nuisance projection, with cached J and direct-native J separately",
+  "native_steps": {
+    "1": 0.001,
+    "2": 0.0001,
+    "3": 0.01
+  },
+  "half_steps": "All increments halved for numerical convergence; preserve both outputs",
+  "amplitude": "Exact43 discovery vector unchanged; no refits to real residual coefficients or scientific data",
+  "unchanged_rest": "Other1012 validation objects untouched; report full1020 aggregate M,I,gain and chi-square with differences from original",
+  "hashes": {
+    "runs/research_2026_09_26/sed_identification/nonpositive-model-epochs.csv": "0a11d6b77da742edd6f4f0245f592a901746237706b4d3a70daa7dc76a0f8db4",
+    "runs/research_2026_09_26/astra_design/nonpositive_mean_gate.py": "9d29181a16a2faae35e3889702125429eb325dc88fcb5f8602aa10d7f25f190b",
+    "runs/research_2026_09_26/astra_design/validation1020/fit.nml": "c9ee28a91b7c128b00cae5f01c592c36ec77f71e166b1877be3b6adf2fc90447",
+    "runs/research_2026_09_26/astra_design/validation1020/frozen-discovery-coefficients.npz": "5db1dabdc832fa3a3d8ba47f47fd365e36f5bb0d5eb556b95c609153697145a0",
+    "phase2/official/build/SNANA-audit-v3/bin/snlc_fit.exe": "59ebe496525de4413b451e763cc4e1cd5dd0649e516d04636f6fe89ec40dcb04",
+    "scripts/research_2026_09_26/export_flux_objectives.py": "0dd468a83064386e0c56010b06240b633d4c7d6372bd95591b12c4d38acf6568"
+  }
+}

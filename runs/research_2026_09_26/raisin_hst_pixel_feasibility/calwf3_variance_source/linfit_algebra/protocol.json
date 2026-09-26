@@ -1,0 +1,55 @@
+{
+  "status": "frozen source and algebra design before synthetic numerical results",
+  "scope": "exact fixed-weight seven-read slope covariance coefficients; no observed pixel values or native FITS reads",
+  "source_ref": "spacetelescope/hstcal 6a1147d7bdccb7e2a7b73af276f4597c6420fbb8, declared CALWF3 3.7.3, source-match not executable proof",
+  "source_files": [
+    {
+      "path": "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_hst_pixel_feasibility/calwf3_variance_source/source-3.7.3/cridcalc.c",
+      "sha256": "87dcc25cda11e68d3ce30e6ac00049f1c35a9aaf7b40dd637f4312fb1fdcd489",
+      "bytes": 58447
+    },
+    {
+      "path": "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_hst_pixel_feasibility/calwf3_variance_source/source-3.7.3/wf3version.h",
+      "sha256": "97b64f290a71ffab23d7459eb4cc8a8d74e3c0c3103d249948eb1072e40c8bae",
+      "bytes": 233
+    },
+    {
+      "path": "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_hst_pixel_feasibility/calwf3_variance_source/source-3.7.3-selection.json",
+      "sha256": "f0218fead1e19edcd3b1a818482d8fb1d1d66e2ffdd7bf75f2ebe79547841655",
+      "bytes": 2918
+    },
+    {
+      "path": "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_hst_pixel_feasibility/calwf3_variance_source/source-3.7.3-manifest.json",
+      "sha256": "d09b7bfce65108976e75798c7e2dd067433eefe079d9588bd263e856d073dc1d",
+      "bytes": 3494
+    }
+  ],
+  "official_readnoise_reference": "https://hst-docs.stsci.edu/wfc3ihb/chapter-5-wfc3-detector-characteristics-and-performance/5-7-ir-detector-characteristics-and-performance",
+  "n_samples": 7,
+  "times_seconds": [
+    0,
+    50,
+    100,
+    150,
+    200,
+    250,
+    300
+  ],
+  "power_branches": [
+    0,
+    0.4,
+    1,
+    3,
+    6,
+    10
+  ],
+  "gain": "1 electron per synthetic count solely as unit convention; coefficients retain arbitrary gain mapping",
+  "sigma_CDS_electrons": 21,
+  "read_model": "independent single-read N_i with Var=21^2/2; observed accumulated differences include shared -N_0, annihilated by intercept because sum(h)=0",
+  "poisson_model": "independent cumulative electron increments with nonnegative total rate r; Cov(P_i,P_j)=r*min(t_i,t_j)",
+  "weights": "u_i=abs((i-3)/3)^p, central 0^0=1; W_i=u_i/21^2; all seven sig_i nonzero and no rejection",
+  "reported_variance": "21^2/Q + r/T in electron-rate squared, Q=sum(u_i*(t_i-tbar_u)^2), T=300s; evaluate expected dy+ddg=r*T, not noisy realized span",
+  "actual_variance": "(21^2/2)*sum(h_i^2)+r*h.T min(ti,tj) h, h_i=u_i*(t_i-tbar_u)/Q",
+  "independent_poisson_check": "sum over six 50s increments of 50*(sum_{i>=k}h_i)^2",
+  "exclusions": "no correlated read/1f, IPC, persistence, nonlinearity, flat/dark reference uncertainty, cosmic-ray rejection, branch selection from noisy SNR or pixel-data inference"
+}

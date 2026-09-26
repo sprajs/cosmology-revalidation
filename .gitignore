@@ -16,3 +16,48 @@ __pycache__/
 /runs/**/sources-*/
 
 /runs/directional/sources/
+
+# Local runtimes and regenerable build/cache products.
+*.py[cod]
+.ruff_cache/
+.pytest_cache/
+CMakeFiles/
+autom4te.cache/
+.deps/
+*.o
+*.a
+*.mod
+*.so
+*.so.*
+*~
+/runs/**/toolchain/
+/runs/**/deps/
+# This acquired checkout stays local; its local modification is frozen in
+# catalog/consolidation-2026-09-26/vendor-patches/.
+/runs/research_2026_09_26/raisin_nir_timing_sensitivity/SNANA-v11_03c-source/
+
+# Preserve large scientific inputs and execution traces locally, as above.
+# Code, Markdown, configurations, tables and provenance remain versioned.
+/research_clean/data/
+/runs/**/*.fits
+/runs/**/*.fits.gz
+/runs/**/*.FITS
+/runs/**/*.npz
+/runs/**/*.npy
+/runs/**/*.h5
+/runs/**/*.hdf5
+/runs/**/*.pt
+/runs/**/*.log
+/runs/**/*.LOG
+/runs/**/*.TEXT
+/runs/**/*.CAR
+/runs/**/*.exe
+/runs/**/*.e
+/runs/**/*.tar
+/runs/**/*.tar.gz
+/runs/**/*.tgz
+/runs/**/*.zip
+/runs/**/*.whl
+/phase2/classification/reconstruction_20260926/**/*.h5
+/phase2/classification/reconstruction_20260926/**/*.TEXT
+/phase2/classification/reconstruction_20260926/**/*.log

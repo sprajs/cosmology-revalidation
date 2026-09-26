@@ -1,0 +1,50 @@
+{
+  "scope": "Read-only source-chain audit of available nominal configuration; no simulated outputs or historical execution linkage.",
+  "source_tag": "v11_03c",
+  "chain": [
+    [
+      "sim_DES_SNOOPY.input:9-13",
+      "USE_SIMLIB_PEAKMJD=1 uses LIBID true peak; GENSIGMA_SEARCH_PEAKMJD=.01 at line44"
+    ],
+    [
+      "snlc_sim.c:1745-1747",
+      "GENSIGMA_SEARCH_PEAKMJD aliases GENSIGMA_PEAKMJD"
+    ],
+    [
+      "snlc_sim.c:7873-7874",
+      "positive GENSIGMA_PEAKMJD disables flux-derived OPT_SETPKMJD"
+    ],
+    [
+      "snlc_sim.c:13129-13184",
+      "gen_peakmjd_smear returns true PEAKMJD plus sigma times one normal draw"
+    ],
+    [
+      "snlc_sim.c:20687-20688",
+      "smeared value assigned SNDATA.SEARCH_PEAKMJD"
+    ],
+    [
+      "sntools_dataformat_fits.c:1480,2909",
+      "write/read PEAKMJD header field"
+    ],
+    [
+      "REFAC_DES_RAISIN_NIR.nml:63-68",
+      "fixed shape1 AV0 and peak; JH only at line77"
+    ]
+  ],
+  "limitations": [
+    "Source available configuration is not exact published bias execution",
+    "Data header estimator is described as optical+NIR SNooPy by release README; exact upstream fit/uncertainty unknown",
+    "NIR intrinsic dispersion can include effects of timing scatter; do not add another uncertainty without checking overlap",
+    "Differences between author t0 and data header are counterfactual timing inputs, not true peak errors"
+  ],
+  "files_sha256": {
+    "runs/research_2026_09_26/raisin_nir_timing_sensitivity/SNANA-v11_03c-source/src/snlc_sim.c": "57b77a338fbbc7b21ef058ce734d9c119f51d9ad6cdbaeb1197095b8da7782f4",
+    "runs/research_2026_09_26/raisin_nir_timing_sensitivity/SNANA-v11_03c-source/src/sntools_dataformat_fits.c": "97f8e59615c05bb127197738940535128139f08d3ebe2bbe1271142fd0eb8252",
+    "runs/research_2026_09_26/raisin_nir_timing_sensitivity/SNANA-v11_03c-source/src/snana.car": "6682fe8bbdd5f754582814de874308f35de063c3cc254a63f6a90635ff2d7109",
+    "runs/research_2026_09_26/raisin_nir_timing_sensitivity/SNANA-v11_03c-source/src/snlc_fit.car": "83b6552e555ab368876e44682e346315d5bfdb9d4551fe5204bcc4139a296255",
+    "runs/research_2026_09_26/raisin_sign_source/sim/inputs/DES/sim_DES_SNOOPY.input": "6a576dbd1745e4b770c3ddccc08636b2c7387637fa28870906948a2e1bb751cf",
+    "runs/research_2026_09_26/raisin_simulation_assets/timing/REFAC_DES_RAISIN_NIR.nml": "265eb1bd1bc4118e32bce1b56dac9c67c0adfab291bac4fc2d26321e70ff260f",
+    "runs/research_2026_09_26/raisin_simulation_assets/timing/DES_RAISIN_NIR.nml": "6839e9384ef46687bd4bc78bfa29b737ba735f7e26234be9032f967fda5c92b8",
+    "runs/research_2026_09_26/raisin_simulation_assets/timing/acquisition.json": "deab6a27b2a46b33fd9083be164dbae70935ae2e71998086b649a785cef94c10"
+  }
+}

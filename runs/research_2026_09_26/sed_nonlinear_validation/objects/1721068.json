@@ -1,0 +1,607 @@
+{
+  "CID": "1721068",
+  "zHEL": 0.2942500114440918,
+  "epochs": 30,
+  "status": "complete",
+  "official_mean_sensitivity": false,
+  "all_gates_pass": true,
+  "fit_details": [
+    {
+      "target": "native_noiseless",
+      "mode": "nominal",
+      "gate": true,
+      "known_exact_zero_verified": true,
+      "best_chi2": 0.0,
+      "starts": []
+    },
+    {
+      "target": "native_noiseless",
+      "mode": "observer",
+      "gate": true,
+      "starts": [
+        {
+          "theta": [
+            -0.002120563814451232,
+            0.022001197810383295,
+            0.005599419958121722,
+            0.009896908679138509
+          ],
+          "chi2": 0.4604704019812151,
+          "success": true,
+          "status": 2,
+          "message": "`ftol` termination condition is satisfied.",
+          "nfev": 5,
+          "fisher_gradient_norm": 2.5885355162695905e-09,
+          "jacobian_halfstep_relative_error": 1.2340218380264925e-07,
+          "boundary_fraction": 0.4906676334031304,
+          "singular_values": [
+            80.8780299871227,
+            33.156228509782764,
+            5.590213204416045,
+            2.7889114750966657
+          ],
+          "individual_gate": true
+        },
+        {
+          "theta": [
+            -0.0021205629234188183,
+            0.022001211809493416,
+            0.005599420462155688,
+            0.009896915839792905
+          ],
+          "chi2": 0.4604704019811937,
+          "success": true,
+          "status": 2,
+          "message": "`ftol` termination condition is satisfied.",
+          "nfev": 10,
+          "fisher_gradient_norm": 4.192280005199297e-08,
+          "jacobian_halfstep_relative_error": 1.2340215192435575e-07,
+          "boundary_fraction": 0.4906676325630739,
+          "singular_values": [
+            80.87802998661621,
+            33.15622850557689,
+            5.590213198373937,
+            2.7889114674649225
+          ],
+          "individual_gate": true
+        }
+      ],
+      "start_chi2_difference": 2.1371793224034263e-14,
+      "start_standardized_difference_mag": 1.5715921608678436e-09,
+      "best_chi2": 0.4604704019811937
+    },
+    {
+      "target": "native_noiseless",
+      "mode": "sed",
+      "gate": true,
+      "starts": [
+        {
+          "theta": [
+            -0.007220314384662401,
+            0.021209444377105445,
+            0.000759711975945252,
+            0.011686393070051005
+          ],
+          "chi2": 0.40396983482201987,
+          "success": true,
+          "status": 2,
+          "message": "`ftol` termination condition is satisfied.",
+          "nfev": 6,
+          "fisher_gradient_norm": 4.697763205386095e-08,
+          "jacobian_halfstep_relative_error": 1.234043708361416e-07,
+          "boundary_fraction": 0.4963898428076688,
+          "singular_values": [
+            80.8701718287694,
+            33.16137701706718,
+            5.5909028610453,
+            2.7883001880438787
+          ],
+          "individual_gate": true
+        },
+        {
+          "theta": [
+            -0.007220314717418836,
+            0.021209451703535002,
+            0.0007597113285973453,
+            0.01168639691206674
+          ],
+          "chi2": 0.4039698348220271,
+          "success": true,
+          "status": 2,
+          "message": "`ftol` termination condition is satisfied.",
+          "nfev": 8,
+          "fisher_gradient_norm": 2.6541242399962867e-08,
+          "jacobian_halfstep_relative_error": 1.2340435619990725e-07,
+          "boundary_fraction": 0.4963898426412906,
+          "singular_values": [
+            80.87017179534043,
+            33.161377054897805,
+            5.590902859168869,
+            2.788300185273685
+          ],
+          "individual_gate": true
+        }
+      ],
+      "start_chi2_difference": 7.216449660063518e-15,
+      "start_standardized_difference_mag": 2.864147590793797e-09,
+      "best_chi2": 0.40396983482201987
+    },
+    {
+      "target": "observed_flux",
+      "mode": "nominal",
+      "gate": true,
+      "starts": [
+        {
+          "theta": [
+            0.0003541467226567619,
+            0.003963404777820594,
+            0.00018429401222846972,
+            0.00462093584397977
+          ],
+          "chi2": 21.00473060749242,
+          "success": true,
+          "status": 2,
+          "message": "`ftol` termination condition is satisfied.",
+          "nfev": 5,
+          "fisher_gradient_norm": 1.8973843023555579e-07,
+          "jacobian_halfstep_relative_error": 1.2387787911626901e-07,
+          "boundary_fraction": 0.4993394325370299,
+          "singular_values": [
+            80.78120151807389,
+            33.02893914303761,
+            5.591691513953765,
+            2.794377106891807
+          ],
+          "individual_gate": true
+        },
+        {
+          "theta": [
+            0.0003541837086645471,
+            0.003963737110487061,
+            0.0001843276841811649,
+            0.004621194466443786
+          ],
+          "chi2": 21.004730607490004,
+          "success": true,
+          "status": 2,
+          "message": "`ftol` termination condition is satisfied.",
+          "nfev": 12,
+          "fisher_gradient_norm": 1.3374278917940825e-06,
+          "jacobian_halfstep_relative_error": 1.2387783923037437e-07,
+          "boundary_fraction": 0.49933937714825216,
+          "singular_values": [
+            80.78120238196318,
+            33.02893809472777,
+            5.591691372646831,
+            2.794376888664887
+          ],
+          "individual_gate": true
+        }
+      ],
+      "start_chi2_difference": 2.4158453015843406e-12,
+      "start_standardized_difference_mag": 1.453405027328843e-08,
+      "best_chi2": 21.004730607490004
+    },
+    {
+      "target": "observed_flux",
+      "mode": "observer",
+      "gate": true,
+      "starts": [
+        {
+          "theta": [
+            -0.0016870072562816581,
+            0.025782905413550935,
+            0.006054895863785752,
+            0.01505302868701369
+          ],
+          "chi2": 20.5970701039261,
+          "success": true,
+          "status": 2,
+          "message": "`ftol` termination condition is satisfied.",
+          "nfev": 6,
+          "fisher_gradient_norm": 3.193012075650006e-07,
+          "jacobian_halfstep_relative_error": 1.2325950337546988e-07,
+          "boundary_fraction": 0.48990850689369037,
+          "singular_values": [
+            80.89080834079472,
+            33.14047536056881,
+            5.589179327773851,
+            2.7860191111723185
+          ],
+          "individual_gate": true
+        },
+        {
+          "theta": [
+            -0.0016869587988865352,
+            0.02578335558484124,
+            0.0060549389389658904,
+            0.015053359264898028
+          ],
+          "chi2": 20.59707010392349,
+          "success": true,
+          "status": 2,
+          "message": "`ftol` termination condition is satisfied.",
+          "nfev": 13,
+          "fisher_gradient_norm": 1.632377469129103e-06,
+          "jacobian_halfstep_relative_error": 1.2325953149848434e-07,
+          "boundary_fraction": 0.4899084351017235,
+          "singular_values": [
+            80.89080941723581,
+            33.140474056026065,
+            5.589179133827916,
+            2.7860188193615087
+          ],
+          "individual_gate": true
+        }
+      ],
+      "start_chi2_difference": 2.611244553918368e-12,
+      "start_standardized_difference_mag": 1.3423346040330347e-08,
+      "best_chi2": 20.59707010392349
+    },
+    {
+      "target": "observed_flux",
+      "mode": "sed",
+      "gate": true,
+      "starts": [
+        {
+          "theta": [
+            -0.006721007393500643,
+            0.026580402672160292,
+            0.0012240584296660893,
+            0.017725904509584077
+          ],
+          "chi2": 20.58225338805054,
+          "success": true,
+          "status": 2,
+          "message": "`ftol` termination condition is satisfied.",
+          "nfev": 6,
+          "fisher_gradient_norm": 6.471412497598105e-08,
+          "jacobian_halfstep_relative_error": 1.2320065939214968e-07,
+          "boundary_fraction": 0.4955699328879733,
+          "singular_values": [
+            80.88049378919166,
+            33.14701469362366,
+            5.589222282495984,
+            2.784574037400617
+          ],
+          "individual_gate": true
+        },
+        {
+          "theta": [
+            -0.006720964799936819,
+            0.026580793829666816,
+            0.0012240963798449238,
+            0.017726186472925322
+          ],
+          "chi2": 20.582253388048617,
+          "success": true,
+          "status": 2,
+          "message": "`ftol` termination condition is satisfied.",
+          "nfev": 12,
+          "fisher_gradient_norm": 1.6359029757909399e-06,
+          "jacobian_halfstep_relative_error": 1.2317603667373322e-07,
+          "boundary_fraction": 0.4955698676950555,
+          "singular_values": [
+            80.88049474751357,
+            33.14701354323977,
+            5.5892221118225125,
+            2.784573784044613
+          ],
+          "individual_gate": true
+        }
+      ],
+      "start_chi2_difference": 1.922018100231071e-12,
+      "start_standardized_difference_mag": 1.2801995672218403e-08,
+      "best_chi2": 20.582253388048617
+    }
+  ],
+  "responses": [
+    {
+      "CID": "1721068",
+      "zHEL": 0.2942500114440918,
+      "target": "native_noiseless",
+      "mode": "observer",
+      "paired_gate": true,
+      "baseline_theta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "alternative_theta": [
+        -0.0021205629234188183,
+        0.022001211809493416,
+        0.005599420462155688,
+        0.009896915839792905
+      ],
+      "actual_shift": [
+        -0.0021205629234188183,
+        0.022001211809493416,
+        0.005599420462155688,
+        0.009896915839792905
+      ],
+      "finite_mean_tangent_shift": [
+        -0.0021306054781629236,
+        0.021137867207397465,
+        0.005737777274685155,
+        0.009369564083209894
+      ],
+      "infinitesimal_tangent_shift": [
+        -0.0021612509951462583,
+        0.021102373188561382,
+        0.005821593355947562,
+        0.009307975673021822
+      ],
+      "nonlinear_standardized_mag": -0.016039101096534614,
+      "finite_mean_tangent_standardized_mag": -0.016619398767522272,
+      "infinitesimal_tangent_standardized_mag": -0.016917075985475698,
+      "nonlinear_minus_finite_tangent_mag": 0.0005802976709876545,
+      "baseline_chi2": 0.0,
+      "alternative_chi2": 0.4604704019811937,
+      "descriptive_profile_log_score_change": -0.23023520099059686
+    },
+    {
+      "CID": "1721068",
+      "zHEL": 0.2942500114440918,
+      "target": "native_noiseless",
+      "mode": "sed",
+      "paired_gate": true,
+      "baseline_theta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "alternative_theta": [
+        -0.007220314384662401,
+        0.021209444377105445,
+        0.000759711975945252,
+        0.011686393070051005
+      ],
+      "actual_shift": [
+        -0.007220314384662401,
+        0.021209444377105445,
+        0.000759711975945252,
+        0.011686393070051005
+      ],
+      "finite_mean_tangent_shift": [
+        -0.007207988648514601,
+        0.02064804484205825,
+        0.0008896384510976285,
+        0.011307662653927368
+      ],
+      "infinitesimal_tangent_shift": [
+        -0.007266461368343329,
+        0.02048248831696286,
+        0.0009803922723452872,
+        0.011221380137960304
+      ],
+      "nonlinear_standardized_mag": -0.006176981066319554,
+      "finite_mean_tangent_standardized_mag": -0.006660052437604876,
+      "infinitesimal_tangent_standardized_mag": -0.0070281104995116505,
+      "nonlinear_minus_finite_tangent_mag": 0.0004830713712853215,
+      "baseline_chi2": 0.0,
+      "alternative_chi2": 0.40396983482201987,
+      "descriptive_profile_log_score_change": -0.20198491741100993
+    },
+    {
+      "CID": "1721068",
+      "zHEL": 0.2942500114440918,
+      "target": "observed_flux",
+      "mode": "observer",
+      "paired_gate": true,
+      "baseline_theta": [
+        0.0003541837086645471,
+        0.003963737110487061,
+        0.0001843276841811649,
+        0.004621194466443786
+      ],
+      "alternative_theta": [
+        -0.0016869587988865352,
+        0.02578335558484124,
+        0.0060549389389658904,
+        0.015053359264898028
+      ],
+      "actual_shift": [
+        -0.0020411425075510825,
+        0.02181961847435418,
+        0.005870611254784726,
+        0.010432164798454241
+      ],
+      "finite_mean_tangent_shift": [
+        -0.0021285101448224215,
+        0.021180578971992797,
+        0.005739172126816466,
+        0.009400710304614247
+      ],
+      "infinitesimal_tangent_shift": [
+        -0.002159139730057306,
+        0.021145228436734505,
+        0.0058230014061518235,
+        0.009339240887964298
+      ],
+      "nonlinear_standardized_mag": -0.016834412253749542,
+      "finite_mean_tangent_standardized_mag": -0.016614781262586316,
+      "infinitesimal_tangent_standardized_mag": -0.01691246061553998,
+      "nonlinear_minus_finite_tangent_mag": -0.0002196309911632257,
+      "baseline_chi2": 21.004730607490004,
+      "alternative_chi2": 20.59707010392349,
+      "descriptive_profile_log_score_change": 0.2038302517832573
+    },
+    {
+      "CID": "1721068",
+      "zHEL": 0.2942500114440918,
+      "target": "observed_flux",
+      "mode": "sed",
+      "paired_gate": true,
+      "baseline_theta": [
+        0.0003541837086645471,
+        0.003963737110487061,
+        0.0001843276841811649,
+        0.004621194466443786
+      ],
+      "alternative_theta": [
+        -0.006720964799936819,
+        0.026580793829666816,
+        0.0012240963798449238,
+        0.017726186472925322
+      ],
+      "actual_shift": [
+        -0.007075148508601367,
+        0.022617056719179754,
+        0.001039768695663759,
+        0.013104992006481537
+      ],
+      "finite_mean_tangent_shift": [
+        -0.0072058307945451466,
+        0.020691107837363526,
+        0.0008913069986758175,
+        0.011337066796158746
+      ],
+      "infinitesimal_tangent_shift": [
+        -0.007264303906114449,
+        0.020525387747876433,
+        0.0009820675628847936,
+        0.011250701852191448
+      ],
+      "nonlinear_standardized_mag": -0.006678533433527386,
+      "finite_mean_tangent_standardized_mag": -0.00665616923721994,
+      "infinitesimal_tangent_standardized_mag": -0.007024275026675776,
+      "nonlinear_minus_finite_tangent_mag": -2.2364196307447272e-05,
+      "baseline_chi2": 21.004730607490004,
+      "alternative_chi2": 20.582253388048617,
+      "descriptive_profile_log_score_change": 0.2112386097206933
+    }
+  ],
+  "support": [
+    {
+      "target": "native_noiseless",
+      "mode": "nominal",
+      "gate": true,
+      "phase_support": true,
+      "wavelength_support": true,
+      "phase_min": -12.577008620231771,
+      "phase_max": 8.9698329895122,
+      "source_phase_domain": [
+        -20.0,
+        50.0
+      ],
+      "sed_max_abs_mag_at_fitted_phase": 0.05661744602490524,
+      "negative_absolute_spectral_photon_share_max": 0.0003315003872874161,
+      "epochs_with_negative_spectral_share_gt_1e_minus6": 1,
+      "nonpositive_integrated_model_epochs": 0
+    },
+    {
+      "target": "native_noiseless",
+      "mode": "observer",
+      "gate": true,
+      "phase_support": true,
+      "wavelength_support": true,
+      "phase_min": -12.584655454886809,
+      "phase_max": 8.962186154857163,
+      "source_phase_domain": [
+        -20.0,
+        50.0
+      ],
+      "sed_max_abs_mag_at_fitted_phase": 0.0566179347923617,
+      "negative_absolute_spectral_photon_share_max": 3.766051999307799e-05,
+      "epochs_with_negative_spectral_share_gt_1e_minus6": 1,
+      "nonpositive_integrated_model_epochs": 0
+    },
+    {
+      "target": "native_noiseless",
+      "mode": "sed",
+      "gate": true,
+      "phase_support": true,
+      "wavelength_support": true,
+      "phase_min": -12.586038091328327,
+      "phase_max": 8.960803518415645,
+      "source_phase_domain": [
+        -20.0,
+        50.0
+      ],
+      "sed_max_abs_mag_at_fitted_phase": 0.05661802290643433,
+      "negative_absolute_spectral_photon_share_max": 4.839655264102197e-05,
+      "epochs_with_negative_spectral_share_gt_1e_minus6": 1,
+      "nonpositive_integrated_model_epochs": 0
+    },
+    {
+      "target": "observed_flux",
+      "mode": "nominal",
+      "gate": true,
+      "phase_support": true,
+      "wavelength_support": true,
+      "phase_min": -12.58057917802631,
+      "phase_max": 8.966262431717663,
+      "source_phase_domain": [
+        -20.0,
+        50.0
+      ],
+      "sed_max_abs_mag_at_fitted_phase": 0.05661767455038757,
+      "negative_absolute_spectral_photon_share_max": 0.0002767512641800429,
+      "epochs_with_negative_spectral_share_gt_1e_minus6": 1,
+      "nonpositive_integrated_model_epochs": 0
+    },
+    {
+      "target": "observed_flux",
+      "mode": "observer",
+      "gate": true,
+      "phase_support": true,
+      "wavelength_support": true,
+      "phase_min": -12.58863957184992,
+      "phase_max": 8.958202037894049,
+      "source_phase_domain": [
+        -20.0,
+        50.0
+      ],
+      "sed_max_abs_mag_at_fitted_phase": 0.05661818847968351,
+      "negative_absolute_spectral_photon_share_max": 1.5180333560484511e-05,
+      "epochs_with_negative_spectral_share_gt_1e_minus6": 1,
+      "nonpositive_integrated_model_epochs": 0
+    },
+    {
+      "target": "observed_flux",
+      "mode": "sed",
+      "gate": true,
+      "phase_support": true,
+      "wavelength_support": true,
+      "phase_min": -12.59070472710153,
+      "phase_max": 8.956136882642442,
+      "source_phase_domain": [
+        -20.0,
+        50.0
+      ],
+      "sed_max_abs_mag_at_fitted_phase": 0.056618319716678654,
+      "negative_absolute_spectral_photon_share_max": 1.3030113560027214e-05,
+      "epochs_with_negative_spectral_share_gt_1e_minus6": 1,
+      "nonpositive_integrated_model_epochs": 0
+    }
+  ],
+  "target_comparisons": {
+    "native_noiseless": {
+      "observer_information": 0.4604704019811937,
+      "sed_information": 0.40396983482201987,
+      "cross": 0.43097539181923306,
+      "difference_information": 0.00248945316474741
+    },
+    "observed_flux": {
+      "observer_information": 0.46057876360318356,
+      "sed_information": 0.40408121700396854,
+      "cross": 0.43107546945322517,
+      "difference_information": 0.0025090417007018234
+    }
+  },
+  "mean_check": {
+    "native_archive_relative_error": 6.104335801161413e-16,
+    "native_minus_official_exactC_norm": 0.02224708161173129,
+    "native_minus_official_max_quoted_sigma": 0.02571447664047015,
+    "native_nonpositive_epochs": 0,
+    "official_nonpositive_epochs": 0
+  },
+  "input_sha256": {
+    "runs/research_2026_09_26/astra_design/validation1020/objectives/objective_1721068.npz": "16179b4dc8a4cdf3387f8ed418c44889789263f6809431f4413fcc4c26f9a474",
+    "runs/research_2026_09_26/astra_design/validation1020/analysis/objects/1721068.npz": "3731d5131543e6a10fd2af8ec1078ce5cc97bc72c04f7b2eb9ece33d00a285db"
+  },
+  "prediction_sha256": "91c2180dcc56c063e83f1f79777103d5746b6c19450f565dcc48e4f520284ec6",
+  "elapsed_seconds": 0.5050512899979367
+}

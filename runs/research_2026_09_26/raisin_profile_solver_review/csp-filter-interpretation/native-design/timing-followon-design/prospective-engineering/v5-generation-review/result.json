@@ -1,0 +1,137 @@
+{
+  "pass": true,
+  "no_native_calls": true,
+  "independent_parser_no_executor_import": true,
+  "original_vs_ledger_all_native_columns_exact": true,
+  "records": {
+    "ledger": {
+      "PROSP_NOISE": 936,
+      "PROSP_EVENT": 8,
+      "PROSP_ROW": 984,
+      "PROSP_ATTEMPT": 8,
+      "PROSP_REJECT": 0
+    },
+    "noiseless": {
+      "PROSP_NOISE": 117,
+      "PROSP_EVENT": 1,
+      "PROSP_ROW": 123,
+      "PROSP_ATTEMPT": 1,
+      "PROSP_REJECT": 0
+    }
+  },
+  "objects": [
+    {
+      "branch": "ledger",
+      "CID": 1,
+      "written_rows": 117,
+      "noise_rows": 117,
+      "peak_placeholders": 6,
+      "negative_rows": 11,
+      "zero_rows": 0,
+      "truth_D": 42.00489057043259
+    },
+    {
+      "branch": "ledger",
+      "CID": 2,
+      "written_rows": 117,
+      "noise_rows": 117,
+      "peak_placeholders": 6,
+      "negative_rows": 6,
+      "zero_rows": 0,
+      "truth_D": 42.00489057043259
+    },
+    {
+      "branch": "ledger",
+      "CID": 3,
+      "written_rows": 117,
+      "noise_rows": 117,
+      "peak_placeholders": 6,
+      "negative_rows": 6,
+      "zero_rows": 0,
+      "truth_D": 42.00489057043259
+    },
+    {
+      "branch": "ledger",
+      "CID": 4,
+      "written_rows": 117,
+      "noise_rows": 117,
+      "peak_placeholders": 6,
+      "negative_rows": 5,
+      "zero_rows": 0,
+      "truth_D": 42.00489057043259
+    },
+    {
+      "branch": "ledger",
+      "CID": 5,
+      "written_rows": 117,
+      "noise_rows": 117,
+      "peak_placeholders": 6,
+      "negative_rows": 4,
+      "zero_rows": 0,
+      "truth_D": 42.00489057043259
+    },
+    {
+      "branch": "ledger",
+      "CID": 6,
+      "written_rows": 117,
+      "noise_rows": 117,
+      "peak_placeholders": 6,
+      "negative_rows": 6,
+      "zero_rows": 0,
+      "truth_D": 42.00489057043259
+    },
+    {
+      "branch": "ledger",
+      "CID": 7,
+      "written_rows": 117,
+      "noise_rows": 117,
+      "peak_placeholders": 6,
+      "negative_rows": 4,
+      "zero_rows": 0,
+      "truth_D": 42.00489057043259
+    },
+    {
+      "branch": "ledger",
+      "CID": 8,
+      "written_rows": 117,
+      "noise_rows": 117,
+      "peak_placeholders": 6,
+      "negative_rows": 7,
+      "zero_rows": 0,
+      "truth_D": 42.00489057043259
+    },
+    {
+      "branch": "noiseless",
+      "CID": 1,
+      "written_rows": 117,
+      "noise_rows": 117,
+      "peak_placeholders": 6,
+      "negative_rows": 0,
+      "zero_rows": 0,
+      "truth_D": 42.00489057043259
+    }
+  ],
+  "equation_max_scaled_errors": {
+    "source_flux_is_source_variance": 0.0,
+    "true_S_variance_pe2": 0.0,
+    "true_SZ_variance_pe2": 0.0,
+    "true_SUM_variance_pe2": 0.0,
+    "calc_reported_variance_pe2": 0.0,
+    "reported_variance_before_realization_pe2": 0.0,
+    "SZ_shift": 0.0,
+    "observed_noise_equation": 0.0,
+    "reported_adjustment": 0.0,
+    "reported_final": 0.0,
+    "ADU_flux": 0.0,
+    "ADU_error": 0.0,
+    "phase": 0.0
+  },
+  "all_1053_written_flux_and_error_values_reproduce_source_R4_conversion_exactly": true,
+  "fixed_true_mean_and_variance_identical_across_all_eight_draws_and_noiseless": true,
+  "reported_to_true_variance_ratio_range_all_rows": [
+    0.9758637393954824,
+    1.0238668324923346
+  ],
+  "repair_value_preservation": "Undoing only the two extent changes recovers prior source bytes exactly. Actual original-vs-ledger table identity tests output-hook noninterference on identical repaired sources. No runtime equivalence to the crashing unpatched generator is claimed.",
+  "scope": "Engineering generator/count/noise/serialization checks only. No noiseless fitter or survey bias gate is certified here."
+}

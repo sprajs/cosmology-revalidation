@@ -1,0 +1,185 @@
+{
+  "status": "PASS: native base identity, exact derivative coordinate/mask identity, independent original score reconstruction",
+  "primary_original_1020": {
+    "M": 192.40128357771854,
+    "I": 330.3361394452175,
+    "gain": 27.233213855109803,
+    "chi2": 32152.133368096227,
+    "dimension": 35526
+  },
+  "sensitivities": [
+    {
+      "tangent": "cached",
+      "mask": "drop_nonpositive",
+      "affected_objects": 8,
+      "removed": 10,
+      "aggregate": {
+        "M": 192.38810379156058,
+        "I": 330.3342311027025,
+        "gain": 27.220988240209323,
+        "chi2": 32146.341479099112,
+        "dimension": 35516.0
+      },
+      "change": {
+        "M": -0.013179786157971107,
+        "I": -0.0019083425149838407,
+        "gain": -0.012225614900479187,
+        "chi2": -5.791888997114825,
+        "dimension": -10.0
+      }
+    },
+    {
+      "tangent": "cached",
+      "mask": "full_mask",
+      "affected_objects": 8,
+      "removed": 0,
+      "aggregate": {
+        "M": 192.40128357771854,
+        "I": 330.3361394452175,
+        "gain": 27.233213855109803,
+        "chi2": 32152.133368096227,
+        "dimension": 35526.0
+      },
+      "change": {
+        "M": 0.0,
+        "I": 0.0,
+        "gain": 0.0,
+        "chi2": 0.0,
+        "dimension": 0.0
+      }
+    },
+    {
+      "tangent": "native_full",
+      "mask": "drop_nonpositive",
+      "affected_objects": 8,
+      "removed": 10,
+      "aggregate": {
+        "M": 192.38622321327287,
+        "I": 330.3338606952298,
+        "gain": 27.21929286565796,
+        "chi2": 32146.344909916537,
+        "dimension": 35516.0
+      },
+      "change": {
+        "M": -0.015060364445682595,
+        "I": -0.0022787499876769646,
+        "gain": -0.013920989451844112,
+        "chi2": -5.7884581796905366,
+        "dimension": -10.0
+      }
+    },
+    {
+      "tangent": "native_full",
+      "mask": "full_mask",
+      "affected_objects": 8,
+      "removed": 0,
+      "aggregate": {
+        "M": 192.3968228907271,
+        "I": 330.33403580262956,
+        "gain": 27.229804989412326,
+        "chi2": 32152.57136011932,
+        "dimension": 35526.0
+      },
+      "change": {
+        "M": -0.0044606869914602665,
+        "I": -0.00210364258796647,
+        "gain": -0.0034088656974769482,
+        "chi2": 0.43799202309287466,
+        "dimension": 0.0
+      }
+    },
+    {
+      "tangent": "native_half",
+      "mask": "drop_nonpositive",
+      "affected_objects": 8,
+      "removed": 10,
+      "aggregate": {
+        "M": 192.38620642411564,
+        "I": 330.33385823602015,
+        "gain": 27.219277306105557,
+        "chi2": 32146.34476265909,
+        "dimension": 35516.0
+      },
+      "change": {
+        "M": -0.015077153602912036,
+        "I": -0.0022812091973318793,
+        "gain": -0.013936549004246013,
+        "chi2": -5.788605437137505,
+        "dimension": -10.0
+      }
+    },
+    {
+      "tangent": "native_half",
+      "mask": "full_mask",
+      "affected_objects": 8,
+      "removed": 0,
+      "aggregate": {
+        "M": 192.3971219797764,
+        "I": 330.3340371835396,
+        "gain": 27.23010338800659,
+        "chi2": 32152.571503263363,
+        "dimension": 35526.0
+      },
+      "change": {
+        "M": -0.004161597942165862,
+        "I": -0.0021022616779083902,
+        "gain": -0.003110467103211667,
+        "chi2": 0.4381351671355844,
+        "dimension": 0.0
+      }
+    }
+  ],
+  "checks": [
+    {
+      "CID": "1250665",
+      "nonpositive": 1,
+      "base_mean_identity": true,
+      "all_derivative_coordinate_epoch_identity": true
+    },
+    {
+      "CID": "1288083",
+      "nonpositive": 1,
+      "base_mean_identity": true,
+      "all_derivative_coordinate_epoch_identity": true
+    },
+    {
+      "CID": "1314317",
+      "nonpositive": 1,
+      "base_mean_identity": true,
+      "all_derivative_coordinate_epoch_identity": true
+    },
+    {
+      "CID": "1336942",
+      "nonpositive": 1,
+      "base_mean_identity": true,
+      "all_derivative_coordinate_epoch_identity": true
+    },
+    {
+      "CID": "1646092",
+      "nonpositive": 2,
+      "base_mean_identity": true,
+      "all_derivative_coordinate_epoch_identity": true
+    },
+    {
+      "CID": "1703026",
+      "nonpositive": 1,
+      "base_mean_identity": true,
+      "all_derivative_coordinate_epoch_identity": true
+    },
+    {
+      "CID": "1933258",
+      "nonpositive": 2,
+      "base_mean_identity": true,
+      "all_derivative_coordinate_epoch_identity": true
+    },
+    {
+      "CID": "1936353",
+      "nonpositive": 1,
+      "base_mean_identity": true,
+      "all_derivative_coordinate_epoch_identity": true
+    }
+  ],
+  "source_sha256": "9d29181a16a2faae35e3889702125429eb325dc88fcb5f8602aa10d7f25f190b",
+  "protocol_sha256": "4a362bf13472f3d58bcc8a1987192ca5b753bc4642d05ea0e749dabff7533b32",
+  "scope": "Targeted8-object/10-epoch sensitivity; neither all1020 native-tangent closure nor calibrated new significance"
+}

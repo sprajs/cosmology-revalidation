@@ -1,0 +1,43 @@
+{
+  "fixtures": [
+    {
+      "case": "normal",
+      "accepted": true,
+      "expected": true
+    },
+    {
+      "case": "one_native_final_retry",
+      "accepted": true,
+      "expected": true
+    },
+    {
+      "case": "missing_iteration",
+      "accepted": false,
+      "expected": false
+    },
+    {
+      "case": "arbitrary_repeat",
+      "accepted": false,
+      "expected": false
+    },
+    {
+      "case": "unflagged_final_retry",
+      "accepted": false,
+      "expected": false
+    },
+    {
+      "case": "double_final_retry",
+      "accepted": false,
+      "expected": false
+    },
+    {
+      "case": "spurious_repeat_flag",
+      "accepted": false,
+      "expected": false
+    }
+  ],
+  "saved_original_joint12_checks_pass": true,
+  "callbacks": 770,
+  "MINIMIZE4_callback_count": 20,
+  "no_native_calls": true
+}

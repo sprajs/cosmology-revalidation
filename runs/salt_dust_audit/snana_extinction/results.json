@@ -1,0 +1,87 @@
+{
+  "meaning": "Monochromatic extinction implementation response, not a Hubble-distance correction or empirical dust uncertainty.",
+  "current_commit": "886408a4e171896db5eaa97e735a655f50cec2db",
+  "historical_build": "SNANA-2fe0f56",
+  "option_semantics": {
+    "historical_99": "polynomial approximation",
+    "current_99": "F99 natural cubic spline",
+    "current_minus99": "historical polynomial approximation"
+  },
+  "checks": {
+    "current_approx_vs_historical_max_abs_mag_per_EBV": 0.0,
+    "current_exact_vs_extinction_py_max_abs_mag_per_EBV": 5.800915303666443e-11
+  },
+  "grid": {
+    "wavelength_A": [
+      2000,
+      10000,
+      10
+    ],
+    "RV": [
+      1.0,
+      1.5,
+      2.0,
+      2.5,
+      3.1,
+      4.0,
+      5.0,
+      6.0
+    ],
+    "low_RV_caution": "RV<2 is outside current header recommended RV minimum; source explicitly does not enforce it."
+  },
+  "optical_3500_8000": [
+    {
+      "RV": 1.0,
+      "max_abs_delta_A_at_EBV0p1_mag": 0.020440798625067903,
+      "lambda_max_A": 6770.0,
+      "rms_delta_A_at_EBV0p1_mag": 0.011686685642009564
+    },
+    {
+      "RV": 1.5,
+      "max_abs_delta_A_at_EBV0p1_mag": 0.01592402634539074,
+      "lambda_max_A": 6850.0,
+      "rms_delta_A_at_EBV0p1_mag": 0.008807093523567086
+    },
+    {
+      "RV": 2.0,
+      "max_abs_delta_A_at_EBV0p1_mag": 0.011552697431994075,
+      "lambda_max_A": 6950.0,
+      "rms_delta_A_at_EBV0p1_mag": 0.006249085124508005
+    },
+    {
+      "RV": 2.5,
+      "max_abs_delta_A_at_EBV0p1_mag": 0.007486076346626947,
+      "lambda_max_A": 7110.0,
+      "rms_delta_A_at_EBV0p1_mag": 0.003923602697064456
+    },
+    {
+      "RV": 3.1,
+      "max_abs_delta_A_at_EBV0p1_mag": 0.004093814877712854,
+      "lambda_max_A": 5920.0,
+      "rms_delta_A_at_EBV0p1_mag": 0.002495782144691329
+    },
+    {
+      "RV": 4.0,
+      "max_abs_delta_A_at_EBV0p1_mag": 0.01174471060095379,
+      "lambda_max_A": 6140.0,
+      "rms_delta_A_at_EBV0p1_mag": 0.005737412260126118
+    },
+    {
+      "RV": 5.0,
+      "max_abs_delta_A_at_EBV0p1_mag": 0.021153907011892948,
+      "lambda_max_A": 6250.0,
+      "rms_delta_A_at_EBV0p1_mag": 0.011021836587089837
+    },
+    {
+      "RV": 6.0,
+      "max_abs_delta_A_at_EBV0p1_mag": 0.030925559297402306,
+      "lambda_max_A": 6310.0,
+      "rms_delta_A_at_EBV0p1_mag": 0.016555117018883507
+    }
+  ],
+  "versions": {
+    "python": "3.12.14 (main, Aug 14 2026, 15:34:45) [Clang 22.1.3 ]",
+    "numpy": "2.2.6",
+    "extinction": "0.4.9"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "scope": "Independent arithmetic check of saved conditional validation1020 scores; no light-curve refit or shared calibration marginalization.",
+  "frozen_prediction_verified": true,
+  "frozen_observer_coefficient_sha256": "5db1dabdc832fa3a3d8ba47f47fd365e36f5bb0d5eb556b95c609153697145a0",
+  "frozen_rest_coefficient_sha256": "e65a773dc320e93119589703152d2d4dc1746f09b96171a5d01c80f25526fbe0",
+  "executed_analysis_source_sha256": "94d4375a5e9963f684032a18a1d919c356b53832c8e5d638f6c20f9c76d8d7d0",
+  "no_validation_coefficient_fit_in_primary_score": true,
+  "dense_integral": "A=V^{-1}+F; b=V^{-1}c+u; log gain=(b^T A^{-1} b-c^T V^{-1}c-log det V-log det A)/2. A single 3x3 integration uses summed u,F over all objects.",
+  "arms": {
+    "published_mask": {
+      "objects": 1020,
+      "fields": 10,
+      "epochs": 39606,
+      "fixed_observer_gain": 27.233213855109796,
+      "fixed_rest_gain": -0.6923843631150746,
+      "observer_matched_filter": 192.40128357771857,
+      "observer_information": 330.33613944521755,
+      "joint_observer_log_gain_dense": 59.229179250491455,
+      "joint_rest_log_gain_dense": 30.592583770513585,
+      "field_sign_assignments": 1024,
+      "fixed_observer_sign_exceed": 1,
+      "fixed_rest_sign_exceed": 1,
+      "paired_sign_exceed": 1,
+      "joint_observer_sign_exceed": 1,
+      "max_object_score_error": 8.881784197001252e-16,
+      "max_saved_joint_sign_gain_error": 1.4779288903810084e-12,
+      "duplicate_objects": 37,
+      "duplicate_groups": 59,
+      "extra_duplicate_epochs": 147
+    },
+    "first_exact_duplicate": {
+      "objects": 1020,
+      "fields": 10,
+      "epochs": 39459,
+      "fixed_observer_gain": 28.2205246050043,
+      "fixed_rest_gain": 1.6871389642802868,
+      "observer_matched_filter": 192.79920251272142,
+      "observer_information": 329.15735581543424,
+      "joint_observer_log_gain_dense": 59.72465927838143,
+      "joint_rest_log_gain_dense": 31.491910984937505,
+      "field_sign_assignments": 1024,
+      "fixed_observer_sign_exceed": 1,
+      "fixed_rest_sign_exceed": 1,
+      "paired_sign_exceed": 1,
+      "joint_observer_sign_exceed": 1,
+      "max_object_score_error": 8.881784197001252e-16,
+      "max_saved_joint_sign_gain_error": 1.7195134205394424e-12,
+      "duplicate_objects": 37,
+      "duplicate_groups": 59,
+      "extra_duplicate_epochs": 147
+    }
+  },
+  "duplicate_recount_from_saved_epochs": {
+    "objects": 37,
+    "groups": 59,
+    "extra_epochs": 147,
+    "published_epochs": 39606,
+    "first_exact_duplicate_epochs": 39459
+  },
+  "qualification": "Conditional Gaussian and field-sign calibrations omit shared cross-object calibration/SALT3 covariance and do not express a full-systematics significance.",
+  "source_sha256": "de97cedf9edc86996afef6d48f49ba5cd26aeb19a55f01f9b8b696b90c941586",
+  "input_sha256": {
+    "runs/research_2026_09_26/astra_design/validation1020/analysis/result.json": "1a5c3c35da69441125fccb7a2be873d9e7ca3dec35ac7b19320c6cdd6d07b558",
+    "runs/research_2026_09_26/astra_design/validation1020/analysis/object-scores.csv": "edc9e67c8dcabcc1b06a27c87dc40ce088799227d7efa1bcf4a169b28fa211f9",
+    "runs/research_2026_09_26/astra_design/validation1020/analysis/field-scores.csv": "3b3ad7a2d7b4e02f4252be382c2d6c26318ebd9e3078a1b68a2ff4f86e9b73b4",
+    "runs/research_2026_09_26/astra_design/validation1020/analysis/sufficient-arrays.npz": "593099e1dd7ab1b91a4d7fed7badb7e5a933e8366fd8acb1207fd98dc3177bda",
+    "runs/research_2026_09_26/astra_design/validation1020/input-manifest.json": "bf0ff1cb4513a091da08b3ffbe955666804155634748e874e89ba1533b748a64",
+    "runs/research_2026_09_26/astra_design/validation1020/rest-amendment-manifest.json": "d26e8ae42fffcfd3ab1ccbf926044bd2aaa184aea1d7c44c7ea92ec839c86b34",
+    "runs/research_2026_09_26/astra_design/validation1020/frozen-discovery-coefficients.npz": "5db1dabdc832fa3a3d8ba47f47fd365e36f5bb0d5eb556b95c609153697145a0",
+    "runs/research_2026_09_26/astra_design/validation1020/frozen-rest-discovery-coefficients.npz": "e65a773dc320e93119589703152d2d4dc1746f09b96171a5d01c80f25526fbe0",
+    "runs/research_2026_09_26/astra_design/validation1020.py": "94d4375a5e9963f684032a18a1d919c356b53832c8e5d638f6c20f9c76d8d7d0"
+  }
+}

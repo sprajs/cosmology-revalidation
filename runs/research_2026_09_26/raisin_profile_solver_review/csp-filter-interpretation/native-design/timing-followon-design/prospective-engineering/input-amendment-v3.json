@@ -1,0 +1,24 @@
+{
+  "status": "pre-photon correction of source controls",
+  "prior_drafts_preserved": [
+    "inputs",
+    "generation",
+    "inputs-v2/fit-template.nml",
+    "generation-v2"
+  ],
+  "active_cadence": "inputs-v2/cadence.simlib",
+  "active_generation": "generation-v3",
+  "active_fit_template": "inputs-v2/fit-template-v3.nml",
+  "source_controls": [
+    "OPT_SETPKMJD=0 explicitly required: sigma0 alone leaves default max-flux peak finder active (snlc_sim.c717,8075,13367).",
+    "Use explicit INIVAL_PEAKMJD absolute truth\u00b12 for freepeak starts. INIVAL_PEAKMJD_SHIFT is parsed but no implementation use found in exactsource.",
+    "MXLC_PLOT=0 and FITRES only exclude plotting-only means from all-call support test.",
+    "Original inputs-v2 manifest model_empirical_phase_support is a label error: [-20,70] is tabulated support only, not independent empirical validation."
+  ],
+  "files": {
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/generation-v3/original/sim.input": "2d6a84ea96d9eb0aebf4ee829a24ed1c1ac6fd2dfe6050651d57a7be9d98a157",
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/generation-v3/ledger/sim.input": "164da810a6b565255fe8bd306b181bbca98857afdae9830d9c04028d7fdc02ce",
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/generation-v3/noiseless/sim.input": "2e015544423f39c66de1286af5fc47754f971a7b237257aea5d7b868bdb38769",
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/inputs-v2/fit-template-v3.nml": "7a65210518a395522905366984f20444a9b7773216c72e880340f4b7494d9a16"
+  }
+}

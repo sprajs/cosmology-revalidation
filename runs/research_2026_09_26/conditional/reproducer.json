@@ -1,0 +1,61 @@
+{
+  "environment": {
+    "python": "3.12.14",
+    "jax": "0.6.2",
+    "jaxlib": "0.6.2",
+    "backend": "cpu",
+    "x64": false,
+    "XLA_FLAGS": "--xla_cpu_multi_thread_eigen=false intra_op_parallelism_threads=1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "ast": "Expression(body=BinOp(left=UnaryOp(op=USub(), operand=Subscript(value=Name(id='dx', ctx=Load()), slice=Tuple(elts=[Slice(), Name(id='indices', ctx=Load())], ctx=Load()), ctx=Load())), op=MatMult(), right=Name(id='coef', ctx=Load())))",
+  "expected_v": [
+    1.0,
+    0.20623263862481683,
+    -3.4957056719902764
+  ],
+  "fused_eager": {
+    "v": [
+      1.0,
+      0.20623263716697693,
+      -3.4957056045532227
+    ],
+    "variance": 0.07895070433005597,
+    "variance_grad": [
+      -0.6067214012145996,
+      0.006272837985306978
+    ]
+  },
+  "fused_jit": {
+    "v": [
+      1.0,
+      0.20623263716697693,
+      -3.4957056045532227
+    ],
+    "variance": 0.07895070433005597,
+    "variance_grad": [
+      -0.6067214012145996,
+      0.006272837985306978
+    ]
+  },
+  "split_jit": {
+    "v": [
+      1.0,
+      0.20623263716697693,
+      -3.4957056045532227
+    ],
+    "variance": 0.07895070433005597,
+    "variance_grad": [
+      -0.6067214012145996,
+      0.006272837985306978
+    ]
+  },
+  "numpy": {
+    "variance": 0.0789507056375803,
+    "variance_grad": [
+      -0.6067213696656834,
+      0.006272838348922421
+    ]
+  }
+}

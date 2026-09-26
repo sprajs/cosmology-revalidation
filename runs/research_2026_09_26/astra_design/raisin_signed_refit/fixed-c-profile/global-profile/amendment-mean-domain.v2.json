@@ -1,0 +1,16 @@
+{
+  "status": "Frozen pre-score independent-review amendment; no global profile has run",
+  "original_protocol_sha256": "9e128dfc60be4579f0c1825d49b06a9e2102867f2ab2793ccd744b77286e73e6",
+  "original_runner_preserved_sha256": "500cf3397bd2a92e7fcbb8be7e004bb1d7f07e21d7e1c6b0b2a7ea7a810f35c2",
+  "runner_sha256": "b71d0bb3eb36633b817eba3c22c37b9ce5a80c1ebac2de372bc89c7e0bc057ac",
+  "guards": [
+    "Record h<=0 or mean outside native magnitude5\u201340 validity, q<=0 and active distance/scale domains; no analytic amplitude through clipping.",
+    "Verify native actual-D means against scaled Dref means for all saved shape-profile candidates within9 of each metric minimum; tolerance2e-8 relative.",
+    "Probe every algorithm boundary min+k*step and both sides at\u00b11e-8, using nearest fine-grid profiled AV, then continuously polish AV if such candidate wins. Stored knots and quarterpoints remain unchanged.",
+    "Require covariance relative asymmetry<1e-12 before roundoff symmetrization; no PSD repair.",
+    "Separate computational completion and numerical_gate_pass; no stable pair promotion if resolution/edge/support gates fail."
+  ],
+  "resource": "Same100000 total mean-call cap/20min. Boundary/competitive checks included. Incomplete gates reported, no automatic expansion.",
+  "previous_amendment_sha256": "ba3ddcfc1b44d67e8c854a3115cb7f6637a6ffb51ac95a010f2d772132d25bfe",
+  "previous_runner_sha256": "d11597d84339acb41a9b9e29b85dd5aa380b7192701df07675b23d6ff3c6f360"
+}

@@ -1,0 +1,148 @@
+{
+  "status": "complete",
+  "computational_completion": true,
+  "numerical_gate_pass": true,
+  "exception": null,
+  "native_vectors": 84445,
+  "total_oracle_calls": 90447,
+  "seconds": 43.24065423999855,
+  "rows_A": 53,
+  "rows_B": 58,
+  "metrics": {
+    "Banchor_A": {
+      "coarse": {
+        "stage": "coarse",
+        "metric": "Banchor_A",
+        "shape": 1.1015384197235107,
+        "AV": 0.15898613959250465,
+        "Q": 59.39919214906229,
+        "DLMAG": 42.10951071228498,
+        "amplitude": 0.936513437984668,
+        "AV_low_Q": 321.98602736475505,
+        "AV_high_Q": 308.72971078388105
+      },
+      "finest": {
+        "stage": "boundary_polish_final",
+        "metric": "Banchor_A",
+        "shape": 1.1015384094789624,
+        "AV": 0.1589861456222376,
+        "Q": 59.3991920361329,
+        "DLMAG": 42.10951070051807,
+        "amplitude": 0.9365134481343432,
+        "AV_low_Q": 321.98603015396907,
+        "AV_high_Q": 308.7297098442151
+      },
+      "coarse_minus_finest_Q": 1.1292938495444105e-07,
+      "coarse_minus_finest_DLMAG": 1.1766907448418351e-08,
+      "coarse_fine_tolerance_pass": true,
+      "AV_edge_within9": false,
+      "shape_edge_within1": false
+    },
+    "Banchor_B": {
+      "coarse": {
+        "stage": "coarse",
+        "metric": "Banchor_B",
+        "shape": 1.0830769538879395,
+        "AV": 0.19456170285540603,
+        "Q": 77.859422732329,
+        "DLMAG": 42.06013506540099,
+        "amplitude": 0.9800861954386489,
+        "AV_low_Q": 359.1812219051723,
+        "AV_high_Q": 318.9009579579077
+      },
+      "finest": {
+        "stage": "algorithm_boundary_probe",
+        "metric": "Banchor_B",
+        "shape": 1.0830768728628755,
+        "AV": 0.19456171812778913,
+        "Q": 77.85942216199255,
+        "DLMAG": 42.060134994679245,
+        "amplitude": 0.980086259278659
+      },
+      "coarse_minus_finest_Q": 5.703364394094024e-07,
+      "coarse_minus_finest_DLMAG": 7.072174668110165e-08,
+      "coarse_fine_tolerance_pass": true,
+      "AV_edge_within9": false,
+      "shape_edge_within1": false
+    },
+    "Aanchor_A": {
+      "coarse": {
+        "stage": "coarse",
+        "metric": "Aanchor_A",
+        "shape": 1.1015384197235107,
+        "AV": 0.1599953350107101,
+        "Q": 59.23233747954762,
+        "DLMAG": 42.10847223304776,
+        "amplitude": 0.9374096179355745,
+        "AV_low_Q": 322.3539562116135,
+        "AV_high_Q": 306.81673372939997
+      },
+      "finest": {
+        "stage": "algorithm_boundary_probe",
+        "metric": "Aanchor_A",
+        "shape": 1.1015384094789624,
+        "AV": 0.1599952991007585,
+        "Q": 59.23233736678884,
+        "DLMAG": 42.10847227291847,
+        "amplitude": 0.9374095835117626
+      },
+      "coarse_minus_finest_Q": 1.1275877653815769e-07,
+      "coarse_minus_finest_DLMAG": -3.9870705847988575e-08,
+      "coarse_fine_tolerance_pass": true,
+      "AV_edge_within9": false,
+      "shape_edge_within1": false
+    },
+    "Aanchor_B": {
+      "coarse": {
+        "stage": "coarse",
+        "metric": "Aanchor_B",
+        "shape": 1.0830769538879395,
+        "AV": 0.19533401311597864,
+        "Q": 77.64428077194226,
+        "DLMAG": 42.05927479511102,
+        "amplitude": 0.980863062918727,
+        "AV_low_Q": 359.50831291797505,
+        "AV_high_Q": 317.05571156071653
+      },
+      "finest": {
+        "stage": "boundary_polish_final",
+        "metric": "Aanchor_B",
+        "shape": 1.0830768728628755,
+        "AV": 0.19533411803096823,
+        "Q": 77.64428019105615,
+        "DLMAG": 42.05927461480567,
+        "amplitude": 0.9808632258080859,
+        "AV_low_Q": 359.50833417592,
+        "AV_high_Q": 317.0557069530036
+      },
+      "coarse_minus_finest_Q": 5.808861089917627e-07,
+      "coarse_minus_finest_DLMAG": 1.803053493176776e-07,
+      "coarse_fine_tolerance_pass": true,
+      "AV_edge_within9": false,
+      "shape_edge_within1": false
+    }
+  },
+  "covariance_relative_asymmetry": {
+    "B": 6.034669977579479e-18,
+    "A": 4.309533489583236e-18
+  },
+  "competitive_amplitude_checks": 3000,
+  "max_competitive_amplitude_relative_error": 4.030375040531287e-09,
+  "delta_DLMAG_B_minus_A": {
+    "A": -0.04919765811279575,
+    "B": -0.04937570583882689
+  },
+  "unsupported_amplitude_or_distance": [],
+  "protocol_sha256": "583360b5adfa03218039fc73ac89e25d48e1475e2248a588c007b7d43e223b5a",
+  "cohort_protocol_sha256": "00d10d7169f408e3d0db08ec8ded492e660d5c4101ff2cca50fb5a8c7a548f66",
+  "reference_gate": {
+    "DLMAG": 0.0,
+    "STRETCH": 0.0,
+    "AV": 0.0,
+    "PKMJD": 0.0,
+    "FITCHI2": 0.0,
+    "NDOF": 0.0
+  },
+  "duplicate_swap_checks": [],
+  "interpretation": "Conditional fixed-C profile geometry only; no selected-data likelihood, physical bias correction, posterior, or cosmology result."
+}

@@ -1,0 +1,10 @@
+{
+  "status": "frozen_before_MAST_query",
+  "purpose": "Metadata-only public HST/WFC3-IR exposure identification for DES16E1dcx; no science-image acquisition, photometry or fits",
+  "target": {"ra_deg": 8.9685, "dec_deg": -43.35812, "source": "RAISIN primary paper arXiv:2201.07801v2 Table 5", "cone_radius_arcsec": 30},
+  "source_epochs": [{"filter": "F160W", "mjd": 57715.627}, {"filter": "F125W", "mjd": 57715.630}, {"filter": "F160W", "mjd": 57722.034}, {"filter": "F125W", "mjd": 57722.037}, {"filter": "F160W", "mjd": 57730.248}, {"filter": "F125W", "mjd": 57730.251}],
+  "query": "MAST.Caom.Cone ra/dec/radius=30/3600 degrees; retain HST WFC3/IR F125W/F160W image observations. First-pass first-visit window MJD [57714.627,57716.630]; then metadata-only all same-target visits for proposal 14216 and any competing HST programs, comparing each source epoch within +/-1 observer day and noting later reference epochs separately.",
+  "products": "MAST.Caom.Products metadata for matched target observation IDs only; preserve all product-level filenames, types, calibration levels, release/access rights, sizes, dataURI/URL, checksums if supplied; no dataURI fetch",
+  "limits": {"metadata_bytes": 20000000, "elapsed_seconds": 600, "product_obsid_cap": 100},
+  "interpretation": "Compare spatial/time/filter/program matches and ambiguity. Archived FLT may enable future pixel validation, but neither calibrated FLT nor drizzled archive products are assumed identical to private *_e01 or *_sub_masked image intermediates. Representative SIMLIB LIBID11 RA/Dec is not the primary-paper SN sky coordinate."
+}

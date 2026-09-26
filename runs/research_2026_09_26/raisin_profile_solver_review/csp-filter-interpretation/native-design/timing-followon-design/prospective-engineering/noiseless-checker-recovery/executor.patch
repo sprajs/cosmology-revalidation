@@ -1,0 +1,81 @@
+--- run_engineering_v5_fit_readme.py
++++ run_engineering_v5_checker_resume.py
+@@ -15,8 +15,8 @@
+ def check(ok,msg):
+  if not ok:raise RuntimeError(msg)
+ def release(stage,path):
+- d=json.loads(path.read_text());check(d['protocol_sha256']==sha(P/'protocol-v5.json'),'release protocol mismatch');check(d['freeze_sha256']==sha(P/'freeze-fit-readme.json'),'release freeze mismatch');check(stage in d['stages'],'stage not released')
+- for f,h in json.loads((P/'freeze-fit-readme.json').read_text())['files'].items():check(sha(R/f)==h,'input hash mismatch '+f)
++ d=json.loads(path.read_text());check(d['protocol_sha256']==sha(P/'protocol-v5.json'),'release protocol mismatch');check(d['freeze_sha256']==sha(P/'freeze-checker-resume.json'),'release freeze mismatch');check(stage in d['stages'],'stage not released')
++ for f,h in json.loads((P/'freeze-checker-resume.json').read_text())['files'].items():check(sha(R/f)==h,'input hash mismatch '+f)
+  return sha(path)
+ def native(label,work,binary,snana,args,ledger=False,support=False,dshift=None):
+  activity=P/'native-activity-v5.json';rows=json.loads(activity.read_text()) if activity.exists() else []
+@@ -89,7 +89,7 @@
+  audit_generation()
+ 
+ def prepare_fit(name,dataset,bands='JH',iterations=12,peak_step=0,peak_start=0):
+- w=P/'fits-readme'/name;w.mkdir(parents=True,exist_ok=False);tpl=(P/'inputs-v2/fit-template-v3.nml').read_text();(w/'fit.nml').write_text(tpl.format(data_path=dataset,iterations=iterations,peak_step=peak_step,peak_initializer=('INIVAL_PEAKMJD = '+format(57707.80078125+peak_start,'.17g')) if peak_step else '! fixed peak uses native HEAD PEAKMJD',bands=bands));save(w/'input-freeze.json',{'NML_sha256':sha(w/'fit.nml'),'dataset':dataset,'protocol_sha256':sha(P/'protocol-v5.json')});return w
++ w=P/'fits-resume'/name;w.mkdir(parents=True,exist_ok=False);tpl=(P/'inputs-v2/fit-template-v3.nml').read_text();(w/'fit.nml').write_text(tpl.format(data_path=dataset,iterations=iterations,peak_step=peak_step,peak_initializer=('INIVAL_PEAKMJD = '+format(57707.80078125+peak_start,'.17g')) if peak_step else '! fixed peak uses native HEAD PEAKMJD',bands=bands));save(w/'input-freeze.json',{'NML_sha256':sha(w/'fit.nml'),'dataset':dataset,'protocol_sha256':sha(P/'protocol-v5.json')});return w
+ 
+ def run_fit(name,dataset,bands='JH',iterations=12,peak_step=0,peak_start=0,dshift=None,original=False):
+  w=prepare_fit(name,dataset,bands,iterations,peak_step,peak_start)
+@@ -103,7 +103,7 @@
+   v=line.split()
+   if v and v[0]=='VARNAMES:':names=v[1:]
+   elif v and v[0]=='SN:':check(names is not None and len(v)-1==len(names),'FITRES schema');table.append(dict(zip(names,v[1:])))
+- check({x['CID'] for x in table}==set(expected_cids) and len(table)==len(expected_cids),'FITRES complete membership');check(all(int(x['ERRFLAG_FIT'])==0 and int(x['CUTFLAG_SNANA'])==0 for x in table),'native error/cut flag')
++ check({x['CID'] for x in table}==set(expected_cids) and len(table)==len(expected_cids),'FITRES complete membership');check(all(int(x['ERRFLAG_FIT'])==0 and int(x['CUTFLAG_SNANA'])==3 for x in table),'native error/cut flag')
+  nml=(w/'fit.nml').read_text();fixed='INISTP_PEAKMJD = 0' in nml;arm_peaks={}
+  if fixed:
+   datapath=__import__('re').search(r"PRIVATE_DATA_PATH = '([^']+)'",nml).group(1);headers=list((w/datapath/'PTE').glob('*HEAD.FITS*'));check(len(headers)==1,'arm HEAD')
+@@ -116,9 +116,9 @@
+  branch='noiseless' if w.name.startswith('noiseless') else 'ledger';head,phot,_,_=read(branch)
+  for hdr in head:
+   c=str(hdr['SNID']).strip();native_rows=phot[int(hdr['PTROBS_MIN'])-1:int(hdr['PTROBS_MAX'])];wanted=[x for x in native_rows if expected_n==117 or str(x['BAND']).strip() in 'JH'];observed=by[c][-1]['rows'];check(len(wanted)==len(observed),'input row count')
+-  remaining=[(str(x['BAND']).strip(),float(np.float32(x['MJD'])),float(x['FLUXCAL']),float(x['FLUXCALERR'])) for x in wanted]
++  remaining=[(str(x['BAND']).strip(),float(x['MJD']),float(x['FLUXCAL']),float(x['FLUXCALERR'])) for x in wanted]
+   for x in observed:
+-   key=(x['band'],x['MJD'],x['dataF'],x['data_error']);check(key in remaining,'fitter native R4 measurement mismatch '+repr(key));remaining.remove(key)
++   key=(x['band'],x['MJD'],x['dataF'],x['data_error']);check(key in remaining,'fitter native FITS measurement mismatch '+repr(key));remaining.remove(key)
+   check(not remaining,'missing fitter input exposure')
+  sup={}
+  if support:
+@@ -130,11 +130,11 @@
+   check(set(sup)==set(expected_cids),'missing allcall summary')
+  for cid,bb in by.items():
+   b=bb[-1];prev=next(x for x in reversed(bb[:-1]) if x['ITER']<b['ITER']);ob=b['objective'];last=prev['objective'];check(abs(ob['D']-last['D'])<=.001,'last iterations D');check(abs(ob['peak_absolute']-last['peak_absolute'])<=.01,'last iterations peak');check(abs(ob['peak_absolute']-57707.80078125)<=4,'final peak guard')
+-  # same native data/order in every callback; native fitter may R4-round exposure MJD.
++  # same native data/order in every callback; FITS exposure MJD remains R8.
+   identity=lambda z:[(r['source_epoch'],r['band'],r['MJD'],r['dataF'],r['data_error']) for r in z['rows']]
+   check(all(identity(x)==identity(b) for x in bb),'state accepted rows changed');L=np.linalg.cholesky(prev['C']);d=np.linalg.solve(L,b['C']-prev['C']);d=np.linalg.solve(L,d.T).T;metric=float(np.linalg.norm(d,2));check(metric<=.001,'last iterations whitened C')
+   x=b['array'];f=x[:,2];y=x[:,4];a=float(f@b['W']@y/(f@b['W']@f));check(a>0,'nonpositive amplitude');da=-2.5*np.log10(a);check(abs(da)<=.001,'fixedC amplitude stationarity');detail.append({'CID':cid,'D':ob['D'],'peak':ob['peak_absolute'],'dataQ':ob['totalQ']-ob['priorQ']-ob['sigmaQ'],'priorQ':ob['priorQ'],'sigmaQ':ob['sigmaQ'],'fixedC_delta_D':da,'last_C_whitened_norm':metric,'max_standardized_model_residual':float(np.max(np.abs((x[:,4]-x[:,2])/x[:,5]))),'mean_calls':int(sup[cid][0]) if support else None})
+- save(w/'gate.json',{'gate_pass':True,'details':detail});return by,detail
++ save(P/'noiseless-checker-recovery/gates'/(w.name+'-gate.json'),{'gate_pass':True,'details':detail});return by,detail
+ 
+ def compare(w1,w2,n,cids,tolD=.001,tolT=.01):
+  b1,d1=block_review(w1,n,cids,support=w1.name!='noiseless_joint_original');b2,d2=block_review(w2,n,cids)
+@@ -144,7 +144,7 @@
+ 
+ def run_noiseless():
+  check(json.loads((P/'generation-gate.json').read_text())['gate_pass'],'generation gate');cid=[json.loads((P/'generation-gate.json').read_text())['branches']['noiseless'][0]['CID']];data='../../readme-adapted/noiseless'
+- original=run_fit('noiseless_joint_original',data,'grizJH',peak_step=2,original=True);instrumented=run_fit('noiseless_joint',data,'grizJH',peak_step=2)
++ original=P/'fits-readme/noiseless_joint_original';instrumented=P/'fits-readme/noiseless_joint' # reuse exact completed joint jobs; no rerun
+  a,b=compare(original,instrumented,117,cid,0,0)
+  for c in cid:
+   check(len(a[c])==len(b[c]),'callback count original/instrumented')
+@@ -182,7 +182,7 @@
+    q=run_fit('NIR_'+arm+suffix,ds,iterations=it,dshift=shift);aa,bb=compare(w,q,6,cids)
+    if shift is not None:
+     for c in cids:check(abs((bb[c][0]['entry']['D_entry']-aa[c][0]['entry']['D_entry'])-shift)<1e-4,'amplitude start was not applied')
+- null=run_fit('NIR_null12',nulldata);compare(P/'fits-readme/NIR_true12',null,6,cids,0,0)
++ null=run_fit('NIR_null12',nulldata);compare(P/'fits-resume/NIR_true12',null,6,cids,0,0)
+  rows=[]
+  for c in cids:
+   truth=next(x['DLMU_true'] for x in json.loads((P/'generation-gate.json').read_text())['branches']['ledger'] if x['CID']==c);d0=finals['true'][c]['D'];d1=finals['estimated'][c]['D'];rows.append({'CID':c,'peak_true':57707.80078125,'peak_fitted_native_R4':float(np.float32(peaks[c])),'D_truth':truth,'D_NIR_truepeak':d0,'D_NIR_fittedpeak':d1,'paired_delta_D':d1-d0,'error_truepeak':d0-truth,'error_fittedpeak':d1-truth})
+@@ -191,4 +191,4 @@
+ if __name__=='__main__':
+  ap=argparse.ArgumentParser();ap.add_argument('stage',choices=['noiseless','noisy']);ap.add_argument('--release',type=Path,required=True);args=ap.parse_args();rel=release(args.stage,args.release)
+  try:globals()['run_'+args.stage]()
+- except Exception as e:save(P/(args.stage+'-failure-fit-readme.json'),{'exception':type(e).__name__,'message':str(e),'release_sha256':rel,'protocol_sha256':sha(P/'protocol-v5.json'),'stage':args.stage});raise
++ except Exception as e:save(P/(args.stage+'-failure-checker-resume.json'),{'exception':type(e).__name__,'message':str(e),'release_sha256':rel,'protocol_sha256':sha(P/'protocol-v5.json'),'stage':args.stage});raise

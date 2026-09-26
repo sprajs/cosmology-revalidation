@@ -1,0 +1,145 @@
+{
+  "kind": "bounded_source_grid_diagnostic",
+  "model": "sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR",
+  "refit_objects": 1828,
+  "refit_color_range": [
+    -0.2729581138546595,
+    0.4561156338161778
+  ],
+  "surface_tabulation": {
+    "phase_days": [
+      -20.0,
+      50.0
+    ],
+    "wavelength_angstrom": [
+      2000.0,
+      11000.0
+    ]
+  },
+  "grid_results": {
+    "whole_tabulated_domain": {
+      "nodes": 63971,
+      "negative_min_eigenvalue_nodes": 0,
+      "minimum_eigenvalue": 2.411675929172914e-11,
+      "maximum_absolute_correlation": 0.9998955489064035,
+      "negative_v0_nodes": 0,
+      "negative_v1_nodes": 0,
+      "parameter_domains": {
+        "published_basic_BBC_x1_interval": {
+          "x1_min": -3.0,
+          "x1_max": 3.0,
+          "negative_quadratic_variance_nodes": 0,
+          "minimum_quadratic_variance": 2.4116802441414047e-11,
+          "nodes_with_negative_SED_for_some_x1_in_envelope": 11274,
+          "minimum_unscaled_SED_in_envelope": -0.11268563963752803
+        },
+        "envelope_of_all_recovered_refits": {
+          "x1_min": -2.9792771769518045,
+          "x1_max": 4.016593772381633,
+          "negative_quadratic_variance_nodes": 0,
+          "minimum_quadratic_variance": 2.4116802441414047e-11,
+          "nodes_with_negative_SED_for_some_x1_in_envelope": 11660,
+          "minimum_unscaled_SED_in_envelope": -0.11150850834285864
+        }
+      }
+    },
+    "fit_phase_and_filter_mean_wavelength_domain": {
+      "nodes": 27511,
+      "negative_min_eigenvalue_nodes": 0,
+      "minimum_eigenvalue": 9.106960068942734e-08,
+      "maximum_absolute_correlation": 0.888864771644432,
+      "negative_v0_nodes": 0,
+      "negative_v1_nodes": 0,
+      "parameter_domains": {
+        "published_basic_BBC_x1_interval": {
+          "x1_min": -3.0,
+          "x1_max": 3.0,
+          "negative_quadratic_variance_nodes": 0,
+          "minimum_quadratic_variance": 5.428115558443146e-07,
+          "nodes_with_negative_SED_for_some_x1_in_envelope": 703,
+          "minimum_unscaled_SED_in_envelope": -0.11268563963752803
+        },
+        "envelope_of_all_recovered_refits": {
+          "x1_min": -2.9792771769518045,
+          "x1_max": 4.016593772381633,
+          "negative_quadratic_variance_nodes": 0,
+          "minimum_quadratic_variance": 5.428115558443146e-07,
+          "nodes_with_negative_SED_for_some_x1_in_envelope": 689,
+          "minimum_unscaled_SED_in_envelope": -0.11150850834285864
+        }
+      }
+    }
+  },
+  "color_dispersion": {
+    "negative_nodes": 0,
+    "raw_maximum": 2.539028633308055,
+    "raw_nodes_above_INFO_cap_of_1": 22
+  },
+  "color_law_checks": {
+    "wavelength_angstrom": [
+      2800.0,
+      3500.0,
+      4302.57,
+      5428.55,
+      6500.0,
+      8000.0
+    ],
+    "C_polynomial": [
+      -6.059324060257177,
+      -1.4903665613452708,
+      0.0,
+      1.0000000000000002,
+      1.7001059340932878,
+      2.088334186554121
+    ],
+    "delta_monochromatic_magnitude_for_c_0p1": [
+      0.6059324060257177,
+      0.14903665613452707,
+      -0.0,
+      -0.10000000000000003,
+      -0.17001059340932878,
+      -0.20883341865541213
+    ],
+    "refit_color_endpoint_flux_multipliers": [
+      [
+        4.587506226203232,
+        1.45453125634604,
+        1.0,
+        0.7777083367490238,
+        0.6521941760759778,
+        0.5915465090176403
+      ],
+      [
+        0.07843303603959736,
+        0.5346729395729434,
+        1.0,
+        1.5221107511465366,
+        2.04257474694876,
+        2.404411234089766
+      ]
+    ]
+  },
+  "limitations": [
+    "Uses original tabulation; does not reproduce SNANA spline resampling of mean surfaces.",
+    "The rectangular phase/wavelength domain is not actual per-observation passband coverage.",
+    "Filter wings can leave the allowed mean-wavelength interval.",
+    "A negative monochromatic SED does not establish a negative integrated flux or an affected observation.",
+    "Refit parameter envelope contains every successful recovered fit, including objects outside final BBC cuts.",
+    "No execution counter for SNANA variance/flux sign fallback was instrumented.",
+    "Positive covariance cannot establish an unbiased mean model or complete physical covariance."
+  ],
+  "sha256": {
+    "sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/salt3_lc_variance_0.dat.gz": "3e35af2c7878438930db70fb1c69d7101a50de5381327dc7478993d10b7394a6",
+    "sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/salt3_lc_variance_1.dat.gz": "f85fe314a60eded8b4de002cd3e727d78843fab7eb2182701448d858b5bc38e5",
+    "sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/salt3_lc_covariance_01.dat.gz": "6fc54ef53be89b1e780f3d2272a6ac5aa1f7f065e28a10e1fbcad772f3f2633b",
+    "sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/salt3_template_0.dat.gz": "0b8f0ea7116b7514b9987e5d6e99878c145f23ab16545fbd071ebf64bc40196e",
+    "sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/salt3_template_1.dat.gz": "e1e388af6452dd9b0fd1bc17ef1d91c23249978b2f2dc9f646cd9b443b1f6262",
+    "sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/salt3_color_dispersion.dat.gz": "414a967be49f274d4f9a91f2445ad68ea997c372821012d3395923d508c5988c",
+    "sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/SALT3.INFO": "3f729cc4ff48efbaabe762d9c4fbdc94feb2915b75cb873a888b9e6b15847c6c",
+    "sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/salt3_color_correction.dat.gz": "ec4685535341d39058bb820527f48c66f980099a01c5285f3028e08a816da38d",
+    "phase2/official/results/recovered_refit_observables.csv": "c9b2a3dc334ddc9cb1e7be5664a45987f82d1195b74bb2c9f24788e172fa421c",
+    "scripts/salt_dust_audit/theory_model_grid_audit.py": "51e3242880de0c73978e086feaa66fe53f5df5644a9b2a89ddd873c7280d4beb",
+    "sources/repos/RickKessler__SNANA/src/genmag_SALT2.c": "b9cdeffd847c5cdda4d53ed78a8cd152bf0179a17b5b85d5a813eb4c96033ff9",
+    "sources/repos/RickKessler__SNANA/src/genmag_SALT2.h": "4635b582c04393f77587d72dd2ced8b56bed52a0348bd7b07dd1319b19f874b8"
+  }
+}

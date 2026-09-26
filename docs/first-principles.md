@@ -1,5 +1,7 @@
 # From measurements to acceleration
 
+For the full physical chain, including radioactive luminosity, radiative transport, grain extinction, detector response and the 21 September implementation corrections, see the [physical equations audit](physics-audit/README.md). This earlier overview primarily concerns distance inference.
+
 ## Metric and kinematic assumptions
 
 In a homogeneous and isotropic FLRW geometry, define H=ȧ/a, 1+z=a₀/a(t), and q=−aä/ȧ². Expansion is H>0; acceleration is q<0. Differentiating redshift gives dt/dz=−1/[(1+z)H], hence
@@ -30,7 +32,7 @@ E^2=\Omega_m(1+z)^3+\Omega_k(1+z)^2+
 
 For flat CPL w(z)=w₀+wₐz/(1+z), the dark-energy factor is (1+z)^{3(1+w₀+wₐ)}exp[−3wₐz/(1+z)]. It follows that q₀=½+3w₀(1−Ωm)/2, and q(z)=½[Ωm(z)+(1+3w(z))ΩDE(z)]. Radiation would add Ωr(z); curvature contributes zero to the acceleration numerator. The low-redshift calculator deliberately neglects radiation, whereas the public CMB chains include early-universe physics. This numerical approximation is separate from the much stronger physical assumption of constant SN luminosity after standardization.
 
-The acceleration condition ρ+3p<0 follows from the GR acceleration equation. It is not needed to define or reconstruct kinematic q. Rejecting the fixed point (w₀,wₐ)=(−1,0) is different from rejecting q₀<0: an evolving dark energy model can accelerate today, and a currently decelerating model can have accelerated previously. CPL extrapolations into the future are model extrapolations, not observations of future dynamics.
+The acceleration condition ε+3p<0, where ε is energy density and p is pressure in the same units (equivalently ρ+3p/c²<0 for mass-equivalent density ρ=ε/c²), follows from the GR acceleration equation, including any cosmological constant in the total energy and pressure. It is not needed to define or reconstruct kinematic q. Rejecting the fixed point (w₀,wₐ)=(−1,0) is different from rejecting q₀<0: an evolving dark energy model can accelerate today, and a currently decelerating model can have accelerated previously. CPL extrapolations into the future are model extrapolations, not observations of future dynamics.
 
 ## What supernova magnitudes identify
 

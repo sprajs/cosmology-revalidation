@@ -1,0 +1,96 @@
+{
+  "inputs": [
+    {
+      "path": "sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/salt3_template_0.dat.gz",
+      "sha256": "0b8f0ea7116b7514b9987e5d6e99878c145f23ab16545fbd071ebf64bc40196e"
+    },
+    {
+      "path": "sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/salt3_template_1.dat.gz",
+      "sha256": "e1e388af6452dd9b0fd1bc17ef1d91c23249978b2f2dc9f646cd9b443b1f6262"
+    },
+    {
+      "path": "sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/salt3_color_correction.dat.gz",
+      "sha256": "ec4685535341d39058bb820527f48c66f980099a01c5285f3028e08a816da38d"
+    },
+    {
+      "path": "sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/salt3_color_dispersion.dat.gz",
+      "sha256": "414a967be49f274d4f9a91f2445ad68ea997c372821012d3395923d508c5988c"
+    },
+    {
+      "path": "sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/salt3_lc_variance_0.dat.gz",
+      "sha256": "3e35af2c7878438930db70fb1c69d7101a50de5381327dc7478993d10b7394a6"
+    },
+    {
+      "path": "sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/salt3_lc_variance_1.dat.gz",
+      "sha256": "f85fe314a60eded8b4de002cd3e727d78843fab7eb2182701448d858b5bc38e5"
+    },
+    {
+      "path": "sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/salt3_lc_covariance_01.dat.gz",
+      "sha256": "6fc54ef53be89b1e780f3d2272a6ac5aa1f7f065e28a10e1fbcad772f3f2633b"
+    },
+    {
+      "path": "phase2/official/inputs/SNDATA_ROOT/kcor/DES/DES-SN5YR/calib_DES-SN5YR_DES.fits.gz",
+      "sha256": "4412a60ca41eb2cd8b32c038b352a551949a386cdc48acc0b059899bf46496c8"
+    },
+    {
+      "path": "sources/repos/des-science__DES-SN5YR@1.3/4_DISTANCES_COVMAT/DES-SN5YR_HD+MetaData.csv",
+      "sha256": "80e081d13145a7ee66730b59826ed83e6414087fd1e26a5a206a196f650f02c5"
+    },
+    {
+      "path": "sources/repos/des-science__DES-SN5YR@1.3/0_DATA/DES5YR_SALT3_LCFIT.LCPLOT.gz",
+      "sha256": "9167662582c406d9cd3ac34c6cceb3a167c8b057dd011288b742f1a87972450a"
+    },
+    {
+      "path": "sources/repos/des-science__DES-SN5YR@1.3/0_DATA/DES-SN5YR_DES/DES-SN5YR_DES_HEAD.FITS.gz",
+      "sha256": "08c1fb41dfe8b4e8a969f205144f94c9f6838a1a895a0fedc75b837fb87fd00a"
+    },
+    {
+      "path": "scripts/salt_dust_audit/flux_response.py",
+      "sha256": "9f44a910dff387ce2aef18606c14de56ef2b409c6a680390952eec8446697ca5"
+    },
+    {
+      "path": "sources/repos/des-science__DES-SN5YR@1.3/2_LCFIT_MODEL/SALT3.DES5YR/SALT3.INFO",
+      "sha256": "3f729cc4ff48efbaabe762d9c4fbdc94feb2915b75cb873a888b9e6b15847c6c"
+    },
+    {
+      "path": "phase2/env-official/lib/python3.12/site-packages/sncosmo/models.py",
+      "sha256": "c6cc9ec8c4d1280f4185ffa88af28bc6fd54362bc5b39c9f5f50d13cbfe20e74"
+    }
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "sncosmo": "2.12.1",
+    "extinction": "0.4.9"
+  },
+  "command": [
+    "scripts/salt_dust_audit/flux_response.py"
+  ],
+  "outputs": [
+    {
+      "path": "runs/salt_dust_audit/flux_response/diagnostics.csv",
+      "sha256": "a97ab13897ddfb11480a85a0829a31dcd6c837fa377a2cf3307df2f5709de342"
+    },
+    {
+      "path": "runs/salt_dust_audit/flux_response/matrices.npz",
+      "sha256": "a63d65a7651f680c97af46a62c841f3a005c1135788e8217c50d1d2c12feeffc"
+    },
+    {
+      "path": "runs/salt_dust_audit/flux_response/nonlinear_checks.csv",
+      "sha256": "5e5c03cbee8e8c3a7dd6d3186b25a19e5e729fb9f2f8687501f93a5eb3f313f0"
+    },
+    {
+      "path": "runs/salt_dust_audit/flux_response/response.csv",
+      "sha256": "bc43da49a96f7b443b55e5159335013d1bd996df765df1f71f3c0e502b0f7006"
+    },
+    {
+      "path": "runs/salt_dust_audit/flux_response/selected_objects.csv",
+      "sha256": "4112cf4b4b22ef7d159b521ab10f2b232cf0cab72ea8da087647ba967a3a7c0c"
+    },
+    {
+      "path": "runs/salt_dust_audit/flux_response/summary.json",
+      "sha256": "44a7bbc33cfd1f67a8611b99bfa76e5bff29600f0d2fff8134fe1b9cfd774b57"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "parent": "build-protocol.json",
+  "reason": "Nested lib/CMakeLists explicitly requires Fortran. Initialconfigure failure retained. Reuse existing private gfortran, nopackage/system changes.",
+  "commands": [
+    [
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_hst_pixel_feasibility/calwf3_native_replay/toolchain/cmake/data/bin/cmake",
+      "-S",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_hst_pixel_feasibility/calwf3_native_replay/source",
+      "-B",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_hst_pixel_feasibility/calwf3_native_replay/build-fortran",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DCMAKE_C_FLAGS_RELEASE=-O2 -DNDEBUG",
+      "-DENABLE_OPENMP=OFF",
+      "-DCMAKE_C_COMPILER=/usr/bin/gcc",
+      "-DCMAKE_DISABLE_FIND_PACKAGE_Git=TRUE",
+      "-DCMAKE_Fortran_COMPILER=/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/bin/gfortran",
+      "-DCMAKE_Fortran_FLAGS=-B/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/lib/gcc/x86_64-pc-linux-gnu/16/ -B/usr/lib/gcc/x86_64-pc-linux-gnu/16/"
+    ],
+    [
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_hst_pixel_feasibility/calwf3_native_replay/toolchain/cmake/data/bin/cmake",
+      "--build",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_hst_pixel_feasibility/calwf3_native_replay/build-fortran",
+      "--target",
+      "calwf3",
+      "-j2"
+    ]
+  ],
+  "caps_seconds": [
+    30,
+    150
+  ],
+  "prior_seconds": 0.8653409149992513,
+  "compiler_path": "/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/bin/gfortran",
+  "compiler_sha256": "3dc12fc3837e13accfa1ba1ce84527ed49ebb6af65772179737dc4405391cb5d",
+  "f951_sha256": "7822fd88c919401946e4e2cca1784de2b991e59378d0b40b212b322a673233bb",
+  "LD_LIBRARY_PATH": "/home/szymon/Documents/ChatGPT/supernova/phase2/official/build/sysroot/usr/lib"
+}

@@ -1,0 +1,36 @@
+           PID: 490235 (snlc_fit.exe)
+           TID: 490235 (snlc_fit.exe)
+           UID: 1000 (szymon)
+           GID: 1000 (szymon)
+        Signal: 6 (ABRT) si_code: SI_TKILL
+     Timestamp: Sat 2026-09-26 08:36:29 BST (4min 11s ago)
+  Command Line: /home/szymon/Documents/ChatGPT/supernova/phase2/pte/fit-original/bin/snlc_fit.exe fit.nml
+    Executable: /home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/astra_design/raisin_timing_assets/instrumentation_2021/build/bin/snlc_fit.exe
+ Control Group: /user.slice/user-1000.slice/user@1000.service/app.slice/app-org.chromium.Chromium-99900.scope
+          Unit: user@1000.service
+     User Unit: app-org.chromium.Chromium-99900.scope
+         Slice: user-1000.slice
+     Owner UID: 1000 (szymon)
+       Boot ID: c533206d887641648ca0243afd845e7d
+    Machine ID: a7af1f3b3b6040fea70169078e2065f6
+      Hostname: omarchy
+       Storage: /var/lib/systemd/coredump/core.snlc_fit\x2eexe.1000.c533206d887641648ca0243afd845e7d.490235.1790408189000000.zst (present)
+  Size on Disk: 490.2K
+       Message: Process 490235 (snlc_fit.exe) of user 1000 dumped core.
+                
+                Stack trace of thread 490235:
+                #0  0x00007657d409a17c n/a (libc.so.6 + 0x9a17c)
+                #1  0x00007657d403e5d0 raise (libc.so.6 + 0x3e5d0)
+                #2  0x00007657d4025685 abort (libc.so.6 + 0x25685)
+                #3  0x00007657d4026704 n/a (libc.so.6 + 0x26704)
+                #4  0x00007657d412d030 __fortify_fail (libc.so.6 + 0x12d030)
+                #5  0x00007657d412e414 __stack_chk_fail (libc.so.6 + 0x12e414)
+                #6  0x000058d579f55616 check_file_docana (snlc_fit.exe + 0x13f616)
+                #7  0x000058d579f55621 check_file_docana__ (snlc_fit.exe + 0x13f621)
+                #8  0x000058d579e5ab15 getinfo_photometry__ (snlc_fit.exe + 0x44b15)
+                #9  0x000058d579f179bb init_read_data__ (snlc_fit.exe + 0x1019bb)
+                #10 0x000058d579f189a6 main (snlc_fit.exe + 0x1029a6)
+                #11 0x00007657d4027781 n/a (libc.so.6 + 0x27781)
+                #12 0x00007657d40278b9 __libc_start_main (libc.so.6 + 0x278b9)
+                #13 0x000058d579e1ab25 _start (snlc_fit.exe + 0x4b25)
+                ELF object binary architecture: AMD x86-64

@@ -1,0 +1,32 @@
+{
+  "created_utc": "2026-09-26T02:17:49.805643+00:00",
+  "stage": "before paired redshift outcomes",
+  "release_commit": "a383c4bd03c9fbfd64bf5bfda525aec38d32b39c",
+  "manifest_sha256": "d55a3f69cce87ee1e5797b593d525400dcfa3afc13fe58e2a65425be5e5eca3b",
+  "verified_files": 490,
+  "membership_sha256": "f730b26e673388b464d4c6b7509b77dbb46c83963090148db08891c2f4ddebd1",
+  "membership_rule": "Exact common physical CIDs of nominal w optical/NIR/combined branches; coordinate-confirmed raw light curves; no outcome exclusion.",
+  "primary": "T = mean_high(DLMAG_optical-DLMAG_nir) - mean_low(DLMAG_optical-DLMAG_nir), unweighted; high zHD>0.2, low zHD<0.1; units mag.",
+  "cancellation": "Each paired difference cancels common distance-redshift relation; high-minus-low cancels any branch-constant intercept. No cosmology is fitted.",
+  "correction_variants": {
+    "released": "DLMAG",
+    "without_mass": "DLMAG - MASS_CORR",
+    "without_bias": "DLMAG + DLMAG_biascor",
+    "without_bias_or_mass": "DLMAG + DLMAG_biascor - MASS_CORR"
+  },
+  "correction_scope": "These undo exported additive terms only, leaving original light-curve fitting and selection fixed. They are not raw flux analyses, alternative validated corrections, or regenerated selection corrections.",
+  "secondary": "Same estimand for opticalnir minus nir; descriptive only, strongly overlapping information.",
+  "metadata_splits": [
+    "PS1 high vs all low CSP; DES high vs all low CSP (shared low denominator)",
+    "host logmass>=10 and <10, each high vs low; threshold fixed by published host-mass imbalance, no threshold search"
+  ],
+  "uncertainty": [
+    "Paired empirical SE sqrt(s_high^2/n_high+s_low^2/n_low), descriptive finite-sample scatter, not a full systematic error.",
+    "Published statistical marginal errors with unknown per-object cross-branch correlation: rho=0 illustration and sharp [-1,+1] pairwise bounds, conditional on independence across SNe.",
+    "Systematic marginal variance bound: |sqrt(a Copt a)-sqrt(a Cnir a)| to sum, without inventing cross covariance.",
+    "Only physically documented signed systematic mappings may define a conditional shared-response covariance; separately report any failure of export closure."
+  ],
+  "no_claims": [
+    "No p-value, cosmology fit, independent multiplication of branch/sample evidence, dust-law inference, correction tuning, or inferred cross-branch intrinsic covariance."
+  ]
+}

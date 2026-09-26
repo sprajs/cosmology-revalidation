@@ -1,0 +1,10 @@
+{
+  "status": "frozen product metadata phase before product queries",
+  "caom_result_sha256": "ac6c97b4f60ef1182dbfc7d2accd56b8258b6c8bbfc5492715cc9d1602aca37d",
+  "necessary_caom_prefilter": "t_exptime>=300s before header retrieval, because SPARS50 NSAMP>=8 cannot be shorter than seven 50s intervals at these read conventions; retain all rejected metadata",
+  "ranking": "absolute t_min difference from corresponding visit midpoint, then obs_id",
+  "max_roots_per_visit": 40,
+  "product_service": "Mast.Caom.Products",
+  "products_requested": "metadata only, RAW and IMA availability; do not download FITS",
+  "scientific_cut_change": "none; exact SAMP_SEQ/NSAMP/fullframe/gain decided from headers, not t_exptime alone"
+}

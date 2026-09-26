@@ -1,0 +1,14 @@
+{
+  "created_utc": "2026-09-26T03:39:00.005297+00:00",
+  "known_before_review": "Root stability summary and prior caveat that FITCHI2 may exclude optimizer priors already inspected; this is independent verification, not outcome-blind preregistration.",
+  "rule": "Directly parse 24 FITRES/LCPLOT/log outputs (8 arm/timing combinations times3 starts), verify 240 CID fits, all 80 three-start comparisons, native input row/multiplicity and accepted-mask closure. Compute covariance eigenvalues from native Hessian export; check free/fixed peak and RV. Recompute DLMAG ranges, data-FITCHI2 differences and paired start sensitivity without selecting a preferred scientific result. Distinguish exported data FITCHI2 from optimizer including any prior.",
+  "inputs_sha256": {
+    "docs/research-2026-09-26/raisin-signed-refit-design.md": "0bd0a64849b36938dc231d5bf73f331e161a561726e34ab44a568d81acaf6c01",
+    "runs/research_2026_09_26/astra_design/raisin_signed_refit/input-manifest.json": "35a9c9e375898cf644a2d354d5c106a3abdfd1ec759a7ce7d0a23557d38ec80a",
+    "runs/research_2026_09_26/astra_design/raisin_signed_refit/stability-protocol.json": "e3d0582a25aad1e52d9eb452b1c6e46a46a0255f901d3672346a8a6fa9ba5eb3",
+    "runs/research_2026_09_26/astra_design/raisin_signed_refit/stability-result.json": "e77e4e1836bc58a61fef89a2e7ffb944e01e1ce1f643a77ff313ad5a7305b290",
+    "runs/research_2026_09_26/astra_design/raisin_signed_refit/multistart-comparison.csv": "aa7ea071ca560d714ec0ae1b8e03c33890bf9494b4b9741562595f69724ebbf4",
+    "runs/research_2026_09_26/astra_design/raisin_signed_refit/paired-start-sensitivity.csv": "3a0a177d6fd24a6fd81a0b04518d1cf9f7364967c6679a80c2b94e8365468152",
+    "runs/research_2026_09_26/astra_design/raisin_signed_refit/cohort.csv": "09bfc181d90886377aa7f7970b8016e2c9738dd84951443ee3126accf70665ae"
+  }
+}

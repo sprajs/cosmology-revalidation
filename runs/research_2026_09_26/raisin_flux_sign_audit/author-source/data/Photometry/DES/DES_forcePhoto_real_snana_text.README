@@ -1,0 +1,22 @@
+Created by DiffImg program: makeDataFiles_fromSNforce (VERSION 2.3)
+Created on host: dessne.cosmology.illinois.edu 
+
+ Misc. Units:
+	 ZP      units: ADU for combined exposure
+	 PSF     units: Gaussian sigma, pixels
+	 SKYSIG  units: ADU/pixel 
+
+ PHOTFLAG mask definitions (see forcePhoto.c) :
+      1 : WARNINGL Flux/Flux_err<3.  Flux OK, but position fit bypassed.
+      2 : WARNING: Pos fit off by  more than 2 pixels.
+      8 : ERROR: Flux fit Det<1.e-20 -> cannot get fitted flux. 
+     16 : ERROR: RA,DEC not on the CCD
+     32 : ERROR: Too much of weighted area is masked.
+     64 : ERROR: get-PSF failed --> bad fit.
+    128 : ERROR: cannot make stamp in diff image.
+    256 : ERROR: too many large-negative-flux pixels.
+    512 : ERROR: | flux(aper) - flux(psfFit)| > 5 
+   1024 : SNQUAL = bad --> obstac set to retake exposure sequence.
+   2048 : SNQUAL not determined. 
+   4096 : Sextractor+filterObj detection  
+   8192 : AutoScan detection (ML_SCORE>0.50) 

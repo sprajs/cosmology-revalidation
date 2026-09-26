@@ -1,0 +1,6 @@
+{
+ "reason":"First independent verifier compared native CSP_OBJECTIVE peak (stored R4 then printed R8) to the four-decimal source DAT PEAKMJD token directly. That creates false `objective_fixed` failures for all 288 cases. Native source stores peak in R4. Correct comparison is exact equality to IEEE754 float32 of the unchanged DAT header, not an enlarged tolerance.",
+ "preserved_v1":"v1-peak-comparison/",
+ "unchanged":"All source inputs, cohorts, physics gates, objective/Q/D computations, printed timestamp inverse-cell checks and six corner data-Q cap failures",
+ "amended_comparison":"objective peak == float(np.float32(float(DAT PEAKMJD)))"
+}

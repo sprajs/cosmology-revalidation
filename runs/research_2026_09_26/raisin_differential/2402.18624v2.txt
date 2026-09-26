@@ -1,0 +1,1213 @@
+                                               MNRAS 000, 1–14 (2024)                                                   Preprint 24 April 2024              Compiled using MNRAS LATEX style file v3.0
+
+
+
+
+                                               Using Rest-Frame Optical and NIR Data from the RAISIN Survey to
+                                               Explore the Redshift Evolution of Dust Laws in SN Ia Host Galaxies
+                                               Stephen Thorp1,2★ , Kaisey S. Mandel2,3 , David O. Jones4 , Robert P. Kirshner5,6 , and Peter M. Challis7
+                                               1 The Oskar Klein Centre, Department of Physics, Stockholm University, AlbaNova University Centre, SE 106 91 Stockholm, Sweden
+                                               2 Institute of Astronomy and Kavli Institute for Cosmology, Madingley Road, Cambridge, CB3 0HA, UK
+                                               3 Statistical Laboratory, DPMMS, University of Cambridge, Wilberforce Road, Cambridge, CB3 0WB, UK
+                                               4 Institute for Astronomy, University of Hawai’i, 640 N. A’ohoku Pl., Hilo, HI 96720, USA
+                                               5 TMT International Observatory, 100 West Walnut Street, Pasadena, CA 91124, USA
+
+
+
+
+arXiv:2402.18624v2 [astro-ph.CO] 23 Apr 2024
+                                               6 California Institute of Technology, 1200 East California Boulevard, Pasadena, CA 91125, USA
+                                               7 Harvard–Smithsonian Center for Astrophysics, 60 Garden Street, Cambridge, MA 02138, USA
+
+
+
+
+                                               Accepted XXX. Received YYY; in original form ZZZ
+
+
+
+                                               ABSTRACT
+                                               We use rest-frame optical and near-infrared (NIR) observations of 42 Type Ia supernovae (SNe Ia) from the Carnegie Supernova
+                                               Project at low-𝑧 and 37 from the RAISIN Survey at high-𝑧 to investigate correlations between SN Ia host galaxy dust, host mass,
+                                               and redshift. This is the first time the SN Ia host galaxy dust extinction law at high-𝑧 has been estimated using combined optical
+                                               and rest-frame NIR data (𝑌 𝐽-band). We use the BayeSN hierarchical model to leverage the data’s wide rest-frame wavelength
+                                               range (extending to ∼ 1.0–1.2 μm for the RAISIN sample at 0.2 ≲ 𝑧 ≲ 0.6). By contrasting the RAISIN and CSP data, we
+                                               constrain the population distributions of the host dust 𝑅𝑉 parameter for both redshift ranges. We place a limit on the difference
+                                               in population mean 𝑅𝑉 between RAISIN and CSP of −1.16 < Δ𝜇(𝑅𝑉 ) < 1.38 with 95% posterior probability. For RAISIN we
+                                               estimate 𝜇(𝑅𝑉 ) = 2.58 ± 0.57, and constrain the population standard deviation to 𝜎(𝑅𝑉 ) < 0.90 [2.42] at the 68 [95]% level.
+                                               Given that we are only able to constrain the size of the low- to high-𝑧 shift in 𝜇(𝑅𝑉 ) to ≲ 1.4 – which could still propagate
+                                               to a substantial bias in the equation of state parameter 𝑤 – these and other recent results motivate continued effort to obtain
+                                               rest-frame NIR data at low and high redshifts (e.g. using the Roman Space Telescope).
+                                               Key words: supernovae: general – distance scale – dust, extinction – methods: statistical
+
+
+
+                                               1 INTRODUCTION                                                                   frame near-infrared (NIR) observations of SNe Ia at high redshift
+                                                                                                                                from the RAISIN Survey (SNIA in the IR; Jones et al. 2022), us-
+                                               With the advent of the Vera C. Rubin Observatory’s Legacy Survey
+                                                                                                                                ing these data in combination with the BayeSN hierarchical model
+                                               of Space and Time (LSST; Ivezić et al. 2019), and the High-Latitude
+                                                                                                                                (Mandel et al. 2022; Grayling et al. 2024) to explore how the dust
+                                               Time Domain Survey (HLTDS) on the Nancy Grace Roman Space
+                                                                                                                                laws in SN Ia host galaxies depends on redshift and mass.
+                                               Telescope (Spergel et al. 2015; Hounsell et al. 2018; Rose et al.
+                                               2021a), cosmology using Type Ia Supernovae (SNe Ia) is set to enter                 The nature of line-of-sight dust extinction in SN Ia host galaxies
+                                               an era of unprecedented precision. However, the success of these                 has been a topic of significant investigation throughout the history
+                                               future experiments hinges on our ability to account for systematic               of supernova cosmology, with the correction of this effect being a
+                                               uncertainties that are not yet fully understood. A particularly chal-            critical part of SN Ia standardisation. A particular sticking point has
+                                               lenging and contentious issue is determining the distribution of dust            been the estimation of the dust law 𝑅𝑉 parameter in SN Ia hosts
+                                               laws in SN Ia host galaxies (see e.g. Brout & Scolnic 2021; Thorp                – an issue debated in the literature (e.g. Branch & Tammann 1992;
+                                               et al. 2021). Galaxy evolution studies tell us that dust properties cor-         Riess et al. 1996; Tripp 1998; Tripp & Branch 1999, and references
+                                               relate strongly with stellar mass and star formation (see e.g. Salim             therein) since before the first discovery of accelerating expansion
+                                               et al. 2018; Nagaraj et al. 2022), but the parent stellar populations            (Riess et al. 1998; Perlmutter et al. 1999). As acknowledged in many
+                                               of SNe Ia also correlate with galaxy properties (e.g. Childress et al.           of these early works (particularly Riess et al. 1996), the estimation of
+                                               2014). Either of these effects could cause the accuracy of SN Ia                 𝑅𝑉 is rendered challenging by the confounding between this quantity
+                                               distance estimates to “drift” over cosmic time – a deeply troubling              and any intrinsic colour–luminosity correlation exhibited by SNe Ia
+                                               systematic for cosmology. The very latest constraints on the dark                (see Mandel et al. 2017, for extensive discussion of this problem).
+                                               energy equation-of-state parameter (𝑤; see DES Collaboration et al.              Considerable progress has been made over the past two and a half
+                                               2024) from SNe Ia have highlighted the importance of understanding               decades, with the construction of large optical+NIR SN Ia samples
+                                               this issue (Vincenzi et al. 2024). In this paper, we analyse new rest            (e.g. Wood-Vasey et al. 2008; Contreras et al. 2010; Stritzinger et al.
+                                                                                                                                2011; Friedman et al. 2015; Krisciunas et al. 2017), and the develop-
+                                                                                                                                ment of robust statistical methods for analysing these (e.g. Mandel
+                                               ★ E-mail: stephen.thorp@fysik.su.se                                              et al. 2009, 2011; Burns et al. 2011, 2014; Mandel et al. 2022).
+
+                                               © 2024 The Authors
+2      S. Thorp et al.
+   Nevertheless, challenges and uncertainty persist. As well as con-                (i.e. not easily explainable by dust). A hierarchical Bayesian analysis
+tinued debate over whether SN Ia hosts are consistent with Milky                    by Wojtak et al. (2023) applied a two-population model without an
+Way-like dust (𝑅𝑉 ≈ 3 with small variation around this; see e.g.                    explicit connection to host galaxy mass. Their results showed a pref-
+Schlafly et al. 2016), there is ongoing discussion regarding the level              erence for two populations that differ in intrinsic colour, light curve
+of 𝑅𝑉 variation amongst SN Ia host galaxies, and the level of corre-                stretch, and dust properties. Studies of early time SN Ia behaviour
+lation between this and galaxy mass (see e.g. Brout & Scolnic 2021;                 (e.g. Ye et al. 2024) have also hinted at intrinsic diversity in the SN
+Thorp et al. 2021; Johansson et al. 2021; González-Gaitán et al. 2021;              Ia population.
+Wiseman et al. 2022, 2023; Duarte et al. 2023; Meldorf et al. 2023;                    Correlations of SNe Ia Hubble residuals and light curve shapes
+Kelsey et al. 2023; Popovic et al. 2023; Karchev et al. 2023a, 2024;                with host galaxy mass or star formation rate have frequently been
+Grayling et al. 2024; Wojtak & Hjorth 2024). We review the past                     linked (see e.g. Sullivan et al. 2006, 2010; Childress et al. 2013, 2014;
+three years of 𝑅𝑉 estimates in Appendix A. There is a well known                    Kim et al. 2018; Rigault et al. 2020; Nicolas et al. 2021; Wiseman
+correlation between post-standardization SN Ia brightness (or Hub-                  et al. 2022; Briday et al. 2022; Chung et al. 2023) to models where
+ble residuals) and host mass – often referred to as a “mass step”                   SNe arise from a “prompt” population of young progenitors, and a
+(see e.g. Kelly et al. 2010; Sullivan et al. 2010, and many others). A              “delayed” population of older progenitors (as proposed by Mannucci
+difference in host galaxy dust law 𝑅𝑉 between low- and high-mass                    et al. 2005; Scannapieco & Bildsten 2005; Mannucci et al. 2006).
+host galaxies has been proposed by Brout & Scolnic (2021) as an                     Under such a model, the evolution of galaxy properties across cosmic
+explanation for this effect1 . Studies of dust attenuation laws in Dark             time could cause an evolution of the progenitor distribution, and thus
+Energy Survey (DES) SN Ia host galaxies have partially supported                    an evolving “mass step” (see e.g. Sullivan et al. 2010; Rigault et al.
+this picture (Meldorf et al. 2023; Duarte et al. 2023). Hubble resid-               2013; Childress et al. 2014). This could be a significant source of
+ual steps as a function of host mass and host 𝑈 − 𝑅 colour (the                     systematic uncertainty for current and future dark energy studies.
+latter being a tracer of stellar population age) have been studied by                  A dependence of host galaxy dust properties on host mass or star
+Wiseman et al. (2022) for the DES 5 yr SN Ia sample. who found                      formation rate could equally give rise to problematic cosmological
+it difficult to reconcile this with a solely dust-based explanation (see            systematics. It would create a “𝛽-evolution” effect (Kessler et al.
+also Kelsey et al. 2023; Wiseman et al. 2023). They suggest that                    2009b; Sullivan et al. 2010; Conley et al. 2011), where the appro-
+a residual effect relating to progenitor metallicity (see e.g. Höflich              priate SN Ia colour–luminosity corrections, or correct treatment of
+et al. 1998; Timmes et al. 2003) may also be at play2 . The latest                  dust, evolve with redshift (𝑅𝑉 -evolution is discussed specifically by
+DES analyses (Vincenzi et al. 2024; DES Collaboration et al. 2024)                  Nordin et al. 2008). Although Pan-STARRS, Pantheon, and the DES
+have supported the findings of Wiseman et al. (2022), and concluded                 3 yr analyses had not seen strong evidence for such an effect (Jones
+that a completely dust-based mass step model (à la Brout & Scolnic                  et al. 2018; Scolnic et al. 2018; Brout et al. 2019b), the very recent
+2021) cannot fully explain their data.                                              analysis of the 5 yr DES dataset claims some evidence for redshift
+   Tentative detections of a mass step at NIR wavelengths (where                    evolution of 𝛽 (Vincenzi et al. 2024; DES Collaboration et al. 2024).
+sensitivity to dust should be much lower) would also seem to contra-                Since these DES 5 yr results have shown a non-significant preference
+dict a scenario where dust is the only driver of SN–host correlations               for “quintessence” (−1 < 𝑤 < 0; Caldwell et al. 1998) over a cosmo-
+(see Uddin et al. 2020; Ponder et al. 2021; Johansson et al. 2021;                  logical constant (𝑤 = −1), it is crucial to understand any systematic
+Jones et al. 2022; Uddin et al. 2023; Peterson et al. 2024). Previous               uncertainties in our analyses.
+hierarchical Bayesian analyses of SN Ia light curves using BayeSN                      As discussed above, there has been extensive recent investigation
+(Thorp et al. 2021; Thorp & Mandel 2022) did not find a significant                 of whether dust law 𝑅𝑉 values in SN host galaxies correlate with
+difference in line-of-sight 𝑅𝑉 as a function of host galaxy stellar                 galaxy stellar mass (e.g. Brout & Scolnic 2021; Thorp et al. 2021;
+mass bins, and found that a non-zero residual brightness step is still              Johansson et al. 2021; Meldorf et al. 2023; Thorp & Mandel 2022;
+required to explain the data, even when allowing for different 𝑅𝑉 dis-              Vincenzi et al. 2024; Grayling et al. 2024). However, less inves-
+tributions in low- and high-mass hosts. Very recently Grayling et al.               tigated is the possibility of correlations between 𝑅𝑉 and redshift,
+(2024) applied BayeSN to a large set of optical data from Founda-                   either in addition to, or instead of, galaxy stellar mass. Grayling et al.
+tion (Foley et al. 2018b; Jones et al. 2019), Pan-STARRS (Scolnic                   (2024) recently presented one of the first analyses of this kind, fit-
+et al. 2018), and DES (Brout et al. 2019a). They explored a variety                 ting (to Foundation, Pan-STARRS, and DES data) a model where the
+of models, including one where SNe in low- and high-mass hosts are                  mean of the 𝑅𝑉 population distribution evolves linearly with redshift.
+allowed to differ at the level of the intrinsic SED. They concluded that            They estimated that the gradient of this relation is 𝜂 𝑅 = −0.38 ± 0.70
+both intrinsic and extrinsic effects are likely at the root of the mass             (where negative values would imply a mean 𝑅𝑉 that decreases with
+step. A study of the host-mass dependence of the SALT3 spectro-                     redshift). It is not yet clear if claimed results from SN Ia host galax-
+scopic model (Jones et al. 2023) found that ≈ 35 per cent of the mass               ies are well aligned with studies of galaxies more generally (see
+step is due to spectral variations that are independent of luminosity               discussion in Wiseman et al. 2022; Meldorf et al. 2023; Duarte et al.
+                                                                                    2023), since galaxy photometry constrains the attenuation law rather
+                                                                                    than extinction law (for a review see Salim & Narayanan 2020).
+1  It is worth noting that several much earlier studies (Sullivan et al. 2010;      Nevertheless, galaxy evolution studies suggest there are significant
+Lampeitl et al. 2010) had reported a significant difference in 𝑅𝑉 or colour–        correlations between dust attenuation, galaxy stellar mass, star for-
+luminosity slope, 𝛽, between passive and star forming SN host galaxies.             mation rate, and redshift (e.g. Garn & Best 2010; Zahid et al. 2013;
+However, Lampeitl et al. (2010) did not make a direct link between this and         Salim et al. 2018; Salim & Narayanan 2020; Nagaraj et al. 2022; Als-
+the mass step they reported, whilst Sullivan et al. (2010) strongly favoured an
+                                                                                    ing et al. 2024). Independently of any correlations with host galaxies,
+interpretation of the mass step based on intrinsic SN Ia properties (particularly
+progenitor metallicity, à la Timmes et al. 2003), as they found similar apparent
+                                                                                    a redshift-dependence of the dust law 𝑅𝑉 affecting SNe could also
+colours in low- and high-mass hosts.                                                arise from intergalactic dust, although such an effect is likely to be
+2 The possible cosmological impact of such a metallicity effect has been            small (see e.g. Mörtsell & Goobar 2003; Ménard et al. 2010a,b;
+considered since the original discovery of accelerating expansion (Höflich          Johansson & Mörtsell 2012).
+et al. 1998; Riess et al. 1998).                                                       Recently, the RAISIN Survey (Jones et al. 2022) obtained rest-
+
+MNRAS 000, 1–14 (2024)
+                                                                                            Dust Laws from the RAISIN Survey                            3
+frame NIR observations of 37 higher-redshift SNe Ia (0.2 ≲ 𝑧 ≲ 0.6)
+                                                                                     12 CSP [42 SNe; z < 0.1]
+using the Hubble Space Telescope (HST). Previously, a large sample
+                                                                                        RAISIN1 [19 SNe; 0.22 z 0.50]
+                                                                                     10 RAISIN2 [18 SNe; ; 0.35 z 0.61]
+of SNe Ia in this redshift range had only been probed out to the
+rest frame 𝐼-band (Nobili et al. 2005, 2009; Freedman et al. 2009),
+
+                                                                                      8
+although redder wavelengths were observed for a small number of
+supernovae by Stanishev et al. (2018). Observations of individual
+
+                                                                          # of SNe
+lensed SNe Ia have also probed the rest frame NIR at high-𝑧 (e.g.
+Quimby et al. 2013; Dhawan et al. 2020; Goobar et al. 2023; Pierel                    6
+et al. 2024). Given the advantages of the NIR for constraining the
+properties of host galaxy dust (see e.g. Krisciunas et al. 2007; Man-                 4
+del et al. 2011, 2022; Thorp & Mandel 2022), the RAISIN data thus
+present us with an excellent and unprecedented opportunity to esti-                   2
+mate the host galaxy 𝑅𝑉 values of SNe Ia at higher-redshift, to test
+if these differ strongly from those estimated at lower-𝑧. Therefore, in               0
+this paper we apply our BayeSN hierarchical model (Mandel et al.
+2022) to the RAISIN data to investigate precisely this question. We              1.0            CSP
+follow the analysis scheme demonstrated by Thorp & Mandel (2022)                                RAISIN1
+                                                                                                RAISIN2
+to constrain the distribution of dust law 𝑅𝑉 values in the higher-𝑧
+RAISIN sample, and the lower-𝑧 Carnegie Supernova Project com-
+                                                                                 0.8
+panion sample analysed by Jones et al. (2022). As well as estimating
+the 𝑅𝑉 distributions in these two samples, we also consider the effect           0.6
+of host galaxy stellar mass. This work is intended to serve as a com-
+                                                                          AV
+plement to the recent BayeSN analysis by Grayling et al. (2024) of               0.4
+a large optical dataset, which also investigated correlations between
+𝑅𝑉 , redshift and host galaxy mass.
+    In Section 2, we describe the SN Ia samples that we are analysing.
+                                                                                 0.2
+                                                                                 0.0
+In Section 3, we recap the key details of the BayeSN model, and
+the mode of analysis that we will follow. We discuss our results in
+Section 4, and finally provide our conclusions in Section 5.                              8.5     9.0      9.5 10.0 10.5                11.0      11.5
+                                                                                                            log10(M/M )
+
+2 DATA                                                                    Figure 1. Estimated dust extinction (𝐴𝑉 ) and host galaxy stellar mass
+                                                                          (log10 ( 𝑀/M ⊙ )) for the CSP and RAISIN samples. Vertical lines correspond
+We use the same low- and high-redshift SN Ia samples as in the            to host galaxy stellar masses of 1010 and 1010.44 M ⊙ . (top panel) Stacked his-
+RAISIN cosmology analysis (Jones et al. 2022). At low redshift            togram of log10 ( 𝑀/M ⊙ ). (bottom panel) Estimated 𝐴𝑉 vs. log10 ( 𝑀/M ⊙ ).
+(𝑧 < 0.1), we use the optical and NIR photometry of 42 SNe Ia from
+the Carnegie Supernova Project (CSP; Krisciunas et al. 2017). These
+are chosen to all have redshifts of 𝑧 > 0.01 to avoid excessive uncer-    tion 27 of Mandel et al. (2022), based on contributions from the
+tainty due to peculiar velocity. The CSP supernovae were selected         spectroscopic redshift uncertainty and an assumed peculiar veloc-
+for follow-up from galaxy-targeted surveys (i.e. surveys monitoring       ity uncertainty of 150 km s −1 Mpc −1 (Carrick et al. 2015). Milky
+a fixed list of galaxies). At high redshift (0.22 ≤ 𝑧 ≤ 0.61), we         Way extinction is corrected using the Schlafly & Finkbeiner (2011)
+use data for 37 SNe Ia from the RAISIN Survey, as presented by            catalogue. Host galaxy mass estimates are determined in a self con-
+Jones et al. (2022). All of these have NIR (F125W and F160W) pho-         sistent way for all SNe in the sample using LePhare (Arnouts &
+tometry from the Hubble Space Telescope. For 19 of the SNe from           Ilbert 2011), as described in Jones et al. (2022, appendix D). The
+RAISIN1, these data are augmented by optical (𝑔𝑟𝑖𝑧) data from the         CSP sample is weighted towards high masses, with 35/42 (24/42)
+Pan-STARRS Medium Deep Survey (MDS; Chambers et al. 2016;                 SNe having estimated host galaxy stellar masses above 1010 M ⊙
+Scolnic et al. 2018; Villar et al. 2020). The 18 remaining SNe from       (1010.44 M ⊙ )3 . For the higher-𝑧 RAISIN sample the reverse is true,
+RAISIN2 have optical (𝑔𝑟𝑖𝑧) data from the Dark Energy Survey              with 11/37 (6/37) SNe having estimated host masses greater than
+(DES Collaboration et al. 2016; Abbott et al. 2019; Brout et al.          1010 M ⊙ (1010.44 M ⊙ ).
+2019b). The SNe in both components of the sample are selected to             Figure 1 shows the 𝐴𝑉 4 and host galaxy stellar mass distribution
+have low–moderate host reddening (𝐸 (𝐵 − 𝑉) < 0.3, consistent with        for the CSP, RAISIN1, and RAISIN2 samples. This depicts graphi-
+the cuts used in typical cosmological analyses), with no excessively      cally the mass distributions summarised in the paragraph above, and
+fast or slow decliners (SNooPy colour-stretch parameter in the range      gives a sense of the number of SNe with moderate-to-high 𝐴𝑉 in each
+0.75 < 𝑠 𝐵𝑉 < 1.18). The SNe in the final sample have all been
+identified as spectroscopically normal SNe Ia.
+   We use the same redshifts as in Jones et al. (2022), whose peculiar    3 As discussed in Jones et al. (2022), the alternative step location of
+velocity corrections are based on the 2M++ catalogue (Lavaux &
+                                                                          1010.44 M ⊙ is chosen as a cross-check, based on Ponder et al. (2021).
+Hudson 2011). We compute external distance estimates, 𝜇ˆ ext,𝑠 , from     4 Estimated from the inference performed in Section 4.1.2, Fig. 3. The plot-
+these, using the distance–redshift relation one would find under a flat   ted points correspond to posterior medians and 68 per cent credible intervals.
+ΛCDM cosmology (with an assumed 𝐻0 = 73.24 km s −1 Mpc −1 ,               Estimates of 𝐴𝑉 are fairly insensitive to the sample division and exact treat-
+Ω 𝑀 = 0.28, and ΩΛ = 0.72; Riess et al. 2016). Our uncertainties          ment of 𝑅𝑉 , so a similar distribution would be obtained from any of the
+on our external distance estimates are computed following equa-           analyses carried out in this paper.
+
+                                                                                                                             MNRAS 000, 1–14 (2024)
+ 4                S. Thorp et al.
+
+                           BayeSN-SED: PScJ440005 (z = 0.305)                 mass splits, where a shift to lower or higher masses reduces at least
+                 12                                                           one of the two objectives (for a review see Hwang & Masud 1979;
+                                                                              Miettinen 1998). Neither 1010 nor 1010.44 M ⊙ is a Pareto-optimal
+                                                                       H      choice. However 1010 M ⊙ is very close – moving the step to the left
+                 14                                                           or right by one SN is the only lossless improvement that can be made.
+                                                                       J
+
+
+mag + constant
+                                                                              To choose a preferred mass from among the Pareto-optimal set, we
+                 16                                                           can solve a combined optimization problem,
+                                                                       z                     h
+                                                                              𝑀 ∗ = arg min (𝑁 <𝑀
+                                                                                                                                           i
+                 18
+                                                                                                 CSP
+                                                                                                      /42 − 0.5) 2 + (𝑁 ≥
+                                                                                                                        RAISIN
+                                                                                                                          𝑀    /37 − 0.5) 2 ,   (1)
+                                                                                           𝑀
+                                                                       i
+                 20                                                           where the loss function is the sum of squared distances between the
+                                                                              two objectives and their ideal value of 0.5 (Yu 1973). Here we use
+                                                                                𝑆 to denote the number of SNe in survey 𝑆 whose hosts satisfy
+                 22
+                                                                              𝑁𝐶
+                                                                      r       criterion 𝐶. For our data, we find the optimal value to be in the
+                      10        0          10      20       30       40       range 10.360 < log10 (𝑀 ∗ /M ⊙ ) < 10.385. For a mass split in this
+                                    rest-frame phase (days)                   range, 26/42 CSP SNe would fall into the upper mass bin, and 7/37
+                                                                              RAISIN SNe would fall into the upper mass bin. Since this is a very
+                           BayeSN-SED: DES16S1bno (z = 0.470)                 marginal improvement on the 1010.44 M ⊙ split, we do not employ
+                                                                              this optimized split in any of our subsequent analyses.
+                 14                                                    H
+                 16                                                           3 MODEL
+
+
+
+mag + constant
+                                                                              We perform our analysis using the BayeSN hierarchical Bayesian
+                 18
+                                                                       z      model for the spectral energy distributions (SEDs) of SNe Ia (Mandel
+                                                                              et al. 2022; Grayling et al. 2024). This framework models variations
+                 20
+                                                                       i
+                                                                              in the time-dependent SN Ia SED in terms of distinct intrinsic and
+                                                                              dust components, as summarised below. We use the M20 version of
+                 22                                                           the model, presented in Mandel et al. (2022), and trained on low-
+
+                                                                      r
+                                                                              redshift 𝐵𝑉 𝑅𝐼𝑌 𝐽𝐻 light curves compiled by Avelino et al. (2019)
+                 24                                                           from the CfA/CfAIR Supernova Programs (Hicken et al. 2009, 2012;
+                      10        0          10      20       30       40       Wood-Vasey et al. 2008; Friedman et al. 2015), Carnegie Supernova
+                                    rest-frame phase (days)                   Project (Krisciunas et al. 2017), and elsewhere in the literature (see
+                                                                              references in Avelino et al. 2019; Mandel et al. 2022). This is the same
+                                                                              version of the model as was used in the previous analyses by Jones
+ Figure 2. Examples of SN Ia light curve data from the RAISIN1 (upper         et al. (2022), Thorp & Mandel (2022), and Dhawan et al. (2023). The
+ panel) and RAISIN2 (lower panel) surveys. The RAISIN1 optical (𝑟𝑖𝑧) data     model covers a rest-frame wavelength range of ∼ 3500–18500 Å.
+ are from the Pan-STARRS Medium Deep Survey, whilst for RAISIN2 these            We adopt the same hierarchical Bayesian fitting procedure as
+ data are from the Dark Energy Survey. The 𝐽- and 𝐻-band data are from        Thorp & Mandel (2022, §3.2 (ii)), whereby all supernovae in the
+ the Hubble Space Telescope 𝐹125𝑊 and 𝐹160𝑊 filters. Also shown are fits
+                                                                              sample (or a subsample thereof) are fitted simultaneously with the
+ to the data using the M20 BayeSN model. The vertical offsets applied for
+ plotting are (−2, −4, −6, −8, −11) for (𝑟 , 𝑖, 𝑧, 𝐽 , 𝐻 ).
+                                                                              M20 BayeSN model. For each supernova, 𝑠, we fit for a set of latent
+                                                                              parameters, 𝝓 𝑠 . These include the distance modulus, 𝜇 𝑠 ; host galaxy
+                                                                              dust extinction, 𝐴𝑉 𝑠 ; the light curve shape, 𝜃 𝑠 ; a vector of residual
+                                                                                                                                1
+ mass/redshift bin. The SNe with higher 𝐴𝑉 will have more influence           intrinsic SED perturbations, 𝒆 𝑠 ; and a grey (i.e. constant in time and
+ on the 𝑅𝑉 inference, so the way these are distributed across surveys         wavelength) luminosity offset, 𝛿𝑀𝑠 . Depending on our model config-
+ and host mass will inform us which SNe are driving the results in            uration, we may also fit for individual values of the total-to-selective
+                                                                              extinction ratio, 𝑅𝑉𝑠 , along the line of sight in each supernova’s host
+ later sections.
+                                                                                      6
+                                                                              galaxy . At the population level, we fit for the population mean dust
+    A full description of the photometric data can be found in Jones
+ et al. (2022, §2), with details regarding sample selection in Jones et al.   extinction, 𝜏𝐴, that parameterises an exponential population distri-
+ (2022, §3.4). Two example light curves from RAISIN are shown in              bution. We also fit for either a single common 𝑅𝑉 , or, in the case of
+                                                                              a 𝑅𝑉𝑠 population distribution, its mean, 𝜇 , and standard deviation,
+ Figure 2, together with fits made using the BayeSN model.                                                                  𝑅
+    Given the oppositely skewed mass distributions of the CSP and             𝜎𝑅 . In the latter case, we sample the joint posterior distribution,
+ RAISIN samples, one5 can ask if there is a more optimal split that
+ minimises the correlation between mass and redshift. This can be             𝑃({𝜇 𝑠 , 𝝓 𝑠 }, 𝜇 𝑅 , 𝜎𝑅 , 𝜏𝐴 |{ 𝒇ˆ𝑠 , 𝑧 𝑠 }, 𝑾 ˆ 0, 𝑾 ˆ 1 , 𝚺ˆ 𝜖 , ˆ𝜎0 )
+                                                                                Ö
+ framed as finding the mass split that simultaneously maximises the
+                                                                              ∝         𝑃( 𝒇ˆ𝑠 |𝜇 𝑠 , 𝐴𝑉
+                                                                                                       𝑠
+                                                                                                         , 𝑅𝑉𝑠
+                                                                                                               , 𝜃 1𝑠 , 𝛿 𝑠𝑀 , 𝒆 𝑠 , 𝑾ˆ 0, 𝑾 ˆ 1)
+ fraction of the CSP sample in the low mass bin, and the fraction of the              𝑠
+ RAISIN sample in the high mass bin. Since these two objectives are
+                                                                              × 𝑃(𝜇 𝑠 |𝑧 𝑠 ) × 𝑃(𝜃 1𝑠 ) × 𝑃( 𝐴𝑉
+                                                                                                              𝑠           𝑠
+                                                                                                                |𝜏𝐴) × 𝑃(𝑅𝑉 |𝜇 𝑅 , 𝜎𝑅 )
+ in conflict, there is no perfect solution that brings them both close to
+ the ideal value of 0.5. One can then consider the set of Pareto-optimal
+                                                                              6 We assume a Fitzpatrick (1999) extinction law. For a discussion of this vs.
+                                                                              Cardelli et al. (1989) or O’Donnell (1994), see Burns et al. (2014) or Thorp
+ 5      We thank the referee for this suggestion.                             & Mandel (2022).
+
+ MNRAS 000, 1–14 (2024)
+                                                                                                                Dust Laws from the RAISIN Survey                            5
+
+                                                                                                                                                            CSP [42 SNe]
+                                       
+       × 𝑃(𝒆 𝑠 | 𝚺ˆ 𝜖 ) × 𝑃(𝛿𝑀𝑠 | ˆ𝜎0 ) × 𝑃(𝜏𝐴) × 𝑃(𝜇 𝑅 ) × 𝑃(𝜎𝑅 ),                       (2)                                                            RV = 2.52 ± 0.11
+                                                                                                                                                          A = 0.27 ± 0.04
+following Thorp & Mandel (2022, eq. 9). Here, 𝑾           ˆ 1 , 𝚺ˆ 𝜖 , and
+                                                     ˆ 0, 𝑾
+                                                                                                                                                        RAISIN1 [19 SNe]
+ˆ𝜎0 are hyperparameter estimates obtained from model training. Re-                                                                                       RV = 2.35 ± 0.63
+spectively, these are the population mean SED function, a functional                                                                                      A = 0.17 ± 0.05
+principal component capturing the primary mode of SED shape vari-
+                                                                                                                                                        RAISIN2 [18 SNe]
+ation, a covariance matrix of intrinsic residual perturbations, and the
+                                                                                                                                                         RV = 2.77 ± 0.70
+level of grey residual brightness scatter. The first term inside the                                                                                      A = 0.15 ± 0.05
+product is our flux data likelihood (constructed as per Mandel et al.
+2022). The remaining terms in the product are our are our priors on
+the latent parameters:                                                                               0.4
+                                              2
+        𝑃(𝜇 𝑠 | 𝑧 𝑠 ) = 𝑁 (𝜇 𝑠 | 𝜇ˆ ext,𝑠 , ˆ𝜎ext,𝑠 ),                                    (3)
+           𝑠
+       𝑃( 𝐴𝑉                      𝑠
+             |𝜏𝐴) = Exponential( 𝐴𝑉 |𝜏𝐴),                                                 (4)
+                                                                                                     0.3
+                                                                                                 A
+   𝑠
+𝑃(𝑅𝑉                    𝑠
+     | 𝜇 𝑅 , 𝜎𝑅 ) = 𝑁 (𝑅𝑉 |𝜇 𝑅 , 𝜎𝑅2 ) for 𝑅𝑉
+                                            𝑠
+                                              ≥ 0.5,                                      (5)        0.2
+             𝑃(𝜃 1𝑠 ) = 𝑁 (𝜃 1𝑠 | 0, 12 ),
+                                                                                                     0.1
+                                                                                          (6)
+       𝑃(𝒆 𝑠 | 𝚺ˆ 𝜖 ) = 𝑁 (𝒆 𝑠 | 0, 𝚺ˆ 𝜖 ),                                               (7)
+    𝑃(𝛿𝑀𝑠 | ˆ𝜎0 ) = 𝑁 (𝛿𝑀𝑠 |0, ˆ𝜎02 ).                                                               0.0
+                                                                                          (8)
+                                                                                                           1      2        3        4 0.0               0.2           0.4
+Here, we set our distance constraint, 𝑃(𝜇 𝑠 |𝑧 𝑠 ), based on an external                                                 RV                                 A
+redshift-based distance estimate, 𝜇ˆ ext,𝑠 , and its uncertainty, ˆ𝜎ext,𝑠 .
+Our method for estimating these is given in Section 2. For our hyper-
+priors, we adopt                                                                                 Figure 3. Posterior distributions of the best fitting dust law 𝑅𝑉 , and pop-
+                                                                                                 ulation mean extinction, 𝜏 𝐴 , for the three subsamples of our data. Green
+𝑃(𝜏𝐴) = Half-Cauchy(𝜏𝐴 |0, 1),                                                            (9)    contours show the CSP sample (𝑧 < 0.1), whilst orange and purple contours
+𝑃(𝜇 𝑅 ) = 𝑈 (𝜇 𝑅 |1, 5),                                                                (10)     show RAISIN1 (0.22 ≤ 𝑧 ≤ 0.50) and RAISIN2 (0.35 ≤ 𝑧 ≤ 0.61), respec-
+                                                                                                 tively. Parameter summaries are posterior mean ± standard deviation.
+                                   2
+𝑃(𝜎𝑅 ) = Half-𝑁 (𝜎𝑅 |0, 2 ),                                                            (11)
+following Mandel et al. (2022), Thorp et al. (2021), and Thorp &                                 allows us to obtain tighter constraints than the more flexible model
+Mandel (2022).                                                                                   where an 𝑅𝑉 population distribution of non-zero width is permitted
+   When fitting for a single common 𝑅𝑉 within a sample or subsam-                                (Section 4.2 presents our results under this more relaxed assump-
+ple, we sample the joint posterior distribution given by                                         tion). The assumption that SNe in a particular redshift range might
+                                                                                                 be well modelled by a single common 𝑅𝑉 is an approximation, but
+𝑃({𝜇 𝑠 , 𝝓 𝑠 }, 𝑅𝑉 , 𝜏𝐴 |{ 𝒇ˆ𝑠 , 𝑧 𝑠 }, 𝑾ˆ 0, 𝑾 ˆ 1 , 𝚺ˆ 𝜖 , ˆ𝜎0 )
+  Ö                                                                                             it can still provide important information about the typical nature of
+∝         𝑃( 𝒇ˆ𝑠 |𝜇 𝑠 , 𝐴𝑉
+                         𝑠
+                           , 𝑅𝑉 , 𝜃 1𝑠 , 𝛿 𝑠𝑀 , 𝒆 𝑠 , 𝑾 ˆ 0, 𝑾 ˆ 1 ) × 𝑃(𝜇 𝑠 |𝑧 𝑠 )) × 𝑃(𝜃 𝑠 )
+                                                                                           1
+                                                                                                 dust in the subsamples analysed.
+       𝑠                                                                                            In Section 4.1.1, we present 𝑅𝑉 inferences for CSP, RAISIN 1, and
+                                                                                                RAISIN2 separately. We will then proceed in Section 4.1.2 to present
+           𝑠
+     × 𝑃( 𝐴𝑉 |𝜏𝐴) × 𝑃(𝒆 𝑠 | 𝚺ˆ 𝜖 ) × 𝑃(𝛿𝑀𝑠 | ˆ𝜎0 ) × 𝑃(𝜏𝐴) × 𝑃(𝑅𝑉 ).                             our inferences of 𝑅𝑉 for CSP (𝑧 < 0.1) and the joint RAISIN1+2
+                                                                                                 (0.22 ≤ 𝑧 ≤ 0.61) sample. In Section 4.1.3, we will further split
+                                                                                        (12)
+                                                                                                 these two subsamples by host galaxy stellar mass – testing if there is
+The priors and hyperpriors here are as given in Equations 3, 4, 6–9,                             mass dependence of 𝑅𝑉 in either redshift bin, and if this may differ
+with our hyperprior on the common 𝑅𝑉 being given by                                              as a function of redshift.
+𝑃(𝑅𝑉 ) = 𝑈 (𝑅𝑉 |1, 6).                                                                  (13)
+                                                                                                 4.1.1 Split by Survey
+   Complete details of the BayeSN model can be found in Mandel
+et al. (2022), with specific discussion regarding its application to dust                        In the first instance, we perform our inference within three subsam-
+being included in Thorp et al. (2021), Thorp & Mandel (2022), and                                ples: CSP (𝑧 < 0.1), RAISIN1 (0.22 ≤ 𝑧 ≤ 0.50), and RAISIN2
+Grayling et al. (2024). As described therein, to fit these statistical                           (0.35 ≤ 𝑧 ≤ 0.61). Figure 3 shows our posterior distributions of 𝑅𝑉 ,
+models to the data, we use Hamiltonian Monte Carlo (within Stan;                                 and the mean dust extinction, 𝜏𝐴, for these three samples. These re-
+Carpenter et al. 2017) to sample the posterior distributions above and                           sults show strong consistency between the posterior distributions for
+use standard diagnostics (Gelman & Rubin 1992; Betancourt et al.                                 the two RAISIN samples (purple and orange contours in Fig. 3), so
+2014; Betancourt 2016; Vehtari et al. 2021) to assess the chains.                                we will combine these in subsequent analyses into a single higher-𝑧
+                                                                                                 RAISIN1+2 sample, which will have greater constraining power.
+
+4 RESULTS
+                                                                                                 4.1.2 Split by Redshift
+4.1 Common Dust Law Inference
+                                                                                                 Figure 4 shows our posterior distributions of 𝑅𝑉 and 𝜏𝐴 for the CSP
+In this Section, we present results from estimating the best fitting                             sample (indicated by the green contours, which are the same as in
+common 𝑅𝑉 value for different subsamples of our data. Whilst as-                                 Fig. 3), and for the combined RAISIN1+2 sample (red contours).
+suming a common 𝑅𝑉 in each subsample is a strong assumption, it                                  For CSP, we estimate 𝑅𝑉 = 2.52 ± 0.11, whilst for RAISIN1+2, we
+
+                                                                                                                                                  MNRAS 000, 1–14 (2024)
+6      S. Thorp et al.
+
+                                                           CSP [42 SNe]
+                                                        RV = 2.52 ± 0.11
+                                                                                                    1.0
+                                                         A = 0.27 ± 0.04
+
+                                                   RAISIN1+2 [37 SNe]                               0.8
+                                                      RV = 2.37 ± 0.39
+
+
+
+                                                                              probability density
+                                                        A = 0.15 ± 0.03
+                                                                                                    0.6
+
+                                                                                                    0.4
+
+    0.4                                                                                             0.2
+    0.3
+                                                                                                    0.0
+A
+    0.2                                                                                                   1.0   0.5          0.0     0.5            1.0
+                                                                                                                      RVRAISIN RVCSP
+    0.1
+    0.0                                                                         Figure 5. Posterior probability distribution of the 𝑅𝑉 difference between the
+          1      2        3        4 0.0              0.2           0.4         high-𝑧 RAISIN sample, and low-𝑧 CSP sample. Shaded regions show 68 and
+                       RV                                 A                     95 per cent credible intervals.
+
+
+                                                                                2.66 ± 0.14 for more massive hosts. In the higher-redshift bin, the
+Figure 4. Same as Figure 3, but showing results where the two RAISIN
+                                                                                estimates of 𝑅𝑉 are more uncertain. Within these uncertainties, the
+subsamples were merged and assumed to have a common 𝑅𝑉 and extinction
+                                                                                𝑅𝑉 estimates for the two mass bins are consistent with one another,
+distribution. Red contours show the inference for this combined RAISIN1+2
+sample. Green contours show CSP, as in Figure 3.                                and with their low-redshift counterparts.
+                                                                                   Following on from Fig. 5 in Section 4.1.2, we can use our posterior
+                                                                                samples to derive probability distributions of the change in 𝑅𝑉 with
+estimate 𝑅𝑉 = 2.37 ± 0.39, consistent with CSP to within the uncer-             either redshift (in the two mass bins), or mass (in the two redshift
+tainties. The estimate we obtain here for CSP is highly consistent with         bins). This allows us to investigate two related questions:
+the population mean 𝑅𝑉 (𝜇 𝑅 = 2.50 ± 0.12) estimated by Thorp &                                                                              𝑧
+                                                                                  (i) Is the potential evolution of 𝑅𝑉 with redshift (Δ𝑅𝑉       =
+Mandel (2022) using a slightly larger sample of 75 CSP SNe Ia with
+                                                                                 RAISIN
+                                                                                𝑅𝑉           CSP
+                                                                                         − 𝑅𝑉 ) different for low- and high-mass host galaxies?
+apparent 𝐵 − 𝑉 ≤ 0.3. For CSP, we estimate 𝜏𝐴 = 0.27 ± 0.04 mag,
+                                                                                                                                             𝑀 =
+somewhat higher that the estimate of 𝜏𝐴 = 0.15 ± 0.03 that we obtain              (ii) Are the potential correlations of 𝑅𝑉 with mass (Δ𝑅𝑉
+                                                                                 high-𝑀     low-𝑀 ) different at low- and high-redshift?
+for RAISIN1+2. This is unsurprising, as it is likely that the RAISIN            𝑅𝑉       − 𝑅𝑉
+sample will be biased towards low-𝐴𝑉 SNe due to the difficulty of
+detecting these objects at high redshift (see also the discussion of               We will tackle the first question first, and will estimate the poste-
+                                                                                                                       𝑧      RAISIN − 𝑅 CSP separately
+similar results in the optical analysis of Grayling et al. 2024). We            rior probability distributions of Δ𝑅𝑉     = 𝑅𝑉            𝑉
+defer a Bayesian treatment of this selection effect to future work.             for high- and low-mass host galaxies. Figure 7 shows the resulting
+   From the posterior samples shown in Figure 4, we can derive a                posteriors for the 1010 M ⊙ and 1010.44 M ⊙ mass splits. For both
+posterior distribution of the high- vs. low-𝑧 (i.e. RAISIN vs. CSP)             mass splits, the picture is fairly uncertain, but there is not signif-
+                                                                                                                                 𝑧
+𝑅𝑉 difference (Δ𝑅𝑉  𝑧
+                       = 𝑅𝑉RAISIN − 𝑅 CSP ). Figure 5 shows this. From          icant evidence that the high- vs. low-𝑧 Δ𝑅𝑉         differs for low- and
+                                       𝑉 𝑧                                                                                                 𝑧
+this, we can estimate that −0.84 < Δ𝑅𝑉        < 0.71, with 95 per cent          high-mass hosts. For the split at 1010 M ⊙ , the Δ𝑅𝑉          distribution
+posterior probability. This is fully consistent with a picture in which         for high-mass hosts leans towards negative values (i.e. lower 𝑅𝑉 at
+                                                                                                            𝑧
+there is no evolution in the typical 𝑅𝑉 as a function of redshift, but          higher 𝑧), whereas the Δ𝑅𝑉     distribution for low-mass hosts leans to-
+does not rule out a shift in either direction.                                  wards positive values (i.e. higher 𝑅𝑉 at higher 𝑧). Zero is within the
+                                                                                68 per cent credible interval for both mass bins, however, and both
+                                                                                bins have significant posterior density at both positive and negative
+4.1.3 Split by Redshift and Host Galaxy Mass                                    values of Δ𝑅𝑉 𝑧
+                                                                                                . For the split at 1010.44 M ⊙ (left panel of Fig. 7), the
+                                                                                                                      𝑧
+In this section, we perform our inference with the CSP and RAISIN               picture is similar, although the Δ𝑅𝑉     posteriors in the two mass bins
+samples each being split by host galaxy stellar mass, giving four sub-          are more similar in this case, both having their modes very close to
+                                                                                    𝑧                                                                𝑧
+samples in total. We follow Jones et al. (2022) in choosing the sample          Δ𝑅𝑉   = 0, and having slightly longer tails towards positive Δ𝑅𝑉       .
+split points to test, considering splits at 1010 M ⊙ , and at 1010.44 M ⊙ .        To tackle the second question, we will estimate the posterior dis-
+                                                                                tributions of Δ𝑅𝑉  𝑀 = 𝑅 high-𝑀 − 𝑅 low-𝑀 separately for the RAISIN
+The latter corresponds to a best-fitting NIR mass step location iden-                                     𝑉           𝑉
+tified by Ponder et al. (2021) using the Akaike Information Criterion.          (high-𝑧) and CSP (low-𝑧) samples. Figure 8 shows this for the
+    Figure 6 shows our posterior distributions for 𝑅𝑉 and 𝜏𝐴 in the low-        1010 M ⊙ and 1010.44 M ⊙ mass splits. For both mass splits, the
+and high-host mass RAISIN and CSP samples. The left hand panels                 resulting posterior distribution is much tighter for the CSP sample
+show the results for the 1010 M ⊙ mass split, with the right showing            than RAISIN. The results are consistent for the two mass splits, and
+                                                                                do not provide statistically significant evidence for a changing Δ𝑅𝑉     𝑀
+the split at 1010.44 M ⊙ . In terms of 𝑅𝑉 , the picture is generally
+one of consistency to within the uncertainties. For CSP, we estimate            between low- and high-redshift. For the CSP sample, the Δ𝑅𝑉 pos-   𝑀
+𝑅𝑉 = 2.30 ± 0.16 for host galaxies less massive than 1010 M ⊙ , and             terior has more probability towards positive values (i.e. higher 𝑅𝑉 in
+
+MNRAS 000, 1–14 (2024)
+                                                                                                                           Dust Laws from the RAISIN Survey                  7
+                                                                       CSP (z < 0.1)                                                                             CSP (z < 0.1)
+                                                           log(M/M ) 10 [24 SNe]                                                                   log(M/M ) 10.44 [24 SNe]
+                                                                    RV = 2.66 ± 0.14                                                                          RV = 2.33 ± 0.18
+                                                                     A = 0.25 ± 0.04                                                                           A = 0.18 ± 0.04
+                                                        -- log(M/M ) < 10 [18 SNe]                                                              -- log(M/M ) < 10.44 [18 SNe]
+                                                                    RV = 2.30 ± 0.16                                                                          RV = 2.62 ± 0.13
+                                                                     A = 0.46 ± 0.21                                                                           A = 0.40 ± 0.10
+                                                        RAISIN1+2 (0.22 z 0.61)                                                                    RAISIN1+2 (0.22 z 0.61)
+                                                             log(M/M ) 10 [6 SNe]                                                                    log(M/M ) 10.44 [6 SNe]
+                                                                    RV = 2.15 ± 0.53                                                                          RV = 2.33 ± 0.78
+                                                                     A = 0.18 ± 0.07                                                                           A = 0.24 ± 0.13
+                                                        -- log(M/M ) < 10 [31 SNe]                                                              -- log(M/M ) < 10.44 [31 SNe]
+                                                                    RV = 2.99 ± 0.77                                                                          RV = 2.62 ± 0.51
+                                                                     A = 0.14 ± 0.03                                                                           A = 0.14 ± 0.03
+
+
+                      0.8                                                                                    0.8
+                      0.6                                                                                    0.6
+     A                                                                                      A
+                      0.4                                                                                    0.4
+                      0.2                                                                                    0.2
+                      0.0                                                                                    0.0
+                            1   2   3 4      5 0.00 0.25 0.50 0.75                                                 1   2     3 4       5 0.00 0.25 0.50 0.75
+                                     RV                            A                                                          RV                              A
+
+
+  Figure 6. Same as Figure 4, but with the low-redshift CSP sample (𝑧 < 0.1) and higher-redshift RAISIN sample (0.22 ≤ 𝑧 ≤ 0.61) each subdivided by host
+  galaxy stellar mass. Green contours show CSP, whilst red/pink contours show RAISIN. Darker solid contours show higher host galaxy masses, whilst lighter
+  dashed contours show lower host masses. We use the two sample split points used by Jones et al. (2022) as their default choice and systematic test. (left panels)
+  Inference when the sample is split at the default host galaxy stellar mass of 1010 M ⊙ . (right panels) Split at 1010.44 M ⊙ , the best fitting NIR mass step location
+  found by Ponder et al. (2021).
+
+
+
+                                                               log(M/M ) 10                                                                           log(M/M ) 10.44
+                      0.6                                      log(M/M ) < 10                                0.7                                      log(M/M ) < 10.44
+
+                      0.5                                                                                    0.6
+
+
+
+probability density                                                                    probability density
+                                                                                                             0.5
+                      0.4
+                                                                                                             0.4
+                      0.3
+                                                                                                             0.3
+                      0.2                                                                                    0.2
+                      0.1                                                                                    0.1
+                      0.0                                                                                    0.0
+                            2       1     0         1          2            3                                      2         1      0         1           2           3
+                                           RVRAISIN RVCSP                                                                            RVRAISIN RVCSP
+
+  Figure 7. Same as Figure 5, but with the sample split into two bins of high (solid dark brown curves) and low (dashed light brown curves) host galaxy mass.
+  (left panel) Sample divided at 1010 M ⊙ . (right panel) Sample divided at 1010.44 M ⊙ .
+
+
+  higher mass galaxies) for the 1010 M ⊙ mass split, but more towards                                ative Δ𝑅𝑉 𝑀 (i.e. lower 𝑅 for higher mass host galaxies) for both
+                                                                                                                                𝑉
+  negative values for the 1010.44 M ⊙ mass split. The latter is more                                 choices of mass split, although Δ𝑅𝑉   𝑀 = 0 is within the 68 per cent
+  in line with our previous results at low-𝑧 (see Thorp et al. 2021;                                 credible interval in both cases. The results for the 1010 M ⊙ mass
+  Thorp & Mandel 2022), although both there and here the estimated                                   split would be consistent with a larger potential redshift evolution of
+  Δ𝑅𝑉 𝑀 (or Δ𝜇 𝑀 in Thorp & Mandel 2022) has not been significantly                                      𝑀 than the results for 1010.44 M , although due to the large un-
+               𝑅                                                                                     Δ𝑅𝑉                                    ⊙
+  different from zero. Indeed, for both mass splits considered here,                                 certainties in both cases, there is no statistically significant evidence
+      𝑀
+  Δ𝑅𝑉 = 0 is within the 95 per cent posterior credible intervals for                                 for such a redshift evolution in either case.
+  CSP. For RAISIN, the posteriors show a mild tendency towards neg-
+
+                                                                                                                                                    MNRAS 000, 1–14 (2024)
+  8                     S. Thorp et al.
+
+                                  RAISIN1+2 (0.22 z 0.61)                                                2.00        RAISIN1+2 (0.22 z 0.61)
+                      2.00        CSP (z < 0.1)                                                                      CSP (z < 0.1)
+                                                                                                         1.75
+                      1.75
+                                                                                                         1.50
+
+
+
+probability density                                                                probability density
+                      1.50
+                      1.25                                                                               1.25
+                      1.00                                                                               1.00
+                      0.75                                                                               0.75
+                      0.50                                                                               0.50
+                      0.25                                                                               0.25
+                      0.00                                                                               0.00
+                              3        2         1    0         1        2     3                                 3         2         1      0         1         2         3
+                                       RVlog(M/M ) 10 RVlog(M/M ) < 10                                                  RVlog(M/M ) 10.44   RVlog(M/M ) < 10.44
+
+
+  Figure 8. Same as Figure 7, but showing high- vs. low-mass Δ𝑅𝑉𝑀 for the two redshift bins (rather than high- vs. low-𝑧 Δ𝑅 𝑧 for the two mass bins). (left panel)
+                                                                                                                           𝑉
+                      10
+  Sample divided at 10 M ⊙ . (right panel) Sample divided at 1010.44 M⊙ .
+
+
+  4.2 Dust Law Population Distribution Inference                                                                                                             CSP [42 SNe]
+                                                                                                                                                            R = 2.62 ± 0.26
+  In this Section, we relax the assumption that each SN Ia subsample                                                                                        R = 0.82 ± 0.37
+  is consistent with a single 𝑅𝑉 common to that subsample. Instead,                                                                                         A = 0.27 ± 0.04
+  we assume a Gaussian population distribution of 𝑅𝑉 , with the 𝑅𝑉      𝑠
+                                                                                                                                                           RAISIN [37 SNe]
+  for a supernova, 𝑠, being modelled as a draw from this population                                                                                         R = 2.58 ± 0.57
+                                                                                                                                                            R < 0.90 (2.42)
+                                                                                                                                                            A = 0.15 ± 0.03
+                          𝑠 ∼ 𝑁 (𝜇 , 𝜎 2 ). When we perform our in-
+  distribution, like so: 𝑅𝑉          𝑅 𝑅
+  ference, we sample from the joint posterior distribution given by
+  Equation 2, conditional on the data for a given supernova subsample.                                       3
+  We marginalize over all supernova-level parameters, including the
+  set of individual 𝑅𝑉 𝑠 values, to obtain a posterior distribution over                                  R  2
+  the 𝑅𝑉 population mean, 𝜇 𝑅 , and standard deviation, 𝜎𝑅 .                                                 1
+     In Section 4.2.1, we present our results for the low-𝑧 CSP data, and
+  higher-𝑧 RAISIN data. In Section 4.2.2, we present results obtained                                        0
+  by combining the CSP and RAISIN samples, and then splitting this                                         0.4
+  combined sample by host galaxy stellar mass.
+
+                                                                                                           0.2
+                                                                                                     A
+
+  4.2.1 Split by Redshift
+                                                                                                           0.0
+  As in Section 4.1.2, we will begin by performing an analysis with the
+  sample split by redshift. Figure 9 shows our posterior distributions
+                                                                                                                 2         4     0          2       0.00       0.25
+                                                                                                                       R                    R                    A
+  of the 𝑅𝑉 population mean (𝜇 𝑅 ) and standard deviation (𝜎𝑅 ), and
+  𝐴𝑉 population mean (𝜏𝐴). Our estimates of 𝜏𝐴 for the two samples
+  are identical to those obtained from the analysis in the previous                              Figure 9. Posterior distributions of the host galaxy dust population dis-
+  sections (see Fig. 4 and Section 4.1.2). We have previously found                              tribution parameters for the CSP (𝑧 < 0.1; green contours) and RAISIN
+  that inference of the mean dust extinction, 𝜏𝐴, is very insensitive to                         (0.2 ≲ 𝑧 ≲ 0.6; red countours) components of our sample. Parameters plot-
+  the assumption of a single 𝑅𝑉 or population distribution thereof, so                           ted are the mean (𝜇𝑅 ) and standard deviation (𝜎𝑅 ) of the Gaussian 𝑅𝑉
+  this result is unsurprising (see Thorp et al. 2021).                                           population distribution, and the mean (𝜏 𝐴 ) of the exponential 𝐴𝑉 distribu-
+     For CSP, we estimate an 𝑅𝑉 population mean of 𝜇 𝑅 = 2.62±0.26,                              tion. Parameter summaries are ether posterior mean ± standard deviation, or
+  and a population standard deviation of 𝜎𝑅 = 0.82 ± 0.37. This                                  68 (95)th posterior percentile. Dashed lines indicate the hyperpriors.
+  population mean estimate is consistent with the common 𝑅𝑉 = 2.52±
+  0.11 estimated in Section 4.1.2. Additionally, these population mean
+  and standard deviation estimates are consistent with the estimates                             68 per cent posterior probability, and 𝜎𝑅 < 2.42 with 95 per cent
+  obtained by Thorp & Mandel (2022) using a larger sample of 75                                  posterior probability.
+  CSP SNe Ia with apparent 𝐵 − 𝑉 ≤ 0.3. For RAISIN, we estimate                                     Figure 10 shows the estimated host-extinguished apparent 𝐵 − 𝑉
+  𝜇 𝑅 = 2.58 ± 0.57, fully consistent with the CSP population mean                               and 𝐵 − 𝑌 colours for the RAISIN and CSP samples at a rest frame
+  estimate. Our posterior distribution for 𝜎𝑅 peaks at zero, meaning                             phase of 10 d. We chose this phase as a trade-off between being
+  we can use the posterior credible intervals to place upper limits on                           close to the data (the median phase of first observation for RAISIN is
+  𝜎𝑅 in the RAISIN redshift range. We estimate that 𝜎𝑅 < 0.90 with                               ≲ 9.5 d; Jones et al. 2022), but also being at a phase where intrinsic
+
+  MNRAS 000, 1–14 (2024)
+                                                                                                                                                          Dust Laws from the RAISIN Survey                  9
+
+
+
+
+host-extinguished B V colour (t = 10d)
+                                         0.6            int. colour locus                                                                     0.6
+                                                        CSP
+                                         0.5            RAISIN1+2                                                                             0.5
+
+
+
+                                                                                                                        probability density
+                                         0.4                                                                                                  0.4
+                                         0.3                                                                                                  0.3
+
+                                         0.2                                                                                                  0.2
+                                                                                                      RV = 2.6
+                                         0.1                                                                                                  0.1
+                                                                                                                                              0.0
+                                         0.0                                                                                                        1.5    1.0    0.5       0.0         0.5      1.0     1.5
+                                            1.75 1.50 1.25 1.00 0.75 0.50 0.25                                                                                          RAISIN
+                                                                                                                                                                        R
+                                                                                                                                                                                  CSP
+                                                                                                                                                                                  R
+                                                 host-extinguished B Y colour (t = 10d)
+                                                                                                                          Figure 11. Posterior probability distribution of the estimated high- vs. low-𝑧
+    Figure 10. Estimated host-extinguished apparent 𝐵 − 𝑉 vs. 𝐵 − 𝑌 colours                                               difference in population mean 𝑅𝑉 (Δ𝜇𝑅   𝑧
+                                                                                                                                                                    ).
+    for RAISIN (red points) and CSP (green points) at a rest-frame phase of
+    10 d. The red contours show the posterior predictive distribution (PPD) for
+    RAISIN’s host-extinguished colours, with the green showing the PPD for
+    CSP’s colours, from our dust law population inference (§4.2.1, Fig. 9). The                                           as a broader distribution of colours perpendicular to the diagonal –
+    black dashed contours show the intrinsic colour locus predicted by the M20                                            particularly towards redder end.
+    BayeSN model. The contours shown are 68 and 95 per cent credible intervals.                                              Similarly to in Figure 5, we can compute a derived posterior on the
+    The orange arrows show a reddening vector corresponding to 𝑅𝑉 = 2.6                                                                           𝑧
+                                                                                                                          difference in 𝜇 𝑅 (Δ𝜇 𝑅    = 𝜇RAISIN
+                                                                                                                                                         𝑅         − 𝜇CSP
+                                                                                                                                                                       𝑅 ) between the low-𝑧 CSP
+    (approximately the posterior mean of 𝜇𝑅 for CSP and RAISIN; c.f. Fig. 9).                                             and high-𝑧 RAISIN samples. Figure 11 shows this. This posterior
+    The longer arrow is has its base at the mean of the intrinsic colour locus and                                        distribution is reasonably symmetric, so does not suggest a preference
+    has a length corresponding to 𝐴𝑉 = 0.75. The shorter arrow has a length
+                                                                                                                          for either of the possible directions of 𝜇 𝑅 shift. We can place limits on
+    corresponding to 𝐴𝑉 = 0.25.                                                                                                                                                           𝑧
+                                                                                                                          the possible redshift drift of 𝜇 𝑅 , estimating that −0.63 < Δ𝜇 𝑅  < 0.55
+                                                                                                                                                                                     𝑧
+                                                                                                                          with 68 per cent posterior probability, and −1.16 < Δ𝜇 𝑅 < 1.38 with
+                                                                                                                          95 per cent posterior probability.
+    colour variation is relatively moderate (both due to correlation with
+    light curve shape, and residual scatter on top of this; c.f. Mandel et al.
+    2022 fig. 8 & 9). The contours in our Figure 10 show the posterior
+    predictive distributions (PPD) for host-extinguished colours for the                                                  4.2.2 Split by Host Galaxy Mass
+    two redshift ranges, i.e.                                                                                             Motivated by the consistency between the CSP and RAISIN samples
+                                                                                                                          seen in Section 4.2.1, in this section we combine the data from the two
+              ext              ext       ˆ      ˆ ˆ ˆ
+     𝑃[(𝐵 − 𝑉)𝑡=10 d , (𝐵 − 𝑌 )𝑡=10 d |{ 𝒇 𝑠 }, 𝑾0 , 𝑾1 , 𝚺 𝜖 ]                                                           surveys, and then perform our inference with this joint sample split by
+                              ∫
+                                                                                                                          host galaxy mass. When fitting the 𝑅𝑉 population distribution model
+          =                               𝑃({𝜇 𝑠 , 𝝓 𝑠 }, 𝜇 𝑅 , 𝜎𝑅 , 𝜏𝐴 |{ 𝒇ˆ𝑠 }, 𝑾    ˆ 1 , 𝚺ˆ 𝜖 , ˆ𝜎0 )
+                                                                                  ˆ 0, 𝑾
+                                                                                                                          (Eq. 2), we lack the leverage to split the sample four ways, as we
+                    ext
+         × 𝑃[(𝐵 − 𝑉)𝑡=10             ext                             ˆ                                                    did in Section 4.1.3. Nevertheless, we can still utilise this combined
+                         d , (𝐵 − 𝑌 )𝑡=10 d |𝝓] × 𝑃(𝝓|𝜇 𝑅 , 𝜎𝑅 , 𝜏𝐴, 𝚺 𝜖 )
+                                                                                                                          sample to investigate the possible dependence of the 𝑅𝑉 population
+                                                                                × 𝑑𝜇 𝑠 𝑑𝝓 𝑠 𝑑𝜇 𝑅 𝑑𝜎𝑅 𝑑𝜏𝐴,        (14)     distribution on host galaxy stellar mass.
+    where                                                                                                                    Figure 12 shows our posterior inference of 𝜇 𝑅 , 𝜎𝑅 , and 𝜏𝐴 for
+                                                                                                                          the mass split CSP+RAISIN sample. We test the same pair of split
+     𝑃(𝝓|𝜇 𝑅 , 𝜎𝑅 , 𝜏𝐴, 𝚺ˆ 𝜖 ) = 𝑃(𝑅𝑉 |𝜇 𝑅 , 𝜎𝑅 )𝑃( 𝐴𝑉 |𝜏𝐴)𝑃(𝜃 1 )𝑃(𝒆| 𝚺ˆ 𝜖 ).                                            points (1010 M ⊙ and 1010.44 M ⊙ ) as in Section 4.1.3 and Jones
+                                                                                                                          et al. (2022). For both choices of split, we estimate consistent 𝑅𝑉
+                                                                                                                 (15)
+                                                                                                                          population distributions in the two mass bins. For host galaxies more
+    The PPDs are estimated by simulating supernovae from                                                                  massive than 1010 M ⊙ , we estimate an 𝑅𝑉 population distribution
+    𝑃(𝝓|𝜇 𝑅 , 𝜎𝑅 , 𝜏𝐴, 𝚺ˆ 𝜖 ), conditional on the 𝜇 𝑅 , 𝜎𝑅 , and 𝜏𝐴 for each                                              with mean 𝜇 𝑅 = 2.54 ± 0.26, and standard deviation 𝜎𝑅 = 0.81 ±
+    MCMC sample from the posteriors shown in Fig. 9, and computing                                                        0.32. For hosts less massive than 1010 M ⊙ , we estimate 𝜇 𝑅 = 2.79 ±
+    their 𝐵 − 𝑉 and 𝐵 − 𝑌 colours. Also shown in Fig. 10 is the intrinsic                                                 0.58, and place upper limits on 𝜎𝑅 < 1.33 (2.94) with 68 (95) per
+    colour locus of the M20 BayeSN model, determined by taking draws                                                      cent posterior probability. For the split at 1010.44 M ⊙ , we estimate
+    from the prior 𝑃(𝜃 1 ) × 𝑃(𝒆| 𝚺ˆ 𝜖 ) and estimating colours with 𝐴𝑉 = 0.                                              𝜇 𝑅 = 2.27 ± 0.32 for high mass hosts, and 𝜇 𝑅 = 2.82 ± 0.31 for
+    The PPD corresponding to the low-𝑧 CSP sample is more dispersed                                                       low mass hosts. In higher mass hosts, we place an upper limit on
+    along the diagonal than for the higher-𝑧 RAISIN sample, reflective                                                    𝜎𝑅 < 0.78 (1.62) at the 68 (95) per cent level. In the lower mass
+    of the posterior for CSP in Fig. 9 being weighted towards a higher                                                    hosts, we estimate 𝜎𝑅 = 0.87 ± 0.43, albeit with significant posterior
+    mean dust extinction, 𝜏𝐴. Although the constraints on the population                                                  probability density near zero (see Fig. 12).
+    standard deviation, 𝜎𝑅 , of 𝑅𝑉 for RAISIN are more uncertain than                                                        As an alternative to Figure 11, we can use the results from this
+    for CSP, the posterior for CSP is more concentrated towards non-zero                                                  Section to estimate the posterior distribution of a high- vs. low-mass
+    values, with a posterior mean of 0.82. In the PPD, this is reflected                                                  change in 𝜇 𝑅 (Δ𝜇 𝑅𝑀 = 𝜇 high-𝑀 − 𝜇 low-𝑀 ). Figure 13 shows this for
+                                                                                                                                                      𝑅          𝑅
+
+                                                                                                                                                                                        MNRAS 000, 1–14 (2024)
+  10                        S. Thorp et al.
+
+                                                                            CSP+RAISIN                                                               CSP+RAISIN
+                                                                log(M/M ) 10 [46 SNe]                                                log(M/M ) 10.44 [30 SNe]
+                                                                        R = 2.54 ± 0.26                                                          R = 2.27 ± 0.32
+                                                                        R = 0.81 ± 0.32                                                           R < 0.78 (1.62)
+                                                                         A = 0.22 ± 0.04                                                         A = 0.18 ± 0.04
+                                                                log(M/M ) < 10 [33 SNe]                                              log(M/M ) < 10.44 [49 SNe]
+                                                                         R = 2.79 ± 0.58                                                         R = 2.82 ± 0.31
+                                                                         R < 1.33 (2.94)                                                         R = 0.87 ± 0.43
+                        3                                                A = 0.21 ± 0.04         3                                               A = 0.24 ± 0.04
+
+                R       2                                                                  R     2
+                        1                                                                        1
+                        0                                                                        0
+                      0.4                                                                      0.4
+
+                      0.2                                                                      0.2
+      A                                                                                    A
+
+
+
+                      0.0                                                                      0.0
+                               2         4     0         2          0.00      0.25                   2         4      0          2         0.00       0.25
+                                     R                   R                     A                           R                     R                     A
+
+
+  Figure 12. Posterior distributions of the host galaxy dust population distribution parameters of the combined CSP+RAISIN sample, split by host galaxy stellar
+  mass. Red contours show the higher mass subsample, whilst blue show the lower mass subsample. Parameters plotted are the same as in Fig. 9. Mass splits in
+  the left- and right-hand corner plots are the same as in Figure 6.
+
+
+                                                                                                                                 𝑀 < 0.35 at the 95 per cent
+                                                                                           the 68 per cent level, and −1.46 < Δ𝜇 𝑅
+                      0.6                                                                  level.
+
+                      0.5
+
+
+
+probability density
+                                                                                           5 CONCLUSIONS
+                      0.4
+                                                                                           In this paper, we have used our BayeSN hierarchical model to analyse
+                      0.3                                                                  high-𝑧 SN Ia light curves from the RAISIN Survey (Jones et al.
+                                                                                           2022), along with a complementary set of low-𝑧 SNe Ia from CSP.
+
+                      0.2
+                                                                                           We have presented constraints on the dust law 𝑅𝑉 (and its population
+                                                                                           distribution) in SN Ia host galaxies for this redshift range (0.22 ≤
+                                                                                           𝑧 ≤ 0.61). This is the first such analysis using RAISIN data, and our
+                      0.1                                                                  results are the first SN Ia host galaxy 𝑅𝑉 constraints at high-𝑧 to be
+                                                                                           based on rest-frame optical and NIR data.
+                      0.0
+                               1.5       1.0       0.5       0.0        0.5    1.0
+                                                                                              Assuming a single common dust law can describe the RAISIN
+                                                                                           sample, we estimate 𝑅𝑉 = 2.37 ± 0.39. This is fully consistent
+                                          log(M/M ) 10       log(M/M ) < 10
+                                          R                  R                             with the value of 𝑅𝑉 = 2.52 ± 0.11 that we estimate for the low-
+                                                                                           𝑧 CSP sample (which, in turn, is fully consistent with our low-𝑧
+                                                                                           𝑅𝑉 estimates from previous analyses; Thorp et al. 2021; Thorp &
+                                               𝑀 , for the CSP+RAISIN
+  Figure 13. Posterior of low- vs. high-mass Δ𝜇𝑅                                           Mandel 2022; Ward et al. 2023a; Grayling et al. 2024). We use
+  combined sample split at 1010 M ⊙ .                                                      these results to place probabilistic limits on the shift in 𝑅𝑉 between
+                                                                                                                          𝑧      RAISIN − 𝑅 CSP ), estimating that
+                                                                                           low- and high-redshift (Δ𝑅𝑉      = 𝑅𝑉            𝑉
+                                                                                                          𝑧
+                                                                                           −0.84 < Δ𝑅𝑉      < 0.71, with 95 per cent posterior probability. This
+                                                                                           constraint does not rely on assuming that 𝑅𝑉 is associated with a
+  a mass split at 1010 M ⊙ . We can see that this shows a slight tendency
+                          𝑀 (i.e. a weak preference of higher 𝜇 in lower-                  particular galaxy type/property, and propagating that indirectly to
+  towards a negative Δ𝜇 𝑅                                        𝑅                                               𝑧
+                                            𝑀 of zero (i.e. no difference)
+                                                                                           a constraint on Δ𝑅𝑉     based on a model for galaxy evolution across
+  mass host galaxies). However, a Δ𝜇 𝑅                                                     cosmic time. Rather, it a direct constraint of Δ𝑅𝑉   𝑧
+                                                                                                                                                  , conditional on
+  is well within the 68 per cent credible interval. With 68 per cent                       the data. This has the advantage of depending on fewer astrophysical
+  posterior probability, we estimate that −0.83 < Δ𝜇 𝑅       𝑀 < 0.34, and
+                                                                                           assumptions, and does not assume that an estimated low-𝑧 correlation
+  with 95 per cent posterior probability, we estimate −1.66 < Δ𝜇 𝑅      𝑀 <
+                                                                                           between 𝑅𝑉 and host properties perseveres at high-𝑧. However, a
+                                                     10.44                                            𝑧
+  0.91. We do not include a Figure for the 10              M ⊙ split, but the              direct Δ𝑅𝑉   constraint cannot be easily projected beyond the redshift
+  picture is very similar, albeit with a slightly stronger tendency towards                range of the data that it is obtained from (c.f. the progenitor-based
+  negative Δ𝜇 𝑅 𝑀 . For this split, we estimate −0.97 < Δ𝜇 𝑀 < −0.12 at                    mass step model of Rigault et al. 2013 or Childress et al. 2014; or the
+                                                              𝑅
+
+  MNRAS 000, 1–14 (2024)
+                                                                                         Dust Laws from the RAISIN Survey                       11
+linear 𝜇 𝑅 vs. redshift relation of Grayling et al. 2024). Additionally,    standard deviation, 𝜎𝑅 ) of a Gaussian 𝑅𝑉 population distribution are
+the utility of a direct constraint requires the high- and low-𝑧 samples     fitted. For the low-𝑧 CSP sample we estimate 𝜇 𝑅 = 2.62 ± 0.26 and
+analysed to be representative (in terms of dust properties, at least)       𝜎𝑅 = 0.82 ± 0.37, whilst for the high-𝑧 RAISIN sample we estimate
+of the broader population of SN Ia hosts in their respective redshift       𝜇 𝑅 = 2.58 ± 0.57 and place an upper limit on 𝜎𝑅 < 0.90 (2.42)
+ranges.                                                                     with 68 (95) per cent posterior probability. Our population distri-
+   With CSP-I leaning heavily towards the follow-up of SNe from             bution estimate at low-𝑧 is consistent with our previous analyses
+“targeted” searches (see Krisciunas et al. 2017 §2, and references          (Thorp et al. 2021; Thorp & Mandel 2022), and the estimates at
+therein), the low-𝑧 component of our sample will not have a host            high- and low-𝑧 are consistent to within their uncertainties. As with
+galaxy distribution that is representative of low-𝑧 SN hosts more           the single-𝑅𝑉 analysis, we are able to place limits on the potential
+                                                                                                                𝑧
+generally. It is particularly biased in terms of host galaxy mass –         redshift drift of the mean 𝑅𝑉 (Δ𝜇 𝑅   = 𝜇RAISIN
+                                                                                                                      𝑅       − 𝜇CSP
+                                                                                                                                 𝑅 ), finding that
+                                                                                           𝑧
+strongly favouring more massive hosts as can be seen from Figure 1.         −1.16 < Δ𝜇 𝑅      < 1.38 with 95 per cent posterior probability. The
+                                                                                                                                           𝑧
+This means that the difference in mass distribution between the low-        credible interval here is slightly wider than the equivalent Δ𝑅𝑉  pos-
+and high-𝑧 samples we have analysed is likely more significant than         terior, and permits a wide range of possibilities. Analysis of a large
+the difference between the underlying SN Ia host mass distribution          optical sample (Grayling et al. 2024) has yielded similar constraints.
+in the two redshift ranges. Pan et al. (2014) and Smith et al. (2020b)      Nevertheless, it allows us to confidently rule out very extreme drifts
+present detailed discussion of the SN Ia host mass distributions for        in mean 𝑅𝑉 of ≳ 1.5, and is a promising preliminary result that
+different surveys and redshift ranges. Pan et al. (2014) find that the      should be built on in future analyses.
+untargetted low-𝑧 Palomar Transient Factory SN Ia sample has a                 Finally, given the consistency of our 𝑅𝑉 population distribution
+less pronounced tendency towards high host masses than other low-           inferences in the CSP and RAISIN samples, we use the combined
+𝑧 samples (explained by galaxy-targetted surveys favouring bright           CSP+RAISIN data to investigate the mass-dependence of the host
+galaxies), but that the mass distribution still skews higher than for       galaxy 𝑅𝑉 distribution. In combination, these data have a fairly even
+the higher-𝑧 SNLS sample. They find that although the galaxy stellar        split between host masses above and below 1010 M ⊙ (46/79 above,
+mass function does not strongly evolve with redshift at 𝑧 < 1 (Drory        33/79 below), albeit with the quirk that the high-mass subset is
+et al. 2009), the convolution of the mass function with a mass–age          dominated by CSP (35/46), whilst the low-mass subset is domi-
+relation (Gallazzi et al. 2005) and the SN Ia delay time distribution       nated by RAISIN (26/33). For host galaxies more massive than
+(Maoz & Mannucci 2012) can explain the higher fraction of low-              1010 M ⊙ , we estimate an 𝑅𝑉 population distribution with mean
+mass hosts at higher-𝑧 (see also discussion in Childress et al. 2014).      𝜇 𝑅 = 2.54 ± 0.26, and standard deviation 𝜎𝑅 = 0.81 ± 0.32. For
+Smith et al. (2020b) present a comparison of five different surveys;        hosts less massive than 1010 M ⊙ , we estimate 𝜇 𝑅 = 2.79 ± 0.58, and
+they support the conclusions of Pan et al. (2014), but also add that        𝜎𝑅 < 1.33 (2.94) at the 68 (95) per cent level. Our results can be
+spectroscopic targeting strategy of DES likely favoured faint low-          propagated to a constraint on the high- minus low-mass difference
+mass hosts (as it is advantageous to get redshifts of these systems                     𝑀 = 𝜇 high-𝑀 − 𝜇 low-𝑀 ), leading to a 95 per cent credible
+                                                                            in 𝜇 𝑅 (Δ𝜇 𝑅      𝑅          𝑅
+whilst the SN is bright; see also Smith et al. 2020a). This selection                                               𝑀 < 0.91. For an alternative
+may also effect the RAISIN2 sample we have used here. Neverthe-             interval encompassing −1.66 < Δ𝜇 𝑅
+                                                                            sample split at 10 10.44 M ⊙ , the results are similar – i.e. no strong
+less, our previous work has yielded consistent inferences about 𝑅𝑉
+                                                                            exclusion of Δ𝜇 𝑅𝑀 = 0.
+when using the CSP data (Thorp & Mandel 2022), and when using
+a more “untargeted” low-𝑧 sample with a less skewed mass distribu-             In summary, we have utilised the unique high-𝑧 rest-frame NIR
+tion (Thorp et al. 2021; using data from the Foundation Supernova           data provided by the RAISIN Survey to investigate the mass- and
+Survey; Foley et al. 2018b; Jones et al. 2019), suggesting that the         redshift-dependence of the dust law 𝑅𝑉 in SN Ia host galaxies.
+low-𝑧 selection effects may not be a major cause for concern for 𝑅𝑉         Regarding the potential redshift-evolution of 𝑅𝑉 (independent of
+inference.                                                                  other host galaxy properties), we have placed direct constraints on
+                                                                      𝑧
+   Due to the caveats associated with our estimated limits on Δ𝑅𝑉       ,   the difference in (mean) 𝑅𝑉 between SN Ia hosts at 𝑧 < 0.1 and
+we will forgo a detailed propagation of these limits into an estimate of    0.2 ≲ 𝑧 ≲ 0.6. These are the first constraints of this nature to make
+potential cosmological bias. Such an effort will be better deferred to a    use of rest-frame NIR data across the full redshift range studied. We
+future study incorporating a treatment of selection effects. This could     do not find statistically significant evidence for a non-zero shift in
+be achieved via a survey-simulation-based approach using SNANA              mean 𝑅𝑉 between low- and high-𝑧, and are able to rule out an abso-
+(Kessler et al. 2009a) as in the RAISIN cosmology analysis (Jones           lute shift in mean 𝑅𝑉 of ≳ 1.5 with high confidence. These results
+et al. 2022), by integrating a Bayesian selection effect treatment (à       complement the optical analysis of Grayling et al. (2024), who esti-
+la UNITY; Rubin et al. 2015, 2023; or BAHAMAS; Shariff et al.               mate a 𝜇 𝑅 vs. 𝑧 correlation coefficient of 𝜂 𝑅 = −0.38 ± 0.70. Given
+2016; Rahman et al. 2022) into our own hierarchical model, or via           that a shift in 𝑅𝑉 or the colour–luminosity coefficient 𝛽 by ≈ 1.4
+simulation based inference (e.g. Karchev et al. 2023b, 2024). In-           between low- and high-𝑧 could easily propagate to a significant bias
+dependent of any implications for cosmology, however, constraints           in 𝑤, future work is needed to control this potential systematic. One
+on dust from SNe Ia can still provide a unique insight into dust in         interesting feature of our current results, and those of Grayling et al.
+galaxies beyond the Milky Way, complementary to the information             (2024) is the weak preference for a decrease in 𝑅𝑉 with redshift.
+provided by different probes. As pointed out by Keel et al. (2023),         Many recent analyses have suggested a similarly weak preference
+SNe Ia (being distributed fairly uniformly throughout their hosts; e.g.     for lower mean 𝑅𝑉 in more massive galaxies (e.g. Brout & Scolnic
+Galbany et al. 2014) can give valuable information about the dust           2021; Thorp et al. 2021; Johansson et al. 2021; Thorp & Mandel
+further from bright or star forming regions, and they provide infor-        2022; Popovic et al. 2023; Grayling et al. 2024). However, lower-
+mation about the dust extinction along specific sightlines (rather than     redshift samples of supernovae tend to be weighted towards more
+the integrated effect of dust over a large region or the whole galaxy).     massive host galaxies (see e.g. Pan et al. 2014; Smith et al. 2020b) –
+   As well as estimating the single best-fitting 𝑅𝑉 values in the low-      something that is also true for the RAISIN sample in comparison to
+and high-𝑧 samples, we also perform an analysis where the assump-           CSP (Fig. 1). The preference seen for higher 𝑅𝑉 at lower redshifts is
+tion of zero variance is relaxed, and the parameters (mean, 𝜇 𝑅 , and       thus slightly surprising.
+
+                                                                                                                          MNRAS 000, 1–14 (2024)
+12      S. Thorp et al.
+   The analysis we have presented here lays the groundwork for future      DATA AVAILABILITY
+NIR investigations, and can be developed further via the incorpora-
+                                                                           All data used are publicly available. The Carnegie Supernova Project
+tion of a robust Bayesian treatment of selection effects (see e.g. Rubin
+                                                                           data are presented in Krisciunas et al. (2017). The data from the
+et al. 2015; Shariff et al. 2016; Rahman et al. 2022; Rubin et al. 2023;
+                                                                           RAISIN Survey are presented in Jones et al. (2022). The RAISIN
+Karchev et al. 2023b, 2024). Investigation of intrinsic colour evolu-
+                                                                           data release containing all relevant light curves is available publicly
+tion with redshift would also be a worthwhile avenue to pursue. The
+                                                                           on GitHub7 . A new BayeSN code (Grayling et al. 2024) is also
+promising results we have obtained using a sample of 37 high-𝑧 SNe
+                                                                           available on GitHub8 and will be integrated into SNANA9 (Kessler
+Ia illustrate the value of having rest-frame NIR data at higher red-
+                                                                           et al. 2009a).
+shifts, adding to the case already made by the RAISIN cosmology
+results (Jones et al. 2022). Such data could potentially be obtained
+by the Roman Space Telescope HLTDS (Hounsell et al. 2018; Rose
+et al. 2021a), although the current reference survey design prioritises    REFERENCES
+the rest-frame optical (Rose et al. 2021a). A design more focused
+                                                                           Abbott T. M. C., et al., 2019, ApJ, 872, L30
+on the rest frame NIR could be hugely valuable, and would be a
+                                                                           Aldering G., et al., 2020, Res. Notes American Astron. Soc., 4, 63
+great complement to the rest-frame optical data obtained by LSST
+                                                                           Alsing J., Thorp S., Deger S., Peiris H., Leistedt B., Mortlock D., Leja J.,
+(for further discussion of Roman–LSST synergies, see Foley et al.              2024, preprint (arXiv:2402.00935)
+2018a; Rhodes et al. 2019; Rose et al. 2021b; Bianco et al. 2024).         Amanullah R., et al., 2015, MNRAS, 453, 3300
+The discovery and analysis of SN Ia siblings (multiple SNe Ia in the       Arima N., Doi M., Morokuma T., Takanashi N., 2021, PASJ, 73, 326
+same host; e.g. Elias et al. 1981; Hamuy et al. 1991; Stritzinger et al.   Arnouts S., Ilbert O., 2011, LePHARE: Photometric Analysis for Redshift
+2010; Gall et al. 2018; Burns et al. 2020; Scolnic et al. 2020; Graham         Estimate, Astrophysics Source Code Library (ascl:1108.009)
+et al. 2022; Kelsey 2024; Dwomoh et al. 2023) at high-𝑧 will also          Avelino A., Friedman A. S., Mandel K. S., Jones D. O., Challis P. J., Kirshner
+prove complimentary, with these systems offering greater leverage              R. P., 2019, ApJ, 887, 106
+for constraining dust properties and colour–luminosity correlations        Barone-Nugent R. L., et al., 2012, MNRAS, 425, 1007
+than galaxies that host a lone optically observed supernova (Biswas        Betancourt M., 2016, preprint, (arXiv:1604.00695)
+                                                                           Betancourt M. J., Byrne S., Girolami M., 2014, preprint,
+et al. 2022; Ward et al. 2023b). In fact, Ward et al. (2023b) liken the
+                                                                               (arXiv:1411.6669)
+leverage gained from the presence of a sibling SN Ia to the benefit        Betoule M., et al., 2014, A&A, 568, A22
+gained from having NIR data. Understanding any redshift-dependent          Bianco F. B., et al., 2024, preprint, (arXiv:2402.02378)
+systematics/biases associated with host galaxy dust will be of criti-      Biswas R., et al., 2022, MNRAS, 509, 5340
+cal importance to the LSST and Roman dark energy analyses. And             Branch D., Tammann G. A., 1992, ARA&A, 30, 359
+the impact of these effects is already being felt in current analyses      Briday M., et al., 2022, A&A, 657, A22
+(Vincenzi et al. 2024; DES Collaboration et al. 2024). The continued       Brout D., Scolnic D., 2021, ApJ, 909, 26
+work by the community to observe (e.g. Wood-Vasey et al. 2008;             Brout D., et al., 2019a, ApJ, 874, 106
+Friedman et al. 2015; Krisciunas et al. 2017; Phillips et al. 2019; Jo-    Brout D., et al., 2019b, ApJ, 874, 150
+hansson et al. 2021; Konchady et al. 2022; Müller-Bravo et al. 2022;       Burns C. R., et al., 2011, AJ, 141, 19
+                                                                           Burns C. R., et al., 2014, ApJ, 789, 32
+Jones et al. 2022; Peterson et al. 2023) and model (e.g. Mandel et al.
+                                                                           Burns C. R., et al., 2020, ApJ, 895, 118
+2009, 2011; Burns et al. 2011, 2014; Pierel et al. 2018; Avelino et al.
+                                                                           Caldwell R. R., Dave R., Steinhardt P. J., 1998, Phys. Rev. Lett., 80, 1582
+2019; Mandel et al. 2022; Pierel et al. 2022; Grayling et al. 2024)        Calzetti D., Kinney A. L., Storchi-Bergmann T., 1994, ApJ, 429, 582
+SNe Ia in the NIR will be crucial to furthering our understanding and      Calzetti D., Armus L., Bohlin R. C., Kinney A. L., Koornneef J., Storchi-
+controlling dust-related systematics.                                          Bergmann T., 2000, ApJ, 533, 682
+                                                                           Cardelli J. A., Clayton G. C., Mathis J. S., 1989, ApJ, 345, 245
+                                                                           Carnall A. C., McLure R. J., Dunlop J. S., Davé R., 2018, MNRAS, 480,
+                                                                               4379
+ACKNOWLEDGEMENTS                                                           Carpenter B., et al., 2017, J. Statistical Software, 76, 1
+                                                                           Carrick J., Turnbull S. J., Lavaux G., Hudson M. J., 2015, MNRAS, 450, 317
+ST thanks Matt Auger–Williams and Roberto Trotta for useful feed-
+                                                                           Chambers K. C., et al., 2016, preprint, (arXiv:1612.05560)
+back and discussions of this work during his PhD defense. We thank         Childress M., et al., 2013, ApJ, 770, 108
+Joel Johansson and the anonymous referee for useful comments.              Childress M. J., Wolf C., Zahid H. J., 2014, MNRAS, 445, 1898
+   ST was supported by the Cambridge Centre for Doctoral Training          Chotard N., et al., 2011, A&A, 529, L4
+in Data-Intensive Science funded by the UK Science and Technol-            Chung C., Yoon S.-J., Park S., An S., Son J., Cho H., Lee Y.-W., 2023, ApJ,
+ogy Facilities Council (STFC), and in part by the European Research            959, 94
+Council (ERC) under the European Union’s Horizon 2020 research             Conley A., et al., 2011, ApJS, 192, 1
+and innovation programme (grant agreement no. 101018897 Cos-               Contreras C., et al., 2010, AJ, 139, 519
+micExplorer). KSM acknowledges funding from the European Re-               DES Collaboration et al., 2016, MNRAS, 460, 1270
+search Council under the European Union’s Horizon 2020 research            DES Collaboration et al., 2024, preprint (arXiv:2401.02929)
+                                                                           Dhawan S., et al., 2020, MNRAS, 491, 2639
+and innovation programme (Grant Agreement No. 101002652). This
+                                                                           Dhawan S., Thorp S., Mandel K. S., Ward S. M., Narayan G., Jha S. W., Chant
+project has been made possible through the ASTROSTAT-II col-                   T., 2023, MNRAS, 524, 235
+laboration, enabled by the Horizon 2020, EU Grant Agreement No.            Drory N., et al., 2009, ApJ, 707, 1595
+873089.                                                                    Duarte J., et al., 2023, A&A, 680, A56
+   This work made use of the Illinois Campus Cluster, a computing
+resource that is operated by the Illinois Campus Cluster Program
+(ICCP) in conjunction with the National Center for Supercomputing          7 https://github.com/djones1040/RAISIN_DataRelease
+Applications (NCSA) and which is supported by funds from the               8 https://github.com/bayesn/bayesn
+University of Illinois at Urbana-Champaign.                                9 https://github.com/RickKessler/SNANA
+
+
+
+MNRAS 000, 1–14 (2024)
+                                                                                                Dust Laws from the RAISIN Survey                          13
+Dwomoh A. M., et al., 2023, preprint, (arXiv:2311.06178)                          Mandel K. S., Wood-Vasey W. M., Friedman A. S., Kirshner R. P., 2009, ApJ,
+Elias J. H., Frogel J. A., Hackwell J. A., Persson S. E., 1981, ApJ, 251, L13         704, 629
+Fitzpatrick E. L., 1999, PASP, 111, 63                                            Mandel K. S., Narayan G., Kirshner R. P., 2011, ApJ, 731, 120
+Folatelli G., et al., 2010, AJ, 139, 120                                          Mandel K. S., Scolnic D. M., Shariff H., Foley R. J., Kirshner R. P., 2017,
+Foley R. J., et al., 2018a, preprint, (arXiv:1812.00514)                              ApJ, 842, 93
+Foley R. J., et al., 2018b, MNRAS, 475, 193                                       Mandel K. S., Thorp S., Narayan G., Friedman A. S., Avelino A., 2022,
+Freedman W. L., et al., 2009, ApJ, 704, 1036                                          MNRAS, 510, 3939
+Friedman A. S., et al., 2015, ApJS, 220, 9                                        Mannucci F., Della Valle M., Panagia N., Cappellaro E., Cresci G., Maiolino
+Galbany L., et al., 2014, A&A, 572, A38                                               R., Petrosian A., Turatto M., 2005, A&A, 433, 807
+Gall C., et al., 2018, A&A, 611, A58                                              Mannucci F., Della Valle M., Panagia N., 2006, MNRAS, 370, 773
+Gallazzi A., Charlot S., Brinchmann J., White S. D. M., Tremonti C. A., 2005,     Maoz D., Mannucci F., 2012, Publ. Astron. Soc. Australia, 29, 447
+    MNRAS, 362, 41                                                                Meldorf C., et al., 2023, MNRAS, 518, 1985
+Garn T., Best P. N., 2010, MNRAS, 409, 421                                        Ménard B., Scranton R., Fukugita M., Richards G., 2010a, MNRAS, 405,
+Gelman A., Rubin D. B., 1992, Statistical Sci., 7, 457                                1025
+González-Gaitán S., de Jaeger T., Galbany L., Mourão A., Paulino-Afonso           Ménard B., Kilbinger M., Scranton R., 2010b, MNRAS, 406, 1815
+    A., Filippenko A. V., 2021, MNRAS, 508, 4656                                  Miettinen K., 1998, Nonlinear Multiobjective Optimization. International
+Goobar A., et al., 2023, Nature Astronomy, 7, 1098                                    Series in Operations Research & Management Science Vol. 12, Springer,
+Graham M. L., et al., 2022, MNRAS, 511, 241                                           New York, doi:10.1007/978-1-4615-5563-6
+Grayling M., Thorp S., Mandel K. S., Dhawan S., Uzsoy A. S., Boyd B. M.,          Mörtsell E., Goobar A., 2003, J. Cosmology Astropart. Phys., 2003, 009
+    Hayes E. E., Ward S. M., 2024, preprint, (arXiv:2401.08755)                   Müller-Bravo T. E., et al., 2022, A&A, 665, A123
+Guy J., et al., 2007, A&A, 466, 11                                                Nagaraj G., Forbes J. C., Leja J., Foreman-Mackey D., Hayward C. C., 2022,
+Hamuy M., Phillips M. M., Maza J., Wischnjewsky M., Uomoto A., Landolt                ApJ, 932, 54
+    A. U., Khatwani R., 1991, AJ, 102, 208                                        Nicolas N., et al., 2021, A&A, 649, A74
+Hartley W. G., et al., 2022, MNRAS, 509, 3547                                     Nobili S., et al., 2005, A&A, 437, 789
+                                                                                  Nobili S., et al., 2009, ApJ, 700, 1415
+Hicken M., et al., 2009, ApJ, 700, 331
+                                                                                  Noll S., Burgarella D., Giovannoli E., Buat V., Marcillac D., Muñoz-Mateos
+Hicken M., et al., 2012, ApJS, 200, 12
+                                                                                      J. C., 2009, A&A, 507, 1793
+Höflich P., Wheeler J. C., Thielemann F. K., 1998, ApJ, 495, 617
+                                                                                  Nordin J., Goobar A., Jönsson J., 2008, J. Cosmology Astropart. Phys., 2008,
+Hounsell R., et al., 2018, ApJ, 867, 23
+                                                                                      008
+Hwang C.-L., Masud A. S. M., 1979, Multiple Objective Decision Making –
+                                                                                  O’Donnell J. E., 1994, ApJ, 422, 158
+    Methods and Applications. Lecture Notes in Economics & Mathematical
+                                                                                  Pan Y. C., et al., 2014, MNRAS, 438, 1391
+    Systems Vol. 164, Springer-Verlag, Berlin, Heidelberg, doi:10.1007/978-
+                                                                                  Perlmutter S., et al., 1999, ApJ, 517, 565
+    3-642-45511-7
+                                                                                  Peterson E. R., et al., 2023, MNRAS, 522, 2478
+Ivezić Ž., et al., 2019, ApJ, 873, 111
+                                                                                  Peterson E. R., et al., 2024, preprint, (arXiv:2403.13885)
+Jöeveer M., 1982, Astrofizika, 18, 574
+                                                                                  Phillips M. M., et al., 2019, PASP, 131, 014001
+Johansson J., Mörtsell E., 2012, MNRAS, 426, 3360
+                                                                                  Pierel J. D. R., et al., 2018, PASP, 130, 114504
+Johansson J., et al., 2021, ApJ, 923, 237
+                                                                                  Pierel J. D. R., et al., 2022, ApJ, 939, 11
+Jones D. O., et al., 2018, ApJ, 857, 51
+                                                                                  Pierel J. D. R., et al., 2024, preprint, (arXiv:2403.18954)
+Jones D. O., et al., 2019, ApJ, 881, 19
+                                                                                  Ponder K. A., Wood-Vasey W. M., Weyant A., Barton N. T., Galbany L., Liu
+Jones D. O., et al., 2022, ApJ, 933, 172                                              S., Garnavich P., Matheson T., 2021, ApJ, 923, 197
+Jones D. O., Kenworthy W. D., Dai M., Foley R. J., Kessler R., Pierel J. D. R.,   Popovic B., Brout D., Kessler R., Scolnic D., 2023, ApJ, 945, 84
+    Siebert M. R., 2023, ApJ, 951, 22                                             Quimby R. M., et al., 2013, ApJ, 768, L20
+Karchev K., Trotta R., Weniger C., 2023a, preprint, (arXiv:2311.15650)            Rahman W., Trotta R., Boruah S. S., Hudson M. J., van Dyk D. A., 2022,
+Karchev K., Trotta R., Weniger C., 2023b, MNRAS, 520, 1056                            MNRAS, 514, 139
+Karchev K., Grayling M., Boyd B. M., Trotta R., Mandel K. S., Weniger C.,         Rest A., et al., 2014, ApJ, 795, 44
+    2024, preprint, (arXiv:2403.07871)                                            Rhodes J., et al., 2019, BAAS, 51, 201
+Keel W. C., et al., 2023, AJ, 165, 166                                            Riess A. G., Press W. H., Kirshner R. P., 1996, ApJ, 473, 588
+Kelly P. L., Hicken M., Burke D. L., Mandel K. S., Kirshner R. P., 2010, ApJ,     Riess A. G., et al., 1998, AJ, 116, 1009
+    715, 743                                                                      Riess A. G., et al., 2016, ApJ, 826, 56
+Kelsey L., 2024, MNRAS, 527, 8015                                                 Rigault M., et al., 2013, A&A, 560, A66
+Kelsey L., et al., 2021, MNRAS, 501, 4861                                         Rigault M., et al., 2020, A&A, 644, A176
+Kelsey L., et al., 2023, MNRAS, 519, 3046                                         Rose B. M., et al., 2021a, preprint, (arXiv:2111.03081)
+Kenworthy W. D., et al., 2021, ApJ, 923, 265                                      Rose B. M., et al., 2021b, preprint, (arXiv:2104.01199)
+Kessler R., et al., 2009a, PASP, 121, 1028                                        Rubin D., et al., 2015, ApJ, 813, 137
+Kessler R., et al., 2009b, ApJS, 185, 32                                          Rubin D., et al., 2023, preprint, (arXiv:2311.12098)
+Kim Y.-L., Smith M., Sullivan M., Lee Y.-W., 2018, ApJ, 854, 24                   Sako M., et al., 2018, PASP, 130, 064002
+Konchady T., Oelkers R. J., Jones D. O., Yuan W., Macri L. M., Peterson           Salim S., Narayanan D., 2020, ARA&A, 58, 529
+    E. R., Riess A. G., 2022, ApJS, 258, 24                                       Salim S., Boquien M., Lee J. C., 2018, ApJ, 859, 11
+Kriek M., Conroy C., 2013, ApJ, 775, L16                                          Scannapieco E., Bildsten L., 2005, ApJ, 629, L85
+Krisciunas K., Hastings N. C., Loomis K., McMillan R., Rest A., Riess A. G.,      Schlafly E. F., Finkbeiner D. P., 2011, ApJ, 737, 103
+    Stubbs C., 2000, ApJ, 539, 658                                                Schlafly E. F., et al., 2016, ApJ, 821, 78
+Krisciunas K., et al., 2007, AJ, 133, 58                                          Scolnic D., et al., 2015, ApJ, 815, 117
+Krisciunas K., et al., 2017, AJ, 154, 211                                         Scolnic D. M., et al., 2018, ApJ, 859, 101
+Lampeitl H., et al., 2010, ApJ, 722, 566                                          Scolnic D., et al., 2020, ApJ, 896, L13
+Lavaux G., Hudson M. J., 2011, MNRAS, 416, 2840                                   Scolnic D., et al., 2022, ApJ, 938, 113
+Léget P. F., et al., 2020, A&A, 636, A46                                          Shariff H., Jiao X., Trotta R., van Dyk D. A., 2016, ApJ, 827, 1
+Leja J., Johnson B. D., Conroy C., van Dokkum P. G., Byler N., 2017, ApJ,         Smadja G., Copin Y., Hillebrandt W., Saunders C., Tao C., 2024, A&A, 682,
+    837, 170                                                                          A121
+
+                                                                                                                                   MNRAS 000, 1–14 (2024)
+14       S. Thorp et al.
+Smith M., et al., 2020a, AJ, 160, 267
+Smith M., et al., 2020b, MNRAS, 494, 4426
+Spergel D., et al., 2015, preprint, (arXiv:1503.03757)
+Stanishev V., et al., 2018, A&A, 615, A45
+Stritzinger M., et al., 2010, AJ, 140, 2036
+Stritzinger M. D., et al., 2011, AJ, 142, 156
+Sullivan M., et al., 2006, ApJ, 648, 868
+Sullivan M., et al., 2010, MNRAS, 406, 782
+Takanashi N., Doi M., Yasuda N., 2008, MNRAS, 389, 1577
+Takanashi N., Doi M., Yasuda N., Kuncarayakti H., Konishi K., Schneider
+     D. P., Cinabro D., Marriner J., 2017, MNRAS, 465, 1274
+Taylor G., et al., 2023, MNRAS, 520, 5209
+Thorp S., Mandel K. S., 2022, MNRAS, 517, 2360
+Thorp S., Mandel K. S., Jones D. O., Ward S. M., Narayan G., 2021, MNRAS,
+     508, 4310
+Timmes F. X., Brown E. F., Truran J. W., 2003, ApJ, 590, L83
+Tripp R., 1998, A&A, 331, 815
+Tripp R., Branch D., 1999, ApJ, 525, 209
+Uddin S. A., et al., 2020, ApJ, 901, 143
+Uddin S. A., et al., 2023, preprint, (arXiv:2308.01875)
+Vehtari A., Gelman A., Simpson D., Carpenter B., Bürkner P.-C., 2021,
+     Bayesian Analysis, 16, 667
+Villar V. A., et al., 2020, ApJ, 905, 94
+Vincenzi M., et al., 2024, preprint (arXiv:2401.02945)
+Ward S. M., Dhawan S., Mandel K. S., Grayling M., Thorp S., 2023a, MN-
+     RAS, 526, 5715
+Ward S. M., et al., 2023b, ApJ, 956, 111
+Wiseman P., et al., 2022, MNRAS, 515, 4587
+Wiseman P., Sullivan M., Smith M., Popovic B., 2023, MNRAS, 520, 6214
+Wojtak R., Hjorth J., 2024, preprint, (arXiv:2403.10388)
+Wojtak R., Hjorth J., Hjortlund J. O., 2023, MNRAS, 525, 5187
+Wood-Vasey W. M., et al., 2008, ApJ, 689, 377
+Ye C., Jones D. O., Hoogendam W. B., Shappee B. J., Dhawan S., Sharief
+     S. N., 2024, preprint, (arXiv:2401.02926)
+Yu P. L., 1973, Management Sci., 19, 936
+Zahid H. J., Yates R. M., Kewley L. J., Kudritzki R. P., 2013, ApJ, 763, 92
+
+
+
+APPENDIX A: SN IA DUST LAWS SINCE 2020
+Over the past three years, there has been a proliferation of analyses
+that have said something about the 𝑅𝑉 distribution in SN Ia host
+galaxies. In Table A1, we attempt to summarise as many key results
+as possible from this time period. We also include several key earlier
+results from 2010–2020 that are frequently used as a reference for
+more recent measurements (but we omit earlier landmark results in
+the history of SN Ia 𝑅𝑉 estimation; e.g. Jöeveer 1982; Riess et al.
+1996; Krisciunas et al. 2000, 2007). We confine this comparison
+primarily to studies of samples (as opposed to single SNe), and do
+not quote every result from each paper in cases where there are many
+analysis variants. For each study, we state (where applicable) reported
+values for the following quantities: 𝑅𝑉 or 𝜇(𝑅𝑉 ) for the full sample;
+𝜎(𝑅𝑉 ) for the full sample; 𝜇(𝑅𝑉 ) and 𝜎(𝑅𝑉 ) either side of the
+“classic” 1010 M ⊙ mass step. We note that many of the listed papers
+presented more analysis variants than we can easily summarise here.
+
+This paper has been typeset from a TEX/LATEX file prepared by the author.
+
+
+
+
+MNRAS 000, 1–14 (2024)
+                         Table A1. Literature 𝑅𝑉 estimates for populations of SN Ia hosts since 2010.
+
+                             Paper                                  Modela            Data Typeb              Sample              𝑅𝑉 c          𝜇 (𝑅𝑉 ) d      𝜎 (𝑅𝑉 ) e     𝜇 (𝑅𝑉 ) |HMf     𝜎 (𝑅𝑉 ) |HMf      𝜇 (𝑅𝑉 ) |LMg   𝜎 (𝑅𝑉 ) |LMg
+                             Folatelli et al. (2010)ð            SNooPy§                Phot.                CSP3             3.20 ± 0.40         -               -               -                 -                -                -
+                             Chotard et al. (2011)ð                Other∇               Spec.             SNfactory1          2.78 ± 0.34         -               -               -                 -                -                -
+                             Mandel et al. (2011)   ð            BayeSN                 Phot.             CfA2, CSP3,10       1.60 ± 0.10    2.30 ± 0.30          -               -                 -                -                -
+                             Burns et al. (2014)ö,ð              SNooPy                 Phot.                CSP3             1.76 ± 0.18    2.50 ± 0.30     0.88 ± 0.05          -                 -                -                -
+                             Burns et al. (2014)ö,þ              SNooPy                 Phot.                CSP3             2.15 ± 0.16    2.30 ± 0.30     0.84 ± 0.05          -                 -                -                -
+                             Mandel et al. (2017)                 SALT2                 Phot.              SuperCal19         2.76 ± 0.34         -               -               -                 -                -                -
+                             Léget et al. (2020)ð                SUGAR                  Spec.             SNfactory1             2.60             -               -               -                 -                -                -
+                             Brout & Scolnic (2021)å              SALT2†                Phot.               Various2–8             -         2.00 ± 0.20     1.40 ± 0.20     1.50 ± 0.25       1.30 ± 0.20      2.75 ± 0.35      1.30 ± 0.20
+                             Thorp et al. (2021)  þ              BayeSN                 Phot.             Foundation4         2.61 ± 0.21    2.70 ± 0.25     0.37 (0.61)     2.72 ± 0.23       0.32 (0.62)      3.49 ± 0.61      0.89 (1.87)
+                             Johansson et al. (2021)ð            SNooPy                 Phot.         Various NIR2,3,9–12          -            1.90            0.90            1.70              0.80             2.20             0.90
+                             Arima et al. (2021)             Multiband Stretch*         Phot.               Low-𝑧 13           3.00+0.40
+                                                                                                                                   −0.30
+                                                                                                                                                  -               -               -                 -                -                -
+                             Mandel et al. (2022)þ               BayeSN                 Phot.             Low-𝑧 NIR14         2.89 ± 0.20         -               -               -                 -                -                -
+                             Thorp & Mandel (2022)þ              BayeSN                 Phot.                CSP3                  -         2.59 ± 0.14     0.62 ± 0.16     2.54 ± 0.15       0.56 ± 0.18      2.78 ± 0.70      1.62 (3.01)
+                             Wiseman et al. (2022)å               SALT2                 Phot.              DES5YR15                -              -               -             1.75              1.00             3.00             1.00
+                             Popovic et al. (2023)ä               SALT2                 Phot.             Pantheon+16              -              -               -          2.14 ± 0.25       1.06 ± 0.43      3.03 ± 0.38      1.48 ± 0.42
+                             Ward et al. (2023a)þ                   GP∞                 Phot.          Low-𝑧 NIR2,3,9,10           -          2.61+0.38
+                                                                                                                                                  −0.35
+                                                                                                                                                             0.92 (1.96)          -                 -                -                -
+                             Meldorf et al. (2023)ö,ß           Bagpipes||            Gal. Phot.           DES5YR15,17             -              -               -          2.61 ± 0.07       0.86 ± 0.06      3.02 ± 0.05      0.82 ± 0.04
+                             Duarte et al. (2023)ü            Prospector¶             Gal. Phot.           DES3YR5,18              -              -               -          2.67 ± 0.11          0.97          3.09 ± 0.13         1.16
+                             Smadja et al. (2024)þ                 Other∇            Spec., Phot.         SNfactory1          2.22 ± 0.17         -               -               -                 -                -                -
+                             Wojtak et al. (2023)                 SALT2                 Phot.              SuperCal19              -          3.13+0.65
+                                                                                                                                                  −0.59
+                                                                                                                                                              0.95+0.31
+                                                                                                                                                                  −0.28
+                                                                                                                                                                                  -                 -                -                -
+                             Karchev et al. (2023a, 2024)æ,þ     BayeSN                 Phot.                CSP3                  -              -               -               -                 -                -                -
+                             Vincenzi et al. (2024)ä              SALT3‡                Phot.              DES5YR15                -              -               -             1.66              0.95             3.25             0.93
+                             Grayling et al. (2024)þ             BayeSN                 Phot.               Various4–6             -         2.58 ± 0.14     0.59 ± 0.20     2.51 ± 0.16       0.47 ± 0.21      2.74 ± 0.35      0.93 ± 0.32
+                             Grayling et al. (2024)ø, þ          BayeSN                 Phot.               Various4–6             -              -               -          2.26 ± 0.14       0.27 (0.49)      3.36 ± 0.51      1.07 (1.81)
+                             Thorp et al. (this work)þ             BayeSN                Phot.               CSP3             2.52 ± 0.11    2.62 ± 0.26     0.82 ± 0.37          -                 -                -                -
+                                                                                                          RAISIN20            2.37 ± 0.39    2.58 ± 0.57     0.90 (2.42)          -                 -                -                -
+
+
+
+
+                                                                                                                                                                                                                                               Dust Laws from the RAISIN Survey
+                                                                                                        CSP,3 RAISIN20             -              -               -          2.54 ± 0.26       0.81 (0.32)      2.79 ± 0.58      1.33 (2.94)
+                          a Primary light curve model (or galaxy SED model, when applica-           ä These   analyses analysed their SALT fits using Dust2Dust            4 Foley et al. (2018b); Jones et al. (2019)
+
+                            ble) used for the data                                                     (Popovic et al. 2023)                                               5 Brout et al. (2019a)
+                          b Primary data analysed: Spec. = SN spectroscopy; Phot. = SN              ö These analyses fit a two component Gaussian mixture; we quote        6 Rest et al. (2014); Scolnic et al. (2018)
+
+                            photometry; Gal. Phot. = Galaxy photometry                                 the mean for the dominant component containing ≳ 90% of SNe         7 Betoule et al. (2014)
+                          c Quoted estimate of a single sample-level 𝑅                              æ Karchev et al. present estimates, but not numerical summaries        8 Sako et al. (2018)
+                                                                      𝑉
+                          d Quoted estimate of a population mean 𝑅                                  ø For this analysis, Grayling et al. allow a mass dependent differ-    9 Johansson et al. (2021)
+                                                                    𝑉
+                          e Quoted estimate for 𝑅 population dispersion; values formatted              ence in the intrinsic SN Ia SED (i.e. a “non-gray” mass step)       10 Wood-Vasey et al. (2008); Friedman et al. (2015)
+                                                  𝑉
+                            𝑋 (𝑌 ) are 68% (95%) upper bounds                                       ∞ Ward et al. use a Gaussian process to estimate peak colours          11 Barone-Nugent et al. (2012); Stanishev et al. (2018)
+                          f Estimate for 𝑅 population mean and std. dev. for ≥ 1010 M               ∇ These analyses use bespoke models based on equivalent widths         12 Amanullah et al. (2015)
+                                          𝑉                                                ⊙
+                          g Estimate for 𝑅 population mean and std. dev. for < 1010 M               † Guy et al. (2007)                                                    13 Takanashi et al. (2008)
+                                                                                           ⊙
+
+
+
+
+MNRAS 000, 1–14 (2024)
+                                          𝑉
+                          ð These analyses uses the Cardelli et al. (1989) or O’Donnell (1994)      § Burns et al. (2011)                                                  14 Avelino et al. (2019)
+
+                            dust law                                                                * Takanashi et al. (2008, 2017)                                        15 Vincenzi et al. (2024)
+                          þ These analyses uses the Fitzpatrick (1999) dust law                     || Carnall et al. (2018)                                               16 Scolnic et al. (2022)
+                          ß This analysis uses the Salim et al. (2018) modification of the          ¶ Leja et al. (2017)                                                   17 Hartley et al. (2022)
+
+                            Calzetti et al. (1994) attenuation law                                  ‡ Kenworthy et al. (2021); Taylor et al. (2023)                        18 Kelsey et al. (2021)
+                          ü This analysis uses the Calzetti et al. (2000) attenuation law (mod-     1 Aldering et al. (2020)                                               19 Scolnic et al. (2015)
+
+                            ified by Noll et al. 2009; Kriek & Conroy 2013)                         2 Hicken et al. (2009, 2012)                                           20 Jones et al. (2022)
+                          å These analyses searched over a finite grid of models                    3 Krisciunas et al. (2017)                                                                                                                 15
+

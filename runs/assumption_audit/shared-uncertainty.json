@@ -1,0 +1,85 @@
+{
+  "interpretation": "Conditional fixed-template Gaussian sensitivity; not new measured age uncertainty.",
+  "normal_slope_mag_per_Gyr": [
+    0.03,
+    0.004
+  ],
+  "source_draws": 80000,
+  "treatments": {
+    "fixed": {
+      "q0_mean": 0.06245633499527337,
+      "q0_sd": 0.07422709284197722,
+      "q0_q025_q975": [
+        -0.08433496047623021,
+        0.20814685225821872
+      ],
+      "P_q0_negative": 0.1976840230002312,
+      "importance_ESS": 65987.99892275198,
+      "max_normalized_weight": 1.8991660919643743e-05,
+      "marginal_mode": [
+        0.3581288868875398,
+        -0.4548936265234416,
+        -1.60263688912571,
+        9364.389693863288
+      ],
+      "mode_q0": 0.06202538239345218,
+      "mode_chisq": 1412.0363878017422
+    },
+    "shared": {
+      "q0_mean": 0.04192497733985448,
+      "q0_sd": 0.09670028603836436,
+      "q0_q025_q975": [
+        -0.14754845859208965,
+        0.22952717466289735
+      ],
+      "P_q0_negative": 0.3303875000000001,
+      "importance_ESS": 80000.0,
+      "max_normalized_weight": 1.25e-05,
+      "marginal_mode": [
+        0.3560032722428875,
+        -0.4732940666348622,
+        -1.5458018318310849,
+        9387.935540691791
+      ],
+      "mode_q0": 0.042800254730438025,
+      "mode_chisq": 1411.9396273014174
+    },
+    "incorrect_independent_rows": {
+      "q0_mean": 0.06250259833214769,
+      "q0_sd": 0.07434730676823319,
+      "q0_q025_q975": [
+        -0.0845261087351875,
+        0.20851962945280125
+      ],
+      "P_q0_negative": 0.19791727684117302,
+      "importance_ESS": 66161.98188820151,
+      "max_normalized_weight": 1.9743091713622764e-05,
+      "marginal_mode": [
+        0.35813165682061343,
+        -0.4548513007298437,
+        -1.604682736906346,
+        9364.996860257581
+      ],
+      "mode_q0": 0.06206802381131954,
+      "mode_chisq": 1405.1060321084499
+    }
+  },
+  "checks": {
+    "shared_projector_max_difference": 1.1141310096718371e-11,
+    "full_minus_compressed_max_chisq": 7.195278612925904e-07,
+    "explicit_amplitude_minimum_vs_marginal_quadratic_max": 5.644778866553679e-09
+  },
+  "sample_correlations": {
+    "q0": 0.6363067385013063,
+    "Om": 0.4767294629304956,
+    "w0": 0.6367842949764007,
+    "wa": -0.409654312747807
+  },
+  "limitations": [
+    "Importance ESS is weight concentration, not independent-chain ESS; inherited autocorrelation remains.",
+    "The shared case was already treated correctly in the main analysis.",
+    "This integrates only the shared slope; clock, DTD, SFH, host-age/dust, overlap and selection uncertainty remain conditional.",
+    "External slope prior independence from the reused supernova data is assumed, not demonstrated.",
+    "The Gaussian covariance equivalence uses a fixed template and its normal prior; a cosmology-dependent template would require its changing normalization."
+  ]
+}

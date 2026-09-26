@@ -1,0 +1,63 @@
+{
+  "hosts": 103,
+  "total_draws": 105059947,
+  "retained_chain_policy": "All archived rows; no undocumented burn-in selection or fresh posterior fit",
+  "age_estimand": "formed-mass-weighted mean age of FSPS sfh=5, integrated for each archived parameter draw",
+  "change_in_host_posterior_medians": {
+    "mean": 0.885609263255256,
+    "median": 0.3592228837744438,
+    "min": -0.4339453127280519,
+    "max": 5.980860767301891,
+    "n_abs_gt_p1": 67,
+    "n_abs_gt_p5": 45,
+    "n_abs_gt_1": 28,
+    "quantiles": {
+      "0.025": -0.15772201659768773,
+      "0.16": -0.03532238628933304,
+      "0.5": 0.3592228837744438,
+      "0.84": 1.942324881057406,
+      "0.975": 4.381486447585157
+    }
+  },
+  "source_validation": {
+    "max_host_median_abs_error": 7.537988011563357e-10,
+    "max_host_p99_abs_error": 0.00013321224397166986,
+    "Tcmb0_counts": {
+      "0.0": 103
+    },
+    "max_fraction_draws_error_gt_p01": 0.0004323529411764706
+  },
+  "posterior_correlations": {
+    "original_age_dust_corr": {
+      "min": -0.6672311037498767,
+      "median": -0.1346706192515917,
+      "max": 0.19312025965887886,
+      "n_abs_gt_p5": 3
+    },
+    "fsps_age_dust_corr": {
+      "min": -0.6219595264483534,
+      "median": -0.2191307238410642,
+      "max": 0.11662743074357837,
+      "n_abs_gt_p5": 5
+    },
+    "original_age_logZ_corr": {
+      "min": -0.6214794387116138,
+      "median": -0.15433467366825693,
+      "max": 0.5168397159185172,
+      "n_abs_gt_p5": 4
+    },
+    "fsps_age_logZ_corr": {
+      "min": -0.7353174934951022,
+      "median": -0.29263408408671304,
+      "max": 0.5110048190486889,
+      "n_abs_gt_p5": 10
+    },
+    "dust_logZ_corr": {
+      "min": -0.888811493599498,
+      "median": -0.2997716264013572,
+      "max": 0.5277127207677013,
+      "n_abs_gt_p5": 33
+    }
+  },
+  "limitation": "Reprocesses original R19 posterior draws under historical FSPS semantics. This is not a new photometric fit, an official corrected catalogue, a revised C25 posterior, or a cosmological effect estimate."
+}

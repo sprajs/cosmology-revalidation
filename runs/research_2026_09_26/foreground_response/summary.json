@@ -1,0 +1,228 @@
+{
+  "scope": "Externally specified foreground-map alternatives in a fixed 64-object SALT tangent calculation; no cosmology fit or empirical bias estimate.",
+  "coordinate_source": "SN HEAD RA/DEC, not host coordinates",
+  "map_scale": 0.86,
+  "astropy_healpix": "1.1.2",
+  "refit_sign": "delta_theta=-[J whitened pseudoinverse G] delta_EBV for a fixed model foreground change at fixed observed flux",
+  "three_modes": "cleaning=.86(CSFD-SFD); resampling=.86*SFD_HEALPIX-HEAD; direct_replacement=sum. Primary is cleaning, retaining original map sampling.",
+  "calibration_limits": "Derivatives retain original SALT training/calibration, model covariance and accepted mask. No retraining, Poisson/detection redraw, classifier selection or BBC regeneration. A map comparison cannot certify CSFD truth or calibrate its uncertainty.",
+  "population_limits": "Deterministic redshift-ranked sample; object/field overlap and selection persist. Do not extrapolate a 64-object range into a survey-wide physical bound.",
+  "summaries": [
+    {
+      "weighting": "measurement_only",
+      "mode": "cleaning",
+      "subset": "all",
+      "objects": 64,
+      "fields": 10,
+      "epochs": 2581,
+      "fixed_map_loglike_gain": 0.20844903228794467,
+      "fixed_map_residual_snr_under_conditional_noise": 0.06762510459749158,
+      "unrestricted_template_amplitude_mle": 46.08101413325024,
+      "conditional_template_amplitude_sd": 14.787407811818646,
+      "pre_BBC_standardized_shift_mean_mag": -2.9283470563688456e-06,
+      "pre_BBC_standardized_shift_rms_mag": 0.00024345066405032374,
+      "pre_BBC_standardized_shift_min_max_mag": [
+        -0.0003194131160578301,
+        0.0016147086770923167
+      ]
+    },
+    {
+      "weighting": "measurement_only",
+      "mode": "cleaning",
+      "subset": "reliable",
+      "objects": 48,
+      "fields": 8,
+      "epochs": 2041,
+      "fixed_map_loglike_gain": 0.21199864389960196,
+      "fixed_map_residual_snr_under_conditional_noise": 0.06755186587304199,
+      "unrestricted_template_amplitude_mle": 46.95777263724479,
+      "conditional_template_amplitude_sd": 14.803440098596466,
+      "pre_BBC_standardized_shift_mean_mag": 1.206361517601858e-07,
+      "pre_BBC_standardized_shift_rms_mag": 0.0002730911122988605,
+      "pre_BBC_standardized_shift_min_max_mag": [
+        -0.0003194131160578301,
+        0.0016147086770923167
+      ]
+    },
+    {
+      "weighting": "measurement_only",
+      "mode": "direct_replacement",
+      "subset": "all",
+      "objects": 64,
+      "fields": 10,
+      "epochs": 2581,
+      "fixed_map_loglike_gain": 0.20905158254501982,
+      "fixed_map_residual_snr_under_conditional_noise": 0.06800867089223951,
+      "unrestricted_template_amplitude_mle": 45.69858977098138,
+      "conditional_template_amplitude_sd": 14.704007399064025,
+      "pre_BBC_standardized_shift_mean_mag": -1.6285090725649232e-06,
+      "pre_BBC_standardized_shift_rms_mag": 0.00024453174325498613,
+      "pre_BBC_standardized_shift_min_max_mag": [
+        -0.0003135030943256496,
+        0.0016240048830568699
+      ]
+    },
+    {
+      "weighting": "measurement_only",
+      "mode": "direct_replacement",
+      "subset": "reliable",
+      "objects": 48,
+      "fields": 8,
+      "epochs": 2041,
+      "fixed_map_loglike_gain": 0.2122616053595219,
+      "fixed_map_residual_snr_under_conditional_noise": 0.06793736970227394,
+      "unrestricted_template_amplitude_mle": 46.489002256062626,
+      "conditional_template_amplitude_sd": 14.719439454049526,
+      "pre_BBC_standardized_shift_mean_mag": 1.155919445085071e-06,
+      "pre_BBC_standardized_shift_rms_mag": 0.00027423453359023747,
+      "pre_BBC_standardized_shift_min_max_mag": [
+        -0.0003135030943256496,
+        0.0016240048830568699
+      ]
+    },
+    {
+      "weighting": "measurement_only",
+      "mode": "resampling",
+      "subset": "all",
+      "objects": 64,
+      "fields": 10,
+      "epochs": 2581,
+      "fixed_map_loglike_gain": 0.000628376474861066,
+      "fixed_map_residual_snr_under_conditional_noise": 0.0006100074881895947,
+      "unrestricted_template_amplitude_mle": 1689.1886525047144,
+      "conditional_template_amplitude_sd": 1639.3241384099088,
+      "pre_BBC_standardized_shift_mean_mag": 1.2998379838038254e-06,
+      "pre_BBC_standardized_shift_rms_mag": 1.052836972726195e-05,
+      "pre_BBC_standardized_shift_min_max_mag": [
+        -2.6205166712113377e-05,
+        4.799692517287766e-05
+      ]
+    },
+    {
+      "weighting": "measurement_only",
+      "mode": "resampling",
+      "subset": "reliable",
+      "objects": 48,
+      "fields": 8,
+      "epochs": 2041,
+      "fixed_map_loglike_gain": 0.00028889610599181696,
+      "fixed_map_residual_snr_under_conditional_noise": 0.0006019360350186299,
+      "unrestricted_template_amplitude_mle": 797.8353179936556,
+      "conditional_template_amplitude_sd": 1661.3060887259392,
+      "pre_BBC_standardized_shift_mean_mag": 1.035283293324775e-06,
+      "pre_BBC_standardized_shift_rms_mag": 1.087456256846057e-05,
+      "pre_BBC_standardized_shift_min_max_mag": [
+        -2.6205166712113377e-05,
+        4.799692517287766e-05
+      ]
+    },
+    {
+      "weighting": "measurement_plus_model",
+      "mode": "cleaning",
+      "subset": "all",
+      "objects": 64,
+      "fields": 10,
+      "epochs": 2581,
+      "fixed_map_loglike_gain": 0.0009013325308064,
+      "fixed_map_residual_snr_under_conditional_noise": 0.009871912581195028,
+      "unrestricted_template_amplitude_mle": 9.748737302088871,
+      "conditional_template_amplitude_sd": 101.29749344670014,
+      "pre_BBC_standardized_shift_mean_mag": 4.54515681146292e-07,
+      "pre_BBC_standardized_shift_rms_mag": 0.00026324202292525903,
+      "pre_BBC_standardized_shift_min_max_mag": [
+        -0.0003174829462027723,
+        0.0018034783772872868
+      ]
+    },
+    {
+      "weighting": "measurement_plus_model",
+      "mode": "cleaning",
+      "subset": "reliable",
+      "objects": 48,
+      "fields": 8,
+      "epochs": 2041,
+      "fixed_map_loglike_gain": 0.002170336639466146,
+      "fixed_map_residual_snr_under_conditional_noise": 0.00952638533278612,
+      "unrestricted_template_amplitude_mle": 24.41502358895269,
+      "conditional_template_amplitude_sd": 104.97160938455725,
+      "pre_BBC_standardized_shift_mean_mag": 4.513906465305719e-06,
+      "pre_BBC_standardized_shift_rms_mag": 0.0002962848167263877,
+      "pre_BBC_standardized_shift_min_max_mag": [
+        -0.0003174829462027723,
+        0.0018034783772872868
+      ]
+    },
+    {
+      "weighting": "measurement_plus_model",
+      "mode": "direct_replacement",
+      "subset": "all",
+      "objects": 64,
+      "fields": 10,
+      "epochs": 2581,
+      "fixed_map_loglike_gain": 0.0007642224464788419,
+      "fixed_map_residual_snr_under_conditional_noise": 0.009929343588080147,
+      "unrestricted_template_amplitude_mle": 8.251374350525193,
+      "conditional_template_amplitude_sd": 100.7115919727531,
+      "pre_BBC_standardized_shift_mean_mag": 1.6873554590525207e-06,
+      "pre_BBC_standardized_shift_rms_mag": 0.0002644932099211325,
+      "pre_BBC_standardized_shift_min_max_mag": [
+        -0.00031792824121240805,
+        0.0018138613687740677
+      ]
+    },
+    {
+      "weighting": "measurement_plus_model",
+      "mode": "direct_replacement",
+      "subset": "reliable",
+      "objects": 48,
+      "fields": 8,
+      "epochs": 2041,
+      "fixed_map_loglike_gain": 0.0019616634578785487,
+      "fixed_map_residual_snr_under_conditional_noise": 0.009589416904598372,
+      "unrestricted_template_amplitude_mle": 21.832418822254407,
+      "conditional_template_amplitude_sd": 104.28162733444974,
+      "pre_BBC_standardized_shift_mean_mag": 5.452761199880518e-06,
+      "pre_BBC_standardized_shift_rms_mag": 0.0002976397475179755,
+      "pre_BBC_standardized_shift_min_max_mag": [
+        -0.00031792824121240805,
+        0.0018138613687740677
+      ]
+    },
+    {
+      "weighting": "measurement_plus_model",
+      "mode": "resampling",
+      "subset": "all",
+      "objects": 64,
+      "fields": 10,
+      "epochs": 2581,
+      "fixed_map_loglike_gain": -0.0001366018742494704,
+      "fixed_map_residual_snr_under_conditional_noise": 0.00034754269268746723,
+      "unrestricted_template_amplitude_mle": -1130.4420053653892,
+      "conditional_template_amplitude_sd": 2877.3443408268245,
+      "pre_BBC_standardized_shift_mean_mag": 1.2328397779061385e-06,
+      "pre_BBC_standardized_shift_rms_mag": 1.0435660044895946e-05,
+      "pre_BBC_standardized_shift_min_max_mag": [
+        -2.63079826800402e-05,
+        4.750901919595158e-05
+      ]
+    },
+    {
+      "weighting": "measurement_plus_model",
+      "mode": "resampling",
+      "subset": "reliable",
+      "objects": 48,
+      "fields": 8,
+      "epochs": 2041,
+      "fixed_map_loglike_gain": -0.00020812984302212198,
+      "fixed_map_residual_snr_under_conditional_noise": 0.0003438341614114768,
+      "unrestricted_template_amplitude_mle": -1760.001135852085,
+      "conditional_template_amplitude_sd": 2908.3788414010137,
+      "pre_BBC_standardized_shift_mean_mag": 9.388547345746779e-07,
+      "pre_BBC_standardized_shift_rms_mag": 1.075083507061948e-05,
+      "pre_BBC_standardized_shift_min_max_mag": [
+        -2.63079826800402e-05,
+        4.750901919595158e-05
+      ]
+    }
+  ]
+}

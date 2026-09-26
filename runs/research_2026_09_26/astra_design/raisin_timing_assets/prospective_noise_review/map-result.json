@@ -1,0 +1,430 @@
+{
+  "scope": "Metadata/source matching audit only, no generator execution or photon outcomes.",
+  "source_commit": "10ec91297e4482d593cb5d3d055b10d4aa915071",
+  "input_FLUXERRMODEL_FILE": "FLUXERRMODEL_FILE: $RAISIN_ROOT/cosmo/sim/inputs/DES/DES3YR_SIM_ERRORFUDGES.DAT",
+  "declared_groups": {
+    "SHALLOW": "E1+E2+S1+S2+C1+C2+X1+X2",
+    "DEEP": "C3+X3"
+  },
+  "maps": [
+    {
+      "name": "FLUXERR_SCALE_HSB",
+      "band": "g",
+      "field": "DEEP",
+      "expanded_field": "C3+X3"
+    },
+    {
+      "name": "FLUXERR_SCALE_HSB",
+      "band": "r",
+      "field": "DEEP",
+      "expanded_field": "C3+X3"
+    },
+    {
+      "name": "FLUXERR_SCALE_HSB",
+      "band": "i",
+      "field": "DEEP",
+      "expanded_field": "C3+X3"
+    },
+    {
+      "name": "FLUXERR_SCALE_HSB",
+      "band": "z",
+      "field": "DEEP",
+      "expanded_field": "C3+X3"
+    },
+    {
+      "name": "FLUXERR_SCALE_HSB",
+      "band": "g",
+      "field": "SHALLOW",
+      "expanded_field": "E1+E2+S1+S2+C1+C2+X1+X2"
+    },
+    {
+      "name": "FLUXERR_SCALE_HSB",
+      "band": "r",
+      "field": "SHALLOW",
+      "expanded_field": "E1+E2+S1+S2+C1+C2+X1+X2"
+    },
+    {
+      "name": "FLUXERR_SCALE_HSB",
+      "band": "i",
+      "field": "SHALLOW",
+      "expanded_field": "E1+E2+S1+S2+C1+C2+X1+X2"
+    },
+    {
+      "name": "FLUXERR_SCALE_HSB",
+      "band": "z",
+      "field": "SHALLOW",
+      "expanded_field": "E1+E2+S1+S2+C1+C2+X1+X2"
+    }
+  ],
+  "SIMLIB_entries": 23,
+  "unique_actual_field_tokens": 23,
+  "all_raw_epochs": 6877,
+  "tested_band_field_pairs": 120,
+  "matching_pairs": 0,
+  "fallback": "get_FLUXERRMODEL initializes both returned errors to FLUXERR_IN; index<0 returns directly. Not a fatal mismatch. Fudge SQSIG_F=0 at scale1. No REDCOV declaration in map; defaultNREDCOV0. A configured FLUXERRMODEL_FILE suppresses legacy SIMLIB fluxerr fudge independently of whether individual fields match.",
+  "legacy_SIMLIB_fluxerr_keys": [],
+  "source_filename_not_execution_proof": true,
+  "source_evidence": {
+    "sntools_fluxErrModels.c": {
+      "sha256": "a034f4b53d66edd49fdfee378786a2a7b79585d73fe6e4eed086640c90f36a75",
+      "excerpts": [
+        {
+          "range": [
+            166,
+            181
+          ],
+          "lines": [
+            "166:     }",
+            "167: ",
+            "168:     if ( strcmp(c_get,\"MAPNAME:\")==0 ) {",
+            "169:       FOUNDMAP = 1 ;",
+            "170:       NMAP = NMAP_FLUXERRMODEL; ",
+            "171:       name = FLUXERRMAP[NMAP].NAME ;",
+            "172:       readchar(fp, name ) ;",
+            "173:       FLUXERRMAP[NMAP].NVAR = NVAR  = 0 ;",
+            "174:       FLUXERRMAP[NMAP].MAP.VARLIST[0]   = 0 ;",
+            "175:       FLUXERRMAP[NMAP].MASK_APPLY   = 3;    // SIM & DATA by default ",
+            "176:       FLUXERRMAP[NMAP].SCALE_FLUXERR_TRUE = 1.0 ;",
+            "177:       FLUXERRMAP[NMAP].SCALE_FLUXERR_DATA = 1.0 ;",
+            "178: ",
+            "179:       // set defaults to all bands and fields",
+            "180:       sprintf(FLUXERRMAP[NMAP].BANDLIST,  \"%s\",  ALL_STRING); ",
+            "181:       sprintf(FLUXERRMAP[NMAP].FIELDLIST, \"%s\",  ALL_STRING );"
+          ]
+        },
+        {
+          "range": [
+            730,
+            761
+          ],
+          "lines": [
+            "730:   // ----------- BEGIN -------------",
+            "731: ",
+            "732:   //  LDMP = ( strcmp(BAND,\"g\") == 0 && fabs(FLUXERR_IN-12.8)<1.0 ); ",
+            "733: ",
+            "734:   *FLUXERR_TRUE = FLUXERR_IN ;",
+            "735:   *FLUXERR_DATA = FLUXERR_IN ;",
+            "736:   if ( NMAP_FLUXERRMODEL == 0 ) { return; }",
+            "737: ",
+            "738:   if ( LDMP ) {",
+            "739:     printf(\" xxx ------------------------------------ \\n\");",
+            "740:     printf(\" xxx %s DUMP: FIELD=%s-%s \\n\", fnam, FIELD, BAND );",
+            "741:   }",
+            "742: ",
+            "743: ",
+            "744:   if ( NPAR != NPAR_FLUXERRMAP_REQUIRE ) {",
+            "745:     sprintf(c1err,\"NPAR=%d but expected %d\", NPAR, NPAR_FLUXERRMAP_REQUIRE );",
+            "746:     sprintf(c2err,\"grep IPAR_FLUXERRMAP \"",
+            "747: \t    \"$SNANA_DIR/src/sntools_fluxErrModels.h\");",
+            "748:     errmsg(SEV_FATAL, 0, fnam, c1err, c2err ); ",
+            "749:   }",
+            "750: ",
+            "751:   for(isp=0; isp<NINDEX_SPARSE_FLUXERRMAP; isp++ ) ",
+            "752:     { NSPARSE[isp] = 0 ; }",
+            "753: ",
+            "754:   imap = INDEX_MAP_FLUXERRMODEL(BAND, FIELD, fnam);",
+            "755:   if ( imap < 0 ) { return ; }",
+            "756:     ",
+            "757:   // have valid map; increment number of times this MAPNAME is used.",
+            "758:   isp = FLUXERRMAP[imap].INDEX_SPARSE ; ",
+            "759:   NSPARSE[isp]++ ;",
+            "760: ",
+            "761:   if ( NSPARSE[isp] > 1 ) {"
+          ]
+        },
+        {
+          "range": [
+            853,
+            900
+          ],
+          "lines": [
+            "853: // =====================================================",
+            "854: int INDEX_MAP_FLUXERRMODEL(char *BAND, char *FIELD, char *FUNCALL) {",
+            "855: ",
+            "856:   // Created Jan 22, 2020",
+            "857:   // For input BAND and FIELD, return index of map for FLUXERRMODEL.",
+            "858:   // FUNCALL is calling function, and used only for error message.",
+            "859: ",
+            "860:   int NMAP = NMAP_FLUXERRMODEL; ",
+            "861:   int  imap, IMAP=-9, NMATCH=0 ;",
+            "862:   bool MATCH_BAND, MATCH_FIELD;",
+            "863:   char *tmpString ;",
+            "864:   char fnam[] = \"INDEX_MAP_FLUXERRMODEL\" ;",
+            "865: ",
+            "866:   // ------------ BEGIN ---------",
+            "867: ",
+            "868:   for(imap=0; imap < NMAP; imap++ ) {",
+            "869:     MATCH_BAND = MATCH_FIELD = false ;",
+            "870: ",
+            "871:     // check BAND match",
+            "872:     tmpString = FLUXERRMAP[imap].BANDLIST ; ",
+            "873:     if ( strcmp(tmpString,ALL_STRING) == 0 ) ",
+            "874:       { MATCH_BAND = true ; }",
+            "875:     else",
+            "876:       { if( strstr(tmpString,BAND)!=NULL)  { MATCH_BAND=true;}  }",
+            "877:     ",
+            "878:     if ( !MATCH_BAND ) { continue ; }",
+            "879: ",
+            "880:     // check FIELD match",
+            "881:     tmpString = FLUXERRMAP[imap].FIELDLIST ; ",
+            "882:     if ( strcmp(tmpString,ALL_STRING) == 0 ) ",
+            "883:       { MATCH_FIELD = true; }",
+            "884:     else",
+            "885:       { if( strstr(tmpString,FIELD)!=NULL)  { MATCH_FIELD=true;}  }",
+            "886: ",
+            "887:     if ( !MATCH_FIELD ) { continue ; }",
+            "888: ",
+            "889:     NMATCH++; IMAP=imap;",
+            "890:   }",
+            "891: ",
+            "892:   if ( NMATCH > 1 ) {",
+            "893:     sprintf(c1err,\"Invalid NMATCH=%d for BAND=%s and FIELD=%s\",",
+            "894: \t    NMATCH, BAND, FIELD);",
+            "895:     sprintf(c2err,\"Calling function is %s\", FUNCALL);",
+            "896:     errmsg(SEV_FATAL, 0, fnam, c1err, c2err ); ",
+            "897:   }",
+            "898:   ",
+            "899:   return(IMAP) ;",
+            "900: "
+          ]
+        }
+      ]
+    },
+    "snlc_sim.c": {
+      "sha256": "37d8afef19220d2ba0504db777b654694fe07cdf993819555dcec26bf26e7ba8",
+      "excerpts": [
+        {
+          "range": [
+            1042,
+            1050
+          ],
+          "lines": [
+            "1042:   INPUTS.HOSTLIB_FIXSERSIC[1]  =  0.0   ; // b",
+            "1043:   INPUTS.HOSTLIB_FIXSERSIC[2]  = -999.0 ; // n",
+            "1044:   INPUTS.HOSTLIB_FIXSERSIC[3]  = -999.0 ; // a_rot, deg",
+            "1045: ",
+            "1046:   INPUTS.FLUXERRMODEL_OPTMASK = 0 ;",
+            "1047:   INPUTS.FLUXERRMODEL_REDCOV[0] = 0;",
+            "1048:   sprintf(INPUTS.FLUXERRMODEL_FILE,          \"NONE\" ); ",
+            "1049:   sprintf(INPUTS.FLUXERRMAP_IGNORE_DATAERR,  \"NONE\" );",
+            "1050:   sprintf(INPUTS.HOSTNOISE_FILE,             \"NONE\" ); "
+          ]
+        },
+        {
+          "range": [
+            5800,
+            5824
+          ],
+          "lines": [
+            "5800: ",
+            "5801:   // Feb 2018:",
+            "5802:   // if using FLUXERRMODEL, make sure none of the legacy options are used",
+            "5803:   if ( !IGNOREFILE(INPUTS.FLUXERRMODEL_FILE)  ) {",
+            "5804:     if ( !IGNOREFILE(INPUTS.HOSTNOISE_FILE)  ) {",
+            "5805:       sprintf(c1err,\"Cannot mix FLUXERRMODEL_FILE with HOSTNOISE_FILE\");",
+            "5806:       sprintf(c2err,\"Pick one, not both.\");",
+            "5807:       errmsg(SEV_FATAL, 0, fnam, c1err, c2err); ",
+            "5808:     }",
+            "5809: ",
+            "5810:     if ( INPUTS.FUDGEOPT_FLUXERR  ) {",
+            "5811:       sprintf(c1err,\"Cannot mix FLUXERRMODEL_FILE with FUDGEOPT_FLUXERR\");",
+            "5812:       sprintf(c2err,\"Pick one, not both.\");",
+            "5813:       errmsg(SEV_FATAL, 0, fnam, c1err, c2err); ",
+            "5814:     }",
+            "5815: ",
+            "5816:     ",
+            "5817:     /* NOT_YET ...",
+            "5818:     // Aug 26 2020: check for option to require DOCANA",
+            "5819:     if ( INPUTS.REQUIRE_DOCANA ) ",
+            "5820:       { INPUTS.FLUXERRMODEL_OPTMASK += MASK_REQUIRE_DOCANA_FLUXERRMAP; }",
+            "5821:     */",
+            "5822:   }",
+            "5823: ",
+            "5824:   // Nov 15 2021"
+          ]
+        },
+        {
+          "range": [
+            14818,
+            14839
+          ],
+          "lines": [
+            "14818:   //  + if using FLUXERRMODEL_FILE, ignore errFudge map inside SIMLIB",
+            "14819:   // ",
+            "14820: ",
+            "14821:   int  NFLUXERR_COR = SIMLIB_GLOBAL_HEADER.NFLUXERR_COR ;",
+            "14822:   int  NFTMP, size, ifilt, ifilt_obs, IFILTLIST_MAP[MXFILTINDX] ;",
+            "14823: ",
+            "14824:   char cfilt[2], *FILTERS;",
+            "14825:   char fnam[] = \"SIMLIB_prep_fluxerrScale_LEGACY\" ;",
+            "14826: ",
+            "14827:   // --------------- BEGIN -------------",
+            "14828: ",
+            "14829: ",
+            "14830:   if ( IGNOREFILE(INPUTS.FLUXERRMODEL_FILE) == 0 ) ",
+            "14831:     { INPUTS.SIMLIB_MSKOPT |= SIMLIB_MSKOPT_IGNORE_FLUXERR_COR ; }",
+            "14832: ",
+            "14833: ",
+            "14834:   if ( (INPUTS.SIMLIB_MSKOPT & SIMLIB_MSKOPT_IGNORE_FLUXERR_COR)>0 ) {",
+            "14835:     NFLUXERR_COR = 0;",
+            "14836:     printf(\"\\t SIMLIB IGNORE FLUXERR_COR map. \\n\");",
+            "14837:     fflush(stdout);",
+            "14838:   } ",
+            "14839:   "
+          ]
+        },
+        {
+          "range": [
+            15680,
+            15700
+          ],
+          "lines": [
+            "15680: ",
+            "15681: \tif ( INPUTS.FORCEVAL_PSF > 0.001 )  // Sep 2020",
+            "15682: \t  { SIMLIB_OBS_RAW.PSFSIG1[ISTORE] = INPUTS.FORCEVAL_PSF;  }",
+            "15683: ",
+            "15684: \t// check MAG column for SIMLIB model (Nov 2019)",
+            "15685: \tMAG = SIMLIB_OBS_RAW.MAG[ISTORE];",
+            "15686: \tif ( MAG < MAG_ZEROFLUX-0.001 ) { NMAG_notZeroFlux++ ; }",
+            "15687: ",
+            "15688: \t// convert filter-char to integer\t\t   ",
+            "15689: \tBAND      = SIMLIB_OBS_RAW.BAND[ISTORE] ;",
+            "15690: \tifilt_obs = INTFILTER(BAND);",
+            "15691: \tSIMLIB_OBS_RAW.IFILT_OBS[ISTORE] = ifilt_obs ;",
+            "15692: ",
+            "15693: \t// update few header items for each epoch since",
+            "15694: \t// these item can be changed at any epoch.",
+            "15695: \tsprintf(SIMLIB_OBS_RAW.FIELDNAME[ISTORE], \"%s\", FIELD );",
+            "15696: \tsprintf(SIMLIB_OBS_RAW.TELESCOPE[ISTORE], \"%s\", TEL);",
+            "15697: \tPIXSIZE = SIMLIB_HEADER.PIXSIZE ;",
+            "15698: \tSIMLIB_OBS_RAW.PIXSIZE[ISTORE] = PIXSIZE ;",
+            "15699: ",
+            "15700: \t// set 'not from spectrograph' values"
+          ]
+        },
+        {
+          "range": [
+            16450,
+            16468
+          ],
+          "lines": [
+            "16450:     MJD_DIF = MJD - MJD_LAST_KEEP ;",
+            "16451:     if ( fabs(MJD_DIF) > INPUTS.NEWMJD_DIF ) {",
+            "16452:       NEP_NEWMJD++; ",
+            "16453:       GENLC.NEWMJD = NEP_NEWMJD ;",
+            "16454:       GENLC.EPOCH_RANGE_NEWMJD[NEP_NEWMJD][0] = NEP ;",
+            "16455:     }",
+            "16456:     GENLC.EPOCH_RANGE_NEWMJD[NEP_NEWMJD][1] = NEP ;",
+            "16457: ",
+            "16458:     ",
+            "16459:     // store a few things in GENLC struct",
+            "16460:     GENLC.IFILT_OBS[NEP]     = IFILT_OBS;",
+            "16461:     GENLC.genmag_obs[NEP]    = MAG ;",
+            "16462:     GENLC.MJD[NEP]           = MJD ;",
+            "16463:     sprintf( GENLC.FIELDNAME[NEP], \"%s\", FIELD );",
+            "16464:     sprintf( GENLC.TELESCOPE[NEP], \"%s\", TEL   );",
+            "16465: ",
+            "16466:     // store min/max TREST (Apr 2021) for efficiency studies.",
+            "16467:     // If event is accepted, TRESTMIN/MAX are overwritten in gen_cutwin(),",
+            "16468:     // so these values here are for rejected events."
+          ]
+        },
+        {
+          "range": [
+            22919,
+            22947
+          ],
+          "lines": [
+            "22919: void  gen_fluxNoise_fudge_diag(int epoch, int VBOSE, FLUXNOISE_DEF *FLUXNOISE){",
+            "22920: ",
+            "22921:   // Created Dec 27, 2019",
+            "22922:   // Compute diagonal error fudges, if specified ",
+            "22923:   // (ignore off-diag correlations among epochs)",
+            "22924:   //",
+            "22925:   // Mar 12 2020:",
+            "22926:   //  Fix bug applying INPUTS.FUDGESCALE_FLUXERR_FILTER(2) because",
+            "22927:   //  it was using undefined SQSCALE.",
+            "22928:   //",
+            "22929:   // Apr 14 2021: abort of SQSIG_F<0 (happens if err scale < 1)",
+            "22930: ",
+            "22931:   int    ifilt_obs  = GENLC.IFILT_OBS[epoch] ;",
+            "22932:   char   *FIELD     = GENLC.FIELDNAME[epoch];",
+            "22933: ",
+            "22934:   double  MJD       = SIMLIB_OBS_GEN.MJD[epoch] ;",
+            "22935:   double  SKYSIG    = SIMLIB_OBS_GEN.SKYSIG[epoch] ;",
+            "22936:   double  PSFSIG1   = SIMLIB_OBS_GEN.PSFSIG1[epoch] ; // pixels",
+            "22937:   double  ZPADU     = SIMLIB_OBS_GEN.ZPTADU[epoch] ;",
+            "22938:   double  PIXSIZE   = SIMLIB_OBS_GEN.PIXSIZE[epoch];",
+            "22939: ",
+            "22940:   long long GALID           = SNHOSTGAL.GALID ;",
+            "22941:   double SBmag              = SNHOSTGAL.SB_MAG[ifilt_obs];",
+            "22942:   double SNSEP              = SNHOSTGAL.SNSEP ;",
+            "22943: ",
+            "22944:   double Npe_over_FLUXCAL   = FLUXNOISE->Npe_over_FLUXCAL;",
+            "22945:   double NEA                = FLUXNOISE->NEA;",
+            "22946:   ",
+            "22947:   double SQSIG_CALC         = FLUXNOISE->SQSIG_CALC_DATA;"
+          ]
+        },
+        {
+          "range": [
+            23022,
+            23065
+          ],
+          "lines": [
+            "23022:     double FLUXCALERR_in  = SIG_CALC/Npe_over_FLUXCAL ;",
+            "23023:     double FLUXCALERR_TRUE;  // generated error",
+            "23024:     double FLUXCALERR_DATA ; // reported error in data file",
+            "23025: ",
+            "23026:     get_FLUXERRMODEL(OPT, FLUXCALERR_in, BAND, FIELD,      // (I)",
+            "23027: \t\t     NPAR_FLUXERRMAP_REQUIRE, ERRPARLIST,  // (I)",
+            "23028: \t\t     &FLUXCALERR_TRUE, &FLUXCALERR_DATA) ; // (O)",
+            "23029:     ",
+            "23030:     SCALE   = FLUXCALERR_TRUE/FLUXCALERR_in ;  SQSCALE = SCALE*SCALE ;",
+            "23031: ",
+            "23032:     // don't modify true SQSIG(S); instead, add extra error to FUDGE term.",
+            "23033:     SQSIG_TMP    = SQSIG_TRUE[TYPE_FLUXNOISE_S] ; ",
+            "23034:     SQSIG_SCALED = SQSCALE * SQSIG_TMP ;",
+            "23035:     SQSIG_F      = SQSIG_SCALED - SQSIG_TMP;",
+            "23036:     SQSIG_TRUE[TYPE_FLUXNOISE_F] = SQSIG_F;",
+            "23037: ",
+            "23038:     if ( SQSIG_F < 0.0 ) {",
+            "23039:       print_preAbort_banner(fnam);",
+            "23040:       printf(\"  MJD  = %le \\n\", MJD);",
+            "23041:       printf(\"  BAND = %s \\n\", BAND);",
+            "23042:       printf(\"  PSFSIG1=%.3f  SBmag=%.3f\\n\", PSFSIG1, SBmag );",
+            "23043: ",
+            "23044:       sprintf(c1err,\"Invalid SQSIG_FUDGE = %f < 0\", SQSIG_F);",
+            "23045:       sprintf(c2err,\"fluxErrScale probably < 1\");",
+            "23046:       errmsg(SEV_FATAL, 0, fnam, c1err, c2err) ; ",
+            "23047:     }",
+            "23048: ",
+            "23049:     SQSIG_TRUE[TYPE_FLUXNOISE_T] *= SQSCALE ; // scale template noise",
+            "23050: ",
+            "23051:     SCALE   = FLUXCALERR_DATA/FLUXCALERR_in ;  SQSCALE = SCALE*SCALE ;",
+            "23052:     SQSIG_DATA *= SQSCALE ;",
+            "23053: ",
+            "23054:     // keep track of NOBS per covariance matrix",
+            "23055:     FLUXNOISE->INDEX_REDCOV = -9 ;",
+            "23056:     if ( NREDCOV_FLUXERRMODEL > 0 ) {",
+            "23057:       int ICOV = INDEX_REDCOV_FLUXERRMODEL(BAND,FIELD,2,fnam);      ",
+            "23058:       COVINFO_FLUXERRMODEL[ICOV].NOBS++ ;",
+            "23059:       FLUXNOISE->INDEX_REDCOV = ICOV;",
+            "23060:     }",
+            "23061: ",
+            "23062:   }",
+            "23063: ",
+            "23064: ",
+            "23065:   // - - - - - - - - - - - - - - - - - - - - - - - - - - "
+          ]
+        }
+      ]
+    }
+  },
+  "inputs_sha256": {
+    "runs/research_2026_09_26/raisin_sign_source/sim/simlibs/DES_RAISIN.simlib": "a357e6ce16d7868e573919776eeb692b6288c612851c9ae08f90f6766e4cbdd3",
+    "runs/research_2026_09_26/raisin_simulation_assets/author/sim/inputs/DES/DES3YR_SIM_ERRORFUDGES.DAT": "35b66e03244894db58b8ebaa4e3cbf6186b81cd3705196b8ed1b30e87cef8d0d",
+    "runs/research_2026_09_26/raisin_sign_source/sim/inputs/DES/sim_DES_SNOOPY.input": "6a576dbd1745e4b770c3ddccc08636b2c7387637fa28870906948a2e1bb751cf",
+    "runs/research_2026_09_26/astra_design/raisin_timing_assets/prospective_noise_review/map_audit.py": "b60ce3028c1903bc98dd6ae419b887f4080b34dc2f4a5475d3d8a0d258db5f33"
+  }
+}

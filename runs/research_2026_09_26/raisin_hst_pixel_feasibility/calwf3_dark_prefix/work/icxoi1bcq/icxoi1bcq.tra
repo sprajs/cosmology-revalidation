@@ -1,0 +1,127 @@
+git tag: unknown
+git branch: unknown
+HEAD @: unknown
+
+
+CALBEG*** CALWF3 -- Version 3.7.3 (Jan-07-2026) ***
+Begin    26-Sep-2026 10:41:54 BST
+
+
+Input    icxoi1bcq_raw.fits
+loading asn
+
+LoadAsn:  Processing SINGLE exposure
+Trying to open icxoi1bcq_raw.fits...
+Read in Primary header from icxoi1bcq_raw.fits...
+
+
+
+CALBEG*** WF3IR -- Version 3.7.3 (Jan-07-2026) ***
+Begin    26-Sep-2026 10:41:54 BST
+Input    icxoi1bcq_raw.fits
+Output   icxoi1bcq_flt.fits
+Trying to open icxoi1bcq_raw.fits...
+Read in Primary header from icxoi1bcq_raw.fits...
+APERTURE IR
+FILTER   F160W
+DETECTOR IR
+Reading data from icxoi1bcq_raw.fits ...
+
+CCDTAB   iref$t2c16200i_ccd.fits
+CCDTAB   PEDIGREE=Ground
+CCDTAB   DESCRIP =Reference data based on Thermal-Vac #3, gain=2.5 results for IR-4
+CCDTAB   DESCRIP =Readnoise,gain,saturation from TV3,MEB2 values. ISRs 2008-25,39,50
+    readnoise =20.2,19.8,19.9,20.1
+    gain =2.34,2.37,2.31,2.38
+
+DQICORR  PERFORM
+DQITAB   iref$3562029fi_bpx.fits
+DQITAB   PEDIGREE=INFLIGHT 08/10/2016 09/09/2017
+DQITAB   DESCRIP =Bad Pixel Table generated using Cycle 24 Flats and Darks-----------
+DQICORR  COMPLETE
+
+ZSIGCORR PERFORM
+ZSIGCORR detected 1285 saturated pixels in 0th read
+ZSIGCORR detected 1345 saturated pixels in 1st read
+ZSIGCORR COMPLETE
+
+BLEVCORR PERFORM
+OSCNTAB  iref$q911321mi_osc.fits
+OSCNTAB  PEDIGREE=GROUND
+OSCNTAB  DESCRIP =Initial values for ground test data processing
+BLEVCORR COMPLETE
+
+ZOFFCORR PERFORM
+ZOFFCORR COMPLETE
+
+NOISCORR PERFORM
+Uncertainty array initialized.
+NOISCORR COMPLETE
+
+NLINCORR PERFORM
+NLINFILE iref$a2412448i_lin.fits
+NLINFILE PEDIGREE=INFLIGHT 29/03/2011 25/11/2012
+NLINFILE DESCRIP =Non-linearity, pixel-based correction from WFC3 on-orbit frames
+NLINCORR detected 1285 saturated pixels in imset 8
+NLINCORR detected 1349 saturated pixels in imset 7
+NLINCORR detected 1423 saturated pixels in imset 6
+NLINCORR detected 1455 saturated pixels in imset 5
+NLINCORR detected 1476 saturated pixels in imset 4
+NLINCORR detected 1487 saturated pixels in imset 3
+NLINCORR detected 1496 saturated pixels in imset 2
+NLINCORR detected 1504 saturated pixels in imset 1
+NLINCORR COMPLETE
+
+DARKCORR PERFORM
+DARKFILE iref$3562025ji_drk.fits
+DARKFILE PEDIGREE=INFLIGHT 01/09/2009 12/11/2016
+DARKFILE DESCRIP =Dark Created from 241 frames spanning cycles 17 to 24--------------
+DARKCORR using dark imset 16 for imset  8 with exptime=       0
+DARKCORR using dark imset 15 for imset  7 with exptime= 2.93229
+DARKCORR using dark imset 14 for imset  6 with exptime= 52.9327
+DARKCORR using dark imset 13 for imset  5 with exptime= 102.933
+DARKCORR using dark imset 12 for imset  4 with exptime= 152.934
+DARKCORR using dark imset 11 for imset  3 with exptime= 202.934
+DARKCORR using dark imset 10 for imset  2 with exptime= 252.934
+DARKCORR using dark imset  9 for imset  1 with exptime= 302.935
+DARKCORR COMPLETE
+
+PHOTCORR PERFORM
+IMPHTTAB iref$8ch15233i_imp.fits
+IMPHTTAB PEDIGREE=INFLIGHT 08/05/2009 01/09/2024
+IMPHTTAB DESCRIP =Time-dependent image photometry reference table (IMPHTTAB)---------
+PHOTCORR COMPLETE
+
+UNITCORR PERFORM
+UNITCORR COMPLETE
+
+CRCORR   PERFORM
+CRREJTAB iref$u6a1748ri_crr.fits
+CRIDCALC using 4 sigma rejection threshold
+               256 bad DQ mask
+               4 max CRs for UNSTABLE
+16 pixels detected as unstable
+CRCORR   COMPLETE
+
+FLATCORR PERFORM
+PFLTFILE iref$4ac1921li_pfl.fits
+PFLTFILE PEDIGREE=INFLIGHT 31/07/2009 05/12/2019
+PFLTFILE DESCRIP =Sky Flat from Combined In-flight observations between 2009 and 2019
+DFLTFILE iref$4ac1822ni_dfl.fits
+DFLTFILE PEDIGREE=INFLIGHT 31/07/2009 05/12/2019
+DFLTFILE DESCRIP =Delta-Flat for IR Blobs by Date of Appearance from Sky Flat Dataset
+FLATCORR COMPLETE
+Writing calibrated readouts to icxoi1bcq_ima.fits
+Writing final image to icxoi1bcq_flt.fits
+ with trimx = 5,5, trimy = 5,5
+
+
+End      26-Sep-2026 10:41:56 BST
+
+*** WF3IR complete ***
+
+
+End      26-Sep-2026 10:41:56 BST
+
+*** CALWF3 complete ***
+CALWF3 completion for icxoi1bcq_raw.fits

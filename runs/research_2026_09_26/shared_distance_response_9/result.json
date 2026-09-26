@@ -1,0 +1,91 @@
+{
+  "scope": "Retrospective finite-mode local pre-BBC compensation diagnostic; not measured distance bias or a cosmology posterior.",
+  "calibration_modes": 9,
+  "discovery_objects": 43,
+  "validation_objects": 1020,
+  "coordinates": [
+    "mB",
+    "x1",
+    "c",
+    "t0"
+  ],
+  "standardization_vector": [
+    1.0,
+    0.16087,
+    -3.1178,
+    0.0
+  ],
+  "contrast": "Unweighted high255 minus low255 validation zHEL ranks; CID tie break; same target for every model.",
+  "low_redshift_range": [
+    0.07411,
+    0.34336
+  ],
+  "high_redshift_range": [
+    0.61002,
+    1.04763
+  ],
+  "models": {
+    "calibration_only": {
+      "mean_mag": 0.011103225146103634,
+      "prior_sd_mag": 0.013659387728517623,
+      "discovery_conditioned_sd_mag": 0.012682625560025987,
+      "remaining_variance_fraction": 0.8620964871736374,
+      "validation_object_conditional_sd_quantiles": [
+        0.0024591154169264742,
+        0.007588139661413216,
+        0.013468616255331543,
+        0.037562507905858585
+      ],
+      "contrast_response_per_unit_mode": [
+        -9.367619718273152e-05,
+        0.002478238043841239,
+        -0.0052854254476431845,
+        -0.0065736953494341666,
+        -0.0021235865050397863,
+        0.006883510460606156,
+        -0.0027400859036810603,
+        0.0013219071781786162,
+        0.0069376794480155496
+      ]
+    },
+    "calibration_plus_observer": {
+      "mean_mag": 0.05829700065132265,
+      "prior_sd_mag": 0.08732715071370967,
+      "discovery_conditioned_sd_mag": 0.025709137697866223,
+      "remaining_variance_fraction": 0.0866715253775032,
+      "validation_object_conditional_sd_quantiles": [
+        0.02264674889659645,
+        0.030683680145402605,
+        0.03628872543082314,
+        0.060886045927156456
+      ],
+      "contrast_response_per_unit_mode": [
+        -9.367619718273152e-05,
+        0.002478238043841239,
+        -0.0052854254476431845,
+        -0.0065736953494341666,
+        -0.0021235865050397863,
+        0.006883510460606156,
+        -0.0027400859036810603,
+        0.0013219071781786162,
+        0.0069376794480155496,
+        -0.050684719194145134,
+        -0.02481688558275394,
+        -0.06522755406145582
+      ]
+    }
+  },
+  "verification_maxima": {
+    "normal_equation_max_error": 5.10702591327572e-15,
+    "decomposition_max_error": 1.0547118733938987e-15,
+    "gray_coordinate_max_error": 1.0769163338864018e-14,
+    "gray_projected_norm": 5.5213467053774357e-14
+  },
+  "limitations": [
+    "Finite Gaussian mode prior is an approximation, not a bound on all calibration/dust/population errors.",
+    "Only discovery residuals condition modes; no validation coefficient fit.",
+    "Fixed nominal nuisance tangent and covariance; nonlinear transport, alpha/beta, selection and BBC not refitted.",
+    "Observer extension is an empirical mean family, not an identified physical calibration correction.",
+    "Gray luminosity/distance evolution lies outside these residual constraints."
+  ]
+}

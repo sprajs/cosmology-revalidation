@@ -1,0 +1,14 @@
+{
+  "status": "Frozen before full42 changed native outputs. Two-object pilot alreadyknown, therefore explanatory analysis, not independent confirmatory test.",
+  "cohort": "Same42, 32identifiedaffected and10controls; no fit-basedselection.",
+  "precondition": "Only after primary stable12 all42 gatespass, using sameoriginalmeasuredflux/rows/fixedshapeAVpeak.",
+  "definitions": [
+    "m0 and W0 are final nominal12 native mean/precision; D0 itsdistance.",
+    "m1 and W1 are final changed12 mean/precision; D1 itsdistance. Rescale m1backtoD0 byexp(0.4ln10*(D1-D0)).",
+    "At fixedW0, analyticpositiveamplitude a=(m1_at_D0^T W0 y)/(m1_at_D0^T W0 m1_at_D0), compute deltaD_mean_only=-2.5log10(a).",
+    "Native totaldeltaD=D1-D0. Define remainingweight-update response=totaldeltaD-minus-mean-only. This is order-dependent bookkeeping, not a causal decomposition intoindependentphysicalbiases.",
+    "Check analyticpositiveamplitude usingW1 atchangedstate recoversD1within original.001mag. No normalizedGaussianoptimization."
+  ],
+  "reports": "All42 perobject terms; sameunweighted32/42means; zeroexactcontrols. No cosmology orerrorbars fromthese deterministicprocessingtransforms.",
+  "fail_rule": "Nonpositiveamp,missingrows,nonfinite,orgatefailure:preserve and report no certified decomposition; never dropcases."
+}

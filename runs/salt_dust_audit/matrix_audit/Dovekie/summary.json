@@ -1,0 +1,719 @@
+{
+  "n": 1820,
+  "metadata_original_order_matches_HD": false,
+  "stat_matrix_vs_published_sigma_max_abs_mag": 9.83007714694395e-06,
+  "stat": {
+    "min_eigenvalue_mag2": 0.0016728100370235826,
+    "max_eigenvalue_mag2": 219034.11811780464,
+    "condition_number": 130937831.11651474,
+    "median_diagonal_sigma_mag": 0.16460000384892157
+  },
+  "total": {
+    "min_eigenvalue_mag2": 0.0036786250292983325,
+    "max_eigenvalue_mag2": 219034.12112516392,
+    "condition_number": 59542388.63180433,
+    "median_diagonal_sigma_mag": 0.17218583156919343
+  },
+  "numeric_checks": {
+    "om_derivative_step_halving_max": 1.3749001936957939e-08,
+    "w0_derivative_step_halving_max": 3.197442310920451e-10,
+    "wa_derivative_step_halving_max": 1.4210854715202004e-10,
+    "quadrature_doubling_max_mag": 7.105427357601002e-15
+  },
+  "design_collinearity": {
+    "stat": {
+      "profiled_normalized_design_eigenvalues": [
+        4.604043675350329e-06,
+        0.001467685684096895,
+        0.014541898391260187,
+        0.1789206226475332,
+        0.3920766339316017,
+        0.669845688085557,
+        0.8283399268856605,
+        1.3825725585124737,
+        1.7031366774078296,
+        4.829093704410311
+      ],
+      "condition_number": 1048880.950079792,
+      "variance_inflation_factors": {
+        "dmu_dom": 159298.0990728121,
+        "dmu_dw0": 12355.033502539582,
+        "dmu_dwa": 11438.424433805909,
+        "dmu_dalpha": 1.4612362070194909,
+        "dmu_dbeta": 2.547163147489201,
+        "dmu_dgamma": 1.165158104221149,
+        "dmu_dbias_scale": 2.6028323218010225,
+        "z_linear": 34841.75859527255,
+        "MWEBV_proxy": 1.3304723320934329,
+        "DES_indicator": 20.418561272371974
+      }
+    },
+    "total": {
+      "profiled_normalized_design_eigenvalues": [
+        7.882876487640105e-06,
+        0.002664217603773724,
+        0.02612926144882478,
+        0.17898077446099753,
+        0.4858075288866156,
+        0.5620955234065331,
+        0.9356260595060418,
+        1.4894355852188779,
+        1.7543043251860002,
+        4.564948841405845
+      ],
+      "condition_number": 579096.8371207415,
+      "variance_inflation_factors": {
+        "dmu_dom": 92767.011345072,
+        "dmu_dw0": 7046.6855927408205,
+        "dmu_dwa": 6820.469638870648,
+        "dmu_dalpha": 1.8100141152034297,
+        "dmu_dbeta": 2.6118559691034897,
+        "dmu_dgamma": 1.348863156479667,
+        "dmu_dbias_scale": 2.841450760376962,
+        "z_linear": 20627.507009781595,
+        "MWEBV_proxy": 1.144745862084469,
+        "DES_indicator": 11.38519179464809
+      }
+    }
+  },
+  "cosmology_response": {
+    "stat_flat_LCDM": {
+      "parameters": [
+        "intercept_mag",
+        "Omega_m"
+      ],
+      "fisher_condition": 15.89974549738878,
+      "conditional_parameter_covariance": [
+        [
+          4.884266557651087e-05,
+          6.193734872018592e-05
+        ],
+        [
+          6.193734872018592e-05,
+          0.00010580062196740585
+        ]
+      ],
+      "operator_times_design_identity_max_error": 8.881784197001252e-16
+    },
+    "stat_flat_wCDM": {
+      "parameters": [
+        "intercept_mag",
+        "Omega_m",
+        "w0"
+      ],
+      "fisher_condition": 2185.3742553187926,
+      "conditional_parameter_covariance": [
+        [
+          9.332148320234402e-05,
+          -0.00024970204042533027,
+          0.0008612239500085684
+        ],
+        [
+          -0.0002497020404253287,
+          0.002289291866810738,
+          -0.0060341375968203945
+        ],
+        [
+          0.000861223950008565,
+          -0.006034137596820401,
+          0.016675503793913294
+        ]
+      ],
+      "operator_times_design_identity_max_error": 1.341149413747189e-13
+    },
+    "stat_flat_w0waCDM": {
+      "parameters": [
+        "intercept_mag",
+        "Omega_m",
+        "w0",
+        "wa"
+      ],
+      "fisher_condition": 1223822.6582790266,
+      "conditional_parameter_covariance": [
+        [
+          0.0001759259604337398,
+          0.002335101620259187,
+          -0.001179015763086331,
+          -0.029383453023512758
+        ],
+        [
+          0.002335101620259402,
+          0.08317122694126076,
+          -0.06987594443144722,
+          -0.9194472198640943
+        ],
+        [
+          -0.0011790157630865957,
+          -0.06987594443144972,
+          0.06706718020667843,
+          0.7257389644692499
+        ],
+        [
+          -0.029383453023514743,
+          -0.9194472198640798,
+          0.7257389644692102,
+          10.452064349568817
+        ]
+      ],
+      "operator_times_design_identity_max_error": 1.240607616637135e-11
+    },
+    "total_flat_LCDM": {
+      "parameters": [
+        "intercept_mag",
+        "Omega_m"
+      ],
+      "fisher_condition": 19.048326448087916,
+      "conditional_parameter_covariance": [
+        [
+          0.00010748947378856551,
+          0.00013349464703539584
+        ],
+        [
+          0.0001334946470353958,
+          0.00021032404693979348
+        ]
+      ],
+      "operator_times_design_identity_max_error": 1.609823385706477e-15
+    },
+    "total_flat_wCDM": {
+      "parameters": [
+        "intercept_mag",
+        "Omega_m",
+        "w0"
+      ],
+      "fisher_condition": 1779.4716591298884,
+      "conditional_parameter_covariance": [
+        [
+          0.00018722044057892457,
+          -0.0003502842408914053,
+          0.0013698684670166794
+        ],
+        [
+          -0.0003502842408914001,
+          0.0031457206917474365,
+          -0.008311870158577428
+        ],
+        [
+          0.0013698684670166682,
+          -0.008311870158577445,
+          0.023535894426825372
+        ]
+      ],
+      "operator_times_design_identity_max_error": 3.730349362740526e-14
+    },
+    "total_flat_w0waCDM": {
+      "parameters": [
+        "intercept_mag",
+        "Omega_m",
+        "w0",
+        "wa"
+      ],
+      "fisher_condition": 804805.8920056042,
+      "conditional_parameter_covariance": [
+        [
+          0.0003106516068970503,
+          0.002977321727726974,
+          -0.0011483705186214105,
+          -0.0382688486039863
+        ],
+        [
+          0.002977321727727486,
+          0.09285532818137937,
+          -0.07620158820127053,
+          -1.0316976888850715
+        ],
+        [
+          -0.0011483705186220352,
+          -0.07620158820127655,
+          0.07491293134507833,
+          0.7807599114933889
+        ],
+        [
+          -0.03826884860399087,
+          -1.0316976888850369,
+          0.7807599114932936,
+          11.86495126928049
+        ]
+      ],
+      "operator_times_design_identity_max_error": 1.9610979506978765e-12
+    }
+  },
+  "components": [
+    {
+      "name": "ALPHAEVOL",
+      "min_eigenvalue_mag2": -0.0001236386892007222,
+      "max_eigenvalue_mag2": 0.027675040505174168,
+      "trace_mag2": 0.027029540505082817,
+      "median_diagonal_sigma_mag": 0.001600013015852957,
+      "max_diagonal_sigma_mag": 0.02492005548446547,
+      "compression_threshold_stat_whitened": 1.0715299807436621e-05,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 1.3838007230226873e-06,
+      "negative_eigenvalue_absolute_sum_mag2": 0.0007488899137166148,
+      "stat_whitened_min_eigenvalue": -1.008726799209722e-07,
+      "stat_whitened_max_eigenvalue": 1.071529980743662,
+      "stat_whitened_negative_frobenius_fraction": 9.553867888255678e-07,
+      "stat_whitened_leading_positive_trace_fraction": 0.9999760241116237,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "BETAEVOL",
+      "min_eigenvalue_mag2": -8.935345693476854e-05,
+      "max_eigenvalue_mag2": 0.020747353107265817,
+      "trace_mag2": 0.02026703728986054,
+      "median_diagonal_sigma_mag": 0.001279814664744416,
+      "max_diagonal_sigma_mag": 0.018589994611551107,
+      "compression_threshold_stat_whitened": 8.336704431879869e-06,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 1.7974496166249014e-06,
+      "negative_eigenvalue_absolute_sum_mag2": 0.0005945191941864949,
+      "stat_whitened_min_eigenvalue": -1.0763611033058838e-07,
+      "stat_whitened_max_eigenvalue": 0.8336704431879868,
+      "stat_whitened_negative_frobenius_fraction": 1.207822461742014e-06,
+      "stat_whitened_leading_positive_trace_fraction": 0.9999676299978445,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "BS21",
+      "min_eigenvalue_mag2": -0.0009091599799281155,
+      "max_eigenvalue_mag2": 0.4076500613047815,
+      "trace_mag2": 0.4113001387155009,
+      "median_diagonal_sigma_mag": 0.0065701961587481,
+      "max_diagonal_sigma_mag": 0.17467000859098863,
+      "compression_threshold_stat_whitened": 0.00010697684758920595,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 1.3996744852003668e-07,
+      "negative_eigenvalue_absolute_sum_mag2": 0.002412986595709377,
+      "stat_whitened_min_eigenvalue": -9.515566622969027e-08,
+      "stat_whitened_max_eigenvalue": 10.697684758920595,
+      "stat_whitened_negative_frobenius_fraction": 9.295960263473815e-08,
+      "stat_whitened_leading_positive_trace_fraction": 0.9999974245904286,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "CALSPEC",
+      "min_eigenvalue_mag2": -0.00018581793858137312,
+      "max_eigenvalue_mag2": 0.021043286751389802,
+      "trace_mag2": 0.021847805308414122,
+      "median_diagonal_sigma_mag": 0.0011006997606977493,
+      "max_diagonal_sigma_mag": 0.06220001937266139,
+      "compression_threshold_stat_whitened": 5.651253471049886e-06,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 2.6783206679424664e-06,
+      "negative_eigenvalue_absolute_sum_mag2": 0.0006221747854718975,
+      "stat_whitened_min_eigenvalue": -1.063795057802079e-07,
+      "stat_whitened_max_eigenvalue": 0.5651253471049885,
+      "stat_whitened_negative_frobenius_fraction": 1.8275233948034815e-06,
+      "stat_whitened_leading_positive_trace_fraction": 0.9999527651199233,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "CAL_SALT3",
+      "min_eigenvalue_mag2": -0.001317494191287825,
+      "max_eigenvalue_mag2": 0.13980679037496047,
+      "trace_mag2": 0.3248136432803255,
+      "median_diagonal_sigma_mag": 0.00750787641446333,
+      "max_diagonal_sigma_mag": 0.27085997927629063,
+      "compression_threshold_stat_whitened": 3.128801492538187e-05,
+      "retained_rank": 10,
+      "retained_positive_rank": 10,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 3.8600089078006127e-07,
+      "negative_eigenvalue_absolute_sum_mag2": 0.01079886313573237,
+      "stat_whitened_min_eigenvalue": -9.676495691705165e-08,
+      "stat_whitened_max_eigenvalue": 3.1288014925381864,
+      "stat_whitened_negative_frobenius_fraction": 2.581927118180144e-07,
+      "stat_whitened_leading_positive_trace_fraction": 0.38286416051349204,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "CCPRIOR_H11",
+      "min_eigenvalue_mag2": -4.452389642111737e-06,
+      "max_eigenvalue_mag2": 0.001095755684591394,
+      "trace_mag2": 0.001139656048442033,
+      "median_diagonal_sigma_mag": 0.0005227077546793675,
+      "max_diagonal_sigma_mag": 0.010099836603703474,
+      "compression_threshold_stat_whitened": 3.418506721620408e-07,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 4.249713504690477e-05,
+      "negative_eigenvalue_absolute_sum_mag2": 7.233180664804823e-05,
+      "stat_whitened_min_eigenvalue": -9.245292239421699e-08,
+      "stat_whitened_max_eigenvalue": 0.034185067216204075,
+      "stat_whitened_negative_frobenius_fraction": 2.836388275726588e-05,
+      "stat_whitened_leading_positive_trace_fraction": 0.9992455535065267,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "COLORLAW",
+      "min_eigenvalue_mag2": -0.00010888090203248412,
+      "max_eigenvalue_mag2": 0.004506934300283703,
+      "trace_mag2": 0.004408891716985851,
+      "median_diagonal_sigma_mag": 0.00046037448051865833,
+      "max_diagonal_sigma_mag": 0.019425005844621198,
+      "compression_threshold_stat_whitened": 2.1091128890378034e-06,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 7.127386767281145e-06,
+      "negative_eigenvalue_absolute_sum_mag2": 0.00019612577479132372,
+      "stat_whitened_min_eigenvalue": -1.001392305739214e-07,
+      "stat_whitened_max_eigenvalue": 0.21091128890378033,
+      "stat_whitened_negative_frobenius_fraction": 4.851848972994581e-06,
+      "stat_whitened_leading_positive_trace_fraction": 0.9998754909746552,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "EFF_ZSPEC",
+      "min_eigenvalue_mag2": -0.00034524570022784423,
+      "max_eigenvalue_mag2": 0.016360736526345,
+      "trace_mag2": 0.024895194191230315,
+      "median_diagonal_sigma_mag": 0.0011712134184310957,
+      "max_diagonal_sigma_mag": 0.04673022249681578,
+      "compression_threshold_stat_whitened": 9.855292883110259e-06,
+      "retained_rank": 2,
+      "retained_positive_rank": 2,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 1.458484417778492e-06,
+      "negative_eigenvalue_absolute_sum_mag2": 0.0008663954421551989,
+      "stat_whitened_min_eigenvalue": -1.0590295551364422e-07,
+      "stat_whitened_max_eigenvalue": 0.9855292883110258,
+      "stat_whitened_negative_frobenius_fraction": 9.937457356796746e-07,
+      "stat_whitened_leading_positive_trace_fraction": 0.8329740636624432,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "FIXED_AB",
+      "min_eigenvalue_mag2": -9.2023832600587e-06,
+      "max_eigenvalue_mag2": 0.0022092029570103906,
+      "trace_mag2": 0.004021667093775972,
+      "median_diagonal_sigma_mag": 0.0007797068670687825,
+      "max_diagonal_sigma_mag": 0.04596726144470185,
+      "compression_threshold_stat_whitened": 6.584974969945457e-07,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 2.2899592408340196e-05,
+      "negative_eigenvalue_absolute_sum_mag2": 6.978764529140152e-05,
+      "stat_whitened_min_eigenvalue": -1.0625841050058787e-07,
+      "stat_whitened_max_eigenvalue": 0.06584974969945456,
+      "stat_whitened_negative_frobenius_fraction": 1.5606334020116124e-05,
+      "stat_whitened_leading_positive_trace_fraction": 0.9995928403599703,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "GAMMAEVOL",
+      "min_eigenvalue_mag2": -5.4468052385612186e-05,
+      "max_eigenvalue_mag2": 0.021126753605643218,
+      "trace_mag2": 0.020760762701149217,
+      "median_diagonal_sigma_mag": 0.00237969209879495,
+      "max_diagonal_sigma_mag": 0.009760087324365348,
+      "compression_threshold_stat_whitened": 9.946975216230211e-06,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 1.4553986684266576e-06,
+      "negative_eigenvalue_absolute_sum_mag2": 0.00036936321699337324,
+      "stat_whitened_min_eigenvalue": -1.0635118486133613e-07,
+      "stat_whitened_max_eigenvalue": 0.994697521623021,
+      "stat_whitened_negative_frobenius_fraction": 1.009548025135928e-06,
+      "stat_whitened_leading_positive_trace_fraction": 0.9999749050339133,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "INTRSC_COLOR",
+      "min_eigenvalue_mag2": -0.0004321753176700434,
+      "max_eigenvalue_mag2": 5.24537078419199,
+      "trace_mag2": 5.2495675613286945,
+      "median_diagonal_sigma_mag": 0.020264999584883425,
+      "max_diagonal_sigma_mag": 0.3867500191994507,
+      "compression_threshold_stat_whitened": 0.001509141521521032,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 9.716288840300953e-09,
+      "negative_eigenvalue_absolute_sum_mag2": 0.0018214155598483993,
+      "stat_whitened_min_eigenvalue": -1.0307720738701129e-07,
+      "stat_whitened_max_eigenvalue": 150.91415215210318,
+      "stat_whitened_negative_frobenius_fraction": 6.398221616470983e-09,
+      "stat_whitened_leading_positive_trace_fraction": 0.9999998214778607,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "MASSLOC",
+      "min_eigenvalue_mag2": -0.00012191032411963406,
+      "max_eigenvalue_mag2": 0.1670399305321471,
+      "trace_mag2": 0.16640098294355263,
+      "median_diagonal_sigma_mag": 0.003999872599550841,
+      "max_diagonal_sigma_mag": 0.03487002008731459,
+      "compression_threshold_stat_whitened": 8.511574005607134e-05,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 1.7398638141934363e-07,
+      "negative_eigenvalue_absolute_sum_mag2": 0.0006403306819274395,
+      "stat_whitened_min_eigenvalue": -1.1104388206402471e-07,
+      "stat_whitened_max_eigenvalue": 8.511574005607134,
+      "stat_whitened_negative_frobenius_fraction": 1.1891751121924046e-07,
+      "stat_whitened_leading_positive_trace_fraction": 0.9999969414014126,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "MWEBV",
+      "min_eigenvalue_mag2": -2.3186849838985057e-05,
+      "max_eigenvalue_mag2": 0.010430062702744016,
+      "trace_mag2": 0.012198370942577225,
+      "median_diagonal_sigma_mag": 0.001610266581686543,
+      "max_diagonal_sigma_mag": 0.0460563122442867,
+      "compression_threshold_stat_whitened": 4.316908166219495e-06,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 3.4202706452170245e-06,
+      "negative_eigenvalue_absolute_sum_mag2": 0.0004184184782238727,
+      "stat_whitened_min_eigenvalue": -1.0399871080923276e-07,
+      "stat_whitened_max_eigenvalue": 0.43169081662194947,
+      "stat_whitened_negative_frobenius_fraction": 2.3467909070026142e-06,
+      "stat_whitened_leading_positive_trace_fraction": 0.9999406113535642,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "P24a",
+      "min_eigenvalue_mag2": -0.000681400795857411,
+      "max_eigenvalue_mag2": 0.2610294465222115,
+      "trace_mag2": 0.2598970693173043,
+      "median_diagonal_sigma_mag": 0.004809876218074951,
+      "max_diagonal_sigma_mag": 0.08919640139728556,
+      "compression_threshold_stat_whitened": 0.00011298462863729653,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 1.3135064807427022e-07,
+      "negative_eigenvalue_absolute_sum_mag2": 0.002359615850080423,
+      "stat_whitened_min_eigenvalue": -9.690711724217172e-08,
+      "stat_whitened_max_eigenvalue": 11.298462863729652,
+      "stat_whitened_negative_frobenius_fraction": 8.782854630732623e-08,
+      "stat_whitened_leading_positive_trace_fraction": 0.9999976122183056,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "P24b",
+      "min_eigenvalue_mag2": -0.001185644052980852,
+      "max_eigenvalue_mag2": 0.2084214424281349,
+      "trace_mag2": 0.20784836708366566,
+      "median_diagonal_sigma_mag": 0.004914211495536195,
+      "max_diagonal_sigma_mag": 0.08714001200366746,
+      "compression_threshold_stat_whitened": 6.030315104582808e-05,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 2.511427739063729e-07,
+      "negative_eigenvalue_absolute_sum_mag2": 0.002620651317706701,
+      "stat_whitened_min_eigenvalue": -1.044814576162271e-07,
+      "stat_whitened_max_eigenvalue": 6.030315104582808,
+      "stat_whitened_negative_frobenius_fraction": 1.724081580696215e-07,
+      "stat_whitened_leading_positive_trace_fraction": 0.9999955630397259,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "P24c",
+      "min_eigenvalue_mag2": -0.00025311557015861763,
+      "max_eigenvalue_mag2": 1.0147696681716887,
+      "trace_mag2": 1.0179330240953928,
+      "median_diagonal_sigma_mag": 0.009125051098202054,
+      "max_diagonal_sigma_mag": 0.170300018170474,
+      "compression_threshold_stat_whitened": 0.00027024766676060104,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 5.5838449033037303e-08,
+      "negative_eigenvalue_absolute_sum_mag2": 0.0021283580996250286,
+      "stat_whitened_min_eigenvalue": -1.0544660263010572e-07,
+      "stat_whitened_max_eigenvalue": 27.0247666760601,
+      "stat_whitened_negative_frobenius_fraction": 3.763952586488885e-08,
+      "stat_whitened_leading_positive_trace_fraction": 0.9999989797870682,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "SCONE",
+      "min_eigenvalue_mag2": -2.320537895751288e-05,
+      "max_eigenvalue_mag2": 0.005910991203614321,
+      "trace_mag2": 0.005724675680893502,
+      "median_diagonal_sigma_mag": 0.0010801996196673211,
+      "max_diagonal_sigma_mag": 0.01022087433106805,
+      "compression_threshold_stat_whitened": 1.6495250768276435e-06,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 8.825791349221513e-06,
+      "negative_eigenvalue_absolute_sum_mag2": 0.0002821389578898842,
+      "stat_whitened_min_eigenvalue": -1.1020848126406672e-07,
+      "stat_whitened_max_eigenvalue": 0.16495250768276434,
+      "stat_whitened_negative_frobenius_fraction": 6.1206094751062985e-06,
+      "stat_whitened_leading_positive_trace_fraction": 0.9998447496572941,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "SIGINT_MODEL",
+      "min_eigenvalue_mag2": -4.180133610803141e-05,
+      "max_eigenvalue_mag2": 0.014210083771123524,
+      "trace_mag2": 0.013965514305126948,
+      "median_diagonal_sigma_mag": 0.0021286815248527224,
+      "max_diagonal_sigma_mag": 0.01022722282789322,
+      "compression_threshold_stat_whitened": 7.318860432714119e-06,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 2.1033578863222486e-06,
+      "negative_eigenvalue_absolute_sum_mag2": 0.00036469156523515734,
+      "stat_whitened_min_eigenvalue": -1.0765714256666347e-07,
+      "stat_whitened_max_eigenvalue": 0.7318860432714118,
+      "stat_whitened_negative_frobenius_fraction": 1.4386593044070534e-06,
+      "stat_whitened_leading_positive_trace_fraction": 0.9999621054931532,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "SNIRF",
+      "min_eigenvalue_mag2": -5.605922303029766e-05,
+      "max_eigenvalue_mag2": 0.02061987972896264,
+      "trace_mag2": 0.0218909532127508,
+      "median_diagonal_sigma_mag": 0.002110182828790279,
+      "max_diagonal_sigma_mag": 0.04622000503662685,
+      "compression_threshold_stat_whitened": 6.539209825218647e-06,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 2.313477456946566e-06,
+      "negative_eigenvalue_absolute_sum_mag2": 0.0008192304856543118,
+      "stat_whitened_min_eigenvalue": -9.411969875987069e-08,
+      "stat_whitened_max_eigenvalue": 0.6539209825218646,
+      "stat_whitened_negative_frobenius_fraction": 1.5498723976066085e-06,
+      "stat_whitened_leading_positive_trace_fraction": 0.9999578965547086,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "SNN",
+      "min_eigenvalue_mag2": -3.560799878707495e-05,
+      "max_eigenvalue_mag2": 0.009673632147981469,
+      "trace_mag2": 0.010350863847900793,
+      "median_diagonal_sigma_mag": 0.0016303183283562803,
+      "max_diagonal_sigma_mag": 0.010413201772939801,
+      "compression_threshold_stat_whitened": 2.6671256429505987e-06,
+      "retained_rank": 2,
+      "retained_positive_rank": 2,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 5.4264101722560245e-06,
+      "negative_eigenvalue_absolute_sum_mag2": 0.0004782910051166288,
+      "stat_whitened_min_eigenvalue": -1.0260229955622149e-07,
+      "stat_whitened_max_eigenvalue": 0.26671256429505985,
+      "stat_whitened_negative_frobenius_fraction": 3.655873382409276e-06,
+      "stat_whitened_leading_positive_trace_fraction": 0.8675726939240904,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "SVAHOST",
+      "min_eigenvalue_mag2": -0.0009879657199550523,
+      "max_eigenvalue_mag2": 0.30753613781968353,
+      "trace_mag2": 0.3098983962026325,
+      "median_diagonal_sigma_mag": 0.004574940482315131,
+      "max_diagonal_sigma_mag": 0.12575001323624774,
+      "compression_threshold_stat_whitened": 7.580388602715793e-05,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 1.9421913353029917e-07,
+      "negative_eigenvalue_absolute_sum_mag2": 0.0034669619852498077,
+      "stat_whitened_min_eigenvalue": -1.0207733867399258e-07,
+      "stat_whitened_max_eigenvalue": 7.580388602715792,
+      "stat_whitened_negative_frobenius_fraction": 1.2962793218254e-07,
+      "stat_whitened_leading_positive_trace_fraction": 0.9999964533485693,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "VPEC",
+      "min_eigenvalue_mag2": -0.000754114442589815,
+      "max_eigenvalue_mag2": 0.03497159951399423,
+      "trace_mag2": 0.10496002978585665,
+      "median_diagonal_sigma_mag": 0.0,
+      "max_diagonal_sigma_mag": 0.0939680832926669,
+      "compression_threshold_stat_whitened": 2.7090579007354937e-05,
+      "retained_rank": 226,
+      "retained_positive_rank": 180,
+      "retained_negative_rank": 46,
+      "compression_relative_stat_whitened_frobenius_residual": 8.119311214330736e-06,
+      "negative_eigenvalue_absolute_sum_mag2": 0.002522743598357488,
+      "stat_whitened_min_eigenvalue": -0.04411009670756006,
+      "stat_whitened_max_eigenvalue": 2.7090579007354934,
+      "stat_whitened_negative_frobenius_fraction": 0.01768953479435634,
+      "stat_whitened_leading_positive_trace_fraction": 0.32099474217619367,
+      "standalone_PSD_at_compression_tolerance": false
+    },
+    {
+      "name": "W22",
+      "min_eigenvalue_mag2": -0.0001697053347491767,
+      "max_eigenvalue_mag2": 0.5728430455189033,
+      "trace_mag2": 0.5726274124454522,
+      "median_diagonal_sigma_mag": 0.00685494381985942,
+      "max_diagonal_sigma_mag": 0.16806427112116673,
+      "compression_threshold_stat_whitened": 0.000142499357333639,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 1.0413821106472785e-07,
+      "negative_eigenvalue_absolute_sum_mag2": 0.0014911346866117458,
+      "stat_whitened_min_eigenvalue": -1.0194580870823405e-07,
+      "stat_whitened_max_eigenvalue": 14.2499357333639,
+      "stat_whitened_negative_frobenius_fraction": 7.175606893292355e-08,
+      "stat_whitened_leading_positive_trace_fraction": 0.9999981526852779,
+      "standalone_PSD_at_compression_tolerance": true
+    },
+    {
+      "name": "ZSHIFT",
+      "min_eigenvalue_mag2": -2.302392705336478e-06,
+      "max_eigenvalue_mag2": 0.0016887697643357832,
+      "trace_mag2": 0.0016530176722896475,
+      "median_diagonal_sigma_mag": 0.00042002997731148536,
+      "max_diagonal_sigma_mag": 0.011260003285728508,
+      "compression_threshold_stat_whitened": 9.433113076185553e-07,
+      "retained_rank": 1,
+      "retained_positive_rank": 1,
+      "retained_negative_rank": 0,
+      "compression_relative_stat_whitened_frobenius_residual": 1.552090666805108e-05,
+      "negative_eigenvalue_absolute_sum_mag2": 3.7393776600804815e-05,
+      "stat_whitened_min_eigenvalue": -1.0185976211699313e-07,
+      "stat_whitened_max_eigenvalue": 0.09433113076185552,
+      "stat_whitened_negative_frobenius_fraction": 1.0514509098440797e-05,
+      "stat_whitened_leading_positive_trace_fraction": 0.9997268627284126,
+      "standalone_PSD_at_compression_tolerance": true
+    }
+  ],
+  "single_component_additivity": {
+    "interpretation": "Naive sum includes overlapping calibration group and separate CALSPEC; use grouping_adjusted_additivity below.",
+    "sum_single_minus_total_sys_relative_frobenius": 0.005735955422375658,
+    "sum_single_minus_total_sys_relative_stat_whitened_frobenius": 0.00352674753505261,
+    "sum_single_minus_total_sys_max_abs_mag2": 0.01702117932291003,
+    "sum_single_trace_mag2": 8.815400575714857,
+    "released_total_sys_trace_mag2": 8.762169021400979
+  },
+  "grouping_adjusted_additivity": {
+    "operation": "Csys_total minus (sum of all individual files minus separately listed CALSPEC)",
+    "relative_stat_whitened_frobenius": 6.462403325705882e-07,
+    "calibration_minus_CALSPEC_positive_rank": 9,
+    "calibration_minus_CALSPEC_negative_rank": 0,
+    "remainder_min_stat_whitened_eigenvalue": -0.00010099624380320421,
+    "remainder_max_stat_whitened_eigenvalue": 1.286742272646133e-06,
+    "remainder_resolved_positive_rank_at_1e_minus5_total_max": 0,
+    "remainder_resolved_negative_rank_at_1e_minus5_total_max": 0,
+    "remainder_trace_mag2": -0.03138374900546493,
+    "remainder_identity": "Consistent with finite-precision residue after removing CALSPEC overlap."
+  }
+}

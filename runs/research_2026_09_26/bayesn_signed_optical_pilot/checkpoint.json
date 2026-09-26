@@ -1,0 +1,23 @@
+{
+  "status": "Paused at user request after completed bounded synthetic runtime benchmark; no active process.",
+  "completed": [
+    "signed optical adapter 15+14 rows and sealed NIR payload 6+5",
+    "exact released DES J reference and forward/algebra gates PASS",
+    "synthetic NIR payload swap exact prediction/mask/error invariance",
+    "100-gradient/5-warmup smoke benchmark",
+    "80-warmup+20-discarded synthetic runtime check for both proper D priors; normalizer/logpdf independently checked"
+  ],
+  "not_run": [
+    "J/H forward metadata epoch gate, dynamic-vs-static phase closure",
+    "full synthetic recovery chains",
+    "observed optical likelihood or posterior",
+    "held-out NIR scoring"
+  ],
+  "next_step": "Freeze additive J/H metadata-only forward operator protocol/source; use mask metadata and no sealed NIR flux. Compare 1200\u21922400\u21924800 bins, eager/JIT, endpoints/knots/gray and official static phase at fixed tau. Then root review before any full synthetic chain.",
+  "critical_paths": {
+    "report": "docs/research-2026-09-26/bayesn-signed-optical-engineering.md",
+    "forward_result": "runs/research_2026_09_26/bayesn_signed_optical_pilot/forward-algebra-result.json",
+    "runtime_result": "runs/research_2026_09_26/bayesn_signed_optical_pilot/runtime-result.json",
+    "synthetic_swap": "runs/research_2026_09_26/bayesn_signed_optical_pilot/synthetic-nir-swap-result.json"
+  }
+}

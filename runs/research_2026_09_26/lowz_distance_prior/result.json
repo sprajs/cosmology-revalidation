@@ -1,0 +1,47 @@
+{
+  "question_answer": "No: low-redshift cosmological shape dependence is suppressed by z but not zero.",
+  "primary_near_threshold": [
+    {
+      "reference_Omega_m": 0.3,
+      "alternative_q": 0.0,
+      "z": 0.079,
+      "delta_mu_same_H0_mag": -0.04352135200914244,
+      "delta_mu_after_z002_anchor_mag": -0.03182065397820495,
+      "peculiar_velocity_only_scale_mag": 0.013743496262761131
+    },
+    {
+      "reference_Omega_m": 0.3,
+      "alternative_q": 0.5,
+      "z": 0.079,
+      "delta_mu_same_H0_mag": -0.08466738989679301,
+      "delta_mu_after_z002_anchor_mag": -0.06222534726017459,
+      "peculiar_velocity_only_scale_mag": 0.013743496262761131
+    }
+  ],
+  "source_default_near_threshold": [
+    {
+      "reference_Omega_m": 0.28,
+      "alternative_q": 0.0,
+      "z": 0.079,
+      "delta_mu_same_H0_mag": -0.04609157205573271,
+      "delta_mu_after_z002_anchor_mag": -0.03373934481433948,
+      "peculiar_velocity_only_scale_mag": 0.013743496262761131
+    },
+    {
+      "reference_Omega_m": 0.28,
+      "alternative_q": 0.5,
+      "z": 0.079,
+      "delta_mu_same_H0_mag": -0.08723760994338324,
+      "delta_mu_after_z002_anchor_mag": -0.06414403809630924,
+      "peculiar_velocity_only_scale_mag": 0.013743496262761131
+    }
+  ],
+  "max_relative_Astropy_verification_error": 2.0769472701641834e-13,
+  "interpretation": "A fixed gray calibration cannot absorb all redshift-dependent prior changes. This only motivates a training-prior sensitivity.",
+  "limitations": [
+    "No G26 training rerun, matched training-redshift sample or inferred calibration/dust response.",
+    "The 150km/s value is only a scale comparison. Spectroscopic errors and latent intrinsic scatter also matter; inspected code combines sigma0 with this term in a training Ds prior.",
+    "Archived default code does not establish the exact G26 training execution or hybrid-prior implementation.",
+    "q=0 and q=.5 are declared contrasting kinematic histories, not estimates of the observed universe."
+  ]
+}

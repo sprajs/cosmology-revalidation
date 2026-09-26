@@ -1,0 +1,147 @@
+{
+  "status": "PASS; independent saved-score arithmetic, no observed-data refits",
+  "discovery_objects": 43,
+  "validation_objects": 1020,
+  "discovery_projected_rows": 1477,
+  "validation_projected_rows": 35526,
+  "all_64_discovery_ids_excluded_from_validation": true,
+  "rebuilt_per_object_sufficient_statistic_max_errors": {
+    "discovery_F": 0.0,
+    "discovery_g": 0.0,
+    "validation_F": 0.0,
+    "validation_g": 0.0
+  },
+  "models": {
+    "calibration_only": {
+      "svd_direct_conditional_gain": 49.80344108227228,
+      "saved_R_difference_gain": 49.80344108227234,
+      "absolute_gain_difference": 6.394884621840902e-14,
+      "validation_design_rank": 9,
+      "singular_values": [
+        4.620206452181036,
+        3.443622464231986,
+        1.3276149429015232,
+        1.1949059332896828,
+        0.8677931150107294,
+        0.5485814728571428,
+        0.4972647440923682,
+        0.45581324583715754,
+        0.30626650408014006
+      ],
+      "posterior_mean_max_difference": 2.6645352591003757e-15,
+      "posterior_covariance_max_difference": 3.3306690738754696e-16
+    },
+    "calibration_plus_observer": {
+      "svd_direct_conditional_gain": 58.747079354704205,
+      "saved_R_difference_gain": 58.74707935470373,
+      "absolute_gain_difference": 4.760636329592671e-13,
+      "validation_design_rank": 12,
+      "singular_values": [
+        28.35875221438683,
+        12.809142307470744,
+        1.5065695833153423,
+        1.3289820556130942,
+        1.0505663361245487,
+        0.8363215365491572,
+        0.7668652786550177,
+        0.4982029864996776,
+        0.4885661424949387,
+        0.4077123107839365,
+        0.3639894696220454,
+        0.2995391034045074
+      ],
+      "posterior_mean_max_difference": 2.6645352591003757e-15,
+      "posterior_covariance_max_difference": 2.6645352591003757e-15
+    },
+    "calibration_plus_isotropic_griz_observer": {
+      "svd_direct_conditional_gain": 58.677938772456756,
+      "saved_R_difference_gain": 58.67793877245599,
+      "absolute_gain_difference": 7.673861546209082e-13,
+      "validation_design_rank": 12,
+      "singular_values": [
+        23.20163572449115,
+        15.397222419565487,
+        1.5261634789681024,
+        1.3346919609204615,
+        1.069933940479495,
+        0.8483066824881097,
+        0.7785570516813305,
+        0.5570805909553275,
+        0.4900366941943185,
+        0.45153809266663575,
+        0.3932283289262643,
+        0.30084512142614434
+      ],
+      "posterior_mean_max_difference": 5.186823193170653e-15,
+      "posterior_covariance_max_difference": 6.328271240363392e-15
+    }
+  },
+  "conditional_log_ratios_vs_calibration": {
+    "calibration_plus_observer": 8.943638272431926,
+    "calibration_plus_isotropic_griz_observer": 8.874497690184477
+  },
+  "fixed_observer_pattern_conditional_check": {
+    "information": 46.96687528035335,
+    "matched_filter_centered": 22.51906292288691,
+    "score_gain_for_conditional_mean_shift": -0.9643747172897648,
+    "conditional_Gaussian_Z": 3.2859010466344483,
+    "conditional_Gaussian_one_sided_tail": 0.0005082835750209576
+  },
+  "isotropic_prior": {
+    "coefficient_covariance": [
+      [
+        0.0006000000000000001,
+        -0.0002,
+        -0.0002
+      ],
+      [
+        -0.0002,
+        0.0006000000000000001,
+        -0.0002
+      ],
+      [
+        -0.0002,
+        -0.0002,
+        0.0006000000000000001
+      ]
+    ],
+    "griz_covariance": [
+      [
+        0.0006000000000000001,
+        -0.0002,
+        -0.0002,
+        -0.0002
+      ],
+      [
+        -0.0002,
+        0.0006000000000000001,
+        -0.0002,
+        -0.0002
+      ],
+      [
+        -0.0002,
+        -0.0002,
+        0.0006000000000000001,
+        -0.0002
+      ],
+      [
+        -0.0002,
+        -0.0002,
+        -0.0002,
+        0.0006000000000000001
+      ]
+    ],
+    "equal_total_griz_variance": 0.0024000000000000002
+  },
+  "scope": "Same fixed Gaussian nine-mode approximation; does not independently re-export native predictions or calibrate full systematic/selection/adaptive-research significance.",
+  "source_sha256": "c3fe25a30bc3c0a0c33ef0bb58487c793152c53426a55cd0624b6a26102e4b88",
+  "input_sha256": {
+    "runs/research_2026_09_26/astra_design/shared43/projected-modes.npz": "cd86b7e2f151f07aa942dff9db81507a1c7fd7b3912fe198a6259dfd9a97edf4",
+    "runs/research_2026_09_26/astra_design/shared1020/projected-modes.npz": "988f1c807f398bfd9d1572127ee01750e4eae1235eba111a0afa719ba16442d0",
+    "runs/research_2026_09_26/astra_design/shared1020/result.json": "6b7699cda2e661c757d697291248e3e8f730223af4dd7100b202d82382205e2f",
+    "runs/research_2026_09_26/astra_design/validation1020/frozen-discovery-coefficients.npz": "5db1dabdc832fa3a3d8ba47f47fd365e36f5bb0d5eb556b95c609153697145a0",
+    "runs/research_2026_09_26/astra_design/shared1020_analyze.py": "8390a42eccf13c97c5fadfa93bc42465cba9566fd87d422a64689e273757781d",
+    "runs/research_2026_09_26/astra_design/shared1020-protocol.md": "aeb9503b4fddbd7260333c906bd1cd3879ff64b4fa956a0680d69cde56981007",
+    "runs/research_2026_09_26/astra_design/shared1020/prior-amendment-manifest.json": "9bcdbdf35cbcca17bcfcc18bcd17a0c8dfa67432f7fa7dc7919ee60c52a28396"
+  }
+}

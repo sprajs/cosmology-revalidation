@@ -1,0 +1,94 @@
+{
+  "status": "post-run verification of current saved checkpoint; output hashes were not captured by the original three run manifests",
+  "verified_utc": "2026-09-26T00:37:04.766687+00:00",
+  "verifier_source_sha256": "cde85423fd451fab5799c1e9c203b730570fc9280d6733c6a8d2a0963e131826",
+  "runs": {
+    "foreground_response/nonlinear_check": {
+      "original_manifest_sha256": "d5a86d3bd5dc87f74746e2d2b4bcd65a9ed304fa5d5ccf4d05cb61a0ded8ad50",
+      "source_sha256": "b158f58f72d6580fa1d1e2bfa26bff1cb2974670dea0f198d75862bfe68ed5c0",
+      "saved_files_sha256": {
+        "runs/research_2026_09_26/foreground_response/nonlinear_check/executed_source.py": "b158f58f72d6580fa1d1e2bfa26bff1cb2974670dea0f198d75862bfe68ed5c0",
+        "runs/research_2026_09_26/foreground_response/nonlinear_check/manifest.json": "d5a86d3bd5dc87f74746e2d2b4bcd65a9ed304fa5d5ccf4d05cb61a0ded8ad50",
+        "runs/research_2026_09_26/foreground_response/nonlinear_check/paired_refits.csv": "91464de718344e9002351bf72b0e90f69eedfff3b198a9578bef23a2d855676e",
+        "runs/research_2026_09_26/foreground_response/nonlinear_check/summary.json": "1ec23ffd4fa18db004eff736c6dc919f9cb9ac54f7546cfb08f651748a320ff4"
+      },
+      "input_hashes_verified": 12
+    },
+    "calibration_stars": {
+      "original_manifest_sha256": "ee7edfe50f689b1dac7eed73d90b5ff73fb815a53a4ed460a17f40c57973201d",
+      "source_sha256": "bfc025c80e9fe770d7f12cedeeed57b14a4f1bfdd75e6ad58ebbf7cf70a5e8f5",
+      "saved_files_sha256": {
+        "runs/research_2026_09_26/calibration_stars/executed_source.py": "bfc025c80e9fe770d7f12cedeeed57b14a4f1bfdd75e6ad58ebbf7cf70a5e8f5",
+        "runs/research_2026_09_26/calibration_stars/extinction_branch_changes.csv": "fb6c0fd3c55440fa7de68ff9e98647ac8b9538c9faeb098fa5d62ee7fd04f101",
+        "runs/research_2026_09_26/calibration_stars/heldout_residuals.csv": "f684125df5b12bb0b669db82770c5f54f7fa6ad829a17b9a5c61998d9f0eb6a5",
+        "runs/research_2026_09_26/calibration_stars/manifest.json": "ee7edfe50f689b1dac7eed73d90b5ff73fb815a53a4ed460a17f40c57973201d",
+        "runs/research_2026_09_26/calibration_stars/observed_fits.csv": "6b06514e2ecf924f85d65bded4f5e06f09c6cfc1e06d2675bd4f60ffcd5ba9e1",
+        "runs/research_2026_09_26/calibration_stars/protocol.md": "412d8a8c03137081f44e8ec61dc686d0e7f8521603435a48aef7395be0691446",
+        "runs/research_2026_09_26/calibration_stars/star_selection.csv": "3b82136e829531c2792c2159ba1f3ff0fa786092c8c14c450eccf7fbe820d5a2",
+        "runs/research_2026_09_26/calibration_stars/summary.json": "f014559be18e374ddcf7de1ed0aedb3a4100740ceb38d3e1c1a537a3401b16aa",
+        "runs/research_2026_09_26/calibration_stars/synthetic_fits.csv": "e979e58d75af1bf2f2a48ee41b36db944cdbbc56d1a89ee84e055334e7a407a8",
+        "runs/research_2026_09_26/calibration_stars/synthetic_offset_estimates.csv": "4152fab59be29215343254c154487b6dae84baf4afdf556d69f28f5d19d02d18"
+      },
+      "input_hashes_verified": 6
+    },
+    "calibration_stars/sn_transfer": {
+      "original_manifest_sha256": "2147bf8b67c65e495fed066201e5c784e8f0c4432e237b41d29cc2dc5509d075",
+      "source_sha256": "68966e26665cc23587b90e1029c38d0a27752982df00bee591f7efe0b33743ce",
+      "saved_files_sha256": {
+        "runs/research_2026_09_26/calibration_stars/sn_transfer/executed_source.py": "68966e26665cc23587b90e1029c38d0a27752982df00bee591f7efe0b33743ce",
+        "runs/research_2026_09_26/calibration_stars/sn_transfer/manifest.json": "2147bf8b67c65e495fed066201e5c784e8f0c4432e237b41d29cc2dc5509d075",
+        "runs/research_2026_09_26/calibration_stars/sn_transfer/object_responses.csv": "67e352b996311c7a690b1621e17c2c8374df7a1c1fd574806037e1503ca2b4c1",
+        "runs/research_2026_09_26/calibration_stars/sn_transfer/summary.json": "bb34e51b1036a9f06a2c206ef10ea11c36c973b0abf46e3266a506dd3533b439"
+      },
+      "input_hashes_verified": 3
+    }
+  },
+  "checks": {
+    "map_and_head": {
+      "map_nside": 2048,
+      "map_order": "RING",
+      "reliable_objects": 48,
+      "correction_footprint_objects": 64,
+      "HEAD_MWEBV_dtype": ">f4",
+      "HEAD_to_saved_csv_max_abs_difference": 9.956932084387304e-10,
+      "direct_replacement_identity_max_abs_error": 8.981259746326797e-17
+    },
+    "star_join_and_cuts": {
+      "observed_rows": 1255,
+      "unique_observed_coordinates": true,
+      "synthetic_DES_rows": 451,
+      "synthetic_PS1_rows": 451,
+      "synthetic_joined_rows": 451,
+      "fixed_intersection_rows": 1178,
+      "heldout_sky_cells": 2,
+      "fixed_vectors_gray_mmag": {
+        "calspec23": -0.4983086227804249,
+        "stis_ngsl_v2": -1.04596354656845
+      }
+    },
+    "independent_svd_reprojection": {
+      "foreground_rows": 384,
+      "stellar_rows": 256,
+      "max_abs_errors": {
+        "foreground_shift": 9.085614205428527e-17,
+        "foreground_gain": 7.882583474838611e-15,
+        "stellar_shift": 9.985502008591496e-17,
+        "stellar_gain": 4.440892098500626e-16,
+        "gray_response": 1.414644401620535e-09
+      },
+      "model_foreground_sign": "fixed observed flux, model derivative G: fitted parameter shift -R delta; gain r_perp dot G_perp delta - norm^2/2",
+      "data_calibration_sign": "positive observed magnitude delta, data derivative G: fitted parameter shift +R delta; gain -r_perp dot G_perp delta - norm^2/2"
+    },
+    "nonlinear_refit_gate": {
+      "rows": 12,
+      "unique_objects": 6,
+      "all_optimizer_success": true,
+      "max_absolute_linear_error_by_target": {
+        "actual_observed": 7.916912587973946e-06,
+        "noiseless_reference": 7.377621219555087e-08
+      },
+      "max_baseline_optimality": 0.0001155530673596,
+      "max_alternative_optimality": 0.0002147553720515
+    }
+  }
+}
