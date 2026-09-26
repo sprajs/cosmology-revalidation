@@ -1,4 +1,6 @@
-# Supernova populations and cosmic acceleration
+# Cosmology Revalidation
+
+Reproducible recalculation and model checking from calibrated measurements to cosmological inference. The current work covers supernova populations, photometric calibration, selection and bias corrections, baryon acoustic oscillations, and expansion-history models. The [unified cosmology programme](docs/unified-cosmology-experimental-plan.md) sets out the experiments needed to connect these pieces into a defensible joint measurement.
 
 Independent local investigation, consolidated 26 September 2026 on `main`. **The first released-distance analysis is complete; observation-level calibration, selection and population research is preserved at the [paused checkpoint](docs/research-2026-09-26/PAUSED-HANDOFF.md).** Exact-reproduction and identification barriers remain explicitly documented. The original acquisition-only README is preserved in Git commit `472f13f`.
 
@@ -29,4 +31,4 @@ Original `papers/`, `data/`, `sources/` acquisitions were preserved. Derived tab
 
 The acquisition catalogues under `catalog/` and older `docs/research-map.md`, `data-inventory.md`, `open-gaps.md` and `replication-boundary.md` are historical records. Their counts and “future analysis” language describe the earlier collection; use the dated research programme and current results for current status.
 
-No authors were contacted and no data or results were published or uploaded. Third-party source licenses remain with their authors.
+This public research repository preserves code, methods, result records and provenance. It is a working investigation, not a claim of a completed unified cosmology measurement. Historical documents describe the state at their recorded dates, including periods before this repository was public. No authors were contacted. Third-party source licenses and attribution remain with their authors; see the [source guide](research_clean/SOURCES.md) and [license catalog](catalog/licenses.json).
