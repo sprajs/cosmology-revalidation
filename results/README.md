@@ -13,3 +13,7 @@ Within each analysis, `summary.json` is the scientific result; CSV files contain
 The files were moved without changing their numerical contents or execution records. Some configurations inside old run records therefore retain their original execution-time paths. Those are historical records, not current command recipes: use [configs](../configs/) and the [workflow guide](../docs/workflows.md) for new runs. The [path map](../provenance/layout.json) links earlier locations to the public structure.
 
 Default workflows were rerun and their summaries matched the previous edition exactly. Independent validation and the subsequent structure verification are described in [validation](../validation/README.md). Successful reproduction does not establish physical identification or a complete historical survey reduction.
+
+## Published evidence and local products
+
+Compact JSON summaries, configurations and execution records support the manuscript. Object-level CSV/DAT tables, arrays and extracted supplements are generated locally and excluded from Git. A complete rerun recreates these products; the recorded output hashes still refer to the full scientific output, not only the files shipped in a clone.

@@ -1,0 +1,21 @@
+{
+  "status": "declared post-score descriptive arithmetic; no RAW SCI read, no new mask/operator",
+  "inputs": {
+    "read-matrix.npz": "ddfe9fde6553964f7ea7d35bbada0c5b73a391a01bae81ebaf490113f01b70a7",
+    "pair-quadrant-power.csv": "c4e0dd8734c6ab6a2e27235a321eb3c0a3b236b1236891001c7e49a8e8f4db33",
+    "arithmetic-gates.json": "67660907de4b5c23d324ae3d0289913d438557a2dfda71f239879447e2d6cef1",
+    "raw-dq-digital-contributions.csv": "67baebf91f2b1c3a8246a5ed9d4fb516529960a08fd78dca74f1fc3f1262f39f",
+    "normal-search-sensitivity.csv": "3c1a0262b2807090e7667440012c8143db99c86c2d0f9426d22bb9196d906f29",
+    "fixed-mask-result.json": "44c102355690485e3cee0e309d4f83ad5aaa49938c188f367aa0fa1b79c1886a",
+    "header-gate.json": "0018de0576540cc33d16ff517f460e731ff079e9c2784f023f5dd9b9abf5d49a",
+    "execution-freeze.json": "1e0ed399d65a53dd5857a945693fecd20700cc86715b576a5b229d062e5bddd1"
+  },
+  "mapping": "for each frozen pair and masked quadrant at power0: G=h0^T Gamma h0; signed_mean=h0^T mean_delta; coherent_mean_component=signed_mean^2/2; centered_component=G-coherent_mean_component; compare G to existing pair-quadrant CSV at 1e-12",
+  "outputs": [
+    "decomposition.csv",
+    "descriptive-summary.json",
+    "dark-results.md"
+  ],
+  "selection": "all 8 frozen pairs \u00d74 quadrants; no exclusions; NORMAL remains sensitivity only",
+  "interpretation": "total digitized RAW pair variability; mean component is repeat-mean drift, not calibrated bias or electronic noise"
+}

@@ -61,3 +61,7 @@ Audit programs accept `--results` relative to `results/`; DES and core checks al
 The verifier checks input identities, execution status, posterior gates where present, every recorded output hash, and the current audit-code hashes. Historical runs retain their original code hashes; known changes to path handling and project naming are declared in the layout record. Scientific numerical kernels were not changed by the reorganization.
 
 CSV/JSON records and figures are versioned. Bulk inputs and full sampler arrays remain local and must be restored or regenerated to perform all checks. Runtime timestamps and compressed-array bytes can vary across executions; numerical comparisons and scientific gates matter separately from provenance hashes.
+
+## Additional study sources
+
+Run `.venv/bin/python validation/studies_checks.py` to verify the restored research source inventory, parse its Python and shell programs, check isolated workspace preparation and input-hash rejection, and repeat the luminosity and HST raw-prefix calculations. [The report](reports/studies.json) records that bounded coverage. It does not certify every native build, classifier or spectral-model investigation. Historical escape-sequence syntax warnings remain visible in the record. The additional source library has its own documented scientific limitations.

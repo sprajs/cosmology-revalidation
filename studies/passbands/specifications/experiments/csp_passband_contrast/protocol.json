@@ -1,0 +1,54 @@
+{
+  "status": "Frozen before synthetic integral outcomes; known metadata label merging motivated this diagnostic.",
+  "phase_days": [
+    -7,
+    0,
+    7,
+    10,
+    15,
+    20,
+    30
+  ],
+  "redshifts": [
+    0,
+    0.01,
+    0.03,
+    0.05,
+    0.08
+  ],
+  "pairs": {
+    "J_WIRC_minus_RC1": [
+      "Jrc1_SWO_TAM_scan_atm.dat",
+      "J_DUP_TAM_scan_atm.dat"
+    ],
+    "H_WIRC_minus_RetroCam": [
+      "H_SWO_TAM_scan_atm.dat",
+      "H_DUP_TAM_scan_atm.dat"
+    ],
+    "Y_WIRC_minus_RetroCam": [
+      "Y_SWO_TAM_scan_atm.dat",
+      "Y_DUP_TAM_scan_atm.dat"
+    ],
+    "J_RC2_minus_RC1": [
+      "Jrc1_SWO_TAM_scan_atm.dat",
+      "Jrc2_SWO_TAM_scan_atm.dat"
+    ]
+  },
+  "SED": "Exact SN SED extension of released CSP KCOR; source input names Hsiao07. No new spectral model fitted.",
+  "reference": "Exact BD17 PrimarySED extension, zero differential assigned to the reference star. Static natural magnitude offsets excluded; phase/redshift differences cancel them.",
+  "integral": "Photon counts integral lambda*T(lambda)*f_lambda(lambda/(1+z))/(1+z). Signed tabulated transmission tails retained, zero outside each table. Piecewise linear SED/throughput, exact degree3 Gauss2 on union knots checked with Gauss4 and independent 0.5A trapezoid.",
+  "gates": "All support within SED/reference wavelengths; positive finite integrals; Gauss2/4 delta-mag difference <=1e-10; independent0.5A difference <=1e-4mag.",
+  "interpretation": "Conditional passband shape sensitivity only. Does not establish original transformation, natural zero points, actual SN SED, trained-model independence, selection or corrected distances.",
+  "inputs_sha256": {
+    "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/kcor/kcor_CSPDR3_BD17.fits": "9553aa4a7f7fb3e1c1079b24d30a28564e8e69047def455412b0956276fecfa5",
+    "sources/repos/PantheonPlusSH0ES__DataRelease@7fc6805/Pantheon+_Data/2_CALIBRATION/filters/CSP_TAMU_20180316/README": "b5b1c3c58e103aefb5fb78812ce50ded907246c7f90f02fde7d6e9e09ec09b50",
+    "scripts/research_2026_09_26/csp_passband_contrast.py": "41c23ebd230c1b7856c44cb80af87ff36cc562a4fc9a12ed69536c3f04fa71e1",
+    "sources/repos/PantheonPlusSH0ES__DataRelease@7fc6805/Pantheon+_Data/2_CALIBRATION/filters/CSP_TAMU_20180316/H_DUP_TAM_scan_atm.dat": "843c5bdda0d0ee147331246ec9047b6b55e19729819438807d02e3a00a916bff",
+    "sources/repos/PantheonPlusSH0ES__DataRelease@7fc6805/Pantheon+_Data/2_CALIBRATION/filters/CSP_TAMU_20180316/H_SWO_TAM_scan_atm.dat": "03c70045453ef3990d19ecf4e77298698ad26259fe556bd6a7b96f01bfb32d20",
+    "sources/repos/PantheonPlusSH0ES__DataRelease@7fc6805/Pantheon+_Data/2_CALIBRATION/filters/CSP_TAMU_20180316/J_DUP_TAM_scan_atm.dat": "e88bac24939ff35a7a1c2dbf9b38a6161eff24152bc3af62f60f74eaf165903f",
+    "sources/repos/PantheonPlusSH0ES__DataRelease@7fc6805/Pantheon+_Data/2_CALIBRATION/filters/CSP_TAMU_20180316/Jrc1_SWO_TAM_scan_atm.dat": "3939c6b4c446c675afb69c561f5875350bc51895e632cd7a206d29f02b5c53ab",
+    "sources/repos/PantheonPlusSH0ES__DataRelease@7fc6805/Pantheon+_Data/2_CALIBRATION/filters/CSP_TAMU_20180316/Jrc2_SWO_TAM_scan_atm.dat": "a2769e3129803a478c90b8a3a1eb1e3e6d637fcce5ec607828a126d17c167264",
+    "sources/repos/PantheonPlusSH0ES__DataRelease@7fc6805/Pantheon+_Data/2_CALIBRATION/filters/CSP_TAMU_20180316/Y_DUP_TAM_scan_atm.dat": "478e4ebb2ef4eb838b2d872ddc72c16d66aab72a6ffb040a68775fab50ff3af6",
+    "sources/repos/PantheonPlusSH0ES__DataRelease@7fc6805/Pantheon+_Data/2_CALIBRATION/filters/CSP_TAMU_20180316/Y_SWO_TAM_scan_atm.dat": "caa1c6aa2696af7b3567e68101194bf35e08d856b1ec57f58cabce67a91547b4"
+  }
+}

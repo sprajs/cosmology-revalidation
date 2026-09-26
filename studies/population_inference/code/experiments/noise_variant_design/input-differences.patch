@@ -1,0 +1,52 @@
+--- P21
++++ P21_rho000
+@@ -1,6 +1,6 @@
+ # Prepared before cosmology comparison; all generated attempts requested in DUMP.
+-GENVERSION: PH2_pilot02_P21
+-GENPREFIX: PH2_pilot02_P21
++GENVERSION: PH2_pilot02_P21_rho000
++GENPREFIX: PH2_pilot02_P21_rho000
+ PATH_SNDATA_SIM: /home/szymon/Documents/ChatGPT/supernova/phase2/literature/simulations/outputs
+ FORMAT_MASK: 32
+ NGENTOT_LC: 26518
+@@ -84,3 +84,4 @@
+ SIMGEN_DUMPALL: 39
+   CID GENZ GALZTRUE LIBID RA DEC MWEBV MU PEAKMJD PEAKMAG_g PEAKMAG_r PEAKMAG_i PEAKMAG_z SNRMAX_g SNRMAX_r SNRMAX_i SNRMAX_z SNRMAX SNRMAX2 SNRMAX3 NOBS TRESTMIN TRESTMAX TGAPMAX CUTMASK SIM_EFFMASK GALID LOGMASS_TRUE LOGSFR_TRUE r_obs_auto obs_gr_auto SALT2mB SALT2x1 SALT2c SALT2alpha SALT2beta AV RV MAGSMEAR_COH
+ GENPEAK_SALT2ALPHA: 0.15
++FLUXERRMODEL_REDCOV: NONE
+--- P21
++++ P21_rho090
+@@ -1,6 +1,6 @@
+ # Prepared before cosmology comparison; all generated attempts requested in DUMP.
+-GENVERSION: PH2_pilot02_P21
+-GENPREFIX: PH2_pilot02_P21
++GENVERSION: PH2_pilot02_P21_rho090
++GENPREFIX: PH2_pilot02_P21_rho090
+ PATH_SNDATA_SIM: /home/szymon/Documents/ChatGPT/supernova/phase2/literature/simulations/outputs
+ FORMAT_MASK: 32
+ NGENTOT_LC: 26518
+@@ -84,3 +84,4 @@
+ SIMGEN_DUMPALL: 39
+   CID GENZ GALZTRUE LIBID RA DEC MWEBV MU PEAKMJD PEAKMAG_g PEAKMAG_r PEAKMAG_i PEAKMAG_z SNRMAX_g SNRMAX_r SNRMAX_i SNRMAX_z SNRMAX SNRMAX2 SNRMAX3 NOBS TRESTMIN TRESTMAX TGAPMAX CUTMASK SIM_EFFMASK GALID LOGMASS_TRUE LOGSFR_TRUE r_obs_auto obs_gr_auto SALT2mB SALT2x1 SALT2c SALT2alpha SALT2beta AV RV MAGSMEAR_COH
+ GENPEAK_SALT2ALPHA: 0.15
++FLUXERRMODEL_REDCOV: g:0.9,r:0.9,i:0.9,z:0.9
+--- P21
++++ P21_noisetrue120
+@@ -1,6 +1,6 @@
+ # Prepared before cosmology comparison; all generated attempts requested in DUMP.
+-GENVERSION: PH2_pilot02_P21
+-GENPREFIX: PH2_pilot02_P21
++GENVERSION: PH2_pilot02_P21_noisetrue120
++GENPREFIX: PH2_pilot02_P21_noisetrue120
+ PATH_SNDATA_SIM: /home/szymon/Documents/ChatGPT/supernova/phase2/literature/simulations/outputs
+ FORMAT_MASK: 32
+ NGENTOT_LC: 26518
+@@ -18,7 +18,7 @@
+ HOSTLIB_FILE: $SNDATA_ROOT/simlib/DES/DES-SN5YR_DES.HOSTLIB
+ SEARCHEFF_zHOST_FILE:  $SNDATA_ROOT/models/searcheff/SEARCHEFF_zHOST_DES-SN5YR.DAT
+ 
+-FLUXERRMODEL_FILE: $SNDATA_ROOT/simlib/DES/DES-SN5YR_DES_FLUXERRMODEL_SIM.DAT
++FLUXERRMODEL_FILE: /home/szymon/Documents/ChatGPT/supernova/phase2/literature/simulations/inputs/DES_FLUXERRMODEL_TRUE120_DATA100.DAT
+ RANSEED: 213849
+ 
+ GENFILTERS:  griz

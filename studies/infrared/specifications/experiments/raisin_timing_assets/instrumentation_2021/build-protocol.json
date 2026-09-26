@@ -1,0 +1,30 @@
+{
+  "created_utc": "2026-09-26T06:11:16.313717+00:00",
+  "scope": "Private v11_04d output-only state port and absent/default-zero postinitialization distance-shift hook; no native fits authorized by this build protocol.",
+  "source_commit": "10ec91297e4482d593cb5d3d055b10d4aa915071",
+  "allowed_scientific_state_change": "Only explicitly nonempty CSP_POSTINIT_DSHIFT diagnostic environment modifies first-iteration D initialization after FITPAR_PREP. Absent variable changes no scientific state.",
+  "port_method": "Both previously independently reviewed v11_04k patches apply to v11_04d with zero fuzz; offsets recorded. No model function is called again by diagnostics.",
+  "full_state": "Accepted rows, exact model means/data/errors, active W or diagonal weights, total/prior/sigma objectives, entering and previous coordinates, peak prior center, fixed state and MJDOFF.",
+  "build_timeout_seconds": 180,
+  "no_shared_binary_changes": true,
+  "prebuild_changed_files": [
+    "src/snlc_fit.car"
+  ],
+  "inputs": {
+    "runs/research_2026_09_26/astra_design/raisin_timing_assets/snana_v11_04d/source/src/snlc_fit.car": "38cbfe827f6abac309eb45a2ca813f206365484271a1d39227eac2aa2aee41c2",
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/instrumentation/output-only-v2.patch": "530d2385704f4d1a5cec772ee01f8885d47dfe08554d348ab7f91762c94103ee",
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/instrumentation/start-hook-v3.patch": "f306b574f8b1c14148f21fd1355b30600c4cd230f5fca70889030ec6c1b0c5eb",
+    "runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/instrumentation/parse_native.py": "32f736762060bee4d3298bb1bcbec75e884af4f2ad37f99a6fa5091bf030ab2a",
+    "runs/research_2026_09_26/astra_design/raisin_timing_assets/instrumentation_2021/ported-source.patch": "6153338a6daf89e3b6b28216f687180db0305a32e64bdf0de1fdfff3115805ee",
+    "runs/research_2026_09_26/astra_design/raisin_timing_assets/instrumentation_2021/instrumented-snlc_fit.car": "ba3d08eebc502691386671b66b8c9eac74cf497900e05e01590631b009441a97",
+    "runs/research_2026_09_26/astra_design/raisin_timing_assets/instrumentation_2021/build.sh": "e3cdab13df47cefb326fff123c04db32a8d148f5cf396e2da4971851d974142a",
+    "runs/research_2026_09_26/astra_design/raisin_timing_assets/instrumentation_2021/run_build.py": "d2c620a9de02424d6a837a0b4800da3c2f830be0b2be01298a33ed8f54dab7e6",
+    "runs/research_2026_09_26/astra_design/raisin_timing_assets/instrumentation_2021/prepare.py": "33612c7473eb00e13a2880d07c151592f9be567fce56b992e5a2077d0d234e81"
+  },
+  "future_required_gates": [
+    "Default absent hook science FITRES rows and LCPLOT bytes exactly match passing baseline2021.",
+    "Explicit zero hook same results.",
+    "Only actual post-initialization starts \u00b10.2 mag; verify logged entry before minimization.",
+    "Full-state objective reconstruction and covariance positive definiteness, masks and coordinates checked before any timing interpretation."
+  ]
+}

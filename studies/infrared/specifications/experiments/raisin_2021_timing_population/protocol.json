@@ -1,0 +1,23 @@
+{
+  "status":"Frozen before numeric FITRES parsing/summaries",
+  "scope":"Read-only 2021 coherent NIR and optical+NIR FITRES timing/population metadata; no native fits, distance outcomes, selected cuts, or 2022 mixing",
+  "source_revision":"djones1040/RAISIN_cosmo aaa709ead7a7339d56a2a4604d78991329d9368f (2021-11-11 FITRES paths)",
+  "inputs":{
+    "nir":"runs/research_2026_09_26/astra_design/raisin_timing_assets/author_20211111/nir.FITRES.gz",
+    "nir_sha256":"c0e6de446c2d4b2179a6570c0a1f166b5384612101fbe5002938a73b8daa3b44",
+    "optnir":"runs/research_2026_09_26/astra_design/raisin_timing_assets/author_20211111/optnir.FITRES.gz",
+    "optnir_sha256":"2a1fb2553ce1d3f34c9617bcb83228044d708ae991964a8e59f5d47eb6fbb4e8",
+    "plotted500":"runs/research_2026_09_26/raisin_profile_solver_review/native-recovery-design/all500-membership.csv",
+    "plotted500_sha256":"f48c442e829c27ad7cfb0ed2a1b519393afd08d9aaf424fc3db21f63f25cdf61",
+    "nir_nml_sha256":"265eb1bd1bc4118e32bce1b56dac9c67c0adfab291bac4fc2d26321e70ff260f",
+    "optnir_nml_sha256":"f2356d1c1067c9d8cb807e9f15e64707986667c4b29b4d4b00db2331b580745f"
+  },
+  "parser":"Read FITRES VARNAMES and SN: rows, require exact token count and unique CID within each table. Never read DLMAG/SIM_DLMAG/FITCHI2 values into selection or metrics.",
+  "cohorts":"All NIR, all joint, CID intersection for paired summaries, predetermined first500 plotted CIDs from membership CSV, predetermined first8 numeric CIDs 1..8. No ERRFLAG, distance, peak, or z selection.",
+  "clock_fields":"SIM_PKMJD is simulated true peak; PKMJDINI is fitted input/initializer; PKMJD is output. Compute NIR PKMJD-PKMJDINI, both NIR and joint PKMJD-SIM_PKMJD, joint-minus-NIR PKMJD, and initializer minus truth. Use observer-day units and no time dilation conversion.",
+  "stats":"For each cohort, report n, mean, sample SD (ddof=1), min/max, median, scaled MAD=1.4826 median absolute deviation, quantiles [0.001,0.01,0.05,0.25,0.5,0.75,0.95,0.99,0.999]. Near-truth initializer absolute thresholds fixed at 0.01,0.03,0.05 day. Report zHEL and SIM_ZCMB distributions, fixed zHEL bins [0,0.2,0.3,0.4,0.5,0.6,0.7,0.8,1.0,2.0] with underflow/overflow.",
+  "joins":"Exact string CID. Compare common-CID printed metadata PKMJDINI,SIM_PKMJD,SIM_LIBID,SIM_ZCMB,SIM_STRETCH,SIM_AV,SIM_RV,zHEL,zCMB,zHD; preserve mismatch counts and IDs. List all NIR-only and joint-only CIDs and their NIR error/quality fields without calling absence cause.",
+  "plot_subset":"Use existing all500-membership.csv; verify unique CID, exactly 500, and in NIR/joint. Report n_J/n_H and accepted-row count descriptively from fixed ledger. Existing historical-coherence-500 audit is separately cited for same-CID plot join; no new plot-based event matching or fit selection.",
+  "configuration":"Record exact 2021 FITRES header version, both same-commit NMLs/SUBMIT.INFO, fixed/free step choices and fields. Distinguish source configuration from actual row values and missing execution logs.",
+  "outputs":"result.json, per-cohort-summary.json, missing-joint.csv, first8.csv, manifest.json, concise report"
+}

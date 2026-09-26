@@ -1,0 +1,46 @@
+--- run_engineering_v5.py
++++ run_engineering_v5_fit_private.py
+@@ -15,14 +15,14 @@
+ def check(ok,msg):
+  if not ok:raise RuntimeError(msg)
+ def release(stage,path):
+- d=json.loads(path.read_text());check(d['protocol_sha256']==sha(P/'protocol-v5.json'),'release protocol mismatch');check(d['freeze_sha256']==sha(P/'freeze-v5.json'),'release freeze mismatch');check(stage in d['stages'],'stage not released')
+- for f,h in json.loads((P/'freeze-v5.json').read_text())['files'].items():check(sha(R/f)==h,'input hash mismatch '+f)
++ d=json.loads(path.read_text());check(d['protocol_sha256']==sha(P/'protocol-v5.json'),'release protocol mismatch');check(d['freeze_sha256']==sha(P/'freeze-fit-private.json'),'release freeze mismatch');check(stage in d['stages'],'stage not released')
++ for f,h in json.loads((P/'freeze-fit-private.json').read_text())['files'].items():check(sha(R/f)==h,'input hash mismatch '+f)
+  return sha(path)
+ def native(label,work,binary,snana,args,ledger=False,support=False,dshift=None):
+  activity=P/'native-activity-v5.json';rows=json.loads(activity.read_text()) if activity.exists() else []
+  spent=sum(x['wall_seconds'] for x in rows);allowed=min(40.,120.-spent);check(allowed>0,'120s stage budget exhausted')
+  env=os.environ.copy();env.pop('CSP_POSTINIT_DSHIFT',None);env.pop('PROSP_LEDGER',None);env.pop('PROSP_FIT_SUPPORT',None)
+- env.update(SNANA_DIR=str(snana),SNDATA_ROOT=str(R/'phase2/official/inputs/SNDATA_ROOT'),LD_LIBRARY_PATH=str(R/'phase2/official/build/sysroot/usr/lib'))
++ env.update(SNANA_DIR=str(snana),SNDATA_ROOT=str(SHORT/'fit-private-lookup/SNDATA_ROOT') if binary.name=='snlc_fit.exe' else str(R/'phase2/official/inputs/SNDATA_ROOT'),LD_LIBRARY_PATH=str(R/'phase2/official/build/sysroot/usr/lib'))
+  for k in ['SNANA_DIR','SNDATA_ROOT']:check(len(env[k])<120,k+' too long')
+  if ledger:env['PROSP_LEDGER']='1'
+  if support:env['PROSP_FIT_SUPPORT']='1'
+@@ -89,7 +89,7 @@
+  audit_generation()
+ 
+ def prepare_fit(name,dataset,bands='JH',iterations=12,peak_step=0,peak_start=0):
+- w=P/'fits'/name;w.mkdir(parents=True,exist_ok=False);tpl=(P/'inputs-v2/fit-template-v3.nml').read_text();(w/'fit.nml').write_text(tpl.format(data_path=dataset,iterations=iterations,peak_step=peak_step,peak_initializer=('INIVAL_PEAKMJD = '+format(57707.80078125+peak_start,'.17g')) if peak_step else '! fixed peak uses native HEAD PEAKMJD',bands=bands));save(w/'input-freeze.json',{'NML_sha256':sha(w/'fit.nml'),'dataset':dataset,'protocol_sha256':sha(P/'protocol-v5.json')});return w
++ w=P/'fits-private'/name;w.mkdir(parents=True,exist_ok=False);tpl=(P/'inputs-v2/fit-template-v3.nml').read_text();(w/'fit.nml').write_text(tpl.format(data_path=dataset,iterations=iterations,peak_step=peak_step,peak_initializer=('INIVAL_PEAKMJD = '+format(57707.80078125+peak_start,'.17g')) if peak_step else '! fixed peak uses native HEAD PEAKMJD',bands=bands));save(w/'input-freeze.json',{'NML_sha256':sha(w/'fit.nml'),'dataset':dataset,'protocol_sha256':sha(P/'protocol-v5.json')});return w
+ 
+ def run_fit(name,dataset,bands='JH',iterations=12,peak_step=0,peak_start=0,dshift=None,original=False):
+  w=prepare_fit(name,dataset,bands,iterations,peak_step,peak_start)
+@@ -182,13 +182,13 @@
+    q=run_fit('NIR_'+arm+suffix,ds,iterations=it,dshift=shift);aa,bb=compare(w,q,6,cids)
+    if shift is not None:
+     for c in cids:check(abs((bb[c][0]['entry']['D_entry']-aa[c][0]['entry']['D_entry'])-shift)<1e-4,'amplitude start was not applied')
+- null=run_fit('NIR_null12',nulldata);compare(P/'fits/NIR_true12',null,6,cids,0,0)
++ null=run_fit('NIR_null12',nulldata);compare(P/'fits-private/NIR_true12',null,6,cids,0,0)
+  rows=[]
+  for c in cids:
+   truth=next(x['DLMU_true'] for x in json.loads((P/'generation-gate.json').read_text())['branches']['ledger'] if x['CID']==c);d0=finals['true'][c]['D'];d1=finals['estimated'][c]['D'];rows.append({'CID':c,'peak_true':57707.80078125,'peak_fitted_native_R4':float(np.float32(peaks[c])),'D_truth':truth,'D_NIR_truepeak':d0,'D_NIR_fittedpeak':d1,'paired_delta_D':d1-d0,'error_truepeak':d0-truth,'error_fittedpeak':d1-truth})
+  save(P/'engineering-result.json',{'gate_pass':True,'scope':'8 engineering draws, conditional native model/noise/weights and fixed cadence; no population or survey bias estimate','rows':rows,'next64':'not frozen or authorized by this result'})
+ 
+ if __name__=='__main__':
+- ap=argparse.ArgumentParser();ap.add_argument('stage',choices=['generation','noiseless','noisy']);ap.add_argument('--release',type=Path,required=True);args=ap.parse_args();rel=release(args.stage,args.release)
++ ap=argparse.ArgumentParser();ap.add_argument('stage',choices=['noiseless','noisy']);ap.add_argument('--release',type=Path,required=True);args=ap.parse_args();rel=release(args.stage,args.release)
+  try:globals()['run_'+args.stage]()
+- except Exception as e:save(P/(args.stage+'-failure-v5.json'),{'exception':type(e).__name__,'message':str(e),'release_sha256':rel,'protocol_sha256':sha(P/'protocol-v5.json'),'stage':args.stage});raise
++ except Exception as e:save(P/(args.stage+'-failure-fit-private.json'),{'exception':type(e).__name__,'message':str(e),'release_sha256':rel,'protocol_sha256':sha(P/'protocol-v5.json'),'stage':args.stage});raise

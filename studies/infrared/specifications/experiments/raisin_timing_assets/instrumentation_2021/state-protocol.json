@@ -1,0 +1,58 @@
+{
+  "created_utc": "2026-09-26T06:16:42.252809+00:00",
+  "purpose": "Source-selected v11_04d output-only equivalence and actual post-initialization start/state gate. No timing intervention in this stage.",
+  "cohort": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8"
+  ],
+  "baseline_protocol_sha256": "399dc9562d8c19af2e18b153cd887f1a576ec2ace9d04c96aa266c56fcc57185",
+  "baseline_gate_sha256": "20d08e06116ea47b7e47b031d1eb7fcad01ae56cd3e896a0165d154b6d23d17e",
+  "source_commit": "10ec91297e4482d593cb5d3d055b10d4aa915071",
+  "build_verification_sha256": "54fa033376daf7fe7ae19feea8f7f1c9acf186c0f2d2163558f9aa21ab34d8b9",
+  "conditions": {
+    "absent": "CSP_POSTINIT_DSHIFT unset; exact uninstrumented science-output equality mandatory",
+    "zero": "Explicit 0; same equality mandatory",
+    "plus": "Actual postnative-init D plus0.2 mag, all other entries unchanged",
+    "minus": "Actual postnative-init D minus0.2 mag, all other entries unchanged"
+  },
+  "inputs": "Byte-identical to passed baseline2021 including NML3iterations, historicalMW94,B18, fixedshape1,AV0,fixedheaderpeak; no truth-header repair.",
+  "gates": {
+    "FITRES_columns_and_SN_lines": "exact baseline equality for absent and zero",
+    "LCPLOT": "exact bytes for absent and zero",
+    "all_conditions": "8objects ERRFLAG0, finite positive C, native accepted row/data/error identity, fixedcoordinates, MJDOFF0, covariance/objective state saved",
+    "objective_closure_absolute": 1e-08,
+    "W_asymmetry_absolute": 1e-10,
+    "actual_start_shift_absolute_tolerance": 1e-12,
+    "max_start_distance_spread_mag": 0.001,
+    "max_final_iteration_distance_change_mag": 0.001,
+    "max_frozen_finalC_amplitude_optimum_shift_mag": 0.001,
+    "scope": "Data Q plus exported prior/sigma term is native minimand for that iteration. Different iteration C/prior state is not a common likelihood; no cross-state objective minimum selection."
+  },
+  "amplitude_check": "Frozen C analytic amplitude is diagnostic only. Native SNooPy distance scaling is multiplicative; use positive interior amplitude, preserve nonpositive/model/domain failures. It neither replaces native optimization nor changes C.",
+  "resources": {
+    "per_process_seconds": 60,
+    "this_stage_seconds": 120,
+    "original_total_pilot_seconds": 600,
+    "earlier_native_seconds": 5.123049950998393,
+    "additional_baseline_ledger": [
+      {
+        "path": "runs/research_2026_09_26/astra_design/raisin_timing_assets/baseline_2021/fits/baseline/execution.json",
+        "sha256": "074e19a58031f2396a3e9b2491ba2354f998e41e0cbf5e155bfb32074867ff68",
+        "seconds": 0.7656099710002309
+      },
+      {
+        "path": "runs/research_2026_09_26/astra_design/raisin_timing_assets/baseline_2021/fits/baseline_copy/execution.json",
+        "sha256": "822e64f07b9076e44c2201f5e2552ed3bcf3b0beafc2856d8848fa23ec285b9d",
+        "seconds": 0.8155940569995437
+      }
+    ],
+    "prior_resource_amendment_sha256": "d66c38b036158e31887f0e294afbc485bb248dc2ca3c50378e32004333834ef8"
+  },
+  "execution": "Requires separately hashed root release and exclusive native worker. Freeze inputs and runner before release. Preserve every failure and all4branches. No automatic iteration or tolerance expansion."
+}

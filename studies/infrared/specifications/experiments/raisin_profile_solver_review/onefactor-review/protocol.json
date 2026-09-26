@@ -1,0 +1,14 @@
+{
+  "scope": "Synthetic math and saved covariance only. No observed fluxes or fitted means used.",
+  "source_sha256": "9fe224b5d79d93d423a2a8824d4453fd607a002b97c56c982be5b95f0b60a308",
+  "checks": [
+    "all/none observed limits",
+    "conditional likelihood normalization by quadrature",
+    "latent loading sign gauge and permutation",
+    "native-C synthetic SNR grid [-10,-3,0,3,10] with positive, alternating, first9negative signs;64/128/256 nodes",
+    "generic strong-factor one-dimensional exact CDF stress",
+    "small/sparse covariance decomposition edge cases"
+  ],
+  "moderate_numeric_tolerance": 1e-10,
+  "diagnostic_only": "Generic strong-factor and extreme-tail stresses are not the native supported model domain."
+}

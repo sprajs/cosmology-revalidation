@@ -1,0 +1,11 @@
+{
+  "status": "independent metadata-only audit",
+  "source": "original DES_RAISIN.simlib LIBID 11 only",
+  "planned_configuration": "prospective-engineering generation/original/sim.input: USE_SIMLIB_REDSHIFT=1, USE_SIMLIB_PEAKMJD=1, VEL_CMBAPEX=0, GENSIGMA_VPEC=0, no HOSTLIB override",
+  "coordinate": "SNANA v11_04d computes actual epoch_rest=(MJD-PEAKMJD)/(1+REDSHIFT_HELIO). With these prospective settings zHEL=zCMB=float32(.453) promoted to double; not a general equivalence of zCMB and zHEL",
+  "nominal_peak": "float32(57707.8) promoted to double = 57707.80078125",
+  "support": "inclusive rest phase [-15,+45] at nominal peak; independently examine peak domain nominal +/-4 observer days and model-fit guard [-20,70]",
+  "rows": "preserve all original physical S: lines, original line number and ordinal, exposure ID, MJD, band, exact source text; count same-band/MJD multiplicities and all-band/MJD multiplicities",
+  "metadata": "finiteness and basic positive/nonnegative checks on MJD, GAIN, RDNOISE, SKYSIG, PSF1/2/ratio, ZPTAVG, ZPTERR and header pixel scale; MAG=99 treated as SIMLIB placeholder, not observed brightness",
+  "limitations": "This verifies only conditional cadence support and metadata parseability, not generated photon/noise identity, real exposure uncertainty, native accepted masks, or fit behavior. Derivative private SIMLIB is checked only after it has a stable corrected header."
+}

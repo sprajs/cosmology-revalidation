@@ -1,0 +1,91 @@
+{
+  "status": "design frozen for root review; no pixel scoring authorized by this file",
+  "scientific_scope": "Current2026 WFC3IR F160W FLT signed-aperture repeat noise and common-template covariance only",
+  "science_pixels_read": false,
+  "design_exposure_ordinals": [
+    1,
+    3
+  ],
+  "measurement_exposure_ordinals": [
+    2,
+    4
+  ],
+  "order": [
+    "EXPSTART",
+    "filename"
+  ],
+  "ra_dec_deg": [
+    8.9685,
+    -43.35812
+  ],
+  "lattice_spacing_arcsec": 6,
+  "excluded_SN_radius_arcsec": 5,
+  "aperture_radius_arcsec": 0.4,
+  "annulus_radii_arcsec": [
+    1.2,
+    2.0
+  ],
+  "source_mask_dilation_arcsec": 2.4,
+  "source_mask": {
+    "tile_pixels": 64,
+    "box_sum_pixels": 3,
+    "threshold_sigma": 5,
+    "absolute_value": true,
+    "empirical_noise_renormalization": false
+  },
+  "dq": "DQ==0 for all contributing pixels",
+  "geometry_gate": "Verified official PAM or certified equivalent WCS area Jacobian, plus support and double-resolution0.1percent numerical closure",
+  "support": {
+    "target_positions": 100,
+    "min_spatial_tiles": 12,
+    "tiles": 16,
+    "min_positions_per_occupied_tile": 3,
+    "limited_descriptive_min_positions": 30
+  },
+  "bootstrap": {
+    "seed": 26092671,
+    "spatial_tile_resamples": 2000,
+    "interpretation": "descriptive field resampling; no physical-null p"
+  },
+  "sensitivities": {
+    "aperture_radii_arcsec": [
+      0.2,
+      0.8
+    ],
+    "split_reversal": true
+  },
+  "caps": {
+    "workers": 1,
+    "initial_compute_seconds": 120,
+    "new_arrays_bytes": 100000000
+  },
+  "report_sha256": "c35a35ef179bed61c74bded4f92942659ea255a1ef3a22ae34da7627466d8680",
+  "inputs": [
+    {
+      "path": "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_hst_pixel_feasibility/pixel_acquisition/protocol.json",
+      "sha256": "465a119a1723d1862c41d9f8b2062707205e87b30dc1c3a887457698325b5654"
+    },
+    {
+      "path": "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_hst_pixel_feasibility/pixel_acquisition/result.json",
+      "sha256": "49cb1f143559897e453e9748738f79d2d856b5fd7b5a99718b2ddae6e10c67fe"
+    },
+    {
+      "path": "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_hst_pixel_feasibility/pixel_acquisition/independent_validation/result.json",
+      "sha256": "847308174c489eab95bd101e3fe2cc4db5158b2fb8d91fe85f6e6db834d14f73"
+    },
+    {
+      "path": "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_hst_pixel_feasibility/pixel_acquisition/independent_validation/review.md",
+      "sha256": "e22a90459bfd2ca8f89edffd631d6fd2ae6f1f66ba0a057c1d0aa47929c1e434"
+    },
+    {
+      "path": "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/raisin_hst_pixel_feasibility/header_followup/constituent-exposures.csv",
+      "sha256": "9c9e6bab0003bdc881d96e57ff4c6160fc350b8c15f744b4bb5de40897ff2f9b"
+    }
+  ],
+  "remaining_before_execution": [
+    "Root design review",
+    "PAM/source geometry gate",
+    "Frozen executable/operator and deterministic support ledger before measurement-pair sums",
+    "Synthetic extraction algebra closure; no rescaling or optional science scope expansion"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "status": "frozen before four RAW GETs",
+  "selection": "nearest verified full-frame SPARS50 NSAMP16 BLANK/DARK per visit idbx43p7q and idp247tnq; heldout second science FLT constituent roots icxoi1bcq and icxoi4hgq, no substitutes",
+  "verified_products_sha256": "a35c0bfc77f9211f6ef6bcfe1a8fa9a96236674316bc0d09bd129b1f1861e55e",
+  "roots": [
+    "idbx43p7q",
+    "idp247tnq",
+    "icxoi1bcq",
+    "icxoi4hgq"
+  ],
+  "uris": [
+    "mast:HST/product/idbx43p7q_raw.fits",
+    "mast:HST/product/idp247tnq_raw.fits",
+    "mast:HST/product/icxoi1bcq_raw.fits",
+    "mast:HST/product/icxoi4hgq_raw.fits"
+  ],
+  "sizes": [
+    34027200,
+    34027200,
+    17023680,
+    33819840
+  ],
+  "total_expected_bytes": 118897920,
+  "acquire_script_sha256": "cbbba03fda44f24cdb815687efaf80137f1463cc532418975f675d5555fbd9f7",
+  "inspect_script_sha256": "195d7a926464ab2d8cf921986d280494978abc9640fb6f2f8361ab8363ef69f5",
+  "limits": "max140MB/200s one download worker; one documented network retry per file; preserve partial/failure",
+  "inspection": "all FITS primary/extension headers, HDU structure, FITS CHECKSUM/DATASUM if present, SHA256; chronological SAMPTIME/TIME and first8 dark vs science header metadata only; no SCI/ERR/DQ value/statistic or covariance scoring",
+  "interpretation": "RAW gain0 fields may be placeholders; longer16-read prefix requires exact read/reset and no later-read processing leakage before scientific use"
+}

@@ -1,0 +1,92 @@
+--- original/src/snlc_fit.car
++++ instrumented/src/snlc_fit.car
+@@ -2119,6 +2119,18 @@
+ c ---------------
+       CALL FLUSH(6)
+ 
++c CSP output-only audit: true parameters passed to MNFIT_DRIVER.
++      write(6,'(A,1X,A,1X,I3,1X,I6,1X,2L2,1X,
++     &  12(ES25.17E3,1X))') 'CSP_ENTRY:',TRIM(SNLC_CCID),
++     &  ITER,NFITDATA,USE_FITCOV,LREPEAT_ITER,
++     &  INIVAL(IPAR_DLMAG),INIVAL(IPAR_SHAPE),INIVAL(IPAR_AV),
++     &  INIVAL(IPAR_PEAKMJD)+MJDOFF,
++     &  INISTP(IPAR_DLMAG),INISTP(IPAR_SHAPE),INISTP(IPAR_AV),
++     &  INISTP(IPAR_PEAKMJD),
++     &  FITVAL(IPAR_DLMAG,ITER-1),FITVAL(IPAR_SHAPE,ITER-1),
++     &  FITVAL(IPAR_AV,ITER-1),FITVAL(IPAR_PEAKMJD,ITER-1)+MJDOFF
++      CALL FLUSH(6)
++
+       RETURN
+       END   ! end of FITPAR_PREP
+ 
+@@ -4289,6 +4301,8 @@
+      &  ,NFITDATA_LOC, irow, icol, IERR, IDTEL
+      &  ,NFITDATA_FILT(MXFILT_OBS), NDMPFCN(0:MXFILT_OBS)
+ 
++c CSP output-only audit: local workspace, not fitted state.
++      DOUBLE PRECISION CSP_DIAGW(MXFIT_DATA)
+       character cfilt*1
+ 
+       DOUBLE PRECISION 
+@@ -4333,6 +4347,9 @@
+ 
+ C ----------- BEGIN ------------
+ 
++      DO irow=1,MXFIT_DATA
++        CSP_DIAGW(irow)=0.0D0
++      ENDDO
+       CHI2 = 1.0E7
+ 
+       LFLAG_FIRST_MN   = IFLAG .EQ.  2   ! first MINUIT call
+@@ -4639,6 +4656,18 @@
+         R4EP_ALL(epoch,JEP_MODELFLUX_ERR) = flux_model_err
+         R4EP_ALL(epoch,JEP_FLUX_ERRTOT)   = flux_errtot 
+ 
++c Print only final callback of each iteration. No model re-evaluation.
++        IF (LFLAG_LAST_MN .and. LFITDATA) THEN
++          CSP_DIAGW(ifitdata)=inv_sqsig
++          write(6,'(A,1X,A,1X,I3,1X,I6,1X,I6,1X,A,1X,
++     &      13(ES25.17E3,1X))') 'CSP_ROW:',TRIM(SNLC_CCID),
++     &      ITER,ifitdata,epoch,cfilt,MJD,Trest,flux_model,
++     &      mag_err,flux_data,flux_data_errtot,ZSN,MWEBV,
++     &      LAMAVG/ZZ,flux_fudge_err,flux_model_err,
++     &      DBLE(RESTLAMBDA_USEFIT(1)),DBLE(RESTLAMBDA_USEFIT(2))
++        ENDIF
++
++
+         IF ( LAST ) THEN
+ 
+ c increment SNRMAX for fitted epochs only
+@@ -4858,6 +4887,32 @@
+         FCN_FITCHI2(0) = chi2 - chi2ini
+ 
+       ENDIF  ! end of LFLAG_COVAR loop
++
++c CSP output-only full state; COVMAT2 is inverse when USE_FITCOV.
++      IF (LFLAG_LAST_MN) THEN
++        write(6,'(A,1X,A,1X,I3,1X,I6,1X,L2,1X,
++     &    11(ES25.17E3,1X))') 'CSP_OBJECTIVE:',
++     &    TRIM(SNLC_CCID),ITER,NFITDATA,USE_FITCOV,
++     &    CHI2,CHI2INI,chi2sum_sigma,
++     &    XVAL(IPAR_DLMAG),XVAL(IPAR_SHAPE),XVAL(IPAR_AV),
++     &    XVAL(IPAR_PEAKMJD)+MJDOFF,
++     &    INIVAL(IPAR_PEAKMJD)+MJDOFF,
++     &    DBLE(SNLC_SEARCH_PEAKMJD),DBLE(MJDOFF),
++     &    DBLE(OPT_CHI2_SIGMA)
++        DO irow=1,NFITDATA
++          IF (USE_FITCOV) THEN
++            write(6,'(A,1X,A,1X,I3,1X,I6,1X,
++     &        *(ES25.17E3,1X))') 'CSP_WROW:',
++     &        TRIM(SNLC_CCID),ITER,irow,
++     &        (COVMAT2(irow,icol),icol=1,NFITDATA)
++          ELSE
++            write(6,'(A,1X,A,1X,I3,1X,I6,1X,ES25.17E3)')
++     &        'CSP_WDIAG:',TRIM(SNLC_CCID),ITER,irow,
++     &        CSP_DIAGW(irow)
++          ENDIF
++        ENDDO
++        CALL FLUSH(6)
++      ENDIF
+ 
+       RETURN
+       END  ! FCNSNLC

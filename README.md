@@ -1,18 +1,18 @@
 # Cosmology Revalidation
 
-### A reproducible examination of measurements, corrections and expansion history
+### Measurements, corrections and the evidence for cosmic acceleration
 
 **Working manuscript · 26 September 2026**
 
-[Run the workflows](docs/workflows.md) · [Methods](docs/methods/README.md) · [Results](results/README.md) · [Validation](validation/README.md)
+[Methods](docs/methods/README.md) · [Research studies](studies/README.md) · [Data and code](docs/workflows.md)
 
 ## Abstract
 
-We re-executed the complete reproducible workflow set: **19 workflows, five supplied alternative configurations and five additional random-seed runs**. All 391 input files passed their recorded hashes; all 19 default result summaries exactly matched the earlier edition. Separate numerical implementations checked the main distance likelihood, age regressions, population integrals, light-curve fits, calibration calculations, infrared comparisons and detector statistics. These checks found no new numerical defect in the audited calculations.
+The released Pantheon+ supernova distances give **Ωₘ = 0.3323 ± 0.0182** in a spatially flat ΛCDM model, closely matching the published value of 0.334 ± 0.018. The corresponding present deceleration parameter is **q₀ = −0.5016 ± 0.0273**: these distances favour accelerating expansion under that model. Combining supernovae with baryon acoustic oscillations in a more flexible dark-energy model also favours acceleration. A separate inequality test of BAO alone is inconclusive.
 
-The released Pantheon+ distances give a matter-density fraction **Ωₘ = 0.3323 ± 0.0182**, consistent with the published flat-ΛCDM result. Acceleration remains favoured in the tested released-distance models. An imposed population-age correction substantially changes the inferred present expansion, but its amplitude and transfer to the observed supernova population are not established by these checks. Detector and selection investigations identify concrete weaknesses in how simple summaries can be interpreted: one pixel dominates a dark-image statistic, a simulation's near-perfect timing largely repeats its initializer, and discarding negative measurements creates a large bias in a controlled example.
+Host-age trends depend strongly on which brightness corrections are included. In 196 matched objects, the full-covariance residual–age slope changes from **−0.00495 ± 0.00456** to **−0.01294 ± 0.00456 mag/Gyr** when the exported bias correction is reversed. An assumed population-age template can shift the inferred q₀ to **+0.063**, but its 95% interval crosses zero and the template is not an empirically established correction. Optical and infrared distances show a related dependence on correction accounting: their high-minus-low-redshift contrast changes from **+0.0012 to +0.0754 mag** when the exported mass and bias terms are reversed.
 
-This is a numerical revalidation of the **current research workflows**, with new independent diagnostics. It is not yet a complete reconstruction of the surveys or a unified cosmology measurement. The sections below separate observations, fitted quantities, assumptions and unresolved explanations.
+The measurement investigations reveal specific limitations. Light-curve mean fluxes agree closely between independent calculations, but some uncertainty prescriptions disagree. A native local peak-time Hessian understates the profile-supported uncertainty by a factor of **4.55** in one supernova. An apparent infrared timing precision largely repeats the supplied initializer. In an HST dark-image comparison, one pixel contributes **82.9%** of the squared difference, making a universal detector-error correction unjustified. These findings identify weaknesses in particular estimators and interpretations; they do not establish a new cosmological correction or a failure of acceleration. The calculations are independent reanalyses of shared published measurements, not independent observations.
 
 ## 1. What are we trying to measure?
 
@@ -26,22 +26,13 @@ Our expansion diagnostic is the **deceleration parameter**, q. Negative q means 
 
 Baryon acoustic oscillations (**BAO**) supply another distance measurement, expressed relative to a sound-horizon ruler. The present joint fit leaves the ruler normalization free. It contains **no cosmic microwave background (CMB) likelihood**.
 
-## 2. Data and validation strategy
+## 2. Measurements and assumptions
 
-The repository freezes the inputs and numerical settings needed for repeatable calculations. Some inputs are measurements, some are products of earlier fits, and some are simulations. Their roles must remain visible.
+We compare three levels of evidence: released distances; calibrated optical and infrared fluxes; and selected detector images and raw reads. A released distance already contains model fits and corrections. A flux fit tests more of that construction, while a detector comparison tests only the exposures and measurement weights actually examined.
 
-| Research component | Starting evidence | What this revalidation checks |
-|---|---|---|
-| Expansion and BAO | Released corrected distances and covariance matrices | Likelihood algebra, direct integration, shape constraints and sampler stability |
-| Host age and populations | Published age summaries; specified star-formation and delay models | Extraction, matching, regression, numerical convolution and correction sensitivity |
-| DES light curves | Calibrated fluxes, SALT3 model assets and frozen accepted epochs | Flux integration, fits, held-out prediction and shared calibration inference |
-| RAISIN and CSP infrared work | Released distances, photometry, filter curves and archived simulations | Object pairing, correction signs, covariance reconstruction, timing and passband integrals |
-| HST detector work | Current calibrated images, raw dark reads and reference files | Signed repeat extraction, geometric weights, reference-error propagation and spatial influence |
-| Signed selection | Released signed photometry and an explicit synthetic generator | Baseline diagnostics and the consequences of dropping negative measurements |
+The distance analysis uses Pantheon+ and DESI DR2 BAO. The measurement studies use the frozen DES-SN5YR release, RAISIN and CSP photometry, published host-age tables, and selected HST observations. The DES data are not the later Dovekie reduction, and the current HST calibration references are not identical to those used for the historical RAISIN distances. The [source catalogue](docs/sources.md) specifies the releases.
 
-We used three levels of validation. **Replay** establishes that the recorded calculation can be repeated. **Independent recomputation** changes the numerical route without importing the tested kernels. **Scientific comparison** checks whether the data selection, statistical model and measured quantity actually match the published claim. Passing the first two does not automatically establish the third.
-
-The validated scientific inputs and published result files retain their original bytes. The repository has since been reorganized around the executable workflows; [provenance](provenance/README.md) records the original snapshot and the new locations. Detailed coverage and commands are in the [validation guide](validation/README.md); machine-readable evidence is in the [manifest](provenance/history/revalidation.json). No single “accuracy percentage” is assigned across these very different checks.
+Unless stated otherwise, uncertainties attached to cosmological parameters are posterior standard deviations; regression errors are conditional standard errors; and intervals marked 95% use the method specified alongside them. Simulated examples test an explicit generator. They are not measurements of the corresponding bias in a survey.
 
 ## 3. Expansion recovered from released distances
 
@@ -49,11 +40,11 @@ The validated scientific inputs and published result files retain their original
 
 The redshift cut z > 0.01 leaves **1,590 distance rows representing 1,473 distinct supernova identifiers**. Multiple rows for an object remain in the supplied covariance; treating them as independent objects would be incorrect.
 
-For spatially flat ΛCDM, we independently calculated luminosity distances with Astropy, used the full covariance, fitted out the unknown brightness offset, and integrated a dense one-dimensional posterior grid. This gives
+For spatially flat ΛCDM, we calculate luminosity distances, retain the full supplied covariance, and fit out the unknown absolute-brightness offset. Direct integration of the matter-density posterior gives
 
 $$\Omega_m = 0.33226 \pm 0.01821,\qquad q_0 = -0.50161 \pm 0.02732.$$
 
-The quoted uncertainties are posterior standard deviations conditional on this model, covariance and prior. The best-fit matter density agrees with the workflow to **1.2 × 10⁻⁸**, and χ² agrees to **3.1 × 10⁻⁹**. Halving the grid density does not materially change the answer. A second sampler seed also agrees with the integrated posterior. [Calculation record](validation/reports/core.json).
+The quoted uncertainties are posterior standard deviations conditional on this model, covariance and prior. Direct integration and independent likelihood calculations agree to numerical precision. [Calculation record](validation/reports/core.json).
 
 The published Pantheon+ supernova-only value is Ωₘ = 0.334 ± 0.018. Our mean differs by about **0.10 of that quoted standard deviation**. This is descriptive agreement between closely related analyses, not an independent tension test. [Brout et al., Pantheon+ cosmological constraints](https://arxiv.org/abs/2202.04077).
 
@@ -76,13 +67,13 @@ A remaining diagnostic deserves attention: χ² = **1402.92** for approximately 
 
 *Figure 1. Points are posterior means and lines are 95% intervals. The third row concerns a finite redshift bin, not an independently measured instantaneous q₀. The fourth row conditions on an assumed correction without propagating uncertainty in its physical construction.*
 
-All four models passed their within-ensemble autocorrelation checks and were rerun with another seed. That supports numerical stability of these summaries; it does not establish model adequacy. The fixed-correction case has about **20%** of sampled posterior mass at q₀ < 0, and its 95% interval spans both signs. It does not establish present deceleration at 95% credibility.
+The fixed-correction case has about **20%** of sampled posterior mass at q₀ < 0, and its 95% interval spans both signs. It does not establish present deceleration at 95% credibility.
 
 The models use different data or correction assumptions, so their raw χ² values are not a ready-made ranking. The joint analysis also cannot reproduce published **BAO + CMB + supernova** claims without the CMB contribution. [DESI DR2 cosmological analysis](https://arxiv.org/abs/2503.14738). Exact settings and results: [joint CPL](results/alternatives/joint-cpl/run.json), [flexible expansion](results/alternatives/flexible-expansion/run.json), [fixed-template experiment](results/alternatives/age-template/run.json).
 
 ### 3.3 A less model-specific BAO check
 
-A separate calculation asks whether the anisotropic BAO measurements can satisfy a set of inequalities implied by flat, nonaccelerating expansion. An independent constrained optimizer reproduces the projection statistic **11.467067**. The conservative simulated cone-tail fraction is **0.4166**, with binomial 95% interval approximately [0.403, 0.430].
+A separate calculation asks whether the anisotropic BAO measurements can satisfy a set of inequalities implied by flat, nonaccelerating expansion. The distance from the allowed set, measured with the released covariance, is **11.467067**. The conservative simulated cone-tail fraction is **0.4166**, with binomial 95% interval approximately [0.403, 0.430].
 
 This particular test does not reject its composite null. It also does not establish nonacceleration: it has different assumptions, information and power from the parametric joint fit. The tail fraction is neither the probability that the universe decelerates nor a posterior for q₀. The test uses 12 anisotropic entries at six redshifts; it excludes the isotropic BAO entry. [BAO result](results/baseline/bao-shape/summary.json).
 
@@ -90,7 +81,7 @@ This particular test does not reject its composite null. It also does not establ
 
 ### 4.1 A discrepancy requires matching the quantity first
 
-The age supplement contains 199 G11 and 102 R19 entries. Matching and the stated redshift/sample rules leave **196 unique objects** in the default diagnostic. The supplied alternative prioritizing R19 ages was also rerun.
+The age supplement contains 199 G11 and 102 R19 entries. Matching and the stated redshift/sample rules leave **196 unique objects** in the default diagnostic. Objects appearing in both catalogues use G11 ages in this comparison; the alternative catalogue choice is treated separately.
 
 With age treated as exact, the relation between Pantheon+ residual and age is weak after the released corrections. Reversing the exported bias term changes the slope:
 
@@ -113,23 +104,25 @@ The release distinguishes plotting errors from the covariance required for cosmo
 
 ### 4.3 A population template is not an observed correction
 
-The population calculation combines an assumed star-formation history with a distribution of delays between star formation and supernova explosion. Independent integration reproduces the mean and median delays for all three supplied delay models at z = 0, 1 and 2.5, with differences below **0.00003 Gyr**.
+The population calculation combines an assumed star-formation history with a distribution of delays between star formation and supernova explosion. These describe the ages of potential progenitors before survey selection, not the measured ages of the observed host galaxies.
 
 For the default delay model, the median delay changes by about **5.44 Gyr** between z = 0 and z = 1. Multiplying this by an imposed **0.030 mag/Gyr** slope produces a correction magnitude of **0.163 mag** at z = 1. A different supplied delay model gives about **0.074 mag**. Neither number is a measured correction for the selected survey population.
 
 This distinction matters because host-population age, progenitor delay and supernova luminosity are not the same latent quantity. Dust, selection, redshift and already-applied corrections can change the mapping between them. The large cosmology shift in Figure 1 establishes sensitivity to a template; it does not identify the template as the right physical model.
 
-The dust workflow checks absorption geometry and a latent-colour degeneracy. Independent depth integration reproduces the mixed-source transmission formula. These constructed examples explain how different dust and intrinsic-colour assumptions can resemble one another; they do not estimate a new empirical dust law. [Population outputs](results/baseline/populations/summary.json); [dust outputs](results/baseline/dust/summary.json).
+Dust geometry and intrinsic colour also remain degenerate in the constructed models: different mixtures can produce similar observed colour–brightness relations. A separate physical check finds that extrapolating the tested extinction prescriptions to sufficiently low Rᵥ can yield **negative extinction**. A passive absorbing screen cannot brighten a source in that way. This is a failure of the extrapolated model domain, not a measurement of the resulting cosmology bias; clipping the extinction would define another model whose population and selection effects would need to be assessed. [Dust findings](studies/dust/README.md). [Population outputs](results/baseline/populations/summary.json); [dust outputs](results/baseline/dust/summary.json).
 
 ## 5. DES: from calibrated flux to prediction and calibration
 
-The flux workflow refits **24 full light curves** and evaluates **36 conditional held-out predictions**. Independent reconstruction agrees with the fit objectives and predictive densities to better than 5 × 10⁻¹⁴. Finer wavelength integration, alternative fit starts and Hessian step sizes give small changes. Differences from the frozen native reference reach about **0.0011 mag** in fitted brightness and **0.095 day** in peak time. These are bounded implementation comparisons on the same accepted epochs, not evidence that the original detector reduction was wrong.
+Two independent fitting paths for twelve DES supernovae give **24 full light-curve fits**. They closely reproduce the calibrated mean fluxes; finer wavelength integration and alternative fit starts change the answers only slightly. Differences from the frozen native reference reach about **0.0011 mag** in fitted brightness and **0.095 day** in peak time. These are bounded implementation comparisons on the same accepted epochs, not evidence that the original detector reduction was wrong.
 
-The predictor experiment uses **850 training and 213 held-out supernovae**. Adding light-curve width to colour improves the summed held-out log predictive score by **40.10 nats**. Higher score means the model assigned more probability to the held-out observations. Both paired-object resampling and a field-level bootstrap keep the improvement positive. A second seed changes the default score by −0.020 nat, within its approximate Monte Carlo uncertainty. Four-chain rank-normalized convergence checks pass, with maximum split R-hat about **1.0023**.
+Agreement in mean flux does not imply agreement in uncertainty. For **CID1896213**, the native local Hessian gives a peak-time uncertainty of **0.124 day**, while an independent smooth Hessian and a profile of the likelihood give **0.564 day**. The native MINOS interval and published scalar uncertainty also agree with the larger value. The discrepancy therefore concerns that local Hessian estimate, not every published timing error. Replacing the effective SALT colour law with a fixed F99-shaped alternative does **not** give a decisive held-out predictive improvement in this twelve-object sample. [Light-curve findings](studies/light_curve_fitting/README.md).
+
+The predictor experiment uses **850 training and 213 held-out supernovae**. Adding light-curve width to colour improves the summed held-out log predictive score by **40.10 nats**. Higher score means the model assigned more probability to the held-out observations. Both paired-object resampling and a field-level bootstrap keep the improvement positive. The fitted colour coefficient is **2.473 ± 0.078**, conditional on this selected sample and predictor model.
 
 This supports width as a useful predictor in this selected sample. It does not identify a universal physical luminosity law or validate a survey selection correction. Only ten observing fields are available for the field bootstrap. [DES numerical and statistical audit](docs/validation/des.md).
 
-Shared calibration inference was independently rebuilt from its design matrices. The conditional uncertainty in the chosen distance contrast is **0.00942 mag** with systematics-only modes, **0.01207 mag** with inherited observer modes, and **0.01236 mag** with an isotropic observer prior. The corresponding means change materially too. Thus an apparently precise calibration result remains dependent on which residual patterns the model permits. We cannot uniquely assign every fitted mode to an instrumental calibration error or transport it directly into cosmology.
+Allowing shared calibration patterns changes both the estimated distance contrast and its uncertainty. The conditional uncertainty in the chosen distance contrast is **0.00942 mag** with systematics-only modes, **0.01207 mag** with inherited observer modes, and **0.01236 mag** with an isotropic observer prior. The corresponding means change materially too. Thus an apparently precise calibration result remains dependent on which residual patterns the model permits. We cannot uniquely assign every fitted mode to an instrumental calibration error or transport it directly into cosmology.
 
 The inputs here are the frozen **DES-SN5YR** assets. They do not constitute a reconstruction of the later DES-Dovekie reanalysis. Comparing this diagnostic with a later published cosmology result requires matching the calibration release and full likelihood first. [DES-SN5YR paper](https://arxiv.org/abs/2401.02929); [DES-Dovekie reanalysis](https://arxiv.org/abs/2511.07517v3).
 
@@ -139,7 +132,7 @@ The inputs here are the frozen **DES-SN5YR** assets. They do not constitute a re
 
 The RAISIN comparison contains the same **79 supernovae**, with 42 at low redshift and 37 at high redshift, across the optical, near-infrared and combined releases. For optical minus infrared distance, the high-minus-low mean difference is **+0.00124 mag** as released. Reversing both exported mass and bias corrections changes it to **+0.07541 mag**.
 
-Independent accounting verifies the correction signs: undoing the bias term adds the exported bias correction; undoing the mass term subtracts the exported mass correction. These operations retain the original selected sample. They do not redo the light-curve fit or selection.
+The correction accounting uses the signs in the released definitions: undoing the bias term adds the exported bias correction; undoing the mass term subtracts the exported mass correction. These operations retain the original selected sample. They do not redo the light-curve fit or selection.
 
 A paired whole-object bootstrap gives a 95% interval of approximately **[−0.088, +0.085] mag** for the released optical contrast. The broad interval prevents interpreting its small central value as proof that all branches agree physically. Common calibration uncertainty and unknown cross-branch covariance remain outside this simple resampling calculation.
 
@@ -151,7 +144,7 @@ Of 30,000 infrared simulation rows, 29,995 join to the corresponding combined-fi
 
 The CSP lineage audit recovers **5,491** raw/intermediate photometry rows with the documented filter relabelling. Three listed objects lack rows in the source archive; all three lie outside the 79-object cosmology cohort. They are coverage gaps, not demonstrated converter failures.
 
-Independent analytic integration reproduces **140 passband calculations** to better than 3 × 10⁻¹⁵ mag. For the tested spectra, changing the J-band filter representation produces phase-dependent differences reaching about **0.069 mag**. This is a spectral sensitivity result. It is not yet a correction to a fitted supernova distance.
+For the tested spectra, changing the J-band filter representation produces phase-dependent differences reaching about **0.069 mag**. This is a spectral sensitivity result. It is not yet a correction to a fitted supernova distance.
 
 ### 6.3 Why signed measurements matter
 
@@ -179,61 +172,28 @@ The dark-image result appears contradictory until we inspect what is being avera
 
 *Figure 2. Dots use the full eligible samples. Lines show post-hoc deletion of fixed spatial groups, not confidence intervals. Pixel and aperture statistics apply different spatial weights. None of the deletions replaces the primary estimate.*
 
-Independent integration of aperture geometry and re-extraction from FITS reproduce the reported measurements. The raw-read audit checks fourteen exposures, seven disjoint primary pairs and one overlapping sensitivity pair. All **11,856** signed aperture slopes agree to numerical precision. Including versus discarding temporal cross terms changes the relevant moment contraction by factors ranging from **0.668 to 2.314**. Covariance can change the direction, as well as the size, of an error in a diagonal approximation.
+The raw-read comparison covers fourteen exposures, seven disjoint primary pairs and one overlapping sensitivity pair, with **11,856** signed aperture slopes. Including versus discarding temporal cross terms changes the relevant moment contraction by factors ranging from **0.668 to 2.314**. Covariance can change the direction, as well as the size, of an error in a diagonal approximation.
 
-Those raw moments mix detector state, events and noise; they do not isolate electronic read noise. Eleven exposures have indeterminate exposure flags, so nominal read times alone do not establish correct physical timing. Current science headers also identify a 2026 nonlinearity reference, which does not reproduce the historical RAISIN reduction. Native CALWF3 processing itself was not rebuilt in this pass: its two dark output images are frozen starting inputs. [HST audit and source discussion](docs/validation/hst.md); [STScI calibration handbook](https://hst-docs.stsci.edu/wfc3dhb/chapter-3-wfc3-data-calibration/3-3-ir-data-calibration-steps); [2026 nonlinearity update](https://arxiv.org/abs/2602.12110).
+Those raw moments mix detector state, events and noise; they do not isolate electronic read noise. Eleven exposures have indeterminate exposure flags, so nominal read times alone do not establish correct physical timing. Current science headers also identify a 2026 nonlinearity reference, which does not reproduce the historical RAISIN reduction. The dark slope comparison conditions on two fixed CALWF3 output images; it does not independently establish the correctness of the entire detector reduction. [HST audit and source discussion](docs/validation/hst.md); [STScI calibration handbook](https://hst-docs.stsci.edu/wfc3dhb/chapter-3-wfc3-data-calibration/3-3-ir-data-calibration-steps); [2026 nonlinearity update](https://arxiv.org/abs/2602.12110).
 
-## 8. What has been resolved, and what remains open?
+## 8. Agreement, disagreement and unresolved interpretation
 
-| Question | Current assessment | What would change that assessment? |
-|---|---|---|
-| Do the calculations repeat? | Yes: all 19 default summaries match exactly; all supplied alternatives complete. | A changed input, code path or environment must receive its own validation record. |
-| Is the simple released-distance cosmology numerically correct? | Independent integration, likelihood checks and conditional simulations agree. | A failure under upstream covariance or selection reconstruction would require revisiting the inference. |
-| Does the age discrepancy prove either analysis wrong? | No: residual definitions, uncertainties and estimators differ. | Matched samples, original age distributions and an explicit correction ledger in a joint likelihood. |
-| Is the infrared systematic covariance fully reconstructed? | No: a documented residual remains with the available vectors. | Historical vector operations and complete covariance-building instructions. |
-| Is the dark-image variance anomaly a universal detector correction? | No: a single pixel dominates one statistic; apertures measure a different quantity. | Independent repeats that predict held-out measurements with their actual weights and covariance. |
-| Has a physical correction overturned acceleration? | No such correction is identified here. A fixed template changes the answer conditionally. | A correction learned independently of cosmology, passing selection and transfer tests with uncertainty propagated. |
+The released-distance result is reassuringly close to the published Pantheon+ cosmology. It says that the stated distance likelihood supports the stated flat-ΛCDM answer. It does not independently verify the survey reductions, population models or covariance construction that supplied those distances.
 
-Several useful statistical methods strengthen this work: direct integration checks a sampler without trusting its draws; paired resampling compares models on the same objects; field and spatial grouping expose dependence; fixed-group deletion reveals concentration; constrained projection tests a broader class of expansion histories; and shared-mode inference makes calibration degeneracies explicit. These are established methods applied to this problem, not claims of newly invented statistics.
+The host-age comparison is less settled. We find a weak trend in the corrected Pantheon+ residuals and a stronger one when the exported bias term is removed. Chung et al. find a stronger relationship using different residuals and age-error modelling. The difference is real between these calculations, but it is not yet a controlled disagreement with their estimator. Nor does the accounting change prove that a survey bias correction has removed an astrophysical age effect. That requires a joint explanation of the measured ages, luminosity population and selection.
 
-The new contribution of this pass is the complete fresh execution, independent audit implementations, recovery and influence diagnostics, and a clearer reconciliation of apparent discrepancies. The underlying research findings often predate this manuscript. Successful revalidation does not turn them into newly discovered physical effects.
+Some conclusions are more direct. The peak-time Hessian and likelihood profile disagree for a specific object; the profile is supported by an independent fit and the native MINOS result. The infrared simulations do not demonstrate independent 0.010-day timing recovery because the fitted values reproduce the supplied initializers. The dark-image pixel statistic is too concentrated to support a detector-wide variance multiplier. These are identifiable failures of particular uncertainty summaries or interpretations.
 
-## 9. Towards a unified measurement
+Other attempts remain inconclusive. The available systematic shifts do not fully reconstruct the infrared covariance, but the missing historical transformations prevent identifying the source of the gap. The broader BAO inequality test does not reject nonacceleration under its assumptions. Alternative colour laws do not establish a preferred physical dust correction in the small DES pilot. Classifier reconstruction and several native infrared fits have not met the accuracy or optimizer-stability requirements needed for reliable selection inference. Failed or incomplete identification is part of the scientific result, not evidence for a particular alternative cosmology. [Supporting investigations](studies/README.md).
 
-The next useful experiment should constrain an ambiguity that currently prevents the pieces from being combined. The [full experimental programme](docs/experimental-plan.md) gives the detailed sequence. Its immediate priorities are:
+## 9. Conclusions
 
-1. **Predict independent detector repeats.** Estimate temporal and spatial covariance from timing-verified training exposures, then predict unseen aperture contrasts, including shared-template uncertainty. Compare reference versions in controlled native reductions.
-2. **Recover injected sources through selection.** Inject signed fluxes before detection and fitting; retain rejected objects and epochs. Require recovery of brightness, timing and uncertainty coverage across brightness, colour, host properties and redshift.
-3. **Fit populations and corrections together.** Use age probability distributions and shared latent dust, luminosity and calibration parameters. A proposed extra correction must account for corrections already applied and predict observations outside its training sample.
-4. **Connect to distance and geometry.** Propagate shared calibration and selection uncertainty into the distance likelihood. Compare supernovae and BAO first; add an explicit, validated CMB likelihood only when making CMB-dependent claims.
-5. **Test the complete inference before interpreting it.** Use repeated synthetic datasets, alternative plausible population generators, independent random seeds and survey/field holdouts. Record sensitivity to priors and missing data. Keep cosmology summaries blinded during upstream model choices where practical.
+**Acceleration is recovered from the released distances under the tested uncorrected distance models.** The flat-ΛCDM matter density agrees with the published result, and a supernova-plus-BAO fit with evolving dark energy also gives negative q₀. The broader BAO-only test supplies no corresponding rejection of its nonaccelerating class.
 
-A measurement should advance through these steps only when its predictions survive the relevant held-out check. A more elaborate fit alone does not remove an identification problem.
+**Corrections can matter enough to change the cosmological interpretation, but their physical identification remains incomplete.** The assumed age template moves the central q₀ estimate across zero, yet neither its amplitude nor its transfer to the selected supernova population has been established. We have not measured a correction that overturns acceleration, isolated a new dust law, or obtained a selection-complete unified cosmology measurement.
 
-## 10. Reproduce the results
+**The main unresolved issue is connecting the measurement levels without losing their shared uncertainties.** Detector repeats constrain particular spatial and temporal combinations. Light curves add spectral, timing and calibration assumptions. Population and selection models turn those fits into distances. A defensible joint measurement must propagate those dependencies rather than treating each conditional result as an independently measured correction. The [experimental programme](docs/experimental-plan.md) specifies the measurements needed to resolve these ambiguities.
 
-The [workflow guide](docs/workflows.md) describes the executable research package. Its [source guide](docs/sources.md) records input provenance and acquisition limits. **A Git-only clone does not include all bulk scientific inputs or the new full sampler arrays.** They remain locally hashed; public inputs can be restored where acquisition metadata supports it, and derived bundles require their recorded upstream preparation. Missing inputs must not be replaced with invented data.
+## Data and code availability
 
-With the complete data bundle present:
-
-```bash
-uv sync --frozen --extra predictors
-.venv/bin/python research.py verify
-
-# Use a new name: existing workflow outputs are never overwritten.
-.venv/bin/python validation/run.py --name my-revalidation
-```
-
-The last command performs all 29 runs and the four independent audit programs. It refreshes audit reports, so preserve the dated Git version before using it for another campaign. The figures in this manuscript are generated by `validation/figures.py` from the **published reference results**. See the [validation guide](validation/README.md) for partial reruns, coverage and interpretation.
-
-| Read further | Purpose |
-|---|---|
-| [Workflow guide](docs/workflows.md) | Installation, commands and input requirements |
-| [Methods](docs/methods/README.md) | Assumptions and outputs, ordered from measurements to cosmology |
-| [Results](results/README.md) | Baseline analyses, alternative models and robustness runs |
-| [Validation](validation/README.md) | Independent checks and reproducibility evidence |
-| [Physical foundations](docs/physics/README.md) | Equations and their interpretation limits |
-| [Experimental plan](docs/experimental-plan.md) | Next experiments towards a unified measurement |
-| [Sources and provenance](docs/sources.md) | Input attribution, hashes and historical source records |
-
-This repository is a working research record. Earlier exploratory work is preserved in Git history; [the provenance guide](provenance/README.md) explains how to retrieve it. Third-party material retains its original attribution and licensing; see the [license catalogue](provenance/licenses.json). No authors were contacted during this revalidation.
+The [reproduction guide](docs/workflows.md) gives installation and execution instructions; the [methods](docs/methods/README.md) describe the statistical assumptions. Original acquisition, extraction, fitting and diagnostic code is organized by topic in [studies](studies/README.md), including investigations with negative or unresolved results. Downloadable inputs and third-party implementations are identified by their [sources and hashes](docs/sources.md), rather than bundled as research code. Compact reference summaries and manuscript figures are retained; bulk data, chains and intermediate products are acquired or regenerated locally. The distinction between the validated manuscript calculations and additional research requiring upstream inputs is explicit in the study guide.

@@ -1,0 +1,75 @@
+--- runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/run_engineering_v4.py
++++ runs/research_2026_09_26/raisin_profile_solver_review/csp-filter-interpretation/native-design/timing-followon-design/prospective-engineering/run_engineering_v5.py
+@@ -15,11 +15,11 @@
+ def check(ok,msg):
+  if not ok:raise RuntimeError(msg)
+ def release(stage,path):
+- d=json.loads(path.read_text());check(d['protocol_sha256']==sha(P/'protocol-v4.json'),'release protocol mismatch');check(d['freeze_sha256']==sha(P/'freeze-v4.json'),'release freeze mismatch');check(stage in d['stages'],'stage not released')
+- for f,h in json.loads((P/'freeze-v4.json').read_text())['files'].items():check(sha(R/f)==h,'input hash mismatch '+f)
++ d=json.loads(path.read_text());check(d['protocol_sha256']==sha(P/'protocol-v5.json'),'release protocol mismatch');check(d['freeze_sha256']==sha(P/'freeze-v5.json'),'release freeze mismatch');check(stage in d['stages'],'stage not released')
++ for f,h in json.loads((P/'freeze-v5.json').read_text())['files'].items():check(sha(R/f)==h,'input hash mismatch '+f)
+  return sha(path)
+ def native(label,work,binary,snana,args,ledger=False,support=False,dshift=None):
+- activity=P/'native-activity-v4.json';rows=json.loads(activity.read_text()) if activity.exists() else []
++ activity=P/'native-activity-v5.json';rows=json.loads(activity.read_text()) if activity.exists() else []
+  spent=sum(x['wall_seconds'] for x in rows);allowed=min(40.,120.-spent);check(allowed>0,'120s stage budget exhausted')
+  env=os.environ.copy();env.pop('CSP_POSTINIT_DSHIFT',None);env.pop('PROSP_LEDGER',None);env.pop('PROSP_FIT_SUPPORT',None)
+  env.update(SNANA_DIR=str(snana),SNDATA_ROOT=str(R/'phase2/official/inputs/SNDATA_ROOT'),LD_LIBRARY_PATH=str(R/'phase2/official/build/sysroot/usr/lib'))
+@@ -41,7 +41,7 @@
+   check(len(v)-1==len(schema[v[0]]),'ledger schema '+v[0]);out[v[0]].append(dict(zip(schema[v[0]],v[1:])))
+  return out
+ def files(branch):
+- d=P/'generation-v4'/branch/'output/PTE';heads=list(d.glob('*HEAD.FITS*'));phots=list(d.glob('*PHOT.FITS*'));check(len(heads)==len(phots)==1,'one native FITS file pair expected');return d,heads[0],phots[0]
++ d=P/'generation-v5'/branch/'output/PTE';heads=list(d.glob('*HEAD.FITS*'));phots=list(d.glob('*PHOT.FITS*'));check(len(heads)==len(phots)==1,'one native FITS file pair expected');return d,heads[0],phots[0]
+ def read(branch):
+  d,h,p=files(branch)
+  with fits.open(h) as f:head=f[1].data.copy();hc=f[1].columns
+@@ -56,7 +56,7 @@
+  expected=json.loads((P/'inputs-v2/manifest.json').read_text());cad=list(__import__('csv').DictReader((P/'inputs-v2/cadence-ledger.csv').open()));keep=[x for x in cad if x['keep']=='True']
+  physical=sorted((float(x['mjd']),x['band']) for x in keep)
+  for branch,head,phot,n in [('ledger',h,p,8),('noiseless',hn,pn,1)]:
+-  rec=records(P/'generation-v4'/branch/'native.log');check(len(rec['PROSP_ATTEMPT'])==n,'actual attempt count');check(not rec['PROSP_REJECT'],'hidden generation rejection');check(len(rec['PROSP_EVENT'])==len(head)==n,'event count')
++  rec=records(P/'generation-v5'/branch/'native.log');check(len(rec['PROSP_ATTEMPT'])==n,'actual attempt count');check(not rec['PROSP_REJECT'],'hidden generation rejection');check(len(rec['PROSP_EVENT'])==len(head)==n,'event count')
+   events={x['cid']:x for x in rec['PROSP_EVENT']};rr={};noises={}
+   for x in rec['PROSP_ROW']:rr.setdefault(x['cid'],[]).append(x)
+   for x in rec['PROSP_NOISE']:noises.setdefault(x['cid'],[]).append(x)
+@@ -84,12 +84,12 @@
+ 
+ def run_generation():
+  for branch in ['original','ledger','noiseless']:
+-  w=P/'generation-v4'/branch;binary=SHORT/('instrumentation/snlc_sim.original.exe' if branch=='original' else 'build-v11_04d/bin/snlc_sim.exe')
+-  native('generate_'+branch,w,binary,SHORT/'build-v11_04d',['sim.input'],ledger=branch!='original')
++  w=P/'generation-v5'/branch;snana=SHORT/'repair-v5'/('original-build' if branch=='original' else 'ledger-build');binary=snana/'bin/snlc_sim.exe'
++  native('generate_'+branch,w,binary,snana,['sim.input'],ledger=branch!='original')
+  audit_generation()
+ 
+ def prepare_fit(name,dataset,bands='JH',iterations=12,peak_step=0,peak_start=0):
+- w=P/'fits'/name;w.mkdir(parents=True,exist_ok=False);tpl=(P/'inputs-v2/fit-template-v3.nml').read_text();(w/'fit.nml').write_text(tpl.format(data_path=dataset,iterations=iterations,peak_step=peak_step,peak_initializer=('INIVAL_PEAKMJD = '+format(57707.80078125+peak_start,'.17g')) if peak_step else '! fixed peak uses native HEAD PEAKMJD',bands=bands));save(w/'input-freeze.json',{'NML_sha256':sha(w/'fit.nml'),'dataset':dataset,'protocol_sha256':sha(P/'protocol-v4.json')});return w
++ w=P/'fits'/name;w.mkdir(parents=True,exist_ok=False);tpl=(P/'inputs-v2/fit-template-v3.nml').read_text();(w/'fit.nml').write_text(tpl.format(data_path=dataset,iterations=iterations,peak_step=peak_step,peak_initializer=('INIVAL_PEAKMJD = '+format(57707.80078125+peak_start,'.17g')) if peak_step else '! fixed peak uses native HEAD PEAKMJD',bands=bands));save(w/'input-freeze.json',{'NML_sha256':sha(w/'fit.nml'),'dataset':dataset,'protocol_sha256':sha(P/'protocol-v5.json')});return w
+ 
+ def run_fit(name,dataset,bands='JH',iterations=12,peak_step=0,peak_start=0,dshift=None,original=False):
+  w=prepare_fit(name,dataset,bands,iterations,peak_step,peak_start)
+@@ -143,7 +143,7 @@
+  return b1,b2
+ 
+ def run_noiseless():
+- check(json.loads((P/'generation-gate.json').read_text())['gate_pass'],'generation gate');cid=[json.loads((P/'generation-gate.json').read_text())['branches']['noiseless'][0]['CID']];data='../../generation-v4/noiseless/output'
++ check(json.loads((P/'generation-gate.json').read_text())['gate_pass'],'generation gate');cid=[json.loads((P/'generation-gate.json').read_text())['branches']['noiseless'][0]['CID']];data='../../generation-v5/noiseless/output'
+  original=run_fit('noiseless_joint_original',data,'grizJH',peak_step=2,original=True);instrumented=run_fit('noiseless_joint',data,'grizJH',peak_step=2)
+  a,b=compare(original,instrumented,117,cid,0,0)
+  for c in cid:
+@@ -170,7 +170,7 @@
+  save(out/'adapter-ledger.json',{'source_HEAD_sha256':sha(h),'source_PHOT_sha256':sha(p),'output_HEAD_sha256':sha(target),'peaks':peaks,'changed_column_only':'PEAKMJD','source_PHOT_same_file':(dst/p.name).resolve()==p.resolve()});return '../../derived/'+kind
+ 
+ def run_noisy():
+- check(json.loads((P/'noiseless-gate.json').read_text())['gate_pass'],'noiseless gate');cids=[x['CID'] for x in json.loads((P/'generation-gate.json').read_text())['branches']['ledger']];data='../../generation-v4/ledger/output';joint=run_fit('joint12',data,'grizJH',peak_step=2);jb,jd=block_review(joint,117,cids)
++ check(json.loads((P/'noiseless-gate.json').read_text())['gate_pass'],'noiseless gate');cids=[x['CID'] for x in json.loads((P/'generation-gate.json').read_text())['branches']['ledger']];data='../../generation-v5/ledger/output';joint=run_fit('joint12',data,'grizJH',peak_step=2);jb,jd=block_review(joint,117,cids)
+  for name,it,start in [('joint9',9,0),('joint_minus',12,-2),('joint_plus',12,2)]:
+   w=run_fit(name,data,'grizJH',it,2,start);aa,bb=compare(joint,w,117,cids)
+   for c in cids:check(abs((bb[c][0]['entry']['peak_entry_absolute']-aa[c][0]['entry']['peak_entry_absolute'])-start)<.004,'peak start was not applied')
+@@ -191,4 +191,4 @@
+ if __name__=='__main__':
+  ap=argparse.ArgumentParser();ap.add_argument('stage',choices=['generation','noiseless','noisy']);ap.add_argument('--release',type=Path,required=True);args=ap.parse_args();rel=release(args.stage,args.release)
+  try:globals()['run_'+args.stage]()
+- except Exception as e:save(P/(args.stage+'-failure-v4.json'),{'exception':type(e).__name__,'message':str(e),'release_sha256':rel,'protocol_sha256':sha(P/'protocol-v4.json'),'stage':args.stage});raise
++ except Exception as e:save(P/(args.stage+'-failure-v5.json'),{'exception':type(e).__name__,'message':str(e),'release_sha256':rel,'protocol_sha256':sha(P/'protocol-v5.json'),'stage':args.stage});raise

@@ -5,6 +5,8 @@ The repository separates current execution paths from immutable historical evide
 | Record | Meaning |
 |---|---|
 | [inputs.json](inputs.json) | Current input locations, sizes, SHA-256 values, source identities and retrieval URLs |
+| [studies.json](studies.json) | Additional original research sources, experimental specifications and scientific notes, with explicit exclusions |
+| [study-inputs.json](study-inputs.json) | Historical acquisition identities and download routes for study dependencies |
 | [code-origin.json](code-origin.json) | Retained numerical kernels and their original source hashes/symbols |
 | [hst-dark-native.json](hst-dark-native.json) | Native calibration provenance for the two frozen dark images |
 | [layout.json](layout.json) | Mapping from the earlier repository to the current structure; documented changes to execution paths |
@@ -16,9 +18,9 @@ The repository separates current execution paths from immutable historical evide
 
 `path` fields in the input manifest identify current files. `source_path`, source-record paths and historical run configurations describe the workspace at the time the evidence was produced. They may use older names. Those names are preserved as evidence, not presented as active project organization.
 
-## Retrieve earlier work
+## Original research and earlier execution records
 
-The complete pre-reorganization repository is preserved at commit [`17487bf6`](https://github.com/sprajs/cosmology-revalidation/tree/17487bf659fcbdeeea072221492bac14b04a0a85). The public working tree no longer includes redundant experiments, vendored builds, handoff documents or superseded result sets. No Git history was rewritten.
+The complete pre-reorganization repository is preserved at commit [`17487bf6`](https://github.com/sprajs/cosmology-revalidation/tree/17487bf659fcbdeeea072221492bac14b04a0a85). Original acquisition, preparation, analysis and diagnostic code, experimental specifications and scientific notes are available in [studies](../studies/README.md). Vendored builds, handoff documents, duplicate source snapshots and bulk generated result sets remain outside the active source tree. No Git history was rewritten.
 
 For example, an original source can be inspected without restoring the old working tree:
 

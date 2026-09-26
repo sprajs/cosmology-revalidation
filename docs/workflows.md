@@ -1,6 +1,6 @@
 # Running the research
 
-The repository has one Python environment and one workflow entry point. Run commands from the repository root. Start with the [manuscript](../README.md), then choose a workflow and its [method](methods/README.md).
+The manuscript calculations share one locked Python environment and one workflow entry point. Run commands from the repository root. Start with the [manuscript](../README.md), then choose a workflow and its [method](methods/README.md).
 
 ## Install and verify inputs
 
@@ -63,3 +63,7 @@ A new campaign creates `results/my-validation/{baseline,alternatives,robustness}
 The [published results](../results/README.md) are the reference set behind the manuscript. `summary.json` states each result and its interpretation boundary. `run.json` records execution; a completed process can still have failed scientific convergence gates. A numerical replay does not establish the physical correctness of a population or selection model.
 
 `lib/` contains numerical kernels and shared readers; `workflows/` handles analysis and output contracts; `validation/` contains independent checks. The [provenance guide](../provenance/README.md) distinguishes current paths from historical source identities. The [experimental plan](experimental-plan.md) describes work required beyond the completed workflows, including full selection closure and a unified likelihood.
+
+## Additional research and preparation code
+
+The [study guide](../studies/README.md) covers original acquisition, extraction, native instrumented builds and the wider scientific investigations. Those sources are grouped by topic and prepared in a separate ignored workspace; they are not all covered by the manuscript validation campaign. Scientific findings and failed identification tests remain documented. Downloaded dependencies and generated outputs stay local.

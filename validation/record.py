@@ -76,7 +76,7 @@ def main():
         'scope': 'Verified frozen inputs and all outputs of 29 recorded runs, plus targeted independent audits. Historical run records retain their original code hashes; path-only changes are explicit in provenance/layout.json.',
         'audit_sha256': {str(p.relative_to(ROOT)): sha(p) for p in sorted(reports.glob('*.json'))},
         'audit_code_sha256': {str(p.relative_to(ROOT)): sha(p) for p in sorted((ROOT/'validation').glob('*.py'))},
-        'publication': 'JSON/CSV scientific records are versioned; bulk data and sampler arrays require the input bundle or regeneration.'}
+        'publication': 'Compact JSON scientific records are versioned; bulk data, CSV/DAT tables and sampler arrays require the input bundle or regeneration.'}
     out = ROOT/'validation/manifest.json' if not args.name else results/'validation.json'
     out.write_text(json.dumps(record, indent=2)+'\n')
     print(json.dumps({'runs_verified': len(runs), 'baseline_summaries_unchanged': sum(x['summary_matches_pre_reorganization'] for x in comparisons.values()), 'inputs_verified': len(inputs), 'manifest': str(out.relative_to(ROOT))}))

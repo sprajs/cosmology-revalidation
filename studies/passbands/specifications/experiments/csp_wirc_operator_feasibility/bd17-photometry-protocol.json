@@ -1,0 +1,16 @@
+{
+  "purpose": "Source-derived feasibility check only; no SN fitting, KCOR execution, calibration adjustment, or outcome use",
+  "frozen_before_numeric_integration": true,
+  "source_files": {
+    "bd17_sed": {"path": "phase2/official/inputs/SNDATA_ROOT/standards/bd_17d4708_stisnic_007.dat", "sha256": "309fb66fefae837368f5462e8faea27762f5d087c92bc0440996b63c43222b59"},
+    "wirc_j": {"path": "phase2/official/inputs/SNDATA_ROOT/filters/CSP/CSP_TAMU_20180316/J_DUP_TAM_scan_atm.dat", "sha256": "e88bac24939ff35a7a1c2dbf9b38a6161eff24152bc3af62f60f74eaf165903f"},
+    "retrocam_rc2_j": {"path": "phase2/official/inputs/SNDATA_ROOT/filters/CSP/CSP_TAMU_20180316/Jrc2_SWO_TAM_scan_atm.dat", "sha256": "a2769e3129803a478c90b8a3a1eb1e3e6d637fcce5ec607828a126d17c167264"},
+    "csp_filter_readme": {"path": "sources/repos/PantheonPlusSH0ES__DataRelease@7fc6805/Pantheon+_Data/2_CALIBRATION/filters/CSP_TAMU_20180316/README", "sha256": "b5b1c3c58e103aefb5fb78812ce50ded907246c7f90f02fde7d6e9e09ec09b50"}
+  },
+  "source_formula": "F=(1/hc)*integral S_X(lambda)*f_lambda(lambda)*lambda d lambda; m=-2.5log10(F)+zp",
+  "units": {"lambda": "angstrom", "f_lambda": "erg s^-1 cm^-2 angstrom^-1", "hc": "1.9864458571489286e-8 erg angstrom"},
+  "source_zero_points": {"wirc_j": 13.866, "retrocam_rc2_j": 13.836},
+  "quadrature": "linear-interpolate BD17 f_lambda at published filter wavelength rows, trapezoid in angstrom; independent secondary trapezoid on union of SED and filter knots over filter support, with filter linearly interpolated and zero outside supplied range",
+  "acceptance": "No forced matching or offset. Report both source-derived magnitudes and discrepancies to released RC2 BD17 MAGREF 8.4192. Quadrature difference <=0.0001 mag needed for stable numeric result. A difference >0.005 mag between README-derived RC2 and released RC2 MAGREF prevents claiming the README ZP supplies an exact release KCOR reference. The 0.005 bound is descriptive engineering tolerance, not a fitted science threshold.",
+  "scope": "No conclusion about WIRC SN calibration uncertainty from this star calculation alone."
+}

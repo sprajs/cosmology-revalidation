@@ -1,0 +1,10 @@
+{
+  "status": "post-diagnostic rule frozen before exact clock-plus-cadence candidate counts",
+  "known_diagnostics": "Same-CID count/clock checks, unique cadence assignment, and exploratory clock+count+cadence and per-row-CHI2 candidate diagnostics had already been inspected. Those do not define or repair this join.",
+  "scope": "All 500 LCPLOT groups against all 30000 nominal NIR FITRES rows; no fits, no scientific timing or distance scores.",
+  "clock": "Median MJD-Tobs of DATAFLAG=0 rows, which must have zero within-group spread; candidate FITRES PKMJD difference <=0.0056 observer days.",
+  "cadence": "Each DATAFLAG=1 row must admit a distinct same-band SIMLIB S epoch within0.0056 day; exactly one compatible LIBID required. Candidate FITRES SIM_LIBID must equal that uniquely identified cadence. No missing-row rejection assumptions.",
+  "excluded_matching_fields": ["DLMAG","FITCHI2","CHI2","FLUXCAL","SIM_FLUXCAL","SIM_DLMAG","NDOF"],
+  "outputs": ["candidate cardinalities zero/one/multiple", "original CID membership in candidate set", "exact all candidate CIDs", "cadence threshold robustness0.003/0.01d"],
+  "interpretation": "Metadata compatibility only, not an event identity certificate or execution linkage. Never choose a permutation from these candidates. Unidentified cadence remains unknown. No baseline gate widening."
+}

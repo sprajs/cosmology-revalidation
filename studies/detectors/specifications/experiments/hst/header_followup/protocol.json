@@ -1,0 +1,17 @@
+{
+  "status": "frozen_before_header_acquisition",
+  "purpose": "Recover constituent exposure names and current processing metadata from primary FITS headers, without image pixel acquisition or photometry.",
+  "source": "Frozen MAST CAOM visit-groups.csv public data_uri",
+  "uris": [
+    "mast:HST/product/icxoi1010_drz.fits",
+    "mast:HST/product/icxoi4010_drz.fits"
+  ],
+  "selection": "First F160W association and later same-filter template selected by chronology, not flux outcomes.",
+  "method": "Official MAST Download/file GET with Range bytes0-287999; stream only2880byte FITS blocks through PRIMARY END. Close immediately; preserve responsemetadata and received primaryheader. Even ifRangeignored, no scienceextensionread.",
+  "caps": {
+    "header_bytes_per_product": 288000,
+    "timeout_per_request_seconds": 20,
+    "requests": 2
+  },
+  "limitations": "Current pipeline products need not equal historical RAISIN processing. Headerprocessing evidence is not calibrationexecution proof or actualphotometry."
+}

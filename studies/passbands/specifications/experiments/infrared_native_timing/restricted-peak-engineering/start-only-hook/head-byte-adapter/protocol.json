@@ -1,0 +1,20 @@
+{
+  "purpose": "Administrative byte-preserving HEAD adapter; resume unchanged frozen NIR scientific routine only after root release",
+  "parent_protocol_sha256": "98e4453f08bd32410d74aac0435c15ad4c3e241a3e0521a5827c1f6cd05af599",
+  "parent_freeze_sha256": "27af53c9c3b908c7f4e351565a5761b533ce78bad74b9a738576af515905feff",
+  "failure": "Astropy serializes five A columns with NUL instead of space padding; 712 actual raw byte mutations, numerical columns unchanged. Strict null gate correctly refused.",
+  "change": "Read and verify FITS BINTABLE row layout; copy entire source bytes and replace exactly 8 big-endian R4 PEAKMJD fields. Do not serialize FITS. No checksum cards present. Null is whole-file byte identical. Estimated file all bytes outside 32 allowed PEAKMJD bytes exact.",
+  "target_directory": "derived-start-only-bytes/{estimated,null}/PTE",
+  "failure_preserved": "Original derived-start-only and nir-failure.json remain unchanged, no moves",
+  "native_routine": "Import frozen run_start_only.py; override adapt_head only; call its unchanged run_nir after exact original and additive release hashes and activity checks",
+  "native_jobs": 9,
+  "scientific_gates": "Every original numerical/support/pure-peak/full-null gate unchanged; same8 draws and nominal joint12 peak; no effect cap or subset",
+  "native_seconds_carried": 26.78514001001895,
+  "native_total_cap_seconds": 120,
+  "native_per_process_cap_seconds": 40,
+  "worker_count": 1,
+  "new_photons": 0,
+  "new_seed": false,
+  "state": "prepared, no native execution",
+  "checks": "test-result.json; null exact file hash and strict Astropy table+column equality; estimated exact nonpeak bytes and nonpeak columns; every CID/offset/value verified"
+}

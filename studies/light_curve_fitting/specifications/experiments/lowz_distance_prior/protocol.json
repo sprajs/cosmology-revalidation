@@ -1,0 +1,18 @@
+{
+  "status": "Analytic follow-up specified before these numeric outcomes; not a statistical test.",
+  "question": "Does an informative distance prior below z=.08 depend exactly only on H0?",
+  "reference": "Flat LCDM Omega_m=.3, plus .28 archived code-default sensitivity; same arbitrary H0.",
+  "alternatives": "Flat constant q=0 and q=.5 over the low-redshift interval.",
+  "grid": [
+    0.005,
+    0.01,
+    0.02,
+    0.04,
+    0.06,
+    0.079,
+    0.08
+  ],
+  "anchor": "Subtract alternative-minus-reference difference at z=.02 to remove one gray intercept.",
+  "scale_comparison": "5/ln(10)*(150/300000)/z, peculiar-velocity-only scale, not total prior width or significance.",
+  "boundary": "z=.08 is a limiting comparison; paper's informative branch is strictly below .08."
+}

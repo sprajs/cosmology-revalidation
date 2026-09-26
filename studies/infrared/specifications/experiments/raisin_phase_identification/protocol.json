@@ -1,0 +1,32 @@
+{
+  "status": "Frozen before metadata cadence counts and before any observed residual scores; known paper sectionV.3 motivates windows",
+  "primary": "Same-object exact-filter Y late10\u201320 minus early\u22127..7 amplitude contrast; no cosmological distance or measured brightness selection",
+  "metadata_only_allowlist": [
+    "SNID",
+    "zHEL",
+    "PEAKMJD",
+    "MJD",
+    "FLT",
+    "FIELD",
+    "column names"
+  ],
+  "cadence_gates": {
+    "exact_filter_each_window_distinct_nights_at_least": 3,
+    "each_window_restday_span_at_least": 2,
+    "minimum_primaryY_objects": 15,
+    "minimum_primaryY_objects_with_second_J_j_H_h": 10
+  },
+  "optical_proxy": "At least3 optical nights in[-10,10] bracketingheaderpeak and3nights in(10,40]; not precision/independence proof",
+  "future_before_score_gates": {
+    "optical_only_timing_sigma_days_at_most": 0.5,
+    "model_design_contrast_information_fraction_after_timing_shape_dust_host_projection_at_least": 0.2,
+    "pooled_design_sigma_mag_at_most": 0.01,
+    "effective_object_count_at_least": 10,
+    "largest_object_information_fraction_at_most": 0.2
+  },
+  "future_gates_scope": "Prospective design thresholds, not met merely by cadence counts. No threshold relaxation after outcomes; any failed gate remains a limitation.",
+  "extra_bands": "J,j,H,h and Y/y kept exact physical filter identities. Late15\u201330 only a predeclared support sensitivity, never replacementprimary.",
+  "training": "Exact name roster comparison to M20 is overlap proxy only. SNooPy.B18 exact training roster must be established before an independent validation claim.",
+  "selection": "ReleasedCSP positivity and complete epoch/missing/limit provenance unresolved; no ordinaryGaussian observed outcome scoring until closure or explicit selection likelihood.",
+  "inventory_source_sha256": "cdecc6317a3636dfcd9c692a0edd52c62a7f156d939d81e42b97b3681acb8f7b"
+}

@@ -1,0 +1,17 @@
+{
+  "registered_at_utc": "2026-09-21",
+  "status_at_registration": "No independent pilot flux comparison or alternative-model outcomes inspected",
+  "sample": "All 12 portable_pilot preregistered DES SNe; published accepted mask mapped by CID, band and nearest exact MJD within 0.003 day, with uniqueness required",
+  "gate": "First compare fixed parameter mean flux, integration convergence, model variance and covariance conventions. Never silently rescale fitted amplitudes to make predictions match. sncosmo is an independent engine, not an exact SNANA implementation.",
+  "means": [
+    "SALT3: exact DES5YR M0/M1/colour-law assets; F99 observer dust with effective supplied MWEBV; calibrated passbands/primary magnitudes and internal MAG_OFFSET=0.27",
+    "F99: replace SALT colour law by fixed Rv=3.1 rest-frame F99 curve, subtracting its value at 4302.57 Angstrom to remove the amplitude gauge; signed effective colour is allowed and is not identified as physical dust E(B-V)",
+    "phase_colour: SALT colour c becomes c+d*tanh(restphase/20); Gaussian d prior sigma=0.10, hard range [-0.30,0.30]; this is a flexible empirical alternative, not a physical mechanism"
+  ],
+  "fits": "Independent scipy or iminuit minimization of a Gaussian calibrated-flux likelihood; common frozen covariance per object for mean-only comparisons. Parameterization log(x0),x1,c,t0_offset; x1[-5,5], colour[-0.5,0.5], t0 within 10 observer days of full official fitted t0, plus the original 10-day peak-time Gaussian prior where exact prior centre is known. No cosmological distance input.",
+  "heldout": "After gate characterization, deterministic epoch split: SHA256('independent-flux-v1|CID|floor(MJD+0.5)') modulo 5 equals zero is held out, all bands of the same night grouped. Additional leave-one-band-out across each available band if training leaves at least two bands. Split assignment is independent of observed flux.",
+  "predictive_score": "Paired per-object log predictive density on identical held-out rows; include train-test covariance conditional Gaussian and local parameter-Hessian propagation. Also retain plug-in scores and training chi-square. Priors and identical common fixed noise isolate mean-model sensitivity. Report failed/boundary fits and strongest object counterexamples. Scores are conditional on fitted full-data noise and released SALT-based mask; this leaks nuisance/mask information and is not a clean population-level validation.",
+  "synthetic": "Under the same observed cadence and fixed covariance, noiseless parameter recovery plus repeated independently generated correlated Gaussian perturbations; assess score sensitivity to noise covariance, derivative/Hessian consistency, and deliberate phase-colour perturbation. Conditional linearized Hessian coverage and nonlinear refits are explicitly distinct.",
+  "interpretation": "A 12-SN pilot cannot establish population selection or physical dust/age identification. No LCDM fit, released MU correction, or acceleration criterion is used to choose the flux law. Full-precision SNANA export is a diagnostic reference, not the independent likelihood implementation.",
+  "provenance": "Every run records input/output/code SHA256 and package versions; original phase1 products are immutable. Results may justify amendments only documented before revised outcomes."
+}

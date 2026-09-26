@@ -1,0 +1,10 @@
+{
+ "scope":"Independent read-only correctness verification of completed 2021 RAISIN rounded-input endpoint and corner native fits; no native execution or population inference",
+ "source":"astra_design/raisin_timing_assets/rounding_2021 frozen endpoint/corner case ledgers, their raw DAT/FITRES/log outputs, instrumentation_2021 absent baseline",
+ "expected_cases":{"endpoints":248,"corners":40,"baseline":8},
+ "parser":"Independently parse CSP_ROW,CSP_OBJECTIVE,CSP_WROW/CSP_WDIAG by CID+iteration from raw logs, plus FITRES VARNAMES/SN rows and source DAT VARLIST/OBS. Do not import Astra runner/parser or states.npz.",
+ "gates":{"ERRFLAG_FIT":0,"NDOF":"accepted physical rows minus one","fixed_parameters":"STRETCH=1,AV=0,RV=1.518,PKMJD=PKMJDINI=baseline peak","objective_abs":1e-8,"positive_W_C":true,"final_D_iteration_abs":0.001,"fixed_C_positive_amplitude_D_gap_abs":0.001,"delta_D_abs":0.001,"delta_dataQ_abs":"max(0.01,0.001*archived2021 baseline dataQ) per original CID","clone":"all non-CID FITRES and full log-state science exactly equal to corresponding absent state"},
+ "row_gate":"Native final accepted (MJD,band,flux,error) multiset matches each source DAT's declared physical rows after source R4 flux/error; compare all source DAT changes to exact case-ledger declarations and original baseline DAT. Preserve duplicates.",
+ "timestamp_gate":"For all32 MJD coordinates, enumerate nearby IEEE754 float32 states with libc snprintf %.3f equal to source printed token. Require the singleton and inverse open midpoint cell limits, via float64 nextafter, exactly match precision-ledger; no additional half-decimal allowance.",
+ "report":"All 288 endpoint/corner cases and all failures in machine-readable ledger; per-stage summary, independent comparison to Astra output only after primary independent calculations. If outputs missing, record incomplete rather than infer pass."
+}
