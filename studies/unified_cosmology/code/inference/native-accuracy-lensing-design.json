@@ -1,0 +1,23 @@
+{
+  "schema": "native-accuracy2-joint-lensing-design-v1",
+  "scope": "Separate Qu joint-lensing sensitivities of a freshly qualified native-accuracy2 posterior; no automatic replacement of the primary measurement.",
+  "parent": "native_accuracy_qualify.qualify_run must return QualifiedNativeAccuracy2, numerical_accuracy=2, with all original2000 selected slots, groups, repeats, native2 derived quantities and raw untrimmed weights.",
+  "variants": ["actplanckspt3g_baseline", "actplanckspt3g_extended"],
+  "inherited_design": "joint-lensing-bridge-design.json fixes released35/38-bin joint covariance, CMB response, full-primary covariance choice, Hartlap factors, old factors and normalized A_fg auxiliary prior.",
+  "spectra": "Read only the typed parent's2000 sealed native2 raw C_l archives: FIRASmuK2 TT/EE/TE/BB and dimensionless potential pp. No native1/emulator spectra and no new CAMB, model or background evaluations.",
+  "source_constants": "Original accuracy1 spectral sidecars supply ONLY fixed old-factor normalized-Gaussian constants. Verify every original native record seal/hash/index/point/density against its native2 parent link, sidecar seal/capture source hashes/correction identity, and require identical finite constants over2000 slots. Old spectral arrays are not opened or used. Their sidecar pointer is provenance, not the new numerical spectrum.",
+  "weight": "native2_log_weight + joint_kernel_loglike - native2_old_ACTPlanck_loglike - native2_old_PanSPT_loglike. Record separate normalized-Gaussian offset using the actual Hartlap-adjusted precision; fixed offsets cancel posterior weights and are not evidence.",
+  "unchanged_factors": "Every other likelihood factor and every normalized prior, including A_fg uniform[0,2], is retained. A_fg remains in importance and chain/batch diagnostics but is removed only from physical posterior reporting.",
+  "qualification": "Use the unchanged luminosity-sensitivity-design overlap gates for each variant separately. All2000 slots must evaluate. Failed variants retain diagnostics but posterior, conditional sign fractions and published covariance are null. No trimming, replacement, relaxed gate or32-point posterior.",
+  "density_absolute_tolerance": 1e-9,
+  "cache": "Fresh ignored cache directory only, immutable plan and sealed per-variant records; no hidden recomputation or overwrite. Parent, source, validation, likelihood assets and all numerical inputs rehashed before return.",
+  "compute": {"native_CAMB_calls": 0, "background_calls": 0, "model_construction_calls": 0},
+  "limitations": [
+    "Importance and finite-sample gates do not certify unvisited modes.",
+    "Both variants replace the SPT estimator as well as covariance; extended additionally adds ACT multipoles. They are not pure covariance toggles.",
+    "The released Gaussian MUSE compression contains no delensed EE factor.",
+    "Omitted primary-CMB/lensing and cross-probe covariance remains a conditional approximation.",
+    "Native accuracy2 qualification and its prerequisite numerical screen are inherited, not newly certified by this array-only calculation.",
+    "Fixed normalization offsets compare distinct data vectors and units; no Bayes factor or significance is inferred."
+  ]
+}
