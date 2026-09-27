@@ -1,0 +1,21 @@
+{
+  "schema": "native-precision-refinement-design-v1",
+  "scope": "A separately preserved numerical screen, never a posterior correction or new fit. No physical execution during implementation validation.",
+  "prerequisite": "Fresh native_precision_review_consumer.verify of the original32point screen and thermal review; require numerical_sensitivity_requires_followup with a genuine total/component density-variation flag and no incomplete/failed native points.",
+  "selection": "Exactly the original32point IDs, chain labels, ordering, physical/nuisance coordinates and chronological strata. Preserve duplicates. No outcome-based point replacement.",
+  "stages": {"replay": "One fresh-process native accuracy2 evaluation at original audit_index0; report timing and gate all later work on successful component/prior/derived/spectrum replay.", "refine": "Only after verified replay,32fresh processes at accuracy3, one point per process. No silent native retry. Defaultone worker, maximumfour."},
+  "numerical_controls": ["AccuracyBoost", "lAccuracyBoost", "lSampleBoost"],
+  "reference_value": 2,
+  "refinement_value": 3,
+  "maximum_native_logposterior_invocations": 33,
+  "maximum_workers": 4,
+  "OMP_threads_per_worker": 1,
+  "invariance": "Original physical/nuisance coordinates, priors, all likelihoods/data/covariances, flatness/neutrinos/halofit, lens_potential_accuracy4, lens_margin, multipole requirements and calibration remain identical. No surrogate or acoustic-coordinate reinversion. Only the three declared boost controls differ.",
+  "replay_tolerances": {"component_loglike_absolute_max": 1e-8, "prior_sum_absolute_max": 1e-8, "logpost_absolute_max": 1e-8, "derived_scaled_max": 1e-8, "spectrum_max_scale_absolute_max": 1e-10},
+  "reference_background": "Use native_thermal_parameters on a copy of the finalized native parameters, with allthreeboosts reset to2; compare H,rdrag,omegam,q/j to the stored original full-spectrum accuracy2 point. Keep original background tolerances and thermal-review H relative tolerance.",
+  "spread": "Apply the original total centeredRMS0.05, total centeredmax0.1 and component centeredmax0.2 loglike gates unchanged to2to3. Center over all32 with an unweighted mean, never separately bychain. Preserve original repaired1to2 summary beside it.",
+  "failure_policy": "Immutable sealed plans, native point payloads, logs, spectra and hashledgers. Existing logs without completed records are unknown-count failed attempts, never retried. Failed replay prohibits32stage. Retain every exception/failed gate. No clipping or failedpoint deletion.",
+  "count_semantics": "Count recorded model.logposterior invocations; each freshprocess has one requested point and no explicit warmup. This is an invocation count, not an instrumented internal CAMB solver count. Incomplete logs retain unknown invocation counts and consume their attempt slot.",
+  "interpretation": "Passing means no large2to3 variation detected on the fixed32 points only. It does not qualify accuracy1 or prove accuracy3 convergence, represent a weighted posterior, estimate cosmological shifts, permit32point reweighting, or relax any original posterior/importance gate. A later2000point numerical-target correction requires its own declared identity and full original gates.",
+  "validation": "Synthetic-only source/plan/replay/accounting/spread/cache failures and zero-physical-call tests. Exact configuration comparison may build dictionaries but cannot instantiate a model or call CAMB. Root review precedes any execution."
+}
