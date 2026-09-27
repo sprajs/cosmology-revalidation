@@ -16,6 +16,32 @@ from late_geometry import sample_path
 from target_identity import identify
 
 
+def initial_reference(info, names, mean, covariance, seed):
+    """Draw a finite-support starting point without clipping or changing priors."""
+    rng = np.random.default_rng(seed)
+    rejected = []
+    sampled = [name for name in names if isinstance(info['params'].get(name), dict)
+               and 'prior' in info['params'][name]]
+    for attempt in range(10000):
+        delta = rng.multivariate_normal(np.zeros(len(names)), covariance)
+        candidate = {key: float(mean[key] + d) for key, d in zip(names, delta)
+                     if key in sampled}
+        outside = []
+        for key, value in candidate.items():
+            prior = info['params'][key]['prior']
+            if not np.isfinite(value) or ('min' in prior and value <= prior['min']) \
+                    or ('max' in prior and value >= prior['max']):
+                outside.append(key)
+        if candidate.get('w', -1.) + candidate.get('wa', 0.) > 0:
+            outside.append('CAMB_w_plus_wa')
+        if not outside:
+            return {'accepted_attempt': attempt + 1, 'point': candidate,
+                    'rejected_support_constraints': rejected,
+                    'scope': 'Initialization distribution only; physical prior and target unchanged.'}
+        rejected.append(outside)
+    raise RuntimeError('Could not draw an initial point inside the declared support.')
+
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument('--model',choices=['lcdm','cpl'],default='cpl')
@@ -38,6 +64,8 @@ def main():
     method='fast-metropolis' if a.fast_lensing else 'metropolis'
     if a.proposal_scale!=2.4:
         method+='-scale'+str(a.proposal_scale).replace('.','p')
+    if a.seed!=272652:
+        method+='-seed'+str(a.seed)
     out=ROOT/f'.work/unified-cosmology/inference/modern-{a.model}-{a.evolution}-{a.sample}-{a.calibration}-{method}-{modelhash[:12]}'
     out.mkdir(parents=True,exist_ok=True)
     info=target_configuration(a.model,a.evolution,a.sample,a.calibration,a.surrogate)
@@ -59,17 +87,18 @@ def main():
     from mpi_metadata import install
     manifest['metadata_policy']=install(out/'chain')
     manifest['metadata_guard_sha256']=hashlib.sha256((Path(__file__).parent/'mpi_metadata.py').read_bytes()).hexdigest()
+    names=covariance.open().readline().lstrip('#').split()
+    if not a.resume:
+        manifest['initialization']=initial_reference(info,names,proposal['transformed_mean'],
+                                                     np.loadtxt(covariance),a.seed+rank)
+        for key,value in manifest['initialization']['point'].items():
+            info['params'][key]['ref']=value
     mpath=out/f'run-{rank}.json'
     if mpath.exists():
         assert a.resume,'Existing run: use --resume.'
         assert json.loads(mpath.read_text())['target_identity']==identity
         with (out/f'run-history-{rank}.jsonl').open('a') as f:f.write(json.dumps(manifest)+'\n')
     else:mpath.write_text(json.dumps(manifest,indent=2)+'\n')
-    names=covariance.open().readline().lstrip('#').split()
-    delta=np.random.default_rng(a.seed+rank).multivariate_normal(np.zeros(len(names)),np.loadtxt(covariance))
-    for key,d in zip(names,delta):
-        if isinstance(info['params'].get(key),dict) and 'prior' in info['params'][key]:
-            info['params'][key]['ref']=float(proposal['transformed_mean'][key]+d)
     sampled=[k for k,v in info['params'].items() if isinstance(v,dict) and 'prior' in v]
     info['sampler']={'mcmc':{'covmat':str(covariance),'drag':False,'blocking':[[1,sampled]],
         'proposal_scale':a.proposal_scale,

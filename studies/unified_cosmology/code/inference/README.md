@@ -89,6 +89,26 @@ OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 CLIPY_NOJAX=1 \
   --output studies/unified_cosmology/results/inference/modern-cpl-exact-correction.json
 ```
 
-Exact correction refuses a failed diagnostic, changed chain cohort, changed target or fewer than 2,000 selected points. Each selected row is re-evaluated with both native CAMB and the frozen proposal, including a check against the stored sampling density. All failures and all **untrimmed** importance weights are preserved. Pareto smoothing diagnoses overlap but does not alter reported weights. Required gates are independent-chain Rhat ≤ 1.01, bulk/tail ESS ≥ 400, importance ESS ≥ 400 and Pareto k < 0.7, followed by inspection of weighted-chain agreement and Monte Carlo stability. Finite diagnostics cannot prove the absence of a remote mode.
+Exact correction refuses a failed diagnostic, changed chain cohort, changed target or fewer than 2,000 selected points. Each selected row is re-evaluated with both native CAMB and the frozen proposal, including a check against the stored sampling density. All failures and all **untrimmed** importance weights are preserved. Pareto smoothing diagnoses overlap but does not alter reported weights. Required gates are independent-chain Rhat ≤ 1.01, bulk/tail ESS ≥ 400, importance ESS ≥ 400 and Pareto k < 0.7. Each chain must retain importance ESS ≥ 50 and 5–50% of the pooled weight. Weighted chain means must lie within 0.3 pooled posterior standard deviations of the pooled mean, and estimated mean Monte Carlo errors must remain below 0.1 standard deviations for 10, 20 and 40 batches per chain. Each batch contains at least ten selected points. These explicit stability thresholds were fixed before any cosmological density correction. Constant weights have no Pareto tail to fit; a zero-weight chain fails. Finite diagnostics cannot prove the absence of a remote mode.
 
 The exact calculation is substantially slower than proposal sampling. Cached point records allow resuming only with matching source, model, chains and selection identities. A failed proposal or failed convergence check stays a failed numerical attempt; it is not reported as a cosmological uncertainty interval.
+
+`measurement_summary.py --run CHAIN_FOLDER CORRECTION_SUMMARY --output REPORT.json` consumes a qualified correction. Repeat `--run` for separately sampled targets. It rechecks the parent diagnostic, all source/dependency identities, selected chain bytes and every native record, then recomputes the weight and stability gates. Its tables retain the weighted parameter covariance, finite scalar-prior and coupled CAMB-support diagnostics, and conditional acceleration/jerk fractions. Zero sampled tail events do not become a claim of certainty or a Gaussian significance.
+
+## Broader numerical support for luminosity alternatives
+
+The initial linear and smooth-luminosity pilots visited regions outside the original interpolation envelope often enough that exact fallbacks dominated their runtime. They remain unqualified pilots. A new [numerical design](broad-spectral-design.json) keeps the original centre and physical priors, but expands the two conditional dark-energy directions of the training covariance by a factor of three in standard deviation. Its 768 training attempts and 128 independent holdout attempts use distinct fixed random seeds. Invalid requests are recorded without replacement. The polynomial degree and fitting method were chosen before those new outcomes.
+
+```bash
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
+  .work/unified-cosmology/external-probes/.modern-venv/bin/python \
+  studies/unified_cosmology/code/inference/broad_spectral_training.py --workers 8
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
+  .work/unified-cosmology/external-probes/.modern-venv/bin/python \
+  studies/unified_cosmology/code/inference/broad_spectral_fit.py
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
+  .work/unified-cosmology/external-probes/.modern-venv/bin/python \
+  studies/unified_cosmology/code/inference/broad_spectral_check.py
+```
+
+The new model lives at `.work/unified-cosmology/inference/broad-spectral/surrogate-cubic-v1.npz`. Use that path with `modern_sample.py --evolution linear` or `--evolution smooth01` in fresh four-chain invocations. The original baseline model stays unchanged. The broader model requires the same independent convergence and native density-correction gates; its training and holdout spectra are not cosmological observations.
