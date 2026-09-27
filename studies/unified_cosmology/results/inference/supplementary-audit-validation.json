@@ -1,0 +1,206 @@
+{
+  "schema": "supplementary-audit-synthetic-validation-v1",
+  "status": "passed",
+  "cases": [
+    {
+      "case": "completed_receipts_with_qualified_scientific_outputs",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": true,
+      "typed_plot_histories": [
+        "expansion_history",
+        "luminosity_history"
+      ],
+      "integrity_errors_expected": false
+    },
+    {
+      "case": "missing_completed_receipt_remains_pending",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": false,
+      "typed_plot_histories": [],
+      "integrity_errors_expected": false
+    },
+    {
+      "case": "failed_execution_not_promoted",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": false,
+      "typed_plot_histories": [],
+      "integrity_errors_expected": false
+    },
+    {
+      "case": "duplicate_receipt_rejected",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": false,
+      "typed_plot_histories": [],
+      "integrity_errors_expected": true
+    },
+    {
+      "case": "missing_log_rejected",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": false,
+      "typed_plot_histories": [],
+      "integrity_errors_expected": true
+    },
+    {
+      "case": "missing_stage_result_rejected",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": false,
+      "typed_plot_histories": [],
+      "integrity_errors_expected": true
+    },
+    {
+      "case": "changed_output_bytes_rejected",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": false,
+      "typed_plot_histories": [],
+      "integrity_errors_expected": true
+    },
+    {
+      "case": "changed_source_rejected",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": false,
+      "typed_plot_histories": [],
+      "integrity_errors_expected": true
+    },
+    {
+      "case": "changed_attempt_argv_rejected",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": false,
+      "typed_plot_histories": [],
+      "integrity_errors_expected": true
+    },
+    {
+      "case": "unauthorized_plan_argv_rejected",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": false,
+      "typed_plot_histories": [],
+      "integrity_errors_expected": true
+    },
+    {
+      "case": "wrong_original_failure_hash_rejected",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": false,
+      "typed_plot_histories": [],
+      "integrity_errors_expected": true
+    },
+    {
+      "case": "wrong_parent_target_rejected",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": false,
+      "typed_plot_histories": [],
+      "integrity_errors_expected": true
+    },
+    {
+      "case": "missing_parent_binding_rejected",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": false,
+      "typed_plot_histories": [],
+      "integrity_errors_expected": true
+    },
+    {
+      "case": "false_success_with_failed_gates_rejected",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": false,
+      "typed_plot_histories": [],
+      "integrity_errors_expected": true
+    },
+    {
+      "case": "completed_omitted_BAO_still_scientifically_failed",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": true,
+      "typed_plot_histories": [
+        "expansion_history",
+        "luminosity_history"
+      ],
+      "integrity_errors_expected": false
+    },
+    {
+      "case": "unqualified_parent_withheld",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": false,
+      "typed_plot_histories": [],
+      "integrity_errors_expected": true
+    },
+    {
+      "case": "auxiliary_thermal_repair_preserves_original_failure",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": true,
+      "typed_plot_histories": [
+        "expansion_history",
+        "luminosity_history"
+      ],
+      "integrity_errors_expected": false
+    },
+    {
+      "case": "genuine_density_variation_not_repaired",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": false,
+      "typed_plot_histories": [],
+      "integrity_errors_expected": false
+    },
+    {
+      "case": "genuine_high_background_failure_not_repaired",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": false,
+      "typed_plot_histories": [],
+      "integrity_errors_expected": false
+    },
+    {
+      "case": "wrong_thermal_review_parent_rejected",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": false,
+      "typed_plot_histories": [],
+      "integrity_errors_expected": true
+    },
+    {
+      "case": "contradictory_supported_review_flags_rejected",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": false,
+      "typed_plot_histories": [],
+      "integrity_errors_expected": true
+    },
+    {
+      "case": "changed_saved_pure_consumer_receipt_rejected",
+      "passed": true,
+      "mock_parent_qualifications": 1,
+      "native_accuracy_diagnostic_supported": false,
+      "typed_plot_histories": [],
+      "integrity_errors_expected": true
+    }
+  ],
+  "physical_model_calls": 0,
+  "background_calls": 0,
+  "observational_audit_runs": 0,
+  "scope": "Synthetic receipt trees, source/input hashes and explicit mocked parent/thermal-review consumers; real qualification/review remain delegated unchanged to frozen consumers.",
+  "source_sha256": {
+    "studies/unified_cosmology/code/supplementary_audit_validate.py": "5372f37928d9115fd2a82dd87c89c63ba41786095008da238ce3b4e1b30697d1",
+    "studies/unified_cosmology/code/supplementary_audit.py": "fa7bd8e5c470035d9d32f87cb2a69e7e2e840caa03cc0bac4f42ad200fef4fc1",
+    "studies/unified_cosmology/code/supplementary-audit-design.json": "dbacb736f560a07b8f9b2ae2ff91f50a62396cecaee457f898e78c399094200d",
+    "studies/unified_cosmology/code/final_audit.py": "7308fabad1f80b4b694283945331e93a7b1f6b9a9884cfc5852c782519139df8",
+    "studies/unified_cosmology/code/final_audit_validate.py": "0ac7ab562d459d0e11ba40ffdd4fbaeb3a1d2613c336c29b1034ac925d82f282",
+    "studies/unified_cosmology/code/final-audit-schema.json": "af2a25f4571d0f977457b7d4887df5270bf2424f24d2cf8926c92bb20ece7b52",
+    "studies/unified_cosmology/code/inference/postprocessing_continuation.py": "99127bc94287d97155c994bbfc19903cba33516e01f93c456580bb1fdc967b6b",
+    "studies/unified_cosmology/code/inference/measurement_summary.py": "ca963dbaf8bff8bb693bf483c023d022c1e57b71bf9680711c92d716e9e415ef",
+    "studies/unified_cosmology/code/inference/native_precision_review_consumer.py": "7f9ef38fffbb69a9e2a1540e1ae5e06a265e634f42805efc3b5f8f49820bcb11"
+  }
+}

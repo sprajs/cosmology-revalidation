@@ -3,9 +3,11 @@ from copy import deepcopy
 import json
 from pathlib import Path
 import tempfile
+from unittest.mock import patch
+from types import SimpleNamespace
 import numpy as np
 from final_audit import (ROOT, CODE, DESIGN, SCHEMA, SUCCESS, audit_cohort, audit_all,
-                         digest, scientific_state, check_precision, validate_report)
+                         digest, scientific_state, check_precision, validate_report, Evidence)
 
 
 def put(path, data):
@@ -204,8 +206,77 @@ def run_tests():
     return results
 
 
+def asset_tests():
+    """The logical-name exception cannot suppress checks of actual file bytes."""
+    import hashlib
+    outcomes = []
+    for name in ['valid_logical_and_file_bindings', 'valid_replacement_parent_assets',
+                 'valid_bridge_likelihood_assets', 'changed_logical_digest',
+                 'missing_logical_group', 'unknown_logical_group', 'changed_asset_file',
+                 'missing_asset_file', 'wrong_asset_size', 'changed_ordinary_file',
+                 'logical_name_outside_typed_assets', 'file_manifest_disguised_as_assets',
+                 'conflicting_logical_replay']:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            work = root/'.work/unified-cosmology/external-probes'
+            roots = {'primary/example': work/'packages/data/example',
+                     'primary/clipy_source': work/'packages/code/planck/clipy/clipy',
+                     'modern/ACTDR6_CMB': work/'packages/data/ACTDR6CMBonly',
+                     'modern/ACT_Planck_lensing': work/'packages/data/ACT_dr6_likelihood/v1.2',
+                     'modern/synthetic_likelihood': work/'fake-site/synthetic_likelihood'}
+            inventories = {'primary': {}, 'modern': {}}
+            for key, folder in roots.items():
+                folder.mkdir(parents=True, exist_ok=True)
+                asset = folder/'array.dat'; asset.write_text('synthetic asset '+key+'\n')
+                namespace, group = key.split('/')
+                inventories[namespace][group] = {'array.dat': {'sha256': digest(asset), 'bytes': asset.stat().st_size}}
+            for namespace, filename in [('primary', 'asset-file-inventory.json'), ('modern', 'modern-file-inventory.json')]:
+                put(work/filename, inventories[namespace])
+            recorded = {ns+'/'+group: hashlib.sha256(json.dumps(files, sort_keys=True).encode()).hexdigest()
+                        for ns, groups in inventories.items() for group, files in groups.items()}
+            ordinary = root/'sources/real.py'; ordinary.parent.mkdir(); ordinary.write_text('# actual source\n')
+            payload = {'assets': deepcopy(recorded), 'source_sha256': {'sources/real.py': digest(ordinary)}}
+            if name == 'valid_replacement_parent_assets':
+                payload['native_target'] = {'parent_likelihood_assets': payload.pop('assets')}
+            if name == 'valid_bridge_likelihood_assets':
+                payload['native_target'] = {'likelihood_assets': payload.pop('assets')}
+            if name == 'changed_logical_digest': payload['assets']['primary/example'] = '0'*64
+            if name == 'missing_logical_group': payload['assets'].pop('primary/example')
+            if name == 'unknown_logical_group': payload['assets']['primary/unknown'] = '0'*64
+            if name == 'changed_asset_file': (roots['primary/example']/'array.dat').write_text('tampered')
+            if name == 'missing_asset_file': (roots['primary/example']/'array.dat').unlink()
+            if name == 'wrong_asset_size':
+                inventories['primary']['example']['array.dat']['bytes'] += 1
+                put(work/'asset-file-inventory.json', inventories['primary'])
+                payload['assets']['primary/example'] = hashlib.sha256(json.dumps(inventories['primary']['example'], sort_keys=True).encode()).hexdigest()
+            if name == 'changed_ordinary_file': ordinary.write_text('# changed\n')
+            if name == 'logical_name_outside_typed_assets': payload = {'untyped': recorded}
+            if name == 'file_manifest_disguised_as_assets': payload['assets'] = payload['source_sha256']
+            evidence = Evidence(root)
+            error = None
+            with patch('final_audit.importlib.util.find_spec', return_value=SimpleNamespace(origin=str(roots['modern/synthetic_likelihood']/'__init__.py'))):
+                try:
+                    evidence.walk(payload)
+                    if name == 'conflicting_logical_replay':
+                        changed = deepcopy(payload); changed['assets']['primary/example'] = 'f'*64
+                        evidence.walk(changed)
+                except (AssertionError, FileNotFoundError) as exc:
+                    error = str(exc)
+            if name in {'valid_logical_and_file_bindings', 'valid_replacement_parent_assets', 'valid_bridge_likelihood_assets'}:
+                assert error is None, error
+                assert set(evidence.logical_asset_bindings) == set(recorded)
+                expected_paths = {str((p/'array.dat').relative_to(root)) for p in roots.values()}
+                assert expected_paths <= set(evidence.bindings)
+                assert 'sources/real.py' in evidence.bindings
+            else:
+                assert error is not None, 'Invalid asset fixture passed: '+name
+            outcomes.append({'case': name, 'passed': True, 'rejected': error is not None})
+    return outcomes
+
+
 def main():
     checks = run_tests()
+    assets = asset_tests()
     import ast
     for path in [CODE/'final_audit.py', Path(__file__)]:
         ast.parse(path.read_text())
@@ -214,6 +285,7 @@ def main():
               'scientific_model_or_background_calls': 0,
               'qualification_dependency': 'Mocked ONLY in temporary synthetic fixtures; real CLI has no qualification bypass.',
               'manual_result_schema_cases': 4,
+              'typed_logical_asset_cases': assets,
               'source_sha256': {str(path.relative_to(ROOT)): digest(path) for path in [CODE/'final_audit.py', Path(__file__), DESIGN, SCHEMA]},
               'scope': 'Decision/identity/withholding validation, not a cosmological posterior or certification of pending chains.'}
     output = ROOT/'studies/unified_cosmology/results/final-audit-validation.json'

@@ -488,9 +488,76 @@
   "scientific_model_or_background_calls": 0,
   "qualification_dependency": "Mocked ONLY in temporary synthetic fixtures; real CLI has no qualification bypass.",
   "manual_result_schema_cases": 4,
+  "typed_logical_asset_cases": [
+    {
+      "case": "valid_logical_and_file_bindings",
+      "passed": true,
+      "rejected": false
+    },
+    {
+      "case": "valid_replacement_parent_assets",
+      "passed": true,
+      "rejected": false
+    },
+    {
+      "case": "valid_bridge_likelihood_assets",
+      "passed": true,
+      "rejected": false
+    },
+    {
+      "case": "changed_logical_digest",
+      "passed": true,
+      "rejected": true
+    },
+    {
+      "case": "missing_logical_group",
+      "passed": true,
+      "rejected": true
+    },
+    {
+      "case": "unknown_logical_group",
+      "passed": true,
+      "rejected": true
+    },
+    {
+      "case": "changed_asset_file",
+      "passed": true,
+      "rejected": true
+    },
+    {
+      "case": "missing_asset_file",
+      "passed": true,
+      "rejected": true
+    },
+    {
+      "case": "wrong_asset_size",
+      "passed": true,
+      "rejected": true
+    },
+    {
+      "case": "changed_ordinary_file",
+      "passed": true,
+      "rejected": true
+    },
+    {
+      "case": "logical_name_outside_typed_assets",
+      "passed": true,
+      "rejected": true
+    },
+    {
+      "case": "file_manifest_disguised_as_assets",
+      "passed": true,
+      "rejected": true
+    },
+    {
+      "case": "conflicting_logical_replay",
+      "passed": true,
+      "rejected": true
+    }
+  ],
   "source_sha256": {
-    "studies/unified_cosmology/code/final_audit.py": "11ead7f51fac01f77050cdfc6ea96712966b0d41ce13786ee69e7aaa06562697",
-    "studies/unified_cosmology/code/final_audit_validate.py": "80317935276bc9a62fafbb5767e81fca1885606b76494ea7b736338f6a6d7c45",
+    "studies/unified_cosmology/code/final_audit.py": "7308fabad1f80b4b694283945331e93a7b1f6b9a9884cfc5852c782519139df8",
+    "studies/unified_cosmology/code/final_audit_validate.py": "0ac7ab562d459d0e11ba40ffdd4fbaeb3a1d2613c336c29b1034ac925d82f282",
     "studies/unified_cosmology/code/final-audit-design.json": "8f62724130c57f2c477bf751c569dddd047929d3d425402d61e64f79a968acec",
     "studies/unified_cosmology/code/final-audit-schema.json": "af2a25f4571d0f977457b7d4887df5270bf2424f24d2cf8926c92bb20ece7b52"
   },

@@ -2,6 +2,7 @@
 import argparse
 from datetime import datetime, timezone
 import hashlib
+import importlib.util
 import json
 import math
 from pathlib import Path
@@ -133,6 +134,55 @@ class Evidence:
         self.root = root
         self.bindings = {}
         self.visited = set()
+        self.logical_asset_bindings = {}
+
+    def logical_assets(self, recorded):
+        """Resolve target_identity's inventory digests, then verify real files.
+
+        ``primary/planck_2018`` names an inventory group, not a file.  This
+        exception applies only to typed ``assets``, ``parent_likelihood_assets``
+        and ``likelihood_assets`` fields (target/replacement identities); ordinary path
+        manifests still pass through pin().  Inventory serialization and roots
+        match inference/target_identity.py, without importing likelihood code.
+        """
+        assert isinstance(recorded, dict) and recorded, 'Invalid logical asset inventory.'
+        work = self.root/'.work/unified-cosmology/external-probes'
+        packages = work/'packages'
+        groups = {}
+        for namespace, filename in [('primary', 'asset-file-inventory.json'),
+                                    ('modern', 'modern-file-inventory.json')]:
+            path = work/filename
+            self.pin(path, digest(path))
+            inventory = read(path)
+            assert isinstance(inventory, dict) and inventory, 'Invalid asset inventory file.'
+            for group, files in inventory.items():
+                assert isinstance(group, str) and '/' not in group and group not in {'.', '..'}
+                groups[namespace+'/'+group] = (namespace, group, files)
+        assert set(recorded) == set(groups), 'Logical asset groups do not match the declared inventories.'
+        for key, (namespace, group, files) in groups.items():
+            expected = hashlib.sha256(json.dumps(files, sort_keys=True).encode()).hexdigest()
+            assert recorded[key] == expected, 'Changed logical asset inventory: '+key
+            if key in self.logical_asset_bindings:
+                assert self.logical_asset_bindings[key] == expected, 'Conflicting logical asset binding: '+key
+                continue
+            if namespace == 'primary':
+                folder = packages/('code/planck/clipy/clipy' if group == 'clipy_source' else 'data/'+group)
+            elif group == 'ACTDR6_CMB':
+                folder = packages/'data/ACTDR6CMBonly'
+            elif group == 'ACT_Planck_lensing':
+                folder = packages/'data/ACT_dr6_likelihood/v1.2'
+            else:
+                assert group.isidentifier(), 'Invalid likelihood module asset group.'
+                spec = importlib.util.find_spec(group)
+                assert spec is not None and spec.origin, 'Missing likelihood module: '+group
+                folder = Path(spec.origin).parent
+            assert isinstance(files, dict) and files, 'Empty logical asset group: '+key
+            for name, metadata in files.items():
+                assert not Path(name).is_absolute() and '..' not in Path(name).parts, 'Invalid inventory-relative file.'
+                path = folder/name
+                self.pin(path, metadata['sha256'])
+                assert path.stat().st_size == metadata['bytes'], 'Changed asset size: '+str(path)
+            self.logical_asset_bindings[key] = expected
 
     def pin(self, path, expected, inspect=False):
         p = Path(path)
@@ -164,6 +214,9 @@ class Evidence:
         # Hash manifests can be named source_sha256, parent_inputs, or directly
         # contain path->hash pairs. Only actual path-like keys are interpreted.
         for key, item in value.items():
+            if key in {'assets', 'parent_likelihood_assets', 'likelihood_assets'}:
+                self.logical_assets(item)
+                continue
             if isinstance(item, str) and len(item) == 64 and all(c in '0123456789abcdef' for c in item) and '/' in key:
                 self.pin(key, item, inspect=True)
             if key.endswith('_sha256') and isinstance(item, str):
