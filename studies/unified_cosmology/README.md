@@ -8,6 +8,8 @@ The flexible late-time CPL model gives median **q₀ ≈ −0.38**, with central
 
 The released geometric-anchor and Cepheid distance ladder independently reproduces its published matrix result, **H₀ = 73.043 ± 1.007 km/s/Mpc**. Removing its supernova information yields a correlated distance likelihood for **37 host galaxies**. These are conditional calibration results; the H₀ summary is not added as an independent prior to overlapping supernova samples. [Calibration, covariance and remaining interface](notes/distance-ladder.md).
 
+The calibrated Pantheon+SH0ES sample separately gives **H₀ = 73.550 ± 1.017 km/s/Mpc** and **Ωₘ = 0.33245 ± 0.01806** in flat matter-plus-Λ cosmology, retaining the complete calibrator and noncalibrator covariance. An independent matrix and quadrature calculation reproduces the result. [Calibrated cosmology and published-chain comparison](notes/calibration-lcdm.md).
+
 ## Scientific reading order
 
 1. [Joint inference](notes/joint-inference.md): observations, equations, nuisance brightness, acceleration and jerk, priors and interpretation.

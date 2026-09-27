@@ -1,0 +1,282 @@
+{
+  "status": "passed_independent_joint_GLS_review",
+  "failed_gates": [],
+  "independent_posterior": {
+    "Omega_m": {
+      "mean": 0.3324479445933198,
+      "sd": 0.018056037276239792,
+      "quantiles": [
+        0.2976970812182974,
+        0.3144946771402488,
+        0.3322245113834734,
+        0.35039622858853764,
+        0.3684686319491719
+      ]
+    },
+    "H0_km_s_Mpc": {
+      "mean": 73.54958354980322,
+      "sd": 1.0172894120067986,
+      "quantiles": [
+        71.5757176400869,
+        72.5379669080836,
+        73.54256511829206,
+        74.56104459257725,
+        75.56333534299483
+      ]
+    },
+    "H0_Omega_m_covariance": -0.0025300203547599922,
+    "quantile_probabilities": [
+      0.025,
+      0.16,
+      0.5,
+      0.84,
+      0.975
+    ]
+  },
+  "producer_comparison": {
+    "H0_km_s_Mpc": {
+      "mean": 1.325872744928347e-11,
+      "sd": 2.2753265938035838e-10,
+      "quantiles_abs_difference": [
+        3.182947239110945e-10,
+        3.154241312586237e-10,
+        4.930882369080791e-10,
+        4.931877128910855e-10,
+        5.062759100837866e-10
+      ]
+    },
+    "Omega_m": {
+      "mean": 2.886579864025407e-14,
+      "sd": 6.83481049534862e-16,
+      "quantiles_abs_difference": [
+        9.43689570931383e-16,
+        1.2212453270876722e-15,
+        5.551115123125783e-16,
+        3.885780586188048e-15,
+        1.6708856520608606e-14
+      ]
+    },
+    "H0_Omega_m_covariance": 2.4212402915946285e-14
+  },
+  "numerical_checks": {
+    "fixed_point_loglike": [
+      {
+        "Omega_m": 0.1,
+        "H0": 50.0,
+        "independent_loglike": 316.0779989262469,
+        "interface_loglike": 316.0779989262487,
+        "abs_error": 1.8189894035458565e-12
+      },
+      {
+        "Omega_m": 0.1,
+        "H0": 65.0,
+        "independent_loglike": 709.742363196015,
+        "interface_loglike": 709.742363196013,
+        "abs_error": 2.0463630789890885e-12
+      },
+      {
+        "Omega_m": 0.1,
+        "H0": 75.0,
+        "independent_loglike": 769.8617296765369,
+        "interface_loglike": 769.8617296765347,
+        "abs_error": 2.2737367544323206e-12
+      },
+      {
+        "Omega_m": 0.1,
+        "H0": 90.0,
+        "independent_loglike": 688.374167464056,
+        "interface_loglike": 688.3741674640559,
+        "abs_error": 1.1368683772161603e-13
+      },
+      {
+        "Omega_m": 0.3,
+        "H0": 50.0,
+        "independent_loglike": 487.70535711278535,
+        "interface_loglike": 487.70535711278603,
+        "abs_error": 6.821210263296962e-13
+      },
+      {
+        "Omega_m": 0.3,
+        "H0": 65.0,
+        "independent_loglike": 848.3089460110627,
+        "interface_loglike": 848.3089460110622,
+        "abs_error": 5.684341886080801e-13
+      },
+      {
+        "Omega_m": 0.3,
+        "H0": 75.0,
+        "independent_loglike": 890.3960364242726,
+        "interface_loglike": 890.3960364242723,
+        "abs_error": 2.2737367544323206e-13
+      },
+      {
+        "Omega_m": 0.3,
+        "H0": 90.0,
+        "independent_loglike": 785.9339580490073,
+        "interface_loglike": 785.9339580490076,
+        "abs_error": 3.410605131648481e-13
+      },
+      {
+        "Omega_m": 0.5,
+        "H0": 50.0,
+        "independent_loglike": 494.82958074051453,
+        "interface_loglike": 494.82958074051317,
+        "abs_error": 1.3642420526593924e-12
+      },
+      {
+        "Omega_m": 0.5,
+        "H0": 65.0,
+        "independent_loglike": 827.1767622235802,
+        "interface_loglike": 827.1767622235783,
+        "abs_error": 1.9326762412674725e-12
+      },
+      {
+        "Omega_m": 0.5,
+        "H0": 75.0,
+        "independent_loglike": 853.8520138805543,
+        "interface_loglike": 853.8520138805543,
+        "abs_error": 0.0
+      },
+      {
+        "Omega_m": 0.5,
+        "H0": 90.0,
+        "independent_loglike": 729.7540594083603,
+        "interface_loglike": 729.7540594083605,
+        "abs_error": 2.2737367544323206e-13
+      },
+      {
+        "Omega_m": 0.8,
+        "H0": 50.0,
+        "independent_loglike": 375.6777818974938,
+        "interface_loglike": 375.67778189749333,
+        "abs_error": 4.547473508864641e-13
+      },
+      {
+        "Omega_m": 0.8,
+        "H0": 65.0,
+        "independent_loglike": 671.108955981209,
+        "interface_loglike": 671.1089559812066,
+        "abs_error": 2.3874235921539366e-12
+      },
+      {
+        "Omega_m": 0.8,
+        "H0": 75.0,
+        "independent_loglike": 677.6491796708096,
+        "interface_loglike": 677.6491796708077,
+        "abs_error": 1.9326762412674725e-12
+      },
+      {
+        "Omega_m": 0.8,
+        "H0": 90.0,
+        "independent_loglike": 527.8976402741305,
+        "interface_loglike": 527.8976402741303,
+        "abs_error": 2.2737367544323206e-13
+      }
+    ],
+    "distance_relative_max_error": 2.666254191139486e-16,
+    "direct_H0_integration": [
+      {
+        "Omega_m": 0.1,
+        "log_integral_abs_error": 1.1368683772161603e-13,
+        "first_moment_relative_error": 1.3211653993039363e-13,
+        "second_moment_relative_error": 2.6401103525586223e-13
+      },
+      {
+        "Omega_m": 0.3,
+        "log_integral_abs_error": 2.2737367544323206e-13,
+        "first_moment_relative_error": 2.5424107263916085e-14,
+        "second_moment_relative_error": 5.0737192225369654e-14
+      },
+      {
+        "Omega_m": 0.5,
+        "log_integral_abs_error": 4.547473508864641e-13,
+        "first_moment_relative_error": 3.892441924335799e-13,
+        "second_moment_relative_error": 7.782663402622347e-13
+      },
+      {
+        "Omega_m": 0.8,
+        "log_integral_abs_error": 6.821210263296962e-13,
+        "first_moment_relative_error": 5.323519403077626e-13,
+        "second_moment_relative_error": 1.0650369475229127e-12
+      }
+    ],
+    "joint_covariance_M_eta": [
+      [
+        0.000870288369923,
+        0.0008705034532527229
+      ],
+      [
+        0.0008705034532527227,
+        0.0008848616741181754
+      ]
+    ],
+    "joint_GLS_information": [
+      [
+        71889.93197168817,
+        -70723.4089416558
+      ],
+      [
+        -70723.40894165578,
+        70705.93465568061
+      ]
+    ],
+    "normal_equation_identity_max_error": 3.1443615842450627e-15
+  },
+  "adaptive_integrals": {
+    "log_normalization_abs_error": 0.0,
+    "relative_error_estimate": 3.7397837918827464e-14,
+    "Omega_mean_abs_error": 8.770761894538737e-15,
+    "H0_mean_abs_error": 1.1752376849472057e-11,
+    "H0_CDF_abs_errors": [
+      2.984471697553559e-11,
+      1.1949644052045016e-10,
+      1.925894999033062e-10,
+      1.1550971290574807e-10,
+      2.8601232493485895e-11
+    ]
+  },
+  "rules": {
+    "distance_order": 80,
+    "Omega_GL_order": 384,
+    "direct_Omega_cases": [
+      0.1,
+      0.3,
+      0.5,
+      0.8
+    ],
+    "direct_H0_cases": [
+      50.0,
+      65.0,
+      75.0,
+      90.0
+    ],
+    "H0_mean_sd_quantile_max_abs": 1e-05,
+    "Omega_mean_sd_quantile_max_abs": 1e-07,
+    "H0_Omega_covariance_max_abs": 1e-07,
+    "loglike_max_abs": 1e-07,
+    "distance_max_relative": 1e-10,
+    "adaptive_normalization_relative": 1e-08,
+    "adaptive_CDF_max_abs": 1e-08,
+    "conditional_moment_relative": 1e-09,
+    "initial_design": "General full-C LU, X=[1,-I_noncal], eta=5log10(H0/70), flat-H0 exponential tilt, direct H0 scalar quadrature. No CMB or MCMC."
+  },
+  "input_source_sha256": {
+    "studies/unified_cosmology/code/distance_ladder/calibration_lcdm.py": "fc07dd97c81f70aed4e09e4485c0337a7d7e3f28124b3354a592a2b30f77aa53",
+    "studies/unified_cosmology/code/distance_ladder/calibration-lcdm-design.json": "f66157747d9596aa6cb9928223b2da51bb908e4336c640fa7e06f6b909df7db3",
+    "studies/unified_cosmology/results/distance_ladder/calibration-interface.json": "623c5ff2604a5d4d09bbdd4fbfd9d58a1947d2e50250d35b3d514430be09aae6",
+    "studies/unified_cosmology/code/distance_ladder/calibration_interface.py": "ed4cd15be21093684bb9c9f199721022624b3913ae0084b67683422d3b6a6148",
+    ".work/unified-cosmology/calibration-interface/Pantheon+SH0ES.dat": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8",
+    ".work/unified-cosmology/calibration-interface/Pantheon+SH0ES_STAT+SYS.cov": "abf806d966485e64afdb359c87bffc0ecc00d05eff0a31ced66f247385df0fdc",
+    ".work/unified-cosmology/calibration-interface/Pantheon+SH0ES_STATONLY.cov": "9f177129a332735d3637affd20054080d5260815f3ca0809120c05b2c902297f",
+    ".work/unified-cosmology/calibration-interface/distances-README": "e2b0d262757f01c1794a938c78d32600a21e289b2a0320e5c660c4c6fc9aa87e",
+    ".work/unified-cosmology/calibration-interface/Pantheon+SH0ES_cosmosis_likelihood.py": "345fac3781a5cb930b95e91c1c07eb17dcf99b441703bb5e449477519240a59d",
+    ".work/unified-cosmology/calibration-lcdm-v1.json": "38e772398caa439761e2e855beba44a09125bc7d7dd905e167ad8b27aea12c8f",
+    "studies/unified_cosmology/code/distance_ladder/calibration_lcdm_review.py": "435483bdcbe537d2ea1de9cccc9ece34262f7a6834267aa3fe9933900ba66eb9"
+  },
+  "execution_design_path": ".work/unified-cosmology/calibration-lcdm-review/execution-design-58f66110707088231465.json",
+  "execution_design_sha256": "7b8b58fdd1013e9c94624bedfb6e20978a162f821167d783c935be4ada973907",
+  "seconds": 110.72927722000168,
+  "CMB_calls": 0,
+  "MCMC_steps": 0,
+  "interpretation": "Independent numerical solution of the same released observations and priors; not an independent observational measurement or a verification of the original covariance construction."
+}

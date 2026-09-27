@@ -1,0 +1,420 @@
+{
+  "status": "descriptive_released_chain_and_embedded_config_review_no_new_inference",
+  "official_commit": "c447f0fea703fcd0fff57de5000947b5ca81286b",
+  "chain_rows": 160000,
+  "columns": [
+    "cosmological_parameters--omega_m",
+    "cosmological_parameters--h0",
+    "supernova_params--m",
+    "prior",
+    "post"
+  ],
+  "header_params_ini": {
+    "runtime": {
+      "sampler": "emcee",
+      "root": "/project2/rkessler/PRODUCTS/COSMOSIS/cosmosis-standard-library",
+      "likelihood_only": "T"
+    },
+    "emcee": {
+      "walkers": "16",
+      "samples": "10000",
+      "nsteps": "100",
+      "base_dir": "chains/emcee",
+      "emcee_outfile_root": "122221_emcee_P+SH0ES"
+    },
+    "polychord": {
+      "base_dir": "chains/polychord",
+      "polychord_outfile_root": "122221_poly_P+SH0ES",
+      "resume": "F",
+      "feedback": "3",
+      "fast_fraction": "0.1",
+      "live_points": "250",
+      "num_repeats": "30",
+      "tolerance": "0.1",
+      "boost_posteriors": "10.0"
+    },
+    "test": {
+      "analyze_fast_slow": "F",
+      "save_dir": "testoutput/"
+    },
+    "output": {
+      "filename": "output/pantheonplussh0es_lcdm_emcee_01.txt",
+      "format": "text"
+    },
+    "pipeline": {
+      "modules": "consistency camb pantheon",
+      "likelihoods": "pantheon",
+      "values": "/project2/rkessler/SURVEYS/PS1MD/USERS/dscolnic/PANTHEON+/datarelease/cosmosis/values_lcdm.ini",
+      "extra_output": "",
+      "quiet": "T",
+      "debug": "F",
+      "timing": "F",
+      "zmix_background": "0.0001",
+      "zmax_background": "2.5",
+      "nz_background": "50000",
+      "fast_slow": "F"
+    },
+    "camb": {
+      "file": "boltzmann/camb/camb_interface.py",
+      "mode": "thermal",
+      "feedback": "2",
+      "background_zmin": "0.001",
+      "background_zmax": "2.5",
+      "background_nz": "50000"
+    },
+    "pantheon": {
+      "file": "/project2/rkessler/SURVEYS/PS1MD/USERS/dscolnic/PANTHEON+/datarelease/5_COSMOLOGY/cosmosis_likelihoods/Pantheon+SH0ES_cosmosis_likelihood.py",
+      "data_file": "/project2/rkessler/SURVEYS/PS1MD/USERS/dscolnic/PANTHEON+/datarelease/4_DISTANCES_AND_COVAR/Pantheon+SH0ES.dat",
+      "covmat_file": "/project2/rkessler/SURVEYS/PS1MD/USERS/dscolnic/PANTHEON+/datarelease/4_DISTANCES_AND_COVAR/Pantheon+SH0ES_STAT+SYS.cov"
+    },
+    "supernova_params": {
+      "m": "-20.  -19.0   -18."
+    },
+    "consistency": {
+      "file": "utility/consistency/consistency_interface.py"
+    }
+  },
+  "header_values_ini": {
+    "cosmological_parameters": {
+      "omega_m": "0.1     0.33     0.9",
+      "h0": "0.55    0.72    0.91",
+      "omega_b": "0.048",
+      "n_s": "0.97",
+      "a_s": "2.19e-9",
+      "omnuh2": "0.00083",
+      "massive_nu": "3",
+      "massless_nu": "0.046",
+      "omega_k": "0.0",
+      "tau": "0.0697186",
+      "w": "-1.0"
+    },
+    "supernova_params": {
+      "m": "-20.  -19.0   -18."
+    }
+  },
+  "header_priors_ini": {},
+  "parameter_boxes": {
+    "Omega_m": [
+      0.1,
+      0.9
+    ],
+    "h0": [
+      0.55,
+      0.91
+    ],
+    "M": [
+      -20.0,
+      -18.0
+    ]
+  },
+  "constant_log_prior": 0.5516476182862459,
+  "constant_log_prior_max_error": 0.0,
+  "row_prefix_sensitivity": [
+    {
+      "discarded_initial_fraction": 0.0,
+      "removed_rows": 0,
+      "retained_rows": 160000,
+      "summary": {
+        "Omega_m": {
+          "mean": 0.3328646586803795,
+          "sd": 0.018743015092055528,
+          "quantiles": [
+            0.2974912888999162,
+            0.31472950182152537,
+            0.33231161246550295,
+            0.35094423713630035,
+            0.3697863535685789
+          ]
+        },
+        "H0_km_s_Mpc": {
+          "mean": 73.50268476048771,
+          "sd": 1.0680215307742278,
+          "quantiles": [
+            71.45242993510955,
+            72.49656317195559,
+            73.51141272769043,
+            74.522821206758,
+            75.55982874360596
+          ]
+        },
+        "M": {
+          "mean": -19.243925091305837,
+          "sd": 0.033456950556031234,
+          "quantiles": [
+            -19.3047586112373,
+            -19.273967408679717,
+            -19.244346752435042,
+            -19.214646483484444,
+            -19.184211295211927
+          ]
+        }
+      },
+      "H0_Omega_covariance_population": -0.0026497789652042587,
+      "difference_from_quadrature": {
+        "Omega_m": {
+          "mean": 0.0004167140870885988,
+          "sd": 0.0006869778158164197
+        },
+        "H0_km_s_Mpc": {
+          "mean": -0.046898789302247224,
+          "sd": 0.050732118539896565
+        }
+      }
+    },
+    {
+      "discarded_initial_fraction": 0.1,
+      "removed_rows": 16000,
+      "retained_rows": 144000,
+      "summary": {
+        "Omega_m": {
+          "mean": 0.3326755634884367,
+          "sd": 0.018144691873261336,
+          "quantiles": [
+            0.29750544119142963,
+            0.3146918190323017,
+            0.3322987885119599,
+            0.35075817875488113,
+            0.3689013904555589
+          ]
+        },
+        "H0_km_s_Mpc": {
+          "mean": 73.52652353199046,
+          "sd": 1.013924496438092,
+          "quantiles": [
+            71.55344084432608,
+            72.52725610856741,
+            73.52235748989912,
+            74.52531561355727,
+            75.55538946240993
+          ]
+        },
+        "M": {
+          "mean": -19.244136291932204,
+          "sd": 0.029566286427244307,
+          "quantiles": [
+            -19.3024822188547,
+            -19.273352618786383,
+            -19.24423720733446,
+            -19.214910109795756,
+            -19.185982472820218
+          ]
+        }
+      },
+      "H0_Omega_covariance_population": -0.0023291960188684597,
+      "difference_from_quadrature": {
+        "Omega_m": {
+          "mean": 0.00022761889514577582,
+          "sd": 8.86545970222273e-05
+        },
+        "H0_km_s_Mpc": {
+          "mean": -0.023060017799494403,
+          "sd": -0.0033649157962392096
+        }
+      }
+    },
+    {
+      "discarded_initial_fraction": 0.2,
+      "removed_rows": 32000,
+      "retained_rows": 128000,
+      "summary": {
+        "Omega_m": {
+          "mean": 0.3327690115700325,
+          "sd": 0.018118649088183808,
+          "quantiles": [
+            0.29768062918619875,
+            0.3148740289305086,
+            0.33233156165990174,
+            0.3508586076057227,
+            0.3689655409221997
+          ]
+        },
+        "H0_km_s_Mpc": {
+          "mean": 73.53849074995136,
+          "sd": 1.0156574656996415,
+          "quantiles": [
+            71.55640666837829,
+            72.5379962527776,
+            73.53656574249285,
+            74.53865369756187,
+            75.56327849189951
+          ]
+        },
+        "M": {
+          "mean": -19.24374940729504,
+          "sd": 0.029632589549727088,
+          "quantiles": [
+            -19.302391171965663,
+            -19.27298818157171,
+            -19.2438287606388,
+            -19.214472457064915,
+            -19.18551161834524
+          ]
+        }
+      },
+      "H0_Omega_covariance_population": -0.0022486948340618533,
+      "difference_from_quadrature": {
+        "Omega_m": {
+          "mean": 0.000321066976741613,
+          "sd": 6.261181194469959e-05
+        },
+        "H0_km_s_Mpc": {
+          "mean": -0.011092799838593237,
+          "sd": -0.0016319465346896767
+        }
+      }
+    },
+    {
+      "discarded_initial_fraction": 0.3,
+      "removed_rows": 48000,
+      "retained_rows": 112000,
+      "summary": {
+        "Omega_m": {
+          "mean": 0.3327629358186012,
+          "sd": 0.01815487921900409,
+          "quantiles": [
+            0.29740359474856315,
+            0.31485871085159384,
+            0.3323330407884099,
+            0.3508208355196204,
+            0.3689655409221997
+          ]
+        },
+        "H0_km_s_Mpc": {
+          "mean": 73.53607049035234,
+          "sd": 1.0191541273808669,
+          "quantiles": [
+            71.54800069454663,
+            72.53378942430042,
+            73.53145244979147,
+            74.53805742130454,
+            75.5695676217707
+          ]
+        },
+        "M": {
+          "mean": -19.243814074991537,
+          "sd": 0.029747421734791318,
+          "quantiles": [
+            -19.302666319621686,
+            -19.27307587894453,
+            -19.24389134139671,
+            -19.214382372795015,
+            -19.18528029995399
+          ]
+        }
+      },
+      "H0_Omega_covariance_population": -0.002176751893479797,
+      "difference_from_quadrature": {
+        "Omega_m": {
+          "mean": 0.00031499122531031265,
+          "sd": 9.884194276498295e-05
+        },
+        "H0_km_s_Mpc": {
+          "mean": -0.013513059437613606,
+          "sd": 0.0018647151465356337
+        }
+      }
+    },
+    {
+      "discarded_initial_fraction": 0.5,
+      "removed_rows": 80000,
+      "retained_rows": 80000,
+      "summary": {
+        "Omega_m": {
+          "mean": 0.332492115522251,
+          "sd": 0.018191730136052124,
+          "quantiles": [
+            0.2971900867188914,
+            0.3145405783098168,
+            0.3319890113514175,
+            0.35062404232196015,
+            0.36893685488439376
+          ]
+        },
+        "H0_km_s_Mpc": {
+          "mean": 73.53542402987247,
+          "sd": 1.014469599869741,
+          "quantiles": [
+            71.55273591609111,
+            72.53738818384873,
+            73.53195258645738,
+            74.53350195843096,
+            75.57018533770257
+          ]
+        },
+        "M": {
+          "mean": -19.24392980096066,
+          "sd": 0.029643135625975443,
+          "quantiles": [
+            -19.30231535467087,
+            -19.273101853793044,
+            -19.24402902995653,
+            -19.214658212820957,
+            -19.185399087506926
+          ]
+        }
+      },
+      "H0_Omega_covariance_population": -0.0021185656317696234,
+      "difference_from_quadrature": {
+        "Omega_m": {
+          "mean": 4.4170928960085565e-05,
+          "sd": 0.00013569285981301568
+        },
+        "H0_km_s_Mpc": {
+          "mean": -0.014159519917484431,
+          "sd": -0.0028198123645901685
+        }
+      }
+    }
+  ],
+  "quantile_probabilities": [
+    0.025,
+    0.16,
+    0.5,
+    0.84,
+    0.975
+  ],
+  "first16_rows_M_range": [
+    -19.00275226546812,
+    -18.99608260018681
+  ],
+  "first16_rows_logpost_range": [
+    -3831.111361383981,
+    -3655.6330001721217
+  ],
+  "last_half_rows_logpost_quantiles": [
+    -730.2088364866561,
+    -726.6290068267747,
+    -725.5648632166759
+  ],
+  "comparison_limits": [
+    "The complete public chain includes an obvious initialization transient in M and log posterior. Fixed prefix sensitivities are reported; no preferred burn fraction was selected to force agreement.",
+    "Neither the original paper burn/summary procedure nor exact historical data bytes, CAMB source and sampling qualification are certified by the embedded header.",
+    "After10%-50%prefix removal the released-chain H0 standard deviations are compared with deterministic quadrature; this is descriptive numerical consistency, not independent observations.",
+    "Historical priors are uniform Omega_m[0.1,0.9], h0[0.55,0.91], M[-20,-18], unlike the bounded late-time quadrature priors and improper flat-M measure.",
+    "The header declares omnuh2=0.00083, massive_nu=3 and massless_nu=0.046. This does not certify the executed species configuration: the inspected pre-chain public CSL interface accepts num_massive_neutrinos rather than massive_nu and explicitly ignores massless_nu. The exact historical installed interface/CAMB identity is absent. The reviewed SN-only quadrature declares matter+Lambda without radiation; no exact historical theory-density replay is claimed.",
+    "The reported prior is normalized in h0=H0/100. Its constant changes under physical H0 units and does not supply extra observational information."
+  ],
+  "input_sources": {
+    ".work/unified-cosmology/calibration-chain-review/README": {
+      "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon+_Data/5_COSMOLOGY/chains/README",
+      "sha256": "a3d0e33a6bb4172263bf810982692033586b6099d17f795c5fc2bfeeeaea8e0f",
+      "bytes": 255
+    },
+    ".work/unified-cosmology/calibration-chain-review/Pantheon+SH0ES_FlatLambdaCDM.txt.gz": {
+      "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon+_Data/5_COSMOLOGY/chains/Pantheon+SH0ES/Pantheon+SH0ES_FlatLambdaCDM.txt.gz",
+      "sha256": "815125575137e3dc8b87a2ef60c6e8922501aae5a4d06ad583b1aef25cb3fe1b",
+      "bytes": 3795492
+    }
+  },
+  "source_sha256": {
+    "studies/unified_cosmology/code/distance_ladder/calibration_chain_review.py": "d6a465572d4459392a5159105ce9bcd4ca91e09c7d5f7e2ea92491a0e00ce2cc"
+  },
+  "quadrature_path": ".work/unified-cosmology/calibration-lcdm-v1.json",
+  "quadrature_sha256": "38e772398caa439761e2e855beba44a09125bc7d7dd905e167ad8b27aea12c8f",
+  "header_path": ".work/unified-cosmology/calibration-chain-review/header.txt",
+  "header_sha256": "606d7e06a87306913189713af02add3a1de7cda17d1f0750bfd4ed4f334661cf",
+  "CMB_calls": 0,
+  "background_calls": 0,
+  "new_sampling_steps": 0,
+  "posterior_qualification": false
+}

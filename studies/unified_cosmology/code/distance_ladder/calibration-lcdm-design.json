@@ -1,0 +1,17 @@
+{
+  "scope": "Independent Pantheon+SH0ES-only flat-LambdaCDM calibration reconstruction, before using this alternative in a CMB+BAO joint fit.",
+  "data": "Pinned ReleasedCalibration selection and full released covariance; use its explicit symmetric-average convention and keep all calibrator/noncalibrator cross blocks.",
+  "physics": "Flat FLRW with matter and a cosmological constant over the released SN redshifts; radiation omitted in this bounded late-time reconstruction. D_L=(1+zHEL)c/H0 integral_0^zHD dz/E(z). Calibrators use released Cepheid distances.",
+  "priors": {"Omega_m": [0.01, 0.99], "H0_km_s_Mpc": [50.0, 90.0], "measure": "Independent uniform Omega_m and H0; integrate one improper flat absolute-magnitude M. No additional H0, anchor or Cepheid prior."},
+  "method": "At fixed Omega_m, h=5log10(H0/70) enters the projected SN residual linearly only for noncalibrators. Integrate its Gaussian quadratic exactly with the dH0/dh Jacobian and finite H0 bounds. Integrate Omega_m by deterministic quadrature. Recover H0 CDF and moments from the resulting mixture of truncated lognormal components.",
+  "numerical_checks": [
+    "Gauss-Legendre redshift integrals at64 and128 nodes, with independent adaptive quadrature at fixed predeclared Omega_m and redshifts.",
+    "Omega_m Gauss-Legendre quadrature at256 and512 nodes, plus independent adaptive scalar integrals.",
+    "Direct released likelihood evaluations versus projected h-quadratic at Omega_m0.1,0.3,0.5,0.8 and H050,65,75,90.",
+    "Direct H0 quadrature against analytic conditional normalization and first two moments; all constants and Jacobian retained.",
+    "Expanded H0 prior[30,110] and Omega_m[0.001,0.999] as numerical prior-bound sensitivity, reported separately."
+  ],
+  "acceptance": {"distance_relative_difference_max": 1e-10, "chi2_closure_absolute_max": 1e-7, "conditional_moment_relative_difference_max": 1e-9, "H0_mean_sd_quantile_refinement_absolute_max": 1e-5, "Omega_m_mean_sd_quantile_refinement_absolute_max": 1e-7},
+  "comparison": "Brout et al.2202.04077v2 Table3 reports H0=73.6+-1.1 and Omega_m=0.334+-0.018 for flat-LambdaCDM Pantheon+SH0ES. Compare declared numerical inputs and assumptions; do not force agreement or assume identical historical code/priors.",
+  "resource_limit": "One CPU, no CMB spectra, no Monte Carlo sampling. Do not edit any active cosmological target."
+}
