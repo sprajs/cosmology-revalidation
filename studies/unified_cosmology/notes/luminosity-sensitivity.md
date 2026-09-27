@@ -78,6 +78,8 @@ The result has its **own native target and bridge identities**; it is not relabe
 
 Independent validation compares 96 source/target combinations against direct covariance augmentation and explicit free-magnitude projection. Maximum log-ratio error is below 6×10⁻¹⁴. An unchanged target preserves the original raw weights exactly; an 8,000-point Gaussian toy passes the gates, whereas a deliberately concentrated target correctly fails, including zero-mass chains. These are numerical tests, not observed σ=0.3 overlap results.
 
+Configuration checks cover the original CPU, fast-lensing CPU and GPU proposal factories: 72 source/target comparisons confirm that only the SN prior changes, and 36 proposal reconstructions retain the parent's exact backend identity. GPU parents also bind the GPU wrapper's source hash. These checks make no GPU or CMB calls; numerical GPU equivalence is validated separately by the sampler's interface checks.
+
 ```bash
 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
   .work/unified-cosmology/external-probes/.modern-venv/bin/python \

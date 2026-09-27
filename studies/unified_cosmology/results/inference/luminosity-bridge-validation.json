@@ -3,7 +3,15 @@
   "observational_points_used": 0,
   "CMB_spectrum_calls": 0,
   "independent_augmented_covariance_comparisons": 96,
-  "identical_non_SN_factor_configuration_comparisons": 24,
+  "identical_non_SN_factor_configuration_comparisons": 72,
+  "configuration_backends": [
+    "modern_run",
+    "modern_fast",
+    "modern_gpu"
+  ],
+  "independent_parent_proposal_configuration_replays": 36,
+  "GPU_backend_source_hash_bound_when_used": true,
+  "GPU_calls": 0,
   "maximum_log_ratio_error": 5.417888360170764e-14,
   "maximum_source_density_closure": 3.9968028886505635e-14,
   "identical_target_preserves_original_raw_weights_exactly": true,
@@ -12,14 +20,16 @@
   "source_density_mismatch_withholds_every_posterior": true,
   "checksum_detects_changed_numerical_payload": true,
   "source_sha256": {
-    "studies/unified_cosmology/code/inference/luminosity_bridge_validate.py": "6c68c5802e179632481b0f283c0b7c1470235eb9d1bea9ed6560ed892912b8dd",
-    "studies/unified_cosmology/code/inference/luminosity_bridge.py": "4fc5498d304738fad481270da510274ce104a0268aa691e7ce8aaca3c742a118",
+    "studies/unified_cosmology/code/inference/luminosity_bridge_validate.py": "f0716b4a757fe4dc9d708b5047269c681fa4d0caf63860aadd3b85e17fa83a81",
+    "studies/unified_cosmology/code/inference/luminosity_bridge.py": "70027811597e86349b775a5773fd9ccc3b5636e59d0f591da313d8afff91ff38",
     "studies/unified_cosmology/code/inference/luminosity-bridge-design.json": "6654ae3efd4c6403c37841fbcfba14fda1333f9dee7a0bbf754181ea01b0f1f2",
     "studies/unified_cosmology/code/inference/luminosity-sensitivity-design.json": "fdff0250564a1562fd1af3da8a9ff93481de1837c8ad08837993564aa545ee85",
     "studies/unified_cosmology/code/inference/luminosity_sensitivity.py": "3f831be63b3776b02c0b547dbb6d9273ddbad68b272c6cb372eda390abafaab7",
     "studies/unified_cosmology/code/inference/measurement_summary.py": "9d12554e9aad9c2fac9faacac6546c96e49f1cc288ffcce2f343b81b1d9b304b",
+    "studies/unified_cosmology/code/inference/exact_correction.py": "d073c7e1c9d0f8678d46389048bec6580d7aac4299085f7104a125b78710e477",
     "studies/unified_cosmology/code/inference/modern_fast.py": "7028d9bebeac08e59ab9be968dc436dbf92263b46520b08c84bd5464d3063d13",
     "studies/unified_cosmology/code/inference/modern_run.py": "101912935a939909466fbccae997b32845e6c7413edbb6aa93902ecf530b549b",
+    "studies/unified_cosmology/code/inference/modern_gpu.py": "ad5135f9197ed5c7803af21dca3533e577b71bb9e08d993bae2f6f02a5ba4997",
     "studies/unified_cosmology/code/external_probes/modern_adapter.py": "2ff1e39d111d2383cd84743dd80ed49236dbb13e5427a425611bfdd196e3b284"
   },
   "scope": "Synthetic density-ratio and weighted-gate checks, not measured overlap for any cosmological luminosity prior."

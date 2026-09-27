@@ -6,24 +6,45 @@ from pathlib import Path
 import numpy as np
 
 from luminosity_bridge import (ROOT, HERE, DESIGN, GATES, bridge_record,
-    summarize_bridge, identity)
+    summarize_bridge, identity, configuration_for_settings, backend_source_paths)
 from luminosity_sensitivity import IntegratedLuminosity
 from target_identity import canonical
 
 
 def main():
-    from modern_fast import configuration
     configurations = 0
-    for model in ['lcdm', 'cpl']:
-        for calibration in ['official_planck', 'paper_literal']:
-            for source in ['none', 'smooth01', 'smooth03']:
-                for target, sigma in [('smooth01', .1), ('smooth03', .3)]:
-                    before = canonical(configuration(model=model, evolution=source, calibration=calibration))
-                    after = canonical(configuration(model=model, evolution=target, calibration=calibration))
-                    changed = copy.deepcopy(before)
-                    changed['likelihood']['released_sn']['smooth_sigma'] = sigma
-                    assert changed == after
-                    configurations += 1
+    proposal_replays = 0
+    fixture = ROOT/'.work/unified-cosmology/inference/surrogate/cubic-0509.npz'
+    backends = [({}, 'modern_run'), ({'fast_lensing': True}, 'modern_fast'),
+                ({'gpu': True, 'fast_lensing': True}, 'modern_gpu')]
+    from modern_run import configuration as original_configuration
+    from modern_fast import configuration as fast_configuration
+    from modern_gpu import configuration as gpu_configuration
+    independent_factories = dict(modern_run=original_configuration,
+                                 modern_fast=fast_configuration, modern_gpu=gpu_configuration)
+    for settings, module in backends:
+        configuration = configuration_for_settings(settings)
+        assert configuration is independent_factories[module]
+        assert (HERE/'modern_gpu.py' in backend_source_paths(settings)) == bool(settings.get('gpu'))
+        for model in ['lcdm', 'cpl']:
+            for calibration in ['official_planck', 'paper_literal']:
+                for source in ['none', 'smooth01', 'smooth03']:
+                    options = dict(model=model, evolution=source, calibration=calibration)
+                    before = canonical(configuration(**options))
+                    # Rebuild exactly the factory/class recorded by a CPU or GPU
+                    # parent without constructing a model or touching the GPU.
+                    proposal = canonical(configuration(**options, surrogate=fixture))
+                    frozen = canonical(independent_factories[module](**options, surrogate=fixture))
+                    assert proposal == frozen
+                    actual_class = proposal['theory']['spectral_surrogate']['external']
+                    assert ('GPUSpectralSurrogate' in str(actual_class)) == bool(settings.get('gpu'))
+                    proposal_replays += 1
+                    for target, sigma in [('smooth01', .1), ('smooth03', .3)]:
+                        after = canonical(configuration(model=model, evolution=target, calibration=calibration))
+                        changed = copy.deepcopy(before)
+                        changed['likelihood']['released_sn']['smooth_sigma'] = sigma
+                        assert changed == after
+                        configurations += 1
     rng = np.random.default_rng(272813)
     sigma = {'none': 0., 'smooth01': .1, 'smooth03': .3}
     rows = []
@@ -95,11 +116,15 @@ def main():
     assert identity(old) != identity(changed)
     sources = [Path(__file__), HERE/'luminosity_bridge.py', DESIGN, GATES,
                HERE/'luminosity_sensitivity.py', HERE/'measurement_summary.py',
-               HERE/'modern_fast.py', HERE/'modern_run.py',
+               HERE/'exact_correction.py', HERE/'modern_fast.py', HERE/'modern_run.py', HERE/'modern_gpu.py',
                HERE.parent/'external_probes/modern_adapter.py']
     report = {'status': 'passed_synthetic_bridge_validation', 'observational_points_used': 0,
               'CMB_spectrum_calls': 0, 'independent_augmented_covariance_comparisons': len(rows),
               'identical_non_SN_factor_configuration_comparisons': configurations,
+              'configuration_backends': [module for _, module in backends],
+              'independent_parent_proposal_configuration_replays': proposal_replays,
+              'GPU_backend_source_hash_bound_when_used': True,
+              'GPU_calls': 0,
               'maximum_log_ratio_error': max(r['independent_augmented_covariance_log_ratio_error'] for r in rows),
               'maximum_source_density_closure': max(abs(r['source_density_closure']) for r in rows),
               'identical_target_preserves_original_raw_weights_exactly': True,

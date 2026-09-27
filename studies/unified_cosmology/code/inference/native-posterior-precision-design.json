@@ -1,0 +1,32 @@
+{
+  "scope": "Native numerical-accuracy sensitivity at fixed points from an already qualified measurement. Not a posterior correction, convergence proof, model comparison or new physical target.",
+  "declared_before_qualified_posterior_evaluations": true,
+  "context": "The separate earlier fixed-reference/holdout native_precision_audit was known when this screen was declared. These thresholds are diagnostic choices, not calibrated confidence guarantees.",
+  "points": 32,
+  "independent_chains": 4,
+  "points_per_chain": 8,
+  "selection": "Within each qualified native-correction chain, order by original expanded_index and select floor((j+0.5)*N/8), j=0..7. No selection using likelihood errors or extreme weights. Preserve repeated physical points if present; report distinct identities.",
+  "numerical_controls": ["AccuracyBoost", "lAccuracyBoost", "lSampleBoost"],
+  "declared_value": 1,
+  "comparison_value": 2,
+  "maximum_native_point_evaluations": 32,
+  "maximum_workers": 4,
+  "OMP_threads_per_worker": 1,
+  "physical_invariance": "Same physical/nuisance coordinates, complete likelihood components, priors, data, flatness, neutrinos, halofit, lens_potential_accuracy4, lens_margin and multipole requirements. Only the three numerical controls change. No emulator evaluation or acoustic-coordinate reinversion.",
+  "center_definition": "Unweighted mean of the32 high-minus-declared full log-likelihood differences. A common offset cancels from normalized weights; finite variation matters. These32 chronological strata are not a representative weighted posterior sample.",
+  "diagnostic_thresholds": {
+    "total_centered_RMS_loglike_max": 0.05,
+    "total_centered_max_absolute_loglike_max": 0.1,
+    "component_centered_max_absolute_loglike_max": 0.2,
+    "prior_sum_absolute_difference_max": 1e-8,
+    "logposterior_minus_loglike_difference_absolute_max": 1e-8,
+    "nominal_background_rdrag_relative_closure_max": 1e-7,
+    "nominal_background_omegam_absolute_closure_max": 1e-10,
+    "nominal_background_q_scaled_closure_max": 1e-6,
+    "nominal_background_j_scaled_closure_max": 2e-5
+  },
+  "threshold_interpretation": "A total maximum centered difference <=0.1 implies pairwise relative likelihood changes no larger than exp(0.2) among these tested points only. Component flags detect large cancellations. Passing is only no large variation detected on this finite screen; failure requests further accuracy investigation. No gate on common offset alone.",
+  "background": "A declared-accuracy background-only reconstruction from the native CAMB Params is checked against stored rdrag, omegam, q/j. Compare H, thetaMC and recombination quantities between accuracy settings; this adds no native spectra. Preserve finalized CAMB requirements and distinguish Params.max_l from padded provider Dl length.",
+  "failure_policy": "Retain every attempted point, exception and native log. Existing incomplete logs prohibit silent retry; completed caches require previous file hashes and canonical payload checks. No point replacement, clipping, 32-point reweighting or posterior-significance inference.",
+  "limitations": "Two accuracy levels do not establish asymptotic convergence.32 deterministic strata may miss tails, localized errors and remote modes. Stored baseline spectra are unavailable; full baseline component likelihoods are available. Higher-accuracy spectra are archived for later diagnosis only. Existing posterior qualification remains separate."
+}

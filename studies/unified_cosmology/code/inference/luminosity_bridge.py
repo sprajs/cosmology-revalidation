@@ -33,6 +33,24 @@ def identity(value):
     return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(',', ':'), allow_nan=False).encode()).hexdigest()
 
 
+def configuration_for_settings(settings):
+    """Replay the parent's proposal backend as well as its native target."""
+    if settings.get('gpu'):
+        from modern_gpu import configuration
+    elif settings.get('fast_lensing'):
+        from modern_fast import configuration
+    else:
+        from modern_run import configuration
+    return configuration
+
+
+def backend_source_paths(settings):
+    paths = [HERE/'modern_run.py', HERE/'modern_fast.py']
+    if settings.get('gpu'):
+        paths.append(HERE/'modern_gpu.py')
+    return paths
+
+
 def sn_loglike(background, evolution):
     value = background['baseline_SN_loglike']
     if evolution != 'none':
@@ -113,10 +131,7 @@ def main():
         assert digest(ROOT/path) == expected, 'Scientific source changed.'
     for name, version in frozen['versions'].items():
         assert importlib.metadata.version(name) == version, 'Scientific environment changed.'
-    if settings.get('fast_lensing'):
-        from modern_fast import configuration
-    else:
-        from modern_run import configuration
+    configuration = configuration_for_settings(settings)
     options = {key: settings[key] for key in ['model', 'evolution', 'sample', 'calibration']}
     source_configuration = configuration(**options)
     # A bridge may change only the analytically integrated luminosity covariance.
@@ -137,7 +152,7 @@ def main():
     target_description['identity'] = identity(target_description)
     sources = [Path(__file__), DESIGN, GATES, HERE/'luminosity_sensitivity.py',
                HERE/'measurement_summary.py', HERE/'exact_correction.py', HERE/'late_geometry.py',
-               HERE/'modern_run.py', HERE/'modern_fast.py', HERE/'target_identity.py']
+               HERE/'target_identity.py'] + backend_source_paths(settings)
     hashes = {relative(path): digest(path) for path in sources}
     lineage = {'qualified_parent_inputs': parent['input_sha256'], 'bridge_source_sha256': hashes,
                'parent_proposal_target_identity': frozen['identity'], 'native_target': target_description,
