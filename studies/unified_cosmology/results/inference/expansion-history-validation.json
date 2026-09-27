@@ -1,0 +1,224 @@
+{
+  "status": "passed_synthetic_background_validation",
+  "observational_points_used": 0,
+  "CMB_spectrum_calls": 0,
+  "power_law_checks": [
+    {
+      "power": 0.0,
+      "expected_q": -1.0,
+      "expected_j": 1.0,
+      "maximum_absolute_q_error": 0.0,
+      "maximum_absolute_j_error": 0.0
+    },
+    {
+      "power": 0.5,
+      "expected_q": -0.5,
+      "expected_j": -0.0,
+      "maximum_absolute_q_error": 9.062750550015153e-13,
+      "maximum_absolute_j_error": 4.055592597584922e-09
+    },
+    {
+      "power": 1.0,
+      "expected_q": 0.0,
+      "expected_j": 0.0,
+      "maximum_absolute_q_error": 5.913047829153584e-13,
+      "maximum_absolute_j_error": 3.169964513105583e-09
+    },
+    {
+      "power": 1.5,
+      "expected_q": 0.5,
+      "expected_j": 1.0,
+      "maximum_absolute_q_error": 5.38902256153051e-13,
+      "maximum_absolute_j_error": 8.221230807237134e-09
+    },
+    {
+      "power": 2.0,
+      "expected_q": 1.0,
+      "expected_j": 3.0,
+      "maximum_absolute_q_error": 1.2936318682932324e-12,
+      "maximum_absolute_j_error": 5.922722756679377e-09
+    },
+    {
+      "power": 2.5,
+      "expected_q": 1.5,
+      "expected_j": 6.0,
+      "maximum_absolute_q_error": 2.3292479056635784e-12,
+      "maximum_absolute_j_error": 1.0228458080518976e-08
+    }
+  ],
+  "analytic_CPL_density_checks": [
+    {
+      "synthetic_parameters": [
+        0.3,
+        9e-05,
+        -1.0,
+        0.0
+      ],
+      "scaled_errors": {
+        "q": 4.5368182936028866e-13,
+        "j": 2.8719026852637393e-09
+      }
+    },
+    {
+      "synthetic_parameters": [
+        0.3,
+        9e-05,
+        -0.8,
+        -0.6
+      ],
+      "scaled_errors": {
+        "q": 3.758782670188935e-12,
+        "j": 1.8117575350959797e-08
+      }
+    },
+    {
+      "synthetic_parameters": [
+        0.2,
+        0.01,
+        -1.5,
+        0.4
+      ],
+      "scaled_errors": {
+        "q": 1.797462069175303e-11,
+        "j": 3.2797423234800575e-08
+      }
+    },
+    {
+      "synthetic_parameters": [
+        0.45,
+        0.05,
+        -0.5,
+        -0.2
+      ],
+      "scaled_errors": {
+        "q": 1.252524654042329e-12,
+        "j": 3.508623061757257e-09
+      }
+    }
+  ],
+  "massless_Lambda_plus_radiation_CAMB_check": {
+    "scaled_errors": {
+      "H_km_s_Mpc": 3.923485635109769e-16,
+      "q": 1.2513789215016164e-12,
+      "j": 4.4912781021782565e-09
+    },
+    "age_quadrature_absolute_Gyr_error": 7.283063041541027e-14,
+    "strict_native_Romberg_age_absolute_Gyr_error": 1.6484591469634324e-12,
+    "default_native_age_minus_converged_integral_Gyr": -0.0002814665199775135,
+    "scope": "Explicit synthetic mnu=0 test of closed density equations, not the adopted physical target."
+  },
+  "modern_physics_synthetic_checks": [
+    {
+      "synthetic_parameters": {
+        "w": -1.0,
+        "wa": 0.0,
+        "H0": 70.0
+      },
+      "numerical_checks": {
+        "q_step_scaled_error": 1.532669269583047e-12,
+        "j_step_scaled_error": 8.445972281698567e-09,
+        "friedmann_relative_error": 2.220446049250313e-16,
+        "age_internal_absolute_Gyr": 0.0,
+        "age_integral_absolute_Gyr_error": 7.7130244923724e-10,
+        "age_CAMB_default_minus_integral_Gyr": -0.00028153163761146516,
+        "q_native_scaled_error": 2.059376108343367e-12,
+        "j_native_scaled_error": 6.410714626353622e-09,
+        "rdrag_relative_error": 0.0,
+        "omegam_absolute_error": 0.0
+      },
+      "age_quadrature_absolute_Gyr_error": 1.5489831639570184e-12
+    },
+    {
+      "synthetic_parameters": {
+        "w": -0.8,
+        "wa": -0.6,
+        "H0": 67.0
+      },
+      "numerical_checks": {
+        "q_step_scaled_error": 3.798469578160493e-12,
+        "j_step_scaled_error": 1.603141196731219e-08,
+        "friedmann_relative_error": 4.440892098500626e-16,
+        "age_internal_absolute_Gyr": 0.0,
+        "age_integral_absolute_Gyr_error": 7.792423573240783e-10,
+        "age_CAMB_default_minus_integral_Gyr": -0.00028153162178234936,
+        "q_native_scaled_error": 3.3951249694618717e-12,
+        "j_native_scaled_error": 1.0677856041275385e-08,
+        "rdrag_relative_error": 0.0,
+        "omegam_absolute_error": 0.0
+      },
+      "age_quadrature_absolute_Gyr_error": 1.5507595207964187e-12
+    },
+    {
+      "synthetic_parameters": {
+        "w": -1.4,
+        "wa": 0.2,
+        "H0": 73.0
+      },
+      "numerical_checks": {
+        "q_step_scaled_error": 7.804828410453581e-12,
+        "j_step_scaled_error": 1.527450747347143e-08,
+        "friedmann_relative_error": 2.220446049250313e-16,
+        "age_internal_absolute_Gyr": 0.0,
+        "age_integral_absolute_Gyr_error": 7.830028307760162e-10,
+        "age_CAMB_default_minus_integral_Gyr": -0.0002815316160518222,
+        "q_native_scaled_error": 1.2497365294795264e-12,
+        "j_native_scaled_error": 6.817567314914397e-09,
+        "rdrag_relative_error": 0.0,
+        "omegam_absolute_error": 0.0
+      },
+      "age_quadrature_absolute_Gyr_error": 1.5507595207964187e-12
+    },
+    {
+      "synthetic_parameters": {
+        "w": -0.5,
+        "wa": -1.5,
+        "H0": 65.0
+      },
+      "numerical_checks": {
+        "q_step_scaled_error": 1.903421238546567e-11,
+        "j_step_scaled_error": 3.4159596232401085e-08,
+        "friedmann_relative_error": 4.440892098500626e-16,
+        "age_internal_absolute_Gyr": 0.0,
+        "age_integral_absolute_Gyr_error": 7.839815376690104e-10,
+        "age_CAMB_default_minus_integral_Gyr": -0.0002815316146200786,
+        "q_native_scaled_error": 2.1393365011978218e-12,
+        "j_native_scaled_error": 1.2796351185277726e-08,
+        "rdrag_relative_error": 0.0,
+        "omegam_absolute_error": 0.0
+      },
+      "age_quadrature_absolute_Gyr_error": 1.552535877635819e-12
+    }
+  ],
+  "known_weighted_quantiles_and_sign_fractions_passed": true,
+  "cache_tamper_rejections": [
+    "partial_payload_numeric_tamper",
+    "existing_manifest_numeric_tamper",
+    "parent_identity_mismatch"
+  ],
+  "cache_review_history": {
+    "pre_fix_source_sha256": "64935e0dad35940f9c71248ffcd4b7032263f7216da082af18cc4e162990221d",
+    "pre_fix_validation_sha256": "226b161b160ddc24e97c476f89b52fac6d23a6d52d1e87b0a35a065cb1f7b946",
+    "finding": "Independent review found reusable cache checked identity but could reseal altered numerical values.",
+    "resolution": "Verify old manifest file hashes and per-point canonical checksums, including partial files, before reuse. No observational cache existed."
+  },
+  "source_sha256": {
+    "studies/unified_cosmology/code/inference/expansion_history_validate.py": "1661ffa625ce9944cc5019e82672861a5081c41fcc6a716bc1833f363ae54044",
+    "studies/unified_cosmology/code/inference/expansion_history.py": "502a7688c671e4f8febf4556f8c064e1473bdcdce5de40b75268df5ed3518c7e",
+    "studies/unified_cosmology/code/inference/expansion-history-design.json": "fbb5f1763951a2d5b6a5ab52a7ab316b9df74eead687b360711dc45bb3794b4a",
+    "studies/unified_cosmology/code/inference/likelihood.py": "c2cdbdf1ceb50703713d5ce0f6d4b3aae801630b4d136481df310ae929eed3f5",
+    "studies/unified_cosmology/code/inference/measurement_summary.py": "9d12554e9aad9c2fac9faacac6546c96e49f1cc288ffcce2f343b81b1d9b304b",
+    "studies/unified_cosmology/code/external_probes/modern_adapter.py": "2ff1e39d111d2383cd84743dd80ed49236dbb13e5427a425611bfdd196e3b284",
+    "studies/unified_cosmology/code/external_probes/adapter.py": "08543f1843ee707c2dbcbe4e7b5e43ff0bcece25313d8d6de50843996cc3545f"
+  },
+  "versions": {
+    "camb": "1.6.6",
+    "numpy": "2.5.3"
+  },
+  "initial_failed_check": {
+    "test": "CAMB default physical_time versus converged age integral within1e-5Gyr",
+    "observed_absolute_difference_Gyr": 0.0002814665199775135,
+    "cause": "CAMB1.6.6 results.f90 DeltaPhysicalTimeGyr default Romberg tolerance1e-4 at AccuracyBoost1.",
+    "resolution": "Report converged integral over unchanged H(a), checked with independent Gauss-Legendre and strict native Romberg; retain default discrepancy."
+  },
+  "scope": "Equation/numerical tests only; no measured expansion history or cosmic age is reported."
+}

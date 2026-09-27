@@ -91,9 +91,15 @@ def summarize_run(folder, summary_path):
         assert digest(ROOT / name) == expected, 'Selected chain bytes changed.'
         inputs[name] = expected
     records = []
+    from exact_correction import verify_record
+    expected_records = {relative(selection_path.parent / f'{index:05d}.json')
+                        for index in range(len(selection['points']))}
+    assert set(summary['native_record_sha256']) == expected_records
     for index, point in enumerate(selection['points']):
         path = selection_path.parent / f'{index:05d}.json'
+        assert digest(path) == summary['native_record_sha256'][relative(path)], 'Native file changed after correction summary.'
         record = json.loads(path.read_text())
+        verify_record(record)
         assert record['index'] == index and record['point'] == point
         assert record['target_identity'] == selection['correction_identity']
         assert record['status'] == 'finite'

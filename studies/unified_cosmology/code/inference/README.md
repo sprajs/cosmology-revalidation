@@ -91,9 +91,27 @@ OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 CLIPY_NOJAX=1 \
 
 Exact correction refuses a failed diagnostic, changed chain cohort, changed target or fewer than 2,000 selected points. Each selected row is re-evaluated with both native CAMB and the frozen proposal, including a check against the stored sampling density. All failures and all **untrimmed** importance weights are preserved. Pareto smoothing diagnoses overlap but does not alter reported weights. Required gates are independent-chain Rhat ≤ 1.01, bulk/tail ESS ≥ 400, importance ESS ≥ 400 and Pareto k < 0.7. Each chain must retain importance ESS ≥ 50 and 5–50% of the pooled weight. Weighted chain means must lie within 0.3 pooled posterior standard deviations of the pooled mean, and estimated mean Monte Carlo errors must remain below 0.1 standard deviations for 10, 20 and 40 batches per chain. Each batch contains at least ten selected points. These explicit stability thresholds were fixed before any cosmological density correction. Constant weights have no Pareto tail to fit; a zero-weight chain fails. Finite diagnostics cannot prove the absence of a remote mode.
 
-The exact calculation is substantially slower than proposal sampling. Cached point records allow resuming only with matching source, model, chains and selection identities. If a larger or different native-point selection is needed, use a distinct `--name` such as `exact-correction-4000`; preserve the original attempt. A failed proposal or failed convergence check stays a failed numerical attempt; it is not reported as a cosmological uncertainty interval.
+The exact calculation is substantially slower than proposal sampling. Cached point records allow resuming only with matching source, model, chains and selection identities. Each record seals its numerical payload, and the final summary records every native file hash; resuming cannot silently accept a changed payload or reseal a previously summarized file. If a larger or different native-point selection is needed, use a distinct `--name` such as `exact-correction-4000`; preserve the original attempt. A failed proposal or failed convergence check stays a failed numerical attempt; it is not reported as a cosmological uncertainty interval.
 
 `measurement_summary.py --run CHAIN_FOLDER CORRECTION_SUMMARY --output REPORT.json` consumes a qualified correction. Repeat `--run` for separately sampled targets. It rechecks the parent diagnostic, all source/dependency identities, selected chain bytes and every native record, then recomputes the weight and stability gates. Its tables retain the weighted parameter covariance, finite scalar-prior and coupled CAMB-support diagnostics, and conditional acceleration/jerk fractions. Zero sampled tail events do not become a claim of certainty or a Gaussian significance.
+
+## Interpreting qualified samples
+
+The following consumers require the qualified native correction; they cannot turn an unfinished chain into a measurement.
+
+```bash
+python studies/unified_cosmology/code/inference/quantile_precision.py \
+  --chain-folder "$chain_dir" --correction-summary "$correction_summary" \
+  --output "$quantile_report"
+python studies/unified_cosmology/code/inference/expansion_history.py \
+  --chain-folder "$chain_dir" --correction-summary "$correction_summary" \
+  --cache "$background_cache" --output "$expansion_report"
+python studies/unified_cosmology/code/inference/luminosity_history.py \
+  --chain-folder "$chain_dir" --correction-summary "$correction_summary" \
+  --output "$luminosity_report"
+```
+
+Use the same modern environment and thread settings as the sampled target. [Expansion history](../../notes/expansion-history.md) reports past H(z), q(z), jerk and cosmic age from that target's CAMB background. Its bands are pointwise, and its age is conditional on the cosmological model. [Luminosity history](../../notes/luminosity-sensitivity.md) retains the full conditional uncertainty of analytically integrated brightness coefficients. A zero-width baseline brightness curve is an imposed assumption, not a measurement of no evolution. [Quantile precision](../../notes/quantile-precision.md) diagnoses uncertainty in estimated interval endpoints; its block-resampling spread is not an extra astrophysical error or a calibrated numerical confidence bound.
 
 ## Broader numerical support for luminosity alternatives
 
@@ -111,4 +129,4 @@ OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
   studies/unified_cosmology/code/inference/broad_spectral_check.py
 ```
 
-The new model lives at `.work/unified-cosmology/inference/broad-spectral/surrogate-cubic-v1.npz`. Use that path with `modern_sample.py --evolution linear` or `--evolution smooth01` in fresh four-chain invocations. The original baseline model stays unchanged. The broader model requires the same independent convergence and native density-correction gates; its training and holdout spectra are not cosmological observations.
+The broader cubic model lives at `.work/unified-cosmology/inference/broad-spectral/surrogate-cubic-v1.npz`. Of 896 requested points, 689 training and 116 holdout evaluations were finite. Its untouched holdout includes likelihood errors as large as 140 in log likelihood, so it is retained as a numerical diagnostic rather than used to report cosmology. The largest errors occur at low native likelihood near the early-time CPL support boundary, but this does not establish adequate posterior overlap. The original baseline model stays unchanged. Any replacement numerical model requires a newly declared design, fresh independent validation, independent-chain convergence and native density-correction gates. Training and holdout spectra are not cosmological observations.

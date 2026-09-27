@@ -1,12 +1,35 @@
 """Independent analytically soluble check of raw importance-weight summaries."""
 import hashlib
 import json
+import tempfile
 from pathlib import Path
 import numpy as np
-from exact_correction import summarize,ROOT,correction_dependencies
+from exact_correction import summarize,ROOT,correction_dependencies,record_digest,evaluate
 
 
 def main():
+    cache_checks=[]
+    with tempfile.TemporaryDirectory() as directory:
+        path=Path(directory)/'00000.json'
+        row={'index':0,'point':{'x':1.},'target_identity':'synthetic',
+             'status':'finite','log_weight':.2}
+        row['payload_sha256']=record_digest(row)
+        path.write_text(json.dumps(row))
+        assert evaluate((0,{'x':1.},directory,'synthetic',0.))==row
+        cache_checks.append('unchanged_payload_reused_without_native_call')
+        for mutation in ['numeric_change','missing_payload_hash','wrong_point','wrong_identity','wrong_index']:
+            changed=dict(row)
+            if mutation=='numeric_change':changed['log_weight']=.3
+            elif mutation=='missing_payload_hash':del changed['payload_sha256']
+            elif mutation=='wrong_point':changed['point']={'x':2.}
+            elif mutation=='wrong_identity':changed['target_identity']='different'
+            else:changed['index']=1
+            if mutation in ['wrong_point','wrong_identity','wrong_index']:
+                changed['payload_sha256']=record_digest(changed)
+            path.write_text(json.dumps(changed))
+            try:evaluate((0,{'x':1.},directory,'synthetic',0.))
+            except AssertionError:cache_checks.append(mutation+'_rejected')
+            else:raise AssertionError('Altered cached native record accepted')
     rng=np.random.default_rng(272642);n=40000;shift=np.array([.2,-.3])
     draws=rng.normal(size=(n,2))
     # Unit-covariance target N(shift,I), proposal N(0,I): exact log density ratio.
@@ -65,6 +88,7 @@ def main():
         'mean_mcse','minimum_points_per_batch','minimum_batch_weight','maximum_batch_weight'}
     for checked in [report,constant,drift,local_check]:json.dumps(checked,allow_nan=False)
     output={'status':'passed','draws':n,'target_mean':shift.tolist(),
+        'cached_native_integrity_checks':cache_checks,
         'mean_errors':mean_errors.tolist(),'mean_mcse':mcse.tolist(),'sd_errors':sd_errors.tolist(),
         'observed_weight_ess_fraction':report['raw_weight_ess']/n,
         'analytic_asymptotic_weight_ess_fraction':expected_ess_fraction,

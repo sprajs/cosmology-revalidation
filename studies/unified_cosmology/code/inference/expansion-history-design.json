@@ -1,0 +1,20 @@
+{
+  "scope": "Past expansion history under an already qualified native-CAMB corrected modern target; no independent galaxy clock or new likelihood.",
+  "redshift_grid": [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0, 2.1, 2.2, 2.3, 2.33],
+  "finite_difference_step": 0.001,
+  "derivative_method": "Five-point local polynomial in dimensionless offsets: central at z>=2h, forward at z=0. Repeat at h/2. No evaluation at negative redshift.",
+  "quantile_probabilities": [0.025, 0.16, 0.5, 0.84, 0.975],
+  "numerical_gates": {
+    "q_step_and_native_scaled_error_max": 0.000001,
+    "j_step_and_native_scaled_error_max": 0.00002,
+    "rdrag_relative_error_max": 0.0000001,
+    "omegam_absolute_error_max": 0.0000000001,
+    "friedmann_relative_error_max": 0.0000000001,
+    "age_internal_absolute_Gyr_max": 0.00001,
+    "age_integral_absolute_Gyr_error_max": 0.000001
+  },
+  "scaled_error_definition": "abs(recomputed-reference)/(1+abs(reference)); evaluated against both h/2 and stored native diagnostics.",
+  "posterior_rules": "Require measurement_summary.summarize_run to pass all parent chain/weight/identity gates. Use original untrimmed exact/proposal weights. Recheck the existing weighted stability gates for the newly derived history. Pointwise intervals only; no simultaneous-band, evidence, future-extrapolation or Gaussian-sigma claim.",
+  "age_interpretation": "Time since hot big bang in the assumed flat GR CMB model and fixed early-universe/neutrino physics; not an independent stellar-population age.",
+  "synthetic_numerical_amendment": "Before any observational expansion-history output, a synthetic Lambda+radiation test found CAMB1.6.6 default physical_time/age Romberg tolerance1e-4 yields a0.00028147Gyr difference from converged quadrature. Report age using scipy adaptive quadrature of the unchanged CAMB H(a), cross-check256-node Gauss-Legendre after a=t^2, retain default-age difference. No scientific target or likelihood accuracy changes. Initial failed validation is preserved."
+}

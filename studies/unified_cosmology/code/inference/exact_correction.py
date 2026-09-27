@@ -17,6 +17,17 @@ ROOT = HERE.parents[3]
 _exact = _proposal = None
 
 
+def record_digest(record):
+    """Seal numerical payloads, including retained failed/nonfinite outcomes."""
+    payload = {key: value for key, value in record.items() if key != 'payload_sha256'}
+    return hashlib.sha256(json.dumps(payload, sort_keys=True,
+                                    separators=(',', ':')).encode()).hexdigest()
+
+
+def verify_record(record):
+    assert record.get('payload_sha256') == record_digest(record), 'Native cached payload changed.'
+
+
 def correction_dependencies():
     """Bind evaluation and every preregistered weighted-stability decision."""
     paths = [Path(__file__),HERE/'luminosity_sensitivity.py',
@@ -42,7 +53,8 @@ def evaluate(task):
     path = Path(destination)/f'{index:05d}.json'
     if path.exists():
         old = json.loads(path.read_text())
-        assert old['point']==point and old['target_identity']==identity
+        verify_record(old)
+        assert old['index']==index and old['point']==point and old['target_identity']==identity
         return old
     started = time.monotonic()
     try:
@@ -62,6 +74,7 @@ def evaluate(task):
         record = {'index':index,'point':point,'status':'exception','exception':repr(error)}
     record['seconds'] = time.monotonic()-started
     record['target_identity']=identity
+    record['payload_sha256']=record_digest(record)
     temporary = path.with_suffix('.part')
     temporary.write_text(json.dumps(record,indent=2)+'\n');temporary.replace(path)
     return record
@@ -168,6 +181,11 @@ def main():
         sort_keys=True,separators=(',',':')).encode()).hexdigest()
     out=folder/a.name;out.mkdir(exist_ok=True)
     design=out/'selection.json'
+    if a.output.exists():
+        previous = json.loads(a.output.read_text())
+        assert previous['selection_path'] == str(design.relative_to(ROOT))
+        for name, expected in previous['native_record_sha256'].items():
+            assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest() == expected, 'Previously summarized native file changed.'
     if design.exists():
         selection=json.loads(design.read_text());assert len(selection['points'])==a.points
         assert selection['correction_identity']==correction_identity
@@ -225,6 +243,8 @@ def main():
     result['proposal_target_identity']=identity['identity']
     result['diagnostics_path']=diagnostics_path
     result['diagnostics_sha256']=diagnostics_sha256
+    result['native_record_sha256']={str((out/f'{i:05d}.json').relative_to(ROOT)):
+        hashlib.sha256((out/f'{i:05d}.json').read_bytes()).hexdigest() for i in range(len(records))}
     a.output.parent.mkdir(parents=True,exist_ok=True)
     a.output.write_text(json.dumps(result,indent=2,allow_nan=False)+'\n')
     print(json.dumps({k:v for k,v in result.items() if k not in ['posterior','independent_chain_weighted_means']},indent=2))
