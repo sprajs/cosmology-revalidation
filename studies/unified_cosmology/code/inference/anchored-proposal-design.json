@@ -1,0 +1,12 @@
+{
+  "schema": "anchored-bridge-weighted-proposal-v1",
+  "purpose": "Learn a numerical proposal for fresh anchored sampling from an already evaluated complete SN-replacement bridge. Training does not qualify that bridge or turn its diagnostics into a measurement.",
+  "prerequisites": "The original parent must freshly qualify; every anchored factor evaluation and source-density closure must pass. A child failing only overlap/stability may inform a proposal. Replaying the complete cached bridge must match its saved report exactly with background/model/spectrum evaluation forbidden.",
+  "partition": "Sort each of four chains by its original expanded_index. Use the first80percent of each selected-point sequence for training; withhold the last20percent. At least2000 total points and100 withheld points per chain. The split is fixed before the bridge is examined.",
+  "weights": "Use raw anchored target/proposal logweights on training points only, normalized by logsumexp. No clipping, smoothing, winsorization or replacement of tail points.",
+  "coordinates": "Whiten with the independently frozen original Dovekie proposal Cholesky and mean. Compute weighted population mean and covariance. Set covariance_white=0.95*empirical_covariance_white+0.05*I, then transform back. This fixed regularization is a proposal choice, not an observational covariance change.",
+  "proposal": "Reuse unchanged FrozenMixture:0.9 Normal(mean,1.05^2*C)+0.1 StudentT5(mean,scale=4*(5-2)/5*C). It has full real support; scientific prior/domain rejections belong to the target.",
+  "training_quality": "Require raw training ESS>=max(20,2*number_of_parameters), finite coordinates/weights and a positive definite regularized covariance. Failure rejects this proposal construction only; it says nothing about the physical model.",
+  "validation": "Independent weighted-moment algebra, held-out perturbation invariance, common-weight-offset invariance, duplicate/omitted partition rejection, concentrated-weight rejection, normalized mixture agreement with SciPy, and immutable snapshot/source tamper rejection. No observational training or native model calls in validation.",
+  "interpretation": "Weighted bridge summaries remain diagnostics when their scientific gates fail. The trained proposal can miss unseen modes; fresh independently seeded chains, unchanged convergence gates and native correction are still required. A separate bounded pilot tests efficiency before production."
+}
