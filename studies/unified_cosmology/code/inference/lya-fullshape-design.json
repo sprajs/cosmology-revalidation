@@ -1,0 +1,60 @@
+{
+  "schema": "rounded-paper-lya-fullshape-replacement-v1",
+  "declared_before_observational_bridge": true,
+  "source": {
+    "paper": "https://arxiv.org/abs/2607.27410v3",
+    "equation": 26,
+    "pdf_page_one_based": 19,
+    "validation_paper": "https://arxiv.org/abs/2607.27411v2"
+  },
+  "target_kind": "Explicit Gaussian approximation to the rounded published joint Ly-alpha AP+BAO distance summaries, not an exact author likelihood or raw-forest reconstruction.",
+  "printed_summary": {
+    "redshift": 2.33,
+    "coordinate_order": [
+      "DM_over_rd_mean",
+      "DH_over_rd_mean",
+      "DM_over_rd_sigma",
+      "DH_over_rd_sigma",
+      "correlation"
+    ],
+    "mean_sigma_rho": [
+      39.32,
+      8.6,
+      0.33,
+      0.066,
+      0.225
+    ],
+    "rounding_half_steps": [
+      0.005,
+      0.0005,
+      0.005,
+      0.0005,
+      0.0005
+    ],
+    "rounding_role": "All32 corners of the five printed-number rounding intervals, with fixed lexicographic ordering. These form a finite numerical sensitivity exercise, not a probability distribution, strict interior envelope, missing-tail model or systematic allowance."
+  },
+  "replacement": "Select the two z=2.33 parent rows by named DM/DH observables, require exactly zero covariance with the other11 rows, preserve their marginal block, and replace the overlapping pair by Eq26. Never add the old Ly-alpha BAO factor or a separate broadbandAP factor. No f-sigma8, H0, BBN or acoustic-angle prior is added.",
+  "density_convention": "Retain the Cobaya BAO convention logL=-chi2/2; constant Gaussian determinants do not affect any within-target posterior. No evidence ratio or author significance is inferred.",
+  "background": "Same physical CAMB parameters and drag sound horizon as the parent. One no-spectra native-thermal background per point evaluates DA and H at all13 original row redshifts, restoring row order. DM=(1+z)DA; DH=c/H; DV=(z*DM^2*DH)^(1/3).",
+  "old_BAO_loglike_closure_tolerance": 1e-05,
+  "block_quadratic_closure_tolerance": 1e-09,
+  "density_accounting_tolerance": 1e-09,
+  "parent_and_child_gates": "Fresh measurement_summary parent qualification before work. All2000 original selected points, four independent chains, untrimmed exact/proposal weights plus new-minus-old fullBAO density. The unchanged luminosity-sensitivity-design overlap gates apply separately to nominal and every rounding corner; failed variants admit no posterior. Native precision is separately qualified.",
+  "validation": "Independent full-matrix Gaussian quadratics; DM/DH row permutation; covariance-block rejection; direct native likelihood interface with fake distance provider; normalized determinant shift constant; same-factor replacement and known Gaussian posterior reweighting; cache/input tampering and failed-parent refusal before any background.",
+  "limits": "The public printed moments do not establish compressed-likelihood Gaussian tails or its nuisance-prior measure. Raw DR2 forest data and an author machine likelihood were not located in the checked public interfaces at retrieval. Conditioning remains on the published template, metal/HCD/redshift/UV response and small-scale marginalization; the mocks exclude a biased growth-rate estimate. Our unchanged CMB and SN choices differ from the paper. This is an approximate sensitivity measurement with no empirical progenitor-age correction or author3.2sigma reproduction claim.",
+  "allowed_models": [
+    "lcdm",
+    "cpl"
+  ],
+  "allowed_evolution": [
+    "none",
+    "linear",
+    "smooth01"
+  ],
+  "allowed_samples": [
+    "dovekie"
+  ],
+  "allowed_calibration": [
+    "official_planck"
+  ]
+}

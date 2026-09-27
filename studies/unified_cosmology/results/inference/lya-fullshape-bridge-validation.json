@@ -1,0 +1,112 @@
+{
+  "status": "passed_synthetic_lya_fullshape_bridge_checks_no_observational_evaluation",
+  "pure_accounting_and_Gaussian_controls": {
+    "points": 8000,
+    "seed": 273293,
+    "maximum_direct_density_error": 4.440892098500626e-16,
+    "Gaussian_mean": 0.038977946321482146,
+    "expected_mean": 0.04,
+    "Gaussian_sd": 0.8985865847742235,
+    "expected_sd": 0.8944271909999159,
+    "normalized_constant_shift_error": 2.168404344971009e-17,
+    "SN_chi2_preserved": true,
+    "source_closure_failure_not_substituted_into_weights": true,
+    "all_failed_support_withholds_posterior": true
+  },
+  "configuration_controls": [
+    {
+      "model": "lcdm",
+      "evolution": "none",
+      "gpu": false,
+      "non_BAO_physics_priors_and_likelihoods_identical": true
+    },
+    {
+      "model": "cpl",
+      "evolution": "none",
+      "gpu": false,
+      "non_BAO_physics_priors_and_likelihoods_identical": true
+    },
+    {
+      "model": "cpl",
+      "evolution": "linear",
+      "gpu": true,
+      "non_BAO_physics_priors_and_likelihoods_identical": true
+    },
+    {
+      "model": "cpl",
+      "evolution": "smooth01",
+      "gpu": true,
+      "non_BAO_physics_priors_and_likelihoods_identical": true
+    }
+  ],
+  "fake_background_controls": {
+    "fake_background_calls": 1,
+    "real_background_calls": 0,
+    "ordered13_rows_and_redshift_union_pass": true,
+    "old_native_Cobaya_quadratic_independent_error": 4.547473508864641e-13,
+    "all33_full_covariance_independent_error": 1.8189894035458565e-12,
+    "actual_DM_DH_row_indices": [
+      12,
+      11
+    ],
+    "all_variants_reuse_identical_predictions": true
+  },
+  "sealed_consumer_controls": {
+    "synthetic_records": 400,
+    "variant_targets": 33,
+    "background_calls_for_all_variants": 400,
+    "cache_replay_bitwise_no_extra_calls": true,
+    "changed_parent_native_cache_ledger_and_payload_refused": true,
+    "qualification_target_identity_distance_interfaces_explicitly_mocked": true,
+    "all_underpowered_variants_withhold_posterior": true,
+    "parent_refused_before_prerequisites_or_work": true
+  },
+  "prerequisite_guard_controls": {
+    "source_report_and_kernel_bindings_required": true,
+    "stale_incomplete_pending_or_missing_prerequisites_refused": true,
+    "refusals": 6
+  },
+  "source_sha256": {
+    "studies/unified_cosmology/code/inference/lya_fullshape_bridge_validate.py": "2d9fa83c1dcff3693c06aa9cb6c2c0056038e306f3c153c7df7a956ca58b86bb",
+    "studies/unified_cosmology/code/inference/lya_fullshape_bridge.py": "0ecbe329f1f311ecee128fb18d4fd5099dbfb02d39506e573784cc25e33b0b05",
+    "studies/unified_cosmology/code/inference/lya_fullshape.py": "049c1ed83430efda966243dabdb3482ed5cdc3c3434d1d5dd0717e66f89ae286",
+    "studies/unified_cosmology/code/inference/lya-fullshape-design.json": "ef2f20b5a0cd119a3a95cd95b4f70d0c9a7405ddebf425961a239ae815f7defa",
+    "studies/unified_cosmology/code/inference/luminosity-sensitivity-design.json": "fdff0250564a1562fd1af3da8a9ff93481de1837c8ad08837993564aa545ee85",
+    "studies/unified_cosmology/code/inference/anchored_bridge.py": "3708579aafee822ce24feb4e5d0abb977a04ab25529d1c7e88d382732e565e93",
+    "studies/unified_cosmology/code/inference/probe_omission.py": "0a83dbb1f3065a9dbeea8be31fd52159d6fa25084e941441f50ff5ab98d580e0",
+    "studies/unified_cosmology/code/inference/measurement_summary.py": "ca963dbaf8bff8bb693bf483c023d022c1e57b71bf9680711c92d716e9e415ef",
+    "studies/unified_cosmology/code/inference/exact_correction.py": "d073c7e1c9d0f8678d46389048bec6580d7aac4299085f7104a125b78710e477",
+    "studies/unified_cosmology/code/inference/target_identity.py": "498869ee5459b8afa13f8c56bfa9d619d8017f44ca0c6e4dc0a81efbaf42b2f2",
+    "studies/unified_cosmology/code/inference/expansion_history.py": "134ccdd5ed4098887932261c503017264baf5d1649fe36e13171c5e617960648",
+    "studies/unified_cosmology/code/inference/modern_run.py": "101912935a939909466fbccae997b32845e6c7413edbb6aa93902ecf530b549b",
+    "studies/unified_cosmology/code/inference/modern_fast.py": "7028d9bebeac08e59ab9be968dc436dbf92263b46520b08c84bd5464d3063d13",
+    "studies/unified_cosmology/code/inference/modern_gpu.py": "ad5135f9197ed5c7803af21dca3533e577b71bb9e08d993bae2f6f02a5ba4997",
+    "studies/unified_cosmology/code/inference/luminosity_sensitivity.py": "3f831be63b3776b02c0b547dbb6d9273ddbad68b272c6cb372eda390abafaab7"
+  },
+  "input_sha256": {
+    ".work/unified-cosmology/external-probes/packages/data/bao_data/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_mean.txt": "9ac154ab583ce759c0f7eef3c978c7c70a6ead2d18774caceadf1a350a640585",
+    ".work/unified-cosmology/external-probes/packages/data/bao_data/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_cov.txt": "252a143274c8a07c78694c119617d36594f6d7965d00319ca611c6ffb886e509",
+    "studies/unified_cosmology/results/external_probes/lya-fullshape-sources.json": "aa3f046a0d47fbf5d73f7f5f18398dec22eb6245ff0bbde7266fb31fc8e9bd67",
+    "studies/unified_cosmology/results/inference/lya-fullshape-validation.json": "073505f47745abc6c5254b7f6c8f754a0d4eb70108f64524383440b30aa7841a",
+    "studies/unified_cosmology/code/external_probes/lya_fullshape_sources.py": "c1183aef1e79631bfa08762241c043f4d1c8c5f8273daf3b9900738df4c913e3",
+    ".work/unified-cosmology/external-probes/packages/data/bao_data/desi_bao_dr2/desi_gaussian_bao_Lya_GCcomb_mean.txt": "9b4ab92080d038d0a0a5d76b9abead4e3919d7227e343d1e7feab7103e1f30cb",
+    ".work/unified-cosmology/external-probes/packages/data/bao_data/desi_bao_dr2/desi_gaussian_bao_Lya_GCcomb_cov.txt": "02a049dbf3a1cd391189948516378a694abfd8d5b5cba1a15e97c6c5cf972357",
+    ".work/unified-cosmology/lya-fullshape/sources-v2/paper.html": "af57e0e0ce6d55161549ba32b98b332d1a7acceb9a3ba8f9811a28efd6d2f847",
+    ".work/unified-cosmology/lya-fullshape/sources-v2/paper.pdf": "6fcc44addcd8843a46fc6016753955a5f16c7a3b2593c5c8e74250dc1c632674",
+    ".work/unified-cosmology/lya-fullshape/sources-v2/validation.html": "f9b91cc6941a8b4688d5905d2a2dfa33e31180191bad145eb55c3aa3a8ad4823",
+    ".work/unified-cosmology/lya-fullshape/sources-v2/desi-publications.html": "d4d4bc1ee4dfad8723aee24083a64e92823058b45297c455c714a4d6e9ccf18e",
+    ".work/unified-cosmology/lya-fullshape/sources-v2/desi-y3-directory.html": "1e7887c571fff03164a5c276b162c39186a3056d1b916539f03d7cad0c406fa5",
+    ".work/unified-cosmology/lya-fullshape/sources-v2/bao-tree.json": "a4ef50adae5b2ed57d5812376ff63740ee2b65918603ffc30a595365162e9bb8",
+    ".work/unified-cosmology/lya-fullshape/sources-v2/zenodo-arxiv-search.json": "c94c5db0fb451b25f4d8e5c2861c7dbf1f74ab482965a4f334e43f4ab4605837",
+    ".work/unified-cosmology/lya-fullshape/sources-v2/current-lya-mean.txt": "9b4ab92080d038d0a0a5d76b9abead4e3919d7227e343d1e7feab7103e1f30cb",
+    ".work/unified-cosmology/lya-fullshape/sources-v2/current-lya-cov.txt": "02a049dbf3a1cd391189948516378a694abfd8d5b5cba1a15e97c6c5cf972357",
+    "studies/unified_cosmology/code/inference/lya_fullshape_validate.py": "55648f113da21b9b6187dd1cb24f23e4e9b781b9df8064f22de0f93cf939d387",
+    "studies/unified_cosmology/code/inference/lya_fullshape.py": "049c1ed83430efda966243dabdb3482ed5cdc3c3434d1d5dd0717e66f89ae286",
+    "studies/unified_cosmology/code/inference/lya-fullshape-design.json": "ef2f20b5a0cd119a3a95cd95b4f70d0c9a7405ddebf425961a239ae815f7defa"
+  },
+  "CMB_spectrum_calls": 0,
+  "CAMB_background_calls": 0,
+  "observational_bridge_points": 0,
+  "physical_entrypoints_forbidden": true,
+  "scope": "Synthetic accounting/configuration/cache controls only; all real parent, source BAO closure and33 separate overlap qualifications remain required."
+}
