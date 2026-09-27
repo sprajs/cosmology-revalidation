@@ -1,6 +1,6 @@
 # Synthetic validation of optical-to-infrared prediction
 
-The optical-only BayeSN model can predict a held-out infrared light curve with its full latent uncertainty, using either a proper external-distance prior or a broad proper distance prior. Its scalar-distance algebra and 47-coordinate joint density now pass independent numerical checks. A complete synthetic posterior comparison remains subject to the original four-chain convergence and predictive-score precision requirements. No observed optical posterior or observed infrared score is reported here.
+The optical-only BayeSN model can predict a held-out infrared light curve with its full latent uncertainty, using either a proper external-distance prior or a broad proper distance prior. Its scalar-distance algebra and 47-coordinate joint density pass independent numerical checks. The first complete synthetic sampling attempt fails the frozen zero-divergence requirement in both distance-prior arms. No infrared predictive score, observed optical posterior or observed infrared score is reported from that attempt.
 
 The model retains distance plus gray scatter as the combined amplitude coordinate D, host extinction, the extinction-law parameter, shape, 42 whitened intrinsic spectral residuals, and optical-trigger peak time. Sampling D explicitly preserves the same marginal target as integrating it out. In the external-distance arm, independent Gaussian distance and gray-scatter variances add. In the broad arm, D has the exact normalized convolution of a uniform distance modulus on [20, 50] with Gaussian gray scatter of 0.088 mag. It is not an improper amplitude prior.
 
@@ -13,5 +13,23 @@ The infrared score is the posterior average of the **joint** conditional density
 The synthetic screen fixes two observed observing schedules, three declared physical truth configurations and two noise seeds before fitting. It generates signed Gaussian fluxes using the quoted source errors; it does not use measured fluxes. Preparation validates all six noiseless single-object truth vectors against the author's public simulation interface, with maximum discrepancy **7.91 × 10⁻¹⁵ quoted measurement errors**. The previously completed [J/H forward gate](bayesn-heldout-feasibility.md) separately checks wavelength integration, phase and array-layout behavior.
 
 Each synthetic fit requires four independently initialized chains with 1,000 warmup and 1,000 retained draws each. Every latent coordinate enters the convergence checks. Optical workers cannot open synthetic infrared outcomes, truth files or observed photometry; the optical chain and diagnostic hashes are frozen before any synthetic infrared score. The full design, replay commands and resource limits are in the [executor documentation](../code/bayesn_heldout/README.md).
+
+The first case uses the DES16E2clk observing schedule, zero-dust synthetic truth and noise seed 4101, selected before fitting. All eight full chains completed within the original one-hour cap. These are numerical diagnostics of an unqualified attempt, not measurements of supernova properties:
+
+| Diagnostic | External-distance arm | Broad-distance arm |
+|---|---:|---:|
+| Retained chains × draws | 4 × 1,000 | 4 × 1,000 |
+| Maximum R-hat | 1.00538 | 1.00470 |
+| Minimum bulk / tail ESS | 1,565 / 1,108 | 2,107 / 1,781 |
+| Energy BFMI range | 0.935–1.062 | 1.007–1.040 |
+| Divergent transitions | **5** | **14** |
+| Maximum-depth transitions | 0 | 0 |
+| Worker wall time | 29.86 minutes | 43.58 minutes |
+
+All other registered numerical gates pass, including timing and broad-distance boundary checks. Divergences are not removed or excused by adequate R-hat and ESS. The complete [case record](../results/bayesn-synthetic-case00.json) pins the chains, diagnostics, source and input identities. No infrared score was computed. The original attempt remains available independently of any later sampler revision.
+
+The unconstrained-coordinate correlation matrices have condition numbers about 20.6 and 20.9. The strongest broad-arm correlation is between distance D and log extinction (−0.559); shape and transformed timing correlate at about 0.50–0.57. The five external-distance divergence flags occur at three distinct retained states with relatively high extinction and RV; broad-arm flags span a wider region. An exploratory phase-distance description finds two of five flagged states within 0.001 rest day of an integer Hsiao phase, versus 102 of 3,995 unflagged external-distance states; the broad-arm counts are one of fourteen versus 112 of 3,986. Two near-knot external-distance flags repeat the same state. These are not independent trials or actual failing leapfrog locations, and they do not identify a cause.
+
+The [independent gradient audit](bayesn-synthetic-gradients.md) passes all 422 predeclared smooth-coordinate checks and exactly reproduces the native NumPyro potential gradient. At an exact integer phase, the piecewise-linear Hsiao interpolation has no unique derivative; that exception remains explicit. This audit finds no derivative error in the inspected smooth regions and does not prove that a phase knot caused the divergences. A separately declared dense-metric, smaller-step sampling attempt is a computational follow-up; it must retain the same density and qualification gates.
 
 These tests remain conditional on fixed M20 training, nominal calibration, quoted diagonal measurement errors and the declared prior family. They cannot identify a host-age correction, establish survey selection, or show that either distance prior is cosmologically correct. Synthetic recovery is necessary before a real held-out comparison, but does not validate the observational noise model by itself.

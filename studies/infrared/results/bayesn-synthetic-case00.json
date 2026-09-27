@@ -1,0 +1,719 @@
+{
+  "schema": "bayesn-synthetic-case-diagnostic-v1",
+  "case_index": 0,
+  "status": "failed_sampling_gate",
+  "external_execution_outcome": "completed",
+  "arms": {
+    "LCDM": {
+      "completed_chains": 4,
+      "worker_wall_seconds": 1791.5017242319882,
+      "chain_wall_seconds": [
+        435.5211970760138,
+        395.02763699600473,
+        460.8632302930055,
+        437.5984883219935
+      ],
+      "divergences_by_chain": [
+        0,
+        5,
+        0,
+        0
+      ],
+      "mean_accept_probability_by_chain": [
+        0.9360436731740154,
+        0.8956496051324321,
+        0.9436536543269785,
+        0.9625554691239095
+      ],
+      "median_leapfrog_steps_by_chain": [
+        31.0,
+        31.0,
+        63.0,
+        63.0
+      ],
+      "diagnostics": {
+        "sampler_passed": false,
+        "case_index": 0,
+        "arm": "LCDM",
+        "posterior_manifest_sha256": "cb645cdb53743472c70dbb964f7d53e217c0a18199fd1df376f4593838b7e542",
+        "Rhat_max": 1.0053750233557426,
+        "bulk_ESS_min": 1564.9903025787576,
+        "tail_ESS_min": 1108.4552168264893,
+        "mean_MCSE_over_SD_max": 0.026488695326730392,
+        "EBFMI_by_chain": [
+          1.0619510059145616,
+          1.005811548246655,
+          0.9646059383818574,
+          0.9351609912179124
+        ],
+        "divergences": 5,
+        "max_tree_fraction_by_chain": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "timing_boundary_probability": 0.0,
+        "timing_limited": false,
+        "broad_mu_boundary_probabilities": null,
+        "interpretation": "Monte Carlo diagnostics for one synthetic realization; no coverage claim or observed fit."
+      },
+      "geometry": {
+        "physical_geometry": {
+          "status": "full_rank",
+          "condition_number": 93.65835793198593,
+          "top_absolute_correlations": [
+            {
+              "first": "tau",
+              "second": "theta",
+              "correlation": 0.5742502794853603
+            },
+            {
+              "first": "theta",
+              "second": "AV",
+              "correlation": -0.4032378574737656
+            },
+            {
+              "first": "theta",
+              "second": "D",
+              "correlation": -0.393978384187649
+            },
+            {
+              "first": "AV",
+              "second": "D",
+              "correlation": -0.369321748059338
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[14]",
+              "correlation": 0.25180099727697897
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[23]",
+              "correlation": -0.2313790542883477
+            },
+            {
+              "first": "epsilon_white[7]",
+              "second": "theta",
+              "correlation": 0.20629707266223835
+            },
+            {
+              "first": "epsilon_white[22]",
+              "second": "theta",
+              "correlation": -0.17627665915336954
+            },
+            {
+              "first": "epsilon_white[15]",
+              "second": "D",
+              "correlation": -0.15491874128902847
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[1]",
+              "correlation": 0.14685629575512155
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[10]",
+              "correlation": 0.14521288027388135
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[21]",
+              "correlation": 0.1336593253929374
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[7]",
+              "correlation": 0.12864384233372908
+            },
+            {
+              "first": "epsilon_white[16]",
+              "second": "epsilon_white[14]",
+              "correlation": 0.1257442607117781
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[9]",
+              "correlation": -0.12377177275710242
+            }
+          ]
+        },
+        "unconstrained_geometry": {
+          "status": "full_rank",
+          "condition_number": 20.63933973220933,
+          "top_absolute_correlations": [
+            {
+              "first": "logit_tau",
+              "second": "theta",
+              "correlation": 0.5744889713614358
+            },
+            {
+              "first": "theta",
+              "second": "D",
+              "correlation": -0.393978384187649
+            },
+            {
+              "first": "theta",
+              "second": "log_AV",
+              "correlation": -0.344729501960592
+            },
+            {
+              "first": "log_AV",
+              "second": "D",
+              "correlation": -0.2776315183828661
+            },
+            {
+              "first": "logit_tau",
+              "second": "epsilon_white[14]",
+              "correlation": 0.25203127284276805
+            },
+            {
+              "first": "logit_tau",
+              "second": "epsilon_white[23]",
+              "correlation": -0.2310294945103327
+            },
+            {
+              "first": "epsilon_white[7]",
+              "second": "theta",
+              "correlation": 0.20629707266223835
+            },
+            {
+              "first": "epsilon_white[22]",
+              "second": "theta",
+              "correlation": -0.17627665915336954
+            },
+            {
+              "first": "epsilon_white[15]",
+              "second": "D",
+              "correlation": -0.15491874128902847
+            },
+            {
+              "first": "logit_tau",
+              "second": "epsilon_white[1]",
+              "correlation": 0.1466235457341363
+            },
+            {
+              "first": "logit_tau",
+              "second": "epsilon_white[10]",
+              "correlation": 0.1454310218159069
+            },
+            {
+              "first": "logit_tau",
+              "second": "epsilon_white[21]",
+              "correlation": 0.13336730278947584
+            },
+            {
+              "first": "logit_tau",
+              "second": "epsilon_white[7]",
+              "correlation": 0.12866982593986653
+            },
+            {
+              "first": "epsilon_white[16]",
+              "second": "epsilon_white[14]",
+              "correlation": 0.1257442607117781
+            },
+            {
+              "first": "logit_tau",
+              "second": "epsilon_white[9]",
+              "correlation": -0.12341715905463173
+            }
+          ]
+        },
+        "within_chain_physical_geometry": {
+          "status": "full_rank",
+          "condition_number": 93.61502385401288,
+          "top_absolute_correlations": [
+            {
+              "first": "tau",
+              "second": "theta",
+              "correlation": 0.574488728695214
+            },
+            {
+              "first": "theta",
+              "second": "AV",
+              "correlation": -0.4033976857735768
+            },
+            {
+              "first": "theta",
+              "second": "D",
+              "correlation": -0.39445351604986645
+            },
+            {
+              "first": "AV",
+              "second": "D",
+              "correlation": -0.36832728757426003
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[14]",
+              "correlation": 0.2516084919107808
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[23]",
+              "correlation": -0.23144228495985245
+            },
+            {
+              "first": "epsilon_white[7]",
+              "second": "theta",
+              "correlation": 0.20621892965068356
+            },
+            {
+              "first": "epsilon_white[22]",
+              "second": "theta",
+              "correlation": -0.17641812102563642
+            },
+            {
+              "first": "epsilon_white[15]",
+              "second": "D",
+              "correlation": -0.15472096251150363
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[1]",
+              "correlation": 0.1471975873095714
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[10]",
+              "correlation": 0.1449542002053121
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[21]",
+              "correlation": 0.13356944972482976
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[7]",
+              "correlation": 0.12887840269257003
+            },
+            {
+              "first": "epsilon_white[16]",
+              "second": "epsilon_white[14]",
+              "correlation": 0.12618627090100376
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[9]",
+              "correlation": -0.12368611888024544
+            }
+          ]
+        }
+      },
+      "divergence_retained_states": {
+        "count": 5,
+        "unique_coordinate_vectors": 3,
+        "physical_coordinate_ranges": {
+          "D": [
+            41.15669220106833,
+            41.172794591345614
+          ],
+          "AV": [
+            0.41138010202859165,
+            0.45977021767961074
+          ],
+          "RV": [
+            5.756676671810527,
+            5.776347364326951
+          ],
+          "theta": [
+            -0.4147475285439622,
+            -0.3828660216290357
+          ],
+          "tau": [
+            6.885818733920079,
+            7.44698800960517
+          ]
+        },
+        "within_0_001_rest_days_of_any_integer_phase": 2,
+        "nondivergent_within_same_phase_threshold": 102,
+        "nondivergent_states": 3995,
+        "phase_threshold_scope": "Exploratory description chosen after the failed sampling attempt; repeated states are not independent trials.",
+        "interpretation": "Retained states flagged by a divergent transition, not actual failed leapfrog states; no causal knot diagnosis."
+      }
+    },
+    "broad": {
+      "completed_chains": 4,
+      "worker_wall_seconds": 2614.644222273986,
+      "chain_wall_seconds": [
+        883.6925346280041,
+        643.673440640996,
+        613.8574358740007,
+        407.4342764139874
+      ],
+      "divergences_by_chain": [
+        0,
+        0,
+        10,
+        4
+      ],
+      "mean_accept_probability_by_chain": [
+        0.9770074988515942,
+        0.9516684062444595,
+        0.864936020279026,
+        0.8997735191647123
+      ],
+      "median_leapfrog_steps_by_chain": [
+        127.0,
+        63.0,
+        63.0,
+        63.0
+      ],
+      "diagnostics": {
+        "sampler_passed": false,
+        "case_index": 0,
+        "arm": "broad",
+        "posterior_manifest_sha256": "f5559e956539fc9748ccc5dbfaa05ed9f7a2a1b31983cebeec7affdf3f09f36b",
+        "Rhat_max": 1.0047049630188818,
+        "bulk_ESS_min": 2106.905148443304,
+        "tail_ESS_min": 1780.8981093312645,
+        "mean_MCSE_over_SD_max": 0.02205182774288344,
+        "EBFMI_by_chain": [
+          1.0385063143453552,
+          1.0067117542876982,
+          1.0298669468743737,
+          1.0400074740910978
+        ],
+        "divergences": 14,
+        "max_tree_fraction_by_chain": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "timing_boundary_probability": 0.0,
+        "timing_limited": false,
+        "broad_mu_boundary_probabilities": {
+          "lower": 0.0,
+          "upper": 0.0
+        },
+        "interpretation": "Monte Carlo diagnostics for one synthetic realization; no coverage claim or observed fit."
+      },
+      "geometry": {
+        "physical_geometry": {
+          "status": "full_rank",
+          "condition_number": 228.6088382055647,
+          "top_absolute_correlations": [
+            {
+              "first": "AV",
+              "second": "D",
+              "correlation": -0.7150880587552296
+            },
+            {
+              "first": "tau",
+              "second": "theta",
+              "correlation": 0.499280523226604
+            },
+            {
+              "first": "theta",
+              "second": "D",
+              "correlation": -0.48852777181255486
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[23]",
+              "correlation": -0.22897971362471317
+            },
+            {
+              "first": "epsilon_white[22]",
+              "second": "theta",
+              "correlation": -0.2274658462375752
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[14]",
+              "correlation": 0.21864024024266576
+            },
+            {
+              "first": "epsilon_white[7]",
+              "second": "theta",
+              "correlation": 0.2164805906538919
+            },
+            {
+              "first": "epsilon_white[14]",
+              "second": "D",
+              "correlation": 0.21300754169860586
+            },
+            {
+              "first": "epsilon_white[16]",
+              "second": "D",
+              "correlation": -0.21082581148739055
+            },
+            {
+              "first": "epsilon_white[14]",
+              "second": "AV",
+              "correlation": -0.19626991365469595
+            },
+            {
+              "first": "epsilon_white[15]",
+              "second": "D",
+              "correlation": -0.19281596405368281
+            },
+            {
+              "first": "RV",
+              "second": "D",
+              "correlation": -0.18477990494521532
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[7]",
+              "correlation": 0.18441039655127825
+            },
+            {
+              "first": "RV",
+              "second": "AV",
+              "correlation": 0.18275433960948398
+            },
+            {
+              "first": "epsilon_white[23]",
+              "second": "D",
+              "correlation": -0.1642131743037436
+            }
+          ]
+        },
+        "unconstrained_geometry": {
+          "status": "full_rank",
+          "condition_number": 20.93947047166339,
+          "top_absolute_correlations": [
+            {
+              "first": "log_AV",
+              "second": "D",
+              "correlation": -0.5591517204244361
+            },
+            {
+              "first": "logit_tau",
+              "second": "theta",
+              "correlation": 0.4993702762153611
+            },
+            {
+              "first": "theta",
+              "second": "D",
+              "correlation": -0.48852777181255486
+            },
+            {
+              "first": "logit_tau",
+              "second": "epsilon_white[23]",
+              "correlation": -0.22907651524537523
+            },
+            {
+              "first": "epsilon_white[22]",
+              "second": "theta",
+              "correlation": -0.2274658462375752
+            },
+            {
+              "first": "logit_tau",
+              "second": "epsilon_white[14]",
+              "correlation": 0.2187561763625944
+            },
+            {
+              "first": "epsilon_white[7]",
+              "second": "theta",
+              "correlation": 0.2164805906538919
+            },
+            {
+              "first": "epsilon_white[14]",
+              "second": "D",
+              "correlation": 0.21300754169860586
+            },
+            {
+              "first": "epsilon_white[16]",
+              "second": "D",
+              "correlation": -0.21082581148739055
+            },
+            {
+              "first": "epsilon_white[15]",
+              "second": "D",
+              "correlation": -0.19281596405368281
+            },
+            {
+              "first": "logit_tau",
+              "second": "epsilon_white[7]",
+              "correlation": 0.18448545952421105
+            },
+            {
+              "first": "logit_RV",
+              "second": "D",
+              "correlation": -0.17789928713557496
+            },
+            {
+              "first": "epsilon_white[14]",
+              "second": "log_AV",
+              "correlation": -0.1711915974622708
+            },
+            {
+              "first": "epsilon_white[23]",
+              "second": "D",
+              "correlation": -0.1642131743037436
+            },
+            {
+              "first": "epsilon_white[15]",
+              "second": "theta",
+              "correlation": 0.1536900500324916
+            }
+          ]
+        },
+        "within_chain_physical_geometry": {
+          "status": "full_rank",
+          "condition_number": 228.37257005028735,
+          "top_absolute_correlations": [
+            {
+              "first": "AV",
+              "second": "D",
+              "correlation": -0.714893277280732
+            },
+            {
+              "first": "tau",
+              "second": "theta",
+              "correlation": 0.49854359018130817
+            },
+            {
+              "first": "theta",
+              "second": "D",
+              "correlation": -0.48760181165136784
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[23]",
+              "correlation": -0.22872120375001073
+            },
+            {
+              "first": "epsilon_white[22]",
+              "second": "theta",
+              "correlation": -0.22752374606868392
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[14]",
+              "correlation": 0.2189602734870282
+            },
+            {
+              "first": "epsilon_white[7]",
+              "second": "theta",
+              "correlation": 0.21740717854271943
+            },
+            {
+              "first": "epsilon_white[14]",
+              "second": "D",
+              "correlation": 0.21263196849165256
+            },
+            {
+              "first": "epsilon_white[16]",
+              "second": "D",
+              "correlation": -0.2113280081064742
+            },
+            {
+              "first": "epsilon_white[14]",
+              "second": "AV",
+              "correlation": -0.1959464491119237
+            },
+            {
+              "first": "epsilon_white[15]",
+              "second": "D",
+              "correlation": -0.19340461703179807
+            },
+            {
+              "first": "tau",
+              "second": "epsilon_white[7]",
+              "correlation": 0.1849420679607713
+            },
+            {
+              "first": "RV",
+              "second": "D",
+              "correlation": -0.18420907167575934
+            },
+            {
+              "first": "RV",
+              "second": "AV",
+              "correlation": 0.18230093454820803
+            },
+            {
+              "first": "epsilon_white[23]",
+              "second": "D",
+              "correlation": -0.16470487338718537
+            }
+          ]
+        }
+      },
+      "divergence_retained_states": {
+        "count": 14,
+        "unique_coordinate_vectors": 14,
+        "physical_coordinate_ranges": {
+          "D": [
+            40.848236879768244,
+            41.46688066645346
+          ],
+          "AV": [
+            0.019970979848708853,
+            0.5423990212628242
+          ],
+          "RV": [
+            1.7266666898536596,
+            5.79513973863335
+          ],
+          "theta": [
+            -1.276742909428765,
+            0.8998975080496188
+          ],
+          "tau": [
+            4.106708909098286,
+            8.22989692889064
+          ]
+        },
+        "within_0_001_rest_days_of_any_integer_phase": 1,
+        "nondivergent_within_same_phase_threshold": 112,
+        "nondivergent_states": 3986,
+        "phase_threshold_scope": "Exploratory description chosen after the failed sampling attempt; repeated states are not independent trials.",
+        "interpretation": "Retained states flagged by a divergent transition, not actual failed leapfrog states; no causal knot diagnosis."
+      }
+    }
+  },
+  "scope": "Synthetic-only numerical sampling diagnostic; no qualified posterior or infrared predictive comparison.",
+  "full_geometry_path": ".work/infrared/heldout-synthetic/case-00/geometry-phase-counts.json",
+  "full_geometry_sha256": "70d9122b0df352c44816d58b7b3b721613ed8d8b64d436010673aec82be4bc76",
+  "source_sha256": {
+    "studies/infrared/code/bayesn_synthetic_geometry.py": "c87fb7a56ea8c2b073ea8e1a2d554480a035b2ad024e991e2b37a67899fa42eb"
+  },
+  "reviewed_package_sha256": {
+    "__init__.py": "f12403a162fed7545c2da71eeb96d02e79f6c92c9edc8ec8aa614bf6e6892437",
+    "design.json": "b7c25ec9108771240a4573fb863afec8ff7d9cf4f5488861758fce646ef4c81e",
+    "model.py": "04f19faea8be8c65b8358a67b10ac9b76b5f1a004e04c6f6f5356a979a1d7b66",
+    "synthetic.py": "92fea7893474e35e0e78d60df63e65d172489a4c846a102d72a1e5e4934104ec",
+    "score.py": "125750424788c79af75b0cd2bd2bf174c2ded461e6939a86b085f7b584767213",
+    "validate.py": "4f73026f2ac2e610ff395fc0201a5f9e51f5e9f73fdb3b151f89a38fbaf9bd58"
+  },
+  "input_sha256": {
+    ".work/infrared/heldout-synthetic/prepared.json": "c7510030ecc94f7199ab8199596b93cb0ba676d7612681caec7caf69375406cd",
+    ".work/infrared/heldout-synthetic/case-00/optical.json": "610fe036bd303b3f972e9f3c51e411eea41653468afc94fbbd73eb6d76c9e329",
+    ".work/infrared/heldout-synthetic/case-00/LCDM/chain-0.json": "114fc2858410c3166b46bfc6469effadae30604aaee6effacb13ee9e7082fde3",
+    ".work/infrared/heldout-synthetic/case-00/LCDM/chain-0.npz": "531a591baaa269d2c3dba93426cb897d00579a9ca458cec4aafcbda99df84870",
+    ".work/infrared/heldout-synthetic/case-00/LCDM/chain-1.json": "030bb6691546617357e9039bd80ae2c577d5e2e5c6425fe9083e31a2da635fd9",
+    ".work/infrared/heldout-synthetic/case-00/LCDM/chain-1.npz": "cc421f7432e3bcb6c91b27a548dd13f2e0e4607adf82b5097a33c81ec5b906ad",
+    ".work/infrared/heldout-synthetic/case-00/LCDM/chain-2.json": "2b69701fc8454b2e1735c36efee2966c5a9a5684c843f02352feab36fcf729f9",
+    ".work/infrared/heldout-synthetic/case-00/LCDM/chain-2.npz": "8ec96b5b5de87f4dd8ccf49548bfe90e2ad5281aa9ed30515f7ebd5426ad9ffe",
+    ".work/infrared/heldout-synthetic/case-00/LCDM/chain-3.json": "ccc1b8446430ffa2d8c80e79391d555b5834d52fbc39a2ab3fb8d69bbb5f8321",
+    ".work/infrared/heldout-synthetic/case-00/LCDM/chain-3.npz": "4e89a63b3a6c18bb8e3de0f926187fb6f88f173c13a0a0080a6a5c8e4131bcd6",
+    ".work/infrared/heldout-synthetic/case-00/LCDM/posterior-manifest.json": "cb645cdb53743472c70dbb964f7d53e217c0a18199fd1df376f4593838b7e542",
+    ".work/infrared/heldout-synthetic/case-00/LCDM/diagnostics.json": "3df461e3e179683a3c1c5ab53fce89d8dc5875b642c4108e0639df5ffec121be",
+    ".work/infrared/heldout-synthetic/case-00/broad/chain-0.json": "94490682e3c9cbceca6dee3cbc35985137e186bf193e0e5e1e7f9f5444248cc6",
+    ".work/infrared/heldout-synthetic/case-00/broad/chain-0.npz": "f04234a09f168169e4eeb6dd08c01e8628cbef9fc2555a669f5781c761a77c2d",
+    ".work/infrared/heldout-synthetic/case-00/broad/chain-1.json": "4fefa061ff23ea5fd52425941198fba3f6da186e414050c54d5f604c26368c11",
+    ".work/infrared/heldout-synthetic/case-00/broad/chain-1.npz": "db2b962fd59ab0d40029d9c19140125b2ef509ea4632c3df33cee8d8fe479873",
+    ".work/infrared/heldout-synthetic/case-00/broad/chain-2.json": "33fe7a40c81c1ccc1b2913f251c2255dfd6d9657948bb6e8e924bff98dbb0647",
+    ".work/infrared/heldout-synthetic/case-00/broad/chain-2.npz": "d6dd349f56dc5d385cdb31f14ece22e94cf50fc850eae68f8e6e3add896c580e",
+    ".work/infrared/heldout-synthetic/case-00/broad/chain-3.json": "b3ea43ef7a05dff69e2ccde7aaa711eaa1ebe1057410cc5b53467c757af2df53",
+    ".work/infrared/heldout-synthetic/case-00/broad/chain-3.npz": "f09f2d574198a26af92ef47d46e0c8419efb0984b4dfcfc3f6cc20b91a2e3294",
+    ".work/infrared/heldout-synthetic/case-00/broad/posterior-manifest.json": "f5559e956539fc9748ccc5dbfaa05ed9f7a2a1b31983cebeec7affdf3f09f36b",
+    ".work/infrared/heldout-synthetic/case-00/broad/diagnostics.json": "407ab582e39f595534acdbb6b780cb92602defb3392036d40b50429ac3ee5977"
+  },
+  "no_model_or_observed_photometry_calls": true,
+  "caveats": [
+    "This is a diagnostic of preserved chains, including failed or incomplete attempts; no posterior inference or NIR score.",
+    "A divergence flag labels a retained transition state, not the actual failing leapfrog location. Proximity to a phase knot cannot establish a cause.",
+    "Hsiao interpolation is piecewise linear at integer rest phases. The recorded distances identify a diagnostic lead only.",
+    "The final adapted metric, step size and full divergent trajectories were not archived; their exact Hamiltonian error cannot be reconstructed.",
+    "Unconstrained coordinates use the same positive/interval transforms as the declared sampler; geometry does not change its target or qualify a replacement."
+  ]
+}

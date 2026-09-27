@@ -1,0 +1,20 @@
+{
+  "status": "Declared before any new forward-density/gradient outcome",
+  "scope": "Bounded diagnostic of synthetic case00 only; frozen Kernel and numpyro_model, no new chains, no NIR/truth or observed photometry reads, no target/package edits.",
+  "retained_states": [
+    {"arm": "LCDM", "chain": 0, "draw": 500},
+    {"arm": "LCDM", "chain": 1, "draw": "first retained state with stat_diverging true"},
+    {"arm": "LCDM", "chain": 3, "draw": 999},
+    {"arm": "broad", "chain": 0, "draw": 500},
+    {"arm": "broad", "chain": 2, "draw": "first retained state with stat_diverging true"},
+    {"arm": "broad", "chain": 2, "draw": 999}
+  ],
+  "controls": "Use the first retained LCDM state's nearest optical integer rest-phase boundary (ties: first optical row). Keep all other coordinates fixed; set tau to boundary minus0.0001, exactly boundary, and boundary plus0.0001 days. Three controls, nine states total.",
+  "coordinate_system": "Actual positive/interval unconstraining: D,logAV,logit((RV-1.2)/4.8),theta,42epsilon_white,logit((tau+10)/30). Compare log density including exact transform Jacobian. Additionally inspect physical tau one-sided derivatives at fixed other coordinates.",
+  "autodiff": "jax.value_and_grad of unchanged numpyro_model constrained log_density plus explicit standard transform Jacobian. Check values against independently summed SciPy priors and signed optical Normal likelihood using frozen Kernel.forward.",
+  "finite_difference": "Central coordinate differences for every47 coordinate; relative steps0.01,0.003,0.001,0.0003,0.0001,0.00003,0.00001,0.000003,0.000001,0.0000003,0.0000001 times max(1,abs(unconstrained coordinate)). Save every step. Flag phase-boundary crossings using actual plus/minus physical tau; they do not count as smooth-region failures.",
+  "diagnostic_rule": "In each smooth coordinate comparison, require at least two adjacent non-crossing steps with normalized error abs(AD-FD)/(1+abs(AD)) below0.0001 to label agreement. Preserve any failure, nonfinite density and no-supported-step separately; no tolerance tuning. Exact phase-knot control is intentionally nonsmooth and is not required to pass a centered derivative check.",
+  "tau_one_sided": "Physical tau steps0.01,0.001,0.0001,0.00001,0.000001,0.0000001 days; record independent forward/backward and centered slopes, along with autodiff and phase crossing. These may reveal a derivative jump but cannot establish a divergence cause without the failed leapfrog trajectory.",
+  "resources": "One CPU thread and one CPU affinity, no new sampling, fixed9states. Write raw step records to ignored .work, compact result with input/source/record hashes.",
+  "interpretation": "Finished retained samples come from failed/incomplete synthetic attempts and are not qualified posterior draws. Divergence-associated retained states are not the failed leapfrog locations. Agreement here does not prove globally correct derivatives or diagnose nonlinear geometry; disagreement at an exact piecewise interpolation boundary is expected and must not be mislabelled a generic smooth autodiff bug."
+}
