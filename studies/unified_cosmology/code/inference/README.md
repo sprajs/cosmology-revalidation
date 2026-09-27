@@ -102,7 +102,7 @@ For future lensing comparisons, `spectral_correction.py` accepts the same argume
 The following consumers require the qualified native correction; they cannot turn an unfinished chain into a measurement.
 
 ```bash
-python studies/unified_cosmology/code/inference/quantile_precision.py \
+python studies/unified_cosmology/code/inference/quantile_precision_ordered.py \
   --chain-folder "$chain_dir" --correction-summary "$correction_summary" \
   --output "$quantile_report"
 python studies/unified_cosmology/code/inference/expansion_history.py \
@@ -115,6 +115,8 @@ python studies/unified_cosmology/code/inference/luminosity_history.py \
 
 Use the same modern environment and thread settings as the sampled target. [Expansion history](../../notes/expansion-history.md) reports past H(z), q(z), jerk and cosmic age from that target's CAMB background. Its bands are pointwise, and its age is conditional on the cosmological model. [Luminosity history](../../notes/luminosity-sensitivity.md) retains the full conditional uncertainty of analytically integrated brightness coefficients. A zero-width baseline brightness curve is an imposed assumption, not a measurement of no evolution. [Quantile precision](../../notes/quantile-precision.md) diagnoses uncertainty in estimated interval endpoints; its block-resampling spread is not an extra astrophysical error or a calibrated numerical confidence bound.
 
+The ordered quantile consumer preserves repeated stratified selection slots. Adjacent real-valued strata can floor to the same integer chain position; valid chronology is nondecreasing, not strictly increasing. It uses the original estimator and resampling seeds without combining rows or changing weights. The earlier strict consumer and its stopped receipt remain as provenance. [Independent reconstruction](../../results/inference/selected-slot-chronology-lcdm-review.json) and [synthetic validation](../../results/inference/quantile-precision-ordered-validation.json) verify this correction. `postprocessing_continuation.py` permits an explicit finite list of previously unexecuted stages after that particular preserved failure; it never restarts sampling or native correction.
+
 The [posterior precision audit](../../notes/native-posterior-precision.md) compares native CAMB accuracy settings at 32 predefined points from a qualified posterior. It is a bounded numerical sensitivity screen, not a second posterior or a proof of accuracy throughout the parameter space. The [conditional supernova quadratic check](../../notes/sn-predictive-check.md) verifies normalized likelihood accounting and compares the aggregate residual quadratic with its Gaussian replication distribution. Its posterior-averaged tail fractions are not calibrated frequentist p-values. Both checks retain failures and require the qualified parent before accessing observations.
 
 The [joint-lensing comparison](../../notes/joint-lensing-bridge.md) separately replaces the current two lensing factors with the released ACT–Planck–SPT MUSE likelihood, including cross-experiment lensing covariance. Its baseline and extended ACT ranges share a new native spectral cache but retain separate weights and qualification results. This changes the SPT estimator as well as the covariance. [Probe omissions](../../notes/probe-omission.md) instead remove one declared component group using stored native likelihoods, with no further spectrum calculation. Both comparisons require adequate overlap; neither supplies missing cross-probe covariance or measures an age correction.
@@ -126,6 +128,8 @@ The [calibration interface](../../notes/calibration-interface.md) restores the r
 If fresh sampling is required, the [dedicated calibrated-sample instructions](../../notes/anchored-sampling.md) give the ordered proposal freeze, bounded efficiency pilot, four independent chains, native correction and final qualification commands. Proposal training never establishes a posterior. This path adds neither an extra H₀ prior nor another Cepheid factor, and retains the [unresolved shared-host covariance construction](../../notes/calibration-covariance-estimands.md).
 
 The separate [withheld-calibration check](../../notes/calibration-holdout.md) fits only the 1,580 noncalibrator supernova rows with CMB and BAO, then predicts the 77 calibrator rows using their full conditional covariance. Its posterior weights exclude calibrator values. Predictive tails and densities require additional contribution and numerical-error checks; combined calibrated-sample weights cannot be used for this prediction.
+
+The [joint ΛCDM calibration comparison](../../notes/joint-lcdm-calibration-results.md) reports the three qualified declared-accuracy targets and separates them from the outstanding higher-accuracy assessment. The [2026 Lyα comparison](../../notes/lya-fullshape-results.md) gives acquisition, validation and execution commands for replacing the overlapping high-redshift BAO pair by an explicitly approximate Gaussian summary of the newer publication. It never adds that pair twice or treats printed moments as an exact author likelihood.
 
 ## Broader numerical support for luminosity alternatives
 
