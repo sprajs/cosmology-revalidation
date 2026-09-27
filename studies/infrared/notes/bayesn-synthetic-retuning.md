@@ -57,4 +57,4 @@ Only after both arms pass, the guarded `prepare-score` action freezes the optica
   --output .work/infrared/dense99-case00-summary.json
 ```
 
-Further computation would need to improve precision of the joint predictive integral while preserving the fixed optical posterior and original error criterion. The present result does not justify beginning an observed-data comparison or claiming predictive coverage from a single synthetic case.
+Further computation would need to improve precision of the joint predictive integral while preserving the fixed optical posterior and original error criterion. A [bridge-integration study](bayesn-predictive-integration.md) derives an alternative estimator and tests it on exactly solvable Gaussian examples; its physical performance remains untested. The present result does not justify beginning an observed-data comparison or claiming predictive coverage from a single synthetic case.
