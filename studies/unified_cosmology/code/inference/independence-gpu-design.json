@@ -1,0 +1,43 @@
+{
+  "created_utc": "2026-09-27T14:58:13.279067+00:00",
+  "status": "declared_before_GPU_proposal_freezing_or_production",
+  "scope": "Separate GPU driver for current CPL linear and smooth01 Dovekie official_planck targets. No likelihood pilot or sampling authorized by preparation.",
+  "target": "Reconstruct modern_gpu.configuration and modern_gpu.identify from the frozen source manifest; demand exact whole identity equality. Preserve currentGPU scientific sources, numerical backend and allpriors.",
+  "sampler": "Reuse unchanged IndependenceMCMC/FrozenMixture/prior_start/runtime/native_initialize. Same normalizedGaussian/Student proposal, q-ratio, RLE, convergence and mandatory native-correction gates as independentCPU design.",
+  "snapshots": "Use originalfreeze helper on four complete-chain-row snapshots. No learning from final10%; no adaptation. GPU-specific immutable sidecar pins design, driver and frozenhelper sources.",
+  "native_initialization": "Call unchanged native_initialize before sampler/model initialization only in production sample action; noCAMB/GPUlikelihood calculations during freeze, describe or configuration validation.",
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "CLIPY_NOJAX": "1"
+  },
+  "default_seeds": {
+    "linear": {
+      "sampling": 273260,
+      "initialization": 273261
+    },
+    "smooth01": {
+      "sampling": 273270,
+      "initialization": 273271
+    }
+  },
+  "output": "Fresh only; identical activeCPU/GPU chains are never resumed or modified. New manifests retain gpu=True,fast_lensing=True and exact targetidentity for existing consumers.",
+  "validation": [
+    "Patch nativeCAMB/background, model construction and density evaluation to fail; reconstruct both GPU source identities and exact param/likelihood/theory settings.",
+    "Compare standalone sampler options to unchangedCPU driver dictionary; only samplerbackend/manifest flags differ.",
+    "Check deterministicindependentprior starts for four ranks pertarget, explicitq normalization inheritedfromvalidatedsampler.",
+    "Reject CPU parent, wrong evolution/target, changed proposal/design/dependencies and nonfour-chain execution."
+  ],
+  "frozen_dependency_sha256": {
+    "studies/unified_cosmology/code/inference/independence_proposal.py": "f538aaa0b2eb4d8f709488264fe86991abbc58c97a6b9da93b44ed0140bea9bb",
+    "studies/unified_cosmology/code/inference/independence_sampler.py": "f9cc04a129cd5b3d7abb9542a9e235f999ae82c7510aeb21207b7512bc4fa2ab",
+    "studies/unified_cosmology/code/inference/independence_run.py": "6cb6ae6be9347355dfd64eebc2581562fa50abe2b0f824760b858f5e3c1a378b",
+    "studies/unified_cosmology/code/inference/independence_runtime.py": "6661a2ec517603a100cf1362992efb2f582cd1ddfb93a095dc913b0c4bc13752",
+    "studies/unified_cosmology/code/inference/independence-sampling-design.json": "0203274c45e90570b1a558fd93ccd967df26895e618dc15c380f13c36669bff5",
+    "studies/unified_cosmology/code/inference/modern_gpu.py": "ad5135f9197ed5c7803af21dca3533e577b71bb9e08d993bae2f6f02a5ba4997",
+    "studies/unified_cosmology/code/inference/modern_fast.py": "7028d9bebeac08e59ab9be968dc436dbf92263b46520b08c84bd5464d3063d13",
+    "studies/unified_cosmology/code/inference/mpi_metadata.py": "324177b0b09db4ceff85a53e973db66199d191f82c73d6c60eba390ff9db1af9",
+    "studies/unified_cosmology/code/inference/diagnostics.py": "67fd51c1004c551494d935ce9987fb5f680eb6aa775207e87ab6c9cc394461bf"
+  }
+}

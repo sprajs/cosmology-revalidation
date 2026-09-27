@@ -1,0 +1,100 @@
+{
+  "status": "passed_configuration_only_no_likelihood_calls",
+  "driver_dependency_sha256": {
+    "studies/unified_cosmology/code/inference/independence_proposal.py": "f538aaa0b2eb4d8f709488264fe86991abbc58c97a6b9da93b44ed0140bea9bb",
+    "studies/unified_cosmology/code/inference/independence_sampler.py": "f9cc04a129cd5b3d7abb9542a9e235f999ae82c7510aeb21207b7512bc4fa2ab",
+    "studies/unified_cosmology/code/inference/independence_run.py": "6cb6ae6be9347355dfd64eebc2581562fa50abe2b0f824760b858f5e3c1a378b",
+    "studies/unified_cosmology/code/inference/independence_runtime.py": "6661a2ec517603a100cf1362992efb2f582cd1ddfb93a095dc913b0c4bc13752",
+    "studies/unified_cosmology/code/inference/independence-sampling-design.json": "0203274c45e90570b1a558fd93ccd967df26895e618dc15c380f13c36669bff5",
+    "studies/unified_cosmology/code/inference/modern_gpu.py": "ad5135f9197ed5c7803af21dca3533e577b71bb9e08d993bae2f6f02a5ba4997",
+    "studies/unified_cosmology/code/inference/modern_fast.py": "7028d9bebeac08e59ab9be968dc436dbf92263b46520b08c84bd5464d3063d13",
+    "studies/unified_cosmology/code/inference/mpi_metadata.py": "324177b0b09db4ceff85a53e973db66199d191f82c73d6c60eba390ff9db1af9",
+    "studies/unified_cosmology/code/inference/diagnostics.py": "67fd51c1004c551494d935ce9987fb5f680eb6aa775207e87ab6c9cc394461bf",
+    "studies/unified_cosmology/code/inference/independence_gpu_run.py": "4beb823e816ae2eb25bb967b679f8c06835190830fc2c845e8e36a915c887521",
+    "studies/unified_cosmology/code/inference/independence-gpu-design.json": "34435c315ab0fdd72a1e269bb4828e98e98f47fdf104f747dbdde92a6c88f188",
+    "/home/szymon/Documents/ChatGPT/supernova/.work/unified-cosmology/external-probes/.modern-venv/lib/python3.12/site-packages/cobaya/samplers/mcmc/mcmc.py": "455def4cc5462f57d0fbd365793630382a105112d7223c4c90329d3252534594"
+  },
+  "validator_sha256": "a989de73356274b83b845913809a41bb0fc0b75d1ba632f64134d0cc321b55f7",
+  "environment": {
+    "environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "CLIPY_NOJAX": "1"
+    },
+    "coordinate_numpy_dtype": "float64",
+    "third_party_internal_dtypes": "Not inferred; preserve the existing target runtime settings.",
+    "versions": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "cobaya": "3.6.2",
+      "mpi4py": "4.1.1"
+    }
+  },
+  "target_checks": [
+    {
+      "evolution": "linear",
+      "GPU_source_identity_exact": true,
+      "CPU_configuration_differences_only_GPU_external": true,
+      "all_scalar_priors_unchanged": true,
+      "four_distinct_deterministic_starts": true,
+      "two_CPU_option_dictionary_comparisons": true,
+      "seven_invalid_parent_controls_rejected": true
+    },
+    {
+      "evolution": "smooth01",
+      "GPU_source_identity_exact": true,
+      "CPU_configuration_differences_only_GPU_external": true,
+      "all_scalar_priors_unchanged": true,
+      "four_distinct_deterministic_starts": true,
+      "two_CPU_option_dictionary_comparisons": true,
+      "seven_invalid_parent_controls_rejected": true
+    }
+  ],
+  "nonfour_MPI_and_changed_helper_checksum_rejected": true,
+  "parent_manifests": [
+    {
+      "parent": ".work/unified-cosmology/inference/modern-cpl-linear-dovekie-official_planck-fast-gpu-blocked-f1-scale1p6-seed272812-dfff858fc0d4",
+      "run0_sha256": "c96fd05582af64c2429810d122b949798b0a9c8a52701a827e69fdfc340aa2f0",
+      "target_identity": "89d7caffa799d49076f1d85752f3db67d6526d32388008f18992de2efbb73bcb"
+    },
+    {
+      "parent": ".work/unified-cosmology/inference/modern-cpl-smooth01-dovekie-official_planck-fast-gpu-blocked-f1-scale1p6-seed272813-dfff858fc0d4",
+      "run0_sha256": "289f35ee95d88dbfe1798d70a07aefcec7de7fe972dc7cf83753952f336ff6ac",
+      "target_identity": "fb0194b6bc95ad28eed8c40651be712ea436b8439e68b87d8d3effa7bb37b35d"
+    }
+  ],
+  "proposals": [
+    {
+      "folder": ".work/unified-cosmology/inference/independence-proposal-gpu-linear-v1",
+      "proposal_sha256": "9bb642f0c715c07d728bc1b1e8fc876d2cdc1d73dbfce31128184a66a1cdf86b",
+      "gpu_proposal_sha256": "c26b7e6be77aa0e800d1e01f6a1846ef371e2d409ad7977243c1f48aa075d7c0",
+      "target_identity": "89d7caffa799d49076f1d85752f3db67d6526d32388008f18992de2efbb73bcb",
+      "dimension": 14,
+      "prior_initialization_attempts": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "folder": ".work/unified-cosmology/inference/independence-proposal-gpu-smooth01-v1",
+      "proposal_sha256": "2c0b2a26e230f42cf2ba141445c11e02e51903df7796fd697153698438c3340f",
+      "gpu_proposal_sha256": "2126d3eec834a87c189bbd8de146fadd690003039de9c23825b576262ff1d3cd",
+      "target_identity": "fb0194b6bc95ad28eed8c40651be712ea436b8439e68b87d8d3effa7bb37b35d",
+      "dimension": 13,
+      "prior_initialization_attempts": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "native_spectra_calls": 0,
+  "background_calls": 0,
+  "likelihood_calls": 0,
+  "GPU_spectrum_matrix_calls": 0,
+  "not_tested": "GPU target density/throughput and native initialization at these targets; no production or pilot launched. Existing GPU dispatch and frozen sampler mathematical validations are inherited, not rerun."
+}
