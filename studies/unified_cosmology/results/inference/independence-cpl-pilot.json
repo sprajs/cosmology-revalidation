@@ -1,0 +1,126 @@
+{
+  "status": "completed_efficiency_pilot_no_measurement",
+  "target_identity": "a2e379946a9373e7775e00f6b6c369e09d5b11b8d6874d98a9021870ef830835",
+  "model": "cpl",
+  "evolution": "none",
+  "target_calls": 400,
+  "finite_candidates": 367,
+  "prior_rejections": 33,
+  "other_invalid_target_candidates": 0,
+  "native_initialization_calls": 1,
+  "native_counter_semantics": "Frozen exact_calls counter counts successful native fallbacks; all invalid target attempts remain separately recorded.",
+  "successful_native_fallback_calls": 5,
+  "accepted_including_initialization": 236,
+  "initialization_attempts": 1,
+  "acceptance_excluding_initialization": 0.5889724310776943,
+  "unique_occupied_states": 236,
+  "longest_hold": 14,
+  "largest_occupancy_fraction": 0.035,
+  "occupancy_effective_states": 135.13513513513513,
+  "iid_proposal_raw_importance_ESS": 210.5180194891213,
+  "largest_candidate_normalized_weight": 0.03217124022794123,
+  "coordinate_short_single_chain_ESS_not_qualification": {
+    "H0": {
+      "identity": 170.86094414429672,
+      "bulk": 170.02885938551003
+    },
+    "ombh2": {
+      "identity": 158.63158943656111,
+      "bulk": 155.42598952910058
+    },
+    "omch2": {
+      "identity": 74.92493897504666,
+      "bulk": 66.48215064826061
+    },
+    "logA": {
+      "identity": 99.70467317843202,
+      "bulk": 110.94583144021028
+    },
+    "ns": {
+      "identity": 88.64979798899529,
+      "bulk": 100.73649503870196
+    },
+    "tau": {
+      "identity": 100.67290409359143,
+      "bulk": 109.99482691818872
+    },
+    "w": {
+      "identity": 110.92469662671841,
+      "bulk": 101.28471017405731
+    },
+    "wa": {
+      "identity": 87.93029830281979,
+      "bulk": 81.9589533286839
+    },
+    "A_planck": {
+      "identity": 217.34881438992736,
+      "bulk": 211.76811510447322
+    },
+    "P_act": {
+      "identity": 167.65791645565457,
+      "bulk": 173.32139225710645
+    },
+    "Tcal": {
+      "identity": 168.28903665491148,
+      "bulk": 168.3531287650038
+    },
+    "Ecal": {
+      "identity": 151.2876911376502,
+      "bulk": 150.89014951746128
+    },
+    "A_fg": {
+      "identity": 141.5225141748168,
+      "bulk": 163.93721686672336
+    }
+  },
+  "setup_seconds": 21.7131219660223,
+  "evaluation_seconds": 148.44303283796762,
+  "evaluation_time_quantiles": [
+    5.233098636381328e-05,
+    0.07137638301355764,
+    0.1325163942150539,
+    17.82514270163078,
+    27.87287786998786
+  ],
+  "runtime_after_model": {
+    "coordinate_numpy_dtype": "float64",
+    "jax_loaded": false,
+    "jax_enable_x64": null,
+    "third_party_internal_dtypes": "Not inferred from Python/NumPy return types; no dtype setting is changed.",
+    "environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "CLIPY_NOJAX": "1",
+      "JAX_ENABLE_X64": null
+    }
+  },
+  "source_sha256": {
+    "studies/unified_cosmology/code/inference/independence_pilot.py": "f7cf470b07ab4849dd1acb28b55fda0015c0059b6bc0dbcc58a606350bba0b9b",
+    "studies/unified_cosmology/code/inference/independence_proposal.py": "f538aaa0b2eb4d8f709488264fe86991abbc58c97a6b9da93b44ed0140bea9bb",
+    "studies/unified_cosmology/code/inference/independence_runtime.py": "6661a2ec517603a100cf1362992efb2f582cd1ddfb93a095dc913b0c4bc13752",
+    "studies/unified_cosmology/code/inference/independence_run.py": "6cb6ae6be9347355dfd64eebc2581562fa50abe2b0f824760b858f5e3c1a378b"
+  },
+  "scientific_inputs_sha256": {
+    "studies/unified_cosmology/code/inference/modern_run.py": "101912935a939909466fbccae997b32845e6c7413edbb6aa93902ecf530b549b",
+    "studies/unified_cosmology/code/inference/likelihood.py": "c2cdbdf1ceb50703713d5ce0f6d4b3aae801630b4d136481df310ae929eed3f5",
+    "studies/unified_cosmology/code/inference/late_geometry.py": "548fb86373e06799edc960a49533fef21f346f89973b3237ccbea1e6085c7438",
+    "studies/unified_cosmology/code/inference/spectral_surrogate.py": "d1cfe30acf342d7824c947fbf8475144470af9c0f896f0a84488a14925ae2543",
+    "studies/unified_cosmology/code/inference/target_identity.py": "498869ee5459b8afa13f8c56bfa9d619d8017f44ca0c6e4dc0a81efbaf42b2f2",
+    "studies/unified_cosmology/code/external_probes/adapter.py": "08543f1843ee707c2dbcbe4e7b5e43ff0bcece25313d8d6de50843996cc3545f",
+    "studies/unified_cosmology/code/external_probes/modern_adapter.py": "2ff1e39d111d2383cd84743dd80ed49236dbb13e5427a425611bfdd196e3b284",
+    "studies/unified_cosmology/code/inference/modern_fast.py": "7028d9bebeac08e59ab9be968dc436dbf92263b46520b08c84bd5464d3063d13",
+    "studies/unified_cosmology/code/external_probes/fast_lensing.py": "51f93972068d9f11fd5e81671445a5103f6d6835a0dacb08ccc81d3e02448f8a",
+    ".work/unified-cosmology/survey-selection/normalized/dovekie-total.npz": "4bcf37dc7fdabff886d24b7e87bbe05c414f4f6c80971d154e2b8888d55bf2d8",
+    ".work/unified-cosmology/inference/surrogate/cubic-0509.npz": "7316f91342ee1e00c2d8c726154e790fb097cb938850646cb19d894b8fc8b3e7",
+    ".work/unified-cosmology/external-probes/asset-file-inventory.json": "8064221d1b3f5c8d31dd4f1bc7955334e16f33a1c4ec5af0b193f0da69133cc1",
+    ".work/unified-cosmology/external-probes/modern-file-inventory.json": "906084b528a518e35ef6a94103f3b5e01fdeb72ec7dca16b4c76be2ae59e690f"
+  },
+  "artifact_sha256": {
+    ".work/unified-cosmology/inference/independence-pilot-cpl-v1/design.json": "902ddddc29d69c4f38237a769053db6ddbfd0c3bd1ba75b38827dc839571fafe",
+    ".work/unified-cosmology/inference/independence-pilot-cpl-v1/requests.npz": "c037c8aff59fca086c8ffb9449443ec210384d28042e43947f3a91b3e77d2b26",
+    ".work/unified-cosmology/inference/independence-pilot-cpl-v1/native-initialization.json": "d2b6f74b52184f0508b8adeef806c21253df349a5ab4d01d992fbb2d3f95b838",
+    ".work/unified-cosmology/inference/independence-pilot-cpl-v1/records.jsonl": "fbd7a68c3763aae691d6c313ff629b99e092d265f6e479db464636a8899143a0"
+  },
+  "qualification": "Frozen-proposal efficiency only. Finite single-chain diagnostics cannot establish posterior convergence or undiscovered mode coverage."
+}

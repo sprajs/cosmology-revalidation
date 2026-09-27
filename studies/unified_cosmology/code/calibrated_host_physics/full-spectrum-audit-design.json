@@ -1,0 +1,102 @@
+{
+  "created_utc": "2026-09-27T14:38:16.172442+00:00",
+  "status": "Before new broad-band cross-convolution numerical outcomes; original five-band ages and native pixel inventory already inspected. No age fitting authorized.",
+  "scope": "Input inventory and bounded response remedy validation only; no stellar likelihood result.",
+  "density": "G convolves lambda*F_lambda in log wavelength and divides by output lambda; finite quadrature G_ij=delta_lambda_j/lambda_i times normalized Gaussian in ln(lambda_i/lambda_j). Truncate at5sigma; preserve this explicit matrix, no row renormalization.",
+  "kernel_sigma_km_s": 42.43777928772469,
+  "kernel_tail_sigma": 5.0,
+  "mask": "Released mask==0, finite flux and positiveIVAR; all FSPS nebular centres +/-400km/s; output G row retained only if every nonzero contributing input pixel is valid. Same fixed native-camera cuts5780/7570 applied to output rows, not input smoothing support.",
+  "windows_vacuum_rest_A": [
+    [
+      3850,
+      3950
+    ],
+    [
+      4000,
+      4100
+    ],
+    [
+      4041.6,
+      4079.75
+    ],
+    [
+      4083.5,
+      4122.25
+    ],
+    [
+      4128.5,
+      4161
+    ],
+    [
+      4250,
+      4300
+    ],
+    [
+      4300,
+      4365
+    ],
+    [
+      4365,
+      4425
+    ],
+    [
+      4750,
+      4820
+    ],
+    [
+      4820,
+      4895
+    ],
+    [
+      4895,
+      4960
+    ],
+    [
+      5050,
+      5120
+    ],
+    [
+      5120,
+      5200
+    ],
+    [
+      5200,
+      5270
+    ],
+    [
+      5260,
+      5305
+    ],
+    [
+      5305,
+      5355
+    ],
+    [
+      5355,
+      5400
+    ],
+    [
+      4200,
+      4700
+    ]
+  ],
+  "reference_window_index": 17,
+  "units": "Every broad vector entry uses signed native F_lambda density; not a Lick index or identical to former Fnu break measurements.",
+  "coverage": "Keep a band only when at least95% of its geometric width is sampled before masks and remaining weight is nonzero; retain every host and all dropped-window reasons. No SNR selection.",
+  "family": "All70 existing SSPs times7 existing tauV/power combinations; all are numerical test spectra. They are not fitted to observations.",
+  "foreground": "Forward F99Rv3.1, nativeEBV*.86; no observed de-reddening.",
+  "operator": "Synthetic truth f uses existing resolved SSPs. Compare W G R D f to W R D G f, with D containing host+foreground attenuation and redshift density factor. Both side orderings explicit; no DESI R normalization. This is a library-kernel assumption test, not proof about unknown finer spectra.",
+  "covariance": "C=W G diag(1/IVAR) G^T W^T; same pixels, masks and arms; full matrix retained.",
+  "amplitude": "For each test column only, use positive measured reference-band mean divided by its model mean to express response error at observed flux scale. This is a numerical scale setting, not an age/SFH fit.",
+  "predeclared_operator_gates": {
+    "max_abs_error_per_band_sigma": 0.1,
+    "max_joint_whitened_error_norm": 0.1
+  },
+  "narrow_line_stress": "Report worst commutator error for a1-observed-Angstrom-equivalent-width unresolved line at every native input pixel, scaled by the measured reference continuum; not an empirical line-strength prior.",
+  "identification_limits": [
+    "No SFH/clock prior or age fit here.",
+    "Current library kernel is approximate; signed native response second moments do not define a Gaussian replacement.",
+    "Passage under finite synthetic family does not validate missing sharper structure, DR1 multi-exposure coaddition, calibration covariance or stellar abundance completeness.",
+    "Failing response gates must remain explicit; no post-outcome retuning."
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "status": "completed_bounded_efficiency_pilot_not_cosmological_measurement",
+  "scope": "This record preserves a local numerical efficiency experiment; its candidate/snapshot arrays stay in ignored working storage. The reusable authored sampler and synthetic validator are separate.",
+  "actual_baseline_backend_pilot": {
+    "scope": "bounded sampling-efficiency pilot; no posterior qualification or cosmological estimate",
+    "calls": 400,
+    "finite_targets": 364,
+    "setup_seconds": 17.950167272996623,
+    "wall_seconds": 111.16199246898759,
+    "evaluation_seconds": 93.07390700891847,
+    "evaluation_rate_per_second": 4.297659922685651,
+    "evaluation_time_quantiles": [
+      3.8726982893422246e-05,
+      0.05901035851275083,
+      0.07580068341630977,
+      0.32709474893242185,
+      18.88766375600244
+    ],
+    "accepted_including_initialization": 259,
+    "acceptance_excluding_initialization": 0.6466165413533834,
+    "unique_occupied_states": 259,
+    "longest_hold": 10,
+    "largest_occupancy_fraction": 0.025,
+    "occupancy_effective_states": 170.94017094017093,
+    "iid_q_candidate_raw_importance_ESS": 289.15066563794625,
+    "iid_q_candidate_max_normalized_weight": 0.008592175065494385,
+    "finite_logtarget_minus_logq_quantiles": [
+      -312.561795572482,
+      -291.10540427446745,
+      -290.5658707333773,
+      -290.0735106510947,
+      -289.9151160764166
+    ],
+    "coordinate_pilot_ESS_noisy_short_single_chain": {
+      "H0": {
+        "ess_identity": 139.78537190653668,
+        "ess_bulk": 140.0859973170829
+      },
+      "ombh2": {
+        "ess_identity": 197.32780989399498,
+        "ess_bulk": 195.36343404110383
+      },
+      "omch2": {
+        "ess_identity": 133.64483710757722,
+        "ess_bulk": 130.776723450778
+      },
+      "logA": {
+        "ess_identity": 142.6697219459915,
+        "ess_bulk": 157.9228223081323
+      },
+      "ns": {
+        "ess_identity": 241.5117293067041,
+        "ess_bulk": 230.05578662761954
+      },
+      "tau": {
+        "ess_identity": 128.70495386372394,
+        "ess_bulk": 144.03849852380336
+      },
+      "A_planck": {
+        "ess_identity": 160.20928346980634,
+        "ess_bulk": 170.52284411692557
+      },
+      "P_act": {
+        "ess_identity": 186.2659975807534,
+        "ess_bulk": 189.47749819844688
+      },
+      "Tcal": {
+        "ess_identity": 212.92697441442147,
+        "ess_bulk": 208.3009060341552
+      },
+      "Ecal": {
+        "ess_identity": 147.1409632308866,
+        "ess_bulk": 151.44782113069502
+      },
+      "A_fg": {
+        "ess_identity": 119.13788353304571,
+        "ess_bulk": 106.51729543908928
+      }
+    },
+    "inputs_sha256": {
+      "design.json": "279381c1e30c651cb9f8c21d55cf8181b11c65102bfcebdbf8531ff4aa0e0b88",
+      "snapshot.json": "3a10526860485766cc1095420bd297d6013648e99bf95d9f48d728d7cdb8f82f",
+      "proposal.npz": "8ec3ad30866b8962e10d247547efedeec9283ecf97c88e081bc049882c24a9b0",
+      "pilot-requests.npz": "12a9087aad7eb57d8d30dea26d4f1c96110aeff53c1e20f232fc5e57c9d56e5a",
+      "pilot-records.jsonl": "7895127b92b17b324d53fca736fb2e5e0e76b41efa9aaaabf23931bd18b2d612",
+      "pilot-lineage.json": "d04f8ba63c88ac2ec9b0b30fae14529c6c4eaceffa66c18a7c6d4fb38ae63f04"
+    }
+  },
+  "independent_arithmetic": {
+    "status": "passed_independent_pilot_arithmetic",
+    "source_sha256": "86a7ddbcc924969d5a419e30b42918044708645c49aee21b255baa8918be3b0e",
+    "candidate_count": 400,
+    "requests_exactly_same_between_backends": true,
+    "acceptance_decisions_unchanged": true,
+    "mixture_logdensity_error": 7.815970093361102e-14,
+    "independent_prior_plus_components_error": 1.1368683772161603e-13,
+    "prior_rejections": 36,
+    "component_backend_difference": {
+      "planck_2018_lowl.TT": {
+        "max_absolute_difference": 0.0,
+        "median_difference": 0.0
+      },
+      "planck_2018_lowl.EE": {
+        "max_absolute_difference": 0.0,
+        "median_difference": 0.0
+      },
+      "bao.desi_dr2": {
+        "max_absolute_difference": 0.0,
+        "median_difference": 0.0
+      },
+      "act_dr6_cmbonly.PlanckActCut": {
+        "max_absolute_difference": 0.0,
+        "median_difference": 0.0
+      },
+      "act_dr6_cmbonly.ACTDR6CMBonly": {
+        "max_absolute_difference": 0.0,
+        "median_difference": 0.0
+      },
+      "SPT2025_TnE": {
+        "max_absolute_difference": 0.0,
+        "median_difference": 0.0
+      },
+      "act_dr6_lenslike.ACTDR6LensLike": {
+        "max_absolute_difference": 0.0,
+        "median_difference": 0.0
+      },
+      "SPT2023_lensing": {
+        "max_absolute_difference": 0.0,
+        "median_difference": 0.0
+      },
+      "released_sn": {
+        "max_absolute_difference": 0.0,
+        "median_difference": 0.0
+      },
+      "expansion_diagnostics": {
+        "max_absolute_difference": 0.0,
+        "median_difference": 0.0
+      }
+    },
+    "runtime_difference_cannot_be_called_roundoff_closure": true,
+    "slow_full_target_calls_above1second": [
+      {
+        "index": 6,
+        "component": "t5",
+        "seconds": 18.324229086982086
+      },
+      {
+        "index": 95,
+        "component": "t5",
+        "seconds": 17.316186883981572
+      },
+      {
+        "index": 164,
+        "component": "t5",
+        "seconds": 17.237312164972536
+      },
+      {
+        "index": 351,
+        "component": "Gaussian",
+        "seconds": 18.88766375600244
+      }
+    ],
+    "slow_call_seconds_sum": 71.76539189193863,
+    "remaining_call_median_seconds": 0.058694368999567814,
+    "numpy_pilot_result_sha256": "7b40c006e6751514f1d6d3ddb911483887091c14e5ed4732ba6856c11ec9d4f4",
+    "numpy_records_sha256": "7895127b92b17b324d53fca736fb2e5e0e76b41efa9aaaabf23931bd18b2d612",
+    "original_records_sha256": "bb47ab87d32971271597b775e55f85c1813b027ed1228dcf23afe20fd8bc72bc",
+    "interpretation": "Promising frozen-proposal efficiency on baseline backend, not qualified cosmological inference; cross-backend numerical closure failed and is preserved."
+  },
+  "original_reordered_cold_closure_failed": {
+    "maximum_absolute_loglike_difference": 0.0003655680483785062,
+    "component": "bao.desi_dr2",
+    "revised_interpretation": "Not a demonstrated CLIPY difference: same-order400pointreplayallcomponentsbitwiseidentical; firstnativeCAMBcalculation initializesbackgrounddrag-radius."
+  },
+  "initialized_runtime_validation": {
+    "status": "passed_declared_initialized_runtime",
+    "maximum_component_difference": 0.0,
+    "reversed_order_exactly_identical": true
+  },
+  "fixed_protocol": {
+    "created_utc": "2026-09-27T14:24:56.965524+00:00",
+    "source_sha256": "6d5e2699e524c963841ef11b3c7835d41ee910728a5f44079bc871c49b0fccdb",
+    "parent": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-fast-metropolis-scale1p6-seed272672-7316f91342ee",
+    "training_segments": "integer-frequency expanded chains: [floor(.5*n),floor(.9*n)); last 10% withheld descriptive shape check",
+    "mean_covariance": "pooled frequency-weighted population moments, covariance plus 1e-8 times its diagonal",
+    "proposal": "0.9 N(mean,1.05^2 C) + 0.1 t_5(mean,scale=(2^2)*(5-2)/5*C)",
+    "scale_semantics": "1.05 and 2 multiply marginal standard deviations. Student-t covariance=nu/(nu-2)*scale, hence tail covariance=4 C.",
+    "support": "mixture positive on all R^d; target prior/domain rejections retained, no candidate redraw",
+    "seeds": {
+      "controls": 273221,
+      "proposals": 273222,
+      "acceptance": 273223
+    },
+    "full_target_call_cap": 400,
+    "initialization": "first finite independent q draw, before it there is no chain state; all calls count and are retained",
+    "MH": "min(1,exp(logtarget(y)-logtarget(x)+logq(x)-logq(y)))",
+    "learning": "freeze before new target calls; no adaptation/retraining/holdout fitting",
+    "scope": "efficiency pilot only, unchanged numerical surrogate target; native correction and independent convergence still required",
+    "decisions": "descriptive shape, acceptance, candidate raw importance ESS/max weight, holding-time concentration, noisy fixed-coordinate ESS and evaluation timing; no cosmological estimates"
+  },
+  "input_sha256": {
+    ".work/unified-cosmology/inference/independence-pilot/prototype.py": "6d5e2699e524c963841ef11b3c7835d41ee910728a5f44079bc871c49b0fccdb",
+    ".work/unified-cosmology/inference/independence-pilot/design.json": "279381c1e30c651cb9f8c21d55cf8181b11c65102bfcebdbf8531ff4aa0e0b88",
+    ".work/unified-cosmology/inference/independence-pilot/snapshot.json": "3a10526860485766cc1095420bd297d6013648e99bf95d9f48d728d7cdb8f82f",
+    ".work/unified-cosmology/inference/independence-pilot/training.json": "7bf8223ba69a24207ae9080074943729fc45e63c46d1088a94c6b5abbfbf5d10",
+    ".work/unified-cosmology/inference/independence-pilot/controls.json": "3ef3bbabc1b5448b341faaa532947df9e421c0efa495b88bc7a2a47624018f44",
+    ".work/unified-cosmology/inference/independence-pilot-numpy/runtime-design.json": "ac6593788d26305b07cdb6979c00d31f31d1ca78c8f32d8777cb5fb307ca951c",
+    ".work/unified-cosmology/inference/independence-pilot-numpy/pilot-result.json": "7b40c006e6751514f1d6d3ddb911483887091c14e5ed4732ba6856c11ec9d4f4",
+    ".work/unified-cosmology/inference/independence-pilot-numpy/independent-arithmetic.json": "b02c077093e9c746a07489217a9e6dcdc92ee275c3c8fc5e3287380b001ba46d",
+    ".work/unified-cosmology/inference/independence-pilot/bao-sequence.json": "2f8f885b7b81139b16879a4d02e484126afe58f7ac52fd3889954152ee43aaf2",
+    ".work/unified-cosmology/inference/independence-pilot/bao-sequence-extended.json": "134e4e717208ccb609375c9a3884f138f7025326ea4c9c4a0f7a88850bd02ea5"
+  }
+}

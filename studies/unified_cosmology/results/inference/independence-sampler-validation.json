@@ -1,0 +1,129 @@
+{
+  "status": "passed_synthetic_frozen_independence_validation",
+  "observational_measurement": false,
+  "unit_checks": {
+    "density_max_error": 3.552713678800501e-15,
+    "detailed_balance_log_error": 1.4210854715202004e-14,
+    "four_distinct_reproducible_initialization_streams": true,
+    "shifted_and_low_effective_sample_controls_rejected": true,
+    "deferred_checkpoint_cannot_publish_early_convergence": true,
+    "changed_proposal_and_backend_rejected": true,
+    "nonunit_temperature_and_adaptation_and_dragging_rejected": true
+  },
+  "MPI_chains": 4,
+  "per_chain": [
+    {
+      "rank": 0,
+      "candidate_count": 4373,
+      "recorded_states": 1863,
+      "recorded_frequency_draws": 4335,
+      "prior_rejections": 198,
+      "density_correct_MH_decisions_checked": 4373
+    },
+    {
+      "rank": 1,
+      "candidate_count": 4857,
+      "recorded_states": 2076,
+      "recorded_frequency_draws": 4815,
+      "prior_rejections": 212,
+      "density_correct_MH_decisions_checked": 4857
+    },
+    {
+      "rank": 2,
+      "candidate_count": 2401,
+      "recorded_states": 1000,
+      "recorded_frequency_draws": 2358,
+      "prior_rejections": 109,
+      "density_correct_MH_decisions_checked": 2401
+    },
+    {
+      "rank": 3,
+      "candidate_count": 4775,
+      "recorded_states": 2009,
+      "recorded_frequency_draws": 4727,
+      "prior_rejections": 198,
+      "density_correct_MH_decisions_checked": 4775
+    }
+  ],
+  "synthetic_mean_absolute_errors": {
+    "x": 0.00291488286112937,
+    "y": 0.0036743387408706835
+  },
+  "synthetic_sd_absolute_errors": {
+    "x": 0.003977990575987189,
+    "y": 0.0063763870149343704
+  },
+  "final_original_and_additional_convergence": {
+    "check": 5,
+    "original_multivariate_previous": 0.0029400204465157877,
+    "original_multivariate_current": 0.0008017829655248816,
+    "original_convergence_passed": true,
+    "rank_gate": {
+      "passed": true,
+      "failed": {},
+      "diagnostics": {
+        "x": {
+          "rhat": 1.0015160229344975,
+          "bulk_ess": 2399.0686486037516,
+          "tail_ess": 2722.897737208178,
+          "mean_mcse": 0.008088280619692525
+        },
+        "y": {
+          "rhat": 1.0007592188533747,
+          "bulk_ess": 2063.9690845355553,
+          "tail_ess": 1993.4686259346745,
+          "mean_mcse": 0.01309378202607072
+        }
+      },
+      "equal_chain_length": 1651,
+      "discard_fraction_after_sampler_burnin": 0.3
+    },
+    "converged": true,
+    "proposal_sha256": "036ee31e36e0f6f5e6ed88f1ab96a3ac4b07a123aaa5715540ee4d5b74ac6f2b",
+    "original_bound_statistic": 0.03840428682231648
+  },
+  "unchanged_diagnostics_passed": true,
+  "rank_gate_equals_flushed_final_diagnostics": true,
+  "source_sha256": {
+    "/home/szymon/Documents/ChatGPT/supernova/studies/unified_cosmology/code/inference/independence_proposal.py": "f538aaa0b2eb4d8f709488264fe86991abbc58c97a6b9da93b44ed0140bea9bb",
+    "/home/szymon/Documents/ChatGPT/supernova/studies/unified_cosmology/code/inference/independence_sampler.py": "f9cc04a129cd5b3d7abb9542a9e235f999ae82c7510aeb21207b7512bc4fa2ab",
+    "/home/szymon/Documents/ChatGPT/supernova/studies/unified_cosmology/code/inference/independence_run.py": "6cb6ae6be9347355dfd64eebc2581562fa50abe2b0f824760b858f5e3c1a378b",
+    "/home/szymon/Documents/ChatGPT/supernova/studies/unified_cosmology/code/inference/independence_runtime.py": "6661a2ec517603a100cf1362992efb2f582cd1ddfb93a095dc913b0c4bc13752",
+    "/home/szymon/Documents/ChatGPT/supernova/studies/unified_cosmology/code/inference/independence_validate.py": "9dcfe42bc15e79d9db5145d0ec50efdd8dddccd97fbdd0b0d5e2b892e8d159aa",
+    "/home/szymon/Documents/ChatGPT/supernova/studies/unified_cosmology/code/inference/independence-sampling-design.json": "0203274c45e90570b1a558fd93ccd967df26895e618dc15c380f13c36669bff5",
+    "/home/szymon/Documents/ChatGPT/supernova/studies/unified_cosmology/code/inference/diagnostics.py": "67fd51c1004c551494d935ce9987fb5f680eb6aa775207e87ab6c9cc394461bf",
+    "/home/szymon/Documents/ChatGPT/supernova/.work/unified-cosmology/external-probes/.modern-venv/lib/python3.12/site-packages/cobaya/samplers/mcmc/mcmc.py": "455def4cc5462f57d0fbd365793630382a105112d7223c4c90329d3252534594"
+  },
+  "synthetic_artifacts_sha256": {
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain.1.txt": "8ed01d0f13da549e0639ed9d578b85abfafaa8624facd6b98c87815594e5f15a",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain.2.txt": "dd2f275fd01681ef2ad083b360751fdae82bf2e046fc7b235bb22813de889564",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain.3.txt": "a2e742bc287257aedc4b2df4a069f42a4e129dd7080aa009b5d0a580e5e907a8",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain.4.txt": "b65ead1f278791d6811e96ac4496f51501f9955fbe31f751051a76c218448647",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain.checkpoint": "ad8a1613cb08fd9a35769ea258ec14fd7411a890fb763a101a3c3119952bec40",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain.covmat": "f9a82c7b4cbede977c737752e880bb76b4e68f63d1614b612183dbb586740ff3",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain.input.yaml": "e8af4427d3fc48b15b644965e9fe74fed1aee5bd5bf41a4741c76192dc3b550a",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain.progress": "550c2b5964e338bd9fcdb52c2788db24d19337f24f54e701936ea4a194f83709",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain.updated.dill_pickle": "a3795baa6867a80d8c96e0a5abf1454df88e1374ab8a12aded0da28ff7e9860b",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain.updated.yaml": "3cbf460b44cd9c9903e86a4328aeefe50450a1b3c7610cc0e6f6c4dbd99240f8",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain_independence-candidates-0.jsonl": "c7f02187231333f52054a92c571c249ff93f5545b40846583de89f9358ff9dd2",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain_independence-candidates-1.jsonl": "1f4b24f65852472e23a604392c85ae9c3897b5a0b6ce82a69bdd200193699de3",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain_independence-candidates-2.jsonl": "9b81de92666e89760d9c255e3434e29c4eb5570c3c1f555195d3b1968f7ca601",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain_independence-candidates-3.jsonl": "c552d2224db76eb29dc14cc10ce5fb6e59e27ff8ccfe843d042480b7f9c91588",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain_independence-convergence.jsonl": "723cb51b4373733aa074be21f082e00667d1c940b923850165747d9395b974d7",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain_independence-runtime-0.json": "ceee09c693ab6838ea1bbefa0d755e33558428d9670c1c00ef16518d9cb70977",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain_independence-runtime-1.json": "ceee09c693ab6838ea1bbefa0d755e33558428d9670c1c00ef16518d9cb70977",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain_independence-runtime-2.json": "ceee09c693ab6838ea1bbefa0d755e33558428d9670c1c00ef16518d9cb70977",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain_independence-runtime-3.json": "ceee09c693ab6838ea1bbefa0d755e33558428d9670c1c00ef16518d9cb70977",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain_independence-terminal-0.json": "c08ef0cb58804b194728ad0fdeb1b7b10857d326c91bdb7206f493a1ca53cc56",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain_independence-terminal-1.json": "33a994dcd06ccfc732bca38f3df273188115c1af7d53c59485e0300f581b182a",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain_independence-terminal-2.json": "efaafd57a51fcc5c2f9f6b77fe110b2250f380dd79c8ada07e6317e274d3ed38",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/chain_independence-terminal-3.json": "5ca39c57b31ef4048976302947ece55c90dfe77edb96c8e3ccd0fa79b9799de8",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/proposal.npz": "036ee31e36e0f6f5e6ed88f1ab96a3ac4b07a123aaa5715540ee4d5b74ac6f2b",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/run-0.json": "7b82bc774ff115545d90fb0f07cc251a734a6c85568f665fcb63cb626ad2f7c6",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/run-1.json": "eb019c1154503c4e790d5dca9e348706bd8599c8b51b41738b8d8249ce219efd",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/run-2.json": "c738cc39a4ad6497ffb718d8615de661d1f6e9be04a8a3bb756c4300bab9bf2a",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/run-3.json": "5fa7e5ded6cc3609f45bc9c375b288674bcf3bbf1634161f31fa831cd7dc763f",
+    ".work/unified-cosmology/inference/independence-validation/gaussian-final/unchanged-diagnostics.json": "c61afa3a5e982c37b6394e93572cfc3302d87501e42afffb06fb11227f857b97"
+  },
+  "scope": "Actual synthetic sampling, rejection weights, unchanged diagnostics and density controls; no real cosmology measurement."
+}

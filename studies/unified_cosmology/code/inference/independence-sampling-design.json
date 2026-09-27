@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "status": "declared_before_production_sampling",
+  "purpose": "Improve sampling efficiency using a frozen learned proposal without changing any scientific target or prior.",
+  "initial_target": "Current LCDM, no luminosity evolution, Dovekie, official Planck, CPU modern_fast, original cubic spectrum surrogate. Exact native importance correction remains mandatory.",
+  "proposal": {
+    "formula": "0.9 Normal(mu, 1.05^2 C) + 0.1 StudentT_5(mu, scale=4*(5-2)/5*C)",
+    "meaning": "1.05 and 2 multiply marginal standard deviations; Student covariance equals df/(df-2) times its scale matrix.",
+    "training": "Each frozen source chain is expanded with integer frequency weights. Discard first 50%; learn pooled population mean/covariance from the next 40%; final 10% is withheld from learning.",
+    "regularization": "C = empirical population covariance + 1e-8*diag(empirical covariance)",
+    "support": "Positive density over all real sampled coordinates. No truncation, clipping or proposal redraw after a target rejection. Periodic parameters unsupported.",
+    "adaptation": false,
+    "other_targets": "A separately frozen same-dimensional target-specific source snapshot may be supplied. Sampling efficiency beyond LCDM has not been established."
+  },
+  "sampling": {
+    "implementation": "Subclass installed Cobaya MCMC proposal transition only; retain inherited collection and convergence equations. Prior and likelihood implementations remain frozen.",
+    "acceptance": "min(1, exp(logpi(y)-logpi(x)+logq(x)-logq(y)))",
+    "temperature": 1,
+    "MPI_chains": 4,
+    "production_root_seed": 273240,
+    "production_initialization_root_seed": 273241,
+    "streams": "NumPy SeedSequence(root_seed).spawn(4), one independent child per MPI rank; independent from all proposal-training and pilot streams.",
+    "initialization": "Independent proposal draws until inside the declared prior bounds; this affects only starting points. The original target evaluates the selected start. Initial transient and 10d accepted burn-in discarded exactly as in baseline.",
+    "rejections": "All post-burn target rejections increment current-state frequency weight. Candidate ledger records every trial, both target/proposal densities, proposal component and decision. Normal stopping occurs on an accepted transition, leaving only the terminal new weight-one state outside the standard Cobaya completed-hold collection.",
+    "resumption": "Initial implementation refuses resumption or overwriting. Interrupted attempts retain ledger and incomplete output; fresh independent runs require a new folder and declared seed.",
+    "environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "CLIPY_NOJAX": "1"
+    },
+    "numerical_initialization": {
+      "calls": 1,
+      "function": "camb.get_results before any sampled density, no random draws",
+      "fixed_point": {
+        "H0": 67.36,
+        "ombh2": 0.02237,
+        "omch2": 0.12,
+        "As": 2.1e-09,
+        "ns": 0.9649,
+        "tau": 0.0544,
+        "w": -1.0,
+        "wa": 0.0
+      },
+      "theory_settings": "frozen modern native extra_args with lmax at least9001, matching actualmodern spectrum request",
+      "reason": "Observed one-time cold/warm rdrag shift; three distinct native controls left subsequentfixed-point stateidentical. Preserve cold failure; no physical priorchange."
+    }
+  },
+  "convergence": {
+    "original_Cobaya_multivariate_Rminus1": "strictly below 0.005 at two successive original checks",
+    "original_Cobaya_bound_Rminus1": "strictly below 0.05 at original 95% bound level",
+    "additional_rank_Rhat": "at most 1.01 for every sampled and existing diagnostic parameter",
+    "additional_bulk_and_tail_ESS": "at least 400 each",
+    "additional_segments": "Identical to diagnostics.py: expand frequency weights, discard 30% after sampler burn-in, use common terminal length from all four independent chains.",
+    "checkpoint": "Only report converged after original and additional requirements pass. Never relax thresholds or transform a max-samples stop into convergence."
+  },
+  "validation": {
+    "density_and_balance": "Compare normalized mixture against independent SciPy densities and direct detailed balance.",
+    "known_target": "Four-chain synthetic Gaussian run with actual inherited Cobaya convergence checks; inspect distribution, rejection weights, candidate ledger and output contract.",
+    "negative_controls": "Shifted chain, concentrated weights, insufficient ESS, target/proposal identity tampering, forbidden adaptation/temperature/backend configuration rejected.",
+    "backend_closure": "The originally declared eight-point cold closure failed and is preserved. Same-order400point NumPy repeat had identicallikelihoods/decisions. New one-native-initialization contract must match all eight fixedwarm pilot points in forward/reverse orders within original1e-8 tolerance.",
+    "production": "No launch before root review; new production chains must pass unchanged diagnostics and native correction before scientific summaries."
+  }
+}

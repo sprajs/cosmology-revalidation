@@ -1,0 +1,80 @@
+{
+  "status": "global_repair_failed_not_adopted_no_age_fit",
+  "validation": {
+    "original_operator_reproduction_max_absolute_error": 0.0,
+    "independent_covariance_max_relative_error": 4.574885313803777e-16,
+    "minimum_full_covariance_eigenvalue": 7.560995387952943e-06,
+    "retained_summed_band_width_fraction_min_median_max": [
+      0.625838262546056,
+      0.7869654333708365,
+      0.7909053560661203
+    ],
+    "hosts_losing_at_least_one_window": 5
+  },
+  "source_sha256": {
+    "studies/unified_cosmology/code/calibrated_host_physics/degraded_band_audit.py": "9e203986dd03230079c4309ac28805eb1322f3014178a465091266796e976496"
+  },
+  "design_sha256": "bf5f10a22d99e19d61e39d023626e6efcd374e37d301482ef332119c55625bbe",
+  "parent_result_sha256": "85ba7130844f040752a06381dbb68d2f0bd3810c89d019a9645834b490346b81",
+  "input_identity": "Exact input and origin hashes in bound parent result; verified before and after calculation.",
+  "output_sha256": {
+    ".work/unified-cosmology/full-spectrum-design/degraded/records.json": "e3b9ea3ac9dd0c0b883b5771a287f1318b94024bf8fb44fad563e1501d0ab23d"
+  },
+  "versions": {
+    "numpy": "1.26.4",
+    "scipy": "1.15.3",
+    "extinction": "0.4.9"
+  },
+  "hosts": 55,
+  "extra_sigma_kms": 150.0,
+  "original_all_operator_pass": 54,
+  "degraded_all_operator_pass": 52,
+  "degraded_finite_family_pass": 55,
+  "degraded_line_stress_pass": 52,
+  "degraded_max_band_error_sigma": 0.026681798326136305,
+  "degraded_max_joint_error": 0.04940204128858156,
+  "degraded_max_1A_line_joint_error": 0.12232825205731415,
+  "degraded_failures": [
+    {
+      "targetid": "39627634547626317",
+      "max_1A_line_joint_error": 0.10026463582597028
+    },
+    {
+      "targetid": "39627664641754332",
+      "max_1A_line_joint_error": 0.1028668979759475
+    },
+    {
+      "targetid": "39627682694039936",
+      "max_1A_line_joint_error": 0.12232825205731415
+    }
+  ],
+  "absorption_contrast_sensitivity": {
+    "Hdelta_masked_contrast": {
+      "hosts": 51,
+      "formal_noise_degraded_over_original_min_median_max": [
+        0.35889032385306324,
+        1.5466225670948472,
+        4.126069536187857
+      ],
+      "template_contrast_range_over_noise_degraded_over_original_min_median_max": [
+        0.09223447726529792,
+        0.3485049702211982,
+        1.4924626558538117
+      ]
+    },
+    "Hgamma_G4300_masked_contrast": {
+      "hosts": 54,
+      "formal_noise_degraded_over_original_min_median_max": [
+        0.804151276783872,
+        1.1894534996442696,
+        1.69299820401159
+      ],
+      "template_contrast_range_over_noise_degraded_over_original_min_median_max": [
+        0.8604813185534916,
+        1.0730022141304767,
+        1.625111746296674
+      ]
+    }
+  },
+  "interpretation": "Finite-family and fixed1A unresolved-line numerical ordering checks only. No proof of true library kernel, abundance/calibration/coadd adequacy, stellar-age identification or arbitrary sharp-feature coverage. Additional smoothing is a measurement transformation, not a physical dispersion prior."
+}
