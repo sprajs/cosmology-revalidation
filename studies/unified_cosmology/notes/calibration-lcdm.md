@@ -12,6 +12,8 @@ We recovered the official 160,000-row flat-ΛCDM chain and its embedded configur
 
 This comparison does **not** establish which burn-in or summary procedure produced the paper's table. The embedded historical configuration also uses finite bounds on M, different broad parameter bounds, and a CAMB background. It declares neutrino settings whose actual mapping through the historical interface has not been fully recovered. Our bounded late-time calculation omits radiation. Consequently this is not an exact replay of the historical posterior density. The available evidence supports numerical consistency, not a claim that the paper's uncertainty is erroneous. [Released-chain analysis](../results/distance_ladder/calibration-chain-review.json).
 
+A separate [background sensitivity check](calibration-background.md) tests three explicit neutrino/radiation interpretations at nine points around the solution. The largest distance-modulus change is **0.0003245 mag**, and the changes in log likelihood range from **−0.01085 to +0.01370**. Local curvature estimates change the H₀ uncertainty by only about **0.0004–0.0006%**. This supplies no indication that the late-time background approximation explains the quoted uncertainty difference near the solution; it is not a newly integrated posterior or a bound on remote tails.
+
 The result differs from the reconstructed **73.043 ± 1.007 km/s/Mpc** [distance-ladder matrix](distance-ladder.md) because that target uses a different selected Hubble-flow set and a fixed low-redshift expansion prescription. These are overlapping observations under different analyses, not two independent H₀ measurements to average.
 
 ## Model and calculation
