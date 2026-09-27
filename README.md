@@ -101,6 +101,14 @@ Allowing a constant w gives **w = −0.9086 ± 0.0377** and **q₀ = −0.4575 �
 
 The comparison between supernova releases is also informative. With the same BAO data, best-fit constant w values are **−0.908 for Dovekie, −0.913 for Pantheon+ and −0.920 for DES3YR**. Adding the CPL evolution parameter improves χ² by only **1.38, 0.25 and 0.28**, respectively. These are optimized fit comparisons, not posterior intervals, evidence ratios or calibrated significance levels. They do not on their own establish time-varying dark energy. [Cross-release comparison](studies/unified_cosmology/notes/release-comparison.md).
 
+### 3.5 An absolute-distance calibration
+
+The public SH0ES distance ladder combines geometric anchors, Cepheids and nearby supernovae. Solving its complete released system of **3,492 measurements and constraints with 47 fitted parameters** recovers **H₀ = 73.043 km/s/Mpc**, with propagated uncertainty **1.007 km/s/Mpc**. This agrees with the published baseline **73.04 ± 1.01**. Under the stated flat measure in the linear fitted parameters, the exact transformed posterior has median **73.043** and 95% interval **[71.095, 75.044] km/s/Mpc**. Independent matrix solvers and a direct profile calculation agree. The residual χ² is **3552.76 for 3445 degrees of freedom**; the covariance has not been rescaled. [Reconstruction and independent checks](studies/unified_cosmology/notes/distance-ladder.md).
+
+This agreement validates the released calculation, conditional on its selected and corrected measurements, calibration model and fixed low-redshift expansion with q₀ = −0.55. It does not independently reconstruct the original photometry. The paper's larger quoted uncertainty of **1.04 km/s/Mpc** also includes an allowance for analysis variants that is absent from this single released matrix. [Riess et al.](https://arxiv.org/abs/2112.04510).
+
+We cannot simply multiply this H₀ result into another supernova fit: the calibrating and more distant supernovae have nonzero cross-covariance, and the compilations share events. Removing **all 354 supernova rows** instead yields a correlated distance likelihood for **37 host galaxies** from Cepheids and external constraints alone. Some host distances shift by as much as **0.178 mag** relative to the full ladder, showing why those full-fit distances would reuse supernova information. The separate host likelihood retains its complete covariance. Matching it to another supernova release still requires verified host associations and compatible calibration and covariance; identical row counts are insufficient.
+
 ## 4. Host ages, bias corrections and dust
 
 ### 4.1 A discrepancy requires matching the quantity first

@@ -1,0 +1,22 @@
+{
+  "status": "visually_confirmed_printed_sign_inconsistency",
+  "source_pdf": ".work/unified-cosmology/distance-ladder/Riess2022v3.pdf",
+  "source_pdf_sha256": "572e5d2c0f32bf6e80a118eec13ed0107e1e2830f9ebe90b5bc4e9d1b7fa5df1",
+  "source_url": "https://arxiv.org/pdf/2112.04510v3",
+  "PDF_pages_one_based": [
+    10,
+    37
+  ],
+  "printed_pages": [
+    10,
+    37
+  ],
+  "render_command": "pdftoppm -f PAGE -l PAGE -r 120 -png -singlefile .work/unified-cosmology/distance-ladder/Riess2022v3.pdf .work/unified-cosmology/distance-ladder/review/page-PAGE",
+  "render_sha256": {
+    ".work/unified-cosmology/distance-ladder/review/page-10.png": "1bccce7e7b722ae63cb86037352d951c53e52d1bdf568d26a891d2e475ab0c25",
+    ".work/unified-cosmology/distance-ladder/review/page-37.png": "ae1b13e7db95ad876dd19a89a080520b0b8d89a0c0aed281ab96f2bec342e25a"
+  },
+  "inspection": "Both full rendered pages were visually inspected. Equation3 on page10 displays m_B,i^0 = mu_0,i + M_B^0. Equation16 on page37 displays mu_0,host - m_B = M_B. The latter is inconsistent with Equation3, Equation17 on the same page, and the released calibrator design rows. This is visible in the PDF, not merely an extraction error.",
+  "released_model": "All77 calibrator design rows use +1 mu_host and +1 MB; fitting/reconstruction follows this released model. No impact on the reconstructed H0 from the printed Eq16 inconsistency.",
+  "matrix_review_sha256": "8e991e63388301f45b41d0d7ab30d1fcd59e05299a760e0da210b8ecce7168d1"
+}

@@ -1,0 +1,10 @@
+{
+  "status": "Declared after full-ladder reconstruction, before fitting the Cepheid-only factor",
+  "question": "Can the released non-SN observations be compressed into a correlated 37-host distance-modulus likelihood without retaining any SN magnitude or Hubble-flow coordinate?",
+  "selection": "Remove every row with nonzero released SN_MB coefficient (354 rows established by baseline inspection); remove only the resulting exactly zero SN_MB and five_log10_H0 columns. Preserve every other released row, prior-like constraint and covariance entry.",
+  "host_identity": "Identify each of the first 37 distance columns by matching its Cepheid period and metallicity sequence, row by row, to a unique Table2 host group with the same count. Accept only published decimal rounding intervals plus two float32 coefficient ulps. Do not use fitted distance, SN brightness or host-name ordering to choose a match.",
+  "compression": "Fit the resulting full-rank 45-parameter Gaussian model. Marginalize eight nuisance coordinates with flat linear-coordinate measure and retain the full 37 by 37 covariance, not independent host errors. The equivalent profile quadratic is checked independently via a Schur complement and direct nuisance refits.",
+  "checks": "Twelve fixed-seed (273310) Gaussian perturbations of the host vector, scaled by factors 0.1, 1 and 3, compare compressed and direct profile delta chi-square. Check all retained-removed data covariance entries are exactly zero. All 37 host labels must match uniquely. No H0 parameter or constraint is exported.",
+  "scope": "Conditional on released Cepheid selection, Wesenheit law, metallicities, photometric corrections, anchor constraints and covariance. Not a reconstruction of upstream photometry, an independent SN calibration, a new cosmological H0 prior, or evidence normalization under improper nuisance priors.",
+  "integration": "Available host distances may enter a future joint raw/standardized SN model only with explicit host/SN identities and cross-release calibration response. No multiplication into the current corrected-distance cosmology likelihood is performed."
+}

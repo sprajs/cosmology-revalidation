@@ -1,0 +1,306 @@
+{
+  "status": "passed_independent_SN_free_factor_review",
+  "source_sha256": "7ef96f4ddcae61fd895a108651cf363d48573e85e4c1342b499a264c6380c93e",
+  "dependency_sha256": {
+    ".work/unified-cosmology/distance-ladder/ally_shoes_ceph_topantheonwt6.0_112221.fits": "10bb034ca3fff53f6625c9fe47ebd054b37ef45d1140af1c766831cfa6871433",
+    ".work/unified-cosmology/distance-ladder/alll_shoes_ceph_topantheonwt6.0_112221.fits": "9a2ce872dd20ed4fdf5005ce62a805d3eefbbb0b20b0c614013e7c0094009db8",
+    ".work/unified-cosmology/distance-ladder/allc_shoes_ceph_topantheonwt6.0_112221.fits": "a42778672d25df7a559bd2949b1e412b99b2e35dd9a36895f6b38828be019172",
+    ".work/unified-cosmology/distance-ladder/table2.tex": "d4b9af2b5d65118f7ac44a41b7e8cd662dfd42a63b5c359ca402d8be3b4dbba4",
+    ".work/unified-cosmology/distance-ladder/cepheid-host-factor.npz": "eb8dde6302c1d574b1dab66e4efec8ed4d9babbefa0b9946e11a3b4a4b9baf47",
+    "studies/unified_cosmology/results/distance_ladder/cepheid-factor.json": "bcf01d4a7090fc8e767472f5a03def6ee0a1ec5168c9aed55ee3dbd81873e164",
+    "studies/unified_cosmology/code/distance_ladder/cepheid_factor.py": "dc070c9ad275045e61ceb5f0f2d8b0d73b32dede225398301f214fdeb99709ef",
+    "studies/unified_cosmology/code/distance_ladder/cepheid-design.json": "2b5b3789962b8121cc14c942f879136f71bef44c95ecd65a4f89a4159ba4701d",
+    "studies/unified_cosmology/code/distance_ladder/solve.py": "134a0483de74c1cc3a3ec7d6a72fd35918629041d0fc0d4c708d6c1189cbda68",
+    "studies/unified_cosmology/results/distance_ladder/acquisition.json": "c88238f31880a587029cd4817a3d932fe65dd0326572270855266a8fffad9afa",
+    "studies/unified_cosmology/results/distance_ladder/reconstruction.json": "5e3b27230b0e721b115962ed46baa062efc740826fc0cc48737674da4547aa52"
+  },
+  "versions": {
+    "numpy": "1.26.4",
+    "scipy": "1.15.3",
+    "astropy": "5.3.4"
+  },
+  "method": "Full covariance whitening, QR orthogonal nuisance projection, independent GESVD of projected 37-host design. No producer module imports.",
+  "retained_rows": 3138,
+  "removed_SN_rows": 354,
+  "nuisance_rank": 8,
+  "host_rank": 37,
+  "mean_max_absolute_difference_mag": 1.7053025658242404e-13,
+  "covariance_max_absolute_difference_mag2": 1.5959455978986625e-16,
+  "chi2": 3243.6552922052574,
+  "chi2_difference": 4.547473508864641e-13,
+  "profile_curvature_checks": [
+    {
+      "offset_norm": 0.49999999999999994,
+      "projected_delta_chi2": 0.24999999999727152,
+      "expected": 0.24999999999999997
+    },
+    {
+      "offset_norm": 0.9999999999999999,
+      "projected_delta_chi2": 0.9999999999977263,
+      "expected": 0.9999999999999998
+    },
+    {
+      "offset_norm": 1.5000000000000002,
+      "projected_delta_chi2": 2.249999999996362,
+      "expected": 2.250000000000001
+    },
+    {
+      "offset_norm": 1.9999999999999998,
+      "projected_delta_chi2": 3.9999999999977263,
+      "expected": 3.9999999999999996
+    },
+    {
+      "offset_norm": 2.5,
+      "projected_delta_chi2": 6.250000000000455,
+      "expected": 6.249999999999999
+    },
+    {
+      "offset_norm": 3.0,
+      "projected_delta_chi2": 9.000000000003638,
+      "expected": 9.0
+    },
+    {
+      "offset_norm": 3.5000000000000004,
+      "projected_delta_chi2": 12.249999999999545,
+      "expected": 12.250000000000002
+    },
+    {
+      "offset_norm": 4.0,
+      "projected_delta_chi2": 15.999999999999545,
+      "expected": 16.0
+    }
+  ],
+  "profile_max_absolute_error": 3.638866985511413e-12,
+  "host_labels": [
+    {
+      "column": 0,
+      "host": "M101",
+      "Cepheid_rows": 259,
+      "unique_candidates": 1
+    },
+    {
+      "column": 1,
+      "host": "M1337",
+      "Cepheid_rows": 15,
+      "unique_candidates": 1
+    },
+    {
+      "column": 2,
+      "host": "N0691",
+      "Cepheid_rows": 28,
+      "unique_candidates": 1
+    },
+    {
+      "column": 3,
+      "host": "N1015",
+      "Cepheid_rows": 18,
+      "unique_candidates": 1
+    },
+    {
+      "column": 4,
+      "host": "N105A",
+      "Cepheid_rows": 8,
+      "unique_candidates": 1
+    },
+    {
+      "column": 5,
+      "host": "N1309",
+      "Cepheid_rows": 53,
+      "unique_candidates": 1
+    },
+    {
+      "column": 6,
+      "host": "N1365",
+      "Cepheid_rows": 46,
+      "unique_candidates": 1
+    },
+    {
+      "column": 7,
+      "host": "N1448",
+      "Cepheid_rows": 73,
+      "unique_candidates": 1
+    },
+    {
+      "column": 8,
+      "host": "N1559",
+      "Cepheid_rows": 110,
+      "unique_candidates": 1
+    },
+    {
+      "column": 9,
+      "host": "N2442",
+      "Cepheid_rows": 177,
+      "unique_candidates": 1
+    },
+    {
+      "column": 10,
+      "host": "N2525",
+      "Cepheid_rows": 73,
+      "unique_candidates": 1
+    },
+    {
+      "column": 11,
+      "host": "N2608",
+      "Cepheid_rows": 22,
+      "unique_candidates": 1
+    },
+    {
+      "column": 12,
+      "host": "N3021",
+      "Cepheid_rows": 16,
+      "unique_candidates": 1
+    },
+    {
+      "column": 13,
+      "host": "N3147",
+      "Cepheid_rows": 27,
+      "unique_candidates": 1
+    },
+    {
+      "column": 14,
+      "host": "N3254",
+      "Cepheid_rows": 48,
+      "unique_candidates": 1
+    },
+    {
+      "column": 15,
+      "host": "N3370",
+      "Cepheid_rows": 73,
+      "unique_candidates": 1
+    },
+    {
+      "column": 16,
+      "host": "N3447",
+      "Cepheid_rows": 101,
+      "unique_candidates": 1
+    },
+    {
+      "column": 17,
+      "host": "N3583",
+      "Cepheid_rows": 54,
+      "unique_candidates": 1
+    },
+    {
+      "column": 18,
+      "host": "N3972",
+      "Cepheid_rows": 52,
+      "unique_candidates": 1
+    },
+    {
+      "column": 19,
+      "host": "N3982",
+      "Cepheid_rows": 27,
+      "unique_candidates": 1
+    },
+    {
+      "column": 20,
+      "host": "N4038",
+      "Cepheid_rows": 29,
+      "unique_candidates": 1
+    },
+    {
+      "column": 21,
+      "host": "N4424",
+      "Cepheid_rows": 9,
+      "unique_candidates": 1
+    },
+    {
+      "column": 22,
+      "host": "N4536",
+      "Cepheid_rows": 40,
+      "unique_candidates": 1
+    },
+    {
+      "column": 23,
+      "host": "N4639",
+      "Cepheid_rows": 30,
+      "unique_candidates": 1
+    },
+    {
+      "column": 24,
+      "host": "N4680",
+      "Cepheid_rows": 11,
+      "unique_candidates": 1
+    },
+    {
+      "column": 25,
+      "host": "N5468",
+      "Cepheid_rows": 93,
+      "unique_candidates": 1
+    },
+    {
+      "column": 26,
+      "host": "N5584",
+      "Cepheid_rows": 165,
+      "unique_candidates": 1
+    },
+    {
+      "column": 27,
+      "host": "N5643",
+      "Cepheid_rows": 251,
+      "unique_candidates": 1
+    },
+    {
+      "column": 28,
+      "host": "N5728",
+      "Cepheid_rows": 20,
+      "unique_candidates": 1
+    },
+    {
+      "column": 29,
+      "host": "N5861",
+      "Cepheid_rows": 41,
+      "unique_candidates": 1
+    },
+    {
+      "column": 30,
+      "host": "N5917",
+      "Cepheid_rows": 14,
+      "unique_candidates": 1
+    },
+    {
+      "column": 31,
+      "host": "N7250",
+      "Cepheid_rows": 21,
+      "unique_candidates": 1
+    },
+    {
+      "column": 32,
+      "host": "N7329",
+      "Cepheid_rows": 31,
+      "unique_candidates": 1
+    },
+    {
+      "column": 33,
+      "host": "N7541",
+      "Cepheid_rows": 33,
+      "unique_candidates": 1
+    },
+    {
+      "column": 34,
+      "host": "N7678",
+      "Cepheid_rows": 16,
+      "unique_candidates": 1
+    },
+    {
+      "column": 35,
+      "host": "N976A",
+      "Cepheid_rows": 33,
+      "unique_candidates": 1
+    },
+    {
+      "column": 36,
+      "host": "U9391",
+      "Cepheid_rows": 33,
+      "unique_candidates": 1
+    }
+  ],
+  "removed_retained_covariance_nonzero_entries": 0,
+  "maximum_host_change_from_full_ladder_mag": 0.1779540562392441,
+  "qualification": "Correct conditional SN-free compression under the released Gaussian model with fixed design/covariance and flat linear nuisance measure. All eight nuisance coordinates are integrated; the host covariance is full. Not an independent reconstruction of photometry, a progenitor-age result, a Gaussian H0 prior, or a ready-to-multiply factor for unmatched/restandardized SN.",
+  "integration_requirements": [
+    "One physical host/SN linkage, preserving duplicate light-curve rows and aliases.",
+    "Consistent calibrated SN absolute-magnitude standardization and its covariance; shared cross-release calibration response must not be ignored.",
+    "Preserve correlated37-host covariance and compressed anchor assumptions; do not add anchor priors a second time."
+  ]
+}
