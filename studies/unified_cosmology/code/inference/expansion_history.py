@@ -122,14 +122,37 @@ def background_history(background, z, step):
             'scalar': scalar, 'numerical_checks': checks}
 
 
+def native_thermal_parameters(parameters):
+    """Match the full CAMB nonlinear-lensing thermal path, without spectra.
+
+    CAMB_GetResults temporarily enables WantTransfer before InitVars, then
+    restores its input value. InitVars uses that flag in its starting-time/grid
+    choice, which also affects the finite-tolerance drag-redshift calculation.
+    get_background does not perform this temporary switch by itself.
+    """
+    from camb import model
+    adjusted = parameters.copy()
+    if (adjusted.WantCls and adjusted.WantScalars
+            and adjusted.NonLinear in {model.NonLinear_lens, model.NonLinear_both}
+            and (adjusted.DoLensing or len(adjusted.SourceWindows) > 0)):
+        adjusted.WantTransfer = True
+    return adjusted
+
+
 def evaluate_background(point, extra, design, native):
     import camb
     cosmology = {k: point[k] for k in ['H0', 'ombh2', 'omch2', 'ns', 'tau']}
     cosmology.update(As=1e-10*np.exp(point['logA']), w=point.get('w', -1.), wa=point.get('wa', 0.))
     with no_spectra():
         parameters = camb.set_params(**cosmology, **extra)
-        background = camb.get_background(parameters)
+        adjusted = native_thermal_parameters(parameters)
+        background = camb.get_background(adjusted)
         result = background_history(background, design['redshift_grid'], design['finite_difference_step'])
+    result['thermal_adapter'] = {
+        'input_WantTransfer': bool(parameters.WantTransfer),
+        'background_WantTransfer': bool(adjusted.WantTransfer),
+        'CMB_spectrum_calls': 0,
+        'meaning': 'Reproduce the full native nonlinear-lensing thermal initialization; no transfer functions or spectra are computed.'}
     if (not all(np.isfinite(values).all() for values in result['history'].values())
             or not all(np.isfinite(value) for value in result['scalar'].values())
             or not all(np.isfinite(value) for value in result['numerical_checks'].values())):

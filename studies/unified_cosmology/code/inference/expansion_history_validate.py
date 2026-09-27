@@ -1,4 +1,4 @@
-"""Synthetic background equations and numerical precision, not cosmology data."""
+"""Synthetic equations and saved native thermal controls, not a posterior fit."""
 import hashlib
 import json
 from pathlib import Path
@@ -10,7 +10,8 @@ import numpy as np
 from scipy.integrate import quad
 
 from expansion_history import (DESIGN, ROOT, HERE, no_spectra,
-    differentiate_hubble, background_history, evaluate_background, pointwise_summary)
+    differentiate_hubble, background_history, evaluate_background, pointwise_summary,
+    native_thermal_parameters)
 from expansion_history import payload_digest, read_cached_background, verify_cache_manifest
 from likelihood import expansion_diagnostics
 
@@ -89,7 +90,8 @@ def main():
         args = {k: current[k] for k in ['H0', 'ombh2', 'omch2', 'ns', 'tau', 'w', 'wa']}
         args['As'] = 1e-10*np.exp(current['logA'])
         with no_spectra():
-            background = camb.get_background(camb.set_params(**args, **extra))
+            parameters = native_thermal_parameters(camb.set_params(**args, **extra))
+            background = camb.get_background(parameters)
             # Existing native diagnostic definition on its separate forward grid.
             native_grid = np.concatenate([np.arange(5)*.001+c for c in [0., .5, 1.]])
             native = expansion_diagnostics(native_grid, background.hubble_parameter(native_grid))
@@ -103,6 +105,55 @@ def main():
         modern_rows.append({'synthetic_parameters': {'w': w, 'wa': wa, 'H0': h0},
                             'numerical_checks': result['numerical_checks'],
                             'age_quadrature_absolute_Gyr_error': age_quadrature_error})
+    # These references came from full native spectral likelihood evaluations,
+    # not another get_background call. Compact fixed fixtures allow a cheap
+    # repeat without rerunning the native spectra; available original records
+    # are additionally verified, including their canonical payload seals.
+    fixture_path = HERE/'expansion-history-native-controls.json'
+    fixture = json.loads(fixture_path.read_text())
+    assert camb.__version__ == fixture['camb_version']
+    assert digest(ROOT/fixture['generation_source']) == fixture['generation_source_sha256']
+    assert digest(ROOT/fixture['generation_validation_path']) == fixture['generation_validation_sha256']
+    for source in fixture['Fortran_sources']:
+        local = ROOT/source['local_path']
+        if local.exists():
+            assert digest(local) == source['sha256'], 'Pinned CAMB source changed.'
+    for path, expected in fixture['review_history']['evidence_sha256'].items():
+        if (ROOT/path).exists():
+            assert digest(ROOT/path) == expected, 'Preserved failed-closure evidence changed.'
+    native_rows = []
+    for row in fixture['controls']:
+        original = ROOT/row['native_record_path']
+        if original.exists():
+            from exact_correction import verify_record
+            assert digest(original) == row['native_record_sha256']
+            payload = json.loads(original.read_text()); verify_record(payload)
+            assert payload['point'] == row['point'] and payload['derived'] == row['derived']
+        result = evaluate_background(row['point'], fixture['native_extra_args'], design, row['derived'])
+        assert not result['failed_numerical_gates'], result
+        assert result['scalar']['rdrag_Mpc'] == row['derived']['rdrag'], 'Fixed native thermal closure is not bitwise.'
+        native_rows.append({'index': row['index'], 'original_native_record_verified': original.exists(),
+                            'native_record_sha256': row['native_record_sha256'],
+                            'stored_native_rdrag_Mpc': row['derived']['rdrag'],
+                            'background_rdrag_Mpc': result['scalar']['rdrag_Mpc'],
+                            'numerical_checks': result['numerical_checks'],
+                            'thermal_adapter': result['thermal_adapter']})
+    condition_rows = []
+    for tag, settings, expected in [
+        ('nonlinear_lensing', {}, True),
+        ('no_nonlinear', {'NonLinear': camb.model.NonLinear_none}, False),
+        ('power_only_nonlinear', {'NonLinear': camb.model.NonLinear_pk}, False),
+        ('no_lensing_no_windows', {'DoLensing': False}, False),
+        ('no_Cls', {'WantCls': False}, False),
+        ('no_scalars', {'WantScalars': False}, False),
+        ('existing_transfer_preserved', {'WantTransfer': True, 'NonLinear': camb.model.NonLinear_none}, True)]:
+        parameters = camb.set_params(**args, **extra)
+        for name, value in settings.items():
+            setattr(parameters, name, value)
+        before = str(parameters)
+        adjusted = native_thermal_parameters(parameters)
+        assert bool(adjusted.WantTransfer) == expected and str(parameters) == before
+        condition_rows.append({'case':tag, 'WantTransfer':expected, 'input_unchanged':True})
     # Independently known weighted pointwise quantiles and acceleration fractions.
     values = np.array([[1., -2.], [3., 2.], [5., 4.], [7., 6.]])
     weights = np.array([.1, .2, .3, .4])
@@ -149,7 +200,8 @@ def main():
             raise AssertionError('Wrong parent cache was accepted.')
     sources = [Path(__file__), HERE/'expansion_history.py', DESIGN, HERE/'likelihood.py',
                HERE/'measurement_summary.py', HERE.parent/'external_probes/modern_adapter.py',
-               HERE.parent/'external_probes/adapter.py']
+               HERE.parent/'external_probes/adapter.py', fixture_path,
+               ROOT/fixture['generation_source'], ROOT/fixture['generation_validation_path']]
     report = {'status': 'passed_synthetic_background_validation', 'observational_points_used': 0,
               'CMB_spectrum_calls': 0, 'power_law_checks': power_rows, 'analytic_CPL_density_checks': density_rows,
               'massless_Lambda_plus_radiation_CAMB_check': {'scaled_errors': errors,
@@ -158,6 +210,10 @@ def main():
                   'default_native_age_minus_converged_integral_Gyr': numerical['numerical_checks']['age_CAMB_default_minus_integral_Gyr'],
                   'scope': 'Explicit synthetic mnu=0 test of closed density equations, not the adopted physical target.'},
               'modern_physics_synthetic_checks': modern_rows,
+              'full_native_thermal_reference_checks': native_rows,
+              'native_thermal_condition_checks': condition_rows,
+              'thermal_adapter_review_history': fixture['review_history'],
+              'pinned_CAMB_Fortran_sources': fixture['Fortran_sources'],
               'known_weighted_quantiles_and_sign_fractions_passed': True,
               'cache_tamper_rejections': rejected,
               'cache_review_history': {
