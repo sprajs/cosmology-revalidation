@@ -53,6 +53,8 @@ These are measured cross-release discrepancies, **not proof of a factor-of-two i
 
 Subtracting our candidate host covariance from the released total leaves a positive-definite matrix, with minimum eigenvalue $7.29790\times10^{-4}\,{\rm mag}^2$. That only demonstrates mathematical feasibility; it does not identify the component that was actually added. Accordingly, the interface neither substitutes our host factor nor treats `STATONLY` as a verified supernova-only covariance. A certified replacement requires the original embedded host covariance, its row map and its construction or version history. The [release README](https://github.com/PantheonPlusSH0ES/DataRelease/blob/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/4_DISTANCES_AND_COVAR/README) explicitly includes Cepheid uncertainties; its short description of statistical components does not resolve the observed decomposition.
 
+The [published-table comparison and expanded source search](calibration-construction-search.md) recover the same Cepheid-only errors within printed rounding, but not the missing embedding inputs. A separate [covariance audit](calibration-covariance-estimands.md) confirms that the reconstructed factor already marginalizes all Cepheid nuisance parameters. Neither that marginalization nor fitting a common SN magnitude explains the positive host-specific excess. A further host-shared SN term remains an algebraically possible, empirically unidentified explanation.
+
 ## Numerical qualification
 
 The printed matrices differ from their transposes by at most $3\times10^{-8}\,{\rm mag}^2$, in 778 ordered entries. A Gaussian covariance must be symmetric. This interface explicitly uses $(C+C^T)/2$, retaining and hashing the original bytes.

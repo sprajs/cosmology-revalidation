@@ -34,6 +34,8 @@ The production calculation passes direct likelihood comparisons, 64/128-node dis
 
 A separate implementation solves the full two-parameter (M,η) generalized least-squares system by LU decomposition, uses different distance and Ωₘ quadratures, and checks normalized likelihoods. H₀ means, standard deviations and quantiles agree within **5.1 × 10⁻¹⁰ km/s/Mpc**; Ωₘ summaries agree within **2.9 × 10⁻¹⁴**. These small differences test arithmetic, not observational accuracy. [Measurement](../results/distance_ladder/calibration-lcdm.json); [independent review](../results/distance_ladder/calibration-lcdm-review.json).
 
+The subsequent [published-table and construction search](calibration-construction-search.md) confirms that the four near-doubled sibling covariance entries are not explained by the printed Cepheid-only errors. An [independent covariance audit](calibration-covariance-estimands.md) rules out omitted nuisance marginalization and common-$M$ projection as explanations, while retaining the possibility of an unseparated host-shared SN term. This does not identify a justified covariance correction; the measurement here remains conditional on the released matrix.
+
 ## Reproduction
 
 First acquire and verify the calibration inputs as described in the [interface instructions](calibration-interface.md#reproduction-and-reuse). Use a fresh output path for the calculation; existing results are not overwritten.
