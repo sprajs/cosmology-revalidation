@@ -1,0 +1,19 @@
+{
+  "schema": "camb166-spline-matched-audit-design-v1",
+  "scope": "A bounded implementation comparison, not a new cosmological posterior or a v2 upgrade.",
+  "status": "Preparation only; physical execution awaits root allocation after independent review under the existing user authorization.",
+  "prerequisite": "Fresh original qualified2000 parent plus the complete original32 thermal-reviewed genuine accuracy1to2 sensitivity receipt.",
+  "reference_indices": [0,31],
+  "accuracies": [1,2],
+  "arms": ["original_wheel","source_control","source_fixed"],
+  "requests": 12,
+  "maximum_workers": 2,
+  "environment": {"OMP_NUM_THREADS":"1","OPENBLAS_NUM_THREADS":"1","MKL_NUM_THREADS":"1","CLIPY_NOJAX":"1"},
+  "configuration": "Identical native physical/likelihood configuration at each original parameter point. AccuracyBoost,lSampleBoost,lAccuracyBoost are1 or2 exactly as original. Only implementation identity differs across arms. No v2 default, new prior, resampling or nuisance change.",
+  "model_lifetime": "One fresh model per arm/accuracy process, requested point order0then31. No extra warmup/nativecalls. Exactly12 requested full logposterior invocations; actual internal solver calls may differ. Process initialization and numerical-order effects remain a limitation of this bounded test.",
+  "comparisons": ["Original wheel versus same-compiler unpatched source separates package/compiler effects.","Same-compiler unpatched versus one-line repaired source isolates the explicit abscissa slice.","Within each arm accuracy2minus1 retains original component/total/derived/spectra comparisons.","Original wheel accuracy2 replays both corresponding archived high2 records; original wheel accuracy1 replays original selected native1 densities. Any mismatch is preserved, not suppressed."],
+  "input_provenance": "Pin original PyPI wheel bytes/installedRECORD, sdist and tag, forutils submodule, upstream56a95f diff, adapted single-source-line change, compiler/support/runtime/binary hashes, all parent/config/data/source identities.",
+  "spectra": "Archive actual raw FIRASmuK2 TT,EE,BB,TE and dimensionless C_phi_phi with exact ell/length/finalizedsettings. Compare spectra atcommonell; TE normalized bysqrt(TT*EE) awayfromzero. Preserve signed component loglike/derived differences and timings.",
+  "failure_policy": "One exclusive attempt perrequest, no worker replacement/retry. Record finite andfailedresults and unknown interrupted invocations. All covariance/source/parent gates unchanged. A measured shift does not automatically qualify a correctedtarget or prove our existing numericaldrift hasonecause.",
+  "qualification": "No posterior claims fromtwo deliberatelyfixedpoints. A correctedtarget requires its own numerical-convergence and alloriginalstatisticalgates beforeany cosmological reporting. Old evidence remains unchanged."
+}

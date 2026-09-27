@@ -1,0 +1,158 @@
+{
+  "schema": "camb166-spline-build-preparation-v1",
+  "status": "matched_builds_and_guarded_audit_preparation_passed",
+  "physical_calls": 0,
+  "source_sha256": {
+    "studies/unified_cosmology/code/inference/camb_spline_audit.py": "8c5e896c06aedab53f0c4f7327d13349cf0d1fbf8df7c4dec514d6e7ed777f33",
+    "studies/unified_cosmology/code/inference/camb-spline-audit-design.json": "760f9851dd29d1c5ff9a4098e5b07b2871d3ccf31ecaf0bc9934c65bb2b54bc8",
+    "studies/unified_cosmology/code/external_probes/camb_spline_build.py": "eebdd3b9482d611d4cec376c947ae7634009674de8fa0e9f9745f82a03fee361",
+    "studies/unified_cosmology/code/external_probes/camb_spline_finalize.py": "49ce9583b78d5d893c5635890f7494ffac97397e96cfa912576b34cf962681ce",
+    "studies/unified_cosmology/code/external_probes/camb_spline_indexing.f90": "59ab3967d3e4b115b0a4bda1bbdf845e4bed9e8c13cd04f0079edb24f563c9d1"
+  },
+  "upstream_fix_commit": "56a95f78fdd72709c5af6b668141ec0c617777c3",
+  "source_release": "3ef0272d6f7ba1231128872e56e6d4c12af8267b",
+  "source_forutils": "841f06d5356877e90437f94b2d976dd98f7f923c",
+  "installed_wheel": {
+    "sha256": "bb8e0c85b3e33d78ca0676c84b0b60b54dfa72d4e520a805166cab0458e81094",
+    "payload_files_byte_identical": 41,
+    "binary_sha256": "0c7b19dbc68eb58d6e0d9e96a58f33599b2ec35a53a08ea29fa60973ccfc40f0",
+    "embedded_compiler": "\nString dump of section '.comment':\n  [     0]  GCC: (GNU) 14.2.1 20250110 (Red Hat 14.2.1-11)\n\n",
+    "RECORD_verified": true,
+    "build_attestation_limit": "Exact public wheel identification; no embedded complete source/compiler reproducibility attestation."
+  },
+  "source_controls": {
+    "sdist_tag_identical_source_files": 65,
+    "sdist_forutils_identical_files": 22,
+    "same_build_compiler": {
+      "path": ".work/unified-cosmology/calibrated-host-physics/toolchain/usr/bin/gfortran",
+      "sha256": "3dc12fc3837e13accfa1ba1ce84527ed49ebb6af65772179737dc4405391cb5d",
+      "version": "GNU Fortran (GCC) 16.2.1 20260810\nCopyright (C) 2026 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "make": "GNU Make 4.4.1",
+      "f951": {
+        "path": ".work/unified-cosmology/calibrated-host-physics/toolchain/usr/lib/gcc/x86_64-pc-linux-gnu/16/f951",
+        "sha256": "7822fd88c919401946e4e2cca1784de2b991e59378d0b40b212b322a673233bb"
+      },
+      "libgfortran.so": {
+        "path": "/usr/lib/libgfortran.so.5.0.0",
+        "sha256": "4a9cd191a0863e623d9877da4df52432412873ae9eebe0becc72cf8d18ef1c08"
+      },
+      "libquadmath.so": {
+        "path": "/usr/lib/libquadmath.so.0.0.0",
+        "sha256": "2b89102d46aa1d5b76fcf81c4f52d8c450761bc386a0f4aa4b32783e2c50daf7"
+      },
+      "libgomp.so": {
+        "path": "/usr/lib/libgomp.so.1.0.0",
+        "sha256": "d6c6309ee83dbe9b50bf38342489799a4822ee22451677730ff5542aa74bdefc"
+      },
+      "libgcc_s.so": {
+        "path": "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libgcc_s.so",
+        "sha256": "69a56a9993b7729b29b274e65016031c81f2397f176ed5ad44d59bd50425e0bd"
+      }
+    },
+    "additional_host_toolchain_sha256": {
+      "/usr/bin/gcc": "8aac907d6fbf40394b424b5fa4a2ad1aa291dac7d3a0315c5b415c1f5ace1287",
+      "/usr/bin/as": "3dfdf6007545ea36176c350eef201d1ece55c347a182697bb5f9bac815a1f34b",
+      "/usr/bin/ld": "4d83828f709f0eade25bcae2f4a2508c47db2f01b58daaca5c1c4cefce897847",
+      "/usr/bin/make": "9018663161af324a74326c035cfd05408cba13a26c1f6b801cf5f3195f2bee40",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libatomic.so": "977b443ea807835dca23aa5f27b6245799c5f452d972d033b88ca768e0b216d1",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/cc1": "49a325fc4c6c5aa5a8f9ea8c828e37f3900a757c6be48d997ff4af0b51ee8315",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/cc1plus": "0026a9e66550c7f470558dfbe99f861073294e601d62b7b74eeb50fdebb09bef",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/collect2": "6a575bbac80e335d20fc2ca631798899956cbbef882d6c3b83f8b13d01865155",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbegin.o": "2b44995703051fd5ee884e5095012b603767499309208531cf6ad4acfd5c8654",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o": "557581ba917a932911a5269f36d1c2f7f6924c88052a4cdd911c862b980678df",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginT.o": "d9e0937208f169dde4fea579f1c974b5e3b1fd44017362367c7ce1f6a7ed7a33",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/crtend.o": "bcbcd1dcbc7b235c96ab3ff1f06e5b7f44677fed502fa22c2a0b2f8360db71fd",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o": "bcbcd1dcbc7b235c96ab3ff1f06e5b7f44677fed502fa22c2a0b2f8360db71fd",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/crtfastmath.o": "9aaa0a93161f6b177477a5a338e23cdc93b04da5dd4f7f00fa50d4b81e725e84",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/crtprec32.o": "d4d307307b4d077cc8e12c0d88234f150da3b0f29f00cf600fcdbbff214b55f5",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/crtprec64.o": "65841f8d33e0e65fea870df70a75716cd918ac2f270a6e5a95a6139dea15cde0",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/crtprec80.o": "5fc34a6a0286b5687c91cd5af9d8417e9ca5a9fc18d44a6143695ec4027efd99",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/g++-mapper-server": "97bf5b33e78cc82c081fd5ee33aa17e076e0c845f8ac4f0af57c2a92d9434a2d",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libasan_preinit.o": "59b3a688ab56c46218ca4094ef1bf56ad63c26ab775005672f5813bca67622e2",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libatomic.a": "8cbf6e0d77738882441f356402b70b76f26a6fa796c9572d5a9b23776b91989b",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libatomic_asneeded.a": "8cbf6e0d77738882441f356402b70b76f26a6fa796c9572d5a9b23776b91989b",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libatomic_asneeded.so": "7006f9f3ea0a199cca99d3646c3a7ebd5aa0fea2d45894c205cdb6eab4b4a7de",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libgcc.a": "c70c91346f314b52a3e709b1dad72f37c126c843e90664b475f15c3e63cde47d",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libgcc_eh.a": "ebbc3de25d7317afd5bf3c11f59df8567d2a80dab443246330c41d2de8915a8f",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libgcc_s.so": "69a56a9993b7729b29b274e65016031c81f2397f176ed5ad44d59bd50425e0bd",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libgcc_s_asneeded.so": "10bc094393cfacd92e7683eff066803c7c5bfd51ac8ee8eb7b57847a4c9b3ebb",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libgcov.a": "df14890cd6a299da3512f768d1525d2d4d17f05dd721a00454156983dfb1bcf7",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libgomp.spec": "1745a1f1bfd4f9db9eabaf769f6ae7f109b8d200633dcf127b19df324eb1db52",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libhwasan_preinit.o": "8322e6a3c3fb1755262def72be355b2ecc20fd7684a9923a98f52aa468d21b28",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libitm.spec": "66bc196e461b4a8b729e89992421235f7a03a7d873329059faa2100f5d33c335",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/liblsan_preinit.o": "7a3f6818ee3b926b48105acffe57fc73a3bfed094cfc88661ba459628ddd4087",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so": "e59750234603efdc5395849bf15ce45eff1fde35ee5adead588a5c1e723662fe",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libsanitizer.spec": "15e0778e7a6d3ed8763425c801cc714cec9d0438251726809c035c581daee94d",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libstdc++.a": "13075d0e469503d4bf485627c8beee50f9cbad71a32e7e959b7d366520b31cee",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libstdc++.so": "f5fc7380f2ae46fa4053a64be04e7b98109f1066a4bbfff3c37042488aa0be0e",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libstdc++exp.a": "8811acda875027a4e75aac3d3d7b7bd919a4f3f98327245c936e16753fc44b34",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libstdc++fs.a": "72395f87120f3afd945b6820ccc5af1551132f2139b9e06e5b6c5da4786c0bb8",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libsupc++.a": "edc28f640cbd213594e1b6fc30f0f5a44188d9d3c475ab2e2acc979db919888a",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libtsan_preinit.o": "78f699326a3ccf92cf98500ef45b10729d598311a5f5df2f07a1ff5ec6a49cab",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper": "e4496ff0c333572ba7c4649bf1403f4b701cdf12e52733a0ce3c19456228867e",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto1": "50fdc13445e76ac1b2de359e1d46393a2f67d9f22673e77bdc823d72a82ad000",
+      ".work/unified-cosmology/calibrated-host-physics/toolchain/toolchain.json": "65d07c5f2a0937e9044459319ad068111d9154873b607e8d0697f9b782ee5ff1"
+    },
+    "changed_source_files": [
+      "fortran/cmbmain.f90"
+    ],
+    "control_binary_sha256": "452ebee533c3ffb1709d5b00b6498ed94324aa51ad14f52c7e60076e20673eda",
+    "fixed_binary_sha256": "94df8458bc5c464f13ca11fadaef28ded22255b396ddb746c052af27fe1fee16",
+    "python_and_data_files_equal_wheel_per_arm": 31,
+    "physics_flags": "Identical upstream1.6.6 -O3 -fopenmp, CLUSTER_SAFE=1; no fast-math.",
+    "environment_policy": "Two new local venv overlays load their own CAMB source/binary first and read other packages from the unchanged original environment."
+  },
+  "prepared_plan": {
+    "path": ".work/unified-cosmology/camb-spline-audit/prepared-v2/plan.json",
+    "sha256": "0be76c6fff4a0051f8af71e4d2d4d3c7e4afb56f9668da1efdd9d2f0c565d883",
+    "identity": "89c2f747a4d7b179d49c706a7819e239770ddabd06abe9030fd6b17034c2b833",
+    "requests": 12,
+    "reference_indices": [
+      0,
+      31
+    ],
+    "accuracies": [
+      1,
+      2
+    ],
+    "arms": [
+      "original_wheel",
+      "source_control",
+      "source_fixed"
+    ],
+    "indexing_proof": {
+      "source_sha256": "59ab3967d3e4b115b0a4bda1bbdf845e4bed9e8c13cd04f0079edb24f563c9d1",
+      "compiler_sha256": "3dc12fc3837e13accfa1ba1ce84527ed49ebb6af65772179737dc4405391cb5d",
+      "binary_sha256": "eb373fa1a3d2688b97532c27bab465feba49c530e8cb9b7679db20afee7c5ed6",
+      "output": " PASS: old first knot is sentinel; old remaining knots shift; fixed knots match.\n FIXED_KNOTS   10.000000000000000        20.000000000000000        30.000000000000000        40.000000000000000        50.000000000000000     \n"
+    },
+    "parent_thermal_status": "numerical_sensitivity_requires_followup"
+  },
+  "input_sha256": {
+    ".work/unified-cosmology/camb-spline-audit/build-record.json": "2516a023a24734d0fd236a05d1575adc80e49c7e2323af767afefa7211ac6ac4",
+    ".work/unified-cosmology/camb-spline-audit/package-record.json": "aa3a29e6a0c0f296bf313c0b21851c99614f221343f31462fab23f115b0fac7c",
+    ".work/unified-cosmology/camb-spline-audit/prepared-v2/plan.json": "0be76c6fff4a0051f8af71e4d2d4d3c7e4afb56f9668da1efdd9d2f0c565d883",
+    ".work/unified-cosmology/camb-spline-audit/preparation-v2.log": "32bd40ff22fb974d5bcf868cd8ed0089a7c672c7084454895bc1eb9a20016ac9",
+    ".work/unified-cosmology/camb-spline-audit/control-build.log": "f82d77db52ab64849dd237b4d4e0df9a9a9e2bb9dae9595540b218bdb67805a7",
+    ".work/unified-cosmology/camb-spline-audit/fixed-build.log": "9e60ea615a7ce175854715fe529a6e2fe22176fa064db24f5381e533b6d6b02c"
+  },
+  "preserved_preparation_failure": {
+    "reason": "Venv interpreter symlink resolved outside repository before lexical-path override; failed before plan publication or physical calls.",
+    "source_path": ".work/unified-cosmology/camb-spline-audit/prepared-v1/preparation-source.py",
+    "source_sha256": "41193b00e2b7ac1fd43106c3738bcba518b9e1581a60789058d3c64ac2a5885a",
+    "log_path": ".work/unified-cosmology/camb-spline-audit/prepared-v1/failure.log",
+    "log_sha256": "f574705989b272ee2e07e0e82e666b5a5061ff19dcae238d7978f44cb3c89e72"
+  },
+  "independent_review": {
+    "agent": "environment_observations",
+    "scope": "Read-only Fortran sequence association, single source line, matched compiler/flags, binary identities, fresh parent/config and12-request preparation",
+    "result": "No material finding",
+    "physical_calls": 0
+  },
+  "limits": [
+    "Indexing toy proves argument association, not that our original runtime memory contained NaN.",
+    "No native likelihood differences measured; no attribution of the existing accuracy dependence.",
+    "Two-point comparison cannot qualify a corrected posterior or global numerical convergence.",
+    "Source-control versus wheel contrast must separate GCC16 from packaged GCC14 effects."
+  ]
+}
