@@ -156,6 +156,7 @@ def main():
                             'bandpower_max_absolute_difference': result['native_bandpower_max_absolute_difference']})
         del response; gc.collect()
     sources = [Path(__file__), HERE/'joint_lensing_bridge.py', DESIGN, GATES, HERE/'measurement_summary.py',
+               HERE/'spectral_correction.py',
                HERE/'native_posterior_precision.py', HERE/'luminosity_sensitivity.py', HERE/'exact_correction.py',
                HERE.parent/'external_probes/fast_lensing.py', bridge.AUDIT]
     report = {'status': 'passed_fixed_spectrum_and_synthetic_validation', 'new_native_CAMB_calls': 0, 'GPU_calls': 0,

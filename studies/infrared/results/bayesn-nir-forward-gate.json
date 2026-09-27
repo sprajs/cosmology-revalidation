@@ -1,0 +1,523 @@
+{
+  "status": "passed",
+  "scope": "Metadata-only J/H forward validation; no posterior or observed-flux score.",
+  "source_sha256": "203e087499be522004973d9edd3c56add3f9e68002164ccc40c21138250043b5",
+  "execution_design": {
+    "scope": "Metadata-only J/H forward validation; no posterior or observed-flux score.",
+    "source_sha256": "203e087499be522004973d9edd3c56add3f9e68002164ccc40c21138250043b5",
+    "archive": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85",
+    "input_sha256": {
+      "runs/research_2026_09_26/bayesn_signed_optical_pilot/adapter-manifest.json": "05a998fc97b759f8363d70dd01872c0f5a1e7b7bd31b629f856679b807147a24",
+      "runs/research_2026_09_26/astra_design/bayesn_signed_pilot/frozen-cohort.csv": "e3c3ea9e5ac1eb7412d5cd21c8f8286aea9ba4c0f6a496d849d9e7a5b2e28a61",
+      "runs/research_2026_09_26/astra_design/bayesn_signed_pilot/frozen-mask-metadata.csv": "45927a26d510308362bf0f481d46dbd83ee586800d7622a3114893e49adfb19e",
+      "runs/research_2026_09_26/astra_design/bayesn_signed_pilot/pilot-design-protocol.json": "544131bf73dcd7de5069a1e25ca10f9cc3fa00e36ebabc0644a610429395d433",
+      "runs/research_2026_09_26/bayesn_signed_optical_pilot/release-filter-config.yaml": "ba0c3469ed9a2cf0baeb9400abd4f15daf711c4a394b37cb7c1cd04ecbf16741",
+      "runs/research_2026_09_26/bayesn_signed_optical_pilot/RAISIN_DES_J.dat": "ac7b8cdc46e568ec8d8d1e0690a7f85bd04c15de3be3937e57924ae93fd2a5cd",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/__init__.py": "e9e91633924dc07f79ddcba9679e29a324e04aefcedaafa741de17a1cd010945",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/ATLAS/ATLAS/c_total.dat": "6ae5c6d618d1024cd05046b445a01cfc66c5a8e90fcb6594bb6a68f5b37ab7af",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/ATLAS/ATLAS/o_total.dat": "2b12d2673a517b206284c3e84d237c3dc27c9adc920daa8ada020e20d034fe33",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/CTIO/ANDICAM/Bandicam.dat": "3c134722b8fa374baef089443d8780392038a140ad6f650e8ff732a545beea19",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/CTIO/ANDICAM/H_andi.txt": "d643e274d04926c2b1e7702fafea84ffaa61633bcc895de53f89e21044c2a80f",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/CTIO/ANDICAM/Handicam.dat": "cbede8315e5485c4ef171a10feef1431880b445b83f37e256a9d9a6a3c25888d",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/CTIO/ANDICAM/Iandicam.dat": "8ee173dd0193404edff06d9ef00c71f154d60b99e67d427a11a665adbfa66fdc",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/CTIO/ANDICAM/J_andi.txt": "01fb9a69889f08048d520d60e02f6bb37b42b48f1946a49fc12abc32345a423d",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/CTIO/ANDICAM/Jandicam.dat": "26ae1a76bb7e82c9cd7f93fe101633d84087028811d440e293a5114a2e507fc0",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/CTIO/ANDICAM/Kandicam.dat": "667743bcdfda9c00c6638acc91a5f9decdaeafec9ab634a2229ce960cc8e19ce",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/CTIO/ANDICAM/README": "298ae882048332113c2e34a623011c35d73fbf9eb52ac794363d7f26d9ef897a",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/CTIO/ANDICAM/Randicam.dat": "d71c3167ff07ad72964ee8cffe2d5d8f38ea065278732e3c43b54bceb83e147f",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/CTIO/ANDICAM/Vandicam.dat": "36f70ecbd8be30e4777b657a0a5e58d435efaac51ad63c76bfda4ce75c434775",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/CTIO/ANDICAM/Yandicam.dat": "f8a13e3266a3919799131bfa43a06ed1c54685eae08529f0f567d259a857abd8",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/CTIO/ANDICAM/filters.dat": "0f510938aab0b095f0f26f1241bfd114e516b7bddbe387bc1f0a345d63d768d3",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/DECam/decam_g.txt": "1be81cbbf2d75da989534998df7b153aa3e0a6b94955864f07024ff5793ef8ac",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/DECam/decam_i.txt": "a8292728f30ab07656814d255e8f9e6d61374460e6561ce245470f1864b543a8",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/DECam/decam_r.txt": "db3dd53bddf7cd4d80cf76022ddd855ea26273113121c2e66af8dc5a7da35790",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/DECam/decam_u.txt": "0ae16fdb2df0ffa0912461e4d5057b30d035fe96b967e6bdfc3a963e4a04b6f2",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/DECam/decam_y.txt": "dc360ae04233d15022e12ccc8b501dd760b704c3361e1c1a1aaf29e5dda7c4e9",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/DECam/decam_z.txt": "91a3bc7eee0b72bf16630a5a21749d1da0daaa22a4913aaf6c53a1328c5d5492",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/HST/WFC3/IR/F105W.dat": "f3aef6ad38948263ce68c33cc5c10e4505b19eed88c68577b3ae807388189d7e",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/HST/WFC3/IR/F125W.dat": "0df95fcf62bfa2bce3f001edf95354633e93212b33ec73d24addd5e252b6537a",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/HST/WFC3/IR/F140W.dat": "69029a94aa980d0fdfaf6b3def559fe481e883030b6a1695995a0f4f0f00a2ba",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/HST/WFC3/IR/F160W.dat": "493303a09f85bd57769ae4766950b9f3cbce93874c07758d3fe69cec122bc230",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/HST/WFC3/UVIS2/F225W.dat": "e09138a8cfa2d3921c059bbfc1a64daed355bd4f40e0b54fdfa107cc7a2d08d2",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/HST/WFC3/UVIS2/F275W.dat": "eeb948a0e845d62ebc3c3eb9aaf04068cb02a2024cde9c91974fc6c0b3091493",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/HST/WFC3/UVIS2/F300X.dat": "d1828035b2c36e225794419a5f33e428f84747fe1976a9a662f1e514acf4cf0e",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/HST/WFC3/UVIS2/F336W.dat": "ca67a58de617ae52678354428688e785d2fd440704cd730a92a9a1026e3d9877",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/HST/WFC3/UVIS2/F390W.dat": "f248d37c46ecfa5fee726719c56519ef9936f7f2e8e8118ef713f2f1671a5ccb",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/HST/WFC3/UVIS2/F438W.dat": "b7415e0e50fe6c1aa8ab743850bbbba7d10c7eac05c25b0bd93adf8d992cf118",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/HST/WFC3/UVIS2/F475W.dat": "0de6eb3c362f5395c9886ac00bbdfde26cfb434fb7f06b2f4f172fd4d528ae1f",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/HST/WFC3/UVIS2/F555W.dat": "dc9545e7ec1fb46786bd66d11a6dd6832c85c8cef1fd0caa7676423f827463ce",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/HST/WFC3/UVIS2/F625W.dat": "23d9b91b3ac2122c838d25e9f15c6608eb1e262c8cf294b83f6c634d77d8ac15",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/HST/WFC3/UVIS2/F814W.dat": "bde2ed47894d710786e3bdee1bf98d088dc402a50b0e7531d1e79e90a2fa60e3",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/HST/WFC3/filters.dat": "a9d3f890faf7a8a8b76df97eebff888102d71eb24878f2b99a8d38edfed909dc",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/HST/WFC3/wfc3_ir_f160w.dat": "07dfe5304d0cef82972043c09a07274461ea3410eeed2a4f341af5b2ec2f3173",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Dupont/D62_H_system_total.10": "9a727ada09b9441565d9723694e62378568be34bac41ed3b41d57889fb5843fc",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Dupont/D62_J_system_total.10": "34664036e1021143d828ac7d734001152433b8245a75cad0a7cf37138c548e04",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Dupont/D62_K_system_total.10": "85631caf08601abed7722ac7e98ad70f37e982a97391c9775d7d97bad19c0727",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Dupont/H_DUP_TAM_scan_atm.dat": "843c5bdda0d0ee147331246ec9047b6b55e19729819438807d02e3a00a916bff",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Dupont/H_RetroCam_duPont_TAMU_atm.dat": "697d34ff5346bdf4f2dc37736022cda6691cefe18ebefa34ccd748514aacccbf",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Dupont/J_DUP_TAM_scan_atm.dat": "e88bac24939ff35a7a1c2dbf9b38a6161eff24152bc3af62f60f74eaf165903f",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Dupont/J_RetroCam_duPont_TAMU_atm.dat": "2c09feb679d6fb8fa9b21f44ee977a06963019d60724f47dea2019f4d02c5e30",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Dupont/K_DUP_TAM_scan_atm.dat": "1f05c2d6eef32ca37543d7361635f541dd6a8b3b1175e2bbd92075efe0ed6188",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Dupont/Y_DUP_TAM_scan_atm.dat": "478e4ebb2ef4eb838b2d872ddc72c16d66aab72a6ffb040a68775fab50ff3af6",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Dupont/Y_RetroCam_duPont_TAMU_atm.dat": "00069eadb28a64abe381e455561880d5d32551c55894204a0989950b711afdb2",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Dupont/filters.dat": "d25e39a8369417052e1c0da369fcaaa2392d50526f0412a9ff77cdbc064d2f03",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/B_CSP2_tel_ccd_atm_ext_1.2.dat": "8ace56566b3cb26687cb56126404008af69285549490c0c9dc257c2efdb0e315",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/B_tel_ccd_atm_ext_1.2.dat": "df6b951c5ed536c3afb7978185e2b84d68122c4a404efe1df842f3da0e1bef7c",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/H_SWO_TAM_scan_atm.dat": "03c70045453ef3990d19ecf4e77298698ad26259fe556bd6a7b96f01bfb32d20",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/Jrc1_SWO_TAM_scan_atm.dat": "3939c6b4c446c675afb69c561f5875350bc51895e632cd7a206d29f02b5c53ab",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/Jrc2_SWO_TAM_scan_atm.dat": "a2769e3129803a478c90b8a3a1eb1e3e6d637fcce5ec607828a126d17c167264",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/README": "21377d503b1e5bbd957ababac1e90b7078d1a8b6efef419e63cc1a58ca1ea43a",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/Raw_Filter_Scans/B_texas_WLcorr.txt": "4ba1840ec6c79780bcbbb239de104534c34bc58d9b2126efafba6262467f34ca",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/Raw_Filter_Scans/H_texas_SWO.dat": "f47ed2e5260c2d5b6b0d9fdb09f92b691a502b269326649ccf0c9d4b4e9d1bf8",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/Raw_Filter_Scans/Jrc2_texas_SWO.dat": "baf225f462d0624072eff07c90f241d20373d0310f3a4433f41cd25354c14254",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/Raw_Filter_Scans/V_LC3009_texas_WLcorr.txt": "c00452ce66fb16f2dbfd4c397bb2b7c63c5f2594a8339e18c74f1a2d9183aec9",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/Raw_Filter_Scans/V_LC3014_texas_WLcorr.txt": "566864ab853cdeecb996739cbda04ca3e04d2fb541025836b01d7bc0d0190efd",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/Raw_Filter_Scans/V_LC9844_texas_WLcorr.txt": "0b51af96320fa38a304f76b149f163ab07d993594635824b04183864561141be",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/Raw_Filter_Scans/Y_texas_SWO.dat": "5b9414d4aec3c58e3774e5cf31ab32c790c2de8d0fef43709b75ccf927e2460b",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/Raw_Filter_Scans/g_texas_WLcorr.txt": "fca09a07784a07e4a0430776f7e67f097923c654b4ffc6081c47c05774f69171",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/Raw_Filter_Scans/i_texas_WLcorr.txt": "20d093adc3ac52731bf72250684efb7cb4925443dc7d748edc08ada35551232c",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/Raw_Filter_Scans/r_texas_WLcorr.txt": "5a1023ffa7e5f1d923a342f5312ec418441a6f02f840652a2a9e97f88fdecf8e",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/Raw_Filter_Scans/u_texas_WLcorr.txt": "cd609504e08957bd7184575b04d619dae3ea45db0730170861441ffe7d42d2ce",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/V_CSP2_tel_ccd_atm_ext_1.2.dat": "ba3978fac91d88a92edf70f100a3e836da7997c32ece49064a162ae2e86d3242",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/V_LC3009_tel_ccd_atm_ext_1.2.dat": "8ca8cc4a6a83cc2276764b716eeb7a2dc93c1dbe847e32599531614ce3aca1f2",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/V_LC3014_tel_ccd_atm_ext_1.2.dat": "3ed876b1257d9b7f237780fb01fb543c8f5ea17eb33a1a960279d31fca4e2ecb",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/V_LC9844_tel_ccd_atm_ext_1.2.dat": "a26438b594e812b365d2c5b55035ff60cadbe2db4021b3ff9a61cf4c9bf3fe49",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/Y_SWO_TAM_scan_atm.dat": "caa1c6aa2696af7b3567e68101194bf35e08d856b1ec57f58cabce67a91547b4",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/filters.dat": "c29c4f64394a254ae023909a164020e4fb1e2b472718671895ae25a6980ffc13",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/g_CSP2_tel_ccd_atm_ext_1.2.dat": "595e65d9908dac812479ca54238511d221133525ae65c3bb3c032208807b63e4",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/g_tel_ccd_atm_ext_1.2.dat": "e2fb29cced302fb7e19b96f780ea9752835967a9208e5441e3936318e31645d5",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/i_CSP2_tel_ccd_atm_ext_1.2.dat": "3616e5c0ac486583c6350d61dd6649d258b6a870b6d2ca8a451d065874bd6358",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/i_tel_ccd_atm_ext_1.2.dat": "abdd2b0657023e0b1fc3828dbdda1ed4d0ab6ecaaa6428686d415f875876b01c",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/kfilter": "217a1389297f756262fcf70e0e37ea222b6c90cb1cefe7af69245819f05f6d13",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/r_CSP2_tel_ccd_atm_ext_1.2.dat": "469a30808a2f824423c153928ab9226c78e80e44afb1cecd35097e8ee61428fe",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/r_tel_ccd_atm_ext_1.2.dat": "cead2f587b2ff14c0fcd31175ec6b73a477d2ff9767821a02d649167139ae1fd",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/u_CSP2_tel_ccd_atm_ext_1.2.dat": "383ba55122d210833b2b76819d2b561e7c5a23ae826a59b17969d78b0f578a4c",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LCO/Swope/u_tel_ccd_atm_ext_1.2.dat": "715cfb4eea7a74abbf7d6365f29a551a0ca9a16dd21d8f32af904d4b580f8790",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LSST/total_g.dat": "f8935b3a5514e436aea45895369f568bfcc57a682852b0abe3292fd754a7094f",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LSST/total_i.dat": "ed05e3432509322d8cfb60ee4baf6b8bf1c08fa5a0f011ffee22838c325a9985",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LSST/total_r.dat": "7c2e6d39c57b8d36f664caf1087320af76cd098c382ccb5214e2830096f9a311",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LSST/total_u.dat": "d8fb220fed913551eb1ae5744a49e145d62aa2fd97786b515f30d20e13223b37",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LSST/total_y.dat": "f10cc09307ef535c323d9af473b4c4c8dc5905cbf50f91eea1a07cbb38008a20",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/LSST/total_z.dat": "66f6a80ace390130e444eabaa59bb9837bbfed6b57af299b6c2cf27a53230c52",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/NULL/NULL.dat": "669f0d02d24dbd63e3cb94d6083cbfc18414098dff0283563f3a47e4874db013",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/PS1/g_filt_revised.txt": "6f5da21d46499173f4d952407c7b8050a6a0136ffed0049543227c23de60ba33",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/PS1/g_filt_tonry.txt": "50db34ddd1fad72682b2d56ff9378a4443d4c49a0b8509a4e4aa12937c9e16e1",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/PS1/i_filt_tonry.txt": "7d826a330157f3fc6d5a4ea0e698fbebc5b957d0f55ff6194c4e588c09fe098c",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/PS1/r_filt_tonry.txt": "288916d71260dbb23fdfdb36c6340eae1a40142a38ce0a8f44fb1f322217bbbc",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/PS1/y_filt_tonry.txt": "ca5ac48adce684aa3787942ecd568f19813207b20ac29d805526f512d8f66903",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/PS1/z_filt_tonry.txt": "57688b3207de80fa9f1457a009caf2672b34921d79077e8033928c1743ff70df",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/Swift/UVOT/filters.dat": "40f0ad59a50c2187334bf2bf632cd593a2c5e6d4569d555973702390851cde19",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/Swift/UVOT/photonB_UVOT.dat": "6fd278a484cc65b8fe83707cf6c045043e968bfd4827355f9352594aabb1672d",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/Swift/UVOT/photonUVM2.dat": "9faba58c753354c766539ae6bfda355721393e71c5a214539bb1706a86e8e7c2",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/Swift/UVOT/photonUVW1.dat": "63abc8b7bed85b584ae42ba728f3032c6c2a3139f6d56ba1d3d332c28af3c95f",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/Swift/UVOT/photonUVW2.dat": "424514a86337e2f5441b7c92d82ef8b491d0deb26cac65e48e47d85bf10137ab",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/Swift/UVOT/photonU_UVOT.dat": "79ee31a4611429a2a7fc9c5d20a4a96328acc1728891932a5c23f5dcc983cba1",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/Swift/UVOT/photonV_UVOT.dat": "f46e47a8afbbe9004cc0e498e3aea769fde1ed54924fc345826c84b61264a58d",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/UKIRT/WFCAM/H_total.dat": "ea49dbe82b2bbd2e7940941d89f9e2477be46ea01923dfc6f7d438128aee5f9b",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/UKIRT/WFCAM/J_total.dat": "6b8db00a11e57763f3bd2bf18aa4c319a5d28122ed69a235561e789ceafd8c00",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/UKIRT/WFCAM/K_total.dat": "d636150c737d7d4b3260481bb81afed5cae887c5a1444613e90914dc65c7ad0c",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/UKIRT/WFCAM/Y_total.dat": "33ea62750f7c02266aaf7790e664d6bb43f17d0c9d82cf1d501bd0db3d42d7ad",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/UKIRT/WFCAM/z_total.dat": "c0e33f546a23300762fb651601399a682462c13b90080cd1621acfb5f419c181",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/USNO/USNO40/filters.dat": "4157d365e34f8ef518d0108afbe1ae59346d52618a64bcb1aa26ee7593155263",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/USNO/USNO40/usno_g.res": "6571d95a5a5bbe8e803e2ab8396ff048e1bf47a99a8b2d7f365fcb667a5fdfc8",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/USNO/USNO40/usno_i.res": "06a31cad1dcfaba09ed83a702205d76c0cd200cd1ee0e2fe9c8292b9052bb01d",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/USNO/USNO40/usno_r.res": "5bd58252cda8a0fcb753a76722851ac63d00f2873e5bbb3fcb3bf6c6408c2afc",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/USNO/USNO40/usno_u.res": "98283aae907ec6b7a9abf07b1d81a6e64f4edb8413cc7a6a61e0cb2900fd4ba2",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/USNO/USNO40/usno_z.res": "0cacfc22d44006615cae3e635983420ec755e0caee180e63f4062f5649f96f89",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/ZTF/p48g.txt": "7814b86ea24f4f0ab7ad79bf1080edbdc368809c30c8d7656c9648a4fd5144c8",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/ZTF/p48i.txt": "82b28608df4611cfc2ace278b2296ce04431076c62d4b060957a8283aa77e784",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/ZTF/p48r.txt": "43d61f8c123de0ce38bb2381638c336c623c6833bc39f574bff552530a69f084",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/standard/2MASS_PAIRITEL/2MASS_PAIRITEL_H.dat": "f6c6074ba5dae4937127c67a6c90adad84e8a1f724eb1fcf17d353ba6b0cc70d",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/standard/2MASS_PAIRITEL/2MASS_PAIRITEL_J.dat": "9d0c86e1279f17ff0041ab89d3e31f1eb80ba8293c1ef93638fc308d4a5cdb9c",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/standard/2MASS_PAIRITEL/2MASS_PAIRITEL_Ks.dat": "58969bfd998b9080dff12f9cd7f8678424e6ce2f7e1a7e22545ccf6237fd71e5",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/standard/2MASS_PAIRITEL/filters.dat": "d6d5135b394a8eca1d7b616c66b8835b0860bd4c8614154f1cfde16200f8cfdd",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/standard/Persson/filters.dat": "a9417b2aee54b22ad7b2c804c1594b8913e30e65f038680da4dfca13cae38020",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/standard/Persson/hfilter": "481c49505abbba2467057757c95959ff22dbaeca327d182be94a73359e87c63d",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/standard/Persson/jfilter": "919a83aac4a6131c66ecb3a5378731156a0de03a59da9b76e2a2909e4f54afeb",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/standard/Persson/kfilter": "217a1389297f756262fcf70e0e37ea222b6c90cb1cefe7af69245819f05f6d13",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/standard/Persson/yfilter": "e1b06c1b6149bf8b1bc2eda62df006ecef38d26c02f3123b1f199441a25a2f01",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/standard/stritzinger/b_stritzinger": "addb7fa791b8b9eec23f8ba89f0b81c1c1ecbefe01fecbb34947af1f3b1e06ee",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/standard/stritzinger/filters.dat": "f99816653a69c1a9d1d6b397ed4745218d15d66454ded8b7fbc83092ec3c798e",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/standard/stritzinger/i_stritzinger": "ca0bea12d56ec10e35908e4bd9ff9d1155127902e0927a594a9fbfebf68c5886",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/standard/stritzinger/r_stritzinger": "bc460a7333c24f31a6391174b5d23049aed34e23198ea60d2c71e3232dcd6c5e",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/standard/stritzinger/u_stritzinger": "f7f6324837677caa835f86075bb7772ac51926f02575eb371de30067c395403b",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters/standard/stritzinger/v_stritzinger": "cb698d6c2842f6416cc12ab5218beee40363f80bb830bdf92c32e35901004d21",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/filters.yaml": "26f9191ae764acdebf1d5dd1220e90d73406f5c016c8e732e44f32a865635bac",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/standards/alpha_lyr_stis_010.fits": "c008e347f9867f2f697a65109ad780e172a440faf6353a302eaf4c03767cb8a2",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn-filters/standards/bd_17d4708_stisnic_007.dat": "309fb66fefae837368f5462e8faea27762f5d087c92bc0440996b63c43222b59",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn_io.py": "95859fdd0c27a68ac344775ba16a9ade71aa2111ab2315c5f9a47d8b81045646",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/bayesn_model.py": "6306b3c628b7c2504a68ea5ad003c88d6cc659e767100bf6e138c25ce60a32de",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/data/example_lcs/Foundation_DR1_2016W.txt": "034009b2906afcd339ff6638fe2e22a934f5a88a1c78cdc703df0bd8fb3c8f01",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/data/hsiao.h5": "2eda2446fe0f985201f575191d1164adb139cccfeaa647adb5c6c5c606d6612d",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/model_files/G25_model/BAYESN.INFO": "b2899bf5ff320be9da5c492955f61b5fb45007ced813e5697a7fa7bf31f65f85",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/model_files/G25_model/BAYESN.YAML": "d352f530cafe87a84b8e7bed6afbb629676736dba554cecdb8bedf3635b83b44",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/model_files/G26_model/BAYESN.INFO": "a48df493bcc95c847728f1400d539aaa16532d86439ffff7d80b9f6614a941cc",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/model_files/G26_model/BAYESN.YAML": "7012ac681f9b1fb101754140c9d75d025d61c29c0da7a7fea3d888cd6f8e5f92",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/model_files/M20_model/BAYESN.INFO": "ff24e767b571bbae99f364b70379825ec82b95a217d2498ecc3b559397982612",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/model_files/M20_model/BAYESN.YAML": "bcfd03a3716babbfb55b400f8c880223d802d73d0f49d5edd3ebab45b18c33d6",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/model_files/README.md": "0d590c087c5cd616d2db82cb74574639b271f28a8cb1f547d46cfd71005bd083",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/model_files/T21_model/BAYESN.INFO": "909bd5844728598b22114bcef5c5d1caf56fdeb044c9daa4888a55d71898612b",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/model_files/T21_model/BAYESN.YAML": "0a534e3b4934a914b5fad32ac17162ce526ef02a6b34cf14b548f1374cd80ff5",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/model_files/W22_model/BAYESN.INFO": "a9adee4f5cd129aea328410bc7777fc82daca29369c9cddf3a93b7d07b46229f",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/model_files/W22_model/BAYESN.YAML": "557bdcca1163d1d1a3481f1f2595b201fcff09a7675017ac855a8cc2ef874123",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/spline_utils.py": "cdcdf256d8ee2aa6916fe86784ef71a1280de28afdfe3c57cecd8088eea177fb",
+      "runs/research_2026_09_26/bayesn_distance_identification/official-code/bayesn/zltn_utils.py": "f166862e0c14b9854c1bb56c9dcd859457a07f133d4d4a7363f024c251fb8f0e",
+      "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/photometry/RAISIN/DES_RAISIN/DES16E2clk.snana.dat": "a9c45e3386db6c707c7a93a412d83429d413907a141cba1f726bdeb49dd6d7fc",
+      "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/photometry/RAISIN/DES_RAISIN/DES16X3cry.snana.dat": "99419af7ee1ecdb93e26acce981361fc240ddd11ff352e62506583e262809fa3",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/CSP_BD17_primary.dat": "489b511631d183c8ccf60573da55d048b32e0e50c991afdb2576694e19325b55",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/PS1MD_BD17_primary.dat": "dd4ab4338a93477157862a98c81fde83e9b40d1d1f247ef44bd891d73e632fdd",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/PS1MD_VEGA_primary.dat": "024c69f5ab913544a3cb7bb7f0919cee81f74e216ae727ebc4aa65551ea3f9cf",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/PS1MD_AB_primary.dat": "348c89f8f938619c440c7cd7bfc6bda74ef364c4946903d5e8c16cda7cfd108b",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/DES_BD17_primary.dat": "dd4ab4338a93477157862a98c81fde83e9b40d1d1f247ef44bd891d73e632fdd",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/DES_VEGA_primary.dat": "024c69f5ab913544a3cb7bb7f0919cee81f74e216ae727ebc4aa65551ea3f9cf",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/DES_AB_primary.dat": "348c89f8f938619c440c7cd7bfc6bda74ef364c4946903d5e8c16cda7cfd108b",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_B.dat": "01311c6b390c5dd191924ebd56b4463cbf7f354fee9814147f853af0487daac4",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_H.dat": "98909e1cfff3b0d4f03772f6d5e85d0a167ed9049bbfd5b331cce5ac14343d76",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_J.dat": "2ff5fa4163e30fb2e051d3d80032361805736672201caffb851d94c1d1b3199e",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_Y.dat": "605284cfce3b1a47826feab7e14310c1d97a4caef51d0b176e695dfd41262d18",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_g.dat": "44016e3d6f8389369746020fd57ff33e149502d5cbd85c3ca6c5143aacef1c0c",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_i.dat": "83f4a593a281ed23831aaea7749d82f53c0939a1cb5f71f7b61d88adbf6424ad",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_j.dat": "f9cde782e728d9348f3961f5a2c84c9b2e98dbe4c3f9f25435f41e67851f40be",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_m.dat": "c26767aa704b6e3213dba0e7d91a478af1e9ed65581dcfa3638a763b1c8d4cb5",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_n.dat": "920c4484221e7e5af72f1728d332c0367f2084a03fafb120ebb047d273204164",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_r.dat": "3b3f791c89608959387430cdbcf4b60d96a495103763c1b01d13e75eb8b4fec9",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_u.dat": "d2a2a0f794fc8228c3b1361fca6dd7657b599e3ab904f3f825265c38245706b4",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_y.dat": "1c24e5c066a06b0b8bbc63b9537de7d4782bc7b878f316745ff7ac37fdb05006",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_PS1MD_H.dat": "4621b4d6c89b4f79e2005b9998158cc8aee55891cd089d324e4452837ae1cd27",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_PS1MD_J.dat": "ac7b8cdc46e568ec8d8d1e0690a7f85bd04c15de3be3937e57924ae93fd2a5cd",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_PS1MD_g.dat": "951e084243ad0a178912bcf1c9c2365bea4b467c1cf91f4d00208af055213c56",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_PS1MD_i.dat": "3d8c2b2e6af9711bbc057904e7c7e1ba3edd8639b228b6236f6c047acc5f82e2",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_PS1MD_r.dat": "74e811eae93684c8f9feee23cc7f915af7a99614c0bcfde4287ab8aed4bbda0e",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_PS1MD_z.dat": "b97425c1822e5711c1f08669d6b7138dfbfa4e18d5f8d3f0554692464c2e7160",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_DES_H.dat": "4621b4d6c89b4f79e2005b9998158cc8aee55891cd089d324e4452837ae1cd27",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_DES_g.dat": "f5b230ccfef3bbb1be074205b75d471c40444289594444fb62f5392f638807d0",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_DES_i.dat": "9d4ded35b60685c2a17be38c0392aa044845a4f8fabe2b726a991cacf6c96890",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_DES_r.dat": "933ba46dcd1de63ed1d4b5ff2140a48bcf68107ec40da0e0db32bde89254746e",
+      "runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_DES_z.dat": "50ea91bc4b4973916cf10c901efc189155fe0ca0fc12ce407b4b07042677bd1f"
+    },
+    "objects": [
+      "DES16E2clk",
+      "DES16X3cry"
+    ],
+    "rows": [
+      {
+        "CID": "DES16E2clk",
+        "source_path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/photometry/RAISIN/DES_RAISIN/DES16E2clk.snana.dat",
+        "source_line": "23",
+        "MJD": "57707.594",
+        "band": "J",
+        "trigger_rest_time": "18.711046086316067",
+        "error": 2.39
+      },
+      {
+        "CID": "DES16E2clk",
+        "source_path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/photometry/RAISIN/DES_RAISIN/DES16E2clk.snana.dat",
+        "source_line": "24",
+        "MJD": "57712.715",
+        "band": "J",
+        "trigger_rest_time": "22.457205559614664",
+        "error": 2.206
+      },
+      {
+        "CID": "DES16E2clk",
+        "source_path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/photometry/RAISIN/DES_RAISIN/DES16E2clk.snana.dat",
+        "source_line": "25",
+        "MJD": "57719.605",
+        "band": "J",
+        "trigger_rest_time": "27.497439648866088",
+        "error": 2.365
+      },
+      {
+        "CID": "DES16E2clk",
+        "source_path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/photometry/RAISIN/DES_RAISIN/DES16E2clk.snana.dat",
+        "source_line": "26",
+        "MJD": "57707.59",
+        "band": "H",
+        "trigger_rest_time": "18.708119970733904",
+        "error": 2.009
+      },
+      {
+        "CID": "DES16E2clk",
+        "source_path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/photometry/RAISIN/DES_RAISIN/DES16E2clk.snana.dat",
+        "source_line": "27",
+        "MJD": "57712.712",
+        "band": "H",
+        "trigger_rest_time": "22.455010972930705",
+        "error": 1.882
+      },
+      {
+        "CID": "DES16E2clk",
+        "source_path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/photometry/RAISIN/DES_RAISIN/DES16E2clk.snana.dat",
+        "source_line": "28",
+        "MJD": "57719.602",
+        "band": "H",
+        "trigger_rest_time": "27.495245062176807",
+        "error": 1.686
+      },
+      {
+        "CID": "DES16X3cry",
+        "source_path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/photometry/RAISIN/DES_RAISIN/DES16X3cry.snana.dat",
+        "source_line": "23",
+        "MJD": "57713.693",
+        "band": "J",
+        "trigger_rest_time": "16.488833746899346",
+        "error": 0.981
+      },
+      {
+        "CID": "DES16X3cry",
+        "source_path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/photometry/RAISIN/DES_RAISIN/DES16X3cry.snana.dat",
+        "source_line": "24",
+        "MJD": "57720.59",
+        "band": "J",
+        "trigger_rest_time": "20.767369727046496",
+        "error": 0.744
+      },
+      {
+        "CID": "DES16X3cry",
+        "source_path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/photometry/RAISIN/DES_RAISIN/DES16X3cry.snana.dat",
+        "source_line": "25",
+        "MJD": "57728.405",
+        "band": "J",
+        "trigger_rest_time": "25.61538461538541",
+        "error": 0.973
+      },
+      {
+        "CID": "DES16X3cry",
+        "source_path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/photometry/RAISIN/DES_RAISIN/DES16X3cry.snana.dat",
+        "source_line": "26",
+        "MJD": "57720.583",
+        "band": "H",
+        "trigger_rest_time": "20.76302729528608",
+        "error": 0.704
+      },
+      {
+        "CID": "DES16X3cry",
+        "source_path": "sources/repos/djones1040__RAISIN_DataRelease@a383c4b/photometry/RAISIN/DES_RAISIN/DES16X3cry.snana.dat",
+        "source_line": "27",
+        "MJD": "57728.398",
+        "band": "H",
+        "trigger_rest_time": "25.611042183624996",
+        "error": 1.348
+      }
+    ],
+    "integration_bins": [
+      1200,
+      2400,
+      4800
+    ],
+    "test_parameters": "D=mu_LCDM; fiducial AV=.3,RV=3.1,theta=0,epsilon=0,tau=5; tau endpoints -10,20; AV=.6,RV=2,theta=.5,epsilon seed202; zero dust.",
+    "gates": {
+      "final_resolution_quoted_sigma": 0.1,
+      "static_dynamic_quoted_sigma": 1e-08,
+      "eager_jit_quoted_sigma": 1e-08,
+      "gray_relative": 1e-12,
+      "AV0_RV_quoted_sigma": 1e-12,
+      "knot_symmetric_step_quoted_sigma": 1e-05
+    },
+    "wall_cap_seconds": 300,
+    "interpretation": "One worker, no sampling. Finite knot tests do not assert differentiability at Hsiao integer-phase kinks.",
+    "historical_path_remapping": {
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/CSP_BD17_primary.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/CSP_BD17_primary.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/PS1MD_BD17_primary.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/PS1MD_BD17_primary.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/PS1MD_VEGA_primary.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/PS1MD_VEGA_primary.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/PS1MD_AB_primary.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/PS1MD_AB_primary.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/DES_BD17_primary.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/DES_BD17_primary.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/DES_VEGA_primary.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/DES_VEGA_primary.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/DES_AB_primary.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/DES_AB_primary.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_B.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_B.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_H.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_H.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_J.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_J.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_Y.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_Y.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_g.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_g.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_i.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_i.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_j.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_j.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_m.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_m.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_n.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_n.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_r.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_r.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_u.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_u.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_y.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_CSP_y.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_PS1MD_H.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_PS1MD_H.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_PS1MD_J.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_PS1MD_J.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_PS1MD_g.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_PS1MD_g.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_PS1MD_i.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_PS1MD_i.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_PS1MD_r.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_PS1MD_r.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_PS1MD_z.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_PS1MD_z.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_DES_H.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_DES_H.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_DES_g.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_DES_g.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_DES_i.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_DES_i.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_DES_r.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_DES_r.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_DES_z.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_distance_identification/release-filters/RAISIN_DES_z.dat",
+      "/home/szymon/Documents/ChatGPT/supernova/runs/research_2026_09_26/bayesn_signed_optical_pilot/RAISIN_DES_J.dat": "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/runs/research_2026_09_26/bayesn_signed_optical_pilot/RAISIN_DES_J.dat"
+    }
+  },
+  "execution_design_sha256": "cc83c60ddeed054f1cc459d41819152f25279877f9d7af447591132ca72f6514",
+  "source_archive_commit": "17487bf659fcbdeeea072221492bac14b04a0a85",
+  "numerical_checks": [
+    {
+      "bins": 1200,
+      "checks": [
+        {
+          "case": "fiducial",
+          "eager_jit_sigma": 5.046468293750712e-15,
+          "static_dynamic_sigma": 5.046468293750712e-15,
+          "resolution_delta_sigma": null
+        },
+        {
+          "case": "tau_lower",
+          "eager_jit_sigma": 7.162729191130042e-15,
+          "static_dynamic_sigma": 3.220955284497281e-15,
+          "resolution_delta_sigma": null
+        },
+        {
+          "case": "tau_upper",
+          "eager_jit_sigma": 5.046468293750712e-15,
+          "static_dynamic_sigma": 7.073596174814338e-15,
+          "resolution_delta_sigma": null
+        },
+        {
+          "case": "nonzero_SED",
+          "eager_jit_sigma": 5.046468293750712e-15,
+          "static_dynamic_sigma": 5.046468293750712e-15,
+          "resolution_delta_sigma": null
+        },
+        {
+          "case": "zero_dust",
+          "eager_jit_sigma": 9.662865853491844e-15,
+          "static_dynamic_sigma": 6.441910568994562e-15,
+          "resolution_delta_sigma": null
+        }
+      ],
+      "elapsed_seconds": 59.203268277982716
+    },
+    {
+      "bins": 2400,
+      "checks": [
+        {
+          "case": "fiducial",
+          "eager_jit_sigma": 6.321554588612991e-15,
+          "static_dynamic_sigma": 6.0088180613961955e-15,
+          "resolution_delta_sigma": 0.0017239087824976792
+        },
+        {
+          "case": "tau_lower",
+          "eager_jit_sigma": 5.945964315984102e-15,
+          "static_dynamic_sigma": 5.945964315984102e-15,
+          "resolution_delta_sigma": 0.0008550191450356677
+        },
+        {
+          "case": "tau_upper",
+          "eager_jit_sigma": 5.945964315984102e-15,
+          "static_dynamic_sigma": 4.7751527940866945e-15,
+          "resolution_delta_sigma": 0.001572579664972777
+        },
+        {
+          "case": "nonzero_SED",
+          "eager_jit_sigma": 2.6355442721071964e-15,
+          "static_dynamic_sigma": 2.6355442721071964e-15,
+          "resolution_delta_sigma": 0.0016561019454887991
+        },
+        {
+          "case": "zero_dust",
+          "eager_jit_sigma": 6.441910568994562e-15,
+          "static_dynamic_sigma": 6.441910568994562e-15,
+          "resolution_delta_sigma": 0.001985098299890757
+        }
+      ],
+      "elapsed_seconds": 119.60648464699625
+    },
+    {
+      "bins": 4800,
+      "checks": [
+        {
+          "case": "fiducial",
+          "eager_jit_sigma": 6.321554588612991e-15,
+          "static_dynamic_sigma": 6.321554588612991e-15,
+          "resolution_delta_sigma": 0.0008402662981824269
+        },
+        {
+          "case": "tau_lower",
+          "eager_jit_sigma": 5.945964315984102e-15,
+          "static_dynamic_sigma": 5.945964315984102e-15,
+          "resolution_delta_sigma": 0.0004352329034648409
+        },
+        {
+          "case": "tau_upper",
+          "eager_jit_sigma": 5.945964315984102e-15,
+          "static_dynamic_sigma": 9.662865853491844e-15,
+          "resolution_delta_sigma": 0.000745225357630512
+        },
+        {
+          "case": "nonzero_SED",
+          "eager_jit_sigma": 4.7751527940866945e-15,
+          "static_dynamic_sigma": 5.945964315984102e-15,
+          "resolution_delta_sigma": 0.000805332941197526
+        },
+        {
+          "case": "zero_dust",
+          "eager_jit_sigma": 6.441910568994562e-15,
+          "static_dynamic_sigma": 6.441910568994562e-15,
+          "resolution_delta_sigma": 0.0009705307547524069
+        }
+      ],
+      "elapsed_seconds": 193.7430711989873
+    }
+  ],
+  "AV0_RV_sigma": 0.0,
+  "gray_relative": 3.0884340700570824e-15,
+  "knot_crossings": [
+    {
+      "cid": "DES16E2clk",
+      "tau": 18.711046086316067,
+      "finite": true,
+      "symmetric_step_sigma": 3.4953181771529535e-07
+    },
+    {
+      "cid": "DES16E2clk",
+      "tau": 8.711046086316067,
+      "finite": true,
+      "symmetric_step_sigma": 1.0465399035520288e-07
+    },
+    {
+      "cid": "DES16E2clk",
+      "tau": -1.2889539136839332,
+      "finite": true,
+      "symmetric_step_sigma": 4.202178636671808e-07
+    },
+    {
+      "cid": "DES16X3cry",
+      "tau": 16.488833746899346,
+      "finite": true,
+      "symmetric_step_sigma": 1.4043601936580144e-07
+    },
+    {
+      "cid": "DES16X3cry",
+      "tau": 6.4888337468993456,
+      "finite": true,
+      "symmetric_step_sigma": 1.6263113632997503e-08
+    },
+    {
+      "cid": "DES16X3cry",
+      "tau": -3.5111662531006544,
+      "finite": true,
+      "symmetric_step_sigma": 4.132396316630145e-09
+    }
+  ],
+  "versions": {
+    "numpy": "2.2.6",
+    "jax": "0.6.2",
+    "python": "3.12.14 (main, Aug 14 2026, 15:34:45) [Clang 22.1.3 ]"
+  },
+  "elapsed_seconds": 193.848887508997,
+  "CPU_affinity": [
+    0
+  ],
+  "observed_NIR_flux_parsed": false,
+  "sealed_NIR_payload_opened": false,
+  "posterior_executed": false,
+  "static_comparison": "Official simulate_light_curve; explicit identical latents, zero random noise; same author spectral kernel.",
+  "remaining_gates": [
+    "Full synthetic recovery and mixing",
+    "Observed optical posterior with frozen diagnostics",
+    "Held-out joint NIR predictive score and MC error"
+  ]
+}

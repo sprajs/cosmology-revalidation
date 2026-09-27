@@ -1,4 +1,4 @@
-"""Qualified-parent joint-lensing sensitivity; separate, immutable native spectra.
+"""Qualified-parent joint-lensing sensitivity with immutable native spectra.
 
 Default prepares a plan only. --execute-native explicitly launches work later.
 No live target, active sampler, or existing correction files are modified.
@@ -113,13 +113,28 @@ def prepare(folder, summary_path, cache):
     assert audit['status'] == 'released_likelihood_evaluation_reproduced_no_inference'
     joint = dict(audit['input_sha256'])
     joint.update(audit['source_sha256'])
+    from spectral_correction import sidecar_path, read_sidecar
+    captured = []
+    for i in range(len(selection['points'])):
+        native_path = selection_path.parent/f'{i:05d}.json'
+        path = sidecar_path(native_path)
+        if path.exists():
+            row = read_sidecar(native_path)
+            parent['input_sha256'][relative(path)] = digest(path)
+            if row['status'] == 'captured_from_parent_native_evaluation':
+                parent['input_sha256'][row['spectra_path']] = row['spectra_sha256']
+                captured.append(relative(path))
+                continue
+        captured.append(None)
     sources = [Path(__file__), DESIGN, GATES, AUDIT, HERE/'measurement_summary.py',
                HERE/'exact_correction.py', HERE/'native_posterior_precision.py',
+               HERE/'spectral_correction.py',
                HERE/'luminosity_sensitivity.py', HERE/'target_identity.py',
                EXTERNAL/'fast_lensing.py']
     plan = {'settings': settings, 'design': design, 'groups': selection['groups'],
             'locations': selection['locations'], 'points': selection['points'],
             'source_native_records': [relative(selection_path.parent/f'{i:05d}.json') for i in range(len(selection['points']))],
+            'captured_spectral_sidecars': captured,
             'frozen_target': frozen, 'source_native_configuration': canonical(info),
             'parent_inputs': parent['input_sha256'],
             'source_sha256': {relative(p): digest(p) for p in sources}, 'joint_asset_sha256': joint,
@@ -178,6 +193,36 @@ def source_normalization(model, design):
     chol = np.asarray(spt.covariance_chol_dec)
     spt_const = float(-np.log(np.diag(chol)).sum()-.5*len(chol)*np.log(2*np.pi))
     return {design['old_factors'][0]: gaussian_constant(act.data['cinv']), design['old_factors'][1]: spt_const}
+
+
+def reuse_captured_spectrum(cache, plan, i):
+    """Use the parent's actual native spectrum without another model evaluation."""
+    from spectral_correction import read_sidecar
+    from exact_correction import verify_record
+    path = cache/f'{i:05d}.json'
+    assert not path.exists() and not (cache/f'{i:05d}.attempt.json').exists()
+    source = ROOT/plan['source_native_records'][i]
+    parent = json.loads(source.read_text()); verify_record(parent)
+    assert parent['point'] == plan['points'][i] and parent['status'] == 'finite'
+    assert digest(source) == plan['parent_inputs'][relative(source)]
+    capture = read_sidecar(source)
+    capture_path = ROOT/plan['captured_spectral_sidecars'][i]
+    assert digest(capture_path) == plan['parent_inputs'][relative(capture_path)]
+    assert capture['status'] == 'captured_from_parent_native_evaluation'
+    assert capture['additional_native_evaluations'] == 0
+    assert capture['spectra_sha256'] == plan['parent_inputs'][capture['spectra_path']]
+    row = {'identity': plan['identity'], 'index': i, 'point': plan['points'][i],
+           'parent_native_record_sha256': digest(source), 'native_evaluations': 0,
+           'status': 'finite_source_closure', 'seconds': 0.,
+           'source_comparison': {'passed': True,
+               'method': 'Same native evaluation as the qualified parent; hash-bound spectral capture, not a second density replay.',
+               'capture_sidecar_path': relative(capture_path), 'capture_sidecar_sha256': digest(capture_path)},
+           'source_normalized_gaussian_constants': capture['source_normalized_gaussian_constants'],
+           'original_exact_proposal_logweight': parent['log_weight'],
+           'spectra_path': capture['spectra_path'], 'spectra_sha256': capture['spectra_sha256'],
+           'spectral_units': capture['spectral_units']}
+    sealed_write(path, row)
+    return row
 
 
 def native_worker(plan_path, indices):
@@ -376,6 +421,10 @@ def main():
     cache = a.cache.resolve()
     if a.execute_native:
         missing = [i for i in range(len(plan['points'])) if not (cache/f'{i:05d}.json').exists()]
+        for i in missing:
+            if plan['captured_spectral_sidecars'][i] is not None:
+                reuse_captured_spectrum(cache, plan, i)
+        missing = [i for i in missing if not (cache/f'{i:05d}.json').exists()]
         def run(indices):
             if not indices: return
             log = cache/('worker-'+str(indices[0])+'.log')
