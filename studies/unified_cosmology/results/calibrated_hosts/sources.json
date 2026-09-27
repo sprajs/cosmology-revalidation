@@ -1,0 +1,59 @@
+{
+  "schema": "calibrated-host-source-registry-v1",
+  "created_utc": "2026-09-27T11:20:21.621903+00:00",
+  "status": "recorded",
+  "sources": [
+    {
+      "url": "https://datalab.noirlab.edu/data/desi",
+      "path": ".work/unified-cosmology/calibrated-hosts/noirlab-desi.html",
+      "sha256": "d312dc89f1c3b476bfd954d1458480240554fef12e0786e21fbe4795332ffb98"
+    },
+    {
+      "url": "https://data.desi.lbl.gov/doc/releases/dr1/known-issues/",
+      "path": ".work/unified-cosmology/calibrated-hosts/known-issues.html",
+      "sha256": "f1a0c852673de3b1bc108840236c64cbcc01f6c0b73e7ebf6e55559457dfeec1"
+    },
+    {
+      "url": "https://data.desi.lbl.gov/doc/access/",
+      "path": ".work/unified-cosmology/calibrated-hosts/desi-access.html",
+      "sha256": "d1b7a1899d47dfef1a72fa8c063aa24908bc790c3e5db0f9b7abad75b01faa91"
+    },
+    {
+      "url": "https://data.desi.lbl.gov/doc/acknowledgments/",
+      "path": ".work/unified-cosmology/calibrated-hosts/desi-acknowledgments.html",
+      "sha256": "8dc6b564d41d1d3039be4bcc6035602b7535a437856785b9025cfb3e84c47e48"
+    },
+    {
+      "url": "https://fastspecfit.readthedocs.io/en/3.0.0/_modules/fastspecfit/photometry.html",
+      "path": ".work/unified-cosmology/calibrated-hosts/fastspecfit-Dn.html",
+      "sha256": "e05cecafd405e1aaa3d61797badccda13a468a27e643479733a7a74599e1c169"
+    }
+  ],
+  "sparcl_client_probe": {
+    "status": "failed",
+    "exception_type": "ValueError",
+    "message": "could not convert string to float: b'\\n<!doctype html>\\n<html lang=\"en\">\\n<head>\\n  <title>Not Found</title>\\n</head>\\n<body>\\n  <h1>Not Found</h1><p>The requested resource was not found on this server.</p>\\n</body>\\n</html>\\n'",
+    "action": "Native NERSC byte-range retrieval is independently executable; no claim that public spectra are unavailable."
+  },
+  "source_sha256": {
+    "studies/unified_cosmology/code/calibrated_hosts/sources.py": "6fca96092ef9f318d8dcce1ff24445c4c7c53a2b0f0237fb08ca41fe56a79c28"
+  },
+  "discovery_files_sha256": {
+    ".work/unified-cosmology/calibrated-hosts/test-query.sql": "077b1425d8a87cb1c3b5619baa1a367e4eed2a755ff19a866104b84559eed442",
+    ".work/unified-cosmology/calibrated-hosts/test-query-response.txt": "d55abd8ea004f7c00a931aab734fa87ead113d65e0a1fdb67ad4ea2012dbb67b",
+    ".work/unified-cosmology/calibrated-hosts/test-query-mean-fiber.sql": "049ac94d12a7cee35932cddf4f24dde18be7b1e83e5224fcbae600675319a976",
+    ".work/unified-cosmology/calibrated-hosts/test-query-mean-fiber-response.txt": "e0bbb1c706dedd9dfaa6bbbb01485ba3e50d5eabc7ebbf309f30ed5b0e524e4a",
+    ".work/unified-cosmology/calibrated-hosts/test-query-q3c.sql": "1ce64f3764d43581a9c8b2512d1a30e26d7587ded01978537b9af6103776d6e5",
+    ".work/unified-cosmology/calibrated-hosts/test-query-q3c-response.txt": "e73a0ac44fe4a78c9963b10d9b9855e7962e43090362e3f15a9f37ffc1dcd1f6",
+    ".work/unified-cosmology/calibrated-hosts/test-query-q3c-bool.sql": "b9fbcb92c4fb92845eea38919694f5c714f6d7f45e5a8c49490ebef71735b8eb",
+    ".work/unified-cosmology/calibrated-hosts/test-query-q3c-bool-response.txt": "5bcf5924937882678653cba04c4b9350ac5e9452c30abb0dc7f776b2fde813a1",
+    ".work/unified-cosmology/calibrated-hosts/test-query-q3c-t.sql": "f76a4bfd6ddf42c1d8750fe6453660cabeebb3470b80d59e2e39b304fb7d8f0b",
+    ".work/unified-cosmology/calibrated-hosts/test-query-q3c-t-response.txt": "9ef1b138f0df3dac11e07e2089cafe6de5624dd1c911f084d51aee3356195c31",
+    ".work/unified-cosmology/calibrated-hosts/test-post-response.txt": "500fe36c0ff52aca3f8909ea4cb3f74980febaac890cee4101f52d252d718db2"
+  },
+  "catalogue_schema_sha256": {
+    ".work/unified-cosmology/calibrated-hosts/zpix-schema.csv": "f5d9cf5cb9cb02024ba84b2291166d95f4130ea239387dc74490ef8f5b59f515",
+    ".work/unified-cosmology/calibrated-hosts/table-schema.csv": "63f6eb90c7eec686208f01f2e708c09c93340f28c3673a050648f017f4bfcf3c"
+  },
+  "known_issue_interpretation": "DR1 inverse variances understate uncertainty at high per-pixel SNR; no invented universal multiplicative repair. Multi-exposure native resolution matrices have documented mis-weighting and are preserved as released."
+}

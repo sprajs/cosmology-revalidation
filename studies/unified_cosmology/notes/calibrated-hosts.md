@@ -1,0 +1,32 @@
+# Calibrated spectra for 55 observed supernova hosts
+
+Public DESI DR1 spectra provide a calibrated optical measurement for **55 of the 1,088 distinct OzDES hosts** in the current Dovekie crosswalk. They correspond to 55 supernovae, span redshift **0.162–0.955**, and include **18 hosts above redshift 0.5**. This is a new observed constraint on host stellar populations. It does not yet establish a progenitor-age correction or resolve whether that correction duplicates existing supernova standardization.
+
+The catalogue and spectral interfaces are public: [NOIRLab documents the DESI DR1 catalogue and spectrum service](https://datalab.noirlab.edu/data/desi), and [DESI supplies the native FITS files](https://data.desi.lbl.gov/doc/access/). We queried every existing host position within one arcsecond. A clean association requires one distinct target, the released primary galaxy spectrum, no redshift warning, and an absolute redshift difference no greater than 0.003. **1,032 hosts have no spatial match.** One additional candidate agrees in redshift but has `ZWARN=2` and fails the declared quality gate. All matches and failures remain in the generated ledger.
+
+Native FITS target identifiers and original target coordinates independently confirm the 55 associations. The largest offset from the OzDES host position is **0.400 arcsecond**; every recovered row has target object type and zero coadded fiber-status bits. Redshift agreement is an identity check, not an independent cosmological test. We recovered approximately **22 MB of selected arrays** from 32 parent HEALPix files using byte ranges. All three cameras' signed flux, inverse variance, bitmask and resolution arrays remain available; their parent files were not downloaded in full.
+
+## Measurements and uncertainty
+
+The 4000 Å break uses the ratio of mean `Fν` in rest-frame 4000–4100 and 3850–3950 Å windows. The flux-density conversion is explicit: a native unit of `10⁻¹⁷ erg s⁻¹ cm⁻² Å⁻¹` at 4000 Å is 5.3370 μJy. This agrees with the frequency-density convention used by [DESI's fastspecfit implementation](https://fastspecfit.readthedocs.io/en/3.0.0/_modules/fastspecfit/photometry.html). The Hδ diagnostic integrates absorption against two neighboring continuum windows. It uses the declared vacuum-wavelength windows and native resolution, so it is not a calibrated Lick-system Hδ index.
+
+| Diagnostic | Supported hosts | Observed range | Median formal uncertainty |
+|---|---:|---:|---:|
+| Dn4000 | 54 | 1.060–2.225 | 0.103 |
+| Hδ window equivalent width | 48 | −3.94 to 15.15 Å | 3.05 Å |
+
+The diagnostic gates require at least 95% valid wavelength coverage and a continuum measured above five nominal standard deviations. Negative flux remains in the calculation: 54 spectra contain negative pixels in the index region. **All 55 signed band-flux vectors are retained**, including those without a supported displayed ratio. Selecting only the supported indices for a host-population fit would create a different, signal-to-noise-selected sample.
+
+Five bands are stored with their full **5×5 covariance**, propagated from the released diagonal inverse variance. The red break window overlaps both the Hδ continuum and feature windows; treating the two indices as independent would reuse photons. The two-index Jacobian covariance is also retained where both ratios are supported. Missing feature pixels are not imputed: the reported equivalent width integrates the retained feature width. Fixed camera transitions at 5780 and 7570 observed Å avoid resampling and signal-to-noise-based arm choice; 17 hosts' index regions cross a camera transition.
+
+The quoted uncertainties are formal, not complete. DESI reports an inverse-variance bug that matters around per-pixel signal-to-noise 20–30 and can substantially understate uncertainty at very high signal-to-noise. The largest absolute pixel signal-to-noise in these index regions is **9.60**; none enters that documented high-signal regime. We apply no invented multiplicative repair. Thirty spectra combine multiple exposures and retain the released resolution matrices, which have a separate documented coaddition-weighting issue. [DESI DR1 known issues](https://data.desi.lbl.gov/doc/releases/dr1/known-issues/)
+
+No Galactic dust correction is applied to these diagnostic values; native foreground `EBV` is retained. Residual response shape, camera normalization, fiber aperture, emission infill, metallicity and stellar-population modeling still limit an age interpretation. A declared ±2% response tilt per 100 rest-frame Å is recorded as a sensitivity calculation, not a measured calibration uncertainty. These calibrated spectra improve on uncalibrated OzDES counts, but the fiber spectrum is not a universal fixed-physical-size local environment measurement.
+
+## Verification and use
+
+Source identity and geometry checks pass. Synthetic flat-frequency-density spectra recover Dn4000 = 1; flat-wavelength-density spectra recover zero Hδ equivalent width. All 55 spectra pass signed-flux linearity and global-flux-rescaling invariance. Finite-difference index gradients agree to 2.9×10⁻¹⁰, and the overlapping-band covariance matrices are positive definite. An [independent reconstruction](../results/calibrated_hosts/independent-review.json) agrees with all band covariances to 1.2×10⁻¹² relative numerical precision. A masked linear-continuum sensitivity produces at most 0.027 Å of spurious equivalent width, compared with a 5.53 Å formal error for that worst case; it does not justify changing the declared convention.
+
+The next physical use is a joint stellar-population likelihood on these signed spectra or band vectors, with the resolution operator, shared spectral covariance and explicit response/aperture/dust assumptions. A scalar Dn4000-to-age conversion would discard precisely the degeneracies this programme is testing. The 55 recovered hosts are a small, survey-selected overlap, not representative of all supernova hosts or a new survey-wide selection correction.
+
+The [reproduction instructions](../code/calibrated_hosts/README.md), [acquisition record](../results/calibrated_hosts/acquisition.json), [spectral record](../results/calibrated_hosts/spectra.json), [measurement summary](../results/calibrated_hosts/bands.json) and [validation](../results/calibrated_hosts/validation.json) preserve the executable boundary between observations and interpretation. Source data remain downloadable and ignored; authored analysis and compact evidence are retained.

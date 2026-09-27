@@ -1,0 +1,43 @@
+{
+  "schema": "calibrated-host-spectral-recovery-v1",
+  "purpose": "Recover actual calibrated DESI DR1 host spectra for the existing observed OzDES/Dovekie host cohort; no inference of true progenitor age from a spectral index.",
+  "declared_before_full_cohort_query": true,
+  "input": ".work/unified-cosmology/survey-selection/followup/dovekie-ozdes-clean.csv",
+  "physical_host_key": "oz_OzDES_ID",
+  "coordinate_source": "OzDES host RA/DEC, not SN transient position",
+  "comparison_coordinate": "DESI zpix mean_fiber_ra/mean_fiber_dec; verify native target coordinates after retrieval",
+  "maximum_radius_arcsec": 1.0,
+  "maximum_absolute_redshift_difference": 0.003,
+  "quality": {
+    "spectype": "GALAXY",
+    "zwarn": 0,
+    "zcat_primary": true
+  },
+  "ambiguous_rule": "Retain all spatial candidates; a clean association requires one distinct target within radius. Multiple survey/program spectra of one target are not independent galaxies. Select the released primary spectrum only after identity screening.",
+  "Dn4000": {
+    "blue_rest_A": [3850, 3950],
+    "red_rest_A": [4000, 4100],
+    "definition": "Ratio of mean signed Fnu in red and blue rest-wavelength intervals; weights include partial pixel overlaps, no positivity or SNR censoring of flux. Report delta-method ratio error only when denominator exceeds five nominal standard deviations. Raw signed band flux and variance always retained."
+  },
+  "Hdelta_A": {
+    "blue_rest_A": [4041.60, 4079.75],
+    "feature_rest_A": [4083.50, 4122.25],
+    "red_rest_A": [4128.50, 4161.00],
+    "definition": "Rest-frame equivalent width against a linear continuum through sideband means, absorption positive; propagate independent native-pixel variance with numerical/analytic gradient. This is a native-resolution diagnostic, not a Lick-resolution index or stellar age."
+  },
+  "support": {"minimum_unmasked_wavelength_fraction_each_band": 0.95, "continuum_minimum_nominal_snr_for_ratio": 5},
+  "mask_rule": "Reject pixels with any nonzero native mask or nonpositive/nonfinite inverse variance; do not reject negative flux.",
+  "uncertainty_scope": "Released diagonal inverse variance is conditional statistical information, not full calibrated spectral covariance. Known DR1 flux-calibration IVAR bug becomes significant at per-pixel SNR20-30; do not silently repair or treat errors as complete. Store signed per-pixel SNR, threshold fractions and sensitivities; no arbitrary factor-five correction.",
+  "calibration_scope": "DESI flux calibration improves on OzDES counts, but aperture, response, dust, emission infill, resolution and stellar-population assumptions remain. No absolute luminosity or cosmology fit from indices.",
+  "spectral_operator_declared_before_extraction": {
+    "native_camera_join_observed_A": [5780, 7570],
+    "join_rule": "Fixed midpoints in camera overlaps; one native camera per wavelength without resampling or SNR-based arm selection. All original arms remain available for forward modelling.",
+    "foreground_extinction": "Indices use released observed flux without Milky Way correction; native EBV retained for future physical modelling.",
+    "Hdelta_wavelength_convention": "Declared edges applied on vacuum rest-wavelength grid. Native-resolution window diagnostic, not exact air-wavelength Lick index.",
+    "missing_feature_pixels": "Equivalent width integrates only the available feature width; coverage reported, no imputed feature flux.",
+    "covariance": "Propagate native diagonal inverse variance through all shared bands and derived-index gradients; resolution is a response operator, not extra noise covariance."
+  },
+  "download_scope": "Public matched spectra only, using SPARCL or targeted NERSC HEALPix byte-range reads. Do not acquire a complete catalogue or production spectra tree.",
+  "compute": {"maximum_parallel_requests": 4},
+  "known_issues_source": "https://data.desi.lbl.gov/doc/releases/dr1/known-issues/"
+}

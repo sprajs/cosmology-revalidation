@@ -1,0 +1,538 @@
+{
+  "status": "passed",
+  "source_sha256": {
+    "studies/unified_cosmology/code/calibrated_hosts/independent_review.py": "cfaa85216e2ba6c09bea0f1932494edd01c74040797542d7ad015220dc83345c",
+    "studies/unified_cosmology/code/calibrated_hosts/bands.py": "f87eedca89a5079f53901f9bc362d5eec0ff52cbf472fe2ff8093535481e4daf",
+    "studies/unified_cosmology/code/calibrated_hosts/design.json": "af0643bbd1104ba6660e7b2ee2384e17ac7dbb5a6138042b4a5ce94d2b10a2c7"
+  },
+  "input_sha256": {
+    ".work/unified-cosmology/calibrated-hosts/band-records.json": "440a66366f63db2ef3a1cc809491ae9cb7cdbb5c97d6eed89598950e89535a19",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627610531040288.npz": "9113ef9fba1626fabca91d540e2fbf7e7f89d82daa5a6439d81c758a0e9061c2",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627610531042217.npz": "eb658130042e96fb37c7224b12a8676e5604995b165b3dabb7925e1559f63fe7",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627610543624092.npz": "9160643c6ad3ab8436c08a326a1ff8da08b5935913ff0a6bee1193d4891b822d",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627616520509972.npz": "fe4547d6469e87a967ea2ac6321aa4136b54b4a715b6a4731d40b51832b080ab",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627622522552719.npz": "0cf1d9c14c91971096475e7b712b547a7f62b2a9388f13f729cf9d7a396f6a6b",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627628537189326.npz": "97bfb05457a43c3a799513a161ea5eff5bd93cc40574af3197a2425aeb5988a8",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627628537191719.npz": "b196074bddbfe877db3554d3cf4881173f6fc8394b6fb6281aa8f2fb8de5fa0c",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627628541387519.npz": "2612ac629d91b37198aa461d6fe99518e3750cbc575f2ece9a755e47b982e2bf",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627634547622962.npz": "e8f364dda82f2edf87bc0b1e641bd2b1c44b50225014f12e10d5087eb8b2f872",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627634547626317.npz": "1fafe2dea6d31ccc15553857ba4708d044b2ce562c4f513fc02a8555e80694c2",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627640562260685.npz": "043c64123712ba1ecf0311d269d8df331f795424952d94f9a514d6cd68f40de9",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627640562260959.npz": "00b0196f7b729db14be19053d3de5636d72fed5d8a17790b29d829d99ff2ee32",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627646555920428.npz": "94ab60fe203e68bbf756739cb1d10e0530abb64750fb626f37286b719dd6c21f",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627646564304483.npz": "7a4c5dfca3508339ea85a74efdb678bf3c7dabf65f560f3029ce60aaf8fcaa79",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627652574743473.npz": "57261b6ec806e356ddf71a71c36b2d0f22d43bd4805c0127ecd5ffd106fa7131",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627658564206941.npz": "40a219201f9b92ed28b34855915eae9a13d975fe468c2f2e31d8c2442a1b0bed",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627658585183754.npz": "0ac8c2a7a892fd76d44e8035dae04ce47982bbd368d8721076b9305d729d5c33",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627658593567802.npz": "100648521c75265537b86734cb5307514ef31ac43c60e77439946bf6179cb327",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627658601961979.npz": "a9b49a08d3a8fb07e4691e51f250e34e86e3bd6f4f1d0e7d4d187fcdb307ba0b",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627658606157620.npz": "29caa2f7553d20810174117735be61cb599321f69fc6d14352661b57a7269508",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627658614542625.npz": "906a70417f88bf61d0a7cea77fe7ef9607e2348073e762fe97df4a6ad9503406",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627664624977874.npz": "87abdb03b8fa51f7518ccda3316089ffbe940aece59883e93e04cb6013089341",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627664641754332.npz": "9f10d4157200fa63a7297b3dae1e54cb83beedf14c97f349c7a969aec68a900b",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627664641758240.npz": "19303e18dc57c7bae17f571a2c4cf010d52d89369be8bc220ed4f22dc9c86334",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627664650142261.npz": "0347ed4ada89c0f90f13cb95694cfd8c6d4146fefbd0b9dfd26f25f473aff380",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627670652191124.npz": "3960e3f25998618e2fcf2a65941350029ccf72bda4c8cc16fe61f4f68ea32b9d",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627676650052239.npz": "5bc8228d863b8469f692195285d9ee8b2045917baa2227afc4bd4be303b43566",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627682681455229.npz": "1b3f2aba3dc5e6f03f4d381372040777d05522bd65492ae37b945c2d22f5d2a9",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627682681455819.npz": "a55e4845dcd909eca34bcf298b7662e16af8f61f3db1cdd5fe8f7144357691cf",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627682689847700.npz": "012d9ce5c61989a9641396bea4789c6bb877175e148d3f6a9948263f68584c4f",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627682689852673.npz": "440f590118ed812b03d7e226af78b5f17fa76e2eef7418ec95a25986aad66bb2",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627682694039936.npz": "a898825ff535a2210da53278b2c11326ba82606ae2e4c72e006d2704d28f1075",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627682706622418.npz": "08ea69fcc4915fd96ef3778c94a3b1f8f6e5a41c297297b5fd82b1538188999b",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627682710817059.npz": "7309fb1e341a29cac1372bb88be3ec79b252447cc29a485061d6f69e408a437f",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627682715016041.npz": "c01036c8228488e06317f6827e3cb71fe767b9ef01d81cb00f37006501906fca",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627682719203535.npz": "c3c795904f6d68a7e19194939781fe6d1131020681f3183f4078e9c743e88825",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627688725455449.npz": "f23dd303d6d14a830abb150745b646c41708eb0b523264f873d30c9a97119777",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627694773633509.npz": "82d3d9b3557ed95a0d25afa45784fdcaf08f2520dd37771eda13b27a9835d3b2",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627743138152917.npz": "4441a4f716d1116706093cb5d551194df08fbe2d8c60eae353158478fac96399",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627761249158926.npz": "6d3036e974469dd3743ae11d1df8fb1b027cc11202e9e72135fc3d0a2a0fc7a3",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627767288960290.npz": "dabdd924f19d48ebf50a959df7658b1a00cedd9f28eae6b0c7d05c92d08e347e",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627773328753049.npz": "bbd0f64e82b054ecf92520b34d8d2adc6727d5e7936b21a8844b11b5506540ff",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627773337150955.npz": "587684018f5179944214e621be4443f5a447117daef49e5d773a3987f794aa53",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627773362313430.npz": "717d281d74d4f5c3e8cfa60656422fa7a9d9a0f4966c0364786c50c416e5dc70",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627773370696567.npz": "253d01c0c8d2b3bed2c46e6647b1bc8ac09725b1ed6bedc1d0c1adef9dec360f",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627773370698411.npz": "95bb0695f44d9a222716f81b9b9679f84e308a1f1c505cc301e747ff7e98f008",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627773374894516.npz": "2f951cfddddc8461e81bfabdbe05c04bdbc8aa6115b17629ca304ab443a61477",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627785437708930.npz": "18d3e432ff18a148abff7734933328244373ad8bfc1d10ee6aa460575bdce0b5",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627785441904664.npz": "6b185eed8e10a25291388c0388c9beefeb3927464b452ea1e8951baec4f86ab9",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627785446103548.npz": "0cf673819f4d5b6acf122d80060b6983839e29302fa38efc862beb319e8732ea",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627785462874275.npz": "a274c6d73c7f53d5827ac81bdcbaf4adaa0376f6be8eba165d1c979e4105c852",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627791477509022.npz": "d4dcf1d665916a51ed8292ca4da9881a37fb9bf2ffbde76643f3f999ad3bfb4a",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627791485902086.npz": "fc0a9b4c0869137308a6d15069a7c887eb296606926b587747f73ec7d4492752",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627797517304077.npz": "bc7ceb26e7fcc9638e69a99b92d517ee35338bd4dbeacb11cdd6df315f70942d",
+    ".work/unified-cosmology/calibrated-hosts/spectra/39627809609484131.npz": "d29b5053dbda584add62e25a425e7a8e65cc84ff8f175b64ec3c9379f930c195"
+  },
+  "bands": 55,
+  "maximum_mean_relative_error": 1.4088526972211285e-13,
+  "maximum_covariance_normalized_error": 1.144479278626302e-12,
+  "gradient_direction_checks": 306,
+  "maximum_gradient_relative_error": 3.289252935204255e-10,
+  "recomputed_indices_maximum_absolute_error": 0.0,
+  "astropy_microJy_for_native_unit_at_4000A": 5.337025523170434,
+  "coded_conversion": 5.337025523170433,
+  "constant_spectrum_maximum_spurious_EW_A": 1.720845688166852e-14,
+  "linear_spectrum_actual_masks": [
+    {
+      "targetid": "39627610531042217",
+      "spurious_EW_A": -1.3179483252215102e-05,
+      "actual_EW_sigma_A": 3.4899430324696405,
+      "coverage": [
+        0.9999999999991656,
+        0.999999999999155,
+        0.9999999999991604
+      ]
+    },
+    {
+      "targetid": "39627610543624092",
+      "spurious_EW_A": 7.5721672063534626e-06,
+      "actual_EW_sigma_A": 1.4168846800058261,
+      "coverage": [
+        1.000000000000465,
+        0.9999999999994836,
+        0.9999999999990206
+      ]
+    },
+    {
+      "targetid": "39627622522552719",
+      "spurious_EW_A": 2.6845820907784025e-05,
+      "actual_EW_sigma_A": 4.097249851928513,
+      "coverage": [
+        0.9999999999999881,
+        0.9999999999989321,
+        0.9999999999984609
+      ]
+    },
+    {
+      "targetid": "39627628537191719",
+      "spurious_EW_A": -3.0483541445170718e-05,
+      "actual_EW_sigma_A": 4.606503813054177,
+      "coverage": [
+        0.9999999999998213,
+        0.9999999999998123,
+        0.9999999999998321
+      ]
+    },
+    {
+      "targetid": "39627634547626317",
+      "spurious_EW_A": -1.8352217002744366e-05,
+      "actual_EW_sigma_A": 6.368422548600921,
+      "coverage": [
+        0.9999999999994517,
+        0.9999999999994719,
+        0.9999999999994403
+      ]
+    },
+    {
+      "targetid": "39627640562260685",
+      "spurious_EW_A": -8.3461014081882e-06,
+      "actual_EW_sigma_A": 3.677542041970501,
+      "coverage": [
+        0.9999999999996781,
+        1.0000000000007159,
+        1.0000000000012312
+      ]
+    },
+    {
+      "targetid": "39627640562260959",
+      "spurious_EW_A": -1.767999456668334e-05,
+      "actual_EW_sigma_A": 2.139531758844962,
+      "coverage": [
+        0.9999999999995709,
+        0.9999999999995776,
+        0.9999999999995802
+      ]
+    },
+    {
+      "targetid": "39627646555920428",
+      "spurious_EW_A": 1.9968912414425944e-05,
+      "actual_EW_sigma_A": 2.3823785276031195,
+      "coverage": [
+        1.0000000000001312,
+        1.0000000000001408,
+        1.0000000000001399
+      ]
+    },
+    {
+      "targetid": "39627646564304483",
+      "spurious_EW_A": 9.43799158048655e-06,
+      "actual_EW_sigma_A": 8.135615155949834,
+      "coverage": [
+        0.9999999999994637,
+        1.0000000000084848,
+        0.9999999999994683
+      ]
+    },
+    {
+      "targetid": "39627652574743473",
+      "spurious_EW_A": -1.984917514476585e-05,
+      "actual_EW_sigma_A": 3.20893556810526,
+      "coverage": [
+        1.0000000000002265,
+        1.000000000000223,
+        1.0000000000001958
+      ]
+    },
+    {
+      "targetid": "39627658564206941",
+      "spurious_EW_A": 3.084936485914027e-05,
+      "actual_EW_sigma_A": 5.409834290892654,
+      "coverage": [
+        0.9999999999993802,
+        1.0000000000004108,
+        1.0000000000009235
+      ]
+    },
+    {
+      "targetid": "39627658585183754",
+      "spurious_EW_A": 2.5896100875900404e-05,
+      "actual_EW_sigma_A": 2.740430638522574,
+      "coverage": [
+        1.0000000000001907,
+        1.0000000000001878,
+        1.0000000000001679
+      ]
+    },
+    {
+      "targetid": "39627658593567802",
+      "spurious_EW_A": -2.8969619082710196e-05,
+      "actual_EW_sigma_A": 4.7906821711647325,
+      "coverage": [
+        1.0000000000000238,
+        0.9999999999989203,
+        0.9999999999984048
+      ]
+    },
+    {
+      "targetid": "39627658601961979",
+      "spurious_EW_A": -5.76968737507868e-05,
+      "actual_EW_sigma_A": 1.581960658806214,
+      "coverage": [
+        0.9999999999992133,
+        1.0000000000003637,
+        1.0000000000009235
+      ]
+    },
+    {
+      "targetid": "39627658606157620",
+      "spurious_EW_A": 9.610570315750175e-06,
+      "actual_EW_sigma_A": 4.736116126061894,
+      "coverage": [
+        0.9999999999999881,
+        0.9999999999990025,
+        0.9999999999985169
+      ]
+    },
+    {
+      "targetid": "39627658614542625",
+      "spurious_EW_A": -2.5649241673378888e-05,
+      "actual_EW_sigma_A": 3.1687505949168715,
+      "coverage": [
+        0.9999999999995232,
+        0.9999999999995188,
+        0.9999999999995243
+      ]
+    },
+    {
+      "targetid": "39627664624977874",
+      "spurious_EW_A": -0.026909824049623447,
+      "actual_EW_sigma_A": 5.528434506006264,
+      "coverage": [
+        0.9999999999993087,
+        1.0000000000007627,
+        0.9570126522013966
+      ]
+    },
+    {
+      "targetid": "39627664641754332",
+      "spurious_EW_A": 1.5236014572740548e-06,
+      "actual_EW_sigma_A": 1.0332878807698644,
+      "coverage": [
+        0.9999999999993802,
+        0.9999999999994015,
+        0.9999999999993844
+      ]
+    },
+    {
+      "targetid": "39627664641758240",
+      "spurious_EW_A": -2.0642398345287393e-05,
+      "actual_EW_sigma_A": 2.7278070719033525,
+      "coverage": [
+        0.9999999999987484,
+        0.999999999998756,
+        0.9999999999987687
+      ]
+    },
+    {
+      "targetid": "39627664650142261",
+      "spurious_EW_A": 1.7165661892693784e-05,
+      "actual_EW_sigma_A": 1.9825028843272676,
+      "coverage": [
+        1.0000000000004887,
+        1.0000000000004812,
+        1.0000000000004758
+      ]
+    },
+    {
+      "targetid": "39627670652191124",
+      "spurious_EW_A": 8.017986377709266e-06,
+      "actual_EW_sigma_A": 3.880991668455748,
+      "coverage": [
+        1.0000000000049944,
+        0.9999999999994015,
+        0.9999999999994124
+      ]
+    },
+    {
+      "targetid": "39627676650052239",
+      "spurious_EW_A": -1.1671342012468882e-05,
+      "actual_EW_sigma_A": 3.1644394238030973,
+      "coverage": [
+        0.9999999999989272,
+        0.9999999999989438,
+        0.9999999999989366
+      ]
+    },
+    {
+      "targetid": "39627682681455229",
+      "spurious_EW_A": -4.197652622084877e-05,
+      "actual_EW_sigma_A": 3.9192509008706047,
+      "coverage": [
+        0.9999999999993444,
+        1.0000000000004576,
+        1.0000000000009794
+      ]
+    },
+    {
+      "targetid": "39627682681455819",
+      "spurious_EW_A": -1.6911310152972266e-05,
+      "actual_EW_sigma_A": 2.5392406186717786,
+      "coverage": [
+        1.0000000000000715,
+        0.9999999999988382,
+        0.999999999998237
+      ]
+    },
+    {
+      "targetid": "39627682689847700",
+      "spurious_EW_A": 8.70152123981071e-06,
+      "actual_EW_sigma_A": 3.0433687777393157,
+      "coverage": [
+        0.9999999999994517,
+        1.0000000000050697,
+        0.9999999999994403
+      ]
+    },
+    {
+      "targetid": "39627682689852673",
+      "spurious_EW_A": 2.2038532740304726e-05,
+      "actual_EW_sigma_A": null,
+      "coverage": [
+        0.9999999999990107,
+        1.000000000006032,
+        1.0000000000011193
+      ]
+    },
+    {
+      "targetid": "39627682694039936",
+      "spurious_EW_A": -1.2024382269634662e-05,
+      "actual_EW_sigma_A": 1.5133762750060422,
+      "coverage": [
+        0.9999999999995589,
+        0.9999999999995424,
+        0.9999999999995522
+      ]
+    },
+    {
+      "targetid": "39627682706622418",
+      "spurious_EW_A": 4.769755031949146e-05,
+      "actual_EW_sigma_A": 3.048630617276188,
+      "coverage": [
+        0.9999999999997139,
+        1.0000000000007276,
+        1.0000000000012312
+      ]
+    },
+    {
+      "targetid": "39627682715016041",
+      "spurious_EW_A": 7.717216100577825e-06,
+      "actual_EW_sigma_A": 3.416430662566853,
+      "coverage": [
+        0.9999999999992729,
+        0.9683155276565348,
+        1.0000000000014833
+      ]
+    },
+    {
+      "targetid": "39627688725455449",
+      "spurious_EW_A": 0.004444802982244854,
+      "actual_EW_sigma_A": 4.342591097149074,
+      "coverage": [
+        0.9661688720692811,
+        0.9999999999988969,
+        0.999999999998209
+      ]
+    },
+    {
+      "targetid": "39627694773633509",
+      "spurious_EW_A": 1.590720258978696e-05,
+      "actual_EW_sigma_A": 3.6630556755094386,
+      "coverage": [
+        0.9999999999989749,
+        1.0000000000002582,
+        1.0000000000008675
+      ]
+    },
+    {
+      "targetid": "39627767288960290",
+      "spurious_EW_A": -8.974657142404373e-06,
+      "actual_EW_sigma_A": 1.920563050772863,
+      "coverage": [
+        0.999999999999404,
+        1.000000000000399,
+        1.0000000000008675
+      ]
+    },
+    {
+      "targetid": "39627773328753049",
+      "spurious_EW_A": -8.84953735991495e-06,
+      "actual_EW_sigma_A": 2.451035045526236,
+      "coverage": [
+        0.9999999999999165,
+        0.9999999999999178,
+        0.9999999999999161
+      ]
+    },
+    {
+      "targetid": "39627773337150955",
+      "spurious_EW_A": 4.632847066077064e-05,
+      "actual_EW_sigma_A": 2.7198773313336067,
+      "coverage": [
+        1.000000000000465,
+        1.0000000000004576,
+        1.0000000000004758
+      ]
+    },
+    {
+      "targetid": "39627773362313430",
+      "spurious_EW_A": -3.291505642193581e-06,
+      "actual_EW_sigma_A": 1.7266118235826702,
+      "coverage": [
+        1.0000000000083082,
+        0.9999999999992724,
+        0.9999999999993003
+      ]
+    },
+    {
+      "targetid": "39627773370696567",
+      "spurious_EW_A": -5.146997097016343e-05,
+      "actual_EW_sigma_A": 1.349780209807937,
+      "coverage": [
+        1.0000000000002145,
+        0.9999999999993077,
+        0.9999999999989087
+      ]
+    },
+    {
+      "targetid": "39627773370698411",
+      "spurious_EW_A": 7.786103870989717e-06,
+      "actual_EW_sigma_A": 1.3699431280073473,
+      "coverage": [
+        1.0000000000007032,
+        0.9999999999994484,
+        0.9999999999988246
+      ]
+    },
+    {
+      "targetid": "39627773374894516",
+      "spurious_EW_A": 2.8854536118809457e-05,
+      "actual_EW_sigma_A": 2.1706867904867253,
+      "coverage": [
+        0.9999999999994637,
+        1.000000000000493,
+        1.0000000000009794
+      ]
+    },
+    {
+      "targetid": "39627785437708930",
+      "spurious_EW_A": -4.59570895714756e-05,
+      "actual_EW_sigma_A": 3.979675802418991,
+      "coverage": [
+        1.0000000000002502,
+        1.000000000000223,
+        1.0000000000002518
+      ]
+    },
+    {
+      "targetid": "39627785441904664",
+      "spurious_EW_A": -1.4652518791046216e-05,
+      "actual_EW_sigma_A": 3.9421689350326434,
+      "coverage": [
+        1.0000000000002145,
+        0.999999999999202,
+        0.9999999999987407
+      ]
+    },
+    {
+      "targetid": "39627785446103548",
+      "spurious_EW_A": -4.929488212122153e-05,
+      "actual_EW_sigma_A": 1.802383557691839,
+      "coverage": [
+        0.9999999999990941,
+        1.0000000000001175,
+        1.0000000000005878
+      ]
+    },
+    {
+      "targetid": "39627785462874275",
+      "spurious_EW_A": 1.145490131792906e-05,
+      "actual_EW_sigma_A": 5.391609342119402,
+      "coverage": [
+        1.0000000000005365,
+        0.9999999999994954,
+        0.9999999999989926
+      ]
+    },
+    {
+      "targetid": "39627791477509022",
+      "spurious_EW_A": 2.7284813193164287e-05,
+      "actual_EW_sigma_A": 1.848429313993029,
+      "coverage": [
+        0.9999999999999524,
+        0.9999999999990025,
+        0.9999999999985169
+      ]
+    },
+    {
+      "targetid": "39627791485902086",
+      "spurious_EW_A": 5.766731915357053e-06,
+      "actual_EW_sigma_A": 2.0679212828907043,
+      "coverage": [
+        0.9999999999996185,
+        1.0000000000007512,
+        1.0000000000012312
+      ]
+    },
+    {
+      "targetid": "39627797517304077",
+      "spurious_EW_A": 1.7274284187576552e-05,
+      "actual_EW_sigma_A": 1.7730005636627875,
+      "coverage": [
+        0.9999999999994994,
+        1.0000000000004812,
+        1.0000000000009794
+      ]
+    },
+    {
+      "targetid": "39627809609484131",
+      "spurious_EW_A": 1.353321485356179e-05,
+      "actual_EW_sigma_A": 3.717416764284207,
+      "coverage": [
+        1.0000000000002502,
+        1.0000000000002465,
+        1.0000000000002518
+      ]
+    }
+  ],
+  "interpretation": "Formal diagonal-IVAR arithmetic review, not DESI uncertainty/calibration validation. Linear-continuum test slope0.2%/A is a diagnostic of fixed-anchor/masking response, not an empirical spectral systematic."
+}
