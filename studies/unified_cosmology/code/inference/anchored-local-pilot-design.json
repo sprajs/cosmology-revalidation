@@ -1,0 +1,12 @@
+{
+  "schema": "anchored-direct-proposal-pilot-v1",
+  "declared_before_physical_pilot": true,
+  "scope": "One bounded proposal-efficiency diagnostic for a source-bound direct anchored-density proposal. No posterior, convergence or scientific measurement is published.",
+  "maximum_target_calls": 400,
+  "maximum_successful_native_fallbacks": 8,
+  "maximum_evaluation_wall_seconds": 1800,
+  "seed": {"lcdm": {"proposals": 8274401, "acceptance": 8274402}, "cpl": {"proposals": 8274403, "acceptance": 8274404}},
+  "density": "Unchanged anchored_sampling.configuration. The actual frozen normalized Gaussian/t5 q is loaded from anchored-direct-density-proposal-v1; MH includes logq(current)-logq(candidate). All prior rejects and repeated states remain recorded. One source-bound native initialization precedes target evaluation.",
+  "limits": "Finite single-chain pilot metrics are noisy, unqualified numerical diagnostics. An unseen mode may remain. Successful-native fallback counts do not count failed internal attempts; any appended frozen-surrogate CAMB failure log stops and is retained. No target/prior adjustment, clipping, annealing or proposal adaptation. All production and native-correction gates remain required.",
+  "production": "Root controls any later four-chain resource allocation after independent source review and this completed pilot; the pilot does not launch production."
+}
