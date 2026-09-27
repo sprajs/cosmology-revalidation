@@ -1,0 +1,56 @@
+{
+  "status": "passed_synthetic_anchored_bridge_checks_no_observational_evaluation",
+  "configuration_cases": [
+    {
+      "model": "lcdm",
+      "non_SN_configuration_identical": true
+    },
+    {
+      "model": "cpl",
+      "non_SN_configuration_identical": true
+    }
+  ],
+  "synthetic_points": 20000,
+  "known_Gaussian_recovery": {
+    "expected_mean": 0.15526069844278584,
+    "mean": 0.15799302701900353,
+    "expected_sd": 0.6784586778277494,
+    "sd": 0.6793780916750018,
+    "maximum_density_error": 1.7763568394002505e-15,
+    "raw_weight_ESS": 19488.102482610197
+  },
+  "null_replacement_logweight_error": 0.0,
+  "additive_constant_normalized_weight_error": 7.589415207398531e-16,
+  "target_SN_chi2_replaces_old_diagnostic": true,
+  "source_reconstruction_not_substituted_in_weight": true,
+  "all_failed_gates_withhold_posterior": true,
+  "unsupported_settings_and_altered_nonSN_priors_rejected": true,
+  "consumer_fixture_points": 400,
+  "consumer_interfaces_and_qualification_explicitly_mocked": true,
+  "cache_replay_identical_no_new_backgrounds": true,
+  "cache_payload_and_manifest_and_parent_and_data_tampering_rejected": true,
+  "synthetic_background_ordering_units_and_heliocentric_convention_passed": true,
+  "synthetic_old_SN_independent_precision_loglike_error": 5.329070518200751e-15,
+  "native_spectrum_and_transfer_calls_guarded": true,
+  "unqualified_parent_refused_before_work": true,
+  "observational_bridge_points": 0,
+  "CAMB_background_calls": 0,
+  "CMB_spectrum_calls": 0,
+  "source_sha256": {
+    "studies/unified_cosmology/code/inference/anchored_bridge_validate.py": "89c60ab2769c0bd6f066d0608bad95cdca9a4f4f1c79ed5f1306eafd4aa59ab0",
+    "studies/unified_cosmology/code/inference/anchored_bridge.py": "3708579aafee822ce24feb4e5d0abb977a04ab25529d1c7e88d382732e565e93",
+    "studies/unified_cosmology/code/inference/anchored-bridge-design.json": "204a48e31027c11a4c9d95f72bc4ae230496960565b5bc94279917055a00f2f0",
+    "studies/unified_cosmology/code/inference/luminosity-sensitivity-design.json": "fdff0250564a1562fd1af3da8a9ff93481de1837c8ad08837993564aa545ee85",
+    "studies/unified_cosmology/code/inference/anchored_adapter.py": "593bbbfe3ee1069ca8209011d94fe42427b3478e3a4497c1983d02d98a8643df",
+    "studies/unified_cosmology/code/inference/expansion_history.py": "134ccdd5ed4098887932261c503017264baf5d1649fe36e13171c5e617960648",
+    "studies/unified_cosmology/code/inference/measurement_summary.py": "ca963dbaf8bff8bb693bf483c023d022c1e57b71bf9680711c92d716e9e415ef",
+    "studies/unified_cosmology/code/inference/luminosity_sensitivity.py": "3f831be63b3776b02c0b547dbb6d9273ddbad68b272c6cb372eda390abafaab7",
+    "studies/unified_cosmology/code/inference/probe_omission.py": "0a83dbb1f3065a9dbeea8be31fd52159d6fa25084e941441f50ff5ab98d580e0",
+    "studies/unified_cosmology/code/inference/modern_fast.py": "7028d9bebeac08e59ab9be968dc436dbf92263b46520b08c84bd5464d3063d13",
+    "studies/unified_cosmology/code/inference/modern_run.py": "101912935a939909466fbccae997b32845e6c7413edbb6aa93902ecf530b549b",
+    "studies/unified_cosmology/code/inference/target_identity.py": "498869ee5459b8afa13f8c56bfa9d619d8017f44ca0c6e4dc0a81efbaf42b2f2",
+    "studies/unified_cosmology/code/distance_ladder/calibration_interface.py": "ed4cd15be21093684bb9c9f199721022624b3913ae0084b67683422d3b6a6148"
+  },
+  "limitations": "Synthetic algebra and consumer integrity only. Real every-point native SN/background closure and importance overlap are still required; no anchored cosmological measurement follows.",
+  "native_and_model_entrypoints_globally_forbidden": true
+}
