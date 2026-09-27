@@ -80,8 +80,8 @@ The precision target was set before the recovery outcomes to limit a declared di
 The feasible branches have been executed and checked, but the full physical programme cannot truthfully be declared complete. The remaining requirements are concrete:
 
 - Updated C25 joint host-age/dust/mass/metallicity/SFH likelihoods and original priors; the public historical R19 chains are not interchangeable with them.
-- Exact final TITAN sample, joint SFH products and compatible observed high-redshift hosts, together with selection and host-association information.
-- Complete, pinned survey training/classification/selection and simulation inputs. All **250** previously missing Dovekie simulation files still return HTTP 404 at the checked public endpoints; the released-equivalence classifier gate also remains unresolved.
+- Exact final TITAN sample and joint SFH products with their original priors. [Subsequent acquisition](../studies/unified_cosmology/notes/host-likelihood.md) recovered other joint host-model draws and observed high-redshift spectra; these do not reconstruct the final TITAN release or establish the selected-population likelihood.
+- Complete, pinned survey training, selection and contaminant-model treatment. The original checks found HTTP 404 for all **250** missing Dovekie simulation files; a later Git LFS request returned HTTP 403. The [subsequent survey audit](../studies/unified_cosmology/notes/survey-selection.md) recovered further simulation assets and reproduced **17,733/17,733** released classifier probabilities. That classifier-interface gate is now resolved; exact production-cache lineage, regenerated contaminant priors and the complete physical selection likelihood remain open.
 - A full refit or joint selected-data likelihood that reruns every affected correction and passes coverage tests. Only then can a new age correction, or a defensible bound on it, be propagated into cosmology.
 
 No new physical correction has been applied to the manuscript's cosmological results. The existing acceleration estimates therefore retain their stated assumptions; the uncertainty above is not converted into an invented deceleration measurement.
