@@ -1,0 +1,591 @@
+{
+  "status": "released_chain_headers_recovered_runtime_not_certified",
+  "release_commit": "c9a4fcafc4cbd19bd750dee47fc76194a45c181f",
+  "header_cwd_git_revision": "a87c01b0795eb643a97bc03ca38f4f9eb94a01b6",
+  "models": {
+    "lcdm": {
+      "source": {
+        "url": "https://raw.githubusercontent.com/des-science/DES-SN5YR/c9a4fcafc4cbd19bd750dee47fc76194a45c181f/5_COSMOLOGY/chains/flcdm/dovekie_bao_cmbactspt_lcdm_nautilus.txt",
+        "path": ".work/unified-cosmology/external-probes/author-chains/dovekie_bao_cmbactspt_lcdm_nautilus.txt",
+        "sha256": "b66bacbcad6aed587a009bec0db665bdf853b5156f8824ba7412198f909d346a",
+        "bytes": 13907746,
+        "github_blob_sha1": "e85044c82b793867fbc69793d921588a424bc2c1"
+      },
+      "rows": 51200,
+      "importance_weight_ESS": 10966.597099636414,
+      "weighted_mean_sd": {
+        "cosmological_parameters--omega_m": {
+          "mean": 0.3045181070600589,
+          "sd": 0.003146441733231077
+        },
+        "cosmological_parameters--h0": {
+          "mean": 0.681411339397123,
+          "sd": 0.002325332245183553
+        },
+        "cosmological_parameters--omega_b": {
+          "mean": 0.048453127059672106,
+          "sd": 0.00029975635559916945
+        },
+        "cosmological_parameters--tau": {
+          "mean": 0.06026184952445176,
+          "sd": 0.0049558738938192725
+        },
+        "cosmological_parameters--n_s": {
+          "mean": 0.9724553252472087,
+          "sd": 0.0028432668039637043
+        },
+        "cosmological_parameters--a_s": {
+          "mean": 2.123824850101778e-09,
+          "sd": 2.0798712407996893e-11
+        },
+        "act_params--p_act": {
+          "mean": 1.0025771647360493,
+          "sd": 0.0024667936940358476
+        },
+        "planck--a_planck": {
+          "mean": 1.0020032830209902,
+          "sd": 0.002037578838735975
+        },
+        "candl_nuisance_parameters--ecal": {
+          "mean": 1.0065020551770023,
+          "sd": 0.0036236299224842953
+        },
+        "candl_nuisance_parameters--tcal": {
+          "mean": 0.9996383208026154,
+          "sd": 0.0020576322893660318
+        },
+        "candl_nuisance_parameters--a_fg": {
+          "mean": 0.9700329453579933,
+          "sd": 0.546486472099143
+        }
+      },
+      "max_posterior_row": 50246,
+      "active_modules": [
+        "w0wa_check",
+        "consistency",
+        "camb_act",
+        "desi-dr2",
+        "dovekie-sn",
+        "act-lite",
+        "spt3g",
+        "spt3glens",
+        "planck-foract",
+        "pact-dr6-lensingonly"
+      ],
+      "active_module_options": {
+        "w0wa_check": {
+          "file": "utility/exclude_w0_wa/w0wa_sum_prior.py",
+          "run_name": "dovekie_bao_cmbactspt_lcdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        },
+        "consistency": {
+          "file": "utility/consistency/consistency_interface.py",
+          "run_name": "dovekie_bao_cmbactspt_lcdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        },
+        "camb_act": {
+          "file": "boltzmann/camb/camb_interface.py",
+          "mode": "cmb",
+          "lmax": "9000",
+          "lens_margin": "2050",
+          "k_per_logint": "130",
+          "dolateradtruncation": "false",
+          "recombination_model": "recfast",
+          "nonlinear": "lens",
+          "lens_potential_accuracy": "4",
+          "min_l_logl_sampling": "6000",
+          "halofit_version": "mead2020",
+          "feedback": "0",
+          "accuracyboost": "1.1",
+          "laccuracyboost": "1.2",
+          "do_tensors": "True",
+          "do_lensing": "true",
+          "accurate_massive_neutrino_transfers": "T",
+          "use_ppf_w": "T",
+          "theta_h0_range": "\"20 100\"",
+          "run_name": "dovekie_bao_cmbactspt_lcdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        },
+        "desi-dr2": {
+          "file": "likelihood/bao/desi-dr2/desi_dr2.py",
+          "run_name": "dovekie_bao_cmbactspt_lcdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        },
+        "dovekie-sn": {
+          "file": "likelihood/dovekie-sn/dovekie_sn_likelihood.py",
+          "data_file": "likelihood/dovekie-sn/dovekie_HD.csv",
+          "covmat_file": "likelihood/dovekie-sn/covtot_inv_000_dovekie.npz",
+          "likelihood_only": "T",
+          "run_name": "dovekie_bao_cmbactspt_lcdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        },
+        "act-lite": {
+          "file": "likelihood/act-dr6-lite/act_dr6_lite_interface.py",
+          "run_name": "dovekie_bao_cmbactspt_lcdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        },
+        "spt3g": {
+          "file": "likelihood/candl/candl_cosmosis_interface.py",
+          "data_set": "spt_candl_data.SPT3G_D1_TnE",
+          "variant": "lite",
+          "clear_1d_internal_priors": "F",
+          "lensing": "F",
+          "likelihood_only": "T",
+          "run_name": "dovekie_bao_cmbactspt_lcdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        },
+        "spt3glens": {
+          "file": "likelihood/candl/candl_cosmosis_interface.py",
+          "data_set": "candl_data.SPT3G_2018_Lens",
+          "variant": "lens_only",
+          "lensing": "T",
+          "likelihood_only": "T",
+          "run_name": "dovekie_bao_cmbactspt_lcdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        },
+        "planck-foract": {
+          "file": "likelihood/planck_py/planck_py_interface.py",
+          "year": "2018",
+          "spectra": "TTTEEE",
+          "use_low_ell_bins": "T",
+          "ell_max_tt": "1000",
+          "ell_max_te": "600",
+          "ell_max_ee": "600",
+          "run_name": "dovekie_bao_cmbactspt_lcdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        },
+        "pact-dr6-lensingonly": {
+          "file": "likelihood/act-dr6-lens/act_dr6_lenslike_interface.py",
+          "variant": "actplanck_baseline",
+          "lens_only": "F",
+          "like_corrections": "T",
+          "like_only": "T",
+          "varying_cmb_alens": "F",
+          "run_name": "dovekie_bao_cmbactspt_lcdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        }
+      },
+      "values": {
+        "cosmological_parameters": {
+          "omega_m": "0.1    0.31    0.5",
+          "h0": "0.55  0.67  0.91",
+          "w": "-1.0",
+          "wa": "0.0",
+          "omega_b": "0.03  0.055 0.07",
+          "omega_k": "0.0",
+          "mnu": "0.06",
+          "nnu": "3.046",
+          "num_massive_neutrinos": "3",
+          "yhe": "0.245341",
+          "tau": "0.01 0.07 0.2",
+          "n_s": "0.87 0.965 1.07",
+          "a_s": "0.5e-09 2.0e-9 5.0e-09",
+          "n_run": "0",
+          "k_s": "0.05"
+        },
+        "act_params": {
+          "a_act": "1.0",
+          "p_act": "0.9 1.0 1.1"
+        },
+        "planck": {
+          "a_planck": "0.99 1.0 1.01"
+        },
+        "candl_nuisance_parameters": {
+          "ecal": "0.9 1.0 1.1",
+          "tcal": "0.9 1.0 1.1",
+          "a_fg": "0.0 1.0 2.0"
+        }
+      },
+      "gaussian_priors": {
+        "act_params--p_act": {
+          "mean": 1.0,
+          "sigma": 0.1,
+          "truncation": [
+            0.9,
+            1.1
+          ]
+        },
+        "planck--a_planck": {
+          "mean": 1.0,
+          "sigma": 0.0025,
+          "truncation": [
+            0.99,
+            1.01
+          ]
+        },
+        "candl_nuisance_parameters--ecal": {
+          "mean": 1.0,
+          "sigma": 0.0095,
+          "truncation": [
+            0.9,
+            1.1
+          ]
+        },
+        "candl_nuisance_parameters--tcal": {
+          "mean": 1.0,
+          "sigma": 0.0036,
+          "truncation": [
+            0.9,
+            1.1
+          ]
+        }
+      },
+      "prior_reconstruction": {
+        "max_shape_error": 1.4210854715202004e-14,
+        "constant_offset": 0.0,
+        "all_rows_checked": 51200
+      },
+      "scope": "Weighted moments of published Nautilus samples; not independently inferred measurements.",
+      "proposal_only": {
+        "cosmology_path": ".work/unified-cosmology/external-probes/proposal-author-lcdm-cosmology.covmat",
+        "cosmology_sha256": "9769ef920ba15a3f5f25a3612e16de9287c35032ae23c913afd28bd7890cabd5",
+        "path": ".work/unified-cosmology/external-probes/proposal-author-lcdm.covmat",
+        "sha256": "1b4ede1ac15ecab36d63c81fbd5d8b8d474f29a6a2a64af002dad59b128fff11",
+        "parameters": [
+          "H0",
+          "ombh2",
+          "omch2",
+          "logA",
+          "ns",
+          "tau",
+          "A_planck",
+          "P_act",
+          "Tcal",
+          "Ecal",
+          "A_fg"
+        ],
+        "transformed_mean": {
+          "H0": 68.14113393971233,
+          "ombh2": 0.022497315376523597,
+          "omch2": 0.11824401928440384,
+          "logA": 3.055755776114567,
+          "ns": 0.972455325247209,
+          "tau": 0.060261849524451815,
+          "A_planck": 1.0020032830209906,
+          "P_act": 1.0025771647360497,
+          "Tcal": 0.9996383208026166,
+          "Ecal": 1.0065020551769992,
+          "A_fg": 0.9700329453579896
+        },
+        "transformed_max_posterior_point": {
+          "H0": 68.1740262462957,
+          "ombh2": 0.022501418499852627,
+          "omch2": 0.11824068759401957,
+          "logA": 3.0559725443020485,
+          "ns": 0.9730811062320159,
+          "tau": 0.06020997006395628,
+          "A_planck": 1.0019966703364525,
+          "P_act": 1.0031751919656018,
+          "Tcal": 0.9987253790766716,
+          "Ecal": 1.0080162175694,
+          "A_fg": 0.6725038416402209
+        },
+        "warning": "Initialization/proposal only; not a prior or an independent posterior; nuisance priors/configuration differ from our modern target."
+      }
+    },
+    "cpl": {
+      "source": {
+        "url": "https://raw.githubusercontent.com/des-science/DES-SN5YR/c9a4fcafc4cbd19bd750dee47fc76194a45c181f/5_COSMOLOGY/chains/w0wacdm/dovekie_bao_cmbactspt_w0wacdm_nautilus.txt",
+        "path": ".work/unified-cosmology/external-probes/author-chains/dovekie_bao_cmbactspt_w0wacdm_nautilus.txt",
+        "sha256": "9cc1d4455d7d5e0652d556f6ea46d03cab249eaf47b596ded9ddba87a216a635",
+        "bytes": 16250282,
+        "github_blob_sha1": "d3475ed4677987fb417c95be9e829ea30915a5dc"
+      },
+      "rows": 52224,
+      "importance_weight_ESS": 10569.987247597379,
+      "weighted_mean_sd": {
+        "cosmological_parameters--omega_m": {
+          "mean": 0.3128447887131627,
+          "sd": 0.005214751042360711
+        },
+        "cosmological_parameters--h0": {
+          "mean": 0.6747112628982415,
+          "sd": 0.005401685704354238
+        },
+        "cosmological_parameters--w": {
+          "mean": -0.8028762137659693,
+          "sd": 0.05370211557598265
+        },
+        "cosmological_parameters--wa": {
+          "mean": -0.7295005168213374,
+          "sd": 0.20131364039671595
+        },
+        "cosmological_parameters--omega_b": {
+          "mean": 0.049354295879051165,
+          "sd": 0.0007982995286926095
+        },
+        "cosmological_parameters--tau": {
+          "mean": 0.054652695959697586,
+          "sd": 0.005308003800560503
+        },
+        "cosmological_parameters--n_s": {
+          "mean": 0.9704995163229378,
+          "sd": 0.0029006383155564188
+        },
+        "cosmological_parameters--a_s": {
+          "mean": 2.1024493307752862e-09,
+          "sd": 2.18948429000867e-11
+        },
+        "act_params--p_act": {
+          "mean": 1.002376480781081,
+          "sd": 0.002475367175497411
+        },
+        "planck--a_planck": {
+          "mean": 1.0013566059643082,
+          "sd": 0.0020619352636372388
+        },
+        "candl_nuisance_parameters--ecal": {
+          "mean": 1.0059835993061848,
+          "sd": 0.0035961385079638177
+        },
+        "candl_nuisance_parameters--tcal": {
+          "mean": 0.9993228919295827,
+          "sd": 0.0020894208634543955
+        },
+        "candl_nuisance_parameters--a_fg": {
+          "mean": 1.0329199919325278,
+          "sd": 0.5416840609716995
+        }
+      },
+      "max_posterior_row": 52169,
+      "active_modules": [
+        "w0wa_check",
+        "consistency",
+        "camb_act",
+        "desi-dr2",
+        "dovekie-sn",
+        "act-lite",
+        "spt3g",
+        "spt3glens",
+        "planck-foract",
+        "pact-dr6-lensingonly"
+      ],
+      "active_module_options": {
+        "w0wa_check": {
+          "file": "utility/exclude_w0_wa/w0wa_sum_prior.py",
+          "run_name": "dovekie_bao_cmbactspt_w0wacdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        },
+        "consistency": {
+          "file": "utility/consistency/consistency_interface.py",
+          "run_name": "dovekie_bao_cmbactspt_w0wacdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        },
+        "camb_act": {
+          "file": "boltzmann/camb/camb_interface.py",
+          "mode": "cmb",
+          "lmax": "9000",
+          "lens_margin": "2050",
+          "k_per_logint": "130",
+          "dolateradtruncation": "false",
+          "recombination_model": "recfast",
+          "nonlinear": "lens",
+          "lens_potential_accuracy": "4",
+          "min_l_logl_sampling": "6000",
+          "halofit_version": "mead2020",
+          "feedback": "0",
+          "accuracyboost": "1.1",
+          "laccuracyboost": "1.2",
+          "do_tensors": "True",
+          "do_lensing": "true",
+          "accurate_massive_neutrino_transfers": "T",
+          "use_ppf_w": "T",
+          "theta_h0_range": "\"20 100\"",
+          "run_name": "dovekie_bao_cmbactspt_w0wacdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        },
+        "desi-dr2": {
+          "file": "likelihood/bao/desi-dr2/desi_dr2.py",
+          "run_name": "dovekie_bao_cmbactspt_w0wacdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        },
+        "dovekie-sn": {
+          "file": "likelihood/dovekie-sn/dovekie_sn_likelihood.py",
+          "data_file": "likelihood/dovekie-sn/dovekie_HD.csv",
+          "covmat_file": "likelihood/dovekie-sn/covtot_inv_000_dovekie.npz",
+          "likelihood_only": "T",
+          "run_name": "dovekie_bao_cmbactspt_w0wacdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        },
+        "act-lite": {
+          "file": "likelihood/act-dr6-lite/act_dr6_lite_interface.py",
+          "run_name": "dovekie_bao_cmbactspt_w0wacdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        },
+        "spt3g": {
+          "file": "likelihood/candl/candl_cosmosis_interface.py",
+          "data_set": "spt_candl_data.SPT3G_D1_TnE",
+          "variant": "lite",
+          "clear_1d_internal_priors": "F",
+          "lensing": "F",
+          "likelihood_only": "T",
+          "run_name": "dovekie_bao_cmbactspt_w0wacdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        },
+        "spt3glens": {
+          "file": "likelihood/candl/candl_cosmosis_interface.py",
+          "data_set": "candl_data.SPT3G_2018_Lens",
+          "variant": "lens_only",
+          "lensing": "T",
+          "likelihood_only": "T",
+          "run_name": "dovekie_bao_cmbactspt_w0wacdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        },
+        "planck-foract": {
+          "file": "likelihood/planck_py/planck_py_interface.py",
+          "year": "2018",
+          "spectra": "TTTEEE",
+          "use_low_ell_bins": "T",
+          "ell_max_tt": "1000",
+          "ell_max_te": "600",
+          "ell_max_ee": "600",
+          "run_name": "dovekie_bao_cmbactspt_w0wacdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        },
+        "pact-dr6-lensingonly": {
+          "file": "likelihood/act-dr6-lens/act_dr6_lenslike_interface.py",
+          "variant": "actplanck_baseline",
+          "lens_only": "F",
+          "like_corrections": "T",
+          "like_only": "T",
+          "varying_cmb_alens": "F",
+          "run_name": "dovekie_bao_cmbactspt_w0wacdm_nautilus",
+          "planck_path": "likelihood/planck2018/baseline/plc_3.0"
+        }
+      },
+      "values": {
+        "cosmological_parameters": {
+          "omega_m": "0.1    0.31    0.5",
+          "h0": "0.55  0.67  0.91",
+          "w": "-3.0 -1.0 -0.4",
+          "wa": "-3.0 0.0 2.0",
+          "omega_b": "0.03  0.055 0.07",
+          "omega_k": "0.0",
+          "mnu": "0.06",
+          "nnu": "3.046",
+          "num_massive_neutrinos": "3",
+          "yhe": "0.245341",
+          "tau": "0.01 0.07 0.2",
+          "n_s": "0.87 0.965 1.07",
+          "a_s": "0.5e-09 2.0e-9 5.0e-09",
+          "n_run": "0",
+          "k_s": "0.05"
+        },
+        "act_params": {
+          "a_act": "1.0",
+          "p_act": "0.9 1.0 1.1"
+        },
+        "planck": {
+          "a_planck": "0.99 1.0 1.01"
+        },
+        "candl_nuisance_parameters": {
+          "ecal": "0.9 1.0 1.1",
+          "tcal": "0.9 1.0 1.1",
+          "a_fg": "0.0 1.0 2.0"
+        }
+      },
+      "gaussian_priors": {
+        "act_params--p_act": {
+          "mean": 1.0,
+          "sigma": 0.1,
+          "truncation": [
+            0.9,
+            1.1
+          ]
+        },
+        "planck--a_planck": {
+          "mean": 1.0,
+          "sigma": 0.0025,
+          "truncation": [
+            0.99,
+            1.01
+          ]
+        },
+        "candl_nuisance_parameters--ecal": {
+          "mean": 1.0,
+          "sigma": 0.0095,
+          "truncation": [
+            0.9,
+            1.1
+          ]
+        },
+        "candl_nuisance_parameters--tcal": {
+          "mean": 1.0,
+          "sigma": 0.0036,
+          "truncation": [
+            0.9,
+            1.1
+          ]
+        }
+      },
+      "prior_reconstruction": {
+        "max_shape_error": 1.4210854715202004e-14,
+        "constant_offset": 0.0,
+        "all_rows_checked": 52224
+      },
+      "scope": "Weighted moments of published Nautilus samples; not independently inferred measurements.",
+      "proposal_only": {
+        "cosmology_path": ".work/unified-cosmology/external-probes/proposal-author-cpl-cosmology.covmat",
+        "cosmology_sha256": "a3fdffab6e6f4456400cff511bdc5f889acac401bec9a297da7b97a9ab8d0bef",
+        "path": ".work/unified-cosmology/external-probes/proposal-author-cpl.covmat",
+        "sha256": "6887ada0f779c3d34a898d18a429045778860e5f9a940bfd73c44337259a10e4",
+        "parameters": [
+          "H0",
+          "ombh2",
+          "omch2",
+          "logA",
+          "ns",
+          "tau",
+          "w",
+          "wa",
+          "A_planck",
+          "P_act",
+          "Tcal",
+          "Ecal",
+          "A_fg"
+        ],
+        "transformed_mean": {
+          "H0": 67.47112628982393,
+          "ombh2": 0.02246362979938975,
+          "omch2": 0.11928223709536645,
+          "logA": 3.0456338833579033,
+          "ns": 0.970499516322937,
+          "tau": 0.054652695959697614,
+          "w": -0.802876213765968,
+          "wa": -0.7295005168213364,
+          "A_planck": 1.0013566059643082,
+          "P_act": 1.0023764807810802,
+          "Tcal": 0.9993228919295817,
+          "Ecal": 1.0059835993061839,
+          "A_fg": 1.0329199919325298
+        },
+        "transformed_max_posterior_point": {
+          "H0": 67.22586385507564,
+          "ombh2": 0.022465349108248833,
+          "omch2": 0.11954463754719247,
+          "logA": 3.044209024198412,
+          "ns": 0.9683398991038688,
+          "tau": 0.05304551313310247,
+          "w": -0.7772749462244128,
+          "wa": -0.8095329676738352,
+          "A_planck": 1.0016966476147673,
+          "P_act": 1.0012547169751997,
+          "Tcal": 0.99987621493936,
+          "Ecal": 1.0052817525001387,
+          "A_fg": 1.383393698818228
+        },
+        "warning": "Initialization/proposal only; not a prior or an independent posterior; nuisance priors/configuration differ from our modern target."
+      }
+    }
+  },
+  "code_sha256": "700ed3479f40a9a21f5a3b8d40b6f3a53b0c27b938d799ae3a858a65754909ad",
+  "configuration_findings": [
+    "Active module list has no Commander or simall; PlanckPy has two Gaussian low-temperature bins and cropped high-l TTTEEE.",
+    "External P_act prior is Gaussian sigma0.1, not sigma0.003; shape of every recorded prior is independently reproduced.",
+    "Header fixes ACT A_act=1; public ACT wrapper reads this directly, not A_planck.",
+    "Header retains SPT primary internal priors; historical YAML is audited separately before claiming which priors ran.",
+    "Header selects SPT lens_only variant despite other CMB measurements in joint pipeline.",
+    "Header sets fixed YHe0.245341, N_eff3.046 and3 massive neutrinos; our independent modern target uses BBN helium,3.044 and1 massive.",
+    "Public PlanckPy interface at recorded cwd Git HEAD does not pass A_planck. Git HEAD alone cannot certify runtime source; calibration response requires retained-row closure."
+  ]
+}

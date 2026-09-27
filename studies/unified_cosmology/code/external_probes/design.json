@@ -1,0 +1,10 @@
+{
+  "frozen_before_likelihood_outcomes": "2026-09-27",
+  "purpose": "Acquire and evaluate actual CMB power-spectrum/lensing likelihoods and DESI DR2 BAO for a joint late/early-universe measurement.",
+  "primary": ["planck_2018_highl_plik.TTTEEE", "planck_2018_lowl.TT", "planck_2018_lowl.EE", "planck_2018_lensing.native", "bao.desi_dr2"],
+  "comparison": "Replace only high-l Plik by TTTEEE_lite_native; this is foreground-marginalized CMB bandpowers, not a CMB distance prior.",
+  "theory": "CAMB1.6.6 with PPF CPL dark energy, flat geometry, one0.06eV massive neutrino, Neff3.044, standard recombination/BBN helium. No user-added w+wa prior. IMPORTANT implementation-domain correction discovered during validation: analytic CAMB set_params rejects w+wa>0; baseline CMB inference therefore has an effective w+wa<=0 domain. Domain failures are not data exclusions and must be counted separately. This is not unrestricted CPL inference.",
+  "amendment": "2026-09-27: original no-extra-prior wording was incomplete about CAMB's implicit analytic-domain boundary. Preserved explicit correction before posterior interpretation; no active theory code or scientific likelihood changed.",
+  "validation": ["Released native clik/clipy test-vector identity", "Native low-l vs clipy at identical spectra", "Plik-lite native vs clipy at identical spectra", "Independent DESI vector/covariance and CAMB-distance chi-square reconstruction", "Deterministic repeat and perturbed cosmology evaluations", "CPL crossing example and theoretical failure record"],
+  "scope": "Planck2018 is not the DESI DR2 default CMB combination (PR4 CamSpec plus ACT/Planck lensing). Priors/nuisance conventions are explicit. No posterior or acceleration claim follows from an evaluated likelihood alone."
+}

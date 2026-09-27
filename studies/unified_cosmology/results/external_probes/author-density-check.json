@@ -1,0 +1,68 @@
+{
+  "status": "numerical_reconstruction_checked_at_five_rows",
+  "selection": "MAP plus weighted w quantiles .1,.3,.7,.9; no outcome selection",
+  "rows": [
+    52169,
+    48401,
+    39937,
+    43931,
+    42543
+  ],
+  "code_sha256": "d1eb30352845e8906ced7b7619b15aeb5eb473bbaf0c6769b1cfffba860243bb",
+  "source_result_sha256": "704288df89a9229cba45c42f13769ec71b12ca402aeb6937162b148137456455",
+  "normalized_SN_data_sha256": "4bcf37dc7fdabff886d24b7e87bbe05c414f4f6c80971d154e2b8888d55bf2d8",
+  "SN_absolute_magnitude_normalization": {
+    "A": 43938.33706138445,
+    "half_log_A_over_2pi": 4.426332716572959,
+    "fitted_additive_constant": false
+  },
+  "calibration_alternatives": {
+    "density_difference": {
+      "absolute_loglike_residuals": [
+        -2.887160501554079,
+        -16.928230175406995,
+        -0.09637746686421256,
+        -17.111265996595236,
+        -3.59545058691974
+      ],
+      "max_abs_loglike_residual": 17.111265996595236,
+      "max_minus_min_loglike_residual": 17.014888529731024
+    },
+    "alternative_Aplanck_in_Planck_only_difference": {
+      "absolute_loglike_residuals": [
+        -0.47185864089628726,
+        -4.580390290705098,
+        0.2177322891497644,
+        -4.539921657778266,
+        0.793949114499994
+      ],
+      "max_abs_loglike_residual": 4.580390290705098,
+      "max_minus_min_loglike_residual": 5.374339405205092
+    },
+    "alternative_Aplanck_in_Planck_and_ACT_difference": {
+      "absolute_loglike_residuals": [
+        -2.25887686591264e-05,
+        -4.952890365395035e-06,
+        0.00010848517167882932,
+        -1.5433350243121424e-05,
+        -6.258908824552378e-05
+      ],
+      "max_abs_loglike_residual": 0.00010848517167882932,
+      "max_minus_min_loglike_residual": 0.0001710742599243531
+    }
+  },
+  "interpretation": [
+    "Literal public header/source misses the recorded likelihood shape.",
+    "Shared A_planck calibration for both Planck and ACT is a source-informed post-inspection diagnostic, evaluated on the same exact spectra.",
+    "Absolute agreement after the independently derived SN normalization is reported numerically; no tolerance was retroactively called a predeclared scientific gate.",
+    "Agreement on five retained rows supports a useful numerical reconstruction, not identity of unrecorded author source or dependency versions.",
+    "The original declared modern target and training data remain unchanged."
+  ],
+  "dependency_records": {
+    "author-acquisition.json": "ec977d76af3020af199c7e518f56fbe2adbf053978354baf28f028e11409b326",
+    "author-configuration.json": "b76da5dac1e3fde4b61692010dbdcb2cf1d6d486706343f4300e021df4854b65",
+    "modern-acquisition.json": "f66351d90cbda4365c393ac97e4cd6f241c42cfceb5c4b14f28500ba263613e0"
+  },
+  "exact_author_runtime_recovered": false,
+  "can_claim_independent_cosmological_measurement": false
+}

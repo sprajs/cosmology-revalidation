@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "reference": {
+    "H0": 67.36,
+    "ombh2": 0.02237,
+    "omch2": 0.12,
+    "w": -1.0,
+    "wa": 0.0
+  },
+  "rows": 1820,
+  "SN_input_sha256": "4bcf37dc7fdabff886d24b7e87bbe05c414f4f6c80971d154e2b8888d55bf2d8",
+  "step_halving_max_absolute_derivative_difference": {
+    "H0": 2.7970788879505548e-11,
+    "ombh2": 6.595944901377493e-09,
+    "omch2": 1.4216707810987828e-09,
+    "w": 3.0943747564293744e-10,
+    "wa": 1.5411359688410897e-10
+  },
+  "models": {
+    "lcdm": {
+      "path": ".work/unified-cosmology/external-probes/proposal-lcdm-dovekie.covmat",
+      "sha256": "b0cee12da1068c4667567b89457fc7ed0c39c050316e5065a795ff9793fd312c",
+      "original_sha256": "32c934df1b9609d5e3fca42a374d42db7829826c15523deacabf7e86f6dfa224",
+      "local_sd_before": {
+        "H0": 0.5352847398601244,
+        "ombh2": 0.00014573440568376432,
+        "omch2": 0.0011781097996366892
+      },
+      "local_sd_after": {
+        "H0": 0.4810577091954868,
+        "ombh2": 0.00014005481906659905,
+        "omch2": 0.0010605371414722973
+      }
+    },
+    "cpl": {
+      "path": ".work/unified-cosmology/external-probes/proposal-cpl-dovekie.covmat",
+      "sha256": "6a94e8b76ac882c54b670f2db5f19cc65faff853f93b020e368a01b89869d8ad",
+      "original_sha256": "daf1a00c7f03027ead8d4cc8e71b0f8a60da6c95b5e95225bb9c4ae4fd5f9acc",
+      "local_sd_before": {
+        "H0": 2.415902783012075,
+        "ombh2": 0.00014430550925034012,
+        "omch2": 0.0012747438174001864,
+        "w": 0.2664185560354233,
+        "wa": 0.7551918630387909
+      },
+      "local_sd_after": {
+        "H0": 0.7215338603313884,
+        "ombh2": 0.00014295100109211313,
+        "omch2": 0.0012358523867063492,
+        "w": 0.07768468137718808,
+        "wa": 0.34032422547067537
+      }
+    }
+  },
+  "scope": "Proposal preconditioning only. Observed SN magnitudes are unused; redshifts and fixed covariance inform the local distance Jacobian, after projecting one free magnitude. No scientific likelihood/prior change.",
+  "code_sha256": "074078aafd80450f625c2444678bc41999c2e8454fecb27801bcb6cb8dc162f4"
+}
