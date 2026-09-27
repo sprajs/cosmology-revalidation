@@ -4,6 +4,8 @@
 
 This report follows the [experimental plan](age-correction-plan.md). The [evidence review](age-correction-evidence.md) separates the published arguments. The calculations below include new observational comparisons, controlled recovery tests and newly located public data. The full survey-wide physical inference remains incomplete for the specific reasons given below.
 
+The subsequent [physical extension](physical-program-results.md) adds independently integrated galaxy spectra, spatially resolved environments, high-redshift optical/infrared measurements, flexible stellar-population age bounds and native survey selection/refitting experiments. The results below retain the earlier experiment definitions; the extension states which earlier availability limits have been overcome and which physical identification gates remain.
+
 ## What the observations say
 
 ### The original disputed sample

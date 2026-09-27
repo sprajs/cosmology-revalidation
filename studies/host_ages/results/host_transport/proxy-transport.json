@@ -1,0 +1,354 @@
+{
+  "completed_utc": "2026-09-27T01:22:53.980336+00:00",
+  "method": {
+    "design_scope": "Observed local/global environment proxy transport; no ages assigned from colors.",
+    "seed": 260927,
+    "bootstrap_draws": 500,
+    "primary_survey_comparison": "SDSS to SNLS5 in common observed redshift interval 0.2<=z<0.4",
+    "eligibility": "Finite released local/global U-V with positive errors and finite positive stellar mass; sentinel U-V>=90 excluded. No brightness residual selection.",
+    "weighting": "Entropy-balance SDSS to SNLS5 means of redshift, released global U-V, released log stellar mass. Report feasibility, moment residuals, ESS, maximum weight; no weight clipping or arbitrary extrapolation.",
+    "predictive_test": "Fit local U-V from intercept, global U-V, logmass and redshift on SDSS in overlap. Evaluate on SNLS5 overlap; report RMSE and mean prediction error, compare global-U-V-as-local approximation. Reverse survey prediction also reported.",
+    "measurement_covariance": "Local/global U-V share photons and SED inference. For mean local-global contrast, separately report nominal measurement-only SE for assumed correlations rho=-0.5,0,0.5,0.9; no known joint covariance or calibrated latent-age CI.",
+    "sampling": "Bootstrap unique SN identifiers (galaxy IDs absent, so shared-host uncertainty not independently resolved). Unweighted descriptive contrasts report sampling uncertainty separately.",
+    "redshift_bins": [
+      [
+        0.06,
+        0.3
+      ],
+      [
+        0.3,
+        0.6
+      ],
+      [
+        0.6,
+        1.2
+      ]
+    ],
+    "calibration_semantics": "Released rest U-V depends on trained EGALITE SED interpolation and foreground model. This common rest-frame proxy is not raw color, chronological age, or progenitor delay. Cross-survey validation tests transport under that inference procedure only."
+  },
+  "eligible_events": 800,
+  "descriptive_bins": [
+    {
+      "survey": "all",
+      "z_bin": [
+        0.06,
+        0.3
+      ],
+      "n": 341,
+      "mean_local_uv": 0.5875526833909092,
+      "mean_global_uv": 0.5568826233090909,
+      "mean_local_minus_global": 0.030670060081818183,
+      "median_local_minus_global": 0.07956486839999999,
+      "SN_sampling_bootstrap95": [
+        0.004633534582521998,
+        0.05650702160522726
+      ],
+      "measurement_only_SE_by_assumed_rho": {
+        "-0.5": 0.006514359536592689,
+        "0": 0.005514925496717831,
+        "0.5": 0.0042885809187539784,
+        "0.9": 0.0029620845272514697
+      }
+    },
+    {
+      "survey": "all",
+      "z_bin": [
+        0.3,
+        0.6
+      ],
+      "n": 177,
+      "mean_local_uv": 0.4907963720627118,
+      "mean_global_uv": 0.4806820966107345,
+      "mean_local_minus_global": 0.0101142754519774,
+      "median_local_minus_global": 0.038795699399999994,
+      "SN_sampling_bootstrap95": [
+        -0.019293898742895485,
+        0.03558978631741526
+      ],
+      "measurement_only_SE_by_assumed_rho": {
+        "-0.5": 0.007555922976461781,
+        "0": 0.0064538670660130495,
+        "0.5": 0.00511984650017095,
+        "0.9": 0.00372305931311181
+      }
+    },
+    {
+      "survey": "all",
+      "z_bin": [
+        0.6,
+        1.2
+      ],
+      "n": 180,
+      "mean_local_uv": 0.4515945632755555,
+      "mean_global_uv": 0.4041786951283333,
+      "mean_local_minus_global": 0.047415868147222213,
+      "median_local_minus_global": 0.06680812094999997,
+      "SN_sampling_bootstrap95": [
+        0.019443945679180553,
+        0.07765125712644443
+      ],
+      "measurement_only_SE_by_assumed_rho": {
+        "-0.5": 0.007868421047692304,
+        "0": 0.006689379603897988,
+        "0.5": 0.005252004301819024,
+        "0.9": 0.003721847518014252
+      }
+    },
+    {
+      "survey": "SDSS",
+      "z_bin": [
+        0.06,
+        0.3
+      ],
+      "n": 309,
+      "mean_local_uv": 0.5843671969957929,
+      "mean_global_uv": 0.5500524138035598,
+      "mean_local_minus_global": 0.03431478319223301,
+      "median_local_minus_global": 0.08326639359999999,
+      "SN_sampling_bootstrap95": [
+        0.006206875188665049,
+        0.05758073867497572
+      ],
+      "measurement_only_SE_by_assumed_rho": {
+        "-0.5": 0.007077578862375208,
+        "0": 0.0059877163852375456,
+        "0.5": 0.0046490184412350975,
+        "0.9": 0.0031971663129192205
+      }
+    },
+    {
+      "survey": "SDSS",
+      "z_bin": [
+        0.3,
+        0.6
+      ],
+      "n": 41,
+      "mean_local_uv": 0.5032114942609756,
+      "mean_global_uv": 0.5696380794170732,
+      "mean_local_minus_global": -0.06642658515609756,
+      "median_local_minus_global": -0.012750006800000047,
+      "SN_sampling_bootstrap95": [
+        -0.14745937634408537,
+        0.004438218265426823
+      ],
+      "measurement_only_SE_by_assumed_rho": {
+        "-0.5": 0.025156276893611707,
+        "0": 0.021464332407750544,
+        "0.5": 0.016988138929051592,
+        "0.9": 0.012284148449226607
+      }
+    },
+    {
+      "survey": "SNLS5",
+      "z_bin": [
+        0.06,
+        0.3
+      ],
+      "n": 26,
+      "mean_local_uv": 0.6541628424653846,
+      "mean_global_uv": 0.590809234323077,
+      "mean_local_minus_global": 0.0633536081423077,
+      "median_local_minus_global": 0.06642647525,
+      "SN_sampling_bootstrap95": [
+        0.009368871375384622,
+        0.11510102436807693
+      ],
+      "measurement_only_SE_by_assumed_rho": {
+        "-0.5": 0.01016978480920939,
+        "0": 0.008500041378853004,
+        "0.5": 0.006409125043155306,
+        "0.9": 0.004017191571243555
+      }
+    },
+    {
+      "survey": "SNLS5",
+      "z_bin": [
+        0.3,
+        0.6
+      ],
+      "n": 136,
+      "mean_local_uv": 0.48705357787058823,
+      "mean_global_uv": 0.4538644841470588,
+      "mean_local_minus_global": 0.033189093723529406,
+      "median_local_minus_global": 0.041625918499999984,
+      "SN_sampling_bootstrap95": [
+        0.005718932216194848,
+        0.0600431563733272
+      ],
+      "measurement_only_SE_by_assumed_rho": {
+        "-0.5": 0.00626008383992031,
+        "0": 0.005355353644693503,
+        "0.5": 0.004262742736388458,
+        "0.9": 0.0031247249508001528
+      }
+    },
+    {
+      "survey": "SNLS5",
+      "z_bin": [
+        0.6,
+        1.2
+      ],
+      "n": 180,
+      "mean_local_uv": 0.4515945632755555,
+      "mean_global_uv": 0.4041786951283333,
+      "mean_local_minus_global": 0.047415868147222213,
+      "median_local_minus_global": 0.06680812094999997,
+      "SN_sampling_bootstrap95": [
+        0.01692662159068055,
+        0.07670541742472221
+      ],
+      "measurement_only_SE_by_assumed_rho": {
+        "-0.5": 0.007868421047692304,
+        "0": 0.006689379603897988,
+        "0.5": 0.005252004301819024,
+        "0.9": 0.003721847518014252
+      }
+    },
+    {
+      "survey": "CfAIII",
+      "z_bin": [
+        0.06,
+        0.3
+      ],
+      "n": 3,
+      "mean_local_uv": 0.34796483753333335,
+      "mean_global_uv": 0.8478122491,
+      "mean_local_minus_global": -0.4998474115666667,
+      "median_local_minus_global": -0.09435218509999999,
+      "SN_sampling_bootstrap95": [
+        -1.3201868825,
+        -0.08811950643333333
+      ],
+      "measurement_only_SE_by_assumed_rho": {
+        "-0.5": 0.0877172829062285,
+        "0": 0.07835730871103871,
+        "0.5": 0.0677156845673343,
+        "0.9": 0.05780874348064721
+      }
+    },
+    {
+      "survey": "CfAIV",
+      "z_bin": [
+        0.06,
+        0.3
+      ],
+      "n": 2,
+      "mean_local_uv": 0.38163982975,
+      "mean_global_uv": 0.6353705111500001,
+      "mean_local_minus_global": -0.25373068140000005,
+      "median_local_minus_global": -0.25373068140000005,
+      "SN_sampling_bootstrap95": [
+        -0.4019331078000001,
+        -0.10552825500000002
+      ],
+      "measurement_only_SE_by_assumed_rho": {
+        "-0.5": 0.04922373282809123,
+        "0": 0.04254717529102516,
+        "0.5": 0.03460561192869067,
+        "0.9": 0.026596567040320648
+      }
+    },
+    {
+      "survey": "CSP",
+      "z_bin": [
+        0.06,
+        0.3
+      ],
+      "n": 1,
+      "mean_local_uv": 0.9705930884,
+      "mean_global_uv": 0.7555608211,
+      "mean_local_minus_global": 0.21503226730000002,
+      "median_local_minus_global": 0.21503226730000002,
+      "SN_sampling_bootstrap95": [
+        0.21503226730000002,
+        0.21503226730000002
+      ],
+      "measurement_only_SE_by_assumed_rho": {
+        "-0.5": 0.0538621686616571,
+        "0": 0.04494110593967151,
+        "0.5": 0.03373829861188558,
+        "0.9": 0.020811742486873754
+      }
+    }
+  ],
+  "cross_survey_tests": [
+    {
+      "source": "SDSS",
+      "target": "SNLS5",
+      "n_source": 166,
+      "n_target": 61,
+      "source_z_range": [
+        0.202154841145,
+        0.39655033265
+      ],
+      "target_z_range": [
+        0.205692463931,
+        0.39152730871
+      ],
+      "standardized_moment_residual": 5.993777696389202e-11,
+      "ess": 40.3356118217111,
+      "largest_weight": 0.07582495671380862,
+      "parameters": [
+        1.1210547012068495,
+        1.6924260297783336,
+        -1.8634266520216416
+      ],
+      "unweighted_source_local_global_offset": -0.012911062206024095,
+      "weighted_source_local_global_offset": -0.05503404968071261,
+      "target_local_global_offset": 0.030751624191803276,
+      "transport_minus_target": -0.08578567387251589,
+      "transport_SN_sampling_bootstrap95": [
+        -0.2027240161959514,
+        0.02786314327718575
+      ],
+      "bootstrap_failed_balance": 0,
+      "heldout_localUV_RMSE": 0.19036975595662098,
+      "heldout_mean_prediction_error": -0.10780975482854557,
+      "global_as_local_RMSE": 0.14312300173051365,
+      "global_as_local_mean_prediction_error": -0.030751624191803276
+    },
+    {
+      "source": "SNLS5",
+      "target": "SDSS",
+      "n_source": 61,
+      "n_target": 166,
+      "source_z_range": [
+        0.205692463931,
+        0.39152730871
+      ],
+      "target_z_range": [
+        0.202154841145,
+        0.39655033265
+      ],
+      "standardized_moment_residual": 9.297726477619506e-11,
+      "ess": 21.914074320242623,
+      "largest_weight": 0.11189000931805003,
+      "parameters": [
+        -1.162254911390948,
+        -0.957322065919074,
+        0.9199021275690749
+      ],
+      "unweighted_source_local_global_offset": 0.030751624191803276,
+      "weighted_source_local_global_offset": 0.02568107247782067,
+      "target_local_global_offset": -0.012911062206024095,
+      "transport_minus_target": 0.038592134683844766,
+      "transport_SN_sampling_bootstrap95": [
+        -0.011212434856451913,
+        0.09159132986839046
+      ],
+      "bootstrap_failed_balance": 1,
+      "heldout_localUV_RMSE": 0.25825025132040197,
+      "heldout_mean_prediction_error": 0.053877128374013136,
+      "global_as_local_RMSE": 0.25649034896984524,
+      "global_as_local_mean_prediction_error": 0.012911062206024095
+    }
+  ],
+  "interpretation": "These are observed selected-host proxy distributions conditioned on a published SED procedure. Neither color nor its between-bin change is converted to Gyr or a distance correction; age/dust/SFH degeneracy and survey selection remain.",
+  "input_sha256": {
+    ".work/host-transport/roman-properties.csv": "e4d176fd7fb60e3174645955ba02286fc8aa60b0accc490c174a004cf199ba3a"
+  },
+  "code_sha256": {
+    "studies/host_ages/code/host_transport/proxies.py": "557771efdde9a76009ea57daf8a6c0ca222412a4c902cbd8d984da260f9ea405",
+    "studies/host_ages/code/host_transport/proxy-design.json": "0817d997c648be52bf7802cb3456241a36783c48f2a68aba1d31915bb7765e70"
+  }
+}

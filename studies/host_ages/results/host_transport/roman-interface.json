@@ -1,0 +1,81 @@
+{
+  "completed_utc": "2026-09-27T01:13:27.441987+00:00",
+  "objects": 881,
+  "photometry_rows": 8810,
+  "survey_checks": {
+    "CSP": {
+      "events": 7,
+      "available_measurements": 35,
+      "negative_fluxes": 0,
+      "implied_zp_median": -1.3749001936957939e-11,
+      "implied_zp_range": [
+        -9.36388744321448e-11,
+        -1.3749001936957939e-11,
+        8.890843616882194e-11
+      ]
+    },
+    "CfAIII": {
+      "events": 55,
+      "available_measurements": 275,
+      "negative_fluxes": 0,
+      "implied_zp_median": -2.8776980798284058e-12,
+      "implied_zp_range": [
+        -9.194067729367816e-11,
+        -2.8776980798284058e-12,
+        9.121059463268466e-11
+      ]
+    },
+    "CfAIV": {
+      "events": 34,
+      "available_measurements": 170,
+      "negative_fluxes": 1,
+      "implied_zp_median": 4.689582056016661e-12,
+      "implied_zp_range": [
+        -8.952483199209382e-11,
+        4.689582056016661e-12,
+        8.520117944499361e-11
+      ]
+    },
+    "SDSS": {
+      "events": 389,
+      "available_measurements": 1945,
+      "negative_fluxes": 47,
+      "implied_zp_median": -1.4246381851990009e-12,
+      "implied_zp_range": [
+        -9.659117949922802e-11,
+        -1.4246381851990009e-12,
+        9.824674407354905e-11
+      ]
+    },
+    "SNLS5": {
+      "events": 396,
+      "available_measurements": 1926,
+      "negative_fluxes": 0,
+      "implied_zp_median": 29.999999994225796,
+      "implied_zp_range": [
+        29.9999974933677,
+        29.999999994225796,
+        30.00000502826405
+      ]
+    }
+  },
+  "output_path": ".work/host-transport/roman-photometry.csv",
+  "output_sha256": "b38422292532e18d440841c98a0916cf9c557f64c4db246414b6a58d14024a32",
+  "properties_path": ".work/host-transport/roman-properties.csv",
+  "properties_sha256": "e4d176fd7fb60e3174645955ba02286fc8aa60b0accc490c174a004cf199ba3a",
+  "native_flux_fits_ascii_agree_atol": 5.1e-07,
+  "ascii_precision_warning": "SDSS-family local maggies are rounded to zero at six-decimal ASCII precision; only FITS retains usable flux precision.",
+  "sdss_calibration": "All positive local SDSS/CfA/CSP flux-magnitude pairs give ZP0 to <1e-9 mag; native FITS fluxes are AB maggies, contrary to the ReadMe nanomaggies label. Multiply by 1e9 for AB nanomaggies.",
+  "upper_limit_semantics": "No censoring flag released: finite flux including negative values with positive error is a measurement; missing/zero errors are unavailable, not upper limits.",
+  "covariance_semantics": "No interband or local-global covariance released; local/global aperture data overlap and must not be multiplied as independent likelihoods.",
+  "mw_semantics": "\u00a73.5 paper describes applying Planck MW extinction in fitting, not a per-object EBV column. Explicit foreground modeling or external map required.",
+  "snls_calibration": "Paper \u00a73.1.1 states Vega image ZP30, verified numerically; CDS DeltaZP conversion text is not reconciled to physical AB magnitudes. Preserve native flux and block absolute AB conversion until resolved.",
+  "code_sha256": {
+    "studies/host_ages/code/host_transport/roman.py": "858d24c491827343e7b06dda3e5f9e1a49ddcca1d367ddaa1e838572b6af0f5e"
+  },
+  "input_sha256": {
+    ".work/host-transport/roman/snprop.fits.gz": "d1a9646ae02f3bd5f1518a7cfdc75c5eecfd52a11498981f2d9e79be6764a37c",
+    ".work/host-transport/roman/ReadMe": "5ef8482db9b8eab2b3a2134d2f2ed88625218ab71bc06585a3b9484e176b89f5",
+    ".work/host-transport/roman/snprop.dat": "0b4ba2d282514342a0e0813c8672a7691e2dcc4472b107978d843af22fbb2ee5"
+  }
+}

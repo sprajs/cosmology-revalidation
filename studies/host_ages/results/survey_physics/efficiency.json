@@ -1,0 +1,300 @@
+{
+  "code_sha256": "7844d31ec96fd99630cd47725097124f5df5cd435025db65db7689d2d0c640ec",
+  "input": {
+    "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/SNDATA_ROOT/models/searcheff/SEARCHEFF_zHOST_DES-SN5YR_OBS.DAT.gz",
+    "sha256": "b0a110d525f64f4fe7543cff53bcbc6ed844c39289415ac8269ca27a42be398f"
+  },
+  "current_native_original_map_failure": {
+    "event": 37,
+    "efficiency": 1.004,
+    "status": "fatal guard; preserved .work/survey-physics/pilot.log"
+  },
+  "legacy_source": {
+    "commit": "8ccf23a17cd98ac667dbc9e9666970c1e36246af",
+    "date": "2025-11-12",
+    "url": "https://github.com/RickKessler/SNANA/blob/8ccf23a17cd98ac667dbc9e9666970c1e36246af/src/sntools_trigger.c",
+    "sha256": "b1643a41fb83a974e55f2534e1db5f9da48162a96c45c17037c68fd77c91db81",
+    "rule": "Uniform variate RAN>EFF, with no host-efficiency bound check. Mathematically identical to saturating the interpolated probability at0/1."
+  },
+  "maps": [
+    {
+      "fields": "C1+C2",
+      "peak_range": [
+        56300.0,
+        57500.0
+      ],
+      "grid_nodes": 38,
+      "invalid_original_nodes": 0,
+      "raw_probability_max": 1.0,
+      "manual_vs_scipy_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_saturated_interpolation_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_rms": 8.30814836211045e-18,
+      "held_out_grid_knot_rmse": 0.05223237107613719,
+      "legacy_threshold_equals_saturated_probability": true
+    },
+    {
+      "fields": "C1+C2",
+      "peak_range": [
+        57500.0,
+        57900.0
+      ],
+      "grid_nodes": 38,
+      "invalid_original_nodes": 2,
+      "raw_probability_max": 1.008,
+      "manual_vs_scipy_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_saturated_interpolation_max": 0.0029955035105850847,
+      "bounded_grid_vs_legacy_rms": 0.00033016499535632024,
+      "held_out_grid_knot_rmse": 0.0684155770016638,
+      "legacy_threshold_equals_saturated_probability": true
+    },
+    {
+      "fields": "C1+C2",
+      "peak_range": [
+        57900.0,
+        58300.0
+      ],
+      "grid_nodes": 38,
+      "invalid_original_nodes": 0,
+      "raw_probability_max": 1.0,
+      "manual_vs_scipy_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_saturated_interpolation_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_rms": 5.438959822042073e-18,
+      "held_out_grid_knot_rmse": 0.047321335817254895,
+      "legacy_threshold_equals_saturated_probability": true
+    },
+    {
+      "fields": "E1+E2",
+      "peak_range": [
+        56300.0,
+        57500.0
+      ],
+      "grid_nodes": 38,
+      "invalid_original_nodes": 1,
+      "raw_probability_max": 1.008,
+      "manual_vs_scipy_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_saturated_interpolation_max": 0.006832663457257637,
+      "bounded_grid_vs_legacy_rms": 0.0006156185077727407,
+      "held_out_grid_knot_rmse": 0.08193882222875366,
+      "legacy_threshold_equals_saturated_probability": true
+    },
+    {
+      "fields": "E1+E2",
+      "peak_range": [
+        57500.0,
+        57900.0
+      ],
+      "grid_nodes": 38,
+      "invalid_original_nodes": 0,
+      "raw_probability_max": 1.0,
+      "manual_vs_scipy_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_saturated_interpolation_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_rms": 7.021666937153402e-18,
+      "held_out_grid_knot_rmse": 0.066472683465156,
+      "legacy_threshold_equals_saturated_probability": true
+    },
+    {
+      "fields": "E1+E2",
+      "peak_range": [
+        57900.0,
+        58300.0
+      ],
+      "grid_nodes": 38,
+      "invalid_original_nodes": 1,
+      "raw_probability_max": 1.003,
+      "manual_vs_scipy_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_saturated_interpolation_max": 0.002951768161986945,
+      "bounded_grid_vs_legacy_rms": 0.0003447228074676174,
+      "held_out_grid_knot_rmse": 0.043600290069191604,
+      "legacy_threshold_equals_saturated_probability": true
+    },
+    {
+      "fields": "S1+S2",
+      "peak_range": [
+        56300.0,
+        57500.0
+      ],
+      "grid_nodes": 38,
+      "invalid_original_nodes": 1,
+      "raw_probability_max": 1.008,
+      "manual_vs_scipy_max": 3.3306690738754696e-16,
+      "bounded_grid_vs_legacy_saturated_interpolation_max": 0.0071854205392326564,
+      "bounded_grid_vs_legacy_rms": 0.0005990845142483445,
+      "held_out_grid_knot_rmse": 0.05726358045965012,
+      "legacy_threshold_equals_saturated_probability": true
+    },
+    {
+      "fields": "S1+S2",
+      "peak_range": [
+        57500.0,
+        57900.0
+      ],
+      "grid_nodes": 38,
+      "invalid_original_nodes": 1,
+      "raw_probability_max": 1.008,
+      "manual_vs_scipy_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_saturated_interpolation_max": 0.006957042303468497,
+      "bounded_grid_vs_legacy_rms": 0.0005806291182512065,
+      "held_out_grid_knot_rmse": 0.04035340207248367,
+      "legacy_threshold_equals_saturated_probability": true
+    },
+    {
+      "fields": "S1+S2",
+      "peak_range": [
+        57900.0,
+        58300.0
+      ],
+      "grid_nodes": 38,
+      "invalid_original_nodes": 0,
+      "raw_probability_max": 1.0,
+      "manual_vs_scipy_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_saturated_interpolation_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_rms": 7.021666937153402e-18,
+      "held_out_grid_knot_rmse": 0.040305816249387776,
+      "legacy_threshold_equals_saturated_probability": true
+    },
+    {
+      "fields": "X1+X2",
+      "peak_range": [
+        56300.0,
+        57500.0
+      ],
+      "grid_nodes": 38,
+      "invalid_original_nodes": 0,
+      "raw_probability_max": 1.0,
+      "manual_vs_scipy_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_saturated_interpolation_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_rms": 7.021666937153402e-18,
+      "held_out_grid_knot_rmse": 0.08352183582048188,
+      "legacy_threshold_equals_saturated_probability": true
+    },
+    {
+      "fields": "X1+X2",
+      "peak_range": [
+        57500.0,
+        57900.0
+      ],
+      "grid_nodes": 38,
+      "invalid_original_nodes": 1,
+      "raw_probability_max": 1.008,
+      "manual_vs_scipy_max": 3.3306690738754696e-16,
+      "bounded_grid_vs_legacy_saturated_interpolation_max": 0.007233511279893912,
+      "bounded_grid_vs_legacy_rms": 0.000874306174125023,
+      "held_out_grid_knot_rmse": 0.052448574253038296,
+      "legacy_threshold_equals_saturated_probability": true
+    },
+    {
+      "fields": "X1+X2",
+      "peak_range": [
+        57900.0,
+        58300.0
+      ],
+      "grid_nodes": 38,
+      "invalid_original_nodes": 0,
+      "raw_probability_max": 1.0,
+      "manual_vs_scipy_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_saturated_interpolation_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_rms": 5.874748045952206e-18,
+      "held_out_grid_knot_rmse": 0.03218672543328456,
+      "legacy_threshold_equals_saturated_probability": true
+    },
+    {
+      "fields": "C3",
+      "peak_range": [
+        56300.0,
+        57500.0
+      ],
+      "grid_nodes": 38,
+      "invalid_original_nodes": 1,
+      "raw_probability_max": 1.008,
+      "manual_vs_scipy_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_saturated_interpolation_max": 0.00728145759578247,
+      "bounded_grid_vs_legacy_rms": 0.0006587937821029419,
+      "held_out_grid_knot_rmse": 0.06906135379671682,
+      "legacy_threshold_equals_saturated_probability": true
+    },
+    {
+      "fields": "C3",
+      "peak_range": [
+        57500.0,
+        57900.0
+      ],
+      "grid_nodes": 38,
+      "invalid_original_nodes": 1,
+      "raw_probability_max": 1.008,
+      "manual_vs_scipy_max": 3.3306690738754696e-16,
+      "bounded_grid_vs_legacy_saturated_interpolation_max": 0.007603569470969851,
+      "bounded_grid_vs_legacy_rms": 0.0007272822165978299,
+      "held_out_grid_knot_rmse": 0.08561464621814906,
+      "legacy_threshold_equals_saturated_probability": true
+    },
+    {
+      "fields": "C3",
+      "peak_range": [
+        57900.0,
+        58300.0
+      ],
+      "grid_nodes": 38,
+      "invalid_original_nodes": 1,
+      "raw_probability_max": 1.008,
+      "manual_vs_scipy_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_saturated_interpolation_max": 0.007746242401885706,
+      "bounded_grid_vs_legacy_rms": 0.0006895021634315223,
+      "held_out_grid_knot_rmse": 0.06767374154070137,
+      "legacy_threshold_equals_saturated_probability": true
+    },
+    {
+      "fields": "X3",
+      "peak_range": [
+        56300.0,
+        57500.0
+      ],
+      "grid_nodes": 38,
+      "invalid_original_nodes": 0,
+      "raw_probability_max": 1.0,
+      "manual_vs_scipy_max": 3.3306690738754696e-16,
+      "bounded_grid_vs_legacy_saturated_interpolation_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_rms": 7.364386412590295e-18,
+      "held_out_grid_knot_rmse": 0.07672889631300431,
+      "legacy_threshold_equals_saturated_probability": true
+    },
+    {
+      "fields": "X3",
+      "peak_range": [
+        57500.0,
+        57900.0
+      ],
+      "grid_nodes": 38,
+      "invalid_original_nodes": 1,
+      "raw_probability_max": 1.008,
+      "manual_vs_scipy_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_saturated_interpolation_max": 0.006994704140651065,
+      "bounded_grid_vs_legacy_rms": 0.0006161585705780845,
+      "held_out_grid_knot_rmse": 0.08258685267822062,
+      "legacy_threshold_equals_saturated_probability": true
+    },
+    {
+      "fields": "X3",
+      "peak_range": [
+        57900.0,
+        58300.0
+      ],
+      "grid_nodes": 38,
+      "invalid_original_nodes": 1,
+      "raw_probability_max": 1.008,
+      "manual_vs_scipy_max": 2.220446049250313e-16,
+      "bounded_grid_vs_legacy_saturated_interpolation_max": 0.007206289965884016,
+      "bounded_grid_vs_legacy_rms": 0.0006584964746145269,
+      "held_out_grid_knot_rmse": 0.03644052366124673,
+      "legacy_threshold_equals_saturated_probability": true
+    }
+  ],
+  "maps_tested": 18,
+  "random_interpolation_points": 180000,
+  "invalid_nodes": 12,
+  "maximum_probability_change": 0.007746242401885706,
+  "limitations": [
+    "Held-out knots are released map values, not independent discovery/redshift follow-up events.",
+    "Interpolation is validated numerically; the empirical selection model is not re-estimated here.",
+    "Bounded-node interpolation differs slightly from legacy post-interpolation saturation; recorded response cannot assume equality."
+  ]
+}

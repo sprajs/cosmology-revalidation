@@ -1,0 +1,16 @@
+{
+  "scope": "Availability of eight-band host photometry conditional on already-selected DES-Dovekie SNe; not discovery/classification efficiency or SNIa population completeness.",
+  "cohort": "All selected DES events in the three named C3,E2,X3 fields, exact metadata CID joined to corrected SMP host photometry. Full catalogue numbers reported before finite-feature exclusion.",
+  "label": "Unique <=1arcsec actual-host/deep-counterpart match, all four published mask/fit flags zero, star/galaxy class1 and hostDLR<4.",
+  "features": [
+    "redshift",
+    "corrected observed host i magnitude",
+    "corrected observed host g-i color"
+  ],
+  "model": "Logistic regression, source-training mean/SD feature scaling, ridge penalty0.5*sum(beta_nonintercept^2). No feature selection or penalty tuning.",
+  "validation": "Leave one of C3,E2,X3 out; fit using other two fields, report held-out Brier, AUC, mean predicted probability and observed availability. Training selection is never calibrated to held-out labels.",
+  "transport_diagnostic": "Descriptive inverse probability weights1/p for available subset using held-out p; report effective sample size and observed means, no correction of unobserved age distribution. Positivity failure and residual imbalance remain explicit.",
+  "uncertainty": "No claimed unbiased transport estimator: three fields cannot identify common calibration/footprint selection, and missingness need not be conditional only on the three measured covariates.",
+  "seed": 260927,
+  "composite_field_parsing": "Metadata values such as C1+C3 include the named target field and are assigned to it. No metadata row overlaps two of C3,E2,X3. This parsing clarification includes all declared target-field events."
+}

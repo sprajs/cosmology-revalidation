@@ -1,0 +1,13 @@
+{
+  "design_scope": "Observed local/global environment proxy transport; no ages assigned from colors.",
+  "seed": 260927,
+  "bootstrap_draws": 500,
+  "primary_survey_comparison": "SDSS to SNLS5 in common observed redshift interval 0.2<=z<0.4",
+  "eligibility": "Finite released local/global U-V with positive errors and finite positive stellar mass; sentinel U-V>=90 excluded. No brightness residual selection.",
+  "weighting": "Entropy-balance SDSS to SNLS5 means of redshift, released global U-V, released log stellar mass. Report feasibility, moment residuals, ESS, maximum weight; no weight clipping or arbitrary extrapolation.",
+  "predictive_test": "Fit local U-V from intercept, global U-V, logmass and redshift on SDSS in overlap. Evaluate on SNLS5 overlap; report RMSE and mean prediction error, compare global-U-V-as-local approximation. Reverse survey prediction also reported.",
+  "measurement_covariance": "Local/global U-V share photons and SED inference. For mean local-global contrast, separately report nominal measurement-only SE for assumed correlations rho=-0.5,0,0.5,0.9; no known joint covariance or calibrated latent-age CI.",
+  "sampling": "Bootstrap unique SN identifiers (galaxy IDs absent, so shared-host uncertainty not independently resolved). Unweighted descriptive contrasts report sampling uncertainty separately.",
+  "redshift_bins": [[0.06,0.3],[0.3,0.6],[0.6,1.2]],
+  "calibration_semantics": "Released rest U-V depends on trained EGALITE SED interpolation and foreground model. This common rest-frame proxy is not raw color, chronological age, or progenitor delay. Cross-survey validation tests transport under that inference procedure only."
+}

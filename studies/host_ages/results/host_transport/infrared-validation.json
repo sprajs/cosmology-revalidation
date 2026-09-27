@@ -1,0 +1,67 @@
+{
+  "completed_utc": "2026-09-27T01:50:15.520387+00:00",
+  "passed": true,
+  "independent_image_checks": [
+    {
+      "field": "CDFS",
+      "band_um": 250,
+      "valid_pixels": 499,
+      "manual_TAN_max_error_pixels": 1.4551915228366852e-11,
+      "native_flux_error_and_mask_exact": true
+    },
+    {
+      "field": "CDFS",
+      "band_um": 350,
+      "valid_pixels": 503,
+      "manual_TAN_max_error_pixels": 1.0459189070388675e-11,
+      "native_flux_error_and_mask_exact": true
+    },
+    {
+      "field": "CDFS",
+      "band_um": 500,
+      "valid_pixels": 506,
+      "manual_TAN_max_error_pixels": 7.275957614183426e-12,
+      "native_flux_error_and_mask_exact": true
+    },
+    {
+      "field": "XMM-LSS",
+      "band_um": 250,
+      "valid_pixels": 507,
+      "manual_TAN_max_error_pixels": 1.8417267710901797e-11,
+      "native_flux_error_and_mask_exact": true
+    },
+    {
+      "field": "XMM-LSS",
+      "band_um": 350,
+      "valid_pixels": 507,
+      "manual_TAN_max_error_pixels": 1.3301360013429075e-11,
+      "native_flux_error_and_mask_exact": true
+    },
+    {
+      "field": "XMM-LSS",
+      "band_um": 500,
+      "valid_pixels": 506,
+      "manual_TAN_max_error_pixels": 9.208633855450898e-12,
+      "native_flux_error_and_mask_exact": true
+    }
+  ],
+  "covariances_recomputed": 1004,
+  "max_covariance_difference_Jy2": 1.0842021724855044e-19,
+  "minimum_covariance_eigenvalue_Jy2": 1.6253786590426216e-06,
+  "eightband_overlap_hosts": 265,
+  "limitations": "Algebraic and provenance validation does not turn spatially correlated confusion samples into an exact Gaussian host likelihood or calibrate the assumed Gaussian beam.",
+  "input_sha256": {
+    ".work/host-transport/des-spire-photometry.csv": "f779f3f65b27902d9db825750407a421b73d22d760c77819ad82d8f707118c0a",
+    ".work/host-transport/des-spire-covariance.json": "70a0e7096a6c2ee529506898aaeba642ad9ef118579112d23cd89c87c97f1b04",
+    ".work/host-transport/des-spire-sky-samples.npz": "710688f8c40b03ae4c7d3a5e36c18cd8107486b81f1b591a02a1a8fb7d847351",
+    ".work/host-transport/help/CDFS-SWIRE-NEST_image_250_SMAP_v6.0.fits": "2061639ebabd065cc3c65e408f9ad4461cd84798d10b0db918c9faea7eabaf0b",
+    ".work/host-transport/help/CDFS-SWIRE-NEST_image_350_SMAP_v6.0.fits": "1db0defa038cd5e312be9075fc9a749ffdf69bd55008105d361a9858b29d5dbb",
+    ".work/host-transport/help/CDFS-SWIRE-NEST_image_500_SMAP_v6.0.fits": "dde5ca9f1986e417241b3a31d80d2aa2876767700790108f2885ea0f6fbe20c3",
+    ".work/host-transport/help/XMM-LSS-NEST_image_250_SMAP_v6.0.fits": "07acec3dad3d7134baba39570559b7a9b79f95e30c3deca09be2aa2c6afe6ad1",
+    ".work/host-transport/help/XMM-LSS-NEST_image_350_SMAP_v6.0.fits": "6e462061703b28ec09326bd0513e6cf84e9edd5303618d2dcb5b0791ac17ffb2",
+    ".work/host-transport/help/XMM-LSS-NEST_image_500_SMAP_v6.0.fits": "3a6585a7004511c8dec1686c17ab95e76aee8818a5bb23c604fea421b1a35b31"
+  },
+  "code_sha256": {
+    "studies/host_ages/code/host_transport/validate_infrared.py": "76ac2053d12344548b0060a1d9632eed8af478050afbc9e8c2b79021190203ed"
+  }
+}

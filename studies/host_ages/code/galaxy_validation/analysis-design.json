@@ -1,0 +1,24 @@
+{
+  "frozen_utc": "2026-09-27T01:22:10.325254+00:00",
+  "status": "Exact analysis specification before examination of new spectral association and brightness outcomes. Catalogue counts and spectrum coverage already known.",
+  "seed": 2026092801,
+  "diagnostics": [
+    "Dn4000",
+    "Hdelta_A",
+    "Balmer_Halpha_Hbeta",
+    "FIREFLY log10 mass-weighted age/Gyr"
+  ],
+  "index_quality": "MPA reliable=1, finite measurement and positive standard error; Dn4000 positive. Independently integrated bands require >=90% unmasked coverage and positive means.",
+  "associations": "Within each age catalogue collapse repeated physical hosts; raw Spearman and partial Spearman conditioning on ranked host mass and redshift. Bootstrap physical hosts, 2000 draws.",
+  "brightness_cohort": "Previously defined 401 TITAN-ZTF sample intersected with unique reliable spectra and both valid Dn4000 and Hdelta; same cohort for every nested model.",
+  "brightness_models": [
+    "nonlinear SALT + soft mass step + local g-z + linear redshift",
+    "base + continuous TITAN mass + Av + metallicity",
+    "host controls + age",
+    "host controls + Dn4000 + Hdelta",
+    "host controls + Dn4000 + Hdelta + age"
+  ],
+  "uncertainties": "Primary conditions on SED medians and measured index values; sensitivity adds independent propagated Dn4000/Hdelta errors, not a full latent spectral likelihood. SALT covariance and nuisance-dependent variance preserved. Five physical-host folds with seed above; heldout log scores include fitted coefficient covariance. Bootstrap heldout scores conditional on fitted folds.",
+  "dust": "Halpha,Hbeta,OIII5007,NII6584 each S/N>3; Kauffmann BPT starforming cut logOIII/Hbeta < .61/(logNII/Halpha-.05)+1.3 and logNII/Halpha<.05. Intrinsic Balmer decrement2.86 and F99Rv3.1 only explicit conditional conversion, never SN dust.",
+  "aperture": "SDSS fibre diameter3arcsec; MaNGA central3arcsec vs1Re elliptical shell, not integrated total. Fiducial Om.3,H0=70 only for aperture kpc; not new cosmological inference."
+}

@@ -1,0 +1,42 @@
+{
+  "device": "NVIDIA GeForce RTX 2080 Ti",
+  "driver_version": 13040,
+  "runtime_version": 12090,
+  "cupy": "13.6.0",
+  "numpy": "1.26.4",
+  "shapes": {
+    "stellar_spectra": [
+      952,
+      1936
+    ],
+    "combined_observer_kernels": [
+      1936,
+      2648
+    ]
+  },
+  "objects": 331,
+  "cold_GPU_seconds": 0.25270854600239545,
+  "median_seconds": {
+    "CPU_float64_all_hosts": 0.1454833229945507,
+    "GPU_float64_resident": 0.03159691600012593,
+    "GPU_float64_with_host_transfers": 0.033691773016471416,
+    "GPU_float32_resident_with_output_transfer": 0.0019838100124616176,
+    "CPU_float64_one_host": 0.0012839654955314472,
+    "GPU_float64_one_host_resident_inputs_and_output_transfer": 0.000684910497511737
+  },
+  "double_max_relative_difference": 1.194757878599569e-15,
+  "float32_max_relative_difference": 5.594320986780592e-07,
+  "CPU_to_GPU_batch_speedup_including_transfers": 4.318066696087084,
+  "interpretation": "Actual DES forward-model matrix products, not random benchmark arrays. GPU result calculated and retained locally; published bounds still use checked float64 CPU products. Small conic optimizations dominate the full analysis and remain compiled CPU work; matrix speedup is not whole-program speedup.",
+  "fixture_sha256": "1fd76489417a223086768782c9591e24fb82e39779eac39a3d202551a3c0e668",
+  "dependencies_sha256": {
+    "studies/host_ages/code/physical_ages/model.py": "3d569442d1b5e645c5880919015e83cb6731fddc0a54d3b2952fbb78da4a7779",
+    "studies/host_ages/code/physical_ages/fit.py": "9c09b432121fafde8c6d08cd1f29d0bc0e4914ec52e63e05bdd86d8cb386168c",
+    "studies/host_ages/code/physical_ages/design.json": "e93da4df1a4ff76e5b6883e2a52a643b63c8dd518ad2572c58c581f945fc4daa",
+    ".work/physical-ages/ssp-library.npz": "645afef7ea83f1f990891dd11543f0ebc29f0745eac8cba8e1a8b141c9c0a651",
+    ".work/host-transport/filters/des-deep-responses.npz": "aef0781d083713caebcab0ddad09c5d2907455790fa91712c693b8dbb157a557",
+    ".work/host-transport/des-deep-photometry.csv": "a8491494c3b8232d27c80bb981250ae81697d662015a20be52bddfa94a088391"
+  },
+  "GPU_result_sha256": "8a1d686b3956b4537d1f0601792f99a76aa458944e3e7e4ce3424cb0c860d695",
+  "code_sha256": "cc8dae2a860c1d43f8bceede290f6c723ec075e98204a4794b7f879baa2c8b03"
+}

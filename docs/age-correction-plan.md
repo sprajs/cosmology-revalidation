@@ -4,6 +4,8 @@
 
 The primary objective is to measure **the redshift-dependent distance bias left after standardization**, and determine whether an age-aware model reduces it without correcting the same effect twice. Identifying the ultimate explosion physics is a separate, harder objective. We may resolve the first question within a bounded population domain without uniquely resolving the second.
 
+The later [physical extension](physical-program-results.md) executes independent spectroscopic/aperture validation, high-redshift and infrared data recovery, flexible physical stellar fits, and photon-level survey interventions with refitted corrections. Its final section identifies the remaining measured and computational gates. It supersedes earlier availability limits where new public observations were recovered; it does not retrospectively alter this design or claim complete survey-wide inference.
+
 ## 1. Define the alternatives and the quantity to measure
 
 | Hypothesis | Testable prediction |

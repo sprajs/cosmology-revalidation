@@ -1,7 +1,7 @@
 {
   "format": "cosmology-revalidation-edition-v2",
   "created_utc": "2026-09-26T22:59:42.123954+00:00",
-  "scope": "Current manuscript, primary analysis code, topic-organized original research and September 27 age-correction experiments. The new studies contain observational comparisons and conditional recovery/transport tests, not a completed survey-wide physical age correction. Historical source preservation does not imply successful reproduction of every native or unfinished study.",
+  "scope": "Current manuscript, original studies, age-correction comparisons and galaxy/survey physical extension. Successful numerical checks do not establish all physical hypotheses or a complete unified cosmology measurement.",
   "inputs": {
     "manifest": "provenance/inputs.json",
     "sha256": "c0221970a9ac379c94a11ee02e1b5c2927b27a26e28bb4432196275c6a7c42ad",
@@ -54,7 +54,10 @@
     "workflows/timing.py": "1031d7c5398d024278cc4b7f2408539e40fabe738e05b877b28b506a9d9cf7e0"
   },
   "documentation_sha256": {
-    "README.md": "f1232d0fddb0ed0242763405baa21db53581f5b84001dcb153ae01262f6dc443",
+    "README.md": "59d23f41d3cf87c2da87e35f28cb9ad9b962435c9d8e4e9cb4f0d858d08fde9a",
+    "docs/age-correction-evidence.md": "5d8a9691db3b6c857fffa66aa27b4c4232a4b743c538a37d295ef8111324eb6c",
+    "docs/age-correction-plan.md": "2338d7b079c46df08d02942fb9efbb2e6e8caa6de590dbeee0774eae588a0b2f",
+    "docs/age-correction-results.md": "dc4c5ecb821563e342eb9688171d5b93809335e84d3eb8a930acc2e5e0f002bf",
     "docs/experimental-plan.md": "a668a540d615e08d0a2ea42447910e3723d08aadf65ab440af5a2eca9ff968e3",
     "docs/methods/README.md": "89e4226ff41a1d692d55e77421e6efe6750c6ee2c9a3a3b2e6120d1f82989d73",
     "docs/methods/constructed-models.md": "5e90b189e446b12a0b54cec3b628418acae99fa9834f287ca6d548d605ad11b8",
@@ -66,6 +69,7 @@
     "docs/methods/hst.md": "2daa7e734b47cb5171757968934ba139bf2c98f9943fdd0822219ccf962f92c8",
     "docs/methods/populations.md": "2feb7bf29be8025b310c34d0163ce2fa03c3ce9cdc29616949ad637dcfccbc44",
     "docs/methods/raisin.md": "3fcff08f190507bf9c02b14709257c930e8d52dcc6cf91eaf8646387c48d1c95",
+    "docs/physical-program-results.md": "87cfcadced896e0e4078fa432432546efda001758e4594e40a7668c036be97cd",
     "docs/physics/README.md": "97cbf63cf146c7a1381d4ec3a907f7d869b469baedc40c6931c47a46c434c865",
     "docs/physics/cosmology-populations.md": "647f8220eca0541b024556969b9062b57ebeca88bcc306bb40f8fc988e503b90",
     "docs/physics/extinction.md": "bb6447d2ed2aacb2f7656dbc92447265be21bfde054741d3ea08f630d63f1d1b",
@@ -76,9 +80,7 @@
     "docs/validation/hst.md": "fb8034c539b21f2966263750824ebc409180d0f1030c51450d0b990c3b7ab27e",
     "docs/validation/infrared.md": "69813857cad720ce2eff843900442bb1a84103f32eae50f07ab8638857b54ea2",
     "docs/workflows.md": "4774fd021cc5370d51828a632f40e1f83672215a4db8923537c1d659d44c90bc",
-    "results/README.md": "74c7fef76dfde30669a1f81503dab66df28af01bd1e6d17699da58ce5eb3374f",
-    "validation/README.md": "37805e14ee70e2f6b735032513edd2a29dff0a4cff87b291d2905fee54092023",
-    "provenance/README.md": "4e27f19b19c2d1baba1bee1ab73b6095ce687e3a60eaecb2bdff30b43cdad1e2",
+    "provenance/README.md": "fb84565d33b69b5e6800596a2436efccb33a46f6a87bf2e7270d3e842ad453a5",
     "studies/README.md": "352c28ba2ff8ab6effaf448eb155b73dc5f30f8e5c9ed8730eb32f30fe7d56f4",
     "studies/acquisition/README.md": "59d18b15f794eeb3fa45d8a8c75508e8dfeec222a4d6bbf8cbcdc4cdcf9a50ad",
     "studies/calibration/README.md": "6a6f33805ea438cec5784e131ab65ac89f1f60089dc4029d2fe05bb9bd08b095",
@@ -129,8 +131,20 @@
     "studies/expansion/notes/directional-audit.md": "f5db20914c1493e8e867ad2ab4c87be85f8d61abba1c8c6522ba1ff102a923b7",
     "studies/expansion/notes/sn-bao-des-design.md": "95b9fa49b5e4b83bd195ab91d8c3dd8b2bc64c00756930fbd2e28482ca323011",
     "studies/expansion/notes/sn-bao-design.md": "94cc798eab476c6c1688409a3b1c8a55b49812340e6e318e36b094ddf02dd242",
-    "studies/host_ages/README.md": "c93007e23defd6cf3f56a6ce1dc3c8df65f7c3c3f2410246bd3af912f741819f",
+    "studies/host_ages/README.md": "ab3a49833998732ab230d63b6b947f8412ff8bc592611fa3ddfd744e2b402c19",
+    "studies/host_ages/code/environment_validation/README.md": "8b94ee901e28ad6538ccf9aed39f97ad9741aa80b3303342ac789a5cd5bc56d3",
+    "studies/host_ages/code/galaxy_validation/README.md": "9a78ff018887a44fc97d11e67391a31475da013994dc860c656af6537c5ad7ca",
+    "studies/host_ages/code/physical_ages/README.md": "d893ef11034672f0eebe9e83843ab5667bd4f30c8c55e9c9257761644ff31853",
+    "studies/host_ages/code/survey_physics/README.md": "aedbe1b010e83273f4d8c2ee1f0d7cd10d1e5ee3b854f4f1e4eb35b09bf11103",
+    "studies/host_ages/notes/age-reconciliation-results.md": "7f29e942b14b2e36282c951d37f94790049b2d697727c82bdf97ddaaa914ae33",
+    "studies/host_ages/notes/age-recovery-results.md": "a2c3b453ad8e978b62b1f5d8ceaf8b0bca891e8aa9d9e1ca9dd1067fb6b95f69",
     "studies/host_ages/notes/age-signal.md": "f2f6b4d782ad9696f4e805400388987fbbe321b916dffefdd37853e1cc1086c6",
+    "studies/host_ages/notes/environment-validation-results.md": "752fa7f6b83b7a2a1d52ccdaafb8e46e2b90a201a08419e21f0b5f9dd09c2349",
+    "studies/host_ages/notes/galaxy-validation-results.md": "f464e4032927f52135d31e65064c4a2dfb9506ae81b02069d5a2f1fa0ae8514e",
+    "studies/host_ages/notes/host-transport-results.md": "7f19b3cb223007dddbcb110020bdadcfedca3dafde8fab83f202cde24e538fe7",
+    "studies/host_ages/notes/physical-ages-results.md": "3a63957ad06a02ba4da7129b207eeaffb2c2c8b09d1f8c1948d248876b12a744",
+    "studies/host_ages/notes/population-transport-results.md": "d9127b0a111ad481303c905af826a981fb690819ffd5f0ae121d986751c9aba2",
+    "studies/host_ages/notes/survey-physics-results.md": "12954baf6bd4e7e5cffa32609674b94173d6941a1a29f39fde2f5adb44b18f11",
     "studies/infrared/README.md": "2f4069e836f8bc74512663dec01714ae12cf9219cece150d33157fe27b1e00f5",
     "studies/infrared/notes/bayesn-signed-optical-engineering.md": "51c3d39628f5483ad13fbb06b042e16a49e2d13decbb6d5942705256b264a23a",
     "studies/infrared/notes/bayesn-signed-optical-pilot.md": "a9007fc7acd8e2f4e99dac34de8ea102a8f2c6f8abe5cce0408c3ed6430a75ed",
@@ -224,14 +238,7 @@
     "studies/population_inference/notes/simulation-residual-feasibility.md": "57b24d7c15119673489ace504d7cc3fbbb92278201b1bcb29d876f330a5ea20d",
     "studies/spectral_models/README.md": "25b1668b1631ff5925b72455dd83975a7b5d34016b32e5fbf5b3152a478e865c",
     "studies/spectral_models/notes/bayesn-distance-identification.md": "fe640afcdd8e7a77f47661a50a821e865a60b04126aa50f8847a56a87dc5e108",
-    "docs/age-correction-evidence.md": "5d8a9691db3b6c857fffa66aa27b4c4232a4b743c538a37d295ef8111324eb6c",
-    "docs/age-correction-plan.md": "b1d549c3223fcbc330a30da759492704ef035c1a4f69064db1f9ebbfed5c8737",
-    "docs/age-correction-results.md": "3d821e757a4d6b4c3f86cc375f489d46ee7c228b0075845e7a0f23775f722adf",
-    "studies/host_ages/code/environment_validation/README.md": "8b94ee901e28ad6538ccf9aed39f97ad9741aa80b3303342ac789a5cd5bc56d3",
-    "studies/host_ages/notes/age-reconciliation-results.md": "7f29e942b14b2e36282c951d37f94790049b2d697727c82bdf97ddaaa914ae33",
-    "studies/host_ages/notes/age-recovery-results.md": "a2c3b453ad8e978b62b1f5d8ceaf8b0bca891e8aa9d9e1ca9dd1067fb6b95f69",
-    "studies/host_ages/notes/environment-validation-results.md": "752fa7f6b83b7a2a1d52ccdaafb8e46e2b90a201a08419e21f0b5f9dd09c2349",
-    "studies/host_ages/notes/population-transport-results.md": "d9127b0a111ad481303c905af826a981fb690819ffd5f0ae121d986751c9aba2"
+    "validation/README.md": "c09944ec299b7de4df351232b86db8d95d39d6b5807ba3346ce68f149d7638e4"
   },
   "study_source_manifest": {
     "path": "provenance/studies.json",
@@ -251,7 +258,7 @@
     ".gitignore": "bf99200a232da37fee68e4ce6f9f5d759968710f81894daf50c6aa757bf49b52",
     ".gitattributes": "52a53f6e5a0663ebd49bb0059cdf10bf73829d8d4d4156393788f3b5ccc88443"
   },
-  "updated_utc": "2026-09-27T00:46:00.416649+00:00",
+  "updated_utc": "2026-09-27T02:21:48.859848+00:00",
   "age_correction_literature_manifest": {
     "path": "provenance/age-correction-literature.json",
     "sha256": "0aea9b44cb08c26028ba625d95afdec3561fa8b6501603b724d12036a71b4617",
@@ -261,5 +268,23 @@
     "path": "provenance/age-correction-execution.json",
     "sha256": "a2b245244815c9a89e88aa3c78f5cafe98a8a542a19eefd3a2c036afed71b398",
     "scope": "New observational calculations, conditional known-design recovery and population-transport sensitivity. Neither universal correction completeness nor a physical residual age correction is identified. The full selected-survey physical programme remains incomplete."
+  },
+  "physical_program_execution_manifest": {
+    "path": "provenance/physical-program-execution.json",
+    "sha256": "f1a6a6e21e6466b27eb3f04983fb620a427ae59f6b8d97a234c53d46757da253",
+    "scope": "Executed observational and conditional physical tests. No complete selected-population luminosity model or new corrected cosmological measurement is identified."
+  },
+  "validation_tools_sha256": {
+    "validation/age_correction_checks.py": "023eda2514240444d3573d75cab7b0f13c993c8d55ce49c00b3c1d64ae0e0653",
+    "validation/core_checks.py": "da33a0dd6620042b88a14f6077aab8653e91d754d66484e850e19468b7363527",
+    "validation/des_checks.py": "4e34bd6d01d3f767e6f4bb039986dad9777e07a8587a135fe8a78868232d14b9",
+    "validation/figures.py": "a944c12b46e3aad51cccbc1c4c3cd83d297d285b1d1645a58ffc6c044aa78069",
+    "validation/hst_checks.py": "afba68e6384dc5b7d9e051b9781d6ebd2a956423905415b8a53e0e5662d19d71",
+    "validation/physical_program_checks.py": "b6e2cc3db8e7c04d9e1fd29d98a1c3dc607f78f3107da92e02fcf11ee569a2db",
+    "validation/raisin_checks.py": "492bdc0c6aa848706b996d6e591e1a8dd6d8b56b65049a0dc152facd06513a03",
+    "validation/record.py": "4e5a248ddbe5df3bc6412bee8d0832b8cf955a167f3246f583df81be7f59a6fc",
+    "validation/record_physical_program.py": "dd223970efcd0f5c7b4e1578daa8a511a2dcd2f23180369b485b566b934767a6",
+    "validation/run.py": "73fb1070ff56b511dc6b409b5f57d678b8f1d280fc8d92566b62c3321fac7471",
+    "validation/studies_checks.py": "0a2acb5e66ff774ffc755a3576435143b9968ca35ade7ad0a17e869dc11ad027"
   }
 }

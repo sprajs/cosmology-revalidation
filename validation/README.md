@@ -7,7 +7,7 @@ The [manuscript](../README.md) is supported by a full workflow replay and separa
 - All **391 input files** match their recorded sizes and hashes.
 - The **19 default workflow summaries** exactly matched the previous edition in the September 26 replay.
 - All **five supplied alternatives** and **five additional seed runs** completed with their applicable convergence gates.
-- Independent checks found no new numerical defect in the inspected calculations. Physical interpretation and historical reconstruction limits remain explicit.
+- The original replay checks passed for their stated scope. The later physical programme found a solver-version defect on a new stellar design and a separate cancellation artefact in one exploratory infrared covariance reconstruction; both are documented below. Physical interpretation and historical reconstruction limits remain explicit.
 
 The [current manifest](manifest.json) verifies the 29 published run records and their outputs. Earlier manifests remain in [provenance/history](../provenance/history/) with their original paths and hashes. The [structure verification](reports/structure-verification.json) records a full fresh campaign after the repository reorganization.
 
@@ -63,6 +63,14 @@ The verifier checks input identities, execution status, posterior gates where pr
 CSV/JSON records and figures are versioned. Bulk inputs and full sampler arrays remain local and must be restored or regenerated to perform all checks. Runtime timestamps and compressed-array bytes can vary across executions; numerical comparisons and scientific gates matter separately from provenance hashes.
 
 ## Additional study sources
+
+The [physical-program report](reports/physical-program.json) checks the new galaxy spectroscopy, local and high-redshift photometry, infrared images, stellar-population bounds and native survey simulations. Its [scientific interpretation](../docs/physical-program-results.md) distinguishes supported observations, conditional injections and failed physical gates. The component instructions restore the new inputs before the aggregate check:
+
+```bash
+.venv/bin/python validation/physical_program_checks.py
+```
+
+The physical tests include independent spectral integration, exact object joins, passband quadrature, convex/primal optimization, injection coverage, signed-photon interventions, CPU/CUDA agreement and source/output hashes. Passing these tests does not complete production BBC, stellar-model validation, contamination inference or a unified cosmology fit. The [legacy numerical audit](../studies/host_ages/results/galaxy_validation/legacy-nnls-audit.json) checks older BAO and infrared designs separately: the new NNLS residual defect does not occur there, but analytically cancelled infrared mass modes must be removed before fitting covariance weights. Original cosmological summaries are retained unchanged.
 
 The [age-correction execution report](reports/age-correction-execution.json) checks the September 27 studies separately from the 29 earlier reference runs. It covers new source/input/output identities, GLS and latent-Gaussian equivalence, injected-signal recovery, independent flux and distance integration, held-out predictions and population-integration checks. Run `.venv/bin/python validation/age_correction_checks.py` after regenerating the study outputs; `--archive` selects a restored historical input tree. The [scientific report](../docs/age-correction-results.md) explains which observational hypotheses remain unresolved. Passing these numerical checks does not certify unavailable host likelihoods, survey selection or high-redshift transport.
 

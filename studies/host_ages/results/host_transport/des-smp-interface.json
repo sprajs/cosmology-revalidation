@@ -1,0 +1,144 @@
+{
+  "completed_utc": "2026-09-27T01:46:27.379869+00:00",
+  "candidate_rows": 19706,
+  "selected_DES_metadata_rows": 1623,
+  "corrected_host_mag_source": "Pinned SMP HEAD; its official README logs the December2025 correction. DIFFIMG HEAD and Dovekie metadata retain older discrepant HOST_MAG values; do not treat those as current host photometry. No SN distance effect inferred here.",
+  "deep_comparison": [
+    {
+      "band": "g",
+      "n": 329,
+      "deep_minus_old_mag_q025_q50_q975": [
+        -1.5230005015476848,
+        -0.7151499139785464,
+        -0.3679388378313248
+      ],
+      "deep_minus_corrected_mag_q025_q50_q975": [
+        -0.25055052599583616,
+        0.028427798456633013,
+        0.694856375232707
+      ],
+      "old_minus_corrected_mag_q025_q50_q975": [
+        0.367420578002929,
+        0.7789554595947266,
+        1.6939949035644533
+      ],
+      "median_corrected_magerr": 0.01605485938489437
+    },
+    {
+      "band": "r",
+      "n": 329,
+      "deep_minus_old_mag_q025_q50_q975": [
+        -1.4964466240029537,
+        -0.699091877858109,
+        -0.40144037955726614
+      ],
+      "deep_minus_corrected_mag_q025_q50_q975": [
+        -0.23465589964862302,
+        -0.023942337510948875,
+        0.27995867883799286
+      ],
+      "old_minus_corrected_mag_q025_q50_q975": [
+        0.33733634948730823,
+        0.7002086639404297,
+        1.4268436431884768
+      ],
+      "median_corrected_magerr": 0.006760770455002785
+    },
+    {
+      "band": "i",
+      "n": 329,
+      "deep_minus_old_mag_q025_q50_q975": [
+        -1.4220689981677694,
+        -0.649390931495315,
+        -0.34775832621473185
+      ],
+      "deep_minus_corrected_mag_q025_q50_q975": [
+        -0.23967999589713856,
+        -0.029506310118669887,
+        0.24714471812841135
+      ],
+      "old_minus_corrected_mag_q025_q50_q975": [
+        0.30782279968261717,
+        0.6239070892333949,
+        1.3313316345214852
+      ],
+      "median_corrected_magerr": 0.005146610084921122
+    },
+    {
+      "band": "z",
+      "n": 329,
+      "deep_minus_old_mag_q025_q50_q975": [
+        -1.2953366618621274,
+        -0.5982654630615656,
+        -0.3183175819541467
+      ],
+      "deep_minus_corrected_mag_q025_q50_q975": [
+        -0.22237454262723233,
+        -0.014072592422532892,
+        0.25707529555564224
+      ],
+      "old_minus_corrected_mag_q025_q50_q975": [
+        0.2881752014160156,
+        0.6060962677001953,
+        1.2575607299804727
+      ],
+      "median_corrected_magerr": 0.005711974110454321
+    }
+  ],
+  "Wiseman2020_comparison": [
+    {
+      "band": "g",
+      "matched": 206,
+      "corrected_minus_Wiseman_q025_q50_q975": [
+        -0.3669829177856432,
+        -0.001337623596191051,
+        0.004678316116332404
+      ]
+    },
+    {
+      "band": "r",
+      "matched": 206,
+      "corrected_minus_Wiseman_q025_q50_q975": [
+        -0.11723100662231545,
+        -0.0008361816406257105,
+        0.004838171005250302
+      ]
+    },
+    {
+      "band": "i",
+      "matched": 206,
+      "corrected_minus_Wiseman_q025_q50_q975": [
+        -0.078085622787476,
+        -0.00044902801513657664,
+        0.025692644119262642
+      ]
+    },
+    {
+      "band": "z",
+      "matched": 206,
+      "corrected_minus_Wiseman_q025_q50_q975": [
+        -0.10254865646362399,
+        -0.0003136444091804691,
+        0.16212890625000131
+      ]
+    }
+  ],
+  "coordinate_check_max_change_deg": 0.0,
+  "photometry_scope": "No outcome-based magnitude cut; native magnitudes/errors retained, not original signed forced flux. Missing measurements are not interpreted as upper limits. Model/measurement aperture difference and interband covariance remain unresolved.",
+  "output_sha256": {
+    ".work/host-transport/des-smp-hosts.csv": "d9ffd892da156805b8e2bae7755d430d3d0d0d9346433328b69e8f708b832776",
+    ".work/host-transport/des-smp-photometry.csv": "e9156e84e973534d2b3bc979f23b843372df04eccf0977359ae630294e67421a"
+  },
+  "input_sha256": {
+    ".work/host-transport/des/DES-SN5YR_DES_HEAD.FITS.gz": "4396d427c1a1f064be4f9cb81669d0179bbbbaacca0b009391ab2e0aaccdbfb5",
+    ".work/host-transport/des/DES-Dovekie_Metadata.csv": "45ad71f8470eaecfe2b386699ef66b26b0717c50f445d5f32941988d32c75388",
+    ".work/host-transport/des-deep-crosswalk.csv": "5f44c297ede310b6d224fa93e49661efdd4005449f16a5d6faf408e4c8236f83",
+    ".work/host-transport/wiseman/tableb1.dat": "2d56bf7d0fc073044d49679ebb40c60e82499e899af3bde90fcff63d1fa76d0e",
+    ".work/host-transport/wiseman/ReadMe": "777b6b4c5c5099d8b277326536b9d82b8f8f6e328d8da9111b1f242d08c38c28",
+    ".work/host-transport/des/DES-SN5YR_DIFFIMG_HEAD.FITS.gz": "250e9c1530550ac85594b36da154d5ee2b9b0f92fe232173758adebcb32f67c5",
+    ".work/host-transport/des/DES-SN5YR_DES.README": "c808a8b163a862023522bc16bb031fe22d125587a35958c5f354b9089c24b37f"
+  },
+  "code_sha256": {
+    "studies/host_ages/code/host_transport/smp.py": "f2c4f5f857e9707a638261f9d008151a3f33ad2d190103177ca4a644ea13bff8"
+  }
+}

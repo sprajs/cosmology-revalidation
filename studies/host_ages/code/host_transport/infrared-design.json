@@ -1,0 +1,18 @@
+{
+  "frozen_utc": "2026-09-27T01:37:57.365930+00:00",
+  "trigger": "Ramaiya et al. 2025 arXiv2509.12035v2 identifies public HELP images but does not link its assembled host-flux table; this is independent image extraction, not author-table reproduction.",
+  "population": "All selected IDSURVEY10 DES-Dovekie events, exact CID joined to corrected SMP host coordinates. Extract every object falling in CDFS-SWIRE/XMM-LSS maps; retain all signed fluxes, no detection cut. Additional overlap flag for existing331 eight-band sample.",
+  "maps": "HELP v1.0 IMAGE Jy/beam and ERROR maps, not detection catalogue or positivity-constrained XID+ posteriors; read actual units and mask. Use unfiltered IMAGE primary analysis and NEBFILT sensitivity only when present.",
+  "point_response": "Nearest-pixel peak flux, with explicit Gaussian beam centering sensitivity FWHM18.2,24.9,36.3arcsec. Native map values retained. This is not deblended host photometry.",
+  "background": "128 deterministic common sky offsets, area-uniform60-180arcsec annulus and golden-angle azimuths. Mean background subtraction and empirical full3band covariance of offset values; alternative median subtraction and upper quantile recorded. No positive-flux clipping or replacement of nondetections by upper limits.",
+  "quality": "Require finite IMAGE/ERROR, ERROR>0, MASK0 at host position. Count missing and masked separately; no host photometry or SNR cut. Covariance requires>=64 offsets valid in all3 bands.",
+  "confusion": "Nearby unresolved galaxies and correlated background prevent treating extracted peak as intrinsic host flux. Quantify empirical skew, random-position distribution and optical deep-catalogue neighbor counts; positive contamination allows conditional upper constraints only if local-background and assumed response are adequate. No automatic physical age/dust claim.",
+  "energy_balance": "If subsequently modeled, requires explicit dust-temperature/emissivity/AGN and aperture assumptions. SPIRE-only long-wavelength measurements do not determine total infrared luminosity or attenuation, and neither determines arbitrary SFH. No fitting of brightness-age slope in this scope.",
+  "random_seed": 314159,
+  "protocol_note": "Timestamp corrected to actual UTC before any images or outcomes obtained; initial future timestamp was a transcription error.",
+  "retrieval_annotation": {
+    "utc": "2026-09-27T01:40:33.448363+00:00",
+    "HELP_endpoint": "HTTP402 on official flat-file host; VO timeout; no images obtained there.",
+    "fallback": "IRSA official HerMES SMAPv6.0 original NEST images, identified exactly as HELP source files by pinned spire_maps.fits and gen_maps_SD.py. No NEBFILT available in original product; primary IMAGE unchanged; preserve original flag semantics."
+  }
+}

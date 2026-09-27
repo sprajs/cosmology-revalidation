@@ -22,3 +22,14 @@ The [source directory](code/) retains the original calculations. See the [execut
 - [Host-to-progenitor mapping and transport](notes/population-transport-results.md)
 
 These new entrypoints run directly from the repository and document their input restoration commands; the historical source below `code/age_signal/` retains its original layout.
+
+## Physical measurements and survey tests
+
+The [physical results](../../docs/physical-program-results.md) connect those comparisons to newly recovered galaxy light and explicit survey simulations:
+
+- [Spectra, independent age indicators and spatially resolved environments](notes/galaxy-validation-results.md)
+- [Local and high-redshift photometry, infrared images and selection](notes/host-transport-results.md)
+- [Physical stellar-population age bounds and numerical validation](notes/physical-ages-results.md)
+- [Native survey selection, refitting and residual age response](notes/survey-physics-results.md)
+
+Each note links its acquisition and analysis commands and compact result records. Source data, third-party builds and regenerated per-object arrays remain outside the versioned tree. Neither an association with age nor a simulated response is presented as a validated cosmological correction.

@@ -1,0 +1,139 @@
+{
+  "validated_utc": "2026-09-27T02:19:54.838771+00:00",
+  "code_sha256": "fbe2c7396c8a325cce79db4b36a1418e0ac4fe7373f055857c1545b6661c9ff6",
+  "generated_attempts": 60000,
+  "all_native_runs_graceful": true,
+  "native_run_count": 9,
+  "native_generation_seconds": 370.5866626019706,
+  "native_fit_seconds": 3107.464275363018,
+  "classifier_inference_seconds": 8.165948738984298,
+  "classifier_all_single_batch_checks_pass": true,
+  "independence": {
+    "SPH": {
+      "train_seed": 270911,
+      "evaluation_seed": 270912,
+      "identical_full_latent_tuples_across_pools": 0,
+      "shared_cadence_LIBIDs": 6000,
+      "scope": "Independent generated realizations conditional on shared cadence, W22 mocked population and released surface/classifier; not independent surveys."
+    },
+    "SPP": {
+      "train_seed": 270921,
+      "evaluation_seed": 270922,
+      "identical_full_latent_tuples_across_pools": 0,
+      "shared_cadence_LIBIDs": 3000,
+      "scope": "Independent generated realizations conditional on shared cadence, W22 mocked population and released surface/classifier; not independent surveys."
+    }
+  },
+  "injected_sign": {
+    "SPH_EVAL_AGE": {
+      "maximum_gammaDM_identity_error_mag": 1.3709068352740772e-08,
+      "grey_shift_formula": "-0.030*(mock_SN_age_Gyr-3)"
+    },
+    "SPH_TRAIN_AGE": {
+      "maximum_gammaDM_identity_error_mag": 1.966953269705307e-08,
+      "grey_shift_formula": "-0.030*(mock_SN_age_Gyr-3)"
+    },
+    "SPP_EVAL_AGE": {
+      "maximum_gammaDM_identity_error_mag": 1.3113021890553966e-08,
+      "grey_shift_formula": "-0.030*(mock_SN_age_Gyr-3)"
+    },
+    "SPP_TRAIN_AGE": {
+      "maximum_gammaDM_identity_error_mag": 1.490116111058093e-08,
+      "grey_shift_formula": "-0.030*(mock_SN_age_Gyr-3)"
+    }
+  },
+  "covariances": {
+    "correction-response.json": {
+      "minimum_supported_covariance_eigenvalues": {
+        "age_minus_nominal": 6.4782581624412e-05,
+        "dust_minus_nominal": 0.00016427084331972254,
+        "matched_minus_nominal_correction_on_age": 3.224359518967482e-05,
+        "matched_age_minus_nominal_closure": 6.857238234879522e-05,
+        "matched_minus_nominal_correction_common_evaluation_support": 3.189478323638947e-05
+      },
+      "first250_over_full500_age_slope_SE_by_arm": [
+        0.9603631280769279,
+        0.9594473908494634,
+        1.0297643709192867,
+        0.9775927680833811
+      ],
+      "coverage_status": "Bootstrap convergence/sensitivity only; frequentist coverage across new surveys has not been established."
+    },
+    "positive-dust-response.json": {
+      "minimum_supported_covariance_eigenvalues": {
+        "age_minus_nominal": 0.00014313981831521507,
+        "matched_age_minus_nominal_closure": 0.00016994439685543222,
+        "matched_minus_nominal_correction_on_age": 0.0001012229505299568,
+        "matched_minus_nominal_correction_common_evaluation_support": 0.00010136191537425131
+      },
+      "first250_over_full500_age_slope_SE_by_arm": [
+        1.0154696542979975,
+        1.0248979200790618,
+        1.0269425737596933
+      ],
+      "coverage_status": "Bootstrap convergence/sensitivity only; frequentist coverage across new surveys has not been established."
+    }
+  },
+  "independent_physics_review": {
+    "path": "studies/host_ages/results/galaxy_validation/survey-physics-review.json",
+    "sha256": "ac1dbe394fade7cfa6d31d9ca7a18603ac3e1f617d98fb96b0181bf35550d9c6"
+  },
+  "source_code_current_sha256": {
+    "studies/host_ages/code/survey_physics/README.md": "aedbe1b010e83273f4d8c2ee1f0d7cd10d1e5ee3b854f4f1e4eb35b09bf11103",
+    "studies/host_ages/code/survey_physics/acquisition_audit.py": "6bfd7f9496eca92e35f868e1f51f708866e242691dc049ef51a779d337c6e8d2",
+    "studies/host_ages/code/survey_physics/analysis-design.json": "7f290ed3fd9fefd2c7b503c3bf748d9ef798acdcbaff16d5965c9f1b54fbe856",
+    "studies/host_ages/code/survey_physics/analyze.py": "d47263355126cd960d7875ca7d982b8654dea4b94348fc1c8c10030f15457287",
+    "studies/host_ages/code/survey_physics/bbc_bounds.patch": "a7e5dd20ed39b4dbbbc987dcb9701138c6c4f32ca41b1874d23ae4c0d9a47f4f",
+    "studies/host_ages/code/survey_physics/classify.py": "42001bb95df3554e9c14fa7b32c5d40831736a5d904dee73a3eecaa5643a610d",
+    "studies/host_ages/code/survey_physics/classify_all.py": "eb8462a11ea1e199cfe553eea8963acf3b7d9884dd41c7a7b05faeb9eb3c097e",
+    "studies/host_ages/code/survey_physics/common.py": "4e8fb9e7577d68a42e5adddf3ee0fa5ac3ad177546bd4dae2cd0318c5a5d8daf",
+    "studies/host_ages/code/survey_physics/efficiency.py": "7844d31ec96fd99630cd47725097124f5df5cd435025db65db7689d2d0c640ec",
+    "studies/host_ages/code/survey_physics/legacy_efficiency.patch": "7af7ddea9946f047ad0721d6142e5c97e46da413d67afbbbad68e66b02d10f09",
+    "studies/host_ages/code/survey_physics/native_checks.py": "ac9083e7955eb3f98d8da53c8e5c5974a6a67c5d76ee7d4512145261ca6d71c6",
+    "studies/host_ages/code/survey_physics/positive_bbc.py": "dc32597e83ee6a205a7ca77f96041b8baedce9a990aea03b993480ebf2cf3bfa",
+    "studies/host_ages/code/survey_physics/prepare.py": "d85e93d6e6593351af919a10ca692abea1611d2f8a82bac372adcd724ebf406c",
+    "studies/host_ages/code/survey_physics/prepare_positive_dust.py": "53ae31896c169f2fe79931131eea09d0e0664f6257638e08edaa9838c71d288e",
+    "studies/host_ages/code/survey_physics/protocol.json": "edd6fe1409048f72bc3af5ab9a271eee701fb4812b462bc8cf96d5ed75b91da0",
+    "studies/host_ages/code/survey_physics/recover.py": "44981bcfecac2376e25ea11c94abeda0802c643d46527ca1aed85ba3ba505d24",
+    "studies/host_ages/code/survey_physics/run_native.py": "f3b24cf5a71d0194791a6f4f06bba4d1676574bbe9fbfbdf60cfb05459d662fc",
+    "studies/host_ages/code/survey_physics/validate.py": "fbe2c7396c8a325cce79db4b36a1418e0ac4fe7373f055857c1545b6661c9ff6"
+  },
+  "binary_sha256": {
+    ".work/survey-physics/SNANA/bin/snlc_sim.exe": "ae7114b1b2da1cf3ccda2655339113429fa4bbc75233b681bdcfbb7da3294971",
+    ".work/survey-physics/SNANA/bin/snlc_fit.exe": "68b2ca43fc448bba647c491753f2a0fe1a7318134e486d9dcb6964aafc2063eb",
+    ".work/survey-physics/SNANA/bin/SALT2mu.exe": "c421fd5b19c32dc67115201ca163584f503cb3f2cb451cdbc22ff93643005cbb",
+    ".work/survey-physics/SNANA-legacy-eff/bin/snlc_sim.exe": "671367c6577dd6f1ff19ae1d1a0ce8f81a75db685c63568f79b2007d3ee672a8",
+    ".work/survey-physics/SNANA-legacy-eff/bin/SALT2mu.exe": "350c6013f9b4dc5a69eaf78d12c68252e4698021b93b5e760b5b8a0b313babdc"
+  },
+  "model_and_cadence_sha256": {
+    "SNDATA_ROOT/simlib/DES/DES-SN5YR_DES.SIMLIB": "c09f296ffb378ed3e64487160bf3d3f34d95d7b87f01f6c17f7569b53530b648",
+    "SNDATA_ROOT/simlib/DES/DES-SN5YR_DES_FLUXERRMODEL_SIM.DAT": "2b6d0898fd1992a72cfa2322a79272a9557e8fc4cb98fa3193bd8ee00d2d80d9",
+    "SNDATA_ROOT/models/searcheff/SEARCHEFF_PIPELINE_DES.DAT": "2c911128ae162039756300ffd5c1b1115e5c76917d899e4277312359a75b6869",
+    "SNDATA_ROOT/models/searcheff/SEARCHEFF_PIPELINE_LOGIC.DAT": "24b918b874b18f0b9c0e56531a12a251c807f60d7156553c67104809fbe7e5b9",
+    "SNDATA_ROOT/kcor/Dovekie/calib_DES-SN5YR_DES.fits.gz": "735ea6324a1be2961673e6fd3985d29dda2517423f09b1915df5959a3d1e0e6c",
+    "SNDATA_ROOT/models/SALT3/SALT3.DOVEKIE/SALT3.INFO": "2d6f66f3a58b67387aa658d34925c70740baa11a421880dba8a2a73e120f7767",
+    "SNDATA_ROOT/models/SALT3/SALT3.DOVEKIE/salt3_color_correction.dat.gz": "ba9a71da8e059266127257faf2defa8e31bc4ed31c8e9f0e63da4c67604b19bc",
+    "SNDATA_ROOT/models/SALT3/SALT3.DOVEKIE/salt3_color_dispersion.dat.gz": "ffc22d9757ac120c9379adb69f84d9427e247a4210253d6e145d478d5807ddd3",
+    "SNDATA_ROOT/models/SALT3/SALT3.DOVEKIE/salt3_lc_covariance_01.dat.gz": "de0a1828ef60da9ffac1c1a0e2d23473597d2d4fa6f10be435a5025b44355513",
+    "SNDATA_ROOT/models/SALT3/SALT3.DOVEKIE/salt3_lc_dispersion_scaling.dat.gz": "b978735fa1c3c98729185d749f7f6024f1a074a12fb9c7781f10cd3a16a7a4bf",
+    "SNDATA_ROOT/models/SALT3/SALT3.DOVEKIE/salt3_lc_model_covariance_01.dat.gz": "3d339f38ec88a375a4c5f6fe7d9a5c3de537f2b2c0931395d7170922e45309e6",
+    "SNDATA_ROOT/models/SALT3/SALT3.DOVEKIE/salt3_lc_model_variance_0.dat.gz": "691f96761d5f393e06c071d778f9c9810297482df273af2cf71e409ced0ca07f",
+    "SNDATA_ROOT/models/SALT3/SALT3.DOVEKIE/salt3_lc_model_variance_1.dat.gz": "d6d37cdc8bc5fbca94cf110e0a90aed3b64a8628a3f03ea069697a329beeac0e",
+    "SNDATA_ROOT/models/SALT3/SALT3.DOVEKIE/salt3_lc_variance_0.dat.gz": "b1545edcbae3ec6fa4dbad50dc90b11618162bcd6dfb7e42771175ee8ed7701c",
+    "SNDATA_ROOT/models/SALT3/SALT3.DOVEKIE/salt3_lc_variance_1.dat.gz": "71e3d675f64d6d1a487329b6b91e245059de925070c98474f1a1f905b4f51a1b",
+    "SNDATA_ROOT/models/SALT3/SALT3.DOVEKIE/salt3_parameters.dat.gz": "37a0b503f5620d68038ba2080f3c4bccb1805212e3c857b523d39d8daf826394",
+    "SNDATA_ROOT/models/SALT3/SALT3.DOVEKIE/salt3_parameters_unscaled.dat.gz": "32e59876f5756d374e234e4e43b3e5ec95e7d607c2eacfe1b37884fb4f8c75e6",
+    "SNDATA_ROOT/models/SALT3/SALT3.DOVEKIE/salt3_template_0.dat.gz": "d4d95bb34edd67fa9adfb5d06cdf4ccace433da3bc7b98c2d54e157b38ac605d",
+    "SNDATA_ROOT/models/SALT3/SALT3.DOVEKIE/salt3_template_1.dat.gz": "1fe4288b0b1630deab22a63a8237df70fd3c9a169063124def6839f53aec3a2c",
+    "SNDATA_ROOT/models/classifiers/DES-SN5YR/SNNTRAINV19_z_TRAINDES_V19/model.pt": "d02aad4010fd1036bf07b13df0f9a24c0af37097d2802f5a5e4efc166f8af438",
+    "SNDATA_ROOT/models/classifiers/DES-SN5YR/SNNTRAINV19_z_TRAINDES_V19/data_norm.json": "6318dbc1c4cda5cf79a93624fb82d7b6d2f6ef21d98c1dd681c6056fee5dc639",
+    "SNDATA_ROOT/models/classifiers/DES-SN5YR/SNNTRAINV19_z_TRAINDES_V19/cli_args.json": "8aa5ccc2cbdc6f8280773978dd7eaeedf8fecc7a33a829ba0bd9da9aa4830bb0"
+  },
+  "limitations": [
+    "Production 4D BBC support fails; native 1D and 40-neighbor estimates are separate benchmarks.",
+    "Mock host mass has zero observational error.",
+    "No SALT surface or classifier retraining; pure Ia signal acceptance does not calibrate contamination.",
+    "Nominal age/redshift closure is not zero at the achieved precision; injection differences must be distinguished from absolute unbiasedness.",
+    "No measurement of real progenitor ages or cosmological correction."
+  ]
+}

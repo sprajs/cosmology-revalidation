@@ -1,0 +1,29 @@
+{
+  "frozen_utc": "2026-09-27T01:07:55.811069+00:00",
+  "status": "Frozen before new spectroscopy matching or outcomes; previous SED age/brightness results already seen.",
+  "seed": 2026092801,
+  "primary_samples": [
+    "all available ZTF host positions and TITAN exact transient aliases",
+    "original G11 host coordinates with C25 ages",
+    "R19/Pantheon matched hosts",
+    "DustPedia/Cepheid hosts where sky coordinates available"
+  ],
+  "crossmatch": {
+    "angular_max_arcsec": 3,
+    "redshift_max_abs_delta": 0.001,
+    "require_unique_counterpart": true,
+    "diagnostics": "Retain all nearby candidates, ambiguous matches and redshift failures. Spectral fibre target is central host, not automatically SN site."
+  },
+  "catalogues": [
+    "MPA-JHU DR7 direct Dn4000 and Balmer/emission line measurements",
+    "MaNGA DR17 FIREFLY global stellar population summaries (MILES and MaStar)",
+    "MaNGA spectra/local cells when host overlap supports meaningful aperture comparison"
+  ],
+  "primary_tests": [
+    "Spearman age-versus-Dn4000 and Hdelta on independent spectra",
+    "conditional age diagnostics after mass/redshift controls",
+    "same physical SN brightness model with spectral diagnostics added, host-group holdouts if sample permits",
+    "central-versus-global/local aperture effects and disagreement across stellar library models"
+  ],
+  "scope": "Independent observing modality, not independent stellar physics or model-free age. Catalogue duplicates do not count as independent galaxies. Avoid complete-catalogue claims or treating posteriors as likelihoods."
+}

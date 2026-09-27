@@ -1,0 +1,3680 @@
+{
+  "interpretation": "Simulation-conditional response, not an empirical correction. Released W22 ages are mocked. Fixed cadence, reconstructed classifier, no core-collapse contaminants and no SALT retraining.",
+  "code_sha256": "d47263355126cd960d7875ca7d982b8654dea4b94348fc1c8c10030f15457287",
+  "analysis_design_sha256": "7f290ed3fd9fefd2c7b503c3bf748d9ef798acdcbaff16d5965c9f1b54fbe856",
+  "counts": {
+    "SPH_TRAIN_NOMINAL": {
+      "generated_attempts": 12000,
+      "reused_CID_in_attempt_dump": 1166,
+      "accepted_detector_host_and_minimumcuts": 2058,
+      "fitres": 1366,
+      "quality": 793,
+      "nonpositive_covariance_all_fitres": 16,
+      "quality_pIa_gt05": 787,
+      "quality_pIa_gt0999": 580,
+      "negative_optical_extinction_all_fitres": 104,
+      "negative_optical_extinction_quality_pIa_gt05": 57,
+      "files_sha256": {
+        "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/fits/SPH_TRAIN_NOMINAL/fit.FITRES.TEXT": "e04d5118b99e4b2bdc58b218ed6561b11b8e83554bb4dbc2263ccd85eb9cf967",
+        "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/fits/SPH_TRAIN_NOMINAL/classifier.csv": "7d98053d8a62bb63aecfdab35995cf69d6072b524df1731927ecfc88f0d85e0d",
+        "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/simulations/SPH_TRAIN_NOMINAL/SPH_TRAIN_NOMINAL.DUMP": "b47dea133b1ccf12426466cf22ab095b9eac2717f8b539c7143072954101dc5c"
+      }
+    },
+    "SPH_EVAL_NOMINAL": {
+      "generated_attempts": 6000,
+      "reused_CID_in_attempt_dump": 574,
+      "accepted_detector_host_and_minimumcuts": 1054,
+      "fitres": 706,
+      "quality": 389,
+      "nonpositive_covariance_all_fitres": 5,
+      "quality_pIa_gt05": 386,
+      "quality_pIa_gt0999": 282,
+      "negative_optical_extinction_all_fitres": 53,
+      "negative_optical_extinction_quality_pIa_gt05": 25,
+      "files_sha256": {
+        "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/fits/SPH_EVAL_NOMINAL/fit.FITRES.TEXT": "cdbb1f3bc3a83467ea0b7cef24c5816876913b3eb845dbd71a47b0b9b33cf18a",
+        "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/fits/SPH_EVAL_NOMINAL/classifier.csv": "bb7dd16c3e5ffd3980251296124bac95f209d91f7105a2fae31eb0a93cb80b84",
+        "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/simulations/SPH_EVAL_NOMINAL/SPH_EVAL_NOMINAL.DUMP": "c9f7b1440e1b94c6c2810eb337f1091d2e44580b51d0d7fac971953488f3e948"
+      }
+    },
+    "SPH_EVAL_AGE": {
+      "generated_attempts": 6000,
+      "reused_CID_in_attempt_dump": 574,
+      "accepted_detector_host_and_minimumcuts": 1020,
+      "fitres": 673,
+      "quality": 377,
+      "nonpositive_covariance_all_fitres": 6,
+      "quality_pIa_gt05": 373,
+      "quality_pIa_gt0999": 274,
+      "negative_optical_extinction_all_fitres": 51,
+      "negative_optical_extinction_quality_pIa_gt05": 24,
+      "files_sha256": {
+        "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/fits/SPH_EVAL_AGE/fit.FITRES.TEXT": "41b6d181de5ad060dc0e3be5371c9b39bc55738d897c23ebe26806ea63c1e358",
+        "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/fits/SPH_EVAL_AGE/classifier.csv": "0060c1d62cab3352280f64e1f65a79dcf5740bf05268fbd3c6348fc1753cc8b9",
+        "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/simulations/SPH_EVAL_AGE/SPH_EVAL_AGE.DUMP": "5c7fca8317bb6dfefefed19d67d9ab6372527becf4dfcc218712bd0f931e3ed5"
+      }
+    },
+    "SPH_EVAL_DUST": {
+      "generated_attempts": 6000,
+      "reused_CID_in_attempt_dump": 574,
+      "accepted_detector_host_and_minimumcuts": 1002,
+      "fitres": 663,
+      "quality": 360,
+      "nonpositive_covariance_all_fitres": 7,
+      "quality_pIa_gt05": 357,
+      "quality_pIa_gt0999": 252,
+      "negative_optical_extinction_all_fitres": 55,
+      "negative_optical_extinction_quality_pIa_gt05": 27,
+      "files_sha256": {
+        "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/fits/SPH_EVAL_DUST/fit.FITRES.TEXT": "66172874ff43da0fcd9c5936dfc4e27520d6942bdf94cbdf9a15544183d2eba9",
+        "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/fits/SPH_EVAL_DUST/classifier.csv": "66090dc0ebfb40e22e3b15bfb6e3cb6f62e4e78dff3ff78e68010e3fff1ee806",
+        "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/simulations/SPH_EVAL_DUST/SPH_EVAL_DUST.DUMP": "5bce38c50c7d00c24a73a10d4645c36fa94f04b7ef96b8034697e38b1650a762"
+      }
+    },
+    "SPH_TRAIN_AGE": {
+      "generated_attempts": 12000,
+      "reused_CID_in_attempt_dump": 1166,
+      "accepted_detector_host_and_minimumcuts": 1987,
+      "fitres": 1333,
+      "quality": 768,
+      "nonpositive_covariance_all_fitres": 18,
+      "quality_pIa_gt05": 762,
+      "quality_pIa_gt0999": 557,
+      "negative_optical_extinction_all_fitres": 103,
+      "negative_optical_extinction_quality_pIa_gt05": 57,
+      "files_sha256": {
+        "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/fits/SPH_TRAIN_AGE/fit.FITRES.TEXT": "6c95d161e870f3250b20e5f52fab9d10592e2b0b47ab4d9049fefa62af61c755",
+        "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/fits/SPH_TRAIN_AGE/classifier.csv": "7cf212c44d67d0567845218902816b7637df217a3147efd708d4db0655998bf0",
+        "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/simulations/SPH_TRAIN_AGE/SPH_TRAIN_AGE.DUMP": "11fa5f3f4e2869339e282c896ec2b2eed1f9ac239896084a828cfa43817969a8"
+      }
+    }
+  },
+  "redshift_edges": [
+    0.05,
+    0.3,
+    0.5,
+    0.7,
+    0.9,
+    1.2
+  ],
+  "variance": "J C(x0,x1,c) J^T with fixed alpha=.15,beta=3.14 plus(.1mag)^2; used as a working weight, not a fitted full survey covariance.",
+  "diagnostic_age_slope": "A secondary conditional association after five redshift-bin intercepts, declared in code before contrasts; simulated true age is used for this diagnostic only, never as a predictor.",
+  "variants": {
+    "primary": {
+      "arms": {
+        "nominal_closure": {
+          "train_n": 787,
+          "eval_n": 386,
+          "supported_n": 384,
+          "supported_per_zbin": [
+            51,
+            146,
+            99,
+            69,
+            19
+          ],
+          "training_coefficients_intercept_x1_c_highmass": [
+            -19.400140095848343,
+            -0.1258830661947063,
+            2.014907289910848,
+            -0.028410767123768978
+          ],
+          "statistics_zbin_means_and_age_slope": [
+            0.012974984386973837,
+            0.01410703905397727,
+            -0.046378418718072495,
+            0.006587158694668271,
+            -0.08554748701765476,
+            0.00942664759742979
+          ],
+          "median_40th_neighbor_distance": 1.3854382375450656,
+          "max_40th_neighbor_distance": 3.214794573927431,
+          "bootstrap_standard_error": [
+            0.02131043833869398,
+            0.016497208855713163,
+            0.020310897060618453,
+            0.031952579904822,
+            0.04993745191616971,
+            0.003515545318106274
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.0314604001388233,
+              0.05258051012036296
+            ],
+            [
+              -0.020263415747204666,
+              0.04534936954046434
+            ],
+            [
+              -0.08780763472025538,
+              -0.008779462941202944
+            ],
+            [
+              -0.05245567476301935,
+              0.07039593019225444
+            ],
+            [
+              -0.18349641901094982,
+              0.009493791955936413
+            ],
+            [
+              0.0030337009626334667,
+              0.016478427609410425
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.00045413478218727857,
+              4.530060761362942e-05,
+              2.552344818482912e-05,
+              5.173454834362935e-05,
+              6.182604926177016e-05
+            ],
+            [
+              4.530060761362942e-05,
+              0.00027215790002902085,
+              2.863843656471011e-05,
+              7.008054482254485e-05,
+              5.2869999206228844e-05
+            ],
+            [
+              2.552344818482912e-05,
+              2.863843656471011e-05,
+              0.00041253253940703934,
+              5.795600983220841e-05,
+              6.956842486946704e-05
+            ],
+            [
+              5.173454834362935e-05,
+              7.008054482254485e-05,
+              5.795600983220841e-05,
+              0.001020967362574033,
+              0.00014489454201990578
+            ],
+            [
+              6.182604926177016e-05,
+              5.2869999206228844e-05,
+              6.956842486946704e-05,
+              0.00014489454201990578,
+              0.0024937491038797594
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            500,
+            500,
+            500,
+            500,
+            500
+          ],
+          "covariance_complete_support_replicates": 500,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        },
+        "age_nominal_correction": {
+          "train_n": 787,
+          "eval_n": 373,
+          "supported_n": 371,
+          "supported_per_zbin": [
+            51,
+            144,
+            99,
+            63,
+            14
+          ],
+          "training_coefficients_intercept_x1_c_highmass": [
+            -19.400140095848343,
+            -0.1258830661947063,
+            2.014907289910848,
+            -0.028410767123768978
+          ],
+          "statistics_zbin_means_and_age_slope": [
+            -0.03253845955222369,
+            0.005266282394424252,
+            -0.043270450111145074,
+            0.055323014171180435,
+            0.005258580791191899,
+            -0.020193089898795688
+          ],
+          "median_40th_neighbor_distance": 1.361902913844824,
+          "max_40th_neighbor_distance": 3.1202185325834098,
+          "bootstrap_standard_error": [
+            0.02519889283229226,
+            0.017470018096815348,
+            0.021806840395130683,
+            0.03316674104503019,
+            0.052093428818208894,
+            0.0035011756343112242
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.0850909538738842,
+              0.015895232116370464
+            ],
+            [
+              -0.03051550155166311,
+              0.036889507439396875
+            ],
+            [
+              -0.08902395970353989,
+              -0.0033897265985538667
+            ],
+            [
+              -0.008476649440469422,
+              0.12303686864490547
+            ],
+            [
+              -0.09694588416347423,
+              0.11126121587804512
+            ],
+            [
+              -0.02672531306925861,
+              -0.013326304263702808
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.0006372496483419849,
+              5.1650449162934855e-05,
+              1.2774876519110267e-05,
+              6.006305708355945e-05,
+              2.3746849070520485e-05
+            ],
+            [
+              5.1650449162934855e-05,
+              0.0003066947666722242,
+              3.664556666080729e-05,
+              3.488349163752935e-05,
+              2.9215585501887964e-05
+            ],
+            [
+              1.2774876519110267e-05,
+              3.664556666080729e-05,
+              0.00047498459939969483,
+              4.857416192901897e-05,
+              0.00010213453231334635
+            ],
+            [
+              6.006305708355945e-05,
+              3.488349163752935e-05,
+              4.857416192901897e-05,
+              0.0011016949594067403,
+              0.0002562580243254818
+            ],
+            [
+              2.3746849070520485e-05,
+              2.9215585501887964e-05,
+              0.00010213453231334635,
+              0.0002562580243254818,
+              0.0027137253260377937
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            500,
+            500,
+            500,
+            500,
+            475
+          ],
+          "covariance_complete_support_replicates": 475,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        },
+        "dust_nominal_correction": {
+          "train_n": 787,
+          "eval_n": 357,
+          "supported_n": 354,
+          "supported_per_zbin": [
+            49,
+            140,
+            91,
+            57,
+            17
+          ],
+          "training_coefficients_intercept_x1_c_highmass": [
+            -19.400140095848343,
+            -0.1258830661947063,
+            2.014907289910848,
+            -0.028410767123768978
+          ],
+          "statistics_zbin_means_and_age_slope": [
+            0.009467207022056182,
+            0.030433164987160345,
+            -0.0418350861237774,
+            0.04951454369835721,
+            -0.06959778293924382,
+            0.008879882164486617
+          ],
+          "median_40th_neighbor_distance": 1.3697086904118299,
+          "max_40th_neighbor_distance": 3.2315418051605476,
+          "bootstrap_standard_error": [
+            0.029560250957145876,
+            0.015072696055789706,
+            0.02233669535328212,
+            0.03601017961702254,
+            0.054673278384831304,
+            0.003911263690101085
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.04365085507568535,
+              0.07160657603353981
+            ],
+            [
+              0.000553010446049137,
+              0.06000821379785086
+            ],
+            [
+              -0.08988687887125991,
+              -0.0025374832456509836
+            ],
+            [
+              -0.02515878369063429,
+              0.11999188968763394
+            ],
+            [
+              -0.18167848839387352,
+              0.02339543687272491
+            ],
+            [
+              0.0014043565698673897,
+              0.016607338417928948
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.0008829890891736891,
+              5.1030816413695746e-05,
+              5.103110458614718e-06,
+              4.1513777863672455e-05,
+              1.1978102111192175e-05
+            ],
+            [
+              5.1030816413695746e-05,
+              0.00022458093414741556,
+              1.0369921068358892e-05,
+              2.457504113509259e-05,
+              -5.91933455383503e-05
+            ],
+            [
+              5.103110458614718e-06,
+              1.0369921068358892e-05,
+              0.0005029769615438061,
+              7.475960807047125e-05,
+              -6.313565939470624e-06
+            ],
+            [
+              4.1513777863672455e-05,
+              2.457504113509259e-05,
+              7.475960807047125e-05,
+              0.0013031365906278991,
+              0.0001630246136937583
+            ],
+            [
+              1.1978102111192175e-05,
+              -5.91933455383503e-05,
+              -6.313565939470624e-06,
+              0.0001630246136937583,
+              0.002989167369345259
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            500,
+            500,
+            500,
+            500,
+            492
+          ],
+          "covariance_complete_support_replicates": 492,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        },
+        "age_matched_correction": {
+          "train_n": 762,
+          "eval_n": 373,
+          "supported_n": 370,
+          "supported_per_zbin": [
+            51,
+            144,
+            99,
+            63,
+            13
+          ],
+          "training_coefficients_intercept_x1_c_highmass": [
+            -19.38106752041403,
+            -0.09650226574636318,
+            1.9626423364943566,
+            -0.06617241848587373
+          ],
+          "statistics_zbin_means_and_age_slope": [
+            -0.007688909352665358,
+            0.020002872863298254,
+            -0.0627350806821104,
+            -0.0005374231304471334,
+            -0.050335791259578065,
+            -0.01225451582528072
+          ],
+          "median_40th_neighbor_distance": 1.3729043339356277,
+          "max_40th_neighbor_distance": 3.211567248074048,
+          "bootstrap_standard_error": [
+            0.024859650655927896,
+            0.01840323638156747,
+            0.02194456193529493,
+            0.03329924547136948,
+            0.052085978273405525,
+            0.0036867565145346577
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.05923106422487851,
+              0.03576910504980276
+            ],
+            [
+              -0.018369568353876764,
+              0.05313243459567985
+            ],
+            [
+              -0.10783626368025567,
+              -0.01907049469403032
+            ],
+            [
+              -0.06821927894480918,
+              0.0661766123994719
+            ],
+            [
+              -0.15223146900563816,
+              0.050702718183987215
+            ],
+            [
+              -0.01889005871256844,
+              -0.00516611555179726
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.000622940891502473,
+              6.523201651991707e-05,
+              1.924402064081168e-05,
+              4.901094661240222e-05,
+              3.535043372287653e-05
+            ],
+            [
+              6.523201651991707e-05,
+              0.0003397824228110256,
+              3.0514399363318633e-05,
+              5.2848083394814654e-05,
+              1.8295092397266008e-07
+            ],
+            [
+              1.924402064081168e-05,
+              3.0514399363318633e-05,
+              0.0004850039819321077,
+              5.828407591286349e-05,
+              5.658495428151694e-05
+            ],
+            [
+              4.901094661240222e-05,
+              5.2848083394814654e-05,
+              5.828407591286349e-05,
+              0.001106848493444374,
+              0.00022281105755298232
+            ],
+            [
+              3.535043372287653e-05,
+              1.8295092397266008e-07,
+              5.658495428151694e-05,
+              0.00022281105755298232,
+              0.0027129491326976698
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            500,
+            500,
+            500,
+            500,
+            475
+          ],
+          "covariance_complete_support_replicates": 475,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        }
+      },
+      "differences": {
+        "age_minus_nominal": {
+          "estimate": [
+            -0.045513443939197526,
+            -0.008840756659553018,
+            0.0031079686069274207,
+            0.048735855476512165,
+            0.09080606780884666,
+            -0.029619737496225478
+          ],
+          "bootstrap_standard_error": [
+            0.014199057067988291,
+            0.008554146402614269,
+            0.008274147466590543,
+            0.010713855699580244,
+            0.021416022850084284,
+            0.0005540602924815066
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.07352477641595796,
+              -0.017418097331488924
+            ],
+            [
+              -0.026409926603962346,
+              0.00647054101721655
+            ],
+            [
+              -0.012337528560233117,
+              0.019280337457064284
+            ],
+            [
+              0.02530410686840466,
+              0.06758934252562264
+            ],
+            [
+              0.047259904132215105,
+              0.13129441402828473
+            ],
+            [
+              -0.030673128040875713,
+              -0.028619855432978875
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.0001986253215060221,
+              6.413738475059782e-06,
+              8.057891552373244e-06,
+              -4.1450262143907225e-06,
+              -1.4765289399554204e-05
+            ],
+            [
+              6.413738475059782e-06,
+              7.282859356707172e-05,
+              5.936191228972214e-06,
+              -2.3580662704228975e-06,
+              3.171019641150741e-06
+            ],
+            [
+              8.057891552373244e-06,
+              5.936191228972214e-06,
+              6.928203808342683e-05,
+              -4.993538821933442e-07,
+              1.7403028990154708e-06
+            ],
+            [
+              -4.1450262143907225e-06,
+              -2.3580662704228975e-06,
+              -4.993538821933442e-07,
+              0.00011580234199355134,
+              8.129806332769246e-06
+            ],
+            [
+              -1.4765289399554204e-05,
+              3.171019641150741e-06,
+              1.7403028990154708e-06,
+              8.129806332769246e-06,
+              0.0004586460347153322
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            500,
+            500,
+            500,
+            500,
+            475
+          ],
+          "covariance_complete_support_replicates": 475,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration.",
+          "complete_bootstrap_replicates": 475
+        },
+        "dust_minus_nominal": {
+          "estimate": [
+            -0.0035077773649176552,
+            0.016326125933183076,
+            0.004543332594295096,
+            0.042927385003688937,
+            0.01594970407841094,
+            -0.000546765432943172
+          ],
+          "bootstrap_standard_error": [
+            0.028993201864806976,
+            0.013467439880688504,
+            0.012874458590257891,
+            0.027193028323840795,
+            0.05251394581079463,
+            0.0038762886102639504
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.05521861334228354,
+              0.05647403377058394
+            ],
+            [
+              -0.010621940246788537,
+              0.042420075873632904
+            ],
+            [
+              -0.020707699392302742,
+              0.029299247431793636
+            ],
+            [
+              -0.017484711272769547,
+              0.09269698945432173
+            ],
+            [
+              -0.0977960792986951,
+              0.11598501217235181
+            ],
+            [
+              -0.008653816494452455,
+              0.007204209397363538
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.0008511520966157654,
+              -2.3217010209746093e-06,
+              -3.841293660336644e-06,
+              -2.8921386012477926e-05,
+              1.5358496906950267e-05
+            ],
+            [
+              -2.3217010209746093e-06,
+              0.00018285251184472871,
+              -5.07701722844277e-06,
+              1.8662471603742922e-06,
+              2.338694732419735e-05
+            ],
+            [
+              -3.841293660336644e-06,
+              -5.07701722844277e-06,
+              0.00016603116440790114,
+              -8.45427058251246e-06,
+              -2.9325081884923776e-05
+            ],
+            [
+              -2.8921386012477926e-05,
+              1.8662471603742922e-06,
+              -8.45427058251246e-06,
+              0.000730628561259212,
+              -8.468073039686091e-05
+            ],
+            [
+              1.5358496906950267e-05,
+              2.338694732419735e-05,
+              -2.9325081884923776e-05,
+              -8.468073039686091e-05,
+              0.002757714504619076
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            500,
+            500,
+            500,
+            500,
+            492
+          ],
+          "covariance_complete_support_replicates": 492,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration.",
+          "complete_bootstrap_replicates": 492
+        },
+        "matched_minus_nominal_correction_on_age": {
+          "estimate": [
+            0.024849550199558333,
+            0.014736590468874003,
+            -0.01946463057096532,
+            -0.05586043730162757,
+            -0.05559437205076996,
+            0.007938574073514969
+          ],
+          "bootstrap_standard_error": [
+            0.010412861764056086,
+            0.006109092896213245,
+            0.007023428203780946,
+            0.008356109868004294,
+            0.02490974981165143,
+            0.0010830812411848757
+          ],
+          "bootstrap_percentile95": [
+            [
+              0.0032056453530001383,
+              0.04407443695476473
+            ],
+            [
+              0.0025620450270169596,
+              0.026254807072304823
+            ],
+            [
+              -0.03297468499811544,
+              -0.003734210779490871
+            ],
+            [
+              -0.07337937317317708,
+              -0.04145038250625778
+            ],
+            [
+              -0.1096366306715234,
+              -0.009540636837205773
+            ],
+            [
+              0.0058271951748355665,
+              0.009934567442705076
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.00010958955596231003,
+              1.421983789744675e-05,
+              -2.808338006791777e-06,
+              2.980361112036692e-06,
+              -5.607425083454387e-07
+            ],
+            [
+              1.421983789744675e-05,
+              3.703988571936953e-05,
+              5.052411901052969e-06,
+              3.191131413473205e-07,
+              -3.6622188469628154e-06
+            ],
+            [
+              -2.808338006791777e-06,
+              5.052411901052969e-06,
+              4.9349473755896836e-05,
+              9.444977082961787e-06,
+              4.491749463980592e-06
+            ],
+            [
+              2.980361112036692e-06,
+              3.191131413473205e-07,
+              9.444977082961787e-06,
+              7.048087244862999e-05,
+              2.372593018524073e-05
+            ],
+            [
+              -5.607425083454387e-07,
+              -3.6622188469628154e-06,
+              4.491749463980592e-06,
+              2.372593018524073e-05,
+              0.0006204956356790687
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            500,
+            500,
+            500,
+            500,
+            475
+          ],
+          "covariance_complete_support_replicates": 475,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration.",
+          "complete_bootstrap_replicates": 475
+        },
+        "matched_age_minus_nominal_closure": {
+          "estimate": [
+            -0.020663893739639193,
+            0.005895833809320983,
+            -0.0163566619640379,
+            -0.0071245818251154044,
+            0.03521169575807669,
+            -0.02168116342271051
+          ],
+          "bootstrap_standard_error": [
+            0.013616702895441691,
+            0.00855364778091153,
+            0.009407876815773781,
+            0.01236538038275081,
+            0.030710961069163854,
+            0.0011838184953682673
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.04888868727608897,
+              0.0040248413527586594
+            ],
+            [
+              -0.012166429323405606,
+              0.021644966216152563
+            ],
+            [
+              -0.032808157172707145,
+              0.0033635830890436447
+            ],
+            [
+              -0.035256279271018244,
+              0.014164004813429273
+            ],
+            [
+              -0.03508867603045924,
+              0.08890148473568178
+            ],
+            [
+              -0.023986422119491577,
+              -0.019439892562440147
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.00018424493132906315,
+              2.4025796578333726e-05,
+              -2.0170699432921015e-06,
+              -4.5146213710910845e-07,
+              -2.9903719436769813e-05
+            ],
+            [
+              2.4025796578333726e-05,
+              7.416984644030587e-05,
+              2.12703155119429e-06,
+              -2.9021418352357957e-06,
+              -1.849957524939176e-05
+            ],
+            [
+              -2.0170699432921015e-06,
+              2.12703155119429e-06,
+              8.957421211528137e-05,
+              4.460880848364479e-06,
+              3.300307450785152e-06
+            ],
+            [
+              -4.5146213710910845e-07,
+              -2.9021418352357957e-06,
+              4.460880848364479e-06,
+              0.0001522252574848939,
+              2.034788609609628e-05
+            ],
+            [
+              -2.9903719436769813e-05,
+              -1.849957524939176e-05,
+              3.300307450785152e-06,
+              2.034788609609628e-05,
+              0.0009431631297916982
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            500,
+            500,
+            500,
+            500,
+            475
+          ],
+          "covariance_complete_support_replicates": 475,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration.",
+          "complete_bootstrap_replicates": 475
+        },
+        "matched_minus_nominal_correction_common_evaluation_support": {
+          "n": 370,
+          "estimate": [
+            0.024849550199558333,
+            0.014736590468874003,
+            -0.01946463057096532,
+            -0.05586043730162757,
+            -0.038156743720485435,
+            0.007940458899293242
+          ],
+          "bootstrap_standard_error": [
+            0.010281810784676357,
+            0.006109092896213245,
+            0.007023428203780946,
+            0.008278613745218138,
+            0.014820899569514372,
+            0.0010796119580432527
+          ],
+          "bootstrap_percentile95": [
+            [
+              0.0032056453530001383,
+              0.04355538674735419
+            ],
+            [
+              0.0025620450270169596,
+              0.026254807072304823
+            ],
+            [
+              -0.03297468499811544,
+              -0.003734210779490871
+            ],
+            [
+              -0.07337937317317708,
+              -0.0417255817497857
+            ],
+            [
+              -0.07370113943807231,
+              -0.01570941898613759
+            ],
+            [
+              0.005884742334190416,
+              0.009937027683757434
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.00010673036089817467,
+              1.4710471011457096e-05,
+              -2.6799848559586723e-06,
+              3.2823749241890643e-06,
+              2.274260917962988e-06
+            ],
+            [
+              1.4710471011457096e-05,
+              3.703988571936953e-05,
+              5.052411901052969e-06,
+              -7.911516534006506e-08,
+              -5.711961741481749e-07
+            ],
+            [
+              -2.6799848559586723e-06,
+              5.052411901052969e-06,
+              4.9349473755896836e-05,
+              9.46691538825222e-06,
+              5.504702939639389e-06
+            ],
+            [
+              3.2823749241890643e-06,
+              -7.911516534006506e-08,
+              9.46691538825222e-06,
+              6.880338059806782e-05,
+              2.4670464074988168e-05
+            ],
+            [
+              2.274260917962988e-06,
+              -5.711961741481749e-07,
+              5.504702939639389e-06,
+              2.4670464074988168e-05,
+              0.00021965906404963146
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            500,
+            500,
+            500,
+            500,
+            475
+          ],
+          "covariance_complete_support_replicates": 475,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        }
+      },
+      "bootstrap_replicates": 500
+    },
+    "no_classifier": {
+      "arms": {
+        "nominal_closure": {
+          "train_n": 793,
+          "eval_n": 389,
+          "supported_n": 387,
+          "supported_per_zbin": [
+            52,
+            147,
+            99,
+            70,
+            19
+          ],
+          "training_coefficients_intercept_x1_c_highmass": [
+            -19.401872656033504,
+            -0.12519679424162372,
+            2.0054197078773917,
+            -0.024889584065596295
+          ],
+          "statistics_zbin_means_and_age_slope": [
+            0.013822188650958104,
+            0.015866819991011822,
+            -0.04563261847231658,
+            0.00653114597205139,
+            -0.08533327512000106,
+            0.008898074636164668
+          ],
+          "median_40th_neighbor_distance": 1.3859131384636798,
+          "max_40th_neighbor_distance": 3.214794573927431,
+          "bootstrap_standard_error": [
+            0.021136299081100412,
+            0.014696967936745192,
+            0.020740013035646074,
+            0.030654101734475653,
+            0.052528088448951474,
+            0.0030536197924520975
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.02541153162123424,
+              0.05292493581946109
+            ],
+            [
+              -0.01354662132125737,
+              0.04261591793877225
+            ],
+            [
+              -0.08822658243505654,
+              -0.012141186306688718
+            ],
+            [
+              -0.05223407969519361,
+              0.07223998171886431
+            ],
+            [
+              -0.17094502638291126,
+              0.007028848442784301
+            ],
+            [
+              0.0027592078228156967,
+              0.014252337285108736
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.0004467431388457261,
+              3.633148682747082e-05,
+              5.974334663606502e-06,
+              2.176472260798376e-05,
+              4.930801101124798e-06
+            ],
+            [
+              3.633148682747082e-05,
+              0.00021600086653371622,
+              1.380118650566715e-05,
+              2.3810331949418464e-05,
+              2.9719271577358056e-05
+            ],
+            [
+              5.974334663606502e-06,
+              1.380118650566715e-05,
+              0.00043014814071876925,
+              6.445284077817946e-05,
+              -0.00012178798604277512
+            ],
+            [
+              2.176472260798376e-05,
+              2.3810331949418464e-05,
+              6.445284077817946e-05,
+              0.0009396739531475836,
+              2.266477099622002e-05
+            ],
+            [
+              4.930801101124798e-06,
+              2.9719271577358056e-05,
+              -0.00012178798604277512,
+              2.266477099622002e-05,
+              0.002759200076100869
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            200
+          ],
+          "covariance_complete_support_replicates": 200,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        },
+        "age_nominal_correction": {
+          "train_n": 793,
+          "eval_n": 377,
+          "supported_n": 375,
+          "supported_per_zbin": [
+            52,
+            146,
+            99,
+            64,
+            14
+          ],
+          "training_coefficients_intercept_x1_c_highmass": [
+            -19.401872656033504,
+            -0.12519679424162372,
+            2.0054197078773917,
+            -0.024889584065596295
+          ],
+          "statistics_zbin_means_and_age_slope": [
+            -0.02937597206817692,
+            0.0059996152542094614,
+            -0.04252398526786814,
+            0.05512420385969551,
+            0.005448361627549356,
+            -0.020372111308483876
+          ],
+          "median_40th_neighbor_distance": 1.3640185141462347,
+          "max_40th_neighbor_distance": 3.1202185325834098,
+          "bootstrap_standard_error": [
+            0.021560984663182497,
+            0.014648664196195624,
+            0.020510276928503674,
+            0.032033086023920965,
+            0.05437924460284004,
+            0.0030812782784471085
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.06998360294288569,
+              0.012968582714698655
+            ],
+            [
+              -0.028708777399081235,
+              0.03142832798785431
+            ],
+            [
+              -0.08424564243153379,
+              -0.007519428089988605
+            ],
+            [
+              -0.0056156176061385316,
+              0.12198857743807553
+            ],
+            [
+              -0.08825206941174628,
+              0.10604038598313853
+            ],
+            [
+              -0.02641519706998795,
+              -0.015312383349950755
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.0004719452634341448,
+              4.7942557821040745e-05,
+              -3.037361934206878e-05,
+              -1.5202213722979006e-05,
+              -5.49161541236457e-05
+            ],
+            [
+              4.7942557821040745e-05,
+              0.00022222581688185466,
+              1.4760250841099347e-05,
+              3.661778222677861e-05,
+              3.5638029797336575e-05
+            ],
+            [
+              -3.037361934206878e-05,
+              1.4760250841099347e-05,
+              0.0004129854052745936,
+              7.579777736407989e-05,
+              -5.746020556968395e-05
+            ],
+            [
+              -1.5202213722979006e-05,
+              3.661778222677861e-05,
+              7.579777736407989e-05,
+              0.0010786457802518584,
+              -4.5749320537349246e-05
+            ],
+            [
+              -5.49161541236457e-05,
+              3.5638029797336575e-05,
+              -5.746020556968395e-05,
+              -4.5749320537349246e-05,
+              0.0029571022435755075
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            187
+          ],
+          "covariance_complete_support_replicates": 187,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        },
+        "dust_nominal_correction": {
+          "train_n": 793,
+          "eval_n": 360,
+          "supported_n": 357,
+          "supported_per_zbin": [
+            49,
+            140,
+            94,
+            57,
+            17
+          ],
+          "training_coefficients_intercept_x1_c_highmass": [
+            -19.401872656033504,
+            -0.12519679424162372,
+            2.0054197078773917,
+            -0.024889584065596295
+          ],
+          "statistics_zbin_means_and_age_slope": [
+            0.009776751570365356,
+            0.030868709991297864,
+            -0.03777698842428469,
+            0.0495452777482826,
+            -0.06944964697706103,
+            0.00863792244138109
+          ],
+          "median_40th_neighbor_distance": 1.3710984813817202,
+          "max_40th_neighbor_distance": 3.2315418051605476,
+          "bootstrap_standard_error": [
+            0.02848277675129338,
+            0.015313822287376449,
+            0.023968947396760674,
+            0.03594080012480148,
+            0.05261638057928749,
+            0.003889170023743669
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.0403044827275506,
+              0.06754516916673356
+            ],
+            [
+              0.0037052261401231672,
+              0.06311848094108094
+            ],
+            [
+              -0.09182861274078631,
+              0.004170400792153457
+            ],
+            [
+              -0.011813295036596614,
+              0.11921652541845766
+            ],
+            [
+              -0.17352285530059108,
+              0.04947745546660774
+            ],
+            [
+              0.00048505323451660974,
+              0.015323260199866177
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.0007887404880847241,
+              2.6109402052640116e-05,
+              5.375788802278934e-06,
+              2.0820402388810898e-05,
+              0.00014609686661428616
+            ],
+            [
+              2.6109402052640116e-05,
+              0.00023862867532946868,
+              3.042839498934902e-06,
+              -3.967008758242928e-05,
+              -6.044250748325805e-05
+            ],
+            [
+              5.375788802278934e-06,
+              3.042839498934902e-06,
+              0.0005741892698984469,
+              9.484051893054146e-05,
+              -3.982699492024054e-05
+            ],
+            [
+              2.0820402388810898e-05,
+              -3.967008758242928e-05,
+              9.484051893054146e-05,
+              0.0013178346700571295,
+              7.018566370006602e-05
+            ],
+            [
+              0.00014609686661428616,
+              -6.044250748325805e-05,
+              -3.982699492024054e-05,
+              7.018566370006602e-05,
+              0.0027684835052644223
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            195
+          ],
+          "covariance_complete_support_replicates": 195,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        },
+        "age_matched_correction": {
+          "train_n": 768,
+          "eval_n": 377,
+          "supported_n": 374,
+          "supported_per_zbin": [
+            52,
+            146,
+            99,
+            64,
+            13
+          ],
+          "training_coefficients_intercept_x1_c_highmass": [
+            -19.382232176285694,
+            -0.09617048580775744,
+            1.958652031285868,
+            -0.06438916845173748
+          ],
+          "statistics_zbin_means_and_age_slope": [
+            -0.005929447708607828,
+            0.021045713899227454,
+            -0.06245420977331444,
+            -0.0010065599471958194,
+            -0.050259067109008,
+            -0.01219884976736895
+          ],
+          "median_40th_neighbor_distance": 1.3750633800175152,
+          "max_40th_neighbor_distance": 3.211567248074048,
+          "bootstrap_standard_error": [
+            0.022704545833430522,
+            0.01582490547038621,
+            0.021101192657910398,
+            0.031912292175349126,
+            0.05457735552585732,
+            0.0032669056326635236
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.04761638211098322,
+              0.03747404900808752
+            ],
+            [
+              -0.014786442814652464,
+              0.05057868931956514
+            ],
+            [
+              -0.10150644565415735,
+              -0.0269853110926091
+            ],
+            [
+              -0.060512266600262064,
+              0.06348352178405874
+            ],
+            [
+              -0.1495706135868062,
+              0.050028650988878307
+            ],
+            [
+              -0.01834295879545301,
+              -0.006817545876532845
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.0005030890183007884,
+              6.715743387185318e-05,
+              -2.5970887487722852e-05,
+              -1.5360337872943557e-05,
+              -1.7078391230839115e-05
+            ],
+            [
+              6.715743387185318e-05,
+              0.000260293485523418,
+              2.8929412387104107e-05,
+              3.358386657856573e-05,
+              9.3164293472568e-06
+            ],
+            [
+              -2.5970887487722852e-05,
+              2.8929412387104107e-05,
+              0.0004459158437984714,
+              7.323228324577221e-05,
+              -7.475959893534615e-05
+            ],
+            [
+              -1.5360337872943557e-05,
+              3.358386657856573e-05,
+              7.323228324577221e-05,
+              0.0010750433804967896,
+              -7.150169281672e-05
+            ],
+            [
+              -1.7078391230839115e-05,
+              9.3164293472568e-06,
+              -7.475959893534615e-05,
+              -7.150169281672e-05,
+              0.002978687736195828
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            187
+          ],
+          "covariance_complete_support_replicates": 187,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        }
+      },
+      "differences": {
+        "age_minus_nominal": {
+          "estimate": [
+            -0.04319816071913502,
+            -0.00986720473680236,
+            0.003108633204448444,
+            0.04859305788764412,
+            0.09078163674755042,
+            -0.029270185944648544
+          ],
+          "bootstrap_standard_error": [
+            0.013309043606509745,
+            0.008822292210340149,
+            0.008695397210939221,
+            0.0099686768798897,
+            0.022805818576656502,
+            0.0006234534636393663
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.07130176392266512,
+              -0.019125814407122514
+            ],
+            [
+              -0.028047667898649493,
+              0.006590652704794527
+            ],
+            [
+              -0.012346961711974568,
+              0.02028463971817281
+            ],
+            [
+              0.03149536940912072,
+              0.0657945400247472
+            ],
+            [
+              0.05003628082850405,
+              0.1351927167410087
+            ],
+            [
+              -0.030340000011382744,
+              -0.028070492981088286
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.00017647310290168423,
+              -1.7543597868594358e-05,
+              5.339831600541154e-07,
+              3.48828106027559e-06,
+              8.913736117904058e-06
+            ],
+            [
+              -1.7543597868594358e-05,
+              7.733935024587572e-05,
+              -1.77509039757696e-06,
+              2.060782944016736e-06,
+              1.9349905311683465e-05
+            ],
+            [
+              5.339831600541154e-07,
+              -1.77509039757696e-06,
+              7.743517170698791e-05,
+              -6.158684507748306e-06,
+              1.0640548592531165e-05
+            ],
+            [
+              3.48828106027559e-06,
+              2.060782944016736e-06,
+              -6.158684507748306e-06,
+              9.963721381411283e-05,
+              4.174538460121438e-06
+            ],
+            [
+              8.913736117904058e-06,
+              1.9349905311683465e-05,
+              1.0640548592531165e-05,
+              4.174538460121438e-06,
+              0.0005201053609513709
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            187
+          ],
+          "covariance_complete_support_replicates": 187,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration.",
+          "complete_bootstrap_replicates": 187
+        },
+        "dust_minus_nominal": {
+          "estimate": [
+            -0.0040454370805927484,
+            0.015001890000286042,
+            0.007855630048031893,
+            0.04301413177623121,
+            0.01588362814294003,
+            -0.00026015219478357776
+          ],
+          "bootstrap_standard_error": [
+            0.028767526922474772,
+            0.013523472247092416,
+            0.013011142289544536,
+            0.026573696322733875,
+            0.05158825781716582,
+            0.00382501542184755
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.05318075710454932,
+              0.05638931748520742
+            ],
+            [
+              -0.0085152147612959,
+              0.044166794297376646
+            ],
+            [
+              -0.016117179869677103,
+              0.03616155029220982
+            ],
+            [
+              -0.012668552983548362,
+              0.08587938206668985
+            ],
+            [
+              -0.08996014955806846,
+              0.11009552645313318
+            ],
+            [
+              -0.0071486168054738985,
+              0.007535556222034934
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.0008039228067633456,
+              1.6389736482543267e-05,
+              4.458492734473334e-06,
+              5.933322963059889e-05,
+              -4.502433280440851e-05
+            ],
+            [
+              1.6389736482543267e-05,
+              0.00017848940655484604,
+              -8.264362810871455e-06,
+              2.6043583954958873e-05,
+              -6.028902791892776e-05
+            ],
+            [
+              4.458492734473334e-06,
+              -8.264362810871455e-06,
+              0.00016921056014792713,
+              -8.834371024643407e-06,
+              2.1121192603593058e-05
+            ],
+            [
+              5.933322963059889e-05,
+              2.6043583954958873e-05,
+              -8.834371024643407e-06,
+              0.0007181958500337481,
+              -0.0001644797802785255
+            ],
+            [
+              -4.502433280440851e-05,
+              -6.028902791892776e-05,
+              2.1121192603593058e-05,
+              -0.0001644797802785255,
+              0.00266134834461037
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            195
+          ],
+          "covariance_complete_support_replicates": 195,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration.",
+          "complete_bootstrap_replicates": 195
+        },
+        "matched_minus_nominal_correction_on_age": {
+          "estimate": [
+            0.023446524359569093,
+            0.015046098645017991,
+            -0.0199302245054463,
+            -0.05613076380689133,
+            -0.05570742873655736,
+            0.008173261541114925
+          ],
+          "bootstrap_standard_error": [
+            0.010343360122505385,
+            0.006486739215367441,
+            0.006934015118851895,
+            0.008004220252070328,
+            0.023157705864729653,
+            0.0011505300720929226
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.0012815474156245385,
+              0.039478039777308696
+            ],
+            [
+              0.0010775535075072307,
+              0.025176138246755745
+            ],
+            [
+              -0.029935245481668756,
+              -0.005027476441271869
+            ],
+            [
+              -0.07374092429792821,
+              -0.04338520257698582
+            ],
+            [
+              -0.10069176147630012,
+              -0.013077318222889066
+            ],
+            [
+              0.006004106613135522,
+              0.010213715285079387
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.00010193945939330023,
+              3.2155402004903365e-06,
+              -2.5846606587411096e-06,
+              -1.2195962135036382e-06,
+              -2.3350577756216853e-05
+            ],
+            [
+              3.2155402004903365e-06,
+              4.425799589153689e-05,
+              6.395302339754017e-06,
+              -5.3127161990526016e-06,
+              1.5430985756587424e-05
+            ],
+            [
+              -2.5846606587411096e-06,
+              6.395302339754017e-06,
+              4.737594170671133e-05,
+              1.0787569246161607e-05,
+              2.3057101264455425e-05
+            ],
+            [
+              -1.2195962135036382e-06,
+              -5.3127161990526016e-06,
+              1.0787569246161607e-05,
+              6.24561302815202e-05,
+              2.8064543606608926e-05
+            ],
+            [
+              -2.3350577756216853e-05,
+              1.5430985756587424e-05,
+              2.3057101264455425e-05,
+              2.8064543606608926e-05,
+              0.0005362793409173342
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            187
+          ],
+          "covariance_complete_support_replicates": 187,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration.",
+          "complete_bootstrap_replicates": 187
+        },
+        "matched_age_minus_nominal_closure": {
+          "estimate": [
+            -0.019751636359565932,
+            0.0051788939082156316,
+            -0.016821591300997855,
+            -0.00753770591924721,
+            0.03507420801099306,
+            -0.02109692440353362
+          ],
+          "bootstrap_standard_error": [
+            0.01331933906920036,
+            0.00908755585157929,
+            0.010099763040257568,
+            0.01187844053999372,
+            0.028450307747414548,
+            0.001311820980849035
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.04812927527217623,
+              0.0022030613852512585
+            ],
+            [
+              -0.01666019371759376,
+              0.02178317223273571
+            ],
+            [
+              -0.03691844308292564,
+              0.0009115115610619552
+            ],
+            [
+              -0.03217689429861441,
+              0.01313704522953102
+            ],
+            [
+              -0.01934109643798782,
+              0.09936527924215544
+            ],
+            [
+              -0.023566097550038384,
+              -0.01855123193707046
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.00016465392589530122,
+              2.9009824032419758e-06,
+              -6.370721251924504e-06,
+              3.855766642719381e-06,
+              7.716428871752723e-07
+            ],
+            [
+              2.9009824032419758e-06,
+              8.271848441336096e-05,
+              5.600298189321537e-06,
+              -1.7886209375696472e-06,
+              -9.035610316876792e-06
+            ],
+            [
+              -6.370721251924504e-06,
+              5.600298189321537e-06,
+              0.00010477780301935822,
+              2.22319848041852e-06,
+              3.7500128687251065e-05
+            ],
+            [
+              3.855766642719381e-06,
+              -1.7886209375696472e-06,
+              2.22319848041852e-06,
+              0.00014218476709752678,
+              2.581999307051733e-05
+            ],
+            [
+              7.716428871752723e-07,
+              -9.035610316876792e-06,
+              3.7500128687251065e-05,
+              2.581999307051733e-05,
+              0.0008094200109225964
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            187
+          ],
+          "covariance_complete_support_replicates": 187,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration.",
+          "complete_bootstrap_replicates": 187
+        },
+        "matched_minus_nominal_correction_common_evaluation_support": {
+          "n": 374,
+          "estimate": [
+            0.023446524359569093,
+            0.015046098645017991,
+            -0.0199302245054463,
+            -0.05613076380689133,
+            -0.03831171093393683,
+            0.008175115632433748
+          ],
+          "bootstrap_standard_error": [
+            0.010284722012160314,
+            0.006486739215367441,
+            0.006934015118851895,
+            0.00808547663590112,
+            0.014976170920405452,
+            0.001146169514140692
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.0007826862895650056,
+              0.040839249885867596
+            ],
+            [
+              0.0010775535075072307,
+              0.025176138246755745
+            ],
+            [
+              -0.029935245481668756,
+              -0.005027476441271869
+            ],
+            [
+              -0.07374092429792821,
+              -0.04338520257698582
+            ],
+            [
+              -0.0742404790189384,
+              -0.01309771568645336
+            ],
+            [
+              0.006004295165505315,
+              0.01020978526816689
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.00010069345557922854,
+              2.3456744148353824e-06,
+              -3.976878623076488e-06,
+              -3.0679808906180664e-06,
+              -2.063209336806658e-05
+            ],
+            [
+              2.3456744148353824e-06,
+              4.425799589153689e-05,
+              6.395302339754017e-06,
+              -4.507719255290705e-06,
+              6.604391120477391e-06
+            ],
+            [
+              -3.976878623076488e-06,
+              6.395302339754017e-06,
+              4.737594170671133e-05,
+              1.1993188812534355e-05,
+              1.4157276550901425e-05
+            ],
+            [
+              -3.0679808906180664e-06,
+              -4.507719255290705e-06,
+              1.1993188812534355e-05,
+              6.386559226189176e-05,
+              3.080312592307162e-05
+            ],
+            [
+              -2.063209336806658e-05,
+              6.604391120477391e-06,
+              1.4157276550901425e-05,
+              3.080312592307162e-05,
+              0.0002242856954371979
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            187
+          ],
+          "covariance_complete_support_replicates": 187,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        }
+      },
+      "bootstrap_replicates": 200
+    },
+    "strict_classifier": {
+      "arms": {
+        "nominal_closure": {
+          "train_n": 580,
+          "eval_n": 282,
+          "supported_n": 270,
+          "supported_per_zbin": [
+            48,
+            118,
+            64,
+            40,
+            0
+          ],
+          "training_coefficients_intercept_x1_c_highmass": [
+            -19.405984066684542,
+            -0.1258729066941414,
+            2.0124298961921334,
+            -0.01358537731913762
+          ],
+          "statistics_zbin_means_and_age_slope": [
+            0.014648379497224093,
+            -0.0022425586773470035,
+            -0.061906175955757925,
+            -0.006303664106117767,
+            null,
+            0.008472113631789846
+          ],
+          "median_40th_neighbor_distance": 1.4141641309301634,
+          "max_40th_neighbor_distance": 3.796577759358723,
+          "bootstrap_standard_error": [
+            0.023093924189683764,
+            0.01508728144384913,
+            0.02222905805795857,
+            0.037698615316090665,
+            0.06738142428680396,
+            0.0032571903959221003
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.033093123607252625,
+              0.055663618023537476
+            ],
+            [
+              -0.03159133612261213,
+              0.027759878591853516
+            ],
+            [
+              -0.09976499797044966,
+              -0.018327419111350142
+            ],
+            [
+              -0.07111435836671086,
+              0.06846519288991106
+            ],
+            [
+              -0.1734775201553106,
+              0.0491354356030468
+            ],
+            [
+              0.002223358873806425,
+              0.01546627223015293
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.0004554293854772977,
+              5.7684277105233045e-05,
+              2.515858053443238e-05,
+              -1.5000211690241336e-05,
+              -0.00014872190577498286
+            ],
+            [
+              5.7684277105233045e-05,
+              0.00027316564133716433,
+              2.3852525631334765e-05,
+              -0.00011115183850522696,
+              -0.0001526394054405781
+            ],
+            [
+              2.515858053443238e-05,
+              2.3852525631334765e-05,
+              0.0004317161133441258,
+              0.00011283384481515781,
+              0.000288423620745897
+            ],
+            [
+              -1.5000211690241336e-05,
+              -0.00011115183850522696,
+              0.00011283384481515781,
+              0.0011352166156861371,
+              0.0005456443998015218
+            ],
+            [
+              -0.00014872190577498286,
+              -0.0001526394054405781,
+              0.000288423620745897,
+              0.0005456443998015218,
+              0.004540256338918295
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            55
+          ],
+          "covariance_complete_support_replicates": 55,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        },
+        "age_nominal_correction": {
+          "train_n": 580,
+          "eval_n": 274,
+          "supported_n": 266,
+          "supported_per_zbin": [
+            48,
+            119,
+            65,
+            34,
+            0
+          ],
+          "training_coefficients_intercept_x1_c_highmass": [
+            -19.405984066684542,
+            -0.1258729066941414,
+            2.0124298961921334,
+            -0.01358537731913762
+          ],
+          "statistics_zbin_means_and_age_slope": [
+            -0.035412262462813114,
+            -0.008241151473055259,
+            -0.0566696399181509,
+            0.04414195245112942,
+            null,
+            -0.021497536455553953
+          ],
+          "median_40th_neighbor_distance": 1.4053938571167808,
+          "max_40th_neighbor_distance": 3.531333053799185,
+          "bootstrap_standard_error": [
+            0.024076232154035513,
+            0.014537265929869352,
+            0.023639230984748696,
+            0.04229345344442051,
+            0.06977128126082541,
+            0.003175016248980495
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.08810100452602204,
+              0.0071257389346143455
+            ],
+            [
+              -0.03752029654680292,
+              0.016140329208070146
+            ],
+            [
+              -0.10440944142800192,
+              -0.013081125263356285
+            ],
+            [
+              -0.033450937429669814,
+              0.129008413444955
+            ],
+            [
+              -0.12339097821336201,
+              0.11001615504356534
+            ],
+            [
+              -0.02714404153904133,
+              -0.014680105905992185
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.000566659389300461,
+              4.217046787121769e-05,
+              -4.878199319747123e-05,
+              -5.5875451212161414e-05,
+              -0.0003918956325208852
+            ],
+            [
+              4.217046787121769e-05,
+              0.00018183775657410015,
+              4.269476451233214e-05,
+              -0.00015016618881657105,
+              -0.0001953286851165173
+            ],
+            [
+              -4.878199319747123e-05,
+              4.269476451233214e-05,
+              0.00034896833694269587,
+              0.0001060808264341565,
+              0.00010444845450580283
+            ],
+            [
+              -5.5875451212161414e-05,
+              -0.00015016618881657105,
+              0.0001060808264341565,
+              0.001238431793824532,
+              -9.072278508587855e-05
+            ],
+            [
+              -0.0003918956325208852,
+              -0.0001953286851165173,
+              0.00010444845450580283,
+              -9.072278508587855e-05,
+              0.004868031688777206
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            19
+          ],
+          "covariance_complete_support_replicates": 19,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        },
+        "dust_nominal_correction": {
+          "train_n": 580,
+          "eval_n": 252,
+          "supported_n": 243,
+          "supported_per_zbin": [
+            46,
+            114,
+            54,
+            29,
+            0
+          ],
+          "training_coefficients_intercept_x1_c_highmass": [
+            -19.405984066684542,
+            -0.1258729066941414,
+            2.0124298961921334,
+            -0.01358537731913762
+          ],
+          "statistics_zbin_means_and_age_slope": [
+            0.011758091775743546,
+            0.023263085838745385,
+            -0.05242509223741379,
+            0.01864557531702141,
+            null,
+            0.007644199686857426
+          ],
+          "median_40th_neighbor_distance": 1.3859687953970639,
+          "max_40th_neighbor_distance": 3.6385752469980783,
+          "bootstrap_standard_error": [
+            0.02996265656368392,
+            0.016294392822577476,
+            0.021065507109936443,
+            0.041329736857281356,
+            0.0692548722163685,
+            0.0036513960333029397
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.0461360848823721,
+              0.07151748585673114
+            ],
+            [
+              -0.01161216929120866,
+              0.052221319067519624
+            ],
+            [
+              -0.08917881292123311,
+              -0.01186382902179789
+            ],
+            [
+              -0.049959224673200145,
+              0.0982345093507901
+            ],
+            [
+              -0.10871312686416808,
+              0.10513141843915205
+            ],
+            [
+              0.0008958088848855224,
+              0.014535422011743336
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.0011753212264478982,
+              1.0729660296405157e-05,
+              0.00029980834529391774,
+              -0.0005351295365580734,
+              0.0008820223369371541
+            ],
+            [
+              1.0729660296405157e-05,
+              8.739379129348464e-05,
+              -0.00010578977108541363,
+              7.879290526960819e-05,
+              7.520928179851893e-05
+            ],
+            [
+              0.00029980834529391774,
+              -0.00010578977108541363,
+              0.00044685435144315626,
+              -0.00034094359667968636,
+              0.00019356917132276006
+            ],
+            [
+              -0.0005351295365580734,
+              7.879290526960819e-05,
+              -0.00034094359667968636,
+              0.001456743843810006,
+              0.0003480424366881334
+            ],
+            [
+              0.0008820223369371541,
+              7.520928179851893e-05,
+              0.00019356917132276006,
+              0.0003480424366881334,
+              0.0047962373257055295
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            9
+          ],
+          "covariance_complete_support_replicates": 9,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        },
+        "age_matched_correction": {
+          "train_n": 557,
+          "eval_n": 274,
+          "supported_n": 266,
+          "supported_per_zbin": [
+            48,
+            119,
+            65,
+            34,
+            0
+          ],
+          "training_coefficients_intercept_x1_c_highmass": [
+            -19.39040126451664,
+            -0.09559763553074609,
+            1.9433821958223862,
+            -0.056633271562150325
+          ],
+          "statistics_zbin_means_and_age_slope": [
+            -0.010156996836352725,
+            0.006899845970354215,
+            -0.06601484427025323,
+            -0.0010003918093366918,
+            null,
+            -0.013816000490590306
+          ],
+          "median_40th_neighbor_distance": 1.415387807832401,
+          "max_40th_neighbor_distance": 3.666997632112188,
+          "bootstrap_standard_error": [
+            0.025478172948859727,
+            0.015481390151248504,
+            0.024215052369022355,
+            0.040772504984929014,
+            null,
+            0.0033128099055877874
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.06387375677767143,
+              0.033513876384096565
+            ],
+            [
+              -0.027619411387920352,
+              0.03438406077991216
+            ],
+            [
+              -0.11815683835397894,
+              -0.02229261806298367
+            ],
+            [
+              -0.0787767437545936,
+              0.08115091579214469
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              -0.01943646118359437,
+              -0.006822656554697345
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.0006491372968120075,
+              6.0346503667567344e-05,
+              1.9865000271587044e-05,
+              -8.326875285195533e-05,
+              null
+            ],
+            [
+              6.0346503667567344e-05,
+              0.0002396734410151742,
+              5.224259651016385e-05,
+              -2.9270317497633794e-05,
+              null
+            ],
+            [
+              1.9865000271587044e-05,
+              5.224259651016385e-05,
+              0.0005863687612344952,
+              3.4497138188658716e-05,
+              null
+            ],
+            [
+              -8.326875285195533e-05,
+              -2.9270317497633794e-05,
+              3.4497138188658716e-05,
+              0.0016623971627460611,
+              null
+            ],
+            [
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            0
+          ],
+          "covariance_complete_support_replicates": 200,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        }
+      },
+      "differences": {
+        "age_minus_nominal": {
+          "estimate": [
+            -0.050060641960037205,
+            -0.005998592795708255,
+            0.005236536037607022,
+            0.050445616557247185,
+            null,
+            -0.0299696500873438
+          ],
+          "bootstrap_standard_error": [
+            0.014408116738842631,
+            0.008998380751433846,
+            0.010966102010238132,
+            0.011175085740202859,
+            0.018984299009191418,
+            0.0004480478634752756
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.07473805060416261,
+              -0.018932864269015824
+            ],
+            [
+              -0.02132930459588864,
+              0.009789361874379078
+            ],
+            [
+              -0.018002831387195186,
+              0.02435832505345426
+            ],
+            [
+              0.02819159374157537,
+              0.06969836269576199
+            ],
+            [
+              0.02364423224220555,
+              0.08290989132746433
+            ],
+            [
+              -0.030740873008808036,
+              -0.02899182428121295
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.0002834625296738838,
+              -9.92791136349669e-06,
+              6.335940687512622e-05,
+              9.40914928574402e-06,
+              -0.00012121402819342833
+            ],
+            [
+              -9.92791136349669e-06,
+              0.00010788978045527976,
+              1.4228067907734544e-05,
+              -6.179234141880667e-06,
+              5.549143735436833e-05
+            ],
+            [
+              6.335940687512622e-05,
+              1.4228067907734544e-05,
+              0.0001486529274779395,
+              3.591470722484227e-05,
+              -6.01221603416877e-05
+            ],
+            [
+              9.40914928574402e-06,
+              -6.179234141880667e-06,
+              3.591470722484227e-05,
+              8.539017949833743e-05,
+              -4.651535173565574e-05
+            ],
+            [
+              -0.00012121402819342833,
+              5.549143735436833e-05,
+              -6.01221603416877e-05,
+              -4.651535173565574e-05,
+              0.00036040360887038616
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            19
+          ],
+          "covariance_complete_support_replicates": 19,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration.",
+          "complete_bootstrap_replicates": 19
+        },
+        "dust_minus_nominal": {
+          "estimate": [
+            -0.0028902877214805472,
+            0.02550564451609239,
+            0.009481083718344135,
+            0.024949239423139178,
+            null,
+            -0.0008279139449324201
+          ],
+          "bootstrap_standard_error": [
+            0.029886546278574483,
+            0.015773451902417225,
+            0.017458154042746355,
+            0.03510006776755714,
+            0.08378365805753907,
+            0.0034693565721750598
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.05459405648751749,
+              0.04718253693467185
+            ],
+            [
+              -0.009398214328955717,
+              0.05305195077353087
+            ],
+            [
+              -0.0235940200200605,
+              0.0424005154498308
+            ],
+            [
+              -0.055066676244220854,
+              0.08716368055137351
+            ],
+            [
+              -0.027211914189929194,
+              0.19736264942162426
+            ],
+            [
+              -0.008169404405833254,
+              0.006140906520729649
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.0007975046038235025,
+              1.4183001106518058e-05,
+              7.817575161040631e-05,
+              -0.00032877720547985534,
+              -0.00011280928507139527
+            ],
+            [
+              1.4183001106518058e-05,
+              7.902045662131763e-05,
+              -1.4987960155830655e-05,
+              0.0001597277324157456,
+              0.0001507400160372962
+            ],
+            [
+              7.817575161040631e-05,
+              -1.4987960155830655e-05,
+              0.000276977447035048,
+              -7.791022626736277e-05,
+              0.0006506506892507897
+            ],
+            [
+              -0.00032877720547985534,
+              0.0001597277324157456,
+              -7.791022626736277e-05,
+              0.0008560613918639952,
+              7.581717399784864e-05
+            ],
+            [
+              -0.00011280928507139527,
+              0.0001507400160372962,
+              0.0006506506892507897,
+              7.581717399784864e-05,
+              0.007019701357502631
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            9
+          ],
+          "covariance_complete_support_replicates": 9,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration.",
+          "complete_bootstrap_replicates": 9
+        },
+        "matched_minus_nominal_correction_on_age": {
+          "estimate": [
+            0.02525526562646039,
+            0.015140997443409474,
+            -0.009345204352102322,
+            -0.04514234426046611,
+            null,
+            0.007681535964963647
+          ],
+          "bootstrap_standard_error": [
+            0.011985093864437607,
+            0.007716690833805692,
+            0.008346723969060652,
+            0.013071623871704565,
+            null,
+            0.0013109603637816581
+          ],
+          "bootstrap_percentile95": [
+            [
+              0.0037367035265880137,
+              0.04639655355222573
+            ],
+            [
+              0.0012571231235449067,
+              0.03045633667668068
+            ],
+            [
+              -0.02709635462401511,
+              0.005584057642056489
+            ],
+            [
+              -0.07041166652479035,
+              -0.017874022230938355
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              0.005380263597279234,
+              0.01028784744107448
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.00014364247493938,
+              1.5833910299405335e-05,
+              -6.176169065820247e-06,
+              5.418376220700303e-06,
+              null
+            ],
+            [
+              1.5833910299405335e-05,
+              5.954731742454081e-05,
+              4.732395047262501e-06,
+              7.928048935894009e-06,
+              null
+            ],
+            [
+              -6.176169065820247e-06,
+              4.732395047262501e-06,
+              6.966780101569161e-05,
+              -2.5833814276499914e-07,
+              null
+            ],
+            [
+              5.418376220700303e-06,
+              7.928048935894009e-06,
+              -2.5833814276499914e-07,
+              0.00017086735064331655,
+              null
+            ],
+            [
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            0
+          ],
+          "covariance_complete_support_replicates": 200,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration.",
+          "complete_bootstrap_replicates": 0
+        },
+        "matched_age_minus_nominal_closure": {
+          "estimate": [
+            -0.024805376333576816,
+            0.009142404647701219,
+            -0.004108668314495301,
+            0.005303272296781075,
+            null,
+            -0.022288114122380152
+          ],
+          "bootstrap_standard_error": [
+            0.015053458777324877,
+            0.009916970746297493,
+            0.012603926703627888,
+            0.014577836165157319,
+            null,
+            0.001399281077184206
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.051193524959694016,
+              0.006666312896819026
+            ],
+            [
+              -0.010522906013507104,
+              0.024961825176672333
+            ],
+            [
+              -0.03214408423409772,
+              0.018353422798890493
+            ],
+            [
+              -0.018829303888130255,
+              0.03555852414402295
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              -0.02459869889959268,
+              -0.019250125884004304
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.00022660662116061932,
+              2.1942067166894792e-05,
+              1.3061151141402358e-05,
+              1.196448720777981e-05,
+              null
+            ],
+            [
+              2.1942067166894792e-05,
+              9.834630878292028e-05,
+              1.6845217101282402e-05,
+              -5.039774676367641e-06,
+              null
+            ],
+            [
+              1.3061151141402358e-05,
+              1.6845217101282402e-05,
+              0.00015885896835042415,
+              2.3807031231648938e-05,
+              null
+            ],
+            [
+              1.196448720777981e-05,
+              -5.039774676367641e-06,
+              2.3807031231648938e-05,
+              0.00021251330725816862,
+              null
+            ],
+            [
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            0
+          ],
+          "covariance_complete_support_replicates": 200,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration.",
+          "complete_bootstrap_replicates": 0
+        },
+        "matched_minus_nominal_correction_common_evaluation_support": {
+          "n": 266,
+          "estimate": [
+            0.02525526562646039,
+            0.015140997443409474,
+            -0.009345204352102322,
+            -0.04514234426046611,
+            null,
+            0.007681535964963647
+          ],
+          "bootstrap_standard_error": [
+            0.011506756929369819,
+            0.007716690833805692,
+            0.008346723969060652,
+            0.013071623871704565,
+            null,
+            0.0012942697115812516
+          ],
+          "bootstrap_percentile95": [
+            [
+              0.004302411753895205,
+              0.045952806080869615
+            ],
+            [
+              0.0012571231235449067,
+              0.03045633667668068
+            ],
+            [
+              -0.02709635462401511,
+              0.005584057642056489
+            ],
+            [
+              -0.07041166652479035,
+              -0.017874022230938355
+            ],
+            [
+              null,
+              null
+            ],
+            [
+              0.005379978572718602,
+              0.010287425612112868
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.0001324054550316004,
+              1.368988539792648e-05,
+              -1.832499118821512e-06,
+              3.360771093346226e-06,
+              null
+            ],
+            [
+              1.368988539792648e-05,
+              5.954731742454081e-05,
+              4.732395047262501e-06,
+              7.928048935894009e-06,
+              null
+            ],
+            [
+              -1.832499118821512e-06,
+              4.732395047262501e-06,
+              6.966780101569161e-05,
+              -2.5833814276499914e-07,
+              null
+            ],
+            [
+              3.360771093346226e-06,
+              7.928048935894009e-06,
+              -2.5833814276499914e-07,
+              0.00017086735064331655,
+              null
+            ],
+            [
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            0
+          ],
+          "covariance_complete_support_replicates": 200,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        }
+      },
+      "bootstrap_replicates": 200
+    },
+    "positive_extinction": {
+      "arms": {
+        "nominal_closure": {
+          "train_n": 730,
+          "eval_n": 361,
+          "supported_n": 357,
+          "supported_per_zbin": [
+            47,
+            137,
+            93,
+            65,
+            15
+          ],
+          "training_coefficients_intercept_x1_c_highmass": [
+            -19.39373134346477,
+            -0.1275784492412241,
+            2.059535773214347,
+            -0.022824012899170572
+          ],
+          "statistics_zbin_means_and_age_slope": [
+            0.013982046605730393,
+            0.013758427963128532,
+            -0.05297218573752796,
+            0.008033159664976542,
+            -0.12318404305750662,
+            0.008075938175487376
+          ],
+          "median_40th_neighbor_distance": 1.402408526221609,
+          "max_40th_neighbor_distance": 3.33816699898125,
+          "bootstrap_standard_error": [
+            0.02269825099321342,
+            0.01687386218527326,
+            0.023515348881992092,
+            0.0320768365273283,
+            0.045594203920687436,
+            0.002923451496569168
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.02940418956361077,
+              0.06153979367126311
+            ],
+            [
+              -0.013511078226225184,
+              0.04848361713044461
+            ],
+            [
+              -0.09865162345516829,
+              -0.0071443818720700126
+            ],
+            [
+              -0.06100196547403373,
+              0.06743017501310648
+            ],
+            [
+              -0.22117722195955913,
+              -0.026978497545457655
+            ],
+            [
+              0.002180110886256104,
+              0.013020863108954983
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.0005174582841641713,
+              2.611069408226439e-05,
+              -9.45381011859916e-06,
+              -2.6989836942613635e-05,
+              0.00011077516898290197
+            ],
+            [
+              2.611069408226439e-05,
+              0.00028769784238481263,
+              3.653125202245356e-05,
+              -2.4309452505868395e-05,
+              -6.463763592362151e-05
+            ],
+            [
+              -9.45381011859916e-06,
+              3.653125202245356e-05,
+              0.0005532430545281911,
+              4.674865059519812e-05,
+              1.8542240099414854e-05
+            ],
+            [
+              -2.6989836942613635e-05,
+              -2.4309452505868395e-05,
+              4.674865059519812e-05,
+              0.00104745829851764,
+              0.00011140203589853999
+            ],
+            [
+              0.00011077516898290197,
+              -6.463763592362151e-05,
+              1.8542240099414854e-05,
+              0.00011140203589853999,
+              0.0020788314311612297
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            196
+          ],
+          "covariance_complete_support_replicates": 196,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        },
+        "age_nominal_correction": {
+          "train_n": 730,
+          "eval_n": 349,
+          "supported_n": 347,
+          "supported_per_zbin": [
+            47,
+            135,
+            93,
+            59,
+            13
+          ],
+          "training_coefficients_intercept_x1_c_highmass": [
+            -19.39373134346477,
+            -0.1275784492412241,
+            2.059535773214347,
+            -0.022824012899170572
+          ],
+          "statistics_zbin_means_and_age_slope": [
+            -0.02986980177691784,
+            0.00354288622206557,
+            -0.048614904753203354,
+            0.055113101089845073,
+            -0.04329300744570858,
+            -0.021654561148426857
+          ],
+          "median_40th_neighbor_distance": 1.3823416439561433,
+          "max_40th_neighbor_distance": 3.1751535878054513,
+          "bootstrap_standard_error": [
+            0.02621679759660099,
+            0.018019441691410697,
+            0.024752799571910008,
+            0.03357698110706413,
+            0.04667386566078536,
+            0.002894635259118425
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.08275096847344594,
+              0.0239342287198308
+            ],
+            [
+              -0.028149730436012103,
+              0.03885938383413894
+            ],
+            [
+              -0.09447100107800939,
+              -0.0008083069337210914
+            ],
+            [
+              -0.014646708017329554,
+              0.11389418357382075
+            ],
+            [
+              -0.15083032277986722,
+              0.038355397399185844
+            ],
+            [
+              -0.027264970366678055,
+              -0.016561231607410777
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.000707082425739951,
+              3.157133292746837e-05,
+              -5.493111131079539e-05,
+              -3.961475435063961e-05,
+              9.916144686047745e-05
+            ],
+            [
+              3.157133292746837e-05,
+              0.0003250885622532883,
+              3.063116917427965e-05,
+              -1.0974389563092924e-05,
+              -8.052714245975911e-05
+            ],
+            [
+              -5.493111131079539e-05,
+              3.063116917427965e-05,
+              0.0006336576777042713,
+              0.00011735044776794262,
+              -1.7134083978294827e-05
+            ],
+            [
+              -3.961475435063961e-05,
+              -1.0974389563092924e-05,
+              0.00011735044776794262,
+              0.001121449707450829,
+              0.00028370044477838975
+            ],
+            [
+              9.916144686047745e-05,
+              -8.052714245975911e-05,
+              -1.7134083978294827e-05,
+              0.00028370044477838975,
+              0.002178449735721039
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            180
+          ],
+          "covariance_complete_support_replicates": 180,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        },
+        "dust_nominal_correction": {
+          "train_n": 730,
+          "eval_n": 330,
+          "supported_n": 327,
+          "supported_per_zbin": [
+            44,
+            132,
+            83,
+            52,
+            16
+          ],
+          "training_coefficients_intercept_x1_c_highmass": [
+            -19.39373134346477,
+            -0.1275784492412241,
+            2.059535773214347,
+            -0.022824012899170572
+          ],
+          "statistics_zbin_means_and_age_slope": [
+            0.014475172653504644,
+            0.031134310164159237,
+            -0.045800569152717775,
+            0.048960793725945126,
+            -0.08904258196163432,
+            0.009080648192590008
+          ],
+          "median_40th_neighbor_distance": 1.4020493380675123,
+          "max_40th_neighbor_distance": 3.2616142151989105,
+          "bootstrap_standard_error": [
+            0.03169209761746069,
+            0.017247619649123726,
+            0.02557356428260763,
+            0.03557614855995528,
+            0.056256116351033676,
+            0.004024661360954054
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.0386334410609507,
+              0.08135554160450216
+            ],
+            [
+              -0.0016027936877753672,
+              0.06410448443101906
+            ],
+            [
+              -0.09745668803201869,
+              0.0020558033974819464
+            ],
+            [
+              -0.02400291613184731,
+              0.10681108788782992
+            ],
+            [
+              -0.18911414452473066,
+              0.03670571488610268
+            ],
+            [
+              0.0011694734951270256,
+              0.01669261261300005
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.0009812148777311473,
+              9.317899009762617e-05,
+              -1.7026934963707363e-05,
+              -6.33449329553577e-05,
+              0.00015374148170341852
+            ],
+            [
+              9.317899009762617e-05,
+              0.00030043722073326573,
+              3.543901179372094e-05,
+              -7.788416948367743e-05,
+              -3.291644810777157e-05
+            ],
+            [
+              -1.7026934963707363e-05,
+              3.543901179372094e-05,
+              0.0006583689080077526,
+              4.2997173325097515e-05,
+              2.1560419226813407e-05
+            ],
+            [
+              -6.33449329553577e-05,
+              -7.788416948367743e-05,
+              4.2997173325097515e-05,
+              0.0012175834135276147,
+              0.00015867904230517754
+            ],
+            [
+              0.00015374148170341852,
+              -3.291644810777157e-05,
+              2.1560419226813407e-05,
+              0.00015867904230517754,
+              0.0031647506269010376
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            194
+          ],
+          "covariance_complete_support_replicates": 194,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        },
+        "age_matched_correction": {
+          "train_n": 705,
+          "eval_n": 349,
+          "supported_n": 346,
+          "supported_per_zbin": [
+            47,
+            135,
+            93,
+            59,
+            12
+          ],
+          "training_coefficients_intercept_x1_c_highmass": [
+            -19.37407501709014,
+            -0.0980739839816802,
+            2.0347608624456224,
+            -0.05736354509505224
+          ],
+          "statistics_zbin_means_and_age_slope": [
+            -0.0060837697905463915,
+            0.017561930569280067,
+            -0.06963323651722828,
+            -0.0028932779287471847,
+            -0.10496008681870188,
+            -0.013873285927126042
+          ],
+          "median_40th_neighbor_distance": 1.3964133911318184,
+          "max_40th_neighbor_distance": 3.3253114575440756,
+          "bootstrap_standard_error": [
+            0.02461940748630891,
+            0.018381282530119065,
+            0.02463134122411428,
+            0.034090693192819925,
+            0.043305354681543944,
+            0.003042630560514299
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.053701578597469476,
+              0.046106838637658236
+            ],
+            [
+              -0.014709688499118977,
+              0.05769121003048943
+            ],
+            [
+              -0.11673447970444262,
+              -0.026734382294974175
+            ],
+            [
+              -0.07050030180351956,
+              0.05429141074720503
+            ],
+            [
+              -0.1935007700701822,
+              -0.03420113017429615
+            ],
+            [
+              -0.020515598609172892,
+              -0.008580201602763448
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.0006097458894739246,
+              5.820896611869719e-05,
+              -3.969920267756375e-05,
+              -3.2107129323734375e-05,
+              6.140115173688809e-05
+            ],
+            [
+              5.820896611869719e-05,
+              0.0003444548877634444,
+              2.0337152554666805e-06,
+              -1.7773958821834345e-05,
+              -3.177248746885892e-05
+            ],
+            [
+              -3.969920267756375e-05,
+              2.0337152554666805e-06,
+              0.0006234007529974336,
+              0.00012891536341712754,
+              -1.410847332639239e-05
+            ],
+            [
+              -3.2107129323734375e-05,
+              -1.7773958821834345e-05,
+              0.00012891536341712754,
+              0.001168158175538013,
+              0.00022247972164706828
+            ],
+            [
+              6.140115173688809e-05,
+              -3.177248746885892e-05,
+              -1.410847332639239e-05,
+              0.00022247972164706828,
+              0.0018753537440943195
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            179
+          ],
+          "covariance_complete_support_replicates": 179,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        }
+      },
+      "differences": {
+        "age_minus_nominal": {
+          "estimate": [
+            -0.04385184838264823,
+            -0.010215541741062963,
+            0.004357280984324606,
+            0.04707994142486853,
+            0.07989103561179803,
+            -0.029730499323914233
+          ],
+          "bootstrap_standard_error": [
+            0.014928910692548184,
+            0.007517377104921936,
+            0.008031354195792683,
+            0.011009202513324169,
+            0.019561513256204574,
+            0.0005055453453035334
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.07358818343909437,
+              -0.013943358275979105
+            ],
+            [
+              -0.024270257067510268,
+              0.005116429806064047
+            ],
+            [
+              -0.012130904627658857,
+              0.019807680678460827
+            ],
+            [
+              0.024366461756025283,
+              0.06448001334260595
+            ],
+            [
+              0.04231119562381044,
+              0.11723008988441203
+            ],
+            [
+              -0.0306178738767354,
+              -0.0287168811404153
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.00022379799432119369,
+              -8.447591421074854e-06,
+              -7.750027518156653e-06,
+              -1.779692019622636e-05,
+              -1.3020482301951707e-05
+            ],
+            [
+              -8.447591421074854e-06,
+              5.710798255511759e-05,
+              8.686302310171101e-06,
+              -5.0038691027130785e-06,
+              -1.1585249102910676e-05
+            ],
+            [
+              -7.750027518156653e-06,
+              8.686302310171101e-06,
+              6.543558264198067e-05,
+              -9.159471380218235e-06,
+              -8.677221877712377e-06
+            ],
+            [
+              -1.779692019622636e-05,
+              -5.0038691027130785e-06,
+              -9.159471380218235e-06,
+              0.0001170526159678868,
+              -7.406783755998535e-06
+            ],
+            [
+              -1.3020482301951707e-05,
+              -1.1585249102910676e-05,
+              -8.677221877712377e-06,
+              -7.406783755998535e-06,
+              0.00038265280087266754
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            180
+          ],
+          "covariance_complete_support_replicates": 180,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration.",
+          "complete_bootstrap_replicates": 180
+        },
+        "dust_minus_nominal": {
+          "estimate": [
+            0.0004931260477742515,
+            0.017375882201030705,
+            0.007171616584810185,
+            0.04092763406096858,
+            0.034141461095872294,
+            0.0010047100171026325
+          ],
+          "bootstrap_standard_error": [
+            0.02931577548115072,
+            0.012360646499313907,
+            0.012093643736803834,
+            0.024950200920006122,
+            0.04955545669325699,
+            0.003803687451785661
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.04733476815623601,
+              0.06315076294820716
+            ],
+            [
+              -0.0063693483463221475,
+              0.03885405752130284
+            ],
+            [
+              -0.01520922754240422,
+              0.02998255130700448
+            ],
+            [
+              -0.011138189272699777,
+              0.09192062829844083
+            ],
+            [
+              -0.04432285092012998,
+              0.1567596978125818
+            ],
+            [
+              -0.00511668650462789,
+              0.008429951020373028
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.0008503041876934186,
+              1.8379001463464147e-05,
+              1.7944952103620756e-06,
+              3.740677428342286e-05,
+              0.00010188954931078833
+            ],
+            [
+              1.8379001463464147e-05,
+              0.0001550204283646035,
+              -6.858307318841529e-06,
+              -1.590488440818539e-05,
+              -5.299346961154546e-07
+            ],
+            [
+              1.7944952103620756e-06,
+              -6.858307318841529e-06,
+              0.00014591626219356596,
+              -2.2804471897737026e-05,
+              3.729434696683323e-05
+            ],
+            [
+              3.740677428342286e-05,
+              -1.590488440818539e-05,
+              -2.2804471897737026e-05,
+              0.0006071238638418992,
+              -1.9389858202665966e-05
+            ],
+            [
+              0.00010188954931078833,
+              -5.299346961154546e-07,
+              3.729434696683323e-05,
+              -1.9389858202665966e-05,
+              0.002455743288077269
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            190
+          ],
+          "covariance_complete_support_replicates": 190,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration.",
+          "complete_bootstrap_replicates": 190
+        },
+        "matched_minus_nominal_correction_on_age": {
+          "estimate": [
+            0.02378603198637145,
+            0.014019044347214498,
+            -0.02101833176402492,
+            -0.058006379018592256,
+            -0.061667079372993296,
+            0.007781275221300815
+          ],
+          "bootstrap_standard_error": [
+            0.011437783474373539,
+            0.006528515197509252,
+            0.007097868568531132,
+            0.008916200009706254,
+            0.02531038884676689,
+            0.0011688622694739973
+          ],
+          "bootstrap_percentile95": [
+            [
+              0.00021719285346076495,
+              0.044476813664707925
+            ],
+            [
+              0.001251048654391872,
+              0.025316734007141142
+            ],
+            [
+              -0.034665675700624225,
+              -0.008788040489253095
+            ],
+            [
+              -0.07797303449973272,
+              -0.04188110528252878
+            ],
+            [
+              -0.11907381699688296,
+              -0.015409936344541453
+            ],
+            [
+              0.00549734690629345,
+              0.00996764978850968
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.00012723142087032302,
+              1.5042912442561168e-05,
+              1.6040846353578184e-06,
+              2.6724141570141654e-06,
+              -1.1463204220819057e-05
+            ],
+            [
+              1.5042912442561168e-05,
+              4.469572185345885e-05,
+              9.724058736185553e-06,
+              -1.2310644211554392e-06,
+              9.291749364086498e-06
+            ],
+            [
+              1.6040846353578184e-06,
+              9.724058736185553e-06,
+              5.141322134199906e-05,
+              7.12335410134072e-06,
+              -3.5648395865798804e-06
+            ],
+            [
+              2.6724141570141654e-06,
+              -1.2310644211554392e-06,
+              7.12335410134072e-06,
+              7.943097024973994e-05,
+              3.946977265548966e-05
+            ],
+            [
+              -1.1463204220819057e-05,
+              9.291749364086498e-06,
+              -3.5648395865798804e-06,
+              3.946977265548966e-05,
+              0.0006406157835745416
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            179
+          ],
+          "covariance_complete_support_replicates": 179,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration.",
+          "complete_bootstrap_replicates": 179
+        },
+        "matched_age_minus_nominal_closure": {
+          "estimate": [
+            -0.020065816396276782,
+            0.0038035026061515355,
+            -0.016661050779700315,
+            -0.010926437593723727,
+            0.01822395623880474,
+            -0.021949224102613418
+          ],
+          "bootstrap_standard_error": [
+            0.014010250130493387,
+            0.008936170537497781,
+            0.01056111907456579,
+            0.013343721558263197,
+            0.029299612812996634,
+            0.0012423489974914123
+          ],
+          "bootstrap_percentile95": [
+            [
+              -0.045371326782779865,
+              0.0056105142075463165
+            ],
+            [
+              -0.011773271785148181,
+              0.019340029730037338
+            ],
+            [
+              -0.036638242954667444,
+              0.0027395974555539633
+            ],
+            [
+              -0.03806642252596297,
+              0.010082396257456517
+            ],
+            [
+              -0.04345094157158992,
+              0.06973113490535353
+            ],
+            [
+              -0.024371718412142744,
+              -0.01990128663322487
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.00019813678776269176,
+              1.93780608816338e-05,
+              3.390113092550636e-06,
+              -1.1133984150351541e-05,
+              -4.037886679306595e-05
+            ],
+            [
+              1.93780608816338e-05,
+              7.828658884522286e-05,
+              1.3257020157421722e-05,
+              1.5121471010762331e-05,
+              1.1205552017358045e-05
+            ],
+            [
+              3.390113092550636e-06,
+              1.3257020157421722e-05,
+              0.00011003081823182732,
+              9.097086836389734e-06,
+              1.5286858279752617e-05
+            ],
+            [
+              -1.1133984150351541e-05,
+              1.5121471010762331e-05,
+              9.097086836389734e-06,
+              0.00016921348372287941,
+              2.5940065920825692e-05
+            ],
+            [
+              -4.037886679306595e-05,
+              1.1205552017358045e-05,
+              1.5286858279752617e-05,
+              2.5940065920825692e-05,
+              0.0008584673109915164
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            179
+          ],
+          "covariance_complete_support_replicates": 179,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration.",
+          "complete_bootstrap_replicates": 179
+        },
+        "matched_minus_nominal_correction_common_evaluation_support": {
+          "n": 346,
+          "estimate": [
+            0.02378603198637145,
+            0.014019044347214498,
+            -0.02101833176402492,
+            -0.058006379018592256,
+            -0.03782681652669344,
+            0.007783431256750878
+          ],
+          "bootstrap_standard_error": [
+            0.011349417619547584,
+            0.006528515197509252,
+            0.007097868568531132,
+            0.008829826220406845,
+            0.016927480779823065,
+            0.0011783033289513912
+          ],
+          "bootstrap_percentile95": [
+            [
+              0.0020897534778524045,
+              0.044476813664707925
+            ],
+            [
+              0.001251048654391872,
+              0.025316734007141142
+            ],
+            [
+              -0.034665675700624225,
+              -0.008788040489253095
+            ],
+            [
+              -0.07797303449973272,
+              -0.04188110528252878
+            ],
+            [
+              -0.08221255766648186,
+              -0.016536756858105114
+            ],
+            [
+              0.005491864712545997,
+              0.00996764978850968
+            ]
+          ],
+          "zbin_covariance": [
+            [
+              0.00012492058595232913,
+              1.5867194038306973e-05,
+              1.8578779512559469e-06,
+              -6.842512592411784e-07,
+              1.1925647985213308e-06
+            ],
+            [
+              1.5867194038306973e-05,
+              4.469572185345885e-05,
+              9.724058736185553e-06,
+              -9.587977698327402e-07,
+              8.432045798376994e-06
+            ],
+            [
+              1.8578779512559469e-06,
+              9.724058736185553e-06,
+              5.141322134199906e-05,
+              6.858325617438631e-06,
+              -6.065134973875811e-06
+            ],
+            [
+              -6.842512592411784e-07,
+              -9.587977698327402e-07,
+              6.858325617438631e-06,
+              7.83195742723759e-05,
+              4.0636838392744405e-05
+            ],
+            [
+              1.1925647985213308e-06,
+              8.432045798376994e-06,
+              -6.065134973875811e-06,
+              4.0636838392744405e-05,
+              0.0002865396055512794
+            ]
+          ],
+          "zbin_supported_bootstrap_replicates": [
+            200,
+            200,
+            200,
+            200,
+            179
+          ],
+          "covariance_complete_support_replicates": 179,
+          "covariance_support_note": "Covariance conditions on all active redshift-bin occupancy and neighbor-support gates passing. Unsupported bins are null; this is not independent coverage calibration."
+        }
+      },
+      "bootstrap_replicates": 200
+    }
+  }
+}

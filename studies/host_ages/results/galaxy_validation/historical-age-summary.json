@@ -1,0 +1,70 @@
+{
+  "status": "Post-primary-inspection extension; tests age rank ordering, not absolute Gyr calibration",
+  "samples": {
+    "G11": {
+      "d4000_n": {
+        "n": 30,
+        "orientation": 1,
+        "original_age_oriented_rho": 0.7774811051406602,
+        "updated_age_oriented_rho": 0.7748609566184649,
+        "updated_minus_original_rho": -0.002620148522195276,
+        "paired_host_bootstrap_95_delta_rho": [
+          -0.15408886325780138,
+          0.16374334117445272
+        ]
+      },
+      "lick_hd_a_sub": {
+        "n": 30,
+        "orientation": -1,
+        "original_age_oriented_rho": 0.789942164639194,
+        "updated_age_oriented_rho": 0.7592880978865406,
+        "updated_minus_original_rho": -0.030654066752653364,
+        "paired_host_bootstrap_95_delta_rho": [
+          -0.2426894327626929,
+          0.16753605694336657
+        ]
+      }
+    },
+    "R19": {
+      "d4000_n": {
+        "n": 42,
+        "orientation": 1,
+        "original_age_oriented_rho": 0.6148983058064703,
+        "updated_age_oriented_rho": 0.6562677254679523,
+        "updated_minus_original_rho": 0.041369419661482,
+        "paired_host_bootstrap_95_delta_rho": [
+          -0.23463463308644653,
+          0.294837058992153
+        ]
+      },
+      "lick_hd_a_sub": {
+        "n": 42,
+        "orientation": -1,
+        "original_age_oriented_rho": 0.6367026353954421,
+        "updated_age_oriented_rho": 0.6209383356292035,
+        "updated_minus_original_rho": -0.01576429976623861,
+        "paired_host_bootstrap_95_delta_rho": [
+          -0.22094516786211552,
+          0.1922427108437485
+        ]
+      }
+    }
+  },
+  "provenance": {
+    "created_utc": "2026-09-27T01:46:36.058246+00:00",
+    "code_sha256": "e7205ac2d14a91dbe0aa4ebfa007fed4d7427ab4b6c20385733baf07e15a68b6",
+    "design_sha256": "3f9a6f8dcc91673cdf4c6e664b3b5a225b4bcac1e5615025939a3069ff0564b6",
+    "inputs": {
+      "table2.dat": "ab8f366c020e12b1e42c5d4a61991e9db0532c5f0577f3a3b9f9160bb70eeb79",
+      "ReadMe": "612818568f091ac1e45fce282907d8b56458ef712aca8cffb68e4b3004f9d3e0",
+      "R19-table7.dat": "adbf689159da0375605316e5d2219557fba1d0af74bacafd0a16d5f933a6ed8b",
+      "R19-ReadMe": "c35b76a4c34e7f45be2059e687f61d014306e9ed55ffeb3637c802ca48df0011",
+      "host-spectrum-age-ledger.csv": "e494cc4c09d6faa25d5adaf58841650d4051a4def0e01f26ff2eb72b26b9d31b"
+    }
+  },
+  "limitations": [
+    "Original and updated ages use related photometry and stellar assumptions; spectra validate ranking, not an unbiased absolute-age scale or age slope calibration.",
+    "R19 CDS labels logAg/logAl are internally misleading relative to their numerical age entries; this analysis uses only rank order and never exponentiates them.",
+    "Central fibre versus global SED aperture mismatch and selected small SDSS subset remain; bootstrap differences are conditional on measured summaries."
+  ]
+}
