@@ -50,11 +50,21 @@ def check_mpi(folder,discard=.3):
     sampled = []
     # Updated YAML identifies true sampled parameters; nuisance variables must
     # pass too, not just the cosmological subset selected for the manuscript.
-    from cobaya.yaml import yaml_load_file
-    config = yaml_load_file(str(folder/'chain.updated.yaml'))
+    manifest_path = folder/'run-0.json'
+    manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
+    if 'target_identity' in manifest:
+        # The immutable per-rank manifest avoids concurrently written shared
+        # Cobaya YAML metadata. It records the actual prior configuration.
+        config = manifest['target_identity']['configuration']
+        configuration_source = manifest_path
+    else:
+        from cobaya.yaml import yaml_load_file
+        configuration_source = folder/'chain.updated.yaml'
+        config = yaml_load_file(str(configuration_source))
     for key,value in config['params'].items():
         if isinstance(value,dict) and 'prior' in value:
             sampled.append(key)
+    assert set(sampled)<=set(names),'A sampled parameter is absent from the chain header.'
     for key in sorted(set(sampled+PARAMETERS)&set(names)):
         i = names.index(key)
         if np.ptp(equal[:,:,i])==0:
@@ -75,6 +85,8 @@ def check_mpi(folder,discard=.3):
             'independent_chains':len(chains),'retained_weighted_draws':list(map(len,chains)),
             'equal_chain_length_for_diagnostics':length,'diagnostics':diagnostic,'failed_gates':failed,
             'posterior':posterior,'sign_fractions':qprob,'camb_failure_records':failures,
+            'parameter_configuration_source':str(configuration_source.relative_to(ROOT)),
+            'parameter_configuration_sha256':hashlib.sha256(configuration_source.read_bytes()).hexdigest(),
             'input_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},
             'diagnostic_source':'https://arxiv.org/abs/1903.08008',
             'code_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}

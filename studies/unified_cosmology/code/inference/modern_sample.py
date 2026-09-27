@@ -56,6 +56,9 @@ def main():
         'proposal_only_sha256':hashlib.sha256(covariance.read_bytes()).hexdigest(),
         'author_starting_mean':proposal['transformed_mean'],
         'qualification':'numerical_proposal_only_requires_exact_correction'}
+    from mpi_metadata import install
+    manifest['metadata_policy']=install(out/'chain')
+    manifest['metadata_guard_sha256']=hashlib.sha256((Path(__file__).parent/'mpi_metadata.py').read_bytes()).hexdigest()
     mpath=out/f'run-{rank}.json'
     if mpath.exists():
         assert a.resume,'Existing run: use --resume.'

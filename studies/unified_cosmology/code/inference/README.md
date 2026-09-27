@@ -73,6 +73,10 @@ The training fit refuses to overwrite an existing model. The spectral model is o
 
 The sampler prints its output directory, including a prefix of the actual model-file hash. Set `chain_dir` to that printed directory before the following commands. The published-chain mean and covariance initialize sampling only; they are not prior information. Source, actual likelihood bytes, covariance, priors and numerical model are hashed in each rank's manifest.
 
+Use separate invocations with `--evolution linear` and `--evolution smooth01` for independent luminosity-sensitivity targets. Their output directories and manifests are distinct. A preliminary importance comparison of the baseline samples failed the required effective-sample-size gates; those provisional weighted intervals are not measurements. The [sensitivity note](../../notes/luminosity-sensitivity.md) specifies the integration, overlap checks and remaining broader `smooth03` alternative.
+
+Per-rank JSON manifests also provide the parameter configuration for diagnostics. Cobaya 3.6.2 was observed to race when different MPI ranks wrote its common YAML metadata; one baseline metadata file contains a trailing fragment. Its chain files and immutable rank manifests remain separate. `mpi_metadata.py` restricts the three common metadata output streams to rank zero while preserving all MPI communication and per-chain output. The guard passes a four-rank, 12-round write check. It changes no sampled density. New runs use the guard; the original baseline metadata is retained as observed and is not used to infer its parameter list.
+
 ```bash
 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
   .work/unified-cosmology/external-probes/.modern-venv/bin/python \

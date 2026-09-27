@@ -1,0 +1,39 @@
+{
+  "created_utc": "2026-09-27T11:55:38.632556+00:00",
+  "timing": "Before any new SSP library or host fit outcomes; supplemental implementation choices to frozen design.",
+  "refined_targetids": [
+    "39627646564304483",
+    "39627797517304077",
+    "39627791485902086",
+    "39627791477509022",
+    "39627658564206941",
+    "39627785446103548",
+    "39627682689852673",
+    "39627682710817059"
+  ],
+  "refinement": "Add geometric midpoints in age and arithmetic midpoints in logZ; same eight hash-selected IDs in all validation comparisons.",
+  "kinematics": "Primary0km/s; separate150 and300km/s Gaussian velocity-broadening scenarios. Do not mix kinematics as separate stellar components.",
+  "smoothing": "Convolve Llambda(lambda)*lambda on a uniform log-wavelength grid with spacing1e-4, then divide bylambda and interpolate back. This preserves luminosity under multiplicative Doppler shifts; retain unsmoothed native C3K_HR baseline.",
+  "scenarios": [
+    "primary",
+    "mask800",
+    "original_free_emission",
+    "clock_LCDM",
+    "dust_tau4",
+    "discrepancy3percent",
+    "velocity150",
+    "velocity300",
+    "tilt_minus",
+    "tilt_plus",
+    "camera_minus",
+    "camera_plus",
+    "foreground1",
+    "identity_resolution"
+  ],
+  "camera_gain": "Apply gain to the redder of the cameras contributing valid pixels within the used windows; no gain perturbation if one camera only.",
+  "resolution": "Project intrinsic stellar density sampled at native camera wavelengths through author DIA response on full camera grid, then apply camera cuts and observed band masks. Do not renormalize native matrix.",
+  "free_emission": "Independent nonnegative delta-line templates deposited by linear weights onto adjacent native pixels, then acted on by the same native resolution and band operator. Their arbitrary normalization cancels from stellar age and they carry zero stellar mass.",
+  "profile": "Every scenario gets its own band data/covariance and feasible age interval. Response variants are declared alternatives, not a probability mixture or inferred calibration prior.",
+  "confidence": "Absolute chi-square rank5 95% mean-vector ellipsoid. Feasible conditional set can be empty. No per-object fitted degrees-of-freedom correction.",
+  "numerical": "Full Cholesky whitening; sparse Charnes-Cooper SOC solves with zero mass entries for gas. Dual gap<=1e-5Gyr; original-coordinate chi-square<=threshold+2e-5 and stellar simplex error<=1e-6. Failed solves remain explicit, no science gate relaxed."
+}

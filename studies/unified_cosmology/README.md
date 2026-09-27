@@ -14,9 +14,12 @@ The flexible late-time CPL model gives median **q₀ ≈ −0.38**, with central
 4. [Survey selection](notes/survey-selection.md): the actual Dovekie sample, covariance semantics, classifier reproduction, host matching and historical DES3YR alternative.
 5. [Host observations](notes/host-likelihood.md): aligned host posterior samples, selected optical fluxes, observed spectra and the remaining response/age ambiguity.
 6. [Calibrated host spectra](notes/calibrated-hosts.md): 55 matched DESI spectra, signed measurements, overlapping-band covariance and physical limitations.
-7. [Supernova release comparison](notes/release-comparison.md): separately fitted Dovekie, Pantheon+ and DES3YR alternatives with the same BAO observations.
+7. [Physical stellar-age constraints](notes/calibrated-host-physics.md): flexible age, metallicity and dust mixtures, native spectral response, compatible age ranges and the effect of an imposed cosmological clock.
+8. [Supernova release comparison](notes/release-comparison.md): separately fitted Dovekie, Pantheon+ and DES3YR alternatives with the same BAO observations.
 
 All 17,733 released classification probabilities are reproduced to their printed precision after recovering the measured peak-time input. This resolves a specific classifier-interface discrepancy; it does not reconstruct the complete survey selection or contaminant model. The 1,088 distinct OzDES host spectra add observed high-redshift information, but their lack of relative flux calibration prevents interpreting raw count ratios as calibrated stellar ages. The independent repeat spectra also reject a simple fixed-response, diagonal-noise description for many objects.
+
+Five calibrated spectral bands in 54 of 55 independently matched DESI hosts admit formed-mass stellar ages both below 1 Gyr and above 10 Gyr across the declared flexible mixture family. This limits the age information in those compressed measurements under those assumptions; it does not exhaust the information in the full spectra. It supplies no empirically measured supernova luminosity correction.
 
 ## Reproduction
 
