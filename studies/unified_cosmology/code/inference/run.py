@@ -15,14 +15,16 @@ from adapter import external_info
 from likelihood import ReleasedDistances, ExpansionDiagnostics
 
 
-def configuration(model='lcdm', cmb='full', evolution='none', sn=True, seed=272609):
+def configuration(model='lcdm', cmb='full', evolution='none', sn=True, seed=272609, sample='dovekie'):
     info = external_info(cmb, 'cpl' if model in ['wcdm','cpl'] else 'lcdm')
     if model == 'wcdm':
         info['params']['wa'] = 0.
     info['likelihood']['expansion_diagnostics'] = {'external': ExpansionDiagnostics}
     if sn:
+        from late_geometry import sample_path
         info['likelihood']['released_sn'] = {
             'external': ReleasedDistances,
+            'data_file':str(sample_path(sample)),
             'smooth_sigma': {'none':0., 'linear':0., 'smooth01':.1, 'smooth03':.3}[evolution],
         }
         info['params']['epsilon'] = ({'prior': {'min':-.5, 'max':.5}, 'ref':0., 'proposal':.02}
@@ -69,13 +71,14 @@ def main():
     parser.add_argument('--cmb', choices=['full','lite'], default='full')
     parser.add_argument('--evolution', choices=['none','linear','smooth01','smooth03'], default='none')
     parser.add_argument('--no-sn', action='store_true')
+    parser.add_argument('--sample', choices=['dovekie','pantheon','des3yr'], default='dovekie')
     parser.add_argument('--seed', type=int, default=272609)
     parser.add_argument('--evaluate', action='store_true')
     parser.add_argument('--resume', action='store_true')
     parser.add_argument('--max-samples', type=int)
     args = parser.parse_args()
-    info = configuration(args.model,args.cmb,args.evolution,not args.no_sn,args.seed)
-    name = f'{args.cmb}-{args.model}-{args.evolution}-'+('nonsn' if args.no_sn else 'dovekie')
+    info = configuration(args.model,args.cmb,args.evolution,not args.no_sn,args.seed,args.sample)
+    name = f'{args.cmb}-{args.model}-{args.evolution}-'+('nonsn' if args.no_sn else args.sample)
     work = ROOT/'.work/unified-cosmology/inference'/name
     work.mkdir(parents=True,exist_ok=True)
     from mpi4py import MPI
@@ -99,7 +102,14 @@ def main():
                 'OMP_NUM_THREADS':os.environ.get('OMP_NUM_THREADS'),
                 'code_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
                                for p in list(HERE.glob('*.py'))+[HERE/'design.json',HERE.parent/'external_probes/adapter.py']}}
-    (work/f'run-{rank}.json').write_text(json.dumps(manifest,indent=2)+'\n')
+    manifest_path = work/f'run-{rank}.json'
+    if manifest_path.exists():
+        if not args.resume and not args.evaluate:
+            raise FileExistsError('Existing run manifest: use --resume explicitly.')
+        with (work/f'run-history-{rank}.jsonl').open('a') as file:
+            file.write(json.dumps(manifest)+'\n')
+    else:
+        manifest_path.write_text(json.dumps(manifest,indent=2)+'\n')
     if args.evaluate:
         from cobaya.model import get_model
         from adapter import reference_point

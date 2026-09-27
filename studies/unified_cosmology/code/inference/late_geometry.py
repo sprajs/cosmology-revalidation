@@ -23,15 +23,23 @@ BAO = ROOT/'.work/unified-cosmology/external-probes/packages/data/bao_data/desi_
 SN = ROOT/'.work/unified-cosmology/survey-selection/normalized/dovekie-total.npz'
 
 
+def sample_path(sample):
+    if sample=='dovekie':return SN
+    if sample=='pantheon':return ROOT/'.work/unified-cosmology/inference/pantheon/pantheon-total.npz'
+    if sample=='des3yr':return SN.parent/'des3yr-combined-total.npz'
+    raise ValueError(sample)
+
+
 class Geometry:
-    def __init__(self, model='cpl', evolution='none', sn=True, order=40, quadrature=128):
+    def __init__(self, model='cpl', evolution='none', sn=True, order=40, quadrature=128, sample='dovekie'):
         self.model,self.evolution,self.sn = model,evolution,sn
         self.names = ['Omega_m','H0_rdrag']+({'lcdm':[], 'wcdm':['w0'], 'cpl':['w0','wa']}[model])+(['epsilon'] if evolution=='linear' else [])
         self.bounds = [[.01,.99],[5000.,15000.]]+({'lcdm':[], 'wcdm':[[-3.,1.]],'cpl':[[-3.,1.],[-5.,3.]]}[model])+([[-.5,.5]] if evolution=='linear' else [])
         raw = np.loadtxt(BAO/'desi_gaussian_bao_ALL_GCcomb_mean.txt',dtype=str)
         self.bz,self.bmean,self.btype = raw[:,0].astype(float),raw[:,1].astype(float),raw[:,2]
         self.bprecision = np.linalg.inv(np.loadtxt(BAO/'desi_gaussian_bao_ALL_GCcomb_cov.txt'))
-        with np.load(SN) as f:
+        sn_path = sample_path(sample)
+        with np.load(sn_path) as f:
             self.sz,self.zhel,self.observed,self.cov = (f[k] for k in ['zHD','zHEL','MU','covariance'])
         # Bounded by observed max; z=0 is regular in log(DM/z).
         self.scale = np.log1p(max(self.sz))
@@ -131,29 +139,44 @@ def main():
     p.add_argument('--model',choices=['lcdm','wcdm','cpl'],default='cpl')
     p.add_argument('--evolution',choices=['none','linear','smooth01','smooth03'],default='none')
     p.add_argument('--no-sn',action='store_true')
+    p.add_argument('--sample',choices=['dovekie','pantheon','des3yr'],default='dovekie')
     p.add_argument('--steps',type=int,default=10000)
     p.add_argument('--ensembles',type=int,default=4)
+    p.add_argument('--resume',action='store_true')
+    p.add_argument('--move',choices=['stretch','mixed'],default='mixed')
     a = p.parse_args()
     if a.validate:
         validate();return
     import emcee
-    g = Geometry(a.model,a.evolution,not a.no_sn)
-    name = f'{a.model}-{a.evolution}-'+('nonsn' if a.no_sn else 'dovekie')
+    g = Geometry(a.model,a.evolution,not a.no_sn,sample=a.sample)
+    name = f'{a.model}-{a.evolution}-'+('nonsn' if a.no_sn else a.sample)
     out = WORK/name;out.mkdir(parents=True,exist_ok=True)
-    fit = differential_evolution(lambda t:-2*g.logp(t)[0],g.bounds,seed=272609,tol=1e-8,polish=True)
-    record = {'parameter_names':g.names,'bounds':g.bounds,'optimum':fit.x.tolist(),'chi2':float(fit.fun),'optimizer_success':bool(fit.success),'components_SN_BAO':[float(v[0]) for v in g.components(fit.x)],'arguments':vars(a),'code_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
-    (out/'fit.json').write_text(json.dumps(record,indent=2)+'\n')
+    if a.resume:
+        record = json.loads((out/'fit.json').read_text())
+        assert record['parameter_names']==g.names and record['bounds']==g.bounds
+    else:
+        if (out/'fit.json').exists() and any(out.glob('ensemble-*.h5')):
+            raise RuntimeError('Existing run: use --resume to extend explicitly.')
+        fit = differential_evolution(lambda t:-2*g.logp(t)[0],g.bounds,seed=272609,tol=1e-8,polish=True)
+        record = {'parameter_names':g.names,'bounds':g.bounds,'optimum':fit.x.tolist(),'chi2':float(fit.fun),'optimizer_success':bool(fit.success),'components_SN_BAO':[float(v[0]) for v in g.components(fit.x)],'arguments':vars(a),'code_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+        (out/'fit.json').write_text(json.dumps(record,indent=2)+'\n')
     print(json.dumps(record),flush=True)
     width = np.array([.005,20]+({'lcdm':[],'wcdm':[.02],'cpl':[.02,.04]}[a.model])+([.01] if a.evolution=='linear' else []))
     for ensemble in range(a.ensembles):
         backend = emcee.backends.HDFBackend(str(out/f'ensemble-{ensemble}.h5'))
-        if backend.initialized and backend.iteration:
+        previous = backend.iteration if backend.initialized else 0
+        if previous and not a.resume:
             raise RuntimeError('Existing run: refuse silent overwrite or repeated chains.')
         np.random.seed(272609+ensemble)
-        start = fit.x+np.random.normal(size=(48,len(g.names)))*width
-        sampler = emcee.EnsembleSampler(48,len(g.names),g.logp,vectorize=True,backend=backend)
-        sampler.run_mcmc(start,a.steps,progress=False)
+        start = None if previous else np.array(record['optimum'])+np.random.normal(size=(48,len(g.names)))*width
+        moves = ([(emcee.moves.DEMove(),.7),(emcee.moves.DESnookerMove(),.1),
+                  (emcee.moves.StretchMove(),.2)] if a.move=='mixed' else emcee.moves.StretchMove())
+        sampler = emcee.EnsembleSampler(48,len(g.names),g.logp,vectorize=True,backend=backend,moves=moves)
+        if a.steps>previous:
+            sampler.run_mcmc(start,a.steps-previous,progress=False)
         print(json.dumps({'ensemble':ensemble,'steps':a.steps,'acceptance':float(sampler.acceptance_fraction.mean()),'autocorrelation_time':sampler.get_autocorr_time(tol=0).tolist()}),flush=True)
+    with (out/'run-history.jsonl').open('a') as file:
+        file.write(json.dumps({'arguments':vars(a),'code_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()})+'\n')
 
 
 if __name__=='__main__':

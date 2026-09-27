@@ -1,0 +1,39 @@
+{
+  "scope": "Baseline Dovekie+DESI DR2, flat matter+CPL atlate redshift, no radiation and no w0+wa cut; same uniform priors asGeometry. Exploratory independent check following difficult ensemble tail mixing.",
+  "names": [
+    "Omega_m",
+    "H0_rdrag",
+    "w0",
+    "wa"
+  ],
+  "bounds": [
+    [
+      0.01,
+      0.99
+    ],
+    [
+      5000.0,
+      15000.0
+    ],
+    [
+      -3.0,
+      1.0
+    ],
+    [
+      -5.0,
+      3.0
+    ]
+  ],
+  "seeds": [
+    927085,
+    927086
+  ],
+  "live_points": 1000,
+  "method": "dynesty static nested,multi-ellipsoid bounds,rwalk30",
+  "dlogz": 0.03,
+  "maximum_calls": 1500000,
+  "uncertainty": "64 prior-volume shrinkage jitter realizations perrun, plus twoindependent live-point populations. Jitter omits missed-mode uncertainty; seedagreement is necessary, not proof of complete modecoverage.",
+  "diagnostic_gate": "Each run weightedESS>=2000, completed before callcap; two-run maximum marginal weighted-CDF distance<=.05 and logZ difference<=3combined reportederrors. These are numerical diagnostic gates, not scientific assumptions or universal convergence guarantees.",
+  "evidence": "logZ is for an unnormalized distance likelihood with analytically marginalized commonSNintercept. Do not compare evidence across changedSNcovariance/data/evolution models without restoring normalizationconstants.",
+  "frozen_utc": "2026-09-27T10:52:03.901292+00:00"
+}

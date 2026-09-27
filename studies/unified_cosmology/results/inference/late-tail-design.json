@@ -1,0 +1,59 @@
+{
+  "scope": "Exploratory diagnostic following the first nested-run disagreement. A profile is not posterior probability or evidence.",
+  "omega_m_grid": [
+    0.010001,
+    0.02,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.28,
+    0.3,
+    0.31416,
+    0.33,
+    0.35,
+    0.4,
+    0.5,
+    0.7,
+    0.9
+  ],
+  "starts": [
+    [
+      -0.85,
+      -0.5
+    ],
+    [
+      -0.9,
+      1.0
+    ],
+    [
+      -1.5,
+      2.0
+    ]
+  ],
+  "dark_energy_bounds": [
+    [
+      -3.0,
+      1.0
+    ],
+    [
+      -5.0,
+      3.0
+    ]
+  ],
+  "scale_bounds": [
+    5000.0,
+    15000.0
+  ],
+  "method": "Profile H0*rdrag analytically using the quadratic in inverse scale, then optimize w0/wa from three declared starts at every fixed Omega_m.",
+  "conditional_cuts": [
+    "none",
+    "Omega_m>0.1",
+    "w0+wa<=0",
+    "Omega_m>0.1 and w0+wa<=0"
+  ],
+  "cut_scope": "Post-hoc sensitivity motivated by the initial tail. Apply separately to both refined seeds; neither cut changes the baseline run or adds observed information. The w0+wa cut alone is not a CMB likelihood.",
+  "code_sha256": "35b50369491465e4334bf50dfca1857b0c65358e2592ac0989979c4d4557e551",
+  "geometry_sha256": "548fb86373e06799edc960a49533fef21f346f89973b3237ccbea1e6085c7438"
+}

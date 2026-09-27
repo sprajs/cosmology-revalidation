@@ -62,7 +62,7 @@ A new campaign creates `results/my-validation/{baseline,alternatives,robustness}
 
 The [published results](../results/README.md) are the reference set behind the manuscript. `summary.json` states each result and its interpretation boundary. `run.json` records execution; a completed process can still have failed scientific convergence gates. A numerical replay does not establish the physical correctness of a population or selection model.
 
-`lib/` contains numerical kernels and shared readers; `workflows/` handles analysis and output contracts; `validation/` contains independent checks. The [provenance guide](../provenance/README.md) distinguishes current paths from historical source identities. The [experimental plan](experimental-plan.md) describes work required beyond the completed workflows, including full selection closure and a unified likelihood.
+`lib/` contains numerical kernels and shared readers; `workflows/` handles analysis and output contracts; `validation/` contains independent checks. The [provenance guide](../provenance/README.md) distinguishes current paths from historical source identities. The [joint inference study](../studies/unified_cosmology/README.md) supplies the shared supernova–BAO–CMB likelihood and its separate validation records. The [experimental plan](experimental-plan.md) also describes physical requirements, including complete survey selection and an observationally identified luminosity correction; implementing a joint distance likelihood does not establish those requirements.
 
 ## Additional research and preparation code
 
@@ -92,3 +92,15 @@ OPENBLAS_NUM_THREADS=1 .venv/bin/python validation/physical_extension_checks.py
 ```
 
 The [validation guide](../validation/README.md) distinguishes the original reference campaign, the first physical extension and the later experiments. These manifests bind specific executions. Component reruns can write fresh timestamps and hashes; preserve the reference checkout and compare numerical results separately rather than rewriting historical identities to make a later run appear identical.
+
+## Joint cosmology and recovered host likelihoods
+
+| Calculation | Instructions | Required inputs |
+|---|---|---|
+| Survey identity, classification and normalized distances | [Survey selection](../studies/unified_cosmology/code/survey_selection/README.md) | Pinned Dovekie, DES3YR, classifier and OzDES releases |
+| CMB and BAO likelihoods, author-density comparison | [External probes](../studies/unified_cosmology/code/external_probes/README.md) | Public Planck, ACT, SPT and DESI likelihood data; separate pinned environments |
+| Late-time and shared CMB cosmology | [Inference](../studies/unified_cosmology/code/inference/README.md) | The preceding normalized distances and external-probe inputs |
+| Joint galaxy draws, selected SN fluxes and repeated host spectra | [Host likelihoods](../studies/unified_cosmology/code/host_likelihood/README.md) | FrankenBlast, YSE and the verified OzDES host crosswalk |
+| Calibrated spectra of the same supernova hosts | [Calibrated hosts](../studies/unified_cosmology/code/calibrated_hosts/README.md) | The preceding crosswalk, public DESI DR1 catalogue and selected native FITS rows |
+
+These packages preserve signed observations, failures, source identities and assumption-specific inference gates. A completed process is insufficient: posterior tables require the associated convergence and numerical-accuracy checks. Approximate CMB spectra only propose samples; native CAMB density correction is mandatory for the reported joint measurement. The final statistical qualification remains separate from the physical adequacy of the supplied distance covariance and survey population model.

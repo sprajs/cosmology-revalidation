@@ -5,6 +5,7 @@ The manuscript presents the measured results. These studies retain the original 
 | Topic | Scientific question |
 |---|---|
 | [Expansion and geometry](expansion/README.md) | Which expansion histories do the distances constrain? |
+| [Joint cosmology and physical corrections](unified_cosmology/README.md) | What do supernovae, BAO and CMB jointly measure, and which host corrections are actually identified? |
 | [Host ages and brightness residuals](host_ages/README.md) | How do ages and correction definitions change the residual trend? |
 | [Dust and colour](dust/README.md) | Where do extinction assumptions become unphysical or non-identifiable? |
 | [Calibrated light curves and native fits](light_curve_fitting/README.md) | Do independent flux fits and native uncertainties agree? |

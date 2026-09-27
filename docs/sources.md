@@ -1,6 +1,6 @@
 # Sources and attribution
 
-Scientific inputs retain their upstream ownership and terms. This repository supplies no new license for third-party data, model assets or software. Exact file identities and retrieval URLs are in `provenance/inputs.json`; package versions and dependencies are fixed in `uv.lock`.
+Scientific inputs retain their upstream ownership and terms. This repository supplies no new license for third-party data, model assets or software. The original manuscript input identities and retrieval URLs are in `provenance/inputs.json`, with dependencies fixed in `uv.lock`. Subsequent studies preserve their own acquisition manifests and isolated environment locks; they are linked below rather than silently assigned to the older manifest.
 
 | Resource | Frozen source |
 |---|---|
@@ -21,3 +21,11 @@ Scientific inputs retain their upstream ownership and terms. This repository sup
 The population kernels retain the explicitly implemented B13/MD14 cosmic star-formation and C14/W26 delay-law parameterizations from the earlier investigation. Their code constants and assumptions are documented in `methods/populations.md`; they are empirical functions, not laws derived from first principles.
 
 DES objective exports, fit-summary arrays, projected calibration matrices and original frozen HST design arrays were generated in the earlier investigation. They are labelled as local derivatives. `provenance/code-origin.json` maps retained or adapted numerical code to its original file hash and symbols. The [study library](../studies/README.md) retains the original upstream preparation and broader research code, with scientific findings and limitations. [Its inventory](../provenance/studies.json) maps historical execution paths to current topic directories. Downloadable dependencies and generated output trees are excluded; [study input identities](../provenance/study-inputs.json) and the acquisition scripts describe restoration.
+
+## Joint measurement and new observed hosts
+
+The [external-probe source and calculation record](../studies/unified_cosmology/notes/external-probes.md) identifies the Planck 2018, ACT DR6, SPT primary-CMB/lensing and DESI DR2 releases, historical author settings, frozen code and exact numerical comparisons. Its [aggregate audit](../studies/unified_cosmology/results/external_probes/aggregate-validation.json) binds actual downloaded assets and environments. The [dependence review](../studies/unified_cosmology/notes/probe-dependence.md) identifies which inter-probe covariances are measured and which are approximated.
+
+The [survey record](../studies/unified_cosmology/notes/survey-selection.md) identifies Dovekie, DES3YR, released classification probabilities and the OzDES host crosswalk. The [joint host record](../studies/unified_cosmology/notes/host-likelihood.md) identifies the FrankenBlast and YSE releases and distinguishes native joint posterior rows, measured host fluxes and selected supernova epochs.
+
+Calibrated host spectra are from **DESI Collaboration DR1/Iron**, distributed under CC BY 4.0, with catalogue access through **NOIRLab Astro Data Lab**. The [native-row acquisition and measurement record](../studies/unified_cosmology/notes/calibrated-hosts.md) links the release and its known issues. Parent FITS URLs, ETags and sizes identify remote files; SHA-256 hashes bind the selected arrays actually recovered, not unread parent-file bytes. Publications should include the collaboration's [release citations and acknowledgments](https://data.desi.lbl.gov/doc/acknowledgments/). All observed inputs retain their original attribution; authored transformations are identified separately.

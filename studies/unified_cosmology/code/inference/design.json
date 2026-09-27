@@ -7,7 +7,8 @@
   "shared_physics": "Flat FLRW, GR, CAMB PPF dark energy, adiabatic scalar power law, fixed total neutrino mass 0.06 eV, one massive species, Neff 3.044, standard BBN helium and recombination; rdrag calculated from the same early-universe parameters used for CMB spectra.",
   "model_sequence": ["LCDM", "constant w", "CPL w(a)=w0+wa(1-a)"],
   "primary_priors": {"H0": [40,100], "ombh2": [0.005,0.1], "omch2": [0.001,0.99], "log(1e10 As)": [1.61,3.91], "ns": [0.8,1.2], "tau": [0.01,0.8], "w0": [-3,1], "wa": [-5,3]},
-  "CPL_domain": "No additional hard w0+wa<0 constraint. Record CAMB failure and investigate high-early-dark-energy numerical domain separately.",
+  "CPL_domain": "Original intended design: no additional hard w0+wa<0 constraint; record and investigate CAMB domain failures. Implementation finding: CAMB1.6.6 DarkEnergyEqnOfState.validate_params itself rejects w0+wa>0. The initial CMB chain therefore has this implicit support restriction, even without a separately configured prior. Do not describe it as unrestricted CPL. The independent late-geometry fit has no such cut; wider CMB support requires a separately validated theory implementation.",
+  "implementation_amendment": "Source audit during chain initialization, before posterior conclusions, found the CAMB early-w guard. Original registration is preserved at Git3d585e88. This disclosure does not change or silently reinterpret the sampling likelihood.",
   "luminosity_sensitivity": [
     "Baseline assumes zero residual redshift-dependent mean luminosity beyond released corrections.",
     "epsilon log(1+z)/log(2), epsilon uniform [-0.5,0.5] mag; positive epsilon means dimmer standardised SNe at z=1.",

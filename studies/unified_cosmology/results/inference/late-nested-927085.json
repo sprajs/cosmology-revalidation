@@ -1,0 +1,215 @@
+{
+  "status": "completed_run",
+  "single_run_diagnostic_passed": true,
+  "seed": 927085,
+  "live_points": 1000,
+  "iterations": 18121,
+  "likelihood_calls": 472715,
+  "weighted_ESS": 5672.10745597974,
+  "seconds": 331.06929628000944,
+  "logZ_unnormalized": -833.6556753043375,
+  "logZ_error": 0.12190645503322271,
+  "posterior": {
+    "Omega_m": {
+      "mean": 0.30358027720218955,
+      "sd": 0.04131103418171227,
+      "quantiles_025_16_50_84_975": [
+        0.15692130355446499,
+        0.2930517704264162,
+        0.3122183729207542,
+        0.3261238219702105,
+        0.3382108463511686
+      ]
+    },
+    "H0_rdrag": {
+      "mean": 9948.219166003182,
+      "sd": 83.92911260284755,
+      "quantiles_025_16_50_84_975": [
+        9782.893170256924,
+        9864.558436864203,
+        9948.657557496881,
+        10030.822180462003,
+        10111.323038018518
+      ]
+    },
+    "w0": {
+      "mean": -0.8443589809594361,
+      "sd": 0.06987807143146936,
+      "quantiles_025_16_50_84_975": [
+        -0.9722338070545158,
+        -0.9133993892002676,
+        -0.8481603077179795,
+        -0.7752700294321676,
+        -0.6979644602222883
+      ]
+    },
+    "wa": {
+      "mean": -0.44298899710037337,
+      "sd": 0.5424793708042199,
+      "quantiles_025_16_50_84_975": [
+        -1.4373409647655642,
+        -0.9563431010149831,
+        -0.46997414485049094,
+        0.059649371137520835,
+        0.874466853614514
+      ]
+    },
+    "w0_plus_wa": {
+      "mean": -1.287347978059809,
+      "sd": 0.4996730060795362,
+      "quantiles_025_16_50_84_975": [
+        -2.1573064383013043,
+        -1.7518366481179157,
+        -1.3255992649799175,
+        -0.8525264393870564,
+        0.06716395010696055
+      ]
+    },
+    "q0": {
+      "mean": -0.3824383964217419,
+      "sd": 0.09183901285233458,
+      "quantiles_025_16_50_84_975": [
+        -0.5693556489008259,
+        -0.4734556598551391,
+        -0.3806692374703737,
+        -0.2918062838726018,
+        -0.20101158022098775
+      ]
+    },
+    "j0": {
+      "mean": 0.16615378054418833,
+      "sd": 0.6612445315386418,
+      "quantiles_025_16_50_84_975": [
+        -1.0518955921637667,
+        -0.471706863413848,
+        0.12865931404640235,
+        0.8124422506043639,
+        1.5871044011262738
+      ]
+    },
+    "q05": {
+      "mean": -0.12487594571926157,
+      "sd": 0.03269945347746522,
+      "quantiles_025_16_50_84_975": [
+        -0.18777286786935526,
+        -0.15750635194141815,
+        -0.12544545082585448,
+        -0.09148244569755314,
+        -0.060542061087473065
+      ]
+    },
+    "j05": {
+      "mean": 0.8359935058827457,
+      "sd": 0.07692675486504923,
+      "quantiles_025_16_50_84_975": [
+        0.6850680586701257,
+        0.7601905621633923,
+        0.8362463958378412,
+        0.9112410792351505,
+        0.9898094349906458
+      ]
+    },
+    "q1": {
+      "mean": 0.14154926223593606,
+      "sd": 0.016052438337502088,
+      "quantiles_025_16_50_84_975": [
+        0.10993346311190508,
+        0.12549387867862544,
+        0.14168989842435067,
+        0.1574799976297828,
+        0.17274254860164787
+      ]
+    },
+    "j1": {
+      "mean": 1.0211560470557923,
+      "sd": 0.1359566688944278,
+      "quantiles_025_16_50_84_975": [
+        0.7655117884241414,
+        0.8804308536707548,
+        1.0204009497627482,
+        1.1600298076605815,
+        1.2925300171450291
+      ]
+    },
+    "probability_q0_nonnegative": 9.59713933729793e-06,
+    "probability_w0_plus_wa_positive": 0.030686059352014187
+  },
+  "prior_edge_fractions": {
+    "Omega_m": 0.0003858119832764738,
+    "H0_rdrag": 0.0,
+    "w0": 4.6417942872519974e-197,
+    "wa": 2.9019818376630627e-17
+  },
+  "shrinkage_jitter_labels": [
+    "P(q0>=0)",
+    "P(w0+wa>0)",
+    "median_w0",
+    "median_wa"
+  ],
+  "shrinkage_jitter_sd": [
+    4.059063552596243e-06,
+    0.002256009398885674,
+    0.0014024924359125072,
+    0.009597835464788367
+  ],
+  "independent_likelihood_checks": [
+    {
+      "theta": [
+        0.31,
+        9900.0,
+        -0.8,
+        -0.7
+      ],
+      "SN_chi2_error": 1.5916157281026244e-12,
+      "BAO_chi2_error": -3.0020430585864233e-13
+    },
+    {
+      "theta": [
+        0.693742326981536,
+        6827.9853954465525,
+        0.6089616944003855,
+        -4.523703652911642
+      ],
+      "SN_chi2_error": 7.275957614183426e-12,
+      "BAO_chi2_error": -2.1373125491663814e-11
+    },
+    {
+      "theta": [
+        0.8532354499664322,
+        10380.745967745024,
+        -0.048183531180789,
+        -0.388978108005011
+      ],
+      "SN_chi2_error": 7.275957614183426e-12,
+      "BAO_chi2_error": 3.456079866737127e-11
+    },
+    {
+      "theta": [
+        0.7551937851768945,
+        5643.185038987164,
+        -1.6049178254575698,
+        -1.7711697862383433
+      ],
+      "SN_chi2_error": 3.865352482534945e-12,
+      "BAO_chi2_error": -6.184563972055912e-11
+    }
+  ],
+  "environment": {
+    "dynesty": "3.0.0",
+    "numpy": "2.2.6"
+  },
+  "code_sha256": "60efce3e171244d900f6ae93122c8c9a891e30e34b98841a12c33bedbf990c65",
+  "dependencies_sha256": {
+    "studies/unified_cosmology/code/inference/late_geometry.py": "548fb86373e06799edc960a49533fef21f346f89973b3237ccbea1e6085c7438",
+    ".work/unified-cosmology/survey-selection/normalized/dovekie-total.npz": "4bcf37dc7fdabff886d24b7e87bbe05c414f4f6c80971d154e2b8888d55bf2d8",
+    ".work/unified-cosmology/external-probes/packages/data/bao_data/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_mean.txt": "9ac154ab583ce759c0f7eef3c978c7c70a6ead2d18774caceadf1a350a640585",
+    ".work/unified-cosmology/external-probes/packages/data/bao_data/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_cov.txt": "252a143274c8a07c78694c119617d36594f6d7965d00319ca611c6ffb886e509",
+    "studies/unified_cosmology/results/inference/late-nested-design.json": "4bcf0c696486c2e4e216e447b97a0bf3890618768d885d2bcdffefee704460ed"
+  },
+  "outputs_sha256": {
+    ".work/unified-cosmology/inference/late-nested/seed-927085/samples.npz": "4c42c12b6a1c99cfe11adff8394d65e6c6480308335bf86fea0984b2a52ce745",
+    ".work/unified-cosmology/inference/late-nested/seed-927085/shrinkage-jitter.npz": "557251377efaa4b8f26337ae8f6e00480a2129d5cbe6b759cbaec1c12d43ad5d"
+  },
+  "scope": "Baseline Dovekie+DESI DR2, flat matter+CPL atlate redshift, no radiation and no w0+wa cut; same uniform priors asGeometry. Exploratory independent check following difficult ensemble tail mixing.",
+  "evidence_scope": "logZ is for an unnormalized distance likelihood with analytically marginalized commonSNintercept. Do not compare evidence across changedSNcovariance/data/evolution models without restoring normalizationconstants."
+}

@@ -1,0 +1,243 @@
+{
+  "schema": "cosmology-probe-dependence-review-v1",
+  "created_utc": "2026-09-27T11:02:51.372721+00:00",
+  "status": "review_completed_conditional_factorization_not_full_cross_covariance_validated",
+  "reviewed_configuration": {
+    "adapter": "studies/unified_cosmology/code/external_probes/modern_adapter.py",
+    "model": "cpl",
+    "calibration": "official_planck",
+    "act_lmax": 6500,
+    "bao": true,
+    "scope": "Snapshot review; runtime initialization and covariance/prior checks, no posterior fit or estimation of missing covariance."
+  },
+  "runtime_checks": {
+    "likelihood_blocks": [
+      "planck_2018_lowl.TT",
+      "planck_2018_lowl.EE",
+      "bao.desi_dr2",
+      "act_dr6_cmbonly.PlanckActCut",
+      "act_dr6_cmbonly.ACTDR6CMBonly",
+      "SPT2025_TnE",
+      "act_dr6_lenslike.ACTDR6LensLike",
+      "SPT2023_lensing"
+    ],
+    "global_parameter_prior_single_sigma_delta_logp": {
+      "A_planck": -0.4999999999999787,
+      "P_act": -0.4999999999999645,
+      "Tcal": -0.5000000000000142,
+      "Ecal": -0.5000000000000071
+    },
+    "candl": {
+      "SPT2025_TnE": {
+        "priors_remaining": 0,
+        "covariance_shape": [
+          196,
+          196
+        ],
+        "covariance_sha256": "96dc87045a115aa00ee2a8597aefffabba974e60fe5c353e9e16ef05320910e4",
+        "data_set_file": "/home/szymon/Documents/ChatGPT/supernova/.work/unified-cosmology/external-probes/.modern-venv/lib/python3.12/site-packages/spt_candl_data/SPT3G_D1_TnE_v0/lite/SPT3G_D1_TnE_lite.yaml"
+      },
+      "SPT2023_lensing": {
+        "priors_remaining": 0,
+        "covariance_shape": [
+          12,
+          12
+        ],
+        "covariance_sha256": "2b6b3441eab0ffa2da5116ddb5b1228ce0c827d77b5a067d043f2bfc6f051c64",
+        "data_set_file": "/home/szymon/Documents/ChatGPT/supernova/.work/unified-cosmology/external-probes/.modern-venv/lib/python3.12/site-packages/candl_data/SPT3G_2018_Lens_v0/SPT3G_2018_PP_lens_and_CMB.yaml"
+      }
+    },
+    "joint_ACT_Planck": {
+      "covariance_shape": [
+        19,
+        19
+      ],
+      "max_abs_cross_correlation": 0.20628399192095687,
+      "covariance_sha256": "addcd9b86742bc50b8b030285e57f836007bfec755d8c15185aa761a535e1e89"
+    },
+    "Planck_cut": {
+      "active_bins": 252,
+      "inactive_bins": 361
+    },
+    "ACT_ell_cuts": {
+      "TT": [
+        600,
+        6500
+      ],
+      "TE": [
+        600,
+        6500
+      ],
+      "EE": [
+        600,
+        6500
+      ]
+    },
+    "shared_ACT_Planck_amplitude": "lambda A_planck: A_planck",
+    "scope": "Checks configured block structure and scalar prior multiplicity only; does not measure omitted cross-covariance."
+  },
+  "runtime_check_reproduction": {
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .work/unified-cosmology/external-probes/.modern-venv/bin/python .work/unified-cosmology/probe-dependence/runtime_check.py",
+    "python_source": "from pathlib import Path\nimport sys,json,hashlib\nimport numpy as np\nb=Path.cwd();ext=b/'studies/unified_cosmology/code/external_probes';sys.path.insert(0,str(ext))\nfrom modern_adapter import modern_info\nfrom cobaya.model import get_model\ninfo=modern_info();info['debug']=False\nm=get_model(info)\npoint=m.prior.reference(random_state=np.random.default_rng(92743));names=list(m.parameterization.sampled_params())\nfor k in ['A_planck','P_act','Tcal','Ecal']:point[names.index(k)]=1.\np0=float(m.prior.logp(point));checks={}\nfor k,s in [('A_planck',.0025),('P_act',.003),('Tcal',.0036),('Ecal',.0095)]:\n x=point.copy();x[names.index(k)]+=s;d=float(m.prior.logp(x)-p0);checks[k]=d;assert abs(d+.5)<1e-10\npl=m.likelihood['act_dr6_cmbonly.PlanckActCut'];act=m.likelihood['act_dr6_cmbonly.ACTDR6CMBonly'];joint=m.likelihood['act_dr6_lenslike.ACTDR6LensLike']\nn=len(joint.data['bcents_act']);c=joint.data['cov'];r=c/np.sqrt(np.outer(c.diagonal(),c.diagonal()))\nassert r.shape==(19,19)\ncandl={}\nfor k in ['SPT2025_TnE','SPT2023_lensing']:\n o=m.likelihood[k].candl_like\n candl[k]={'priors_remaining':len(o.priors),'covariance_shape':list(o.covariance.shape),'covariance_sha256':hashlib.sha256(np.asarray(o.covariance).astype('<f8').tobytes()).hexdigest(),'data_set_file':m.likelihood[k].data_set_file}\n assert not o.priors\nout={'likelihood_blocks':list(m.likelihood),'global_parameter_prior_single_sigma_delta_logp':checks,'candl':candl,'joint_ACT_Planck':{'covariance_shape':list(c.shape),'max_abs_cross_correlation':float(np.max(abs(r[:n,n:]))),'covariance_sha256':hashlib.sha256(np.asarray(c).astype('<f8').tobytes()).hexdigest()},'Planck_cut':{'active_bins':int((pl.cov.diagonal()<1e9).sum()),'inactive_bins':int((pl.cov.diagonal()>=1e9).sum())},'ACT_ell_cuts':act.ell_cuts,'shared_ACT_Planck_amplitude':info['params']['A_act']['value'],'scope':'Checks configured block structure and scalar prior multiplicity only; does not measure omitted cross-covariance.'}\n(b/'.work/unified-cosmology/probe-dependence/runtime-check.json').write_text(json.dumps(out,indent=2)+'\\n');print(json.dumps(out,indent=2))\n",
+    "prerequisite": "Acquire/install the pinned modern external-probe packages; restore embedded Python source at the command path from repository root. No theory evaluation required.",
+    "source_sha256": "9bd1623b00d6013cb329189b5e931ee4558d01790dc26d9b0ccb976df8c2603c",
+    "output_sha256": "0f5c6248bc5e891981ec07bb1a1048d297a10d582f0e43e5d4d3d4035d6b000f"
+  },
+  "dependence_ledger": [
+    {
+      "pair": "ACT_lensing__Planck_lensing",
+      "status": "included_joint_covariance",
+      "dimensions": [
+        10,
+        9
+      ],
+      "max_abs_cross_correlation": 0.20628399192095687,
+      "standalone_Planck_lensing_duplicate": false
+    },
+    {
+      "pair": "ACT_primary__Planck_primary",
+      "status": "omitted_after_scale_cuts",
+      "remaining_TT_overlap_ell": [
+        600,
+        1000
+      ],
+      "source": "act_primary",
+      "quantitative_CPL_error_bound": null
+    },
+    {
+      "pair": "SPT_D1_primary__ACT_or_Planck_primary",
+      "status": "omitted_published_approximation",
+      "SPT_ACT_overlap_fraction_of_ACT_mask_approx": 0.1,
+      "source": "spt_primary",
+      "quantitative_CPL_error_bound": null
+    },
+    {
+      "pair": "primary_CMB__Pan2018_SPT_lensing",
+      "status": "omitted_published_approximation",
+      "source": "spt_pan_lensing",
+      "response_correction_is_cross_covariance": false,
+      "MUSE_tests_validate_exact_Pan_block": false
+    },
+    {
+      "pair": "Pan2018_SPT_lensing__ACT_Planck_lensing",
+      "status": "omitted",
+      "sources": [
+        "spt_pan_lensing",
+        "new_joint_lensing"
+      ],
+      "new_MUSE_cross_covariance_directly_transferable": false,
+      "quantitative_CPL_error_bound": null
+    },
+    {
+      "pair": "Dovekie_SN__DESI_DR2_BAO",
+      "status": "omitted_no_matching_quantitative_bound_located",
+      "sources": [
+        "desi_dr2",
+        "des_sn_bao"
+      ],
+      "proven_large": false
+    },
+    {
+      "pair": "CMB_lensing__DESI_DR2_BAO",
+      "status": "omitted_no_matching_quantitative_bound_located",
+      "sources": [
+        "desi_dr2"
+      ],
+      "proven_large": false
+    }
+  ],
+  "interpretation": {
+    "full_cross_covariance_validated": false,
+    "posterior_conditional_on_factorization": true,
+    "universal_error_inflation_supported": false,
+    "missing_correlations_shown_to_reverse_dark_energy_preference": false,
+    "separate_SPT_prior_multiplication_issue_reproduced_in_current_scalar_factors": false,
+    "historical_Dovekie_chain_prior_bug_established_by_this_review": false
+  },
+  "scope_guards": [
+    "Shared cosmological theory does not supply measurement cross-covariance.",
+    "SPT3G_2018_Lens_and_CMB contains twelve lensing data bins plus primary-spectrum response terms, not a second primary CMB data vector.",
+    "The forecast ~5% free-w0 uncertainty effect at noise10uKarcmin and lensingLmin50 is idealized; it is neither a correction nor a bound for this CPL+SN+BAO fit.",
+    "The new MUSE/M2PM SPT polarization-lensing cross-covariance tests are not Pan2018 temperature-lensing tests.",
+    "DESI internal BAO systematic-bin correlation sensitivity is not a test of SN-BAO independence.",
+    "Current code uses one SN compilation at a time and DESI BAO only; no DESY6BAO or 3x2pt likelihood is added.",
+    "Scalar prior runtime checks do not validate every historical chain or all information embedded in released likelihoods."
+  ],
+  "required_for_exact_assessment": "Matched cross-covariance or common-sky simulations for these exact estimators/masks/noise, propagated through the same CPL fit. Block removal can assess sensitivity, not directly estimate missing covariance.",
+  "sources": [
+    {
+      "id": "act_primary",
+      "url": "https://arxiv.org/html/2503.14452v2#S6.S3",
+      "locator": "VI.3; residual TT overlap and example Neff uncertainty",
+      "cached_path": ".work/unified-cosmology/probe-dependence/actprimary.html",
+      "sha256": "4afcfd916d7f79c5aabe72fb43c08b44659d82f723eacb8a96bf39b46d3876ca"
+    },
+    {
+      "id": "spt_primary",
+      "url": "https://arxiv.org/html/2506.20707v2#S7.SS1",
+      "locator": "VII.1 and VII.2.2; independence assumptions and MUSE-specific simulation check",
+      "cached_path": ".work/unified-cosmology/probe-dependence/sptprimary.html",
+      "sha256": "be14d2e40592e55b0becd6cb332709e708dc094d8d46cc3c1cf8963b897d93d9"
+    },
+    {
+      "id": "spt_pan_lensing",
+      "url": "https://arxiv.org/pdf/2308.11608",
+      "locator": "VI.A.1-2, printed pages17-18; primary/lensing factorization and Planck comparison",
+      "cached_path": ".work/unified-cosmology/probe-dependence/spt2018.pdf",
+      "sha256": "0ef8ffbe7078dbd4f1f347c50b18cc63339c60607bf94f2221e34758e1c8008b"
+    },
+    {
+      "id": "primary_lensing_forecast",
+      "url": "https://arxiv.org/pdf/2308.11588",
+      "locator": "III-IV and Fig3; idealized model-dependent uncertainty effects",
+      "cached_path": ".work/unified-cosmology/probe-dependence/trendafilova.pdf",
+      "sha256": "7eb2da1b34efd5694bc98cabd17af7bae000fd25c0118f7336699803130c2f32"
+    },
+    {
+      "id": "new_joint_lensing",
+      "url": "https://arxiv.org/html/2504.20038v2#S8",
+      "locator": "VIII; MUSE/M2PM polarization lensing, not Pan2018 temperature",
+      "cached_path": ".work/unified-cosmology/probe-dependence/jointlensing.html",
+      "sha256": "05f3b7887ff941240845ac5c46192f2ebb8e7a2c7a56e9ed5bf88e11b5260f1a"
+    },
+    {
+      "id": "prior_bug_notice",
+      "url": "https://lambda.gsfc.nasa.gov/product/spt/spt3g_d1_bandp_liklyhood_info.html",
+      "locator": "Update04/01/26; cropped Planck repeated priors",
+      "cached_path": ".work/unified-cosmology/probe-dependence/sptnotice.html",
+      "sha256": "a4db27438d790673c7e1203d8c0ff6d8ac451cce2e31dbfb996b2f3c1a62241e"
+    },
+    {
+      "id": "desi_dr2",
+      "url": "https://arxiv.org/html/2503.14738v2#S4.SS3",
+      "locator": "IV.3 and appendixB; distinct SN compilations and internal BAO systematics",
+      "cached_path": ".work/unified-cosmology/probe-dependence/desi.html",
+      "sha256": "52011d991523dc439e98f790c94e28bde5c7724398f5e5b2d362d8798ca16003"
+    },
+    {
+      "id": "des_sn_bao",
+      "url": "https://arxiv.org/html/2503.06712v2#S3.SS2",
+      "locator": "III.2; independent likelihood assumption",
+      "cached_path": ".work/unified-cosmology/probe-dependence/des-sn-bao.html",
+      "sha256": "e237d826e1340036e4f5f377fa8242f3597e6ceac269b6e5ba787f8b161c105b"
+    },
+    {
+      "id": "des_multiprobe",
+      "url": "https://arxiv.org/html/2605.27221v1#S2.SS2",
+      "locator": "II.2; separate future-expansion guardrail",
+      "cached_path": ".work/unified-cosmology/probe-dependence/des-multiprobe.html",
+      "sha256": "e8e9164a671ff5a8498a8dc546045fbbc30aa8a80a5746c3ff3875a5d29fea42"
+    }
+  ],
+  "reviewed_snapshot_sha256": {
+    "studies/unified_cosmology/code/external_probes/modern_adapter.py": "2ff1e39d111d2383cd84743dd80ed49236dbb13e5427a425611bfdd196e3b284",
+    "studies/unified_cosmology/code/external_probes/adapter.py": "08543f1843ee707c2dbcbe4e7b5e43ff0bcece25313d8d6de50843996cc3545f",
+    "studies/unified_cosmology/results/external_probes/modern-acquisition.json": "f66351d90cbda4365c393ac97e4cd6f241c42cfceb5c4b14f28500ba263613e0",
+    ".work/unified-cosmology/external-probes/DR6-ACT-lite/act_dr6_cmbonly/PlanckActCut.py": "03e0f830fc6c2a2197bdca5caabdf4e84eff5623c4378e9d66c01b15851b4ae8",
+    ".work/unified-cosmology/external-probes/act_dr6_lenslike/act_dr6_lenslike/act_dr6_lenslike.py": "dc8148148f55c6a319b82e81a66b1d1567c2c8e9d96b1319589828fcd462c284",
+    ".work/unified-cosmology/external-probes/candl/candl/interface.py": "ad3fcc54a39fddd359ee53da95b87cba88281de2e148121a66f9905be2b60118",
+    ".work/unified-cosmology/external-probes/.modern-venv/lib/python3.12/site-packages/spt_candl_data/SPT3G_D1_TnE_v0/lite/SPT3G_D1_TnE_lite.yaml": "706be2715f68755b257ae75f835e6171251a8290b996e1d8e70072f9e742652a",
+    ".work/unified-cosmology/external-probes/.modern-venv/lib/python3.12/site-packages/candl_data/SPT3G_2018_Lens_v0/SPT3G_2018_PP_lens_and_CMB.yaml": "18d0cd1b4c18c1a709030a930d44fcfcee46faec13190e80ae23941670743bfd"
+  },
+  "note_sha256": "6e331d144d7cdecf6f62e656774e1741b70dffaa7b107af01d2abf135e0305d3"
+}

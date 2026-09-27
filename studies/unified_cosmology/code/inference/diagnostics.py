@@ -28,6 +28,7 @@ def metrics(values):
 
 
 def check_mpi(folder,discard=.3):
+    folder = folder.resolve()
     paths = sorted(folder.glob('chain.[0-9]*.txt'))
     assert len(paths)>=4,'At least four independent chains are required.'
     names = paths[0].open().readline().lstrip('#').split()
@@ -44,7 +45,8 @@ def check_mpi(folder,discard=.3):
     equal = np.array([x[-length:] for x in chains])
     diagnostic = {}
     posterior = {}
-    allrows = np.concatenate(chains)
+    # Summaries use exactly the same final common chain segments diagnosed below.
+    allrows = equal.reshape(-1,len(names))
     sampled = []
     # Updated YAML identifies true sampled parameters; nuisance variables must
     # pass too, not just the cosmological subset selected for the manuscript.

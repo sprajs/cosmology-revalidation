@@ -8,7 +8,7 @@
 
 ## Abstract
 
-The released Pantheon+ supernova distances give **Ωₘ = 0.3323 ± 0.0182** in a spatially flat ΛCDM model, closely matching the published value of 0.334 ± 0.018. The corresponding present deceleration parameter is **q₀ = −0.5016 ± 0.0273**: these distances favour accelerating expansion under that model. Combining supernovae with baryon acoustic oscillations in a more flexible dark-energy model also favours acceleration. A separate inequality test of BAO alone is inconclusive.
+The released Pantheon+ supernova distances give **Ωₘ = 0.3323 ± 0.0182** in a spatially flat ΛCDM model, closely matching the published value of 0.334 ± 0.018. The corresponding present deceleration parameter is **q₀ = −0.5016 ± 0.0273**. The newer Dovekie supernova sample combined with DESI DR2 baryon acoustic oscillations gives **Ωₘ = 0.3063 ± 0.0077** and **q₀ = −0.5406 ± 0.0115** under flat ΛCDM. Both favour present acceleration under that model. They use different observations and are not a controlled measurement of a change in cosmology. A separate inequality test of BAO alone is inconclusive.
 
 Host-age trends depend strongly on which brightness corrections are included. In 196 matched objects with ages treated as exact, the full-covariance residual–age slope changes from **−0.00495 ± 0.00456** to **−0.01294 ± 0.00456 mag/Gyr** when the exported bias correction is reversed. An assumed population-age template can shift the inferred q₀ to **+0.063**, but its 95% interval crosses zero and the template is not an empirically established correction. A deeper joint Gaussian-age model gives a nominal 95% residual-slope profile interval of **[−0.056, +0.008] mag/Gyr**, accommodating both zero and the proposed −0.030 scale. The additional prediction from age is small and sensitive to the age model. Optical and infrared distances show a related dependence on correction accounting: their high-minus-low-redshift contrast changes from **+0.0012 to +0.0754 mag** when the exported mass and bias terms are reversed.
 
@@ -26,13 +26,15 @@ Here magnitudes increase as objects become fainter; μ is the distance modulus, 
 
 Our expansion diagnostic is the **deceleration parameter**, q. Negative q means accelerating expansion. A model can infer today's q₀ by extrapolation, while a flexible reconstruction may constrain only an average over a finite redshift interval. Those are different measurements. Supernovae with a freely fitted absolute-brightness offset constrain relative distances; they do not separately measure the absolute expansion rate H₀.
 
-Baryon acoustic oscillations (**BAO**) supply another distance measurement, expressed relative to a sound-horizon ruler. The present joint fit leaves the ruler normalization free. It contains **no cosmic microwave background (CMB) likelihood**.
+Baryon acoustic oscillations (**BAO**) supply another distance measurement, expressed relative to a sound-horizon ruler. A late-time supernova–BAO fit leaves that ruler normalization free and measures H₀rᵈ. A joint cosmic microwave background (**CMB**) fit instead computes the sound horizon from the same baryon density, dark-matter density and early-universe model used to predict the CMB. These are distinct inferences, with different physical assumptions.
+
+Acceleration can also strengthen or weaken. We use the dimensionless **jerk**, j = a‴/(aH³), to distinguish these possibilities: when q < 0, j > 0 means the positive scale-factor acceleration is increasing with time, and j < 0 means it is decreasing. A change in q itself is a different diagnostic. Flat ΛCDM fixes j = 1 when radiation is neglected; it cannot independently test the sign of jerk.
 
 ## 2. Measurements and assumptions
 
 We compare three levels of evidence: released distances; calibrated optical and infrared fluxes; and selected detector images and raw reads. A released distance already contains model fits and corrections. A flux fit tests more of that construction, while a detector comparison tests only the exposures and measurement weights actually examined.
 
-The distance analysis uses Pantheon+ and DESI DR2 BAO. The measurement studies use the frozen DES-SN5YR release, RAISIN and CSP photometry, published host-age tables, and selected HST observations. The earlier DES light-curve comparisons use DES-SN5YR, while the new host-selection and survey-simulation studies explicitly use Dovekie products. Current HST calibration references are not identical to those used for the historical RAISIN distances. The [source catalogue](docs/sources.md) specifies the releases.
+The distance analyses use Pantheon+, Dovekie or the historical DES3YR sample as alternatives, each with DESI DR2 BAO where specified. Overlapping supernova compilations are never multiplied as independent data. The measurement studies use the frozen DES-SN5YR release, RAISIN and CSP photometry, published host-age tables, and selected HST observations. The earlier DES light-curve comparisons use DES-SN5YR, while the new host-selection and survey-simulation studies explicitly use Dovekie products. Current HST calibration references are not identical to those used for the historical RAISIN distances. The [source catalogue](docs/sources.md) specifies the releases.
 
 Unless stated otherwise, uncertainties attached to cosmological parameters are posterior standard deviations; regression errors are conditional standard errors; and intervals marked 95% use the method specified alongside them. Simulated examples test an explicit generator. They are not measurements of the corresponding bias in a survey.
 
@@ -78,6 +80,26 @@ The models use different data or correction assumptions, so their raw χ² value
 A separate calculation asks whether the anisotropic BAO measurements can satisfy a set of inequalities implied by flat, nonaccelerating expansion. The distance from the allowed set, measured with the released covariance, is **11.467067**. The conservative simulated cone-tail fraction is **0.4166**, with binomial 95% interval approximately [0.403, 0.430].
 
 This particular test does not reject its composite null. It also does not establish nonacceleration: it has different assumptions, information and power from the parametric joint fit. The tail fraction is neither the probability that the universe decelerates nor a posterior for q₀. The test uses 12 anisotropic entries at six redshifts; it excludes the isotropic BAO entry. [BAO result](results/baseline/bao-shape/summary.json).
+
+### 3.4 The Dovekie–DESI distance measurement
+
+The current Dovekie likelihood contains **1,820 supernovae: 1,623 DES, 117 Foundation and 80 low-redshift events**. Its released precision matrix includes photometric-classification treatment. We invert that complete matrix before any covariance subsetting; we do not add the table's plotting errors again or multiply by another classification probability.
+
+With the full distance covariance and all 13 released DESI DR2 BAO entries, flat ΛCDM gives
+
+$$\Omega_m = 0.30627\pm0.00768,\qquad H_0r^d = 10086.4\pm65.1\;\mathrm{km\,s^{-1}},$$
+
+$$q_0=-0.54059\pm0.01152,\qquad q_0\text{ 95\% interval }=[-0.56275,-0.51762].$$
+
+These are posterior means, standard deviations and an equal-tail interval. They pass the stated independent-ensemble convergence checks. They contain no CMB information and do not separately determine H₀. The fitted expansion changes from acceleration today to deceleration in the past: the same model gives q(0.5) = **−0.1025 ± 0.0130** and q(1) = **+0.1689 ± 0.0093**. This is not evidence that all possible dark-energy histories are excluded; flat ΛCDM severely restricts that history. [Measurement and assumptions](studies/unified_cosmology/notes/joint-inference.md); [numerical result](studies/unified_cosmology/results/inference/late-lcdm-none-dovekie.json).
+
+Allowing a constant w gives **w = −0.9086 ± 0.0377** and **q₀ = −0.4575 ± 0.0359**. Allowing CPL dark energy gives a weaker but still accelerating present-day inference. Two independent calculations give median **q₀ ≈ −0.38**, with central 95% intervals **[−0.565, −0.203]** and **[−0.566, −0.206]**. The jerk is much less constrained: its corresponding 95% intervals extend from about **−1.06 to +1.59**. These distances therefore support acceleration while allowing both increasing and decreasing scale-factor acceleration. A few-percent low-matter-density tail remains numerically less stable and sensitive to the prior bounds; it is not hidden inside a single precise error bar. [Constant-w posterior](studies/unified_cosmology/results/inference/late-wcdm-none-dovekie.json); [flexible-model results and tail sensitivity](studies/unified_cosmology/notes/late-time-tails.md).
+
+![Present acceleration and jerk for the same Dovekie and DESI observations under three expansion models. All q intervals are negative, while CPL permits both signs of jerk.](studies/unified_cosmology/figures/late-expansion.png)
+
+*Figure 2. Equal-tail 95% posterior intervals, conditional on the released distance covariance and model priors. The two CPL lines show separate numerical integrations. The cosmological-constant model fixes jerk to one rather than measuring it independently.*
+
+The comparison between supernova releases is also informative. With the same BAO data, best-fit constant w values are **−0.908 for Dovekie, −0.913 for Pantheon+ and −0.920 for DES3YR**. Adding the CPL evolution parameter improves χ² by only **1.38, 0.25 and 0.28**, respectively. These are optimized fit comparisons, not posterior intervals, evidence ratios or calibrated significance levels. They do not on their own establish time-varying dark energy. [Cross-release comparison](studies/unified_cosmology/notes/release-comparison.md).
 
 ## 4. Host ages, bias corrections and dust
 
@@ -163,6 +185,16 @@ The distance column compares the paired injected-minus-nominal response at **0.7
 
 These are conditional simulation results with important uncertainty limits. Of 200 joint training/evaluation bootstrap draws, **139 support the common age-slope comparison, only 39 support both redshift endpoints, and 25 support all four bins**. The retained-target high-minus-low contrast has a supported-draw 95% percentile range of **[−0.088, +0.050] mag**, not a coverage-validated confidence interval. Failed draws are retained. The experiment establishes neither survey-wide closure nor an observed correction, but it shows why a surviving residual age slope alone cannot settle whether adding a redshift-dependent template would double count. [Native targets, equations and uncertainty](studies/host_ages/notes/survey-bbc-support-results.md).
 
+### 4.7 New observed host information and the tests it fails
+
+Joint host-model samples recover substantial age–dust uncertainty that separate summary columns hide. Among **1,355 securely associated normal-Ia hosts** in FrankenBlast, the median within-host age uncertainty is **1.81 Gyr**, and the median age–stellar-attenuation correlation is **−0.360**. These are model-conditioned galaxy ages, not direct progenitor-age measurements. Their empirical training prior and assumed cosmological clock prevent using them unchanged as independent age likelihoods.
+
+A separate brightness comparison using public YSE fluxes fails its physical adequacy check: only **9 of 62** completed light-curve fits pass an exploratory nominal χ²-tail threshold of 0.01. Independent integrations and optimizers agree, so numerical fit convergence does not resolve the discrepancy. The public archive omits negative and rejected epochs; the complete selection likelihood is unavailable. We therefore infer **no age–brightness coefficient from this cohort**. [Joint host and brightness results](studies/unified_cosmology/notes/host-likelihood.md).
+
+High-redshift spectra add observations but require careful interpretation. The **1,088 distinct OzDES hosts** have useful wavelength coverage, yet their spectra lack established relative flux calibration. A conditional test of repeat count-spectrum ratios rejects the fixed-response/variance model for **22 of 40** independently selected hosts after simulation and refitting. Raw count breaks therefore cannot be turned directly into physical ages.
+
+Public DESI data provide flux-calibrated spectra for **55 of these same hosts**, including **18 at z > 0.5**, reaching **z = 0.955**. We measure 54 supported 4000 Å breaks and 48 Hδ absorption-window diagnostics, retaining all 55 signed band vectors and their overlapping-band covariance. Their formal errors, spectral-response uncertainties, fibre apertures and stellar-population degeneracies remain separate. These spectra provide independent population information; they do not by themselves measure a survey-wide luminosity correction. [Calibrated host measurements](studies/unified_cosmology/notes/calibrated-hosts.md).
+
 ## 5. DES: from calibrated flux to prediction and calibration
 
 Two independent fitting paths for twelve DES supernovae give **24 full light-curve fits**. They closely reproduce the calibrated mean fluxes; finer wavelength integration and alternative fit starts change the answers only slightly. Differences from the frozen native reference reach about **0.0011 mag** in fitted brightness and **0.095 day** in peak time. These are bounded implementation comparisons on the same accepted epochs, not evidence that the original detector reduction was wrong.
@@ -237,7 +269,9 @@ The host-age comparison is less settled. We find a weak trend in the corrected P
 
 Some conclusions are more direct. The peak-time Hessian and likelihood profile disagree for a specific object; the profile is supported by an independent fit and the native MINOS result. The infrared simulations do not demonstrate independent 0.010-day timing recovery because the fitted values reproduce the supplied initializers. The dark-image pixel statistic is too concentrated to support a detector-wide variance multiplier. These are identifiable failures of particular uncertainty summaries or interpretations.
 
-Other attempts remain inconclusive. The available systematic shifts do not fully reconstruct the infrared covariance, but the missing historical transformations prevent identifying the source of the gap. The broader BAO inequality test does not reject nonacceleration under its assumptions. Alternative colour laws do not establish a preferred physical dust correction in the small DES pilot. Classifier reconstruction and several native infrared fits have not met the accuracy or optimizer-stability requirements needed for reliable selection inference. Failed or incomplete identification is part of the scientific result, not evidence for a particular alternative cosmology. [Supporting investigations](studies/README.md).
+The DES classifier discrepancy is now resolved: the correct measured peak-time input reproduces **all 17,733 released probabilities** to their printed precision, with no classification disagreement at the 0.5 threshold. Earlier simulation campaigns already used that correct input. This establishes the classifier interface, not the complete selection or contaminant population. [Classification and survey evidence](studies/unified_cosmology/notes/survey-selection.md).
+
+Other attempts remain inconclusive. The available systematic shifts do not fully reconstruct the infrared covariance, but missing historical transformations prevent identifying the source of the gap. The broader BAO inequality test does not reject nonacceleration under its assumptions. Alternative colour laws do not establish a preferred physical dust correction in the small DES pilot. Several native infrared fits still fail optimizer-stability requirements. Failed or incomplete identification is part of the scientific result, not evidence for a particular alternative cosmology. [Supporting investigations](studies/README.md).
 
 ## 9. Conclusions
 
