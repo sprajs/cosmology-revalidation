@@ -1,0 +1,19 @@
+{
+  "scope": "Separate conditional posterior sensitivity to replacing the existing ACT/Planck and Pan2018 SPT lensing factors with the released Qu ACT/Planck/MUSE joint lensing likelihood; not automatic adoption as the primary measurement.",
+  "fixed_before_native_bridge_outcomes": true,
+  "variants": ["actplanckspt3g_baseline", "actplanckspt3g_extended"],
+  "variant_interpretation": {
+    "actplanckspt3g_baseline": "35 bins: retain current ACT40-763 window support, replace SPT estimator and use the released joint lensing covariance/precision convention.",
+    "actplanckspt3g_extended": "38 bins: same replacement plus ACT support to1300, following the Qu paper. Always report separately, never select by favorable outcome."
+  },
+  "old_factors": ["act_dr6_lenslike.ACTDR6LensLike", "SPT2023_lensing"],
+  "full_primary_covariance_choice": "lens_only=False, likelihood corrections enabled, released no_cmbmarg covariance, indep=False and released global Hartlap precision factor. No additional primary/lensing covariance is supplied.",
+  "source_closure_absolute_tolerance": 1e-7,
+  "auxiliary_parameter": {"name": "A_fg", "normalized_prior": {"min": 0.0, "max": 2.0}, "treatment": "Retain normalized source uniform prior in the bridge's extended target. New likelihood independent of A_fg; marginalize/drop only from physical reporting. Do not claim A_fg is measured by the new target."},
+  "weight": "original exact/proposal log_weight + new_joint_kernel_loglike - old_ACTPlanck_kernel_loglike - old_PanSPT_kernel_loglike; no clipping or smoothing. Fixed normalized-Gaussian constants also recorded, including Hartlap scaling; they cancel normalized posterior weights, not interpreted as evidence.",
+  "spectra": "One new unchanged native full-source evaluation per selected parent point, raw C_l using FIRASmuK2 for TT/EE/TE/BB and dimensionless potential pp. Both variants reuse this same immutable spectrum. No emulator and no current missing spectral cache assumed.",
+  "selection": "All points in the qualified parent's frozen exact-correction cohort; preserve original order, independent-chain groups and repeated selections. No likelihood-outcome selection.",
+  "qualification": "Require measurement_summary.summarize_run to accept the parent before cache/model creation. Use unchanged luminosity-sensitivity-design overlap gates on the final weights, including the auxiliary A_fg diagnostic, every native failure retained. Report each variant only if all gates pass. Finite checks cannot certify unseen modes.",
+  "compute": {"maximum_workers": 4, "default_workers": 1, "native_evaluations_per_parent_point": 1, "launch_requires_explicit_execute_native_flag": true, "retry": "An attempted native point lacking a sealed result is blocked, never silently repeated."},
+  "limitations": ["Released Gaussian MUSE compression differs from full transformed-space MUSE likelihood and contains no delensed EE factor.", "Primary-CMB/lensing, lensing/BAO and lensing/SN covariance omissions remain conditional assumptions.", "A failed importance bridge requires independent target sampling, not relaxed gates or trimmed weights.", "Fixed likelihood normalization offsets compare different data vectors/units and are not a Bayes factor.", "Native precision is the parent's declared CAMB accuracy, not a higher-accuracy posterior correction."]
+}
