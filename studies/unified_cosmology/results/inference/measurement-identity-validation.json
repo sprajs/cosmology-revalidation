@@ -1,0 +1,77 @@
+{
+  "status": "passed",
+  "cases": [
+    {
+      "manifest": ".work/unified-cosmology/inference/modern-cpl-none-dovekie-official_planck-fast-metropolis-scale1p6-7316f91342ee/run-0.json",
+      "manifest_sha256": "3dc6a219a0dbd73acfea154cf1f37c9e9fe7313e31c78179d77d9adeb8698666",
+      "target_identity": "a2e379946a9373e7775e00f6b6c369e09d5b11b8d6874d98a9021870ef830835",
+      "backend": "modern_fast",
+      "intact_identity_matches": true,
+      "verified_first_party_and_manifest_inputs": 13,
+      "rejected_changes": [
+        "source_bytes",
+        "sample_bytes",
+        "surrogate_bytes",
+        "package_version",
+        "third_party_likelihood_bytes",
+        "recomputed_target_identity"
+      ]
+    },
+    {
+      "manifest": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-fast-metropolis-scale1p6-seed272672-7316f91342ee/run-0.json",
+      "manifest_sha256": "1a206215261f3c49508d90eb44e1658b58cf4b8499c9d3993e785e665257635c",
+      "target_identity": "a047e290baa300dcaca061873d07c9d38a80242750674c105804c14516085293",
+      "backend": "modern_fast",
+      "intact_identity_matches": true,
+      "verified_first_party_and_manifest_inputs": 13,
+      "rejected_changes": [
+        "source_bytes",
+        "sample_bytes",
+        "surrogate_bytes",
+        "package_version",
+        "third_party_likelihood_bytes",
+        "recomputed_target_identity"
+      ]
+    },
+    {
+      "manifest": ".work/unified-cosmology/inference/modern-cpl-linear-dovekie-official_planck-fast-gpu-blocked-f1-scale1p6-seed272812-dfff858fc0d4/run-0.json",
+      "manifest_sha256": "c96fd05582af64c2429810d122b949798b0a9c8a52701a827e69fdfc340aa2f0",
+      "target_identity": "89d7caffa799d49076f1d85752f3db67d6526d32388008f18992de2efbb73bcb",
+      "backend": "modern_gpu",
+      "intact_identity_matches": true,
+      "verified_first_party_and_manifest_inputs": 14,
+      "rejected_changes": [
+        "source_bytes",
+        "sample_bytes",
+        "surrogate_bytes",
+        "package_version",
+        "third_party_likelihood_bytes",
+        "recomputed_target_identity"
+      ]
+    },
+    {
+      "manifest": ".work/unified-cosmology/inference/modern-cpl-smooth01-dovekie-official_planck-fast-gpu-blocked-f1-scale1p6-seed272813-dfff858fc0d4/run-0.json",
+      "manifest_sha256": "289f35ee95d88dbfe1798d70a07aefcec7de7fe972dc7cf83753952f336ff6ac",
+      "target_identity": "fb0194b6bc95ad28eed8c40651be712ea436b8439e68b87d8d3effa7bb37b35d",
+      "backend": "modern_gpu",
+      "intact_identity_matches": true,
+      "verified_first_party_and_manifest_inputs": 14,
+      "rejected_changes": [
+        "source_bytes",
+        "sample_bytes",
+        "surrogate_bytes",
+        "package_version",
+        "third_party_likelihood_bytes",
+        "recomputed_target_identity"
+      ]
+    }
+  ],
+  "native_spectrum_calls": 0,
+  "background_calls": 0,
+  "mutations": "Digest/version/backend substitutions isolated to the validator; no source, observations, model or active chain files changed.",
+  "scope": "Current scientific source, input, dependency and runtime identity at reporting. This does not qualify unfinished chains or validate physical assumptions.",
+  "source_sha256": {
+    "studies/unified_cosmology/code/inference/measurement_identity_validate.py": "a6744eaae52a0c2b0cd3780c8425020bf23951e1fa50a9671673a393df2095a4",
+    "studies/unified_cosmology/code/inference/measurement_summary.py": "ca963dbaf8bff8bb693bf483c023d022c1e57b71bf9680711c92d716e9e415ef"
+  }
+}

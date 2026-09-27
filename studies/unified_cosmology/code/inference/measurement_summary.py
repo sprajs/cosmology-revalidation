@@ -6,6 +6,7 @@ its row. Zero sampled failures never become a claim of certain acceleration.
 """
 import argparse
 import hashlib
+import importlib.metadata
 import json
 from pathlib import Path
 
@@ -23,6 +24,42 @@ def digest(path):
 
 def relative(path):
     return str(Path(path).resolve().relative_to(ROOT))
+
+
+def verify_current_target(manifest):
+    """Rehash scientific inputs, rather than trusting a recorded identity label."""
+    frozen = manifest['target_identity']
+    settings = manifest['arguments']
+    inputs = dict(frozen['source_sha256'])
+    sample = Path(frozen['configuration']['likelihood']['released_sn']['data_file'])
+    if not sample.is_absolute():
+        sample = ROOT / sample
+    inputs[relative(sample)] = frozen['sample_sha256']
+    surrogate = Path(settings['surrogate']) if settings.get('surrogate') else None
+    if surrogate is not None:
+        if not surrogate.is_absolute():
+            surrogate = ROOT / surrogate
+        inputs[relative(surrogate)] = frozen['surrogate_sha256']
+    # Check first-party code before importing its backend. No target evaluation
+    # or new background/spectrum calculation is needed for an identity check.
+    for name, expected in inputs.items():
+        assert digest(ROOT / name) == expected, 'Scientific source or numerical/data input changed: ' + name
+    for package, expected in frozen['versions'].items():
+        assert importlib.metadata.version(package) == expected, 'Scientific environment changed: ' + package
+    if settings.get('gpu'):
+        from modern_gpu import identify
+    elif settings.get('fast_lensing'):
+        from modern_fast import identify
+    else:
+        from target_identity import identify
+    # Frozen configuration is already canonical; canonicalizing it again is
+    # idempotent. identify also verifies actual third-party likelihood bytes.
+    assert identify(frozen['configuration'], sample, surrogate) == frozen, \
+        'Current scientific target differs from the sampled identity.'
+    for filename in ['asset-file-inventory.json', 'modern-file-inventory.json']:
+        path = ROOT / '.work/unified-cosmology/external-probes' / filename
+        inputs[relative(path)] = digest(path)
+    return inputs
 
 
 def weighted_fraction(mask, weights, groups):
@@ -67,6 +104,8 @@ def summarize_run(folder, summary_path):
     for path in manifests:
         assert json.loads(path.read_text())['target_identity'] == manifest['target_identity']
     inputs = {relative(p): digest(p) for p in manifests + [selection_path, summary_path]}
+    assert selection['settings'] == manifest['arguments'], 'Selected run settings differ from the recorded cohort.'
+    inputs.update(verify_current_target(manifest))
     dependencies = selection['correction_dependency_sha256']
     assert dependencies == summary['correction_dependency_sha256']
     for name, expected in dependencies.items():
