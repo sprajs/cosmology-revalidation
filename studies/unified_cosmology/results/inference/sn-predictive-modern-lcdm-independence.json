@@ -1,0 +1,143 @@
+{
+  "status": "computed_conditional_marginal_Gaussian_quadratic_check",
+  "observations": 1820,
+  "replicate_degrees_of_freedom": 1819,
+  "subtracted_unpenalized_intercepts": 1,
+  "subtracted_cosmological_or_proper_Gaussian_mode_counts": 0,
+  "posterior_tail_diagnostics": {
+    "replicate_quadratic_below_observed": {
+      "mean": 0.0008010950466702583,
+      "independent_chain_means": {
+        "0": {
+          "mean": 0.0008002553478910815,
+          "weight_mass": 0.2506136468853915
+        },
+        "1": {
+          "mean": 0.0007996709912962342,
+          "weight_mass": 0.24748705433993617
+        },
+        "2": {
+          "mean": 0.0008001255805949654,
+          "weight_mass": 0.2504786946829526
+        },
+        "3": {
+          "mean": 0.0008042996600831428,
+          "weight_mass": 0.2514206040917195
+        }
+      },
+      "chronological_batch_mcse": {
+        "10": {
+          "mean_mcse": 9.183846657140175e-07,
+          "minimum_points_per_batch": 50
+        },
+        "20": {
+          "mean_mcse": 8.278795545228577e-07,
+          "minimum_points_per_batch": 25
+        },
+        "40": {
+          "mean_mcse": 9.455076676975258e-07,
+          "minimum_points_per_batch": 12
+        }
+      },
+      "interpretation": "Monte Carlo precision diagnostic for this weighted expectation; not a coverage guarantee."
+    },
+    "replicate_quadratic_above_observed": {
+      "mean": 0.9991989049533294,
+      "independent_chain_means": {
+        "0": {
+          "mean": 0.9991997446521088,
+          "weight_mass": 0.2506136468853915
+        },
+        "1": {
+          "mean": 0.9992003290087038,
+          "weight_mass": 0.24748705433993617
+        },
+        "2": {
+          "mean": 0.9991998744194048,
+          "weight_mass": 0.2504786946829526
+        },
+        "3": {
+          "mean": 0.9991957003399167,
+          "weight_mass": 0.2514206040917195
+        }
+      },
+      "chronological_batch_mcse": {
+        "10": {
+          "mean_mcse": 9.183846657147728e-07,
+          "minimum_points_per_batch": 50
+        },
+        "20": {
+          "mean_mcse": 8.278795545236618e-07,
+          "minimum_points_per_batch": 25
+        },
+        "40": {
+          "mean_mcse": 9.455076676984752e-07,
+          "minimum_points_per_batch": 12
+        }
+      },
+      "interpretation": "Monte Carlo precision diagnostic for this weighted expectation; not a coverage guarantee."
+    }
+  },
+  "observed_quadratic": {
+    "mean": 1634.6072610994395,
+    "sd": 0.822914802291406,
+    "quantiles_025_16_50_84_975": [
+      1633.1517695660714,
+      1633.7793581372816,
+      1634.5723176706886,
+      1635.4239312966035,
+      1636.3309399753462
+    ]
+  },
+  "observed_quadratic_per_replicate_df": {
+    "mean": 0.8986296102800657,
+    "sd": 0.00045239956145761643,
+    "quantiles_025_16_50_84_975": [
+      0.8978294500088353,
+      0.8981744684646958,
+      0.8986104000388612,
+      0.8990785768535479,
+      0.8995772072431809
+    ]
+  },
+  "maximum_native_normalized_SN_loglike_closure": 3.410605131648481e-13,
+  "tail_complement_maximum_error": 1.1102230246251565e-16,
+  "floating_point_zero_tail_counts": {
+    "lower": 0,
+    "upper": 0
+  },
+  "original_raw_weight_ESS": 1783.2992794401882,
+  "largest_original_normalized_weight": 0.003727946532040345,
+  "effective_covariance_logdet": -5485.724346523403,
+  "free_magnitude_information": 43938.33706138447,
+  "normalized_density_constant": -2131.9354202252484,
+  "settings": {
+    "model": "lcdm",
+    "evolution": "none",
+    "sample": "dovekie",
+    "calibration": "official_planck"
+  },
+  "sigma_mag": 0.0,
+  "parent_target_identity": "a047e290baa300dcaca061873d07c9d38a80242750674c105804c14516085293",
+  "parent_qualified_under_declared_numerical_gates": true,
+  "conditional_replication": "Projected Gaussian distance noise at fixed cosmological and sampled nuisance parameters.",
+  "scope": "Conditional marginal-Gaussian quadratic check of qualified native-corrected supernova fits. No new background or CMB evaluations, empirical error rescaling or physical age correction.",
+  "limitations": "The posterior uses the same observations as the discrepancy. Tail averages are posterior-predictive diagnostics, not calibrated frequentist p-values, evidence, covariance validation, raw-flux or host-age tests. The released Gaussian distance covariance, selection corrections, classification treatment, sample selection and probe assumptions remain conditional. An aggregate quadratic can hide redshift-dependent, population-dependent, correlated or directional failures. Floating-point zero tail values are not exclusion bounds.",
+  "flat_magnitude_measure": "Density accounting uses the same improper flat global-magnitude measure as ReleasedDistances. This is not a proper normalization over the full data space or an absolute evidence normalization.",
+  "covariance_adjusted_or_rescaled": false,
+  "CMB_spectrum_calls": 0,
+  "background_calls": 0,
+  "source_sha256": {
+    "studies/unified_cosmology/code/inference/sn_predictive_check.py": "263224ba93d2833cc074b1f923ed72c8bd523b21168993c35ef8ce18372a4b20",
+    "studies/unified_cosmology/code/inference/sn-predictive-design.json": "0e2dc3662ebe02a547624168cae54f90d602216eaf518ed3cecff7c1251ee1cc",
+    "studies/unified_cosmology/code/inference/measurement_summary.py": "ca963dbaf8bff8bb693bf483c023d022c1e57b71bf9680711c92d716e9e415ef",
+    "studies/unified_cosmology/code/inference/exact_correction.py": "d073c7e1c9d0f8678d46389048bec6580d7aac4299085f7104a125b78710e477",
+    "studies/unified_cosmology/code/inference/likelihood.py": "c2cdbdf1ceb50703713d5ce0f6d4b3aae801630b4d136481df310ae929eed3f5"
+  },
+  "lineage_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/sn-predictive/lineage.json",
+  "lineage_sha256": "9a9b3f86bf52cebf5a4129398e33135c36e9d766f1120efbd74ac03139b08a1e",
+  "record_manifest_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/sn-predictive/record-hashes.json",
+  "record_manifest_sha256": "36d2c5eaee01527b29bd64f866edb5fb20a9c0a5aacfb8ade9a7af7b97e581ff",
+  "correction_summary_path": "studies/unified_cosmology/results/inference/modern-lcdm-independence-exact-correction.json",
+  "correction_summary_sha256": "3719e89deeaf6a4a2adb1a8d7bb06e646c02e0fa1b1553a14d6243424dd024f3"
+}

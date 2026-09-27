@@ -274,9 +274,89 @@ def asset_tests():
     return outcomes
 
 
+def projection_tests():
+    """Only exact, source-bound original32 annotations bypass a wrapper seal."""
+    from final_audit import canonical_digest
+    def seal(value):
+        value.pop('payload_sha256', None)
+        value['payload_sha256'] = canonical_digest(value)
+        return value
+    names = ['valid_finite_original', 'valid_failed_original', 'changed_embedded_value',
+             'changed_resealed_wrapper', 'extra_annotation', 'missing_annotation',
+             'changed_original_file', 'bad_original_seal', 'changed_plan_file',
+             'wrong_selected_point', 'wrong_source_bytes', 'wrong_log_bytes',
+             'wrong_warning_count', 'wrong_log_path', 'wrong_record_basename',
+             'unknown_nonprojection_seal']
+    outcomes = []
+    for name in names:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            folder = root/'.work/native-posterior-precision'; folder.mkdir(parents=True)
+            producer = root/'studies/unified_cosmology/code/inference/native_posterior_precision.py'
+            producer.parent.mkdir(parents=True); producer.write_text('# synthetic producer\n')
+            parent = folder/'parent.json'; put(parent, seal({'synthetic': True}))
+            selected = {'parent_index': 31, 'chain': 0, 'point': {'x': 1.},
+                        'native_record_path': str(parent.relative_to(root)),
+                        'native_record_sha256': digest(parent), 'original_native_logweight': .3,
+                        'weight_in_full_qualified_parent': .0005}
+            plan = {'design': {'points': 32}, 'selected': [deepcopy(selected) for _ in range(32)],
+                    'nominal_native_configuration': {}, 'doubled_native_configuration': {},
+                    'qualified_parent_inputs': {str(parent.relative_to(root)): digest(parent)},
+                    'source_sha256': {str(producer.relative_to(root)): digest(producer)},
+                    'identity': 'a'*64}
+            plan_path = folder/'selection.json'; put(plan_path, seal(plan))
+            original = {k: deepcopy(v) for k, v in selected.items() if k != 'native_record_path'}
+            original.update(audit_index=0, native_point_evaluations=1, identity='a'*64,
+                            plan_sha256=digest(plan_path), status='finite_native_precision',
+                            failed_checks=[], comparison={'high_minus_declared_total_loglike': .25})
+            if name == 'valid_failed_original':
+                original.update(status='failed_native_precision_checks', failed_checks=['real_background_failure'])
+            path = folder/'00.json'; put(path, seal(original))
+            log = folder/'00.log'; log.write_text('mismatch in integrated times\n')
+            wrapper = deepcopy(original)
+            wrapper.update(record_path=str(path.relative_to(root)), record_sha256=digest(path),
+                           log_path=str(log.relative_to(root)), log_sha256=digest(log),
+                           integrated_time_mismatch_warning_count=1)
+            if name in {'changed_embedded_value', 'changed_resealed_wrapper'}:
+                wrapper['comparison']['high_minus_declared_total_loglike'] = 0.
+                if name == 'changed_resealed_wrapper': seal(wrapper)
+            if name == 'extra_annotation': wrapper['unknown'] = 'not an allowed projection'
+            if name == 'missing_annotation': wrapper.pop('log_sha256')
+            if name == 'changed_original_file': path.write_text(path.read_text()+' ')
+            if name == 'bad_original_seal':
+                original['payload_sha256'] = '0'*64; put(path, original)
+                wrapper.update(original); wrapper['record_sha256'] = digest(path)
+            if name == 'changed_plan_file': plan_path.write_text(plan_path.read_text()+' ')
+            if name == 'wrong_selected_point':
+                plan['selected'][0]['point']['x'] = 2.; put(plan_path, seal(plan))
+                original['plan_sha256'] = digest(plan_path); put(path, seal(original))
+                wrapper.update(original); wrapper['record_sha256'] = digest(path)
+            if name == 'wrong_source_bytes': producer.write_text('# altered\n')
+            if name == 'wrong_log_bytes': log.write_text('changed\n')
+            if name == 'wrong_warning_count': wrapper['integrated_time_mismatch_warning_count'] = 0
+            if name == 'wrong_log_path':
+                other = folder/'other.log'; other.write_text(log.read_text())
+                wrapper['log_path'] = str(other.relative_to(root))
+            if name == 'wrong_record_basename':
+                other = folder/'01.json'; other.write_text(path.read_text())
+                wrapper['record_path'] = str(other.relative_to(root))
+            if name == 'unknown_nonprojection_seal': wrapper = {'x': 1, 'payload_sha256': '0'*64}
+            rejected = False
+            evidence = Evidence(root)
+            try: evidence.walk(wrapper)
+            except (AssertionError, KeyError, FileNotFoundError): rejected = True
+            assert rejected == (not name.startswith('valid_')), name
+            if not rejected:
+                assert {str(p.relative_to(root)) for p in [producer, parent, path, log, plan_path]} <= set(evidence.bindings)
+                assert wrapper['status'] == original['status'] and wrapper['failed_checks'] == original['failed_checks']
+            outcomes.append({'case': name, 'passed': True, 'rejected': rejected})
+    return outcomes
+
+
 def main():
     checks = run_tests()
     assets = asset_tests()
+    projections = projection_tests()
     import ast
     for path in [CODE/'final_audit.py', Path(__file__)]:
         ast.parse(path.read_text())
@@ -286,6 +366,7 @@ def main():
               'qualification_dependency': 'Mocked ONLY in temporary synthetic fixtures; real CLI has no qualification bypass.',
               'manual_result_schema_cases': 4,
               'typed_logical_asset_cases': assets,
+              'typed_original32_projection_cases': projections,
               'source_sha256': {str(path.relative_to(ROOT)): digest(path) for path in [CODE/'final_audit.py', Path(__file__), DESIGN, SCHEMA]},
               'scope': 'Decision/identity/withholding validation, not a cosmological posterior or certification of pending chains.'}
     output = ROOT/'studies/unified_cosmology/results/final-audit-validation.json'

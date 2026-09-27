@@ -202,6 +202,45 @@ class Evidence:
             return value
         return None
 
+    def precision_record_projection(self, value):
+        """Verify the original32 summary's five-field record/log annotation.
+
+        The source record retains its own seal. Its summary is an exact view of
+        that file plus independently checked annotations, not a newly sealed
+        native result. No arbitrary fields may be stripped before checking.
+        """
+        index = value['audit_index']
+        assert isinstance(index, int) and not isinstance(index, bool) and 0 <= index < 32
+        path = (self.root/value['record_path']).resolve()
+        assert path.is_relative_to(self.root.resolve()/'.work') and path.name == f'{index:02d}.json'
+        self.pin(path, value['record_sha256'], inspect=True)
+        stored = read(path)
+        assert canonical_digest({k: v for k, v in stored.items() if k != 'payload_sha256'}) == stored['payload_sha256']
+        extras = {'record_path', 'record_sha256', 'log_path', 'log_sha256',
+                  'integrated_time_mismatch_warning_count'}
+        assert not extras.intersection(stored), 'Unexpected precision record annotation in original file.'
+        assert set(value) == set(stored) | extras, 'Unknown field in precision summary projection.'
+        assert {k: value[k] for k in stored} == stored, 'Precision summary differs from sealed native record.'
+        plan_path = path.parent/'selection.json'
+        self.pin(plan_path, stored['plan_sha256'], inspect=True)
+        plan = read(plan_path)
+        assert plan['design']['points'] == len(plan['selected']) == 32
+        assert {'nominal_native_configuration', 'doubled_native_configuration', 'qualified_parent_inputs'} <= set(plan)
+        producer = 'studies/unified_cosmology/code/inference/native_posterior_precision.py'
+        assert producer in plan['source_sha256']
+        assert plan['identity'] == stored['identity'] and stored['audit_index'] == index
+        selected = plan['selected'][index]
+        for key in ['parent_index', 'chain', 'point', 'native_record_sha256',
+                    'original_native_logweight', 'weight_in_full_qualified_parent']:
+            assert stored[key] == selected[key], 'Wrong original32 selection in precision projection.'
+        log = (self.root/value['log_path']).resolve()
+        assert log == path.with_suffix('.log'), 'Precision summary references another log.'
+        self.pin(log, value['log_sha256'])
+        assert isinstance(value['integrated_time_mismatch_warning_count'], int)
+        assert not isinstance(value['integrated_time_mismatch_warning_count'], bool)
+        assert value['integrated_time_mismatch_warning_count'] == log.read_text().count('mismatch in integrated times')
+        assert digest(path) == value['record_sha256']
+
     def walk(self, value):
         if isinstance(value, list):
             for item in value:
@@ -210,6 +249,11 @@ class Evidence:
         if not isinstance(value, dict):
             return
         if 'payload_sha256' in value:
+            if {'audit_index', 'parent_index', 'native_point_evaluations',
+                'record_path', 'record_sha256', 'log_path', 'log_sha256',
+                'integrated_time_mismatch_warning_count'} <= set(value):
+                self.precision_record_projection(value)
+                return
             assert canonical_digest({k: v for k, v in value.items() if k != 'payload_sha256'}) == value['payload_sha256'], 'Invalid sealed payload.'
         # Hash manifests can be named source_sha256, parent_inputs, or directly
         # contain path->hash pairs. Only actual path-like keys are interpreted.

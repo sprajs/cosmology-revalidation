@@ -1,0 +1,1637 @@
+{
+  "status": "insufficient_omission_overlap_or_stability",
+  "qualified_under_declared_numerical_gates": false,
+  "points": 2000,
+  "failed_gates": [
+    "raw_weight_ESS",
+    "Pareto_k",
+    "chain_0_weight_ESS",
+    "chain_0_weight_fraction",
+    "chain_1_weight_ESS",
+    "chain_1_weight_fraction",
+    "chain_2_weight_ESS",
+    "chain_2_weight_fraction",
+    "chain_3_weight_ESS",
+    "chain_3_weight_fraction",
+    "A_act_chain_means",
+    "A_act_batch_MCSE",
+    "A_fg_chain_means",
+    "A_fg_batch_MCSE",
+    "A_planck_chain_means",
+    "A_planck_batch_MCSE",
+    "As_chain_means",
+    "As_batch_MCSE",
+    "Ecal_chain_means",
+    "H0_chain_means",
+    "H0_batch_MCSE",
+    "P_act_chain_means",
+    "P_act_batch_MCSE",
+    "Tcal_chain_means",
+    "Tcal_batch_MCSE",
+    "chi2__BAO_chain_means",
+    "chi2__BAO_batch_MCSE",
+    "chi2__CMB_chain_means",
+    "chi2__CMB_batch_MCSE",
+    "chi2__SN_chain_means",
+    "chi2__SN_batch_MCSE",
+    "j0_chain_means",
+    "j0_batch_MCSE",
+    "j05_chain_means",
+    "j05_batch_MCSE",
+    "j1_chain_means",
+    "j1_batch_MCSE",
+    "logA_chain_means",
+    "logA_batch_MCSE",
+    "ns_chain_means",
+    "ns_batch_MCSE",
+    "ombh2_chain_means",
+    "omch2_chain_means",
+    "omch2_batch_MCSE",
+    "omegam_chain_means",
+    "omegam_batch_MCSE",
+    "q0_chain_means",
+    "q0_batch_MCSE",
+    "q05_chain_means",
+    "q05_batch_MCSE",
+    "q1_chain_means",
+    "q1_batch_MCSE",
+    "rdrag_chain_means",
+    "rdrag_batch_MCSE",
+    "sn_chi2_chain_means",
+    "sn_chi2_batch_MCSE",
+    "tau_chain_means",
+    "tau_batch_MCSE",
+    "w_chain_means",
+    "w_batch_MCSE",
+    "wa_chain_means",
+    "wa_batch_MCSE"
+  ],
+  "weight_diagnostics": {
+    "status": "insufficient_overlap_or_stability",
+    "qualified_overlap": false,
+    "raw_weight_ESS": 1.1404592181919109,
+    "Pareto_k": 1.1245744840127643,
+    "Pareto_k_status": "finite",
+    "largest_normalized_weight": 0.9362245669571396,
+    "log_weight_quantiles": [
+      -251.8675675445894,
+      -251.46199715796476,
+      -250.99268930241493,
+      -248.433631156208,
+      -239.3681835714671
+    ],
+    "per_chain": {
+      "0": {
+        "points": 500,
+        "weight_fraction": 0.9476935626834299,
+        "raw_weight_ESS": 1.024644206181198
+      },
+      "1": {
+        "points": 500,
+        "weight_fraction": 0.010099881448130336,
+        "raw_weight_ESS": 41.49710486554075
+      },
+      "2": {
+        "points": 500,
+        "weight_fraction": 0.01533808557824719,
+        "raw_weight_ESS": 7.143631975874845
+      },
+      "3": {
+        "points": 500,
+        "weight_fraction": 0.02686847029019266,
+        "raw_weight_ESS": 2.5556456060901342
+      }
+    },
+    "weighted_summaries_for_diagnostics": {
+      "A_act": {
+        "mean": 0.9988983098219231,
+        "sd": 0.0007287400966888779,
+        "quantiles_025_16_50_84_975": [
+          0.998738175549909,
+          0.9987394819551741,
+          0.9987426332677485,
+          0.9987441803179429,
+          1.0014673939409013
+        ]
+      },
+      "A_fg": {
+        "mean": 0.6077753852236943,
+        "sd": 0.16980318885289344,
+        "quantiles_025_16_50_84_975": [
+          0.5763325834991483,
+          0.576844112910576,
+          0.5783276155077123,
+          0.5827329919989969,
+          1.0842302937552741
+        ]
+      },
+      "A_planck": {
+        "mean": 0.9988983098219231,
+        "sd": 0.0007287400966888779,
+        "quantiles_025_16_50_84_975": [
+          0.998738175549909,
+          0.9987394819551741,
+          0.9987426332677485,
+          0.9987441803179429,
+          1.0014673939409013
+        ]
+      },
+      "As": {
+        "mean": 2.1298660655541233e-09,
+        "sd": 7.395142118836079e-12,
+        "quantiles_025_16_50_84_975": [
+          2.1074065821067706e-09,
+          2.1310234182664762e-09,
+          2.131072483723332e-09,
+          2.1311410105814806e-09,
+          2.1311688517053704e-09
+        ]
+      },
+      "Ecal": {
+        "mean": 1.0082409308466225,
+        "sd": 0.0009630979716906304,
+        "quantiles_025_16_50_84_975": [
+          1.0059540788378065,
+          1.0082736706652726,
+          1.008275486454149,
+          1.0082763650776458,
+          1.0094603000393703
+        ]
+      },
+      "H0": {
+        "mean": 65.47377801446966,
+        "sd": 0.40132775208308985,
+        "quantiles_025_16_50_84_975": [
+          65.34781718157247,
+          65.36277609612281,
+          65.412525379989,
+          65.72043648538384,
+          66.668042
+        ]
+      },
+      "P_act": {
+        "mean": 0.99762664002197,
+        "sd": 0.0010841110566600241,
+        "quantiles_025_16_50_84_975": [
+          0.9973428631084392,
+          0.9973478868653504,
+          0.997359584755544,
+          0.9973619961235933,
+          1.0017947189269008
+        ]
+      },
+      "Tcal": {
+        "mean": 0.9983343760828594,
+        "sd": 0.0005635463664583961,
+        "quantiles_025_16_50_84_975": [
+          0.9982680450465916,
+          0.9982695965814633,
+          0.9982736614296958,
+          0.9982818324400085,
+          0.999865479927106
+        ]
+      },
+      "chi2__BAO": {
+        "mean": 9.185827602471145,
+        "sd": 0.7555155363650534,
+        "quantiles_025_16_50_84_975": [
+          8.931995722946578,
+          9.09100239088267,
+          9.095208997584663,
+          9.096416185191341,
+          10.39782629426391
+        ]
+      },
+      "chi2__CMB": {
+        "mean": 642.3863146295216,
+        "sd": 0.6851962924648684,
+        "quantiles_025_16_50_84_975": [
+          640.8322404856676,
+          642.4376637574916,
+          642.4546324757345,
+          642.457119771061,
+          642.4577874034934
+        ]
+      },
+      "chi2__SN": {
+        "mean": -481.29490612401025,
+        "sd": 3.6840012024352,
+        "quantiles_025_16_50_84_975": [
+          -496.94014502319413,
+          -485.52014156580566,
+          -480.8497449813874,
+          -480.4117206216033,
+          -480.4117206216033
+        ]
+      },
+      "j0": {
+        "mean": -0.7243355429950941,
+        "sd": 0.12294529581586397,
+        "quantiles_025_16_50_84_975": [
+          -0.7474026240099374,
+          -0.746503675196515,
+          -0.7441630981829542,
+          -0.7402860536208942,
+          -0.41734348975614566
+        ]
+      },
+      "j05": {
+        "mean": 0.5027869245051005,
+        "sd": 0.05819402557743441,
+        "quantiles_025_16_50_84_975": [
+          0.4900590038513374,
+          0.4900590038513374,
+          0.49375700234120445,
+          0.5331865891449448,
+          0.6901538222803605
+        ]
+      },
+      "j1": {
+        "mean": 0.9887215558356396,
+        "sd": 0.02297344583032704,
+        "quantiles_025_16_50_84_975": [
+          0.9843126394725442,
+          0.9843780077221883,
+          0.9845379663107388,
+          0.9845929334394127,
+          1.0740738109246424
+        ]
+      },
+      "logA": {
+        "mean": 3.058638079699347,
+        "sd": 0.003508053942669071,
+        "quantiles_025_16_50_84_975": [
+          3.0480431765029166,
+          3.05918743529626,
+          3.0592104594540594,
+          3.0592426147796448,
+          3.0592556788330962
+        ]
+      },
+      "ns": {
+        "mean": 0.9751150396769954,
+        "sd": 0.0012098342065551926,
+        "quantiles_025_16_50_84_975": [
+          0.9714574019359432,
+          0.9753560682444868,
+          0.9753686770824428,
+          0.9753731761831187,
+          0.9753746873446238
+        ]
+      },
+      "ombh2": {
+        "mean": 0.022503084977996073,
+        "sd": 2.1989496713556068e-05,
+        "quantiles_025_16_50_84_975": [
+          0.022467708629841668,
+          0.022504348837264966,
+          0.022504587018389574,
+          0.022504820156193192,
+          0.022524289197774595
+        ]
+      },
+      "omch2": {
+        "mean": 0.11713396165888232,
+        "sd": 0.0005162685473048484,
+        "quantiles_025_16_50_84_975": [
+          0.11694342809844147,
+          0.1169636673097733,
+          0.11701141631587703,
+          0.11702793996548627,
+          0.11903598877315034
+        ]
+      },
+      "omegam": {
+        "mean": 0.3272650930410188,
+        "sd": 0.0030481256466409726,
+        "quantiles_025_16_50_84_975": [
+          0.32046328215937986,
+          0.3275844798297619,
+          0.32769997917828436,
+          0.32785536686871036,
+          0.3279177619003481
+        ]
+      },
+      "q0": {
+        "mean": -0.1369412079267215,
+        "sd": 0.03899190327290549,
+        "quantiles_025_16_50_84_975": [
+          -0.24903472403021895,
+          -0.14018026962462923,
+          -0.12995392474327758,
+          -0.12717590993093378,
+          -0.12636637787357038
+        ]
+      },
+      "q05": {
+        "mean": -0.13031997977526402,
+        "sd": 0.0072990069376378955,
+        "quantiles_025_16_50_84_975": [
+          -0.1517766350027457,
+          -0.1296871840415455,
+          -0.12967010190030467,
+          -0.12964269780402457,
+          -0.12963172036958637
+        ]
+      },
+      "q1": {
+        "mean": 0.0989528526112782,
+        "sd": 0.006691555879415265,
+        "quantiles_025_16_50_84_975": [
+          0.0953958119109069,
+          0.09602178649580713,
+          0.09751622231391165,
+          0.0979770320282248,
+          0.12391945507300656
+        ]
+      },
+      "rdrag": {
+        "mean": 147.71538680679396,
+        "sd": 0.12985269102797337,
+        "quantiles_025_16_50_84_975": [
+          147.27157082374592,
+          147.7441021240666,
+          147.74655519349062,
+          147.74707335570588,
+          147.74720238562796
+        ]
+      },
+      "sn_chi2": {
+        "mean": 1650.640514101239,
+        "sd": 3.6840012024351947,
+        "quantiles_025_16_50_84_975": [
+          1634.995275202055,
+          1646.4152786594434,
+          1651.0856752438615,
+          1651.5236996036456,
+          1651.5236996036456
+        ]
+      },
+      "tau": {
+        "mean": 0.06659907724563735,
+        "sd": 0.0028346803323877523,
+        "quantiles_025_16_50_84_975": [
+          0.055477566623418066,
+          0.0672146543610536,
+          0.0672173915400894,
+          0.06725279565438147,
+          0.06726809100084945
+        ]
+      },
+      "w": {
+        "mean": -0.6311833519943462,
+        "sd": 0.03528765311921362,
+        "quantiles_025_16_50_84_975": [
+          -0.7362830863368773,
+          -0.6311564947395184,
+          -0.624486881965107,
+          -0.617688914120715,
+          -0.614984663143661
+        ]
+      },
+      "wa": {
+        "mean": -1.0149250876806237,
+        "sd": 0.07707068835395904,
+        "quantiles_025_16_50_84_975": [
+          -1.028547996914762,
+          -1.0278503530768264,
+          -1.0261693735614719,
+          -1.0261348009889004,
+          -0.784856507700513
+        ]
+      }
+    },
+    "weighted_chain_stability": {
+      "A_act": {
+        "independent_chain_weighted_means": {
+          "0": 0.9987713168779753,
+          "1": 1.000794673228149,
+          "2": 1.0020434322374867,
+          "3": 1.0008692889124478
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 4.315835549400806,
+        "maximum_batch_MCSE_in_pooled_SD": 0.20914490911676634,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.000152046634693325,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.0001524122812917389,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.00015229379799148424,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "A_fg": {
+        "independent_chain_weighted_means": {
+          "0": 0.5838695751130751,
+          "1": 0.9065818926870681,
+          "2": 1.3109625975567534,
+          "3": 0.9372294373285425
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 4.141189674254322,
+        "maximum_batch_MCSE_in_pooled_SD": 0.17295166227416287,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.02936774377156152,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.029177793471396884,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.029126645643864406,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "A_planck": {
+        "independent_chain_weighted_means": {
+          "0": 0.9987713168779753,
+          "1": 1.000794673228149,
+          "2": 1.0020434322374867,
+          "3": 1.0008692889124478
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 4.315835549400806,
+        "maximum_batch_MCSE_in_pooled_SD": 0.20914490911676634,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.000152046634693325,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.0001524122812917389,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.00015229379799148424,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "As": {
+        "independent_chain_weighted_means": {
+          "0": 2.13072827478961e-09,
+          "1": 2.1086633725018325e-09,
+          "2": 2.1073391503350644e-09,
+          "3": 2.1202843625496945e-09
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 3.0461774577233376,
+        "maximum_batch_MCSE_in_pooled_SD": 0.1555538991113945,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 1.1449017371063168e-12,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 1.1464313460106628e-12,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 1.1503431910678517e-12,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "Ecal": {
+        "independent_chain_weighted_means": {
+          "0": 1.0082532301148652,
+          "1": 1.0061686538611228,
+          "2": 1.0066032824142728,
+          "3": 1.0095209518516506
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 2.1516782782358357,
+        "maximum_batch_MCSE_in_pooled_SD": 0.07137490681391143,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 6.823350383181102e-05,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 6.847289601371429e-05,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 6.874102798208584e-05,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "H0": {
+        "independent_chain_weighted_means": {
+          "0": 65.41663990030159,
+          "1": 66.88845811588476,
+          "2": 67.00800715315204,
+          "3": 66.08152321423272
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 3.822883243730263,
+        "maximum_batch_MCSE_in_pooled_SD": 0.17728001610157287,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.07114739035129822,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.07094721421114554,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.07090881200036181,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "P_act": {
+        "independent_chain_weighted_means": {
+          "0": 0.9974091764275651,
+          "1": 1.001468075810347,
+          "2": 1.0018061977815378,
+          "3": 1.001466992180917
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 3.855285612937441,
+        "maximum_batch_MCSE_in_pooled_SD": 0.24056988906624868,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.00026080447663619563,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.0002606521010192744,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.00026047523521522623,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "Tcal": {
+        "independent_chain_weighted_means": {
+          "0": 0.9982843302712134,
+          "1": 0.9989256487106981,
+          "2": 0.9984088445116666,
+          "3": 0.999834800428642
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 2.6624683168699828,
+        "maximum_batch_MCSE_in_pooled_SD": 0.11334788517158427,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 6.344731817870038e-05,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 6.387678883418983e-05,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 6.373882583531934e-05,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "chi2__BAO": {
+        "independent_chain_weighted_means": {
+          "0": 9.116198255243217,
+          "1": 10.659732818440975,
+          "2": 11.618438766269389,
+          "3": 9.69904692001381
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 3.2198029646114965,
+        "maximum_batch_MCSE_in_pooled_SD": 0.11671488545718928,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.08817990928797413,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.08775287107582215,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.08756340705397306,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "chi2__CMB": {
+        "independent_chain_weighted_means": {
+          "0": 642.4384700955553,
+          "1": 642.1995296243527,
+          "2": 640.7026873578803,
+          "3": 641.5780336369083
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 2.457145915931249,
+        "maximum_batch_MCSE_in_pooled_SD": 0.10699579291517766,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.07220017575713497,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.07288676411921775,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.07331312061481857,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "chi2__SN": {
+        "independent_chain_weighted_means": {
+          "0": -480.61541355775876,
+          "1": -498.0886088631087,
+          "2": -495.17160712358094,
+          "3": -491.0272911049274
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 4.558549744228487,
+        "maximum_batch_MCSE_in_pooled_SD": 0.22730680285444407,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.8367444848302661,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.837398535037473,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.837212380126978,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "j0": {
+        "independent_chain_weighted_means": {
+          "0": -0.7417820667021885,
+          "1": -0.33132314176134003,
+          "2": -0.5183225013186695,
+          "3": -0.3743069115446536
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 3.196644480178985,
+        "maximum_batch_MCSE_in_pooled_SD": 0.160083276229373,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.019681485751192926,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.01959510265330002,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.01957535844999469,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "j05": {
+        "independent_chain_weighted_means": {
+          "0": 0.4926042461815806,
+          "1": 0.7353501989328955,
+          "2": 0.7001744815009112,
+          "3": 0.661845103468236
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 3.996342788115604,
+        "maximum_batch_MCSE_in_pooled_SD": 0.2085509045791475,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.012136416675275992,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.012113996475520264,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.012097827122250276,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "j1": {
+        "independent_chain_weighted_means": {
+          "0": 0.9857886888061358,
+          "1": 1.0603904474251993,
+          "2": 1.0848427435182688,
+          "3": 1.0103564642117375
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 4.184012637570482,
+        "maximum_batch_MCSE_in_pooled_SD": 0.1743415087794972,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.004005225207923265,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.004004137948563472,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.004000244510821897,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "logA": {
+        "independent_chain_weighted_means": {
+          "0": 3.0590470002789107,
+          "1": 3.04857746888818,
+          "2": 3.047971338198452,
+          "3": 3.054085791120548
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 3.0406435235084435,
+        "maximum_batch_MCSE_in_pooled_SD": 0.1555585256159734,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.0005431819064566762,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.0005438780882522011,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.0005457076991029032,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "ns": {
+        "independent_chain_weighted_means": {
+          "0": 0.975311385535413,
+          "1": 0.9713050939528608,
+          "2": 0.97085198037227,
+          "3": 0.9720553739567117
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 3.5236723194194863,
+        "maximum_batch_MCSE_in_pooled_SD": 0.2044165490166643,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.0002473101333863267,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.00024640560907062217,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.0002462684341948498,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "ombh2": {
+        "independent_chain_weighted_means": {
+          "0": 0.02250379532446006,
+          "1": 0.022484051533410796,
+          "2": 0.022486462317442574,
+          "3": 0.02249467380144659
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 0.8655698142260233,
+        "maximum_batch_MCSE_in_pooled_SD": 0.0701345417986648,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 1.526095402429208e-06,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 1.5422232763885e-06,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 1.5410825848535052e-06,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "omch2": {
+        "independent_chain_weighted_means": {
+          "0": 0.11703721840861121,
+          "1": 0.11925961424999096,
+          "2": 0.11899717742834254,
+          "3": 0.11868358294258399
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 4.117338935725394,
+        "maximum_batch_MCSE_in_pooled_SD": 0.2312069542785482,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.00011936487841216458,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.00011932538926689629,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.00011909770458821667,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "omegam": {
+        "independent_chain_weighted_means": {
+          "0": 0.3275925151413567,
+          "1": 0.31839428899882566,
+          "2": 0.3167380104141962,
+          "3": 0.32506041027584265
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 3.453624898443224,
+        "maximum_batch_MCSE_in_pooled_SD": 0.13931046839668004,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.0004246358115654871,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.0004227460726305405,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.00042312733186098685,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "q0": {
+        "independent_chain_weighted_means": {
+          "0": -0.13049909573527305,
+          "1": -0.28623928856195896,
+          "2": -0.2540974806277775,
+          "3": -0.2411638291667456
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 3.8289508360311566,
+        "maximum_batch_MCSE_in_pooled_SD": 0.19374292143602279,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.007554405252443528,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.007535194038739816,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.00752703308145962,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "q05": {
+        "independent_chain_weighted_means": {
+          "0": -0.12997216901144978,
+          "1": -0.14171620392062584,
+          "2": -0.15668485038620722,
+          "3": -0.12325336487069058
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 3.612117488886152,
+        "maximum_batch_MCSE_in_pooled_SD": 0.10486791875253176,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.0007654316665103765,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.0007614570370450411,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.0007624180155405483,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "q1": {
+        "independent_chain_weighted_means": {
+          "0": 0.09771551051528678,
+          "1": 0.12534764603379642,
+          "2": 0.11454430128669413,
+          "3": 0.12377353921970091
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 3.9444927156200777,
+        "maximum_batch_MCSE_in_pooled_SD": 0.21678345356036818,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.0014506185932318277,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.0014478137837168198,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.0014450432814148075,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "rdrag": {
+        "independent_chain_weighted_means": {
+          "0": 147.74037417335092,
+          "1": 147.17067333325153,
+          "2": 147.23769393191245,
+          "3": 147.31149590358393
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 4.194857027838458,
+        "maximum_batch_MCSE_in_pooled_SD": 0.23397275486347024,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.030381991846249953,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.03035042874161795,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.030284983371774113,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "sn_chi2": {
+        "independent_chain_weighted_means": {
+          "0": 1651.3200066674904,
+          "1": 1633.8468113621404,
+          "2": 1636.7638131016677,
+          "3": 1640.9081291203222
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 4.558549744228525,
+        "maximum_batch_MCSE_in_pooled_SD": 0.2273068028543586,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.8367444848299497,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.8373985350371569,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.8372123801266617,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "tau": {
+        "independent_chain_weighted_means": {
+          "0": 0.06707122605045183,
+          "1": 0.05663335915367652,
+          "2": 0.055690315293063924,
+          "3": 0.05991911797153955
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 3.8483217412330184,
+        "maximum_batch_MCSE_in_pooled_SD": 0.20861604214361357,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.0005903973089030072,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.0005908222070417459,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.0005913597916850759,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "w": {
+        "independent_chain_weighted_means": {
+          "0": -0.6252092513237695,
+          "1": -0.7684069376861444,
+          "2": -0.7347774852850089,
+          "3": -0.7311793357671089
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 3.8887138577397202,
+        "maximum_batch_MCSE_in_pooled_SD": 0.19812813472177548,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.006991476891218837,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.006974771023650481,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.00696657627772273,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      },
+      "wa": {
+        "independent_chain_weighted_means": {
+          "0": -1.0251177723595386,
+          "1": -0.790910488571327,
+          "2": -0.9327262293311264,
+          "3": -0.7865441053268636
+        },
+        "maximum_chain_mean_deviation_in_pooled_SD": 2.9632664146567005,
+        "maximum_batch_MCSE_in_pooled_SD": 0.14772168043881279,
+        "batch_sensitivity": {
+          "10": {
+            "mean_mcse": 0.011385011596222868,
+            "minimum_points_per_batch": 50,
+            "minimum_weight_per_batch": 0.0005272497267241184,
+            "maximum_weight_per_batch": 0.9372384435010785
+          },
+          "20": {
+            "mean_mcse": 0.011330006808052321,
+            "minimum_points_per_batch": 25,
+            "minimum_weight_per_batch": 0.00022262358275094553,
+            "maximum_weight_per_batch": 0.9365931688454925
+          },
+          "40": {
+            "mean_mcse": 0.011324430676611229,
+            "minimum_points_per_batch": 12,
+            "minimum_weight_per_batch": 9.184930590810639e-05,
+            "maximum_weight_per_batch": 0.9363251334979404
+          }
+        }
+      }
+    },
+    "failed_gates": [
+      "raw_weight_ESS",
+      "Pareto_k",
+      "chain_0_weight_ESS",
+      "chain_0_weight_fraction",
+      "chain_1_weight_ESS",
+      "chain_1_weight_fraction",
+      "chain_2_weight_ESS",
+      "chain_2_weight_fraction",
+      "chain_3_weight_ESS",
+      "chain_3_weight_fraction",
+      "A_act_chain_means",
+      "A_act_batch_MCSE",
+      "A_fg_chain_means",
+      "A_fg_batch_MCSE",
+      "A_planck_chain_means",
+      "A_planck_batch_MCSE",
+      "As_chain_means",
+      "As_batch_MCSE",
+      "Ecal_chain_means",
+      "H0_chain_means",
+      "H0_batch_MCSE",
+      "P_act_chain_means",
+      "P_act_batch_MCSE",
+      "Tcal_chain_means",
+      "Tcal_batch_MCSE",
+      "chi2__BAO_chain_means",
+      "chi2__BAO_batch_MCSE",
+      "chi2__CMB_chain_means",
+      "chi2__CMB_batch_MCSE",
+      "chi2__SN_chain_means",
+      "chi2__SN_batch_MCSE",
+      "j0_chain_means",
+      "j0_batch_MCSE",
+      "j05_chain_means",
+      "j05_batch_MCSE",
+      "j1_chain_means",
+      "j1_batch_MCSE",
+      "logA_chain_means",
+      "logA_batch_MCSE",
+      "ns_chain_means",
+      "ns_batch_MCSE",
+      "ombh2_chain_means",
+      "omch2_chain_means",
+      "omch2_batch_MCSE",
+      "omegam_chain_means",
+      "omegam_batch_MCSE",
+      "q0_chain_means",
+      "q0_batch_MCSE",
+      "q05_chain_means",
+      "q05_batch_MCSE",
+      "q1_chain_means",
+      "q1_batch_MCSE",
+      "rdrag_chain_means",
+      "rdrag_batch_MCSE",
+      "sn_chi2_chain_means",
+      "sn_chi2_batch_MCSE",
+      "tau_chain_means",
+      "tau_batch_MCSE",
+      "w_chain_means",
+      "w_batch_MCSE",
+      "wa_chain_means",
+      "wa_batch_MCSE"
+    ],
+    "weights_used": "raw, untrimmed; Pareto smoothing is diagnostic only"
+  },
+  "posterior": null,
+  "conditional_sign_fractions": null,
+  "weighted_covariance": null,
+  "paired_mean_changes_from_parent": null,
+  "changes_interpretation": "Paired point estimates sharing the parent cohort, not independent-fit significances.",
+  "maximum_normalized_weight_change_from_parent": 0.9350554728241209,
+  "maximum_target_weight_accounting_closure": 2.842170943040401e-14,
+  "removed_native_loglike_sum_quantiles": [
+    240.20586031080165,
+    248.43534553919932,
+    250.98745460233874,
+    251.33179253028885,
+    251.3904951791792
+  ],
+  "parent_settings": {
+    "model": "cpl",
+    "evolution": "none",
+    "sample": "dovekie",
+    "calibration": "official_planck"
+  },
+  "omission": "sn",
+  "retained_observations": "CMB+DESI BAO",
+  "removed_components": [
+    "released_sn"
+  ],
+  "native_target": {
+    "configuration": {
+      "packages_path": "/home/szymon/Documents/ChatGPT/supernova/.work/unified-cosmology/external-probes/packages",
+      "theory": {
+        "camb": {
+          "path": "global",
+          "extra_args": {
+            "dark_energy_model": "ppf",
+            "mnu": 0.06,
+            "num_massive_neutrinos": 1,
+            "nnu": 3.044,
+            "omk": 0.0,
+            "lens_potential_accuracy": 4,
+            "halofit_version": "mead2016",
+            "lmax": 9000,
+            "lens_margin": 1250,
+            "AccuracyBoost": 1,
+            "lSampleBoost": 1,
+            "lAccuracyBoost": 1
+          }
+        }
+      },
+      "likelihood": {
+        "planck_2018_lowl.TT": {},
+        "planck_2018_lowl.EE": {},
+        "bao.desi_dr2": {},
+        "act_dr6_cmbonly.PlanckActCut": {},
+        "act_dr6_cmbonly.ACTDR6CMBonly": {
+          "input_file": "dr6_data_cmbonly.fits",
+          "version": "v1.0",
+          "lmax_theory": 9000,
+          "ell_cuts": {
+            "TT": [
+              600,
+              6500
+            ],
+            "TE": [
+              600,
+              6500
+            ],
+            "EE": [
+              600,
+              6500
+            ]
+          }
+        },
+        "SPT2025_TnE": {
+          "external": "candl.interface.CandlCobayaLikelihood",
+          "data_set_file": "spt_candl_data.SPT3G_D1_TnE_lite",
+          "clear_internal_priors": true,
+          "feedback": false
+        },
+        "act_dr6_lenslike.ACTDR6LensLike": {
+          "variant": "actplanck_baseline",
+          "lens_only": false,
+          "lmax": 4000,
+          "version": "v1.2",
+          "apply_hartlap": true,
+          "nsims_act": 792.0,
+          "nsims_planck": 400.0,
+          "no_like_corrections": false,
+          "mock": false,
+          "external": "fast_lensing.FastACTDR6LensLike"
+        },
+        "SPT2023_lensing": {
+          "external": "candl.interface.CandlCobayaLikelihood",
+          "data_set_file": "candl_data.SPT3G_2018_Lens_and_CMB",
+          "lensing": true,
+          "clear_internal_priors": true,
+          "feedback": false
+        },
+        "expansion_diagnostics": {
+          "external": "likelihood.ExpansionDiagnostics"
+        }
+      },
+      "params": {
+        "H0": {
+          "prior": {
+            "min": 40,
+            "max": 100
+          },
+          "ref": 67.36,
+          "proposal": 0.3
+        },
+        "ombh2": {
+          "prior": {
+            "min": 0.005,
+            "max": 0.1
+          },
+          "ref": 0.02237,
+          "proposal": 0.00015
+        },
+        "omch2": {
+          "prior": {
+            "min": 0.001,
+            "max": 0.99
+          },
+          "ref": 0.12,
+          "proposal": 0.001
+        },
+        "logA": {
+          "prior": {
+            "min": 1.61,
+            "max": 3.91
+          },
+          "ref": 3.044,
+          "proposal": 0.01,
+          "drop": true
+        },
+        "As": {
+          "value": "lambda logA: 1.e-10*np.exp(logA)"
+        },
+        "ns": {
+          "prior": {
+            "min": 0.8,
+            "max": 1.2
+          },
+          "ref": 0.9649,
+          "proposal": 0.004
+        },
+        "tau": {
+          "prior": {
+            "min": 0.01,
+            "max": 0.8
+          },
+          "ref": 0.0544,
+          "proposal": 0.006
+        },
+        "omegam": {
+          "derived": true
+        },
+        "rdrag": {
+          "derived": true
+        },
+        "w": {
+          "prior": {
+            "min": -3,
+            "max": 1
+          },
+          "ref": -0.85,
+          "proposal": 0.04
+        },
+        "wa": {
+          "prior": {
+            "min": -5,
+            "max": 3
+          },
+          "ref": -0.55,
+          "proposal": 0.1
+        },
+        "A_planck": {
+          "prior": {
+            "dist": "norm",
+            "loc": 1.0,
+            "scale": 0.0025
+          },
+          "ref": 1.0,
+          "proposal": 0.0005
+        },
+        "P_act": {
+          "prior": {
+            "dist": "norm",
+            "loc": 1.0,
+            "scale": 0.003
+          },
+          "ref": 1.0,
+          "proposal": 0.0006
+        },
+        "A_act": {
+          "value": "lambda A_planck: A_planck"
+        },
+        "Tcal": {
+          "prior": {
+            "dist": "norm",
+            "loc": 1.0,
+            "scale": 0.0036
+          },
+          "ref": 1.0,
+          "proposal": 0.0012
+        },
+        "Ecal": {
+          "prior": {
+            "dist": "norm",
+            "loc": 1.0,
+            "scale": 0.0095
+          },
+          "ref": 1.0,
+          "proposal": 0.0031666666666666666
+        },
+        "A_fg": {
+          "prior": {
+            "min": 0.0,
+            "max": 2.0
+          },
+          "ref": 0.5,
+          "proposal": 0.1
+        },
+        "epsilon": 0.0
+      }
+    },
+    "source_sha256": {
+      "studies/unified_cosmology/code/inference/modern_run.py": "101912935a939909466fbccae997b32845e6c7413edbb6aa93902ecf530b549b",
+      "studies/unified_cosmology/code/inference/likelihood.py": "c2cdbdf1ceb50703713d5ce0f6d4b3aae801630b4d136481df310ae929eed3f5",
+      "studies/unified_cosmology/code/inference/late_geometry.py": "548fb86373e06799edc960a49533fef21f346f89973b3237ccbea1e6085c7438",
+      "studies/unified_cosmology/code/inference/spectral_surrogate.py": "d1cfe30acf342d7824c947fbf8475144470af9c0f896f0a84488a14925ae2543",
+      "studies/unified_cosmology/code/inference/target_identity.py": "498869ee5459b8afa13f8c56bfa9d619d8017f44ca0c6e4dc0a81efbaf42b2f2",
+      "studies/unified_cosmology/code/external_probes/adapter.py": "08543f1843ee707c2dbcbe4e7b5e43ff0bcece25313d8d6de50843996cc3545f",
+      "studies/unified_cosmology/code/external_probes/modern_adapter.py": "2ff1e39d111d2383cd84743dd80ed49236dbb13e5427a425611bfdd196e3b284",
+      "studies/unified_cosmology/code/inference/modern_fast.py": "7028d9bebeac08e59ab9be968dc436dbf92263b46520b08c84bd5464d3063d13",
+      "studies/unified_cosmology/code/external_probes/fast_lensing.py": "51f93972068d9f11fd5e81671445a5103f6d6835a0dacb08ccc81d3e02448f8a"
+    },
+    "versions": {
+      "camb": "1.6.6",
+      "cobaya": "3.6.2",
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "candl-like": "2.2.0",
+      "sacc": "2.4"
+    },
+    "parent_likelihood_assets": {
+      "primary/planck_2018": "fae623c8c7c5baa1135b213fe736645263c9a2d888216ffc00ee378684f6300e",
+      "primary/planck_2018_lowT_native": "0707fa41149bdaff94a4eef61412408eac81c6dcb8a086b709dee541d6b80c39",
+      "primary/planck_2018_lowE_native": "86b598fb9cd6889ee590d56fdb03bde598b9b28e21a9ac700f001253e8b640d0",
+      "primary/planck_2018_pliklite_native": "7b2d1826d03f567909a73f34deb0212995753871d26b1a49cfadee0c0d6cecad",
+      "primary/planck_supp_data_and_covmats": "78afb73663547e8dfbf4f3a305ddcd2db13a3bc1aef5f0f8d1bf00239654e629",
+      "primary/bao_data": "63de1378c5f31d51e71cee7b1e85b50c89a3b685d6d0d9807fc14668a50453a4",
+      "primary/clipy_source": "a5180c421b2ac836f9e0160e529169a5c92630c92f6507a143f41038c7860e4e",
+      "modern/ACTDR6_CMB": "9cf209e826b091d77ce0db12752b72853af885cb0faa6e9050eb29175a2eda02",
+      "modern/ACT_Planck_lensing": "23bba031e2da86d8c57c220490a392f7c55bb1e6ab412f238a9ea76d2f8bba4c",
+      "modern/act_dr6_cmbonly": "0a5cdd6239403ba1b2dca51e93eeb4e9c8027e78d03f535e939520612beff07b",
+      "modern/act_dr6_lenslike": "1a15d960b421173e476abb23f10b453d862d147aaa4321e82865d68cc39e1822",
+      "modern/candl": "f85ff03d66ac1507338c29a86c6d9f3159b7423cb33c86ec1b3c8bf9f078564e",
+      "modern/candl_data": "523adee3f94739e3102f00cb67c156a71d4c8c2e29b2c087d681003509bc7b4a",
+      "modern/spt_candl_data": "2c2c4047ff53d7cd1f3bbd670d5e862535fdb9a0d8a522e8e8331d5f28ba5468"
+    },
+    "parent_sample_sha256": "4bcf37dc7fdabff886d24b7e87bbe05c414f4f6c80971d154e2b8888d55bf2d8",
+    "omission": "sn",
+    "removed_components": [
+      "released_sn"
+    ],
+    "all_parent_prior_dimensions_retained": true,
+    "inherited_support": "Analytic CAMB CPL w0+wa<=0 when CPL; unchanged flat GR and fixed-neutrino physics.",
+    "identity": "69a411eb5e9b61d733c4e69674c10d827b6a8b9330d93097a77f3fb6478c42f0"
+  },
+  "omission_identity": "431823bd3697bf890d2bda6eb30480b8a5c73fc8e055805ebf6c00de23f7048e",
+  "retained_sampled_priors": {
+    "H0": {
+      "min": 40,
+      "max": 100
+    },
+    "ombh2": {
+      "min": 0.005,
+      "max": 0.1
+    },
+    "omch2": {
+      "min": 0.001,
+      "max": 0.99
+    },
+    "logA": {
+      "min": 1.61,
+      "max": 3.91
+    },
+    "ns": {
+      "min": 0.8,
+      "max": 1.2
+    },
+    "tau": {
+      "min": 0.01,
+      "max": 0.8
+    },
+    "w": {
+      "min": -3,
+      "max": 1
+    },
+    "wa": {
+      "min": -5,
+      "max": 3
+    },
+    "A_planck": {
+      "dist": "norm",
+      "loc": 1.0,
+      "scale": 0.0025
+    },
+    "P_act": {
+      "dist": "norm",
+      "loc": 1.0,
+      "scale": 0.003
+    },
+    "Tcal": {
+      "dist": "norm",
+      "loc": 1.0,
+      "scale": 0.0036
+    },
+    "Ecal": {
+      "dist": "norm",
+      "loc": 1.0,
+      "scale": 0.0095
+    },
+    "A_fg": {
+      "min": 0.0,
+      "max": 2.0
+    }
+  },
+  "unused_auxiliary_coordinates": [],
+  "source_sha256": {
+    "studies/unified_cosmology/code/inference/probe_omission.py": "0a83dbb1f3065a9dbeea8be31fd52159d6fa25084e941441f50ff5ab98d580e0",
+    "studies/unified_cosmology/code/inference/probe-omission-design.json": "6359a52d3f3d26e55062ebf4bcb91cdfaf1fe4ad96648e731aec67bd45fb1a06",
+    "studies/unified_cosmology/code/inference/luminosity-sensitivity-design.json": "fdff0250564a1562fd1af3da8a9ff93481de1837c8ad08837993564aa545ee85",
+    "studies/unified_cosmology/code/inference/measurement_summary.py": "ca963dbaf8bff8bb693bf483c023d022c1e57b71bf9680711c92d716e9e415ef",
+    "studies/unified_cosmology/code/inference/exact_correction.py": "d073c7e1c9d0f8678d46389048bec6580d7aac4299085f7104a125b78710e477",
+    "studies/unified_cosmology/code/inference/luminosity_sensitivity.py": "3f831be63b3776b02c0b547dbb6d9273ddbad68b272c6cb372eda390abafaab7",
+    "studies/unified_cosmology/code/inference/target_identity.py": "498869ee5459b8afa13f8c56bfa9d619d8017f44ca0c6e4dc0a81efbaf42b2f2",
+    "studies/unified_cosmology/code/inference/modern_run.py": "101912935a939909466fbccae997b32845e6c7413edbb6aa93902ecf530b549b",
+    "studies/unified_cosmology/code/inference/modern_fast.py": "7028d9bebeac08e59ab9be968dc436dbf92263b46520b08c84bd5464d3063d13"
+  },
+  "lineage_path": ".work/unified-cosmology/inference/modern-cpl-none-dovekie-official_planck-independence-seed273262-7316f91342ee/omit-sn/lineage.json",
+  "lineage_sha256": "ddffaa12198046f3061d21283b94b733fa443bed8ae348085242c684ed86b901",
+  "cache_manifest_path": ".work/unified-cosmology/inference/modern-cpl-none-dovekie-official_planck-independence-seed273262-7316f91342ee/omit-sn/record-hashes.json",
+  "cache_manifest_sha256": "4eee63e45832ae46359f9fffb6e3e3b5491a74c5f8e5280699a5aea5045ef6a8",
+  "correction_summary_path": "studies/unified_cosmology/results/inference/modern-cpl-independence-exact-correction.json",
+  "correction_summary_sha256": "0bc5ba8c282117bc23382f93073b93517d434dacf32c89b8a5505c6876d1a15f",
+  "parent_qualified_under_declared_numerical_gates": true,
+  "scope": "Three separately identified probe-omission posterior sensitivities from a qualified native-corrected contemporary CMB+BAO+SN parent. No new likelihood/background evaluation or chain.",
+  "limitations": "Removal tests dependence on observations within the same assumed model and covariance factorization. It does not measure omitted cross-covariance, resolve probe inconsistency, supply model evidence or a calibrated significance/predictive test. Finite importance diagnostics cannot prove coverage of unvisited modes; failed overlap requires new target sampling or another validated bridge. Output remains conditional on released SN corrections, compressed BAO, foreground-marginalized CMB factors, flat GR/fixed-neutrino physics and analytic CAMB CPL support w0+wa<=0 where applicable. Removing observations does not lift that inherited physical implementation domain.",
+  "normalization": "Original component constants and all proper priors retained. A removed SN flat-M normalization constant cancels in normalized weights; no evidence ratio is defined.",
+  "CMB_spectrum_calls": 0,
+  "background_calls": 0,
+  "GPU_kernel_evaluations": 0,
+  "hardware_identity_queries": "The parent qualifier may query CUDA/device versions for a GPU parent; no GPU arithmetic is performed.",
+  "status_of_failed_weight_summaries": "Diagnostic only; not an admitted posterior measurement."
+}

@@ -1,0 +1,1592 @@
+{
+  "schema": "persistent-native-accuracy2-pilot-v2",
+  "status": "passed_persistent_accuracy2_replay_pilot",
+  "plan_identity": "4c1b971a24c27701ddffc49f1aa3aa0c39ef29cb65982687259d8a8685dff99c",
+  "plan_path": ".work/unified-cosmology/native-accuracy2/lcdm-pilot-v1/plan.json",
+  "plan_sha256": "0445f5ab39053e35327d5d81922942402163b39c128967c758cc80c14ef7d270",
+  "parent_proposal_target_identity": "a047e290baa300dcaca061873d07c9d38a80242750674c105804c14516085293",
+  "native_configuration": {
+    "packages_path": "/home/szymon/Documents/ChatGPT/supernova/.work/unified-cosmology/external-probes/packages",
+    "theory": {
+      "camb": {
+        "path": "global",
+        "extra_args": {
+          "dark_energy_model": "ppf",
+          "mnu": 0.06,
+          "num_massive_neutrinos": 1,
+          "nnu": 3.044,
+          "omk": 0.0,
+          "lens_potential_accuracy": 4,
+          "halofit_version": "mead2016",
+          "lmax": 9000,
+          "lens_margin": 1250,
+          "AccuracyBoost": 2,
+          "lSampleBoost": 2,
+          "lAccuracyBoost": 2
+        }
+      }
+    },
+    "likelihood": {
+      "planck_2018_lowl.TT": {},
+      "planck_2018_lowl.EE": {},
+      "bao.desi_dr2": {},
+      "act_dr6_cmbonly.PlanckActCut": {},
+      "act_dr6_cmbonly.ACTDR6CMBonly": {
+        "input_file": "dr6_data_cmbonly.fits",
+        "version": "v1.0",
+        "lmax_theory": 9000,
+        "ell_cuts": {
+          "TT": [
+            600,
+            6500
+          ],
+          "TE": [
+            600,
+            6500
+          ],
+          "EE": [
+            600,
+            6500
+          ]
+        }
+      },
+      "SPT2025_TnE": {
+        "external": "candl.interface.CandlCobayaLikelihood",
+        "data_set_file": "spt_candl_data.SPT3G_D1_TnE_lite",
+        "clear_internal_priors": true,
+        "feedback": false
+      },
+      "act_dr6_lenslike.ACTDR6LensLike": {
+        "variant": "actplanck_baseline",
+        "lens_only": false,
+        "lmax": 4000,
+        "version": "v1.2",
+        "apply_hartlap": true,
+        "nsims_act": 792.0,
+        "nsims_planck": 400.0,
+        "no_like_corrections": false,
+        "mock": false,
+        "external": "fast_lensing.FastACTDR6LensLike"
+      },
+      "SPT2023_lensing": {
+        "external": "candl.interface.CandlCobayaLikelihood",
+        "data_set_file": "candl_data.SPT3G_2018_Lens_and_CMB",
+        "lensing": true,
+        "clear_internal_priors": true,
+        "feedback": false
+      },
+      "released_sn": {
+        "external": "likelihood.ReleasedDistances",
+        "data_file": "/home/szymon/Documents/ChatGPT/supernova/.work/unified-cosmology/survey-selection/normalized/dovekie-total.npz",
+        "smooth_sigma": 0.0
+      },
+      "expansion_diagnostics": {
+        "external": "likelihood.ExpansionDiagnostics"
+      }
+    },
+    "params": {
+      "H0": {
+        "prior": {
+          "min": 40,
+          "max": 100
+        },
+        "ref": 67.36,
+        "proposal": 0.3
+      },
+      "ombh2": {
+        "prior": {
+          "min": 0.005,
+          "max": 0.1
+        },
+        "ref": 0.02237,
+        "proposal": 0.00015
+      },
+      "omch2": {
+        "prior": {
+          "min": 0.001,
+          "max": 0.99
+        },
+        "ref": 0.12,
+        "proposal": 0.001
+      },
+      "logA": {
+        "prior": {
+          "min": 1.61,
+          "max": 3.91
+        },
+        "ref": 3.044,
+        "proposal": 0.01,
+        "drop": true
+      },
+      "As": {
+        "value": "lambda logA: 1.e-10*np.exp(logA)"
+      },
+      "ns": {
+        "prior": {
+          "min": 0.8,
+          "max": 1.2
+        },
+        "ref": 0.9649,
+        "proposal": 0.004
+      },
+      "tau": {
+        "prior": {
+          "min": 0.01,
+          "max": 0.8
+        },
+        "ref": 0.0544,
+        "proposal": 0.006
+      },
+      "omegam": {
+        "derived": true
+      },
+      "rdrag": {
+        "derived": true
+      },
+      "w": -1.0,
+      "wa": 0.0,
+      "A_planck": {
+        "prior": {
+          "dist": "norm",
+          "loc": 1.0,
+          "scale": 0.0025
+        },
+        "ref": 1.0,
+        "proposal": 0.0005
+      },
+      "P_act": {
+        "prior": {
+          "dist": "norm",
+          "loc": 1.0,
+          "scale": 0.003
+        },
+        "ref": 1.0,
+        "proposal": 0.0006
+      },
+      "A_act": {
+        "value": "lambda A_planck: A_planck"
+      },
+      "Tcal": {
+        "prior": {
+          "dist": "norm",
+          "loc": 1.0,
+          "scale": 0.0036
+        },
+        "ref": 1.0,
+        "proposal": 0.0012
+      },
+      "Ecal": {
+        "prior": {
+          "dist": "norm",
+          "loc": 1.0,
+          "scale": 0.0095
+        },
+        "ref": 1.0,
+        "proposal": 0.0031666666666666666
+      },
+      "A_fg": {
+        "prior": {
+          "min": 0.0,
+          "max": 2.0
+        },
+        "ref": 0.5,
+        "proposal": 0.1
+      },
+      "epsilon": 0.0
+    }
+  },
+  "failures": [],
+  "requests": [
+    {
+      "binding": {
+        "plan_identity": "4c1b971a24c27701ddffc49f1aa3aa0c39ef29cb65982687259d8a8685dff99c",
+        "kind": "persistent_accuracy2_pilot",
+        "request": {
+          "index": 0,
+          "worker": 0,
+          "ordinal": 0,
+          "audit_index": 0,
+          "origin": "persistent_native",
+          "point": {
+            "H0": 68.243584,
+            "ombh2": 0.022641789,
+            "omch2": 0.11812274,
+            "logA": 3.0600197,
+            "ns": 0.97431775,
+            "tau": 0.060930357,
+            "A_planck": 1.0029158,
+            "P_act": 1.0045355,
+            "Tcal": 1.0003129,
+            "Ecal": 1.0090553,
+            "A_fg": 1.234268
+          }
+        }
+      },
+      "origin": "persistent_native",
+      "point": {
+        "H0": 68.243584,
+        "ombh2": 0.022641789,
+        "omch2": 0.11812274,
+        "logA": 3.0600197,
+        "ns": 0.97431775,
+        "tau": 0.060930357,
+        "A_planck": 1.0029158,
+        "P_act": 1.0045355,
+        "Tcal": 1.0003129,
+        "Ecal": 1.0090553,
+        "A_fg": 1.234268
+      },
+      "pid": 1413052,
+      "worker": 0,
+      "ordinal": 0,
+      "model_construction_seconds": 21.327382613992086,
+      "ticket_sha256": "4a33097ad6e9886de6d49e3790afd13dc4319bebdf3f92d9cf6f71467da6bd7d",
+      "claim_sha256": "0c6a1a802dbd2e9c255a28a3f60dd3211ee450c0656c9334e816789587a027f7",
+      "reference": {
+        "parent_index": 31,
+        "chain": 0,
+        "stratum": 0,
+        "within_chain_ordered_index": 31,
+        "expanded_index": 2352,
+        "point": {
+          "H0": 68.243584,
+          "ombh2": 0.022641789,
+          "omch2": 0.11812274,
+          "logA": 3.0600197,
+          "ns": 0.97431775,
+          "tau": 0.060930357,
+          "A_planck": 1.0029158,
+          "P_act": 1.0045355,
+          "Tcal": 1.0003129,
+          "Ecal": 1.0090553,
+          "A_fg": 1.234268
+        },
+        "native_record_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/exact-correction/00031.json",
+        "native_record_sha256": "7eacec384c9f3a69a5dfa52e91bbc7d34b7ac90cb12f0621f060319bec21cc68",
+        "original_location": {
+          "chain": "chain.1.txt",
+          "row": 1540,
+          "expanded_index": 2352
+        },
+        "original_native_logweight": -0.19994942091108214,
+        "weight_in_full_qualified_parent": 0.0005744946261705282,
+        "audit_index": 0,
+        "record_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/native-posterior-precision/00.json",
+        "record_sha256": "5094eed82eaa5e50e49efb4a4b8417f364bc62da273ad02f7bf69c473165bb7b",
+        "spectrum_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/native-posterior-precision/00-spectra.npz",
+        "spectrum_sha256": "ee43a8cb6b94ca8ee7656495de6f089f2e318e716971db0952d2f986f116416c",
+        "original_status": "finite_native_precision",
+        "original_failed_checks": []
+      },
+      "reference_replay": {
+        "errors": {
+          "component_loglike_absolute_max": 0.0,
+          "prior_sum_absolute_max": 0.0,
+          "logpost_absolute_max": 0.0,
+          "derived_scaled_max": 0.0,
+          "background_H_relative_max": 0.0,
+          "spectrum_max_scale_absolute_max": 3.7959239241834736e-16
+        },
+        "failed_checks": []
+      },
+      "failed_checks": [],
+      "repeat_replay": null,
+      "value": {
+        "loglikes": {
+          "planck_2018_lowl.TT": -10.979087995907918,
+          "planck_2018_lowl.EE": -198.72704974138995,
+          "bao.desi_dr2": -7.183322282361098,
+          "act_dr6_cmbonly.PlanckActCut": -111.55240052092348,
+          "act_dr6_cmbonly.ACTDR6CMBonly": -79.77877552554156,
+          "SPT2025_TnE": -82.73928833007812,
+          "act_dr6_lenslike.ACTDR6LensLike": -9.83853773570101,
+          "SPT2023_lensing": -5.478362560272217,
+          "released_sn": 248.68119270526495,
+          "expansion_diagnostics": 0.0
+        },
+        "logpriors": [
+          14.023656327985805
+        ],
+        "logpost": -243.57197565892466,
+        "derived": {
+          "As": 2.1327977319041523e-09,
+          "omegam": 0.30363694424121507,
+          "rdrag": 147.29645675672575,
+          "A_act": 1.0029158,
+          "sn_chi2": 1634.573034814719,
+          "q0": -0.5443893675484732,
+          "q05": -0.10659874222438392,
+          "q1": 0.1661557563282281,
+          "j0": 1.0001555034662168,
+          "j05": 1.0004578163662112,
+          "j1": 1.000797534956072,
+          "chi2__BAO": 14.366644564722195,
+          "chi2__CMB": 642.5170765164427,
+          "chi2__SN": -497.3623854105299
+        },
+        "H": [
+          68.24358399998695,
+          89.53842164015418,
+          120.67009317090896,
+          235.59321432117997,
+          1579212.1182392046
+        ],
+        "metadata": {
+          "finalized_theory_extra_args": {
+            "dark_energy_model": "ppf",
+            "mnu": 0.06,
+            "num_massive_neutrinos": 1,
+            "nnu": 3.044,
+            "omk": 0.0,
+            "lens_potential_accuracy": 4,
+            "lmax": 9001,
+            "lens_margin": 1250,
+            "AccuracyBoost": 2,
+            "lSampleBoost": 2,
+            "lAccuracyBoost": 2
+          },
+          "CAMB_Params_max_l": 10251,
+          "provider_length": 10152,
+          "units": "FIRASmuK2",
+          "ell_factor": false,
+          "pp": "dimensionless C_phi_phi"
+        }
+      },
+      "spectrum_path": ".work/unified-cosmology/native-accuracy2/lcdm-pilot-v1/00000.raw-cl.npz",
+      "spectrum_sha256": "2584ee76744580ddb2f71254f3289d00fde0e8b3921f743135ed8a26ae041d58",
+      "status": "finite_native_accuracy2",
+      "native_logposterior_invocations": 1,
+      "request_seconds": 391.21699320100015,
+      "payload_sha256": "06f20b3438993c5ac74660be3c5f60d67f05d966eb71376a9685df1a6a4a9622",
+      "record_path": ".work/unified-cosmology/native-accuracy2/lcdm-pilot-v1/00000.json",
+      "record_sha256": "12cf1dd5762e1eccc725c31d95a83b8df18b6e642ccc47c361776eb9cf81e838"
+    },
+    {
+      "binding": {
+        "plan_identity": "4c1b971a24c27701ddffc49f1aa3aa0c39ef29cb65982687259d8a8685dff99c",
+        "kind": "persistent_accuracy2_pilot",
+        "request": {
+          "index": 1,
+          "worker": 0,
+          "ordinal": 1,
+          "audit_index": 31,
+          "origin": "persistent_native",
+          "point": {
+            "H0": 67.929399,
+            "ombh2": 0.022361158,
+            "omch2": 0.11807844,
+            "logA": 3.0525978,
+            "ns": 0.97459173,
+            "tau": 0.059762487,
+            "A_planck": 1.0011855,
+            "P_act": 1.003694,
+            "Tcal": 1.0015688,
+            "Ecal": 1.0028988,
+            "A_fg": 1.4177542
+          }
+        }
+      },
+      "origin": "persistent_native",
+      "point": {
+        "H0": 67.929399,
+        "ombh2": 0.022361158,
+        "omch2": 0.11807844,
+        "logA": 3.0525978,
+        "ns": 0.97459173,
+        "tau": 0.059762487,
+        "A_planck": 1.0011855,
+        "P_act": 1.003694,
+        "Tcal": 1.0015688,
+        "Ecal": 1.0028988,
+        "A_fg": 1.4177542
+      },
+      "pid": 1413052,
+      "worker": 0,
+      "ordinal": 1,
+      "model_construction_seconds": 21.327382613992086,
+      "ticket_sha256": "28680b2ec387be45cc1e642daae40c7554de542edc28dc12fba0d4ac8cdbcf61",
+      "claim_sha256": "49d577ab74bcad4d0271387f753b9efecb9f8f9166279fca30552b06296aee28",
+      "reference": {
+        "parent_index": 1968,
+        "chain": 3,
+        "stratum": 7,
+        "within_chain_ordered_index": 468,
+        "expanded_index": 6632,
+        "point": {
+          "H0": 67.929399,
+          "ombh2": 0.022361158,
+          "omch2": 0.11807844,
+          "logA": 3.0525978,
+          "ns": 0.97459173,
+          "tau": 0.059762487,
+          "A_planck": 1.0011855,
+          "P_act": 1.003694,
+          "Tcal": 1.0015688,
+          "Ecal": 1.0028988,
+          "A_fg": 1.4177542
+        },
+        "native_record_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/exact-correction/01968.json",
+        "native_record_sha256": "0e36c7ce5dda68012a65aed64381baf50f125b64ec81ada6681bd43e5b89d4b0",
+        "original_location": {
+          "chain": "chain.4.txt",
+          "row": 4437,
+          "expanded_index": 6632
+        },
+        "original_native_logweight": -0.5369519881830911,
+        "weight_in_full_qualified_parent": 0.00041013573916839403,
+        "audit_index": 31,
+        "record_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/native-posterior-precision/31.json",
+        "record_sha256": "a03f73215ec35a138b11a77e3f203dcb7bb22102d934123e10f5e7df0db25495",
+        "spectrum_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/native-posterior-precision/31-spectra.npz",
+        "spectrum_sha256": "348fcf303fc025d30b181011b0bcc98d00a99206a17fdd3c5dccf1459ea5c8aa",
+        "original_status": "failed_native_precision_checks",
+        "original_failed_checks": [
+          "nominal_background_rdrag_relative"
+        ]
+      },
+      "reference_replay": {
+        "errors": {
+          "component_loglike_absolute_max": 0.0,
+          "prior_sum_absolute_max": 0.0,
+          "logpost_absolute_max": 0.0,
+          "derived_scaled_max": 0.0,
+          "background_H_relative_max": 0.0,
+          "spectrum_max_scale_absolute_max": 1.9037363221850905e-16
+        },
+        "failed_checks": []
+      },
+      "failed_checks": [],
+      "repeat_replay": null,
+      "value": {
+        "loglikes": {
+          "planck_2018_lowl.TT": -10.855595218005021,
+          "planck_2018_lowl.EE": -198.59360487701213,
+          "bao.desi_dr2": -7.977885840217802,
+          "act_dr6_cmbonly.PlanckActCut": -110.5074682866398,
+          "act_dr6_cmbonly.ACTDR6CMBonly": -81.93887197240895,
+          "SPT2025_TnE": -81.93827819824219,
+          "act_dr6_lenslike.ACTDR6LensLike": -9.944150303865234,
+          "SPT2023_lensing": -5.6724019050598145,
+          "released_sn": 248.92637463265737,
+          "expansion_diagnostics": 0.0
+        },
+        "logpriors": [
+          15.292660762021733
+        ],
+        "logpost": -243.20922120677182,
+        "derived": {
+          "As": 2.117026917515406e-09,
+          "omegam": 0.3057480176151718,
+          "rdrag": 147.62122413073462,
+          "A_act": 1.0011855,
+          "sn_chi2": 1634.0826709599341,
+          "q0": -0.5412213183661168,
+          "q05": -0.10300027066509487,
+          "q1": 0.1687375437268437,
+          "j0": 1.0001569470258287,
+          "j05": 1.0004607241426808,
+          "j1": 1.0008011300215536,
+          "chi2__BAO": 15.955771680435603,
+          "chi2__CMB": 639.913336763314,
+          "chi2__SN": -497.85274926531474
+        },
+        "H": [
+          67.92939899998692,
+          89.25597083610809,
+          120.39826704405671,
+          235.25442460076525,
+          1577838.4825522385
+        ],
+        "metadata": {
+          "finalized_theory_extra_args": {
+            "dark_energy_model": "ppf",
+            "mnu": 0.06,
+            "num_massive_neutrinos": 1,
+            "nnu": 3.044,
+            "omk": 0.0,
+            "lens_potential_accuracy": 4,
+            "lmax": 9001,
+            "lens_margin": 1250,
+            "AccuracyBoost": 2,
+            "lSampleBoost": 2,
+            "lAccuracyBoost": 2
+          },
+          "CAMB_Params_max_l": 10251,
+          "provider_length": 10152,
+          "units": "FIRASmuK2",
+          "ell_factor": false,
+          "pp": "dimensionless C_phi_phi"
+        }
+      },
+      "spectrum_path": ".work/unified-cosmology/native-accuracy2/lcdm-pilot-v1/00001.raw-cl.npz",
+      "spectrum_sha256": "31ca385c2a2678bfc03ac3e76d780802be893533b6e5b1f9567bc6774b1eac61",
+      "status": "finite_native_accuracy2",
+      "native_logposterior_invocations": 1,
+      "request_seconds": 346.09686090098694,
+      "payload_sha256": "71cc20fa9471ff93ec65f3f8fd37ac8be5a59990f4cf7ff73d9cb8a95e515dab",
+      "record_path": ".work/unified-cosmology/native-accuracy2/lcdm-pilot-v1/00001.json",
+      "record_sha256": "c563277bf50a9e7d18e3a1ecdfd278cc142a7c2a7232ce46429d437c2cfdd254"
+    },
+    {
+      "binding": {
+        "plan_identity": "4c1b971a24c27701ddffc49f1aa3aa0c39ef29cb65982687259d8a8685dff99c",
+        "kind": "persistent_accuracy2_pilot",
+        "request": {
+          "index": 2,
+          "worker": 0,
+          "ordinal": 2,
+          "audit_index": 0,
+          "origin": "persistent_native",
+          "point": {
+            "H0": 68.243584,
+            "ombh2": 0.022641789,
+            "omch2": 0.11812274,
+            "logA": 3.0600197,
+            "ns": 0.97431775,
+            "tau": 0.060930357,
+            "A_planck": 1.0029158,
+            "P_act": 1.0045355,
+            "Tcal": 1.0003129,
+            "Ecal": 1.0090553,
+            "A_fg": 1.234268
+          }
+        }
+      },
+      "origin": "persistent_native",
+      "point": {
+        "H0": 68.243584,
+        "ombh2": 0.022641789,
+        "omch2": 0.11812274,
+        "logA": 3.0600197,
+        "ns": 0.97431775,
+        "tau": 0.060930357,
+        "A_planck": 1.0029158,
+        "P_act": 1.0045355,
+        "Tcal": 1.0003129,
+        "Ecal": 1.0090553,
+        "A_fg": 1.234268
+      },
+      "pid": 1413052,
+      "worker": 0,
+      "ordinal": 2,
+      "model_construction_seconds": 21.327382613992086,
+      "ticket_sha256": "a395a4bbe3c3ba94ee9096208a678fd5e4cf0ce966a5bbea0c827606342900a3",
+      "claim_sha256": "7746da59b9bebfa70f4dfc7f79a174f59f91d9222f70750d4c4997b859ae82d0",
+      "reference": {
+        "parent_index": 31,
+        "chain": 0,
+        "stratum": 0,
+        "within_chain_ordered_index": 31,
+        "expanded_index": 2352,
+        "point": {
+          "H0": 68.243584,
+          "ombh2": 0.022641789,
+          "omch2": 0.11812274,
+          "logA": 3.0600197,
+          "ns": 0.97431775,
+          "tau": 0.060930357,
+          "A_planck": 1.0029158,
+          "P_act": 1.0045355,
+          "Tcal": 1.0003129,
+          "Ecal": 1.0090553,
+          "A_fg": 1.234268
+        },
+        "native_record_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/exact-correction/00031.json",
+        "native_record_sha256": "7eacec384c9f3a69a5dfa52e91bbc7d34b7ac90cb12f0621f060319bec21cc68",
+        "original_location": {
+          "chain": "chain.1.txt",
+          "row": 1540,
+          "expanded_index": 2352
+        },
+        "original_native_logweight": -0.19994942091108214,
+        "weight_in_full_qualified_parent": 0.0005744946261705282,
+        "audit_index": 0,
+        "record_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/native-posterior-precision/00.json",
+        "record_sha256": "5094eed82eaa5e50e49efb4a4b8417f364bc62da273ad02f7bf69c473165bb7b",
+        "spectrum_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/native-posterior-precision/00-spectra.npz",
+        "spectrum_sha256": "ee43a8cb6b94ca8ee7656495de6f089f2e318e716971db0952d2f986f116416c",
+        "original_status": "finite_native_precision",
+        "original_failed_checks": []
+      },
+      "reference_replay": {
+        "errors": {
+          "component_loglike_absolute_max": 0.0,
+          "prior_sum_absolute_max": 0.0,
+          "logpost_absolute_max": 0.0,
+          "derived_scaled_max": 0.0,
+          "background_H_relative_max": 0.0,
+          "spectrum_max_scale_absolute_max": 3.7959239241834736e-16
+        },
+        "failed_checks": []
+      },
+      "failed_checks": [],
+      "repeat_replay": {
+        "errors": {
+          "component_loglike_absolute_max": 0.0,
+          "prior_sum_absolute_max": 0.0,
+          "logpost_absolute_max": 0.0,
+          "derived_scaled_max": 0.0,
+          "background_H_relative_max": 0.0,
+          "spectrum_max_scale_absolute_max": 0.0
+        },
+        "failed_checks": []
+      },
+      "value": {
+        "loglikes": {
+          "planck_2018_lowl.TT": -10.979087995907918,
+          "planck_2018_lowl.EE": -198.72704974138995,
+          "bao.desi_dr2": -7.183322282361098,
+          "act_dr6_cmbonly.PlanckActCut": -111.55240052092348,
+          "act_dr6_cmbonly.ACTDR6CMBonly": -79.77877552554156,
+          "SPT2025_TnE": -82.73928833007812,
+          "act_dr6_lenslike.ACTDR6LensLike": -9.83853773570101,
+          "SPT2023_lensing": -5.478362560272217,
+          "released_sn": 248.68119270526495,
+          "expansion_diagnostics": 0.0
+        },
+        "logpriors": [
+          14.023656327985805
+        ],
+        "logpost": -243.57197565892466,
+        "derived": {
+          "As": 2.1327977319041523e-09,
+          "omegam": 0.30363694424121507,
+          "rdrag": 147.29645675672575,
+          "A_act": 1.0029158,
+          "sn_chi2": 1634.573034814719,
+          "q0": -0.5443893675484732,
+          "q05": -0.10659874222438392,
+          "q1": 0.1661557563282281,
+          "j0": 1.0001555034662168,
+          "j05": 1.0004578163662112,
+          "j1": 1.000797534956072,
+          "chi2__BAO": 14.366644564722195,
+          "chi2__CMB": 642.5170765164427,
+          "chi2__SN": -497.3623854105299
+        },
+        "H": [
+          68.24358399998695,
+          89.53842164015418,
+          120.67009317090896,
+          235.59321432117997,
+          1579212.1182392046
+        ],
+        "metadata": {
+          "finalized_theory_extra_args": {
+            "dark_energy_model": "ppf",
+            "mnu": 0.06,
+            "num_massive_neutrinos": 1,
+            "nnu": 3.044,
+            "omk": 0.0,
+            "lens_potential_accuracy": 4,
+            "lmax": 9001,
+            "lens_margin": 1250,
+            "AccuracyBoost": 2,
+            "lSampleBoost": 2,
+            "lAccuracyBoost": 2
+          },
+          "CAMB_Params_max_l": 10251,
+          "provider_length": 10152,
+          "units": "FIRASmuK2",
+          "ell_factor": false,
+          "pp": "dimensionless C_phi_phi"
+        }
+      },
+      "spectrum_path": ".work/unified-cosmology/native-accuracy2/lcdm-pilot-v1/00002.raw-cl.npz",
+      "spectrum_sha256": "2584ee76744580ddb2f71254f3289d00fde0e8b3921f743135ed8a26ae041d58",
+      "status": "finite_native_accuracy2",
+      "native_logposterior_invocations": 1,
+      "request_seconds": 0.06749834702350199,
+      "payload_sha256": "0871a8aecfff36fae361447697ffefbe57137ab519479b86d68c7cd9df4825fb",
+      "record_path": ".work/unified-cosmology/native-accuracy2/lcdm-pilot-v1/00002.json",
+      "record_sha256": "1bc10f2b7c5b16adf862078ed61b043769cc81feb3b6a7a0b1702e6e3efd1790"
+    },
+    {
+      "binding": {
+        "plan_identity": "4c1b971a24c27701ddffc49f1aa3aa0c39ef29cb65982687259d8a8685dff99c",
+        "kind": "persistent_accuracy2_pilot",
+        "request": {
+          "index": 3,
+          "worker": 0,
+          "ordinal": 3,
+          "audit_index": 31,
+          "origin": "persistent_native",
+          "point": {
+            "H0": 67.929399,
+            "ombh2": 0.022361158,
+            "omch2": 0.11807844,
+            "logA": 3.0525978,
+            "ns": 0.97459173,
+            "tau": 0.059762487,
+            "A_planck": 1.0011855,
+            "P_act": 1.003694,
+            "Tcal": 1.0015688,
+            "Ecal": 1.0028988,
+            "A_fg": 1.4177542
+          }
+        }
+      },
+      "origin": "persistent_native",
+      "point": {
+        "H0": 67.929399,
+        "ombh2": 0.022361158,
+        "omch2": 0.11807844,
+        "logA": 3.0525978,
+        "ns": 0.97459173,
+        "tau": 0.059762487,
+        "A_planck": 1.0011855,
+        "P_act": 1.003694,
+        "Tcal": 1.0015688,
+        "Ecal": 1.0028988,
+        "A_fg": 1.4177542
+      },
+      "pid": 1413052,
+      "worker": 0,
+      "ordinal": 3,
+      "model_construction_seconds": 21.327382613992086,
+      "ticket_sha256": "8953dfdd90b0f4dac09be7f06360a7f3a3a20bc000025efe23ffa6c73c0d2a5b",
+      "claim_sha256": "c7c19e218276ee8b7d003518112788f47f5f6afad8ba5a24bd3244b2530dea68",
+      "reference": {
+        "parent_index": 1968,
+        "chain": 3,
+        "stratum": 7,
+        "within_chain_ordered_index": 468,
+        "expanded_index": 6632,
+        "point": {
+          "H0": 67.929399,
+          "ombh2": 0.022361158,
+          "omch2": 0.11807844,
+          "logA": 3.0525978,
+          "ns": 0.97459173,
+          "tau": 0.059762487,
+          "A_planck": 1.0011855,
+          "P_act": 1.003694,
+          "Tcal": 1.0015688,
+          "Ecal": 1.0028988,
+          "A_fg": 1.4177542
+        },
+        "native_record_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/exact-correction/01968.json",
+        "native_record_sha256": "0e36c7ce5dda68012a65aed64381baf50f125b64ec81ada6681bd43e5b89d4b0",
+        "original_location": {
+          "chain": "chain.4.txt",
+          "row": 4437,
+          "expanded_index": 6632
+        },
+        "original_native_logweight": -0.5369519881830911,
+        "weight_in_full_qualified_parent": 0.00041013573916839403,
+        "audit_index": 31,
+        "record_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/native-posterior-precision/31.json",
+        "record_sha256": "a03f73215ec35a138b11a77e3f203dcb7bb22102d934123e10f5e7df0db25495",
+        "spectrum_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/native-posterior-precision/31-spectra.npz",
+        "spectrum_sha256": "348fcf303fc025d30b181011b0bcc98d00a99206a17fdd3c5dccf1459ea5c8aa",
+        "original_status": "failed_native_precision_checks",
+        "original_failed_checks": [
+          "nominal_background_rdrag_relative"
+        ]
+      },
+      "reference_replay": {
+        "errors": {
+          "component_loglike_absolute_max": 0.0,
+          "prior_sum_absolute_max": 0.0,
+          "logpost_absolute_max": 0.0,
+          "derived_scaled_max": 0.0,
+          "background_H_relative_max": 0.0,
+          "spectrum_max_scale_absolute_max": 1.9037363221850905e-16
+        },
+        "failed_checks": []
+      },
+      "failed_checks": [],
+      "repeat_replay": {
+        "errors": {
+          "component_loglike_absolute_max": 0.0,
+          "prior_sum_absolute_max": 0.0,
+          "logpost_absolute_max": 0.0,
+          "derived_scaled_max": 0.0,
+          "background_H_relative_max": 0.0,
+          "spectrum_max_scale_absolute_max": 0.0
+        },
+        "failed_checks": []
+      },
+      "value": {
+        "loglikes": {
+          "planck_2018_lowl.TT": -10.855595218005021,
+          "planck_2018_lowl.EE": -198.59360487701213,
+          "bao.desi_dr2": -7.977885840217802,
+          "act_dr6_cmbonly.PlanckActCut": -110.5074682866398,
+          "act_dr6_cmbonly.ACTDR6CMBonly": -81.93887197240895,
+          "SPT2025_TnE": -81.93827819824219,
+          "act_dr6_lenslike.ACTDR6LensLike": -9.944150303865234,
+          "SPT2023_lensing": -5.6724019050598145,
+          "released_sn": 248.92637463265737,
+          "expansion_diagnostics": 0.0
+        },
+        "logpriors": [
+          15.292660762021733
+        ],
+        "logpost": -243.20922120677182,
+        "derived": {
+          "As": 2.117026917515406e-09,
+          "omegam": 0.3057480176151718,
+          "rdrag": 147.62122413073462,
+          "A_act": 1.0011855,
+          "sn_chi2": 1634.0826709599341,
+          "q0": -0.5412213183661168,
+          "q05": -0.10300027066509487,
+          "q1": 0.1687375437268437,
+          "j0": 1.0001569470258287,
+          "j05": 1.0004607241426808,
+          "j1": 1.0008011300215536,
+          "chi2__BAO": 15.955771680435603,
+          "chi2__CMB": 639.913336763314,
+          "chi2__SN": -497.85274926531474
+        },
+        "H": [
+          67.92939899998692,
+          89.25597083610809,
+          120.39826704405671,
+          235.25442460076525,
+          1577838.4825522385
+        ],
+        "metadata": {
+          "finalized_theory_extra_args": {
+            "dark_energy_model": "ppf",
+            "mnu": 0.06,
+            "num_massive_neutrinos": 1,
+            "nnu": 3.044,
+            "omk": 0.0,
+            "lens_potential_accuracy": 4,
+            "lmax": 9001,
+            "lens_margin": 1250,
+            "AccuracyBoost": 2,
+            "lSampleBoost": 2,
+            "lAccuracyBoost": 2
+          },
+          "CAMB_Params_max_l": 10251,
+          "provider_length": 10152,
+          "units": "FIRASmuK2",
+          "ell_factor": false,
+          "pp": "dimensionless C_phi_phi"
+        }
+      },
+      "spectrum_path": ".work/unified-cosmology/native-accuracy2/lcdm-pilot-v1/00003.raw-cl.npz",
+      "spectrum_sha256": "31ca385c2a2678bfc03ac3e76d780802be893533b6e5b1f9567bc6774b1eac61",
+      "status": "finite_native_accuracy2",
+      "native_logposterior_invocations": 1,
+      "request_seconds": 0.056506437016651034,
+      "payload_sha256": "b20fd38a3d68a3add60709beecc235defdcda3370049d011fa8b3fa23cc84571",
+      "record_path": ".work/unified-cosmology/native-accuracy2/lcdm-pilot-v1/00003.json",
+      "record_sha256": "8eec1aaf1c0bf70d5962ffb1faee9ac187015fb5a19ccccad3f6ae7a70aa1c64"
+    },
+    {
+      "binding": {
+        "plan_identity": "4c1b971a24c27701ddffc49f1aa3aa0c39ef29cb65982687259d8a8685dff99c",
+        "kind": "persistent_accuracy2_pilot",
+        "request": {
+          "index": 4,
+          "worker": 1,
+          "ordinal": 0,
+          "audit_index": 31,
+          "origin": "persistent_native",
+          "point": {
+            "H0": 67.929399,
+            "ombh2": 0.022361158,
+            "omch2": 0.11807844,
+            "logA": 3.0525978,
+            "ns": 0.97459173,
+            "tau": 0.059762487,
+            "A_planck": 1.0011855,
+            "P_act": 1.003694,
+            "Tcal": 1.0015688,
+            "Ecal": 1.0028988,
+            "A_fg": 1.4177542
+          }
+        }
+      },
+      "origin": "persistent_native",
+      "point": {
+        "H0": 67.929399,
+        "ombh2": 0.022361158,
+        "omch2": 0.11807844,
+        "logA": 3.0525978,
+        "ns": 0.97459173,
+        "tau": 0.059762487,
+        "A_planck": 1.0011855,
+        "P_act": 1.003694,
+        "Tcal": 1.0015688,
+        "Ecal": 1.0028988,
+        "A_fg": 1.4177542
+      },
+      "pid": 1413053,
+      "worker": 1,
+      "ordinal": 0,
+      "model_construction_seconds": 25.42713947300217,
+      "ticket_sha256": "5dc207b08bd2b4435acacc23c80b7964e287bff35345696419550d3360a81c8d",
+      "claim_sha256": "9d6b6f4258994b994ab8b872507e1966852454e28f46447106c960047d201961",
+      "reference": {
+        "parent_index": 1968,
+        "chain": 3,
+        "stratum": 7,
+        "within_chain_ordered_index": 468,
+        "expanded_index": 6632,
+        "point": {
+          "H0": 67.929399,
+          "ombh2": 0.022361158,
+          "omch2": 0.11807844,
+          "logA": 3.0525978,
+          "ns": 0.97459173,
+          "tau": 0.059762487,
+          "A_planck": 1.0011855,
+          "P_act": 1.003694,
+          "Tcal": 1.0015688,
+          "Ecal": 1.0028988,
+          "A_fg": 1.4177542
+        },
+        "native_record_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/exact-correction/01968.json",
+        "native_record_sha256": "0e36c7ce5dda68012a65aed64381baf50f125b64ec81ada6681bd43e5b89d4b0",
+        "original_location": {
+          "chain": "chain.4.txt",
+          "row": 4437,
+          "expanded_index": 6632
+        },
+        "original_native_logweight": -0.5369519881830911,
+        "weight_in_full_qualified_parent": 0.00041013573916839403,
+        "audit_index": 31,
+        "record_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/native-posterior-precision/31.json",
+        "record_sha256": "a03f73215ec35a138b11a77e3f203dcb7bb22102d934123e10f5e7df0db25495",
+        "spectrum_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/native-posterior-precision/31-spectra.npz",
+        "spectrum_sha256": "348fcf303fc025d30b181011b0bcc98d00a99206a17fdd3c5dccf1459ea5c8aa",
+        "original_status": "failed_native_precision_checks",
+        "original_failed_checks": [
+          "nominal_background_rdrag_relative"
+        ]
+      },
+      "reference_replay": {
+        "errors": {
+          "component_loglike_absolute_max": 0.0,
+          "prior_sum_absolute_max": 0.0,
+          "logpost_absolute_max": 0.0,
+          "derived_scaled_max": 0.0,
+          "background_H_relative_max": 0.0,
+          "spectrum_max_scale_absolute_max": 1.9037363221850905e-16
+        },
+        "failed_checks": []
+      },
+      "failed_checks": [],
+      "repeat_replay": null,
+      "value": {
+        "loglikes": {
+          "planck_2018_lowl.TT": -10.855595218005021,
+          "planck_2018_lowl.EE": -198.59360487701213,
+          "bao.desi_dr2": -7.977885840217802,
+          "act_dr6_cmbonly.PlanckActCut": -110.5074682866398,
+          "act_dr6_cmbonly.ACTDR6CMBonly": -81.93887197240895,
+          "SPT2025_TnE": -81.93827819824219,
+          "act_dr6_lenslike.ACTDR6LensLike": -9.944150303865234,
+          "SPT2023_lensing": -5.6724019050598145,
+          "released_sn": 248.92637463265737,
+          "expansion_diagnostics": 0.0
+        },
+        "logpriors": [
+          15.292660762021733
+        ],
+        "logpost": -243.20922120677182,
+        "derived": {
+          "As": 2.117026917515406e-09,
+          "omegam": 0.3057480176151718,
+          "rdrag": 147.62122413073462,
+          "A_act": 1.0011855,
+          "sn_chi2": 1634.0826709599341,
+          "q0": -0.5412213183661168,
+          "q05": -0.10300027066509487,
+          "q1": 0.1687375437268437,
+          "j0": 1.0001569470258287,
+          "j05": 1.0004607241426808,
+          "j1": 1.0008011300215536,
+          "chi2__BAO": 15.955771680435603,
+          "chi2__CMB": 639.913336763314,
+          "chi2__SN": -497.85274926531474
+        },
+        "H": [
+          67.92939899998692,
+          89.25597083610809,
+          120.39826704405671,
+          235.25442460076525,
+          1577838.4825522385
+        ],
+        "metadata": {
+          "finalized_theory_extra_args": {
+            "dark_energy_model": "ppf",
+            "mnu": 0.06,
+            "num_massive_neutrinos": 1,
+            "nnu": 3.044,
+            "omk": 0.0,
+            "lens_potential_accuracy": 4,
+            "lmax": 9001,
+            "lens_margin": 1250,
+            "AccuracyBoost": 2,
+            "lSampleBoost": 2,
+            "lAccuracyBoost": 2
+          },
+          "CAMB_Params_max_l": 10251,
+          "provider_length": 10152,
+          "units": "FIRASmuK2",
+          "ell_factor": false,
+          "pp": "dimensionless C_phi_phi"
+        }
+      },
+      "spectrum_path": ".work/unified-cosmology/native-accuracy2/lcdm-pilot-v1/00004.raw-cl.npz",
+      "spectrum_sha256": "31ca385c2a2678bfc03ac3e76d780802be893533b6e5b1f9567bc6774b1eac61",
+      "status": "finite_native_accuracy2",
+      "native_logposterior_invocations": 1,
+      "request_seconds": 383.43601379101165,
+      "payload_sha256": "5b038e6fbeb19840b5edb1a116adba088b8cc6af1fce4db3d091c746d5eed3a7",
+      "record_path": ".work/unified-cosmology/native-accuracy2/lcdm-pilot-v1/00004.json",
+      "record_sha256": "9fc695e3a9e3d6bdc7d37c168806c527743f807e84966b014ac1694752685b15"
+    },
+    {
+      "binding": {
+        "plan_identity": "4c1b971a24c27701ddffc49f1aa3aa0c39ef29cb65982687259d8a8685dff99c",
+        "kind": "persistent_accuracy2_pilot",
+        "request": {
+          "index": 5,
+          "worker": 1,
+          "ordinal": 1,
+          "audit_index": 0,
+          "origin": "persistent_native",
+          "point": {
+            "H0": 68.243584,
+            "ombh2": 0.022641789,
+            "omch2": 0.11812274,
+            "logA": 3.0600197,
+            "ns": 0.97431775,
+            "tau": 0.060930357,
+            "A_planck": 1.0029158,
+            "P_act": 1.0045355,
+            "Tcal": 1.0003129,
+            "Ecal": 1.0090553,
+            "A_fg": 1.234268
+          }
+        }
+      },
+      "origin": "persistent_native",
+      "point": {
+        "H0": 68.243584,
+        "ombh2": 0.022641789,
+        "omch2": 0.11812274,
+        "logA": 3.0600197,
+        "ns": 0.97431775,
+        "tau": 0.060930357,
+        "A_planck": 1.0029158,
+        "P_act": 1.0045355,
+        "Tcal": 1.0003129,
+        "Ecal": 1.0090553,
+        "A_fg": 1.234268
+      },
+      "pid": 1413053,
+      "worker": 1,
+      "ordinal": 1,
+      "model_construction_seconds": 25.42713947300217,
+      "ticket_sha256": "d8200b31f3d8c58419178f42c715302988b6ae2dbe521bb7317f97d593d85adc",
+      "claim_sha256": "4be21de5b08c2574eea85c7c11b4efedbcbb9ee51b29588d0bc51e4bc9f55573",
+      "reference": {
+        "parent_index": 31,
+        "chain": 0,
+        "stratum": 0,
+        "within_chain_ordered_index": 31,
+        "expanded_index": 2352,
+        "point": {
+          "H0": 68.243584,
+          "ombh2": 0.022641789,
+          "omch2": 0.11812274,
+          "logA": 3.0600197,
+          "ns": 0.97431775,
+          "tau": 0.060930357,
+          "A_planck": 1.0029158,
+          "P_act": 1.0045355,
+          "Tcal": 1.0003129,
+          "Ecal": 1.0090553,
+          "A_fg": 1.234268
+        },
+        "native_record_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/exact-correction/00031.json",
+        "native_record_sha256": "7eacec384c9f3a69a5dfa52e91bbc7d34b7ac90cb12f0621f060319bec21cc68",
+        "original_location": {
+          "chain": "chain.1.txt",
+          "row": 1540,
+          "expanded_index": 2352
+        },
+        "original_native_logweight": -0.19994942091108214,
+        "weight_in_full_qualified_parent": 0.0005744946261705282,
+        "audit_index": 0,
+        "record_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/native-posterior-precision/00.json",
+        "record_sha256": "5094eed82eaa5e50e49efb4a4b8417f364bc62da273ad02f7bf69c473165bb7b",
+        "spectrum_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/native-posterior-precision/00-spectra.npz",
+        "spectrum_sha256": "ee43a8cb6b94ca8ee7656495de6f089f2e318e716971db0952d2f986f116416c",
+        "original_status": "finite_native_precision",
+        "original_failed_checks": []
+      },
+      "reference_replay": {
+        "errors": {
+          "component_loglike_absolute_max": 0.0,
+          "prior_sum_absolute_max": 0.0,
+          "logpost_absolute_max": 0.0,
+          "derived_scaled_max": 0.0,
+          "background_H_relative_max": 0.0,
+          "spectrum_max_scale_absolute_max": 3.7959239241834736e-16
+        },
+        "failed_checks": []
+      },
+      "failed_checks": [],
+      "repeat_replay": null,
+      "value": {
+        "loglikes": {
+          "planck_2018_lowl.TT": -10.979087995907918,
+          "planck_2018_lowl.EE": -198.72704974138995,
+          "bao.desi_dr2": -7.183322282361098,
+          "act_dr6_cmbonly.PlanckActCut": -111.55240052092348,
+          "act_dr6_cmbonly.ACTDR6CMBonly": -79.77877552554156,
+          "SPT2025_TnE": -82.73928833007812,
+          "act_dr6_lenslike.ACTDR6LensLike": -9.83853773570101,
+          "SPT2023_lensing": -5.478362560272217,
+          "released_sn": 248.68119270526495,
+          "expansion_diagnostics": 0.0
+        },
+        "logpriors": [
+          14.023656327985805
+        ],
+        "logpost": -243.57197565892466,
+        "derived": {
+          "As": 2.1327977319041523e-09,
+          "omegam": 0.30363694424121507,
+          "rdrag": 147.29645675672575,
+          "A_act": 1.0029158,
+          "sn_chi2": 1634.573034814719,
+          "q0": -0.5443893675484732,
+          "q05": -0.10659874222438392,
+          "q1": 0.1661557563282281,
+          "j0": 1.0001555034662168,
+          "j05": 1.0004578163662112,
+          "j1": 1.000797534956072,
+          "chi2__BAO": 14.366644564722195,
+          "chi2__CMB": 642.5170765164427,
+          "chi2__SN": -497.3623854105299
+        },
+        "H": [
+          68.24358399998695,
+          89.53842164015418,
+          120.67009317090896,
+          235.59321432117997,
+          1579212.1182392046
+        ],
+        "metadata": {
+          "finalized_theory_extra_args": {
+            "dark_energy_model": "ppf",
+            "mnu": 0.06,
+            "num_massive_neutrinos": 1,
+            "nnu": 3.044,
+            "omk": 0.0,
+            "lens_potential_accuracy": 4,
+            "lmax": 9001,
+            "lens_margin": 1250,
+            "AccuracyBoost": 2,
+            "lSampleBoost": 2,
+            "lAccuracyBoost": 2
+          },
+          "CAMB_Params_max_l": 10251,
+          "provider_length": 10152,
+          "units": "FIRASmuK2",
+          "ell_factor": false,
+          "pp": "dimensionless C_phi_phi"
+        }
+      },
+      "spectrum_path": ".work/unified-cosmology/native-accuracy2/lcdm-pilot-v1/00005.raw-cl.npz",
+      "spectrum_sha256": "2584ee76744580ddb2f71254f3289d00fde0e8b3921f743135ed8a26ae041d58",
+      "status": "finite_native_accuracy2",
+      "native_logposterior_invocations": 1,
+      "request_seconds": 337.198883450008,
+      "payload_sha256": "4f7cbcb52143038c697cf5ee515d1cb078770f78509e90cff27e62c4e74b6cd2",
+      "record_path": ".work/unified-cosmology/native-accuracy2/lcdm-pilot-v1/00005.json",
+      "record_sha256": "00f8ca187bf1fef395b2569ed3c658c056bbe01728adcb567acc70caf40862ca"
+    },
+    {
+      "binding": {
+        "plan_identity": "4c1b971a24c27701ddffc49f1aa3aa0c39ef29cb65982687259d8a8685dff99c",
+        "kind": "persistent_accuracy2_pilot",
+        "request": {
+          "index": 6,
+          "worker": 1,
+          "ordinal": 2,
+          "audit_index": 31,
+          "origin": "persistent_native",
+          "point": {
+            "H0": 67.929399,
+            "ombh2": 0.022361158,
+            "omch2": 0.11807844,
+            "logA": 3.0525978,
+            "ns": 0.97459173,
+            "tau": 0.059762487,
+            "A_planck": 1.0011855,
+            "P_act": 1.003694,
+            "Tcal": 1.0015688,
+            "Ecal": 1.0028988,
+            "A_fg": 1.4177542
+          }
+        }
+      },
+      "origin": "persistent_native",
+      "point": {
+        "H0": 67.929399,
+        "ombh2": 0.022361158,
+        "omch2": 0.11807844,
+        "logA": 3.0525978,
+        "ns": 0.97459173,
+        "tau": 0.059762487,
+        "A_planck": 1.0011855,
+        "P_act": 1.003694,
+        "Tcal": 1.0015688,
+        "Ecal": 1.0028988,
+        "A_fg": 1.4177542
+      },
+      "pid": 1413053,
+      "worker": 1,
+      "ordinal": 2,
+      "model_construction_seconds": 25.42713947300217,
+      "ticket_sha256": "c886c1d5672114cabbaab3e1fc8634432bac713f96c1f56d3ee7c4c28cb087ab",
+      "claim_sha256": "e632366cd2dc107514ad516b677114fda6ff94b4f3cb62b5c8a7017b09b2a378",
+      "reference": {
+        "parent_index": 1968,
+        "chain": 3,
+        "stratum": 7,
+        "within_chain_ordered_index": 468,
+        "expanded_index": 6632,
+        "point": {
+          "H0": 67.929399,
+          "ombh2": 0.022361158,
+          "omch2": 0.11807844,
+          "logA": 3.0525978,
+          "ns": 0.97459173,
+          "tau": 0.059762487,
+          "A_planck": 1.0011855,
+          "P_act": 1.003694,
+          "Tcal": 1.0015688,
+          "Ecal": 1.0028988,
+          "A_fg": 1.4177542
+        },
+        "native_record_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/exact-correction/01968.json",
+        "native_record_sha256": "0e36c7ce5dda68012a65aed64381baf50f125b64ec81ada6681bd43e5b89d4b0",
+        "original_location": {
+          "chain": "chain.4.txt",
+          "row": 4437,
+          "expanded_index": 6632
+        },
+        "original_native_logweight": -0.5369519881830911,
+        "weight_in_full_qualified_parent": 0.00041013573916839403,
+        "audit_index": 31,
+        "record_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/native-posterior-precision/31.json",
+        "record_sha256": "a03f73215ec35a138b11a77e3f203dcb7bb22102d934123e10f5e7df0db25495",
+        "spectrum_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/native-posterior-precision/31-spectra.npz",
+        "spectrum_sha256": "348fcf303fc025d30b181011b0bcc98d00a99206a17fdd3c5dccf1459ea5c8aa",
+        "original_status": "failed_native_precision_checks",
+        "original_failed_checks": [
+          "nominal_background_rdrag_relative"
+        ]
+      },
+      "reference_replay": {
+        "errors": {
+          "component_loglike_absolute_max": 0.0,
+          "prior_sum_absolute_max": 0.0,
+          "logpost_absolute_max": 0.0,
+          "derived_scaled_max": 0.0,
+          "background_H_relative_max": 0.0,
+          "spectrum_max_scale_absolute_max": 1.9037363221850905e-16
+        },
+        "failed_checks": []
+      },
+      "failed_checks": [],
+      "repeat_replay": {
+        "errors": {
+          "component_loglike_absolute_max": 0.0,
+          "prior_sum_absolute_max": 0.0,
+          "logpost_absolute_max": 0.0,
+          "derived_scaled_max": 0.0,
+          "background_H_relative_max": 0.0,
+          "spectrum_max_scale_absolute_max": 0.0
+        },
+        "failed_checks": []
+      },
+      "value": {
+        "loglikes": {
+          "planck_2018_lowl.TT": -10.855595218005021,
+          "planck_2018_lowl.EE": -198.59360487701213,
+          "bao.desi_dr2": -7.977885840217802,
+          "act_dr6_cmbonly.PlanckActCut": -110.5074682866398,
+          "act_dr6_cmbonly.ACTDR6CMBonly": -81.93887197240895,
+          "SPT2025_TnE": -81.93827819824219,
+          "act_dr6_lenslike.ACTDR6LensLike": -9.944150303865234,
+          "SPT2023_lensing": -5.6724019050598145,
+          "released_sn": 248.92637463265737,
+          "expansion_diagnostics": 0.0
+        },
+        "logpriors": [
+          15.292660762021733
+        ],
+        "logpost": -243.20922120677182,
+        "derived": {
+          "As": 2.117026917515406e-09,
+          "omegam": 0.3057480176151718,
+          "rdrag": 147.62122413073462,
+          "A_act": 1.0011855,
+          "sn_chi2": 1634.0826709599341,
+          "q0": -0.5412213183661168,
+          "q05": -0.10300027066509487,
+          "q1": 0.1687375437268437,
+          "j0": 1.0001569470258287,
+          "j05": 1.0004607241426808,
+          "j1": 1.0008011300215536,
+          "chi2__BAO": 15.955771680435603,
+          "chi2__CMB": 639.913336763314,
+          "chi2__SN": -497.85274926531474
+        },
+        "H": [
+          67.92939899998692,
+          89.25597083610809,
+          120.39826704405671,
+          235.25442460076525,
+          1577838.4825522385
+        ],
+        "metadata": {
+          "finalized_theory_extra_args": {
+            "dark_energy_model": "ppf",
+            "mnu": 0.06,
+            "num_massive_neutrinos": 1,
+            "nnu": 3.044,
+            "omk": 0.0,
+            "lens_potential_accuracy": 4,
+            "lmax": 9001,
+            "lens_margin": 1250,
+            "AccuracyBoost": 2,
+            "lSampleBoost": 2,
+            "lAccuracyBoost": 2
+          },
+          "CAMB_Params_max_l": 10251,
+          "provider_length": 10152,
+          "units": "FIRASmuK2",
+          "ell_factor": false,
+          "pp": "dimensionless C_phi_phi"
+        }
+      },
+      "spectrum_path": ".work/unified-cosmology/native-accuracy2/lcdm-pilot-v1/00006.raw-cl.npz",
+      "spectrum_sha256": "31ca385c2a2678bfc03ac3e76d780802be893533b6e5b1f9567bc6774b1eac61",
+      "status": "finite_native_accuracy2",
+      "native_logposterior_invocations": 1,
+      "request_seconds": 0.07352684298530221,
+      "payload_sha256": "0f57325cb8db7cc6befaca212954e301c38476620a4c1e891580f23abf2bb290",
+      "record_path": ".work/unified-cosmology/native-accuracy2/lcdm-pilot-v1/00006.json",
+      "record_sha256": "42b87740145e0cd9df00a75ec700766090f51c67e43b5ef50983af3261aba557"
+    },
+    {
+      "binding": {
+        "plan_identity": "4c1b971a24c27701ddffc49f1aa3aa0c39ef29cb65982687259d8a8685dff99c",
+        "kind": "persistent_accuracy2_pilot",
+        "request": {
+          "index": 7,
+          "worker": 1,
+          "ordinal": 3,
+          "audit_index": 0,
+          "origin": "persistent_native",
+          "point": {
+            "H0": 68.243584,
+            "ombh2": 0.022641789,
+            "omch2": 0.11812274,
+            "logA": 3.0600197,
+            "ns": 0.97431775,
+            "tau": 0.060930357,
+            "A_planck": 1.0029158,
+            "P_act": 1.0045355,
+            "Tcal": 1.0003129,
+            "Ecal": 1.0090553,
+            "A_fg": 1.234268
+          }
+        }
+      },
+      "origin": "persistent_native",
+      "point": {
+        "H0": 68.243584,
+        "ombh2": 0.022641789,
+        "omch2": 0.11812274,
+        "logA": 3.0600197,
+        "ns": 0.97431775,
+        "tau": 0.060930357,
+        "A_planck": 1.0029158,
+        "P_act": 1.0045355,
+        "Tcal": 1.0003129,
+        "Ecal": 1.0090553,
+        "A_fg": 1.234268
+      },
+      "pid": 1413053,
+      "worker": 1,
+      "ordinal": 3,
+      "model_construction_seconds": 25.42713947300217,
+      "ticket_sha256": "2fd0a9a0958a7995c9160d9b4a8e8d953a086bdeb739992010e622529262b46a",
+      "claim_sha256": "b1901f6e158f0199112436f9ed17a89bffef1b25dc2435d2a78c12363000ad19",
+      "reference": {
+        "parent_index": 31,
+        "chain": 0,
+        "stratum": 0,
+        "within_chain_ordered_index": 31,
+        "expanded_index": 2352,
+        "point": {
+          "H0": 68.243584,
+          "ombh2": 0.022641789,
+          "omch2": 0.11812274,
+          "logA": 3.0600197,
+          "ns": 0.97431775,
+          "tau": 0.060930357,
+          "A_planck": 1.0029158,
+          "P_act": 1.0045355,
+          "Tcal": 1.0003129,
+          "Ecal": 1.0090553,
+          "A_fg": 1.234268
+        },
+        "native_record_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/exact-correction/00031.json",
+        "native_record_sha256": "7eacec384c9f3a69a5dfa52e91bbc7d34b7ac90cb12f0621f060319bec21cc68",
+        "original_location": {
+          "chain": "chain.1.txt",
+          "row": 1540,
+          "expanded_index": 2352
+        },
+        "original_native_logweight": -0.19994942091108214,
+        "weight_in_full_qualified_parent": 0.0005744946261705282,
+        "audit_index": 0,
+        "record_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/native-posterior-precision/00.json",
+        "record_sha256": "5094eed82eaa5e50e49efb4a4b8417f364bc62da273ad02f7bf69c473165bb7b",
+        "spectrum_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/native-posterior-precision/00-spectra.npz",
+        "spectrum_sha256": "ee43a8cb6b94ca8ee7656495de6f089f2e318e716971db0952d2f986f116416c",
+        "original_status": "finite_native_precision",
+        "original_failed_checks": []
+      },
+      "reference_replay": {
+        "errors": {
+          "component_loglike_absolute_max": 0.0,
+          "prior_sum_absolute_max": 0.0,
+          "logpost_absolute_max": 0.0,
+          "derived_scaled_max": 0.0,
+          "background_H_relative_max": 0.0,
+          "spectrum_max_scale_absolute_max": 3.7959239241834736e-16
+        },
+        "failed_checks": []
+      },
+      "failed_checks": [],
+      "repeat_replay": {
+        "errors": {
+          "component_loglike_absolute_max": 0.0,
+          "prior_sum_absolute_max": 0.0,
+          "logpost_absolute_max": 0.0,
+          "derived_scaled_max": 0.0,
+          "background_H_relative_max": 0.0,
+          "spectrum_max_scale_absolute_max": 0.0
+        },
+        "failed_checks": []
+      },
+      "value": {
+        "loglikes": {
+          "planck_2018_lowl.TT": -10.979087995907918,
+          "planck_2018_lowl.EE": -198.72704974138995,
+          "bao.desi_dr2": -7.183322282361098,
+          "act_dr6_cmbonly.PlanckActCut": -111.55240052092348,
+          "act_dr6_cmbonly.ACTDR6CMBonly": -79.77877552554156,
+          "SPT2025_TnE": -82.73928833007812,
+          "act_dr6_lenslike.ACTDR6LensLike": -9.83853773570101,
+          "SPT2023_lensing": -5.478362560272217,
+          "released_sn": 248.68119270526495,
+          "expansion_diagnostics": 0.0
+        },
+        "logpriors": [
+          14.023656327985805
+        ],
+        "logpost": -243.57197565892466,
+        "derived": {
+          "As": 2.1327977319041523e-09,
+          "omegam": 0.30363694424121507,
+          "rdrag": 147.29645675672575,
+          "A_act": 1.0029158,
+          "sn_chi2": 1634.573034814719,
+          "q0": -0.5443893675484732,
+          "q05": -0.10659874222438392,
+          "q1": 0.1661557563282281,
+          "j0": 1.0001555034662168,
+          "j05": 1.0004578163662112,
+          "j1": 1.000797534956072,
+          "chi2__BAO": 14.366644564722195,
+          "chi2__CMB": 642.5170765164427,
+          "chi2__SN": -497.3623854105299
+        },
+        "H": [
+          68.24358399998695,
+          89.53842164015418,
+          120.67009317090896,
+          235.59321432117997,
+          1579212.1182392046
+        ],
+        "metadata": {
+          "finalized_theory_extra_args": {
+            "dark_energy_model": "ppf",
+            "mnu": 0.06,
+            "num_massive_neutrinos": 1,
+            "nnu": 3.044,
+            "omk": 0.0,
+            "lens_potential_accuracy": 4,
+            "lmax": 9001,
+            "lens_margin": 1250,
+            "AccuracyBoost": 2,
+            "lSampleBoost": 2,
+            "lAccuracyBoost": 2
+          },
+          "CAMB_Params_max_l": 10251,
+          "provider_length": 10152,
+          "units": "FIRASmuK2",
+          "ell_factor": false,
+          "pp": "dimensionless C_phi_phi"
+        }
+      },
+      "spectrum_path": ".work/unified-cosmology/native-accuracy2/lcdm-pilot-v1/00007.raw-cl.npz",
+      "spectrum_sha256": "2584ee76744580ddb2f71254f3289d00fde0e8b3921f743135ed8a26ae041d58",
+      "status": "finite_native_accuracy2",
+      "native_logposterior_invocations": 1,
+      "request_seconds": 0.05297600000631064,
+      "payload_sha256": "3c143772c4fbccc4fae6f32feba788a8d53a3ab4dfb639b4f2bf20865bf5b250",
+      "record_path": ".work/unified-cosmology/native-accuracy2/lcdm-pilot-v1/00007.json",
+      "record_sha256": "d76e46cdde00f4f008e35da7a514d7b3d64ea171ad26cbe17936d340d86368b4"
+    }
+  ],
+  "source_sha256": {
+    "studies/unified_cosmology/code/inference/native_accuracy_correction.py": "74aedea6d50930fb6af47282db667ef0f5a6ec768af6fcec1bcc6a17420646e3",
+    "studies/unified_cosmology/code/inference/native-accuracy-correction-design.json": "1945eaf7d6f0749ea5170a3cc1f940a6425ceb02535705de102bc0d87e17f544",
+    "studies/unified_cosmology/code/inference/native_accuracy_measurement.py": "e761c25fc895751cdc2557fdbad0f0893bbad5b67d9ff0b514326cbfde84c47c",
+    "studies/unified_cosmology/code/inference/native_accuracy_validate.py": "1e11938fabd10bb158a69e89d1c17486bc4cd7328070d0c19cac9382070b6801",
+    "studies/unified_cosmology/code/inference/native_posterior_precision.py": "b51142cbd4cec4f3b47eeaabc965b233fd8d4106be504acd1e213ed5f9ee539a",
+    "studies/unified_cosmology/code/inference/native-posterior-precision-design.json": "48f6c034f93331c425cbefef988592aa2d0ebfabc5645a018ca4169ea6293425",
+    "studies/unified_cosmology/code/inference/native_precision_review_consumer.py": "7f9ef38fffbb69a9e2a1540e1ae5e06a265e634f42805efc3b5f8f49820bcb11",
+    "studies/unified_cosmology/code/inference/native_precision_refinement.py": "e1ab1e8482cb4be47fdfd53b5bdb98ce9475a3e4fab7056ec9f240e6bc010f6f",
+    "studies/unified_cosmology/code/inference/native-precision-review-consumer-design.json": "856fe56b6b246e4051cbb15af297e679ce65d00fd113062f0e07507a94ca99ec",
+    "studies/unified_cosmology/code/inference/native_precision_refinement_design.json": "36865f5bcbf3d25419232a3c306582b5479dc1a7f1a6a8d8513af56b4a4e13bf",
+    "studies/unified_cosmology/code/inference/native_precision_thermal_review.py": "1980f97c0fed0a220e90ebfa6c965ba37ac59fd8fa1d7292c8d7b4529ba200a5",
+    "studies/unified_cosmology/code/inference/native-precision-thermal-review-design.json": "6af7f3110ecff43b487fb8296a2366e2793cc23c38dd29f56bd75cc76ff727e4",
+    "studies/unified_cosmology/code/inference/exact_correction.py": "d073c7e1c9d0f8678d46389048bec6580d7aac4299085f7104a125b78710e477",
+    "studies/unified_cosmology/code/inference/luminosity_sensitivity.py": "3f831be63b3776b02c0b547dbb6d9273ddbad68b272c6cb372eda390abafaab7",
+    "studies/unified_cosmology/code/inference/luminosity-sensitivity-design.json": "fdff0250564a1562fd1af3da8a9ff93481de1837c8ad08837993564aa545ee85",
+    "studies/unified_cosmology/code/inference/target_identity.py": "498869ee5459b8afa13f8c56bfa9d619d8017f44ca0c6e4dc0a81efbaf42b2f2",
+    "studies/unified_cosmology/code/inference/native_accuracy_runtime.py": "ae8d753bfe0828c3d7ea57a751b8b980ff11f22001e42d0df46c6588f952f178",
+    "studies/unified_cosmology/code/inference/native_accuracy_pilot.py": "a9c1e7d93f5e988bdca994647a3b9b422b2450f0bf2a0ab8cec3eed559eb69b8",
+    "studies/unified_cosmology/code/inference/native_accuracy_execute.py": "b75dd2b75ab0afda2c9da9e9682b8b2af33cb5febc99d166977461b52688d25b",
+    "studies/unified_cosmology/code/inference/native_accuracy_qualify.py": "e142e0ba0ac191596a96ea173f2725d542fc96e68d883459668f00bbe39edb95",
+    "studies/unified_cosmology/code/inference/native_accuracy_execution_validate.py": "39495e8d835de7c89fe126ce327e920f028c4392c3762f56667b06eca1fc64f9",
+    "studies/unified_cosmology/code/inference/native-accuracy-execution-design-v2.json": "2b7d16a3d4d02a7d36e37c004ccd6ccb04eae1acb358663d690409f9bc583feb"
+  },
+  "known_native_logposterior_invocations": 8,
+  "unknown_count_attempts": 0,
+  "posterior_qualified": false,
+  "timing_interpretation": "Per-process construction and per-request wall time under actual contention; no solver-call equivalence.",
+  "record_manifest_path": ".work/unified-cosmology/native-accuracy2/lcdm-pilot-v1/record-hashes.json",
+  "record_manifest_sha256": "8f7199a09ee77cebb3cd729bf4555862f05b0aa4313b486cf1084efb5f42fc6a",
+  "payload_sha256": "8a39f600ad2eaf15add5c74d8de910cb5dc9fb1335a0baa7d0e57d56ce0aea4b"
+}
