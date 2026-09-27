@@ -1,0 +1,98 @@
+{
+  "status": "passed_independent_stratified_slot_chronology_review",
+  "seed": 272639,
+  "expanded_length_per_chain": 4490,
+  "selected_slots": 2000,
+  "chains": [
+    {
+      "chain": 0,
+      "selected_slots": 500,
+      "unique_expanded_indices": 500,
+      "discarded_expanded_states": 2068,
+      "stratum_width": 8.98,
+      "reconstructed_indices_points_RLE_rows_and_stored_density": true,
+      "expected_index_multiplicity": 0.111358574610245,
+      "maximum_multiplicity_error": 1.3877787807814457e-17,
+      "adjacent_tied_slot_pairs": [],
+      "crosses_80percent_split": false,
+      "crosses_10block_boundary": false,
+      "crosses_20block_boundary": false
+    },
+    {
+      "chain": 1,
+      "selected_slots": 500,
+      "unique_expanded_indices": 500,
+      "discarded_expanded_states": 2098,
+      "stratum_width": 8.98,
+      "reconstructed_indices_points_RLE_rows_and_stored_density": true,
+      "expected_index_multiplicity": 0.111358574610245,
+      "maximum_multiplicity_error": 1.3877787807814457e-17,
+      "adjacent_tied_slot_pairs": [],
+      "crosses_80percent_split": false,
+      "crosses_10block_boundary": false,
+      "crosses_20block_boundary": false
+    },
+    {
+      "chain": 2,
+      "selected_slots": 500,
+      "unique_expanded_indices": 499,
+      "discarded_expanded_states": 1924,
+      "stratum_width": 8.98,
+      "reconstructed_indices_points_RLE_rows_and_stored_density": true,
+      "expected_index_multiplicity": 0.111358574610245,
+      "maximum_multiplicity_error": 1.3877787807814457e-17,
+      "adjacent_tied_slot_pairs": [
+        [
+          66,
+          67
+        ]
+      ],
+      "crosses_80percent_split": false,
+      "crosses_10block_boundary": false,
+      "crosses_20block_boundary": false
+    },
+    {
+      "chain": 3,
+      "selected_slots": 500,
+      "unique_expanded_indices": 499,
+      "discarded_expanded_states": 2423,
+      "stratum_width": 8.98,
+      "reconstructed_indices_points_RLE_rows_and_stored_density": true,
+      "expected_index_multiplicity": 0.111358574610245,
+      "maximum_multiplicity_error": 1.3877787807814457e-17,
+      "adjacent_tied_slot_pairs": [
+        [
+          103,
+          104
+        ]
+      ],
+      "crosses_80percent_split": false,
+      "crosses_10block_boundary": false,
+      "crosses_20block_boundary": false
+    }
+  ],
+  "input_sha256": {
+    "studies/unified_cosmology/results/inference/modern-lcdm-independence-exact-correction.json": "3719e89deeaf6a4a2adb1a8d7bb06e646c02e0fa1b1553a14d6243424dd024f3",
+    ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/exact-correction/selection.json": "33278564601bd50041708f1227a2f52c547a5dd98e2bbdea3ce99758e1f85c6c",
+    ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/diagnostics.json": "9b0ea27accbab77a96a7c8e7c4aabaf1cfbf4e54ffe02837d673c8865b7c4e76",
+    "studies/unified_cosmology/code/inference/exact_correction.py": "d073c7e1c9d0f8678d46389048bec6580d7aac4299085f7104a125b78710e477",
+    ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/chain.1.txt": "d03a6e0568ee1cb96017b6c0df54d8908a140782a70cf7fa13f72672a3ae47ab",
+    ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/chain.2.txt": "86747032942d4550d561e9e8e0033f6eb3ca20518a051b16b475cab3f9efea20",
+    ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/chain.3.txt": "a2aeca6d6f1b6438cc030824048edec0f11bd044b8294c93c5c2aeaa10c70dfe",
+    ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/chain.4.txt": "bd3d6f4506147b6642d1d48e4b50a4eebed11192711679ba13a07c17e1e8b081"
+  },
+  "source_sha256": {
+    "studies/unified_cosmology/code/inference/selected_slot_chronology_review.py": "a592e0151ed7a77e6b39e817d1dd4a0af6c2370eff7266d7ed4023753d0bf788"
+  },
+  "numpy_version": "2.5.3",
+  "model_background_spectrum_calls": 0,
+  "observed_parameters_reestimated": false,
+  "meaning": [
+    "Independent uniform positions in disjoint real strata can floor to the same integer state in adjacent strata.",
+    "All selected slots and their raw importance weights must remain; deduplicating changes the estimator.",
+    "Nondecreasing expanded indices preserve chronology. They do not turn repeated or correlated states into independent samples.",
+    "Conditional on the frozen expanded chain, expected index multiplicity is uniform. Self-normalized importance ratios retain usual finite-sample ratio error.",
+    "A generic chronological train/test split must disclose or prevent the same selected state straddling its boundary. No such boundary tie occurs in this cohort.",
+    "Chronological block bootstrap is an approximate dependence diagnostic, not a proof of independent data or global posterior coverage."
+  ]
+}
