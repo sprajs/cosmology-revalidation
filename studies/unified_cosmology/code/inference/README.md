@@ -119,6 +119,12 @@ The [posterior precision audit](../../notes/native-posterior-precision.md) compa
 
 The [joint-lensing comparison](../../notes/joint-lensing-bridge.md) separately replaces the current two lensing factors with the released ACT–Planck–SPT MUSE likelihood, including cross-experiment lensing covariance. Its baseline and extended ACT ranges share a new native spectral cache but retain separate weights and qualification results. This changes the SPT estimator as well as the covariance. [Probe omissions](../../notes/probe-omission.md) instead remove one declared component group using stored native likelihoods, with no further spectrum calculation. Both comparisons require adequate overlap; neither supplies missing cross-probe covariance or measures an age correction.
 
+## Absolute-calibration alternative
+
+The [calibration interface](../../notes/calibration-interface.md) restores the released Pantheon+SH0ES sample and its full covariance. The [anchored replacement](../../notes/anchored-bridge.md) first tests overlap with a qualified Dovekie parent while replacing its supernova factor. A failed overlap diagnostic supplies no cosmological measurement.
+
+If fresh sampling is required, the [dedicated calibrated-sample instructions](../../notes/anchored-sampling.md) give the ordered proposal freeze, bounded efficiency pilot, four independent chains, native correction and final qualification commands. Proposal training never establishes a posterior. This path adds neither an extra H₀ prior nor another Cepheid factor, and retains the [unresolved shared-host covariance construction](../../notes/calibration-covariance-estimands.md).
+
 ## Broader numerical support for luminosity alternatives
 
 The initial linear and smooth-luminosity pilots visited regions outside the original interpolation envelope often enough that exact fallbacks dominated their runtime. They remain unqualified pilots. A new [numerical design](broad-spectral-design.json) keeps the original centre and physical priors, but expands the two conditional dark-energy directions of the training covariance by a factor of three in standard deviation. Its 768 training attempts and 128 independent holdout attempts use distinct fixed random seeds. Invalid requests are recorded without replacement. The polynomial degree and fitting method were chosen before those new outcomes.

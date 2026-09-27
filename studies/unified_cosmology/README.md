@@ -21,6 +21,7 @@ The calibrated Pantheon+SH0ES sample separately gives **H₀ = 73.550 ± 1.017 k
 7. [Physical stellar-age constraints](notes/calibrated-host-physics.md): flexible age, metallicity and dust mixtures, native spectral response, compatible age ranges and the effect of an imposed cosmological clock.
 8. [Supernova release comparison](notes/release-comparison.md): separately fitted Dovekie, Pantheon+ and DES3YR alternatives with the same BAO observations.
 9. [Absolute-distance calibration](notes/distance-ladder.md): the complete released ladder, independent numerical checks, a Cepheid-only host likelihood and overlap with the cosmology samples.
+10. [Calibrated supernova cosmology](notes/calibration-lcdm.md): the separate Pantheon+SH0ES result, its published-chain comparison and the unresolved covariance construction. The [anchored comparison](notes/anchored-target.md) defines its consistent replacement in the shared CMB and BAO target.
 
 All 17,733 released classification probabilities are reproduced to their printed precision after recovering the measured peak-time input. This resolves a specific classifier-interface discrepancy; it does not reconstruct the complete survey selection or contaminant model. The 1,088 distinct OzDES host spectra add observed high-redshift information, but their lack of relative flux calibration prevents interpreting raw count ratios as calibrated stellar ages. The independent repeat spectra also reject a simple fixed-response, diagonal-noise description for many objects.
 
