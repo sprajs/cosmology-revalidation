@@ -8,6 +8,7 @@ import hashlib
 import json
 import multiprocessing as mp
 from pathlib import Path
+import re
 import time
 import numpy as np
 
@@ -133,8 +134,11 @@ def main():
     p.add_argument('--diagnostics',type=Path,required=True)
     p.add_argument('--points',type=int,default=2000)
     p.add_argument('--workers',type=int,default=4)
+    p.add_argument('--name',default='exact-correction',
+                   help='Separate preserved correction folder for a new point selection.')
     p.add_argument('--output',type=Path,required=True)
     a=p.parse_args();folder=a.folder.resolve()
+    assert re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_-]{0,63}',a.name),'Use a simple distinct correction name.'
     diagnostics_path=str(a.diagnostics.resolve().relative_to(ROOT))
     diagnostics_sha256=hashlib.sha256(a.diagnostics.read_bytes()).hexdigest()
     check=json.loads(a.diagnostics.read_text());assert check['status']=='passed'
@@ -162,7 +166,7 @@ def main():
     correction_identity=hashlib.sha256(json.dumps(
         {'target_identity':identity['identity'],'correction_dependencies':dependencies},
         sort_keys=True,separators=(',',':')).encode()).hexdigest()
-    out=folder/'exact-correction';out.mkdir(exist_ok=True)
+    out=folder/a.name;out.mkdir(exist_ok=True)
     design=out/'selection.json'
     if design.exists():
         selection=json.loads(design.read_text());assert len(selection['points'])==a.points

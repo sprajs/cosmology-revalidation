@@ -56,7 +56,8 @@ def summarize_run(folder, summary_path):
     summary_path = Path(summary_path).resolve()
     summary = json.loads(summary_path.read_text())
     assert summary['status'] == 'passed_importance_weight_gates'
-    selection_path = folder / 'exact-correction/selection.json'
+    selection_path = (ROOT / summary['selection_path']).resolve()
+    assert selection_path.name == 'selection.json' and selection_path.parent.parent == folder
     selection = json.loads(selection_path.read_text())
     assert digest(selection_path) == summary['selection_sha256']
     assert relative(selection_path) == summary['selection_path']
