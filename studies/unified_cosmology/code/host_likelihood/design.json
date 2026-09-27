@@ -1,0 +1,13 @@
+{
+  "status": "Exploratory new acquisition and identification analysis, frozen before inspecting new host posterior chains or fitting their brightness associations.",
+  "scientific_question": "Can public observed joint host age/dust/SFH measurements identify selected-supernova residual luminosity evolution B(z), separately from a within-redshift environmental association?",
+  "observational_sources": ["FrankenBlast spectroscopically classified sample, Zenodo16953206", "existing pinned unblinded Pantheon+ and DES distance releases", "existing raw SDSS host spectral observables"],
+  "model_source_audit": "CIGaRS I code/data must be classified as observed or simulated before any inference; simulated posterior samples cannot substitute for observations.",
+  "association": {"identifier": "Exact normalized IAU supernova name first; retain source names. Any positional fallback requires unique SN match within1arcsec and compatible spectroscopic redshift. Host associations remain probabilistic.", "primary_host_probability": 0.9, "sensitivity_host_probability": 0.99, "spectroscopic_type": "normal Ia; subtype restrictions retained explicitly", "measurement_selection": "No new photometric detection threshold; preserve signed fluxes, errors, masks and missing bands."},
+  "likelihood_policy": "Retain joint posterior draws and original priors. Never multiply a posterior as an independent likelihood; any recycling requires explicit prior division, support and effective-sample-size checks. Unknown joint measurement covariance and sample selection are explicit limitations.",
+  "cosmology_interface": "Host-only data can enter once with linked supernova IDs. Brightness constraints estimated from objects already in a cosmology distance vector cannot become an independent external prior. Supply joint design/likelihood terms or a disjoint sample with declared overlap.",
+  "identification": "Fit separate within-bin host association and between-bin residual luminosity. A free grey B(z) is exactly degenerate with the SN luminosity-distance relation without external restrictions; quantify null directions and conditional profiles using real observed designs. Host age is not progenitor delay.",
+  "redshift_bins": [0.0, 0.03, 0.06, 0.1, 0.2, 0.4, 0.7, 1.2, 3.0],
+  "seed": 927081,
+  "output": "Reproducible acquisition, observation/chain interface and overlap ledger, numerical identification/profile checks, explicit supported and unsupported likelihood operations. No asserted empirical cosmological correction without selection and transport identification."
+}

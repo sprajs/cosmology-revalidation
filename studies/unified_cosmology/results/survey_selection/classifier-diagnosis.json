@@ -1,0 +1,35 @@
+{
+  "status": "observed_classifier_inference_reproduced_to_release_precision",
+  "code_sha256": "171a6689943e0a5154f695791911c26d394963eb26368465226a8d6dd0a5a068",
+  "source_result_sha256": "a812a3c7bdee529560f79aab10b9a37fcecfa18432d7446cc4700b50c04223c2",
+  "all_released_objects": 17733,
+  "nominal_rounding_tolerance": 5e-05,
+  "additional_float32_allowance": 1e-06,
+  "combined_tolerance": 5.1e-05,
+  "native_max_absolute_probability_difference": 5.0110626220734034e-05,
+  "native_rows_outside_tolerance": 0,
+  "baseline_rows_outside_tolerance": 615,
+  "original_256_mismatches": 19,
+  "original_256_mismatches_repaired": 19,
+  "baseline_gate_disagreements": 35,
+  "native_gate_disagreements": 0,
+  "peak_change_gt_1day": 2564,
+  "largest_baseline_mismatch": {
+    "CID": "1340917",
+    "released_probability": 0.9983,
+    "header_peak_probability": 3.74274532077834e-06,
+    "native_peak_probability": 0.9982910752296448,
+    "header_peak_MJD": 57319.2890625,
+    "native_peak_MJD": 57372.07421875,
+    "shift_days": 52.78515625
+  },
+  "interpretation": [
+    "This verifies deterministic observed-data preprocessing and inference with released weights at published probability precision.",
+    "It does not establish classifier truth accuracy, CC-prior population, retraining under new physics, or the selection-conditioned cosmological likelihood.",
+    "Peak estimates were generated from published OPT_SETPKMJD16 and PHOTFLAG1016 settings before comparison; no peak was optimized against a released probability."
+  ],
+  "inputs": {
+    ".work/unified-cosmology/survey-selection/classifier-full-design.json": "cb5b67fd59273d2303b2793780a5304cdaa5cadaa9562a8c82efb968effbe5f5",
+    ".work/unified-cosmology/survey-selection/classifier-closure.csv": "abd572cd96121cf8f572d7d1dd621c1a8475e76f978f9bed832516115341897d"
+  }
+}

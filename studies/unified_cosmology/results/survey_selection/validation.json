@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "code_sha256": "edd27a1d3bc9a07ba7850242f80452e53f1405693bb2250950fdbf73fa765ca2",
+  "file_hash_checks": 10008,
+  "unique_files_hashed": 9963,
+  "failures": [],
+  "classifier_recomputed": {
+    "public_HEAD_PEAKMJD": {
+      "rows": 17733,
+      "within_rounding_and_float32_allowance": 17118,
+      "classification_gate_disagreements": 35
+    },
+    "native_OPT_SETPKMJD16_PKMJDINI": {
+      "rows": 17733,
+      "within_rounding_and_float32_allowance": 17733,
+      "classification_gate_disagreements": 0
+    }
+  },
+  "scientific_boundaries": {
+    "released_distance_joint_likelihood": "available; conditional on released upstream calibration, bias and contamination treatment",
+    "observed_classifier_reproduction": "all 17733 at published precision plus stated float32 allowance",
+    "full_physical_joint_selection": "not closed by these checks",
+    "DES3YR_spectroscopic_alternative": "20 released likelihood bins represent 329 observed SNe; 22 of 207 DES objects have only provisional SNIa? labels; historical model conditions retained"
+  },
+  "source_sha256": {
+    "studies/unified_cosmology/code/survey_selection/acquire.py": "318c55390ed834fa455aabb84fa34dbc13bc66f455bd145d2dacb706b9e347db",
+    "studies/unified_cosmology/code/survey_selection/acquire_followup.py": "c35bcf7cf3ac99eec32280d04e491ff111cc6ee587cdb39d5516c6d1dc9bd1d1",
+    "studies/unified_cosmology/code/survey_selection/acquire_processing.py": "cf81ea6acf4264e1066f004ec1da3592415089f2b174166c1678f1c60b4e3e49",
+    "studies/unified_cosmology/code/survey_selection/assets.py": "2cd5fff41d7e14a74750b2cd2a6d64e410bf2b913c052e824d2065528ca59223",
+    "studies/unified_cosmology/code/survey_selection/calibration.py": "5a05885ef8e70eaf7eeff95673c9cbddbeeb68f8374cccc546142b7e4c5f37f8",
+    "studies/unified_cosmology/code/survey_selection/classifier_closure.py": "b29e8e70d0b58e8b54dfcb1199cf64d2ad16ab513584bf4039e2ab85b0a422c8",
+    "studies/unified_cosmology/code/survey_selection/classifier_full.py": "1b9ce18d5d99be62128b86e9d3219e774d8bc84bd9a3c6b9503513c21a51882d",
+    "studies/unified_cosmology/code/survey_selection/common.py": "58b4e433698d55a9c061da411998a91a1f69df89241f9613f61e16e795c5e90c",
+    "studies/unified_cosmology/code/survey_selection/dataprep.py": "ddb2f8b2d59a25f41297fd29d539a07851f6699506c3234b2e341c42364d73a3",
+    "studies/unified_cosmology/code/survey_selection/des3yr.py": "5d6f4106fe8a6c813d93afb9555fa8c4bb136486cab061ed71975ea2713daab0",
+    "studies/unified_cosmology/code/survey_selection/des3yr_checks.py": "8aa0987335c03cf0ef9c3447edb17079cadff8e2a5eef5e650097fa2d4e32f7b",
+    "studies/unified_cosmology/code/survey_selection/des3yr_likelihood.py": "ea6fab00fe4dd8b181f3ffddfce5aa5124a589faddcc27e633754c755552b283",
+    "studies/unified_cosmology/code/survey_selection/diagnose_classifier.py": "171a6689943e0a5154f695791911c26d394963eb26368465226a8d6dd0a5a068",
+    "studies/unified_cosmology/code/survey_selection/dovekie.py": "96541c42fb4d22c84108de42eca8fe6438acc8a818bdf23a8c6d56115c2e2e24",
+    "studies/unified_cosmology/code/survey_selection/observations.py": "41603faf503b5b110a9f6e1c6fa3ac5fe9017a647817761b701d2b45da615b1a",
+    "studies/unified_cosmology/code/survey_selection/ozdes.py": "08d9c95f4b2cdbfa68ba5480feaba7849007343666870adefe909f7fc512cbec",
+    "studies/unified_cosmology/code/survey_selection/prior_classifier_audit.py": "4c7d5d63a2a16846be077bbc4950018cb02afcca54488cf30a9d946ec2b90f84",
+    "studies/unified_cosmology/code/survey_selection/review_geometry.py": "b6102420e09e7826564b8fc259d3683990fe5a863f706cd0acd7ced8541b2033",
+    "studies/unified_cosmology/code/survey_selection/validate.py": "edd27a1d3bc9a07ba7850242f80452e53f1405693bb2250950fdbf73fa765ca2"
+  },
+  "documentation_sha256": {
+    "studies/unified_cosmology/code/survey_selection/README.md": "ad74c36479379b9d96d5bf18a81bc5927b609f544458793c0f0ac186af3fb460",
+    "studies/unified_cosmology/notes/survey-selection.md": "2af58049c7025a3818f5489401ba0b2c8e0433a62e4848a54fe00f28d1f60202"
+  },
+  "result_sha256": {
+    "studies/unified_cosmology/results/survey_selection/acquisition.json": "e07f75892dcd4e27ff3eca1ecde177b7b8d064b50235c30f9f39349bc51724be",
+    "studies/unified_cosmology/results/survey_selection/calibration-registry.json": "d6624dbcf6ca3f6ed64af3b7b25db7a67b4c822f9bde75ecf4a3fb8b25bb09b3",
+    "studies/unified_cosmology/results/survey_selection/classifier-closure.json": "193ba18ee57130681defb603027fd28ffb7232d00a229c87d3d9e65fab5cc768",
+    "studies/unified_cosmology/results/survey_selection/classifier-diagnosis.json": "ef6bb1c91a3165908aff9453a9b50533039eae8c7e7a2e97db38ad6f0a0084b1",
+    "studies/unified_cosmology/results/survey_selection/classifier-full.json": "a812a3c7bdee529560f79aab10b9a37fcecfa18432d7446cc4700b50c04223c2",
+    "studies/unified_cosmology/results/survey_selection/dataprep.json": "78205c870398ea3d292e88fe100b1e4905dcc2c54ac901b73f0c7499080e210c",
+    "studies/unified_cosmology/results/survey_selection/des3yr-acquisition.json": "7e42cdb547c6e3efc12e57c27a3eabbd988c48987569ceb9b8bf92f878a3bbc2",
+    "studies/unified_cosmology/results/survey_selection/des3yr-interface.json": "17e62afe8e36c5e41be1493c72e9311deef0fec52a237845b94d5497d8bbf861",
+    "studies/unified_cosmology/results/survey_selection/des3yr-support.json": "f8f0218e82433cd5b719a62afc2d21c4818a1a5f9af896e9e96003d1e007cbb7",
+    "studies/unified_cosmology/results/survey_selection/dovekie-interface.json": "bd038b89bb18e4a69acec1124328f2e36ff83457b4d9d104bd3dae6393227a6b",
+    "studies/unified_cosmology/results/survey_selection/followup-acquisition.json": "4b30fa8bcbda8cc4b748f5bb636cef60a35b5237b26503a2915daa57e498cb43",
+    "studies/unified_cosmology/results/survey_selection/geometry-review.json": "df8d802bb7db17a1362a4b10d0b1210046c73e00a896f2f05e4e6a457a756961",
+    "studies/unified_cosmology/results/survey_selection/native-assets.json": "a22cc5b924883c130f5f702b2ef130e4344dfe83962c4f5fd9e2f4099dbe68f5",
+    "studies/unified_cosmology/results/survey_selection/observed-survey-checks.json": "fdefdd3b4565c7330769f9d2d534dafe5146693dd2a6efe2046735fef74eb3ff",
+    "studies/unified_cosmology/results/survey_selection/ozdes-crossmatch.json": "6d13ae479bd68a1115a97fc4e155bde0039ed2e790d78d04bcf1c4706eef4e16",
+    "studies/unified_cosmology/results/survey_selection/prior-classifier-audit.json": "dd4ca1d97f4da8e23e81ba138fb373e175accc0f0824a532a1f2a5ad496e9eee",
+    "studies/unified_cosmology/results/survey_selection/processing-source.json": "01d03d123f826d4c0fdc3ae546e8c3c38c9be8e1b6e8dbec130021310c108bc2"
+  }
+}

@@ -1,0 +1,957 @@
+{
+  "completed_utc": "2026-09-27T10:08:07.731372+00:00",
+  "status": "recovered_observed_photometry_and_joint_model_conditioned_posteriors",
+  "code_sha256": "fa36f54a5962751e74dd440c248e8c702a31debe43c0cbf80167a2ad6e2dc1d0",
+  "inputs_sha256": {
+    ".work/unified-cosmology/host-likelihood/frankenblast_spectroscopic_SN_sample.csv": "4738720302b4d48857db6e1a4f86eb88a22a10f3e6c204c1267594f9d2f6849f",
+    ".work/unified-cosmology/host-likelihood/frankenblast_SN_sample_hosts.csv": "05496c17eda7a6e7c637e9b06c3d13f56a9a2785b08c743c9253528f03cd148e",
+    ".work/unified-cosmology/host-likelihood/spectroscopic_SN_host_sbipp_output.zip": "3dbde9f97bdd149685d6d693106974b10084056507972e227592be96ac0a789c"
+  },
+  "source_sha256": {
+    ".work/unified-cosmology/host-likelihood/frankenblast-host/fit_host_sed.py": "f3c40e5630b4562a23fb867e2cb864bc13e6e7e2f2793315b40dba1e10c10095",
+    ".work/unified-cosmology/host-likelihood/frankenblast-host/postprocess_sbi.py": "54b5fa1b83ce898dd73067e82749aeb9140a7fc5dff962ce1a5cdab85b83d879",
+    ".work/unified-cosmology/host-likelihood/frankenblast-host/sbi_pp.py": "424eeb5dd2547e85d1931c1b5ca7374b0fff96507c1b5dfec49651f27cecf24f"
+  },
+  "outputs_sha256": {
+    ".work/unified-cosmology/host-likelihood/host-summary.csv": "ebb5cfbaafd69db2e2b76cac2a02273fc43f85dd97d542946e702aead237dc89",
+    ".work/unified-cosmology/host-likelihood/host-photometry.csv": "04590c7e861bf24ca77b9b2596d5be7ea39eee6a4a9aab62d3c861b9d27a5d75",
+    ".work/unified-cosmology/host-likelihood/yse-host-crosswalk.csv": "116d12bf0d80fee8a214d5b4a67babfbc0abbe6a23307f63beea7ee7420f75c7"
+  },
+  "selected_draws_sha256": {
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2019lbi.npz": "d7005900e316f1b4951209e0cfea7e9af4d843ad14a3d356c0daebf2cbfb9108",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2019pmd.npz": "8282a3f7efa6083361bfb7a003a315e3eb2d6037585fda6d0dbe73b7cff574a2",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2019ppi.npz": "34732a91d7991131ed1e6606b34ad62f687a75a113585d316f61eb8d5a756483",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2019szh.npz": "645ece93cf04e199e8e27af0fca827fcf5b7ba4c71ebf3cb71977d96255c628f",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2019tvv.npz": "9c480dac1bfabe5d098b63afc0cca188e96e68c1d173f5c963e4b487e0c0d61d",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2019uez.npz": "a4cde6e52f7dafd530b6c089c49c2f1fd51da67915e012f3b0e7e5d9603ecd91",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2019uit.npz": "b5c07ba36d8ad056c32ed9d3d9fd02ea85bdd44f2526574b0341afd831dbf90e",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2019wka.npz": "463a2aeda07b84b05b50627c493acada3f25edcf01da2676648b841074f8aec8",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2019wmr.npz": "87ab8ca3808489debf97789a8c20e923947f341750f0223b6f653153059d6d30",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2019wqf.npz": "bc4c6a3e35a15ad77cb792854ff30288050b59ef1c9c3812b91a7d4720a127e8",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2019wyp.npz": "0819107de08ac9be56fe87454e79585670de25045eba165f82f22fc98be8147f",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2019yuf.npz": "7942c02b76814ea9ef740e5a0945879917a502d16dec2c4a9dec026706d14111",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2019yvr.npz": "8d03845619d2cc70c84771a4edb4900eb7f7687418400ec00c1f29e2e9a701bd",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2019yyb.npz": "a85798af633d29ad3cb670b448397c0ab1cd209f53171330ce5d7b466e621c27",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2019zfv.npz": "92751fdd54898edb3db324055fbe3e2872581dbd7c70bcd30dfa0264614efb0c",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020aafm.npz": "b4b406d42375c766367711ad265017882f94a080f646b8f052418867704ec99b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020aajf.npz": "d281c13f48083665608e04b407e95b40cdf56a585b5aebd97b3dee00a785facf",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020aavd.npz": "07cb33d557da50d8016ec6becae57e3f3bcbbba39ef02182e245a9cf5b2fa03c",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020aazk.npz": "55b7cd17bbd83541a0e27738a199a22b2c116c1fef8a457b11760a08051d2d61",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020aazr.npz": "cad28f177f36a03b03718017938eba14d3061edf1c6d1edf7f2b4e399ffdc342",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020abah.npz": "2ef83994f3133fee98722aa13005cacb74a4d7f48b05d035ef93f10a41f2c833",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020abcn.npz": "cdce90eea237051cd2e0b614551b51659704a89954904eff153d9292436298a3",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020abim.npz": "04eb00a8e0376b972fa7bdee8135082390e778583c7ed3503348b5ce16f73972",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020abip.npz": "25287a85d41fa8cfc2257238f325883e72ec44c6e455a93f1c95a8c0916157a0",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020abjq.npz": "b5462a961d77e29febd22c8fdf881200074bb93e42451e23b5b40b341c314032",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020abkf.npz": "5dcbd1601f753bc046a8eac552977db46653a6973facad1771614fb35c1a3562",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020able.npz": "240976614e9d311691c37d43b2445e777df8ca0ab8b3731e51931be71babdb36",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020abpt.npz": "2ff43c4e513821feafe3381e4f51ac1914da3c5d999b997d40ec0b195374cfbf",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020abra.npz": "f4d73ac66bb10d5496b12845c11269d31e1dd1eacfa99b345808de2099bd18ad",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020absk.npz": "483c2260816fa05a4d0f4f392bf470130ba7bf05efc1a54efaec999d5fd27100",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020abvg.npz": "8b66d46703959c1a4abc55c631dbbacf57b3f973e97372a2838cfd68555d652c",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020acct.npz": "60163db128df8f82abe20eac51df720fbd45b421cdc158417e2d59e1c388a937",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020aciz.npz": "21babe214a957b64db0f05ad58782bd67745a86dd665372965c823b412d1bfb2",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020acjy.npz": "1edb200a6e375673e919546e6f183e0d68fab636b88c3739eb3a1fd668a4dd6a",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020acmi.npz": "24ce3890dcb0ba39cb8751005e81612df4beecbd5a91516473c3915feeac2408",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020acmm.npz": "27d62206cf92844aa7e55fadf933b160c15e72d63f3121bb4f28ebe80df13146",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020acty.npz": "09426349bf2094e4fe409fdabc88d1d7d13042288d77855b3abd58185ea2c192",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020acun.npz": "0291b2301320e82d22543362e8dd260503451a281d1618efaa37a0bad68001d3",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020acxb.npz": "b2306f2c1bd7b75a27d9cffba06f94e7c686171fe2c90708eecbd83b21326765",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020acxg.npz": "1050fdfc2caae00354f9241071c7c8f04cf251225d97ab2f4dc70b06b5416af0",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020add.npz": "919a864154434496aa9a5fbb615d7005465f74fe5d1b30a1ed8d5194c9d2a2f2",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020adkc.npz": "2120e330be6d8ce93c3c4e2898e8d913b1b3d85e43baa7429bcdc016bd2a8c5e",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020adlp.npz": "e112028110e79bc2e72073a82664d2f6b6d8df5a71b430f55817121080a3c0ba",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020aeeg.npz": "5c22539706e0ff671d204fb8d7c1b9fdef213efeac72766aced95bba05662df8",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020aekp.npz": "e42de7e8ab0d3f77d23b74a000a5374b342525c7124d16d24fb14984ef8469c4",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020aeqm.npz": "10cc204c6304aba7d38f0bcc953da6975bea6ce1a23493410a49c65e1319dd3f",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020aeqp.npz": "724d93613ee1bf9510c2df23c301034876802315ae059b57f32adfdb3a320f15",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020aeqx.npz": "d11234bfeb78c8b85e14550000f2af8c35a62ec9b12accc913eba5d477de884a",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020ama.npz": "dcb36c179a0d73f81a73dcc44b7954aeef71cf14060f76da81930935b098f7c5",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020ann.npz": "9c3ee8889161962579023e49f67da25d3848f198300e4824143bb35394201159",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020awg.npz": "4434cf29c04a90f46f4382a270ab89da38b6a70559192d61663dee9bebaa1b87",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020awu.npz": "dc52ccd2d4973c3c47ba65c4970b16bb6bbbf4767e3956abe250c6bb992fdb87",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020azh.npz": "a275244d8cc89a8b08162cb7511b50b4469093505d487796d00817bd1fbcb72c",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020azk.npz": "d128548546fc54ef69c2cc1c64ce483fbdb9e38b76921795d3d44e3fb9699dfa",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020azs.npz": "c806cc3863a6b8a1dffea1fca4c12f8aed28604a2bddb3ebe35ec50d4d49ceed",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020azt.npz": "673c5e6fe34a116544936fd263699562c3952d3c82648db67ca1c65ccaffefe1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020bcq.npz": "42acc5706fc9af95f957e8adff0637dd5350e9f2227fcbb21cf6bbbdce161385",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020bwr.npz": "f3a4cd10660d3b0d725106a8a29bc0eae0d0b58bdcefacda17984933b043ea88",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020cyz.npz": "1c8edce71e18d8981252e6610a648f0f9b37be0aabdd1062a0255e627f103f58",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020dbd.npz": "26738cad0f3b160f4e686c4716e3dcdfc536364ec1b3d3e771a367fed8af9725",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020dow.npz": "b95259c61a8cb0a163d041f0ecabde192d9249877ddf3e2f5a0d23ab1e864c5b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020dwg.npz": "404cf8f8c9ecfab685e3b9553f35ba26537ea2dc6f97e1a351cabff39ba3917e",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020dxa.npz": "387ec6fcc57105b3730e7f3693e1dbde7285bba88ab7a4487cf07ab21b3e3ac0",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020dyc.npz": "26fc26b2aeefba8c72eec8b2e9ab30d3182eae623db6e1eebe7f717b9ccc4e1a",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020eaf.npz": "c70714bdbbd2084327497fb9d878ad0c90c7c4f30ab464fc7fa9bb2c12058cdf",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020eci.npz": "22004c51e1c489bf18c7afc11fcffeb2f2adc1d24ba17283c1a6756bb8182d49",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020ees.npz": "16a911e7db6ddaf067b07b4f8361761cb992a95ee7507acca1aa4ced366a8f94",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020ej.npz": "64de8bb052963544e0e73229c955628d580f367a50573b3fe7ef9352c897c466",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020esm.npz": "0ad719d08f47fa20820fbb7d265d1fc7eb37e74ca5220acf516c8db9b04a7a4d",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020evu.npz": "332fb60972ce1b33482c423540b75027cf0e420a65c59f9a67bc1ff838399193",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020fc.npz": "7bfb26abde451280bf7108132ba5a349d5070b7f9a51d4d033b1234377319f26",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020fhj.npz": "c7247697a3490a608cf2bb5099c4c18cc16a74004b9a2c91f7aa8531ff00ae85",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020fhs.npz": "57a8ab3c49098069dea3a78fbfed2a4db0e2955c053434f74e6a00b4e5d2d481",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020fqv.npz": "bce4e54b8767acba467a4780dc9a1239042afd8151bd836ef7c7602449e5ee4e",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020ftl.npz": "0d07f69444bbff0c71b355d38ac60bddb9ebf16391f04c2c030eb2d3ca4c6c45",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020gcv.npz": "58274455dbfbf12049af156c9909e80f19618992388996dc62509f30a50d97d6",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020hgw.npz": "1a1fadab7afb1690ff7754f41c83b4f559e7fe1431ec7b59e83f06b019159226",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020hr.npz": "e9d1f8033af22ea090471bb8bb22fe6788b989ee355fdb2ddc1061e6523f9e63",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020hrw.npz": "9a77c36fe25f1ecdf2cbf9387581695b7d92d6d76f9cfaf439db4dedc4748eec",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020igy.npz": "738610004395e4be73f3433e583a18de4cd11c9930d626380cc23ea7e8af8282",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020ilb.npz": "6f389d09688854cc7612f2b39259253720f4572b6e8a96ee79a55e1438f939ed",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020inp.npz": "2d6ad02351ed21da9411db8d69332053a27883a395575df95cce292d3c1aeb4b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020ioz.npz": "b9bc10e1a60ab3acc11e328d515e16e144aca04fd12420528f7d1ab76e3de0b1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020ivg.npz": "e2a5c46f3e387f625987f2697fe9afeeb344b15791fe2338472a9fedaf98e553",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020jfo.npz": "27b7a7a348a7d6795f30ef207f2299cb75d504d3d4cac4853326e3639434d64c",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020jny.npz": "e643c8b0ddc31b9353d0569125082cf8a2f5170978311ccdea004b0b6aba047b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020jww.npz": "9ec6052e3e09115856bf593832256baad56515a7acd778bb94099bf012f6aca1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020kaj.npz": "ba29250ff79474aac9c3a9a4f085070c88b267c2e6afd6ec9fe7c63f3683eba6",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020kbl.npz": "99f38420549db29255d36d5ca222e1b58b4ca7531496ab5dc088c7abee47e093",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020koc.npz": "c1c683494aac256f53305f3461a9eb6bd392df6ae8d3554451381c32e357fc53",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020kpz.npz": "fb26a2fd42db2ffa3bcefcc6b4cb69898826ed6c1b8da3acb1b37bf63d84ccf1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020kre.npz": "63a7db4e16bc132e80907e0d7da6c4ef90172edd612a588605e8f4bda3d9b8a1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020kvl.npz": "c55a83ae7f627079af11691a54358de35b77e0bc6c114d50cc03742809703b21",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020lbf.npz": "9ad392a6ed33a0cc46bad540d7f640d5b96ad9229367d0bd831d41be32a5b651",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020lbh.npz": "f7a6eb7d247d52a28aca614cdd437c0bfae3d791b1cb7df1b69d22e2bcc9f0e8",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020lfi.npz": "e9c782ee32fb7d57c8a95071fa7934f09939ed0db8933b10a5e337ca59ce7153",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020lht.npz": "1cbedd42f2cb996c4dc48227782b10b314de422414d09cc90b3822f3efec838e",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020lrr.npz": "097ebe0d5fd0be339b4895cf870e50b4731e7a4fb3f4c7d4c127e6158e80be78",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020mks.npz": "b8958cad272f57ed56853e74cfdc949b5e52ff560342dad6e8bc44367408f765",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020msu.npz": "d62c564fe74a4e23a17823a8ad6c602d2e42ecacf5d15f034eab5d5ac354273c",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020myi.npz": "111e53247480dc85e29f88afd54b10e5d434f3bbe211b4bdea41adff98c0159a",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020nbo.npz": "d797c2d7e33e27e11dc9fced2e72e3518acdb24ef0881041a57f9c107835b7dd",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020neh.npz": "2141ba5f6e8d71c23bba21c0a4c7bac1a8aab1bbbbd11f6328b1cbf7d1dc178b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020nlb.npz": "9d572fbe7113d8151a2809c66a4f50f86da25f202148499e3065c5ed5c6e3c1b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020noz.npz": "46cd3f87f4bc7fa81f2e01c17aff1ad4a0b9bbbf461a996bad201ee072a7dacf",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020nva.npz": "89b5af6858d598527b32f5a598081afada8da829bc501a01f5899e6c3a1ae072",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020nvb.npz": "268f56198ff60550f6b85fbb4e93cb24e9b36f5cbaa2737895a46b89b98d8317",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020nxt.npz": "c99f48b945bf990483f33173e0ce6dac8105cadaa6378172d437912ebc24074f",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020ofw.npz": "86cad7a576634de84632446f7e0ce98ef95a628f4b232ac306c9bf51dbcfeefb",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020oi.npz": "97e3a52c6a7ffc176e31859f306e36f68b9faccde936780416a9e72394c16b2a",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020onu.npz": "bd144906306a9de519d41dc0a8d2556c9a288ad3bd99e360249435ded39a1132",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020opy.npz": "fc35b01440fd1586074450e761c299b1104e0bc7e3d58ea22e0ba69bff91d9d2",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020ovk.npz": "5b7c61beb769b0b4bb26e2d4bf154f4a2d52695291316e23e4685e00acfaf04a",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020pf.npz": "4061404521bfe30fc9f07b31b929faf737c4f01312058b0a32acd57ee18dcd5f",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020pki.npz": "d2fba78f3e293c22682bc6e04582c81e5b31e88af497da0692aa9f3d454456c7",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020pni.npz": "fe69ffc241a2647b1c22be67cefe22ef710b32e1d0043d072de9f9669c306c35",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020ppe.npz": "48546217f4cc42e5c13be02b9a2ec2d8c0764d29f957059ebda52831bbf751ee",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020prg.npz": "def24d210b0d6b4aba9c68e72623f829df611f9ad0eb6ed38858a9c613c35281",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020pst.npz": "8132d018b7e8ec3420c34449408def61ccd8f9ae4d10a12eaba090a3e9ac1e1a",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020psv.npz": "75f928dc230028d420b97053fc25b561cc09ea94a0d1ebcb694fbc6e074093b0",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020pyf.npz": "43463036c35ff8bbae5b66f786befd36b00270125d570a2e7b5f0886a47c9528",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020pyy.npz": "785e45a2a1c9af91ccac6aa083a09d77b6efa2c23cec6203079a12de6d0b59de",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020qbu.npz": "563c8b3ed4eb5a078fef10261f4dd8e8b30528e5dd669607ad7ad2aa065dc0d1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020qkx.npz": "381a3cca1969b3407874aeaaa1605d7b2f19fad424a0427092055843a9c8f0a1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020qlq.npz": "150c8acf1382ac2b319ee9afe521e19ad6825f70462afdaaef5cfb80dea429b5",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020qmj.npz": "caf87aac132e586003cefa0eab943d2540bc4d0767201d07965054a4e4f0ae1d",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020qmo.npz": "2ebae383cb947e6570b1256cf23241cb17e48321b1bdfcc7dcb88dbc48e46c38",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020qql.npz": "fc614fa8bca537e27ad0648f9fefb0b8e79ef826a8227a350e85957df45299ef",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020qwb.npz": "3c44400e002c8796a58e537f428e74163fd93cfec08ce6206f7c9dcd327e5942",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020rdu.npz": "d5369c76ec76480844f3d8c0ebbfc91bbd7f297d99126884b653cb8b3d0ba8c4",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020rhg.npz": "453ff66ff098074dca885600c7b3499a53cf0f90dcc62571b4e830517c9cf8e0",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020rii.npz": "d8102a64280726bac88996c1ad1fc8cfb6f3a53a80550bd133845155305cbd3c",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020rkt.npz": "fa096f81dfa903712b8e0f6341380bafc59196a4a494decdb50644204682ab2c",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020rmg.npz": "ff7f4a371ec4ae31304398c0987f6571377ea963e8023204857ef4a461e5a3ba",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020rmy.npz": "ad2eb1b19e353520262cba38007318600ef8071e1d8c97632493f1a7890df1cc",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020row.npz": "481c4ebfe61deb81cd48bb9182fa3560068f8bbf31a8ecd2ce53ee28ea2a4a67",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020rth.npz": "41b7f55850aaa8764f3d90187735a002f9e47e0bdda81f2bf7a5a566081ba0f6",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020rvq.npz": "61a95bd9fef817d763d2b7e1ebded42f52d14b6ed5ddcb9293b698caeff02593",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020ryb.npz": "90b37200051ebe49cdd3fb0f6c4725ad38e77250f2ffcdf24b2320d5f09b339b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020ryn.npz": "e147157ba87363fcd3806082771ee16c4058da9a35d10a7e4d303d5f8c5201d0",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020scj.npz": "a42d18600c0f646f983b1eb749fb08b9afbd5af2ef0163dab5974f7eaf0f33eb",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020sck.npz": "dd60f878fb40f72769c8aba34511a007545949fe49fc2fa4019330ca3cddb3a7",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020scq.npz": "b8481620fe6ec194526cbc1c7fa98e99cb43ddd5e1f6073f43f09618506a3fba",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020sga.npz": "b796b231cd03a40c01335e30ec615c9901b0e8e52e727834e22c411d2fa8c09b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020sgf.npz": "aa43112b75fa80c5be7bc52a0d9f0e6a8cb920f914a0180a8cd9e1449be93819",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020shf.npz": "dba3822bf6a7f8999d17319783f47c518fb535300fef716f8b1622341ce4393d",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020sjo.npz": "363694cf013affaf051974deed5a5b5e2670e6a9f9fabd05e52795736fcee6a1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020skd.npz": "ba09af90c0f5771a25036c83526518a591a5910f6e8e2f7bcc5a56e1d83417d4",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020skr.npz": "f47dcbec5f1a32a20cd4a4dc6c4a8aa5dbaab048524e1ed13d4f481189e3e53f",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020svn.npz": "d0d62e2ed6daf4e82033be476b438f04db539a3df63bbf5c15ae4ed401fab7d9",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020svo.npz": "569576b414a0d25747786f823f02a462835776f4425abe3855fdd3c5273d9d55",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020sym.npz": "0a2d5004ce5272ac440f45d5fc9a62e5238518c9badb916209800841d09ad330",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020tan.npz": "05a1c4db315b1dc89f4d602fc7ac4593e79a714451e47851b7d91cfbe1aafd12",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020teb.npz": "cb74dbd51d36304dc0ed7cda13e4bc493c79fb59517cea5461812d5aadf89b92",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020tfc.npz": "184ee5783f4743e5ba5425443d66766c189754cd5f0a4513d562ea1695807d43",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020tfy.npz": "086c68548af6c26c5e370ff93fd348fc3aa57422f87957e951b298d9bc745f9b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020thx.npz": "36fbabd87e87c5446638f7e22cbb9d172d4fd77b73b954933af608909a680699",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020tip.npz": "389dd4d2b519880d82e43e270b840c0f18f226e07f9abeb3cc81cd9bbb9927fe",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020tjd.npz": "c301692d7f7d824cbaa00735b1ac9d19cae68f1fbe8f9060e2facd928a0083ac",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020tkc.npz": "d01c1d196abcdf84d9667a5fa502d7785ecd99690d0e92a285a4acb7edcf47d1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020tlf.npz": "c854c425b72bfcf035ebaf9f6608fafd50ad38e496ccc52b62f6d72813b30d8f",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020tly.npz": "2d1ea54a130f736a0963b5043ae6ebb289e639cfa8fe8a9c26567cc95164dd0a",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020tqz.npz": "8f90dabaf417dcec5325b370574fd2202bb3d8e4bb922f10d140f33ec72ee593",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020tug.npz": "096e192b5596f628a6ca4e529460a7e6a5c0d6b1bc5960872526aaa2f082e46d",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020twp.npz": "dc2507f3723d87c0df3fd8b38f57c947ceec6800a204c06e72bf032f1427321a",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020tzs.npz": "2189fb3cce0c02a12acb5987109126ea4ea64bac52fa43f01be36dea41b133ea",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020uaq.npz": "160fc3b268c3fe3891609343d3de51e5bd47621d375e04bf828c15a839fb5ef5",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020ue.npz": "d479313ff4d17a948c2cbbc34d2645aee0d7fa93a76b1975e0416e3fd498668f",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020ufe.npz": "448ec549a61909802bbc398e5fa90522550e448ede64b39a703f7415c8744c05",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020uhm.npz": "1791d3f056066ef37c85856704ea8804993220eab62660f0f05a3009c085e3ed",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020ulf.npz": "0df342d30fd3150e7aa96955d4f21ed02c7823325e76ddac7b1e4f4299b50822",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020ulz.npz": "35dc49361b86ac6fdf7801b82e1f6bd575eda65d0217928abbc6e427956f327d",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020usm.npz": "748a39ed58f38c7a7bc3c561fecc5c762b66bbc4933bee5d9ffb53a9e0ebe5c5",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020utm.npz": "844f01fb4d6526a39f7ebc911df206df0910d3f1bff32706d8acd19792e90020",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020uwl.npz": "861cde6d782d7f9d3c195f2549ec40797f54a0ddf45b5bde01ba6afdcd958fb0",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020uwr.npz": "e7245ae5c85af18c38767b7fb4c89021f5f62d60c8b692e2faafde7829a56fa8",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020vbj.npz": "76e0978944ed9d3bb66a8e968e2d5597098a6b37601185c1f672a589bbe48ae8",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020vbs.npz": "1e297d0c2514a028f310b9118250f35bfa625f6e7368a44c86a024f57e37eb14",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020vdk.npz": "68ce0f043d95195e7715c83c61153e76554ab55e89efc5cfab3b1cc2bca0d8a0",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020wfg.npz": "6a6079f31b65d04dc333b03e7acca16ad699e421e2a0d61cb3d97ad53a5e6737",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020whv.npz": "dc59393ab5348e4741e50e1d519587c25babd31dcc89ac3f1a90c5d98c7ab20f",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020xoc.npz": "50d7b3a618851eff17d6ef2bb5e0b0f2ed84e1945560cce25e1a779cae9ab3d9",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020xqb.npz": "e31fbdfe4dd48d7b5da3b9f86d3b3103cb914dad8aa9480a4cd4a635a72a660d",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020xua.npz": "15e03bed3fbc42ca652525fed33b529a9932aba3c1853fb8aebee9bfa23b60b3",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020yhn.npz": "5c368b998a8a391b7a9251081849b8d1345624eb210ead8e0811186dfa4fc4ec",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020ykb.npz": "fca19e36d7615778968c0cd7e2d27907fc03562062d2fe8d10de6ba21a903bd9",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020ytg.npz": "7fdea7bb56c93d9114c3dff4013d9ae7b649fd98e1147b2ffb2014f45f6411d6",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020yza.npz": "fddc0cfab3f7e5209bb551f16c9c6a71f531531ae24bc033288523723d2cb400",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020zbr.npz": "23f19a8954f261a0e12abdb6ca8357299f65fa019a76b4a164c9a8d1914587c1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020zcp.npz": "3c2a1eb9543e25c85a70d5d4a8710fcff230a7d94c157de4c8a4f24c7e78bffc",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020zfn.npz": "88a843dcc5f36c0279fc67190fb4032ed3070168b3fe8a469b7e82e51e433f0d",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020zgc.npz": "a8afdc3b2c9d7ac8aecd803ecaaf12ccf33b7635494b27b3c63076257f482d6a",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020zhh.npz": "1e9d80b4c886d88b400c11bc8e934ccec242392329381b945a3ed4988a424900",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020zj.npz": "be363d3cb529aeeb8717ada0298a59eeb3d085513e4aae234e0cae7281965d2e",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020zjo.npz": "ccc53edd373a783d383bde0cf5dc6154ca5ec72b3d0dbd547d0598c0d000b1bc",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020zmn.npz": "93da1e708c390c2b54551742b45c2c7dc88232d56b26e41453f1b56724bb3e2a",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020zpi.npz": "71ff3d130505b6d59a75e0630ed726291653068cb9a434435c4764ffe406fc26",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2020zx.npz": "e54baaafbad97adc6f3e53e7e0848c5f3127207fc2b70053c12fa83c3bf30b5d",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021J.npz": "8233a9793e6addf99c076f8f3bc84e7d25444b99c01629d0c20825f32c5529de",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021aadc.npz": "3627251a3a8c06ea509f3b72c3fcc4014e1a0295a5f092918baa619c0c606b10",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021aadd.npz": "b1c1346c43cea24fa912d58f8ef9ba978abda4cf07cdc1c2ac8c10098a6bfdc6",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021aaej.npz": "248891946f9b6d3e4005ca368c80cdd73d38c1a4d03013f2de7a65fb9ef0c922",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021aaez.npz": "c77ea44abbe3450fb7ddf82b2ddb6b606ae76cfdf363bb33599f054ca3550b14",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021aagz.npz": "f52327077a6970f56bc530f5a0b74f010268142988afec34a0bc33586f6c6331",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021aamo.npz": "f603615de199761573444a661f7b727630d75c4ce5ac2f0d9b63b2fdbafedfed",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021aapa.npz": "50d294749f42689c783bd0173f0b0bd866af3c807cc89e8b0e1f4a8cd3028cae",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021aaqg.npz": "df45936880b17b150bc5bdfef843cabdf59d112c37ca8533b96dbfaf2826ca92",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021aaqi.npz": "de9bae5e93888fe4db48a3625445dcc5c4432d022bad6f65bdc98b86421cb3f1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021aaqn.npz": "69a3e7fa2d6abcc1a5274ce3771196378d98fd818e95b3bea1988e8d23375bfa",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021aaxi.npz": "1bfa087fe1e2263ed488c683acf33170d5a034e9a868e71fbd4a60884a407621",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021abam.npz": "7bd7708df23b06eac38241df90706b7e85bac4e680c2e85601309e3059035bf2",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021abbl.npz": "e293b70d441b0423e139ac36fbc8ed35ac1e9b3673325328c9c5396be5faa7ef",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021abgx.npz": "b03df97d48b035344d7bf796dfe0f21496dd8eee52eb11a1da0bd8c38345cf58",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021abpc.npz": "ca063c1117fd0eb0b499f48e399c424bde292af5bbf70dae20daad117ea2a788",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021abwk.npz": "c8e5ac6896cdf4f3ae022b7addd502b1758acf2a9d41b6866b97baa1697776fd",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021abwl.npz": "86bf442bcf51cad8c45ac4a116eed4ff987399d180ba828129a0aa8f9ddd48e7",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021abwm.npz": "98199427957786df87bac835f78df53bedcb00ce2b0b1eca754fc2b8aadf6095",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021abym.npz": "75ad7292ca6c2785dfe50b1ceda9e07b06593459c18eab79555fd8166c31c10b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021accm.npz": "a46fbf6ae105b9912067f15938927ee74f9869b97ef2773e9373af68d4c41556",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021aceh.npz": "a4e49cfaaf1083a61346eff792cc8c3ec33b098559272c3a2031bfadf0117747",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021acey.npz": "0e8c204127a7fa0206c76fd68f172ba5254cd106dd7ed34c0c37b0324993ac3d",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021acfc.npz": "3b078d180317c4a6d78eec04db2faa52ff1520cfc6158781296e12d72225cb22",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021acfi.npz": "c3117ad3ca09492264b41d7356232a122a4936baef07d910c35bc220e3a4d2f7",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021acfj.npz": "1d2ad6623be0820e113a4c244177cb787c42535acc95c711391520a9f2cdefec",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021acgo.npz": "5dc3cb28bc3cf84e1e489af8b7ca86733838a687eee8f5ad71be58d90d33798c",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021acgu.npz": "ba9d703fa38d8ffa70ee066e3fd48d3e73f0738a54517698ad1f8890522471ac",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021achy.npz": "a7bd742762e3d3e9c20f433c54f3dff7b4051e86770bf076c3181a0a1e4f8173",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021aci.npz": "49d9a29233d1f8a85efd2705bb97766b88bd45746b7aefae702a7d6603a139e0",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021acjv.npz": "3fce38dd25673a7544ec446eb8628b635b8663367933a193cf1dd0cead55a5b6",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021actw.npz": "cb81dcec2e272c1cceb1d82e0ad8162ceebdb057882ca91a8b2c55da7550650e",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021acza.npz": "73b41875f6a521c80ec7516c218e90e14618246591f0f51b39ce30440a568f04",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021adew.npz": "ac3518ce5da02cb7c38d99561ef4762e41b5accbb0505b4c072e7f9865fff5fb",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021adnv.npz": "82bc1d80f314a871d2f117faf806306347abf3cf56b5e9c77da4f59e0235acd2",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021adnw.npz": "25515569e1abbf392a98402599ee5cca98e5b5fd9c3d774dbdc8904cbe539c55",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021adtd.npz": "a93cd941df292cf26bb6a11c3bb21fdc8769a4b888863eeac396916a8665d1da",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021adug.npz": "c3b6a55c687c97457e85464851e1074186e63fe2a0af9cbe2b4b5a075146b0e1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021adwh.npz": "4b8e3b4e4735ae8c3e28823734dab2779f313409045c95c321b96e6265c08c94",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021adxd.npz": "7e5e7ef1191bf583495046d978e9e768a11cdda7e19bc53f55e2b6ae31da12a2",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021aegy.npz": "66296f638163d6715e528d69bcfb1011d07b1ec3dcee953232b78a045e6c5f63",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021aeja.npz": "db83eb9110bfb88a850a6d1f29af3a935a3f7ce6abcf9af66fe4696860c0e2d4",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021aele.npz": "b5e9992840ed21d68bfe4269d3c623781786bece8a3390eb0da6b5b3a00682c0",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021aepp.npz": "22c91e10d4de4c6bf1ac0bd1ba073e910bd41aa05e1abb5f86ebf9cc38a90435",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021aeuw.npz": "fddc93b489c97dbd2005e0b89c35a68464724329316e2da270e4ac4b14415212",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021afeb.npz": "5f81abfc5cb98e7f549afd488bc2b7711ce29a6f7350cf410b53dacc2abbb077",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021aff.npz": "791646c6b72c340bf2fa6ff5e8e0025423aa3c963d5f449fad99ec4013589bf6",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021afj.npz": "078a13c2ef6c7b44f68c7363985dd77eed8534cc351b1e84a8d7e66376f507e1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021afkm.npz": "268efb9108e9a2a811ab35f2310a5c6481403ecc0c5326dbc2fb773f8c1f4251",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021afra.npz": "038ce16ca0104d8aab7f036076d50619ff0de51216db3cfbcbad26f5f33b46bc",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021afui.npz": "a0ffe5d462f8634e3af0282dc041f54121564be027fb8a36b60239264c7123e2",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021agu.npz": "18227f65454109b51cf275002b77df783ca42e451efc9239802cbaee69ca4368",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021apd.npz": "05c24fd1708b94bd14d9f814011d691a0a4aa116eb3546e1daa0e5bcefa76d88",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021arg.npz": "127f206abcc6cc2169124bba9b2a714eafd8758b38001751006f66d79dad5249",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021arl.npz": "879a98eed6e6cb61ba03c0c80d2866a7a0907e8cfb5ce7b5ae050e3c11255942",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021at.npz": "f46ec5b18a669f09ad244a892476ae9c386af2d64b213760388eec188a8e3bd3",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021bbz.npz": "8439b415a89ab8433cd7f6278a06aa694ffc6cce80d3642da7797b3caa1a22bc",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021bmb.npz": "03c561b24675f6ea25f42653aa70d7a3235b438068ffb1f7208e4c3cada7265e",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021bmt.npz": "89378af0a63a58c8dc8b1b31b5e18c3a198d099c367b986ecc3e3058f6be9366",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021bmu.npz": "0a864af68cb234f1565d9949d3f31f2bacbea227139a1124a9f31ffcafda51ef",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021bmv.npz": "1b744c878fc943274eb582cf86d4e2ca8f65a499039d2f3d9eb26d8aab72ca6b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021bpq.npz": "978b2893c5e1a84cf44bc22541576e6ab0aa09fac92473df6adb7e8baff9e9a6",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021bsf.npz": "88039cce726873a652ab279bb75664a5043d41f7d87e9284ef2152d321a6ecfa",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021bsr.npz": "8f3e3504aea9a02103b8908bb229ec95441d67b364787f15f98a332f431ba540",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021btn.npz": "b2001d19f71eadd450517114951d86b4e7927de1bfc7fea3663ef4550802c44d",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021bug.npz": "3f1563356b1e6305462ecd131803c919a02992e675a27a6daeea867f1e565deb",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021bwv.npz": "73ae9cfcf0fbac53da6221d774453d6284031bdd6697f28d167cbf846ab21053",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021cca.npz": "6c614c9b51db96d059f9f36923e89a4bb4dc54629b353acf94776d2b5385c24a",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021ccl.npz": "7581a6ded2aa631cee0da16c61e972aa0f0c87162f52d661a7fec112e23d3aff",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021cob.npz": "bd9b44abff516b393545962eaed7526a9bbbc5dd0292f19fbe2f85ae10cd4e4b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021cta.npz": "de59b65b4ccef474d06cbd654982520598173bfbd257dafc5c3befcfccb39cdb",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021ctn.npz": "f55109530ac2d4fec0320312f8ac93ddcbabc4bf2a08aeb3af2c344ad2eb3a65",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021dcu.npz": "9e7eb65dc67c76323e63bb8476b0c1c5728f6398bf9eb85fd5101c4e4b9251d4",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021dda.npz": "ba09c483584103f82a3269c0f35f62b7c27d6e8c3e5687d08d1bd81a7a248688",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021dha.npz": "984bae19ed8409f5f57a573c0ea56bf36f5210457adc1dfee3a7c1d94654117e",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021dnm.npz": "de445dea2651b2dbfefb5662dba5c18525ba15e0c91d658bc9884fbab6182e78",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021do.npz": "bafbb627805d76bfc3ef77ea9fb0fe54c4789ec49909ce54bb77c01fa9af8823",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021dov.npz": "66cce7eb0e18025a9d7bdf36aab1171246120ab883797d132c6b53b5988f453b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021dpw.npz": "eb16063e772869f2d5a63a5600d46fda575e8f9360f864cfd3a6c142867d659f",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021dqo.npz": "6b4c25af8d636e5101d5673886f09f82f3a34800971e6c5e5ce620a9e7c27772",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021ehb.npz": "371f2098560c7e317f254a4de8cd465cb10a113d3655cb6c385b2bf250227af8",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021eng.npz": "d336734610a7af48bfb6fee0c0e9c3c1e118cda3b37707ca449452957de923bb",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021fnt.npz": "3ab012bfd0518572b69e00205c066cfee1c6e0d7962ac37ab807eb31f4289a6a",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021fom.npz": "a4015878494b8c6a11c2c5dbdb675c60470d2928ef8bd72977ac37f22c93c8c1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021foz.npz": "f0d6634740c4a88e9236ac590e6d1081cb4c7b57dbde1b5931d2e33b87eb6ead",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021frk.npz": "90fe6ce9479f1ad703178942a529c6a09b963e5ab2dad08d84123c29ebef9008",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021fsb.npz": "b3c7219adfc51cb8f589d752407f7467322a9a1f9f3a607f6d1e96d10c012a59",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021fwm.npz": "5db79af55d1acbcf000ca5b96b39e4bed7c43e37e75f755742b01972d1b106e9",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021gba.npz": "328d29ab135d0764e1aac54a23567ba951747f2e179bee016c055d62c503e57a",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021gcv.npz": "291df696346a1eaf8bdf94673a3abf7fc5c538b1b36fee45b1257fc197a6753b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021gdz.npz": "c66284055fc69073eafb29cfcb54303c9571522082da3e8c1b603bcd6f8acd44",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021gel.npz": "5dab0d1a5362086fbc911bab7e883d50af5b156b94507f165378ab0c5f6cee0b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021gez.npz": "87a43af5600b15ebb75c58ce7de021bad3d6bb30db6cb3f2f4f2e6d8d763cfa1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021gfv.npz": "deef4a488d1fd055a3de16596a7ec62ad3e842d1d0d39d2f8b3c9954ecffebbe",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021gno.npz": "fd1055cda2cfdf36686d12f1c6b1a4bf61fa6887e91b6ca8c529249a28247da3",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021gwa.npz": "43f5c709288ec13da50c181f82a7d5217127e104ccbca442637f58911996f1e4",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021gyh.npz": "9ee4f4b2313e58dda3208af58b0738a0e23872094cf5b4eb32390a75689c05e1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021hca.npz": "dfb477702f07b382df327774be1fa9941ed8e393db71f9344f64d28c45aa345b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021hem.npz": "4dedcead2716720ee56afe07be6041cfe346e166599369b3e92f72fef9ecdec7",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021hiz.npz": "d7042513fd73378e5d5f3a3384e919cf4eba7fca03004c58a813328c99a8fcb6",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021hlp.npz": "ec9b6fd729703da10f940712cd7323ae96bfb23b3e6a7b00f4ee2b8944e98e43",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021hol.npz": "006f935f11848c6b3268e744ba28fe65730df7274a73a32db68eec681f816d93",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021hpr.npz": "c36272ffa57f838a720a736a12bc3c3356eb15e298205f09964554a19ba5ddf9",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021hrj.npz": "cd760ce56b4019be476ab155a2c0a32d1db24d565ce10ed90fccff29e6b9e2d7",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021hxv.npz": "a8a7367e6c2b31f8d898fb42b3be49a601fd147fbc8a76b65118a9cd3cf05e99",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021idh.npz": "5338e2ac7c05b378856f4b0b02835cc1d4cf13ad86fdae2b2269d88dbac64552",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021ihp.npz": "a7c136dc9a95c256fa0f67ce836756d795254f846b13248c2a3f1368f8a69695",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021inc.npz": "3448bd1db7ebfbfefddb0dfb2ddc47f435629c6efb87a1329dccb7cb61b4e45c",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021inl.npz": "87d47bdfc1cda268e317f45fffa685b6a810bb20298a403569ed7992ec6d6fb1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021ita.npz": "36bc6c34bcd2a99fae0df1422a0ca706f53383863490c14ea7d2ca494599c89f",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021itd.npz": "f28c65eeb3467a8dc501793f4c3aecc41fa9c88df722c06cd4ac7f9ea6b2f148",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021iuk.npz": "8925783337d3bd701e30719fdbde783518efc1d16d95422f837533887def7643",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021iyr.npz": "722a7142d65a37287db29961609994b4a0210e7b62075660a892b13f12ed40ca",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021iyt.npz": "0f7f0f803cdf575edd6a1b0cad1d8b6b997ff191a99574e8540440162832e808",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021jkd.npz": "fa05cf0bbfc3536d6fe1d8fdb7679fe885680c7e62f42572c41f5f1d0968199d",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021jox.npz": "bdef02bd17a4b2c112ad9ddfb3e0c69087bdb9f1ff0a36933deca3bcec49dd17",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021joz.npz": "8ee1b370d982c868856d74e66f68accbaf96c5a8051cebb30eb679d5979f3fda",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021jw.npz": "7d6482435a8a3f4431ee575d0e9fffdf389b420453afcd0b22eb3eefd7d1a38f",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021jze.npz": "79216d1fdc8dce1cbff153337f307007fe0553b36baced4183f79395ad67377b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021jzf.npz": "145d8d7512bd32879f43e0129da495bf30da09ad8e81759b21a12fc34e874955",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021kbj.npz": "230bb938853f192065a2adddadfdead0191a4966e754a6d3c8a9d5dfd3d984b7",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021kcz.npz": "df99260ed97680b7a8536951425dc6445e2bb2d0d4354ad5943eb46bc075c827",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021kfy.npz": "b59420db8774353debbcf5705a965b4c6db7357a084ee295148c0eb855631267",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021khl.npz": "d1b83885f9018b0c3c774956e4ec4a9ea28e6792a21d24ee55d394fb63a7d22a",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021krc.npz": "55901aad97e5d22d11b8cefce561dd092a5456a2629cd956ed76db53629abaa4",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021kwa.npz": "c92ca72b9042669c8961b518cd19d3fc0e0364d4f45bb2a44d7d36d13e9e3f12",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021kwg.npz": "5c989ea931b6229ac67304bfe03ccee80da5d30b1f84eef686682a2127ba0917",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021kyp.npz": "eab4c17226f87d2010d7687ab553b9fe7e20e93e31b10626112bd6847af14c89",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021kyv.npz": "6d556d7ab8ee7bdc9313ff3bec84d6e69aca56d2a290f4fd862028bb1934d301",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021kzx.npz": "69817ba5881b7aac5d6186f1c7dee5e06f71a8f82842dcceb7dfe4df98987fcd",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021lfv.npz": "a2fe3aa37ac75c1da72e40401b5b85e1d5fb8abfeca2cfa773310c8fb2a777b3",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021ljb.npz": "755bc3b5f2c5bd51534c8c72947e576df017070a759cebbdbe9854b5a15ab692",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021log.npz": "e96a04bf894b4d84f2c048cbebfe1a6fe37fb1ba4a3d6d978721cada92269d8f",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021low.npz": "6c2ae1dc812603f21f5386ce11f89f00e657c02a8a7f12ca2fd412a806902704",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021lta.npz": "68aa3033033586a6473e42291423e5ae614993e260070f2d8a9461d7d9bf4794",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021lxb.npz": "1610e1550b7ef8d831f1b6b97142d069e375badf5e31aa84703cefdc8067e41c",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021mfy.npz": "265b26b6cf43dc1506af9beb2584e6c1e847e0d486cefb1dccbb0e8cbad41fa3",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021mgc.npz": "82fcafc06eb14dba9e34474d5f3a155e1fb89bd1bffbc1f86b2a7a742f643cfa",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021mgd.npz": "348abf8c69e287901fe3fb265f2ec46ccf547aee300390728ff163be3c430da5",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021mim.npz": "b651f0b3da41041bfb64abea80e0d3e19be35d5e183f091ddcc2c19d3f886f93",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021nip.npz": "970f86635f8e930e8a1b2af50340e818964d8a383fd5736ad1c678e9baa64c6e",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021nlj.npz": "a35b65eccf66d39da573027e0b0bb07f6aa314c8ababc90b7d8d995e20d6ea95",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021nsh.npz": "92348664f1c2904762a48bcc66c033e1a11de8a012347535b47c5c157800edc1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021nsi.npz": "e22f231e7c3397aa79a40048effdfdab503b1bfb3f7102163df637325438303c",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021nue.npz": "a34cbcc57110fa167330ec3b7785779dc65a82f063dcc1487ef851ae0d248586",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021nxq.npz": "4e4255126bc712f8264a0b18abe54ea05fdaed8150905ed057bc30d93c95806e",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021nyt.npz": "04b587bd5617ce046b13d6b4b7c1dd44af929d5ed81ad478d47c4b4c4943bb3b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021oal.npz": "8c9bb476a1584232fce68c0cf2619dee34a48007bd17ad5237034da2da24b831",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021oat.npz": "4dc340295cf21c51f4981c0d2e49dfded821efb2b38c6882f8dfb74284a2f061",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021oaw.npz": "87e4f1571486d92c9562256afcaea8bdc9536776e79226933bde27e8d984aa57",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021oez.npz": "3b9b56e9c7eb18662f3f2e50522b4a7904f8ae4c3077717440bb9bcfd7a45226",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021ojn.npz": "3dee1bbe924ca7d0c012489ea1c4018e81c78145e4f69ff2cb7b3cd0fff91ce6",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021orm.npz": "1f14a022f8e1eaf4c4cdcec8ed4c547b96a9015d4fa91262ab932e220dbad20b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021pby.npz": "4ed614b17de634457eccb0d30011d55d17a7b7939cb2e619fb3b9b05d86f1162",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021pc.npz": "e0bcda18db004adb998939a39151622fb09fff7b14175a80e0fca8e1eb238680",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021pci.npz": "a8a1401200c26f469cbec3b4bee1d24d0490b2a7d4e43f59c2961d5c69964492",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021pde.npz": "7077fe739c5f728559ce79c56241c027911c7de41636092c78d3c1e4361802cb",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021pfs.npz": "4f8cdac009ab0c2cbd83759123a2fc5ecb0cef85df7b235e91220369208e62a3",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021pkz.npz": "7a1fcdd212ed9c464052417ea2047eab952ec873b9ff813169ef10c99606d930",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021pl.npz": "b930fbd9ba1eb72a08cb6188fbd4d3105de9d729bd69987cd1fd922f0073107f",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021qes.npz": "cef80da2909dca3b1ce6a62f81ecfff681fe9bcdcbeb441b2ccc7832b91f2b4c",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021qqo.npz": "748e2b06a37686b100820b60e2e00c2ea937d15630408b688b10f319c11973ae",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021qve.npz": "91214575b16ef86f30e1fa3b2969906c550f1fdcfa1932a42ffa1bebbd1374fe",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021qvo.npz": "7b4e4beb02f22f35282171831f8f8b5ca467b81991485ad07a6cacecaaac471e",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021qxq.npz": "f59b7f4264096d6a46fb418ada8de6537dfb845405a3cfcf9225e48885bb44b1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021qxr.npz": "42bd45abc7b250b9939d7771b244c38d8fef3a2e7fb2ea29abe3313afa2fad58",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021qxu.npz": "49bfcd727e90e824bd7933b1c67952a1f412317fcf88c7ab80f714d31d0f06c3",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021qxv.npz": "d3158df3b3aa0b6cbe2e9883d31f8f721f2ca3eb021095b86bdec7befe29055d",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021qzi.npz": "f9d0cdd0bd54191414bebc9a48d64dbc08afb073d8f64fcafd6189477cfdce2b",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021qzp.npz": "1a923c8f64c9a297867ef607e9c34b82b7205fa005691b65c62ff15fe67ef2e3",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021rem.npz": "18a5e9bbc41c264b0ecbed28b58d400caed56ba82a5cf49a96c6c8df293ca2a5",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021rgs.npz": "98f90ed4acb9d76ec6f22531cc64c54b862799a248833726538722cc28f84ac5",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021rhu.npz": "5d027fc6f91dc7deba8aa51379a2a9c5358bbc5df0eda53e10e6e14c776cf5b9",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021ryz.npz": "d93a55dda08563556a85b60e68faec6b808ed30170cb681cc71bf2da30f1ccb8",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021seu.npz": "8192d4f119eaf4253b233f8fbedd1ff578250c59ef8bca128f18b2f21ada2699",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021sev.npz": "a2cf9615bd9fe27b6af63d862306bc69b6efa36fc959e4a489498a98d04b0c73",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021sje.npz": "dedeb4753d7f9a2a6868baa78295aa3fe32afbd6eb9be1d8477d2cf338adc64c",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021skm.npz": "c39d1567b2579b5dfb6f26f47ed76499d04bdc6face52bc563c24f2bb5ef87c8",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021sld.npz": "bf9fbb17e37bdecec68e14e8c59e3c9c6af0932f4b43ad91e468b4c6dd1274e5",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021smj.npz": "e421892e90f4bd3ea09da6a74e995a59e40437961d9751ff3e499c08546d116f",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021sun.npz": "496c61a349fafd71eb2585ad6e122e80cd3b5a9326c68b993e038778efb5b82f",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021sve.npz": "c94e1a995872709bb94a2eaa47f468355561f7f6ac5b58cb5f12da79caba1926",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021tks.npz": "a1e55219d1b32ebdaa5e1cd9bca55ecb2a6be70d102a79350e8a3c809a4bbd96",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021tol.npz": "242ee264c8a45b011506b0b855bc742c6830bd302aed73ae992c9941b994918f",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021tqq.npz": "18fa6a4de1a09b9adfb222515ec32e557e251aaecbe896533847620d0d5afb6a",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021tsj.npz": "b4c55d89e3a85081ebd80ec54969f4ff03ce310b0cde890266b77c08c8d8a78c",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021tux.npz": "3d90cc1e0d9c11cb799efa66bab01f89eeb808c339ee689731e345a1156ebf14",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021uhl.npz": "164ab340f6f05f34b8dcb6957da9584219837040e95b038850a9989acfd4279f",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021uiq.npz": "a43dc015023fe8a5f37e0492fac4afc55f6fe75379455582c0529a8b17374322",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021ukf.npz": "5103ab3bda1b7caa17d0f435527a38c3f925efefc3a144005ca393d18150ce53",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021ukp.npz": "4a3e6a03edf5831712083b5406b32e35d8c40473d550b8ca03f76b58e8cb8855",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021uou.npz": "8c2c65eb48de9acc3bb7dd5d4fd997e4a0ee59e06b3e596db16bdd70e298acd1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021urb.npz": "38c27dd06d274848a59765fca8d56bcbbf5255c97159277634d41be833413507",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021us.npz": "ee129e572595307ea4c16b6f701a93f5c6793192e5a2a2cbb245530cf62d957f",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021utd.npz": "bfd94da297877bd5bcc7490c9f2c6e56dadddfa9af69bdc61bb35ddb91d59e84",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021uwx.npz": "5bd401a1d458e00782ea11894fd8cbb3d1fc906e7a56a7492228de6f4f5b2224",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021uyq.npz": "e46a63865d2d63769b950d2f47867632d60e39eff97c24fb67411eb555a6d22c",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021van.npz": "0c460be49dbe969033acd07eef1ebc4716c0ff2fab58ac205da95bbf1f8942e2",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021vaw.npz": "451f119ca9bf7f58c434fcb3f7573f313dee1055996d5baccf84a3a3c5419510",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021vcz.npz": "02910e97566b67a55d4550ba6960c58a16c5ff23faf9936e0003618d130377bb",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021vgn.npz": "0693ab546dbe883c08626027c62021f448fa74fbc19d5608f8661000f53e78a6",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021vku.npz": "e86dce8b31237d21663e15389ee29817ef075785c3404890126eb35ede9f2d15",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021vri.npz": "b9f7affdd8b907ecba29a284a0474f1ad9fdf97c52e39b74787aff52226c93fe",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021vrt.npz": "5beef8bc0302ce424709818b27deac4471ea88ab82fa04deeede93e28d06f316",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021vtq.npz": "1f9dc15b742744d4aaa2756fd430a4fbd53bb0d4be9201faf80f64b7893ec4b1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021vym.npz": "65287ef7317cb05fd3122dfb10a3ae33b970acebf6896bd392afb3d5939bba25",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021wfg.npz": "ec8e77f1c732ffb057cfc65e5e008a7ec93847e044bb9bd46ac3fc9357c011bf",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021wfn.npz": "a3b19982f0a878d581619817bcb8723b521b0304f5a4fdcdf3d8ad3e5f6570d4",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021wjs.npz": "fe4a4238430984a75460aee6f583d8cb87df44767cdc147c80a60ba09faaa044",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021wlr.npz": "da9bbc67d75feebff9ecb838fea6acd4def2e448225b9b497bb97202e32ac548",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021wue.npz": "73bab6d247cdc095993b5816a29f9609a82c9776c8ea245005779105deaab01a",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021wvw.npz": "e2c3dd7af908098dce98ecd2bfd59ded61dd52e61cc3c9837f33c8153e32d999",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021xbf.npz": "440b8d5327f4a27b29b6b7bb01b270fd7b89a25e075a9b4b0acb955194c7b2e7",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021xbg.npz": "4bc3e2024e6b6204c51387b3052d7cfdf322642114cae7e4778a015efdfcee1d",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021xct.npz": "b445a35e41a887693ed62dd368e7e242758b89d1750d2d52e0314ccf3b7923b5",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021xjh.npz": "5f719194b8fd0b3f282de32ca8b169c7f5c25adcb851696b703be3b206ec0e21",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021xkm.npz": "0298710633740c89975b6bc81a8a64bdfd1a54d1ad49667fe7067353b7edfcd1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021xmq.npz": "5ed90bb5429db1e567b929f444c67816fa5187e20d7a82874faa3622434dced1",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021xvu.npz": "8b072621c16f32d561ee4fa820849cea0329468a99968eabf7bf4bbeb8abf9e3",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021yab.npz": "f56c9cfc0731caaa78d27398498eb9a34f27ce5084ba358540f770979e6af1f4",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021ybc.npz": "ef5e80e95162c59317b75a7626d6894224063003e99fad05b25ea6a53c9a2a9a",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021zep.npz": "f5689997fa65ead84109ba7d72133539be49c0caa3de813d4b8f74f858b18ccd",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021zfw.npz": "f3c8c66cddd546cbc77484999e39cea7738b8efe14c885c7921612ce3227332e",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021zfx.npz": "3b292900c1b3760ccc0ab596caf7dbb173d5a3b4118908c439710fec8f0fed92",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021zqa.npz": "7d8546fb6fac9827e57f5267d3788e4bed7a64e8f57e262c944eee26a6e28782",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021zri.npz": "89bd4ffa094130df1e5e3f78e25df772f28e1341740cd881954cf6a02fef746d",
+    ".work/unified-cosmology/host-likelihood/joint-host-draws/2021zzv.npz": "c4ece63e7fb4cc4947116b5f825fd2a91a55e16a729476aed32fd80b90d93597"
+  },
+  "hosts": 4385,
+  "archive_hdf5_members": 4499,
+  "invalid": [
+    {
+      "name": "ZTF18aamigmk",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18aavvnzu",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18aawitry",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18aaygwqd",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18aazcoob",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18aazixbw",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18aazjztm",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18aazsabq",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18abcsgvj",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18abdefet",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18abdfwur",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18abdhsfc",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18abdkimx",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18abdkkwa",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18abecbks",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18abesqnb",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18abeyqpr",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18abfhryc",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18abgmcmv",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18ablongw",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18abmmdif",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18abrlljc",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF18adbilfq",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF19aavrswr",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF20abqkbfx",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aafmkjk",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aagyxhz",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aakvrgb",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aaloalc",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aanwmxn",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aaoexgy",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aapjphz",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aaprevg",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aaprfqv",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aaqpykm",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aaquhqr",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aaqupdt",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aaqytjr",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aaqzqaa",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aarhnwn",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aarojxa",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aasaxdk",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aasbxng",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aassamj",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aatgisc",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aatkhrt",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aatklhw",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aauapli",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aauuybx",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aavhnpk",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aavxruq",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aawjiss",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aawtazf",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aaxwnlr",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aazazvw",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aazcjbh",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aazlxiw",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21aazqkeq",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abahgst",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abbliav",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abboibr",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abbtgsa",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abcgufz",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abchdql",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abcmvci",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abconph",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abcrhbt",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abcwsho",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abcxner",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abczimc",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abdgcxb",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abdonkp",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abdveqn",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abedvkp",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abehrtt",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abeokcr",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abfflmp",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abfnfdw",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abfqvjb",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abfxjik",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abfxjkq",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abgxudc",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abicckd",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21abtsoky",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF21achauvx",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF22aaboeex",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF22aadolby",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF22aahnkdv",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF22aakndny",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF22aaknmzk",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF22aaljyqw",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF22aambnsg",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF22aanjimh",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF22aapqaqe",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF22aarvtbb",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF22aasrmim",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF22aaucozn",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF22aauvfay",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF22aavcvgd",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF22abuhfdv",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF23aaizygy",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF23aalsied",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF23aamqonh",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF23aamzcfe",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF23aanexof",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF23aanptpp",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF23aaohfxx",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF23aapogvn",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF23aapphlk",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF23aaprwrn",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF23aaqhtiq",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF23aarhuik",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF23aavmcbq",
+      "reason": "native HDF5 has no posterior chain"
+    },
+    {
+      "name": "ZTF23aazjwtl",
+      "reason": "native HDF5 has no posterior chain"
+    }
+  ],
+  "normal_Ia_hosts": 2920,
+  "normal_Ia_host_probability_ge09": 1355,
+  "photometry_rows": 49790,
+  "valid_fluxes": 49790,
+  "valid_negative_fluxes": 0,
+  "YSE_exact_name_common": 425,
+  "YSE_normal_Ia": 256,
+  "YSE_primary_candidates": 66,
+  "selected_normal_Ia_summary": {
+    "source_z": {
+      "p05": 0.017298,
+      "median": 0.05447,
+      "p95": 0.103
+    },
+    "age_mean": {
+      "p05": 4.337420069493485,
+      "median": 7.048151088049659,
+      "p95": 9.488159533030267
+    },
+    "age_sd": {
+      "p05": 1.2330998935266944,
+      "median": 1.8096029847678223,
+      "p95": 2.821646302122285
+    },
+    "corr_age_Av_diffuse": {
+      "p05": -0.6638249516659446,
+      "median": -0.359666076671601,
+      "p95": -0.0943148275789611
+    },
+    "corr_age_logmass": {
+      "p05": 0.5568861846599072,
+      "median": 0.7742905474989061,
+      "p95": 0.8935018562253731
+    },
+    "posterior_z_sd": {
+      "p05": 0.000545582063676354,
+      "median": 0.0007317419467853331,
+      "p95": 0.0010533086692740225
+    }
+  },
+  "clock_interpolation_max_error_Gyr": 1.4422241179090634e-11,
+  "semantics": {
+    "age": "formed-mass weighted global host age, constant SFR bins, WMAP9 cosmic-time ceiling; not progenitor delay",
+    "dust": "diffuse stellar attenuation and young-star total attenuation; neither is SN line-of-sight extinction",
+    "mass": "total formed mass; surviving stellar mass would require model-dependent mass loss",
+    "posterior": "SBI++ conditioned on empirical training mixture and photometric selection; not prior-free likelihood",
+    "joint_draws": "derived quantities preserve HDF5 row alignment; independent author NPY resampling is bypassed",
+    "photometry": "author foreground-corrected global aperture flux in maggies;1percent error floor included; no released interband covariance",
+    "YSE": "exact identifiers and SN positions checked; actual redshift uncertainty and epoch/sample selection remain additional requirements"
+  }
+}

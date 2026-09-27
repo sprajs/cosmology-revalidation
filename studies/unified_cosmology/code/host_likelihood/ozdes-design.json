@@ -1,0 +1,11 @@
+{
+ "status":"Frozen before inspecting high-redshift continuum measurements beyond one schema-inspection FITS file.",
+ "sample":"All distinct physical OzDES targets in the parent1arcsec/unique/quality3or4/redshift-consistent Dovekie host crosswalk. Do not duplicate a host for two SNe. No continuum SNR cut in the measurement interface.",
+ "rest_windows_A":{"blue_control":[3700,3800],"Dn_blue":[3850,3950],"Dn_red":[4000,4100],"red_control":[4200,4300],"Hd_blue":[4041.6,4079.75],"Hd_feature":[4083.5,4122.25],"Hd_red":[4128.5,4161]},
+ "primary_mask":"BADPIX=0, finite flux and finite strictly-positive variance. Record coverage; at least80percent valid wavelength coverage for ratio-profile summaries. Signed band measurements retained regardless of SNR.",
+ "noise":"Propagate the full window covariance from supplied diagonal pixel variance, including overlap between windows. This is a working covariance; the release omits pixel resampling correlations. Additional AR1rho=.25,.5 covariance sensitivity, not empirically calibrated uncertainty.",
+ "response":"Native count/Angstrom spectra; not absolute physical flux. Fnu-style lambda-squared weighting is an observable index only under locally adequate relative response. Unknown normalization, smooth response tilt and dichroic arm mismatch must remain nuisance parameters. Flag whether any3850–4100rest window intersects5700or6700observed Angstrom within150Angstrom.",
+ "inference":"Positive model amplitude profiled with a candidate band ratio, preserving negative observed blue/red flux. Profile ratio0–4; null/one-sided/full-grid support explicit. Do not treat noisy flux ratios as Gaussian ages.",
+ "validation":"Constant-spectrum analytic kernels, independent direct matrix covariance including overlapping windows, repeat-exposure conditional consistency where possible; no ratio detection cut to fabricate age evolution.",
+ "seed":927082
+}
