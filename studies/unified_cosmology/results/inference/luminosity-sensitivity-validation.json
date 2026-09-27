@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "seed": 2727868,
+  "random_GLS_cases": 24,
+  "maximum_errors": {
+    "baseline": 5.684341886080802e-14,
+    "linear_quadrature": 4.218847493575595e-14,
+    "smooth01_dense_covariance": 7.993605777301127e-14,
+    "smooth03_dense_covariance": 4.796163466380676e-13
+  },
+  "maximum_large_offset_ratio_difference": 1.7359397475047444e-08,
+  "remote_normal_interval_max_log_error": 1.4921397450962104e-13,
+  "positive_injection_recovered_coefficient": 0.07999999999999964,
+  "constant_modes_exactly_cancel_after_M": true,
+  "actual_covariance_logratio_errors": {
+    "smooth01": 7.418066161335446e-12,
+    "smooth03": 9.030998171510873e-12
+  },
+  "native_background_SN_checks": [
+    {
+      "model": "lcdm",
+      "candidate": "author_mean",
+      "SN_loglike_difference": 1.1368683772161603e-13
+    },
+    {
+      "model": "lcdm",
+      "candidate": "surrogate_start_0",
+      "SN_loglike_difference": -3.410605131648481e-13
+    },
+    {
+      "model": "lcdm",
+      "candidate": "surrogate_start_1",
+      "SN_loglike_difference": -5.684341886080801e-13
+    },
+    {
+      "model": "cpl",
+      "candidate": "author_mean",
+      "SN_loglike_difference": -4.547473508864641e-13
+    },
+    {
+      "model": "cpl",
+      "candidate": "surrogate_start_0",
+      "SN_loglike_difference": -3.410605131648481e-13
+    },
+    {
+      "model": "cpl",
+      "candidate": "surrogate_start_1",
+      "SN_loglike_difference": -2.2737367544323206e-13
+    },
+    {
+      "model": "cpl",
+      "candidate": "embedded_LCDM_candidate",
+      "SN_loglike_difference": -3.410605131648481e-13
+    }
+  ],
+  "known_weight_target_mean_error": -0.0012856766791359275,
+  "known_weight_expected_ESS_fraction": 0.8521437889662113,
+  "known_weight_observed_ESS_fraction": 0.8529418891132656,
+  "constant_and_concentrated_weight_gates_checked": true,
+  "zero_weight_chains_fail_without_clipping_or_nonfinite_JSON": true,
+  "source_sha256": {
+    "studies/unified_cosmology/code/inference/luminosity_sensitivity_validate.py": "74f4188023a668108a50329286771002d8cbc152dffecb74a397798ef98bf934",
+    "studies/unified_cosmology/code/inference/luminosity_sensitivity.py": "3f831be63b3776b02c0b547dbb6d9273ddbad68b272c6cb372eda390abafaab7",
+    "studies/unified_cosmology/code/inference/luminosity-sensitivity-design.json": "fdff0250564a1562fd1af3da8a9ff93481de1837c8ad08837993564aa545ee85"
+  },
+  "SN_data_sha256": "4bcf37dc7fdabff886d24b7e87bbe05c414f4f6c80971d154e2b8888d55bf2d8",
+  "native_profile_result_sha256": "158e3a1a3288cb2e2df837a28786682d36f9bb2a7dab3ac0988028ce59285620",
+  "scope": "Independent numerical identities and interface checks; does not establish cosmological overlap or posterior validity."
+}
