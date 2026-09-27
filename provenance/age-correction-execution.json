@@ -1,0 +1,166 @@
+{
+  "schema": "cosmology-age-correction-execution-v1",
+  "recorded_utc": "2026-09-27T00:45:51.809666+00:00",
+  "base_repository_commit": "6cbf5e21eb68a36ab7fb5b244b808b9fdca9f431",
+  "question": "Does an age-dependent luminosity effect require an additional correction after modern standardization, or is the proposed full template partly already accounted for?",
+  "scope": "New observational calculations, conditional known-design recovery and population-transport sensitivity. Neither universal correction completeness nor a physical residual age correction is identified. The full selected-survey physical programme remains incomplete.",
+  "manuscript": "docs/age-correction-results.md",
+  "branches": {
+    "A": {
+      "directory": "studies/host_ages/code/age_reconciliation",
+      "executed": [
+        "Original Gupta quality-cut reconstruction; exact 175-object/70-young counts",
+        "Signed residual/correction accounting on 196 physical SNe with full released covariance",
+        "Shared young-trend covariance, cross-fitting and paired bootstrap",
+        "Conditional Gaussian age-error profiles and grouped held-out predictions",
+        "Direct updated-posterior and mock-code availability checks"
+      ],
+      "limits": [
+        "Exact Park regression configuration not recovered",
+        "Updated joint host posterior/likelihood and priors unavailable",
+        "Age-profile coverage near scatter boundary not calibrated"
+      ]
+    },
+    "B": {
+      "directory": "studies/host_ages/code/age_recovery",
+      "executed": [
+        "Actual nonlinear cosmology plus nuisance fitting for paired zero/negative-age injections, 500 noise realizations per amplitude",
+        "1728 calibrated-flux intervention/event/noise combinations with recomputed synthetic selection",
+        "Separate native sncosmo and SciPy flux integrals; independent adaptive cosmology fit checks",
+        "Shape-specific cosmological precision budgets and current public simulation-file availability"
+      ],
+      "limits": [
+        "Known age coordinates are not uncertain physical ages",
+        "Fixed trained SALT3 surface, released covariance and priors",
+        "Previously accepted cadences and synthetic detection, not actual discovery/classification/BBC selection",
+        "250 required Dovekie files unavailable at checked endpoints; classifier equivalence remains unresolved"
+      ]
+    },
+    "C": {
+      "directory": "studies/host_ages/code/environment_validation",
+      "executed": [
+        "DustPedia local/global and aperture-age comparisons",
+        "Cepheid-distance brightness contrast for 11 SNe in 9 hosts with full released covariance",
+        "ZTF mass/colour/environment fits and held-out prediction",
+        "401-object TITAN-summary/ZTF incremental age comparison",
+        "600 fitted-working-model coverage/power draws and redshift-bin offset sensitivity",
+        "DES/Dovekie and optical/NIR age-overlap inventory"
+      ],
+      "limits": [
+        "SED posterior summaries and missing joint age/dust/metallicity covariance",
+        "Public ZTF brightness/blinding and calibration boundaries",
+        "No certified physical age inference or survey cosmology from the internal contrasts"
+      ]
+    },
+    "D": {
+      "directory": "studies/host_ages/code/population_transport",
+      "executed": [
+        "Acquisition and reconstruction of older public 8610-host TITAN snapshot",
+        "Held-out nonlinear host-to-model-derived-delay mapping",
+        "Observed low/high-redshift age support and selection-weight sensitivity",
+        "Affine/scatter compensation identities and nonlinear/selection counterexamples",
+        "36 SFH/DTD/clock/selection scenarios with independent quadrature",
+        "New cousins-paper source/availability audit and public group-data feasibility"
+      ],
+      "limits": [
+        "Old snapshot differs from final 6983-host sample; joint SFH samples unavailable",
+        "Model-derived delays are not independent physical age measurements",
+        "No compatible observed high-redshift distribution for survey-selected transport"
+      ]
+    }
+  },
+  "protocol_history": "Designs preserve their initial choices and explicitly label exploratory extensions and implementation corrections. The final flux campaign uses native Model.bandflux inference after independent review found shared quadrature in the first implementation. All 1728 combinations were rerun. Prior diagnostic outputs remain local; current records identify final code.",
+  "new_public_input": {
+    "repository": "https://github.com/SterlingYM/age-of-titans",
+    "commit": "9b9ed9e5faf8b2f6267c0dce8cea97704d9b95ea",
+    "acquisition_code": "studies/host_ages/code/population_transport/acquire_titan.py",
+    "not_final_paper_sample": true
+  },
+  "reproduction": "Execute the commands in the four linked scientific notes using the locked environment. Each result identifies source paths and hashes. The common-sample restoration helper avoids needing the original local archive for its six numerical inputs. Other study inputs have documented acquisition/archive overrides. Downloaded author products and generated object tables/draws remain ignored.",
+  "validation_report": "validation/reports/age-correction-execution.json",
+  "baseline_cosmology": "No new physical age correction applied. Existing 29 reference-run output identities are reverified separately; those earlier scientific runs were not rerun in this campaign.",
+  "code_and_design_sha256": {
+    "studies/host_ages/code/age_reconciliation/check_public_inputs.py": "381e0e5a69fdd059e6d2631cd16630e35d9b95afb61d0ecac4db3f45c865b049",
+    "studies/host_ages/code/age_reconciliation/design.json": "a689ae65cccdcabb0d5f1164dc0fa29a4abd4cddf0b7186d68b678893d79f9a4",
+    "studies/host_ages/code/age_reconciliation/restore_inputs.py": "b2a5f800f2680cde3806bc83e3f3089af255c248f6f7249d07f60a8b37972de4",
+    "studies/host_ages/code/age_reconciliation/run.py": "9c8cc9aef96089ff74d5d164a82e4609d40ba26bd0cc91b765f72a4d55242a27",
+    "studies/host_ages/code/age_recovery/cosmology-protocol.json": "25d31defab8e34ea90827a445f15c332349e6662f765ae09098c97a9348edd54",
+    "studies/host_ages/code/age_recovery/cosmology_recovery.py": "e14676fd62ec3a2d9d4116ef1d519398f65589d68a44470101c1bc5b435b1acb",
+    "studies/host_ages/code/age_recovery/flux_recovery.py": "f37a0a37964a30bb46a049c232147e942c445e297ff249517da421b05ed7231d",
+    "studies/host_ages/code/age_recovery/flux_response.py": "0c1cc61d8053cab5f49556424d34f5ecf3a48943ed228dc3b2b9fdc2c1b88968",
+    "studies/host_ages/code/age_recovery/independent_checks.py": "88b702ff46df7580a176f44dffb3b35dec6fa4a4ef82c5ec068d3fab839c8e1f",
+    "studies/host_ages/code/age_recovery/protocol.json": "c8bf19bb67bc437f74ef45538fc9587d973aac9ec861cff91e33016f3af6b21c",
+    "studies/host_ages/code/age_recovery/survey_availability.py": "f3fccb9f1ba241a2a2a51e5cd322fbcd4a17cba985a13e2ecd4896f20b6b1fc4",
+    "studies/host_ages/code/environment_validation/analyse.py": "372ad0f624d6f250107b5ad6c43c846051f5985215f2c37c050b851251af8221",
+    "studies/host_ages/code/environment_validation/calibrate.py": "2c90983faa323d6ff92017063bf29bea42f9452b83d8343c578e7b64ee91eaa7",
+    "studies/host_ages/code/environment_validation/coverage.py": "a935d46a6b4314f39e5cb4df3ad21397c1ffc7245445f4e50845210563a7cc77",
+    "studies/host_ages/code/environment_validation/design.json": "51c0fe2a19d7f5c039630633bb205ec0e690f13f9cd10b4dea455abbfe843edd",
+    "studies/host_ages/code/environment_validation/dovekie.py": "f0ca992c2ad1f999b71b2958e8fa4ad66b474b8e6d394b191215fe752a1f3f8b",
+    "studies/host_ages/code/environment_validation/robustness.py": "39ad8ac093fe763c5b778a20e2f0988cac3b7f85d360cb2a451ed624af634103",
+    "studies/host_ages/code/environment_validation/titan-design.json": "1430b3b77061e5e888a14bf8b7055fc26c80b92c88343a123630d54a76ac113f",
+    "studies/host_ages/code/environment_validation/titan.py": "289f4f7e2c5bfaeb06e5618ff52216f2a61d4da5423829e4886923f37b9a2a65",
+    "studies/host_ages/code/environment_validation/validate.py": "bf3d2d181f42074c5fdf20ced30a5d10fb9dac11c44db7837a201fb73be62813",
+    "studies/host_ages/code/environment_validation/validate_coverage.py": "ff0881932e338788b10230f733befb80ccf50670d07f000cdaca2fdf40511ad2",
+    "studies/host_ages/code/environment_validation/ztf.py": "157aef2f37c8becc26295339a25b74329e06fe1d94b907559919c562a6b3998f",
+    "studies/host_ages/code/population_transport/acquire_titan.py": "1593d72235734ac22e9df143b89e8256666e9f1117d10fcf1ee52a0cfb584078",
+    "studies/host_ages/code/population_transport/group-scenarios.json": "d7fd988676e8a307bf0d5c6c299385f33ae6111b3373de59d6d148bbaefa7f8e",
+    "studies/host_ages/code/population_transport/groups.py": "41443e96494550017ede2ff2b189c193dc052f8faf115398dabeff37175b3f46",
+    "studies/host_ages/code/population_transport/run.py": "9f9c38d76c6be2390ea4f9965578d81e204a3ad7652c6aa97c89a08393292a0f",
+    "studies/host_ages/code/population_transport/scenarios.json": "2266df7143c85c725b1abdd4c4ed16a75930963df0cc6cdd77f988dc2f57130c",
+    "studies/host_ages/code/population_transport/titan-scenarios.json": "97a299d1805a1165f0811f192eda1340dab28d21ace30e4d84c6e33678b145ad",
+    "studies/host_ages/code/population_transport/titan.py": "c4b4c9cb85985a666c9f15e5d0b0fee23a95f532c68bd6ef083e66c5bee540c5",
+    "studies/host_ages/code/population_transport/validate.py": "21a7e54a77115b9c67d10be25e4e2a8b8d197cad8d4ed74de328028a795615fc",
+    "validation/age_correction_checks.py": "023eda2514240444d3573d75cab7b0f13c993c8d55ce49c00b3c1d64ae0e0653"
+  },
+  "compact_result_sha256": {
+    "studies/host_ages/results/age_reconciliation/manifest.json": "b237d26cbc29dda31653fb6bb414eb2da54d5d2e47626a85fc89356a66408224",
+    "studies/host_ages/results/age_reconciliation/public-input-check.json": "15ed1ab67ed737d2218ee10eef07b0dcb43beb0a7b3cf4551079195a980849d0",
+    "studies/host_ages/results/age_reconciliation/summary.json": "d3bcd6089f14f1b346aac83c0c6590d8771405f9afcee4fdd03edfd5cba44225",
+    "studies/host_ages/results/age_recovery/cosmology-recovery.json": "959c6cad711e9ec3330e4ad59a994a290beeb0457c993e50180be138220d62eb",
+    "studies/host_ages/results/age_recovery/flux-recovery.json": "ead7a484456ae9672058112cb26b9325322fc0fe72cdd6407d8919c185a1a8fa",
+    "studies/host_ages/results/age_recovery/flux-redshift-response.json": "fe910cfdb43bc08c722a48d2b36e14de62c71c2dca6f1912d70b73ef526a2494",
+    "studies/host_ages/results/age_recovery/independent-checks.json": "ade34062c84275d2ecd1b252b754f881c799dae086b354c3585f34bc9d905611",
+    "studies/host_ages/results/age_recovery/survey-availability.json": "57540f93e282f580097db04f52c3f9fd3329e282f99ed05e884cb01c64a82ead",
+    "studies/host_ages/results/environment_validation/coverage-validation.json": "8be137a0670327a6a1094f652c7b0c81e65d03af32bafca19655d2169a6aee53",
+    "studies/host_ages/results/environment_validation/coverage.json": "99d2b706861148103c0700f810f5d1ee8bcee11ab580f1b286f3db415186184f",
+    "studies/host_ages/results/environment_validation/dovekie-summary.json": "e42d9f62089257de0ff16c87528d58c82eab006e2289db6f1785179604d37d47",
+    "studies/host_ages/results/environment_validation/dustpedia-summary.json": "bdc01dcede11f293db9caccc023ec41fb81019a5b0d004123801eeabe8a452bb",
+    "studies/host_ages/results/environment_validation/literature-check.json": "080f4bc06c2201c9636f546937af32c9e6046ad33ed70f2256e2e59b92eccbb3",
+    "studies/host_ages/results/environment_validation/robustness.json": "e322e36d689f23f8dd29390b906d941b184fd676119d83010e8bec7e0b51072b",
+    "studies/host_ages/results/environment_validation/titan-calibration.json": "3da8978dd1fb41c76c5bbe76cf7d739647ca1d1d15ca8876f90775ba3e295914",
+    "studies/host_ages/results/environment_validation/titan-ztf-summary.json": "6d2fbffe7b2bd2d789637115481d3fd5e937947c4f61a2082dd183b4d9effa73",
+    "studies/host_ages/results/environment_validation/validation.json": "8bb19b81e394a9845acee6b72881040b1dbf0e8d8c177a8ca16ab2c2b01b46db",
+    "studies/host_ages/results/environment_validation/ztf-summary.json": "7edefb46bc4d77d403bfc90bd76c0f02a0dc27c70595bd4378faeff26fe19043",
+    "studies/host_ages/results/population_transport/author-inputs.json": "75281e36faf975b1e22483fdfd0b0ec4c56d5ed0a8b2ee8570d753d0f520f319",
+    "studies/host_ages/results/population_transport/availability.json": "1a376ebcbbe73d20b9e884bd86f3ad9bceffe3b7a37f582d346128b61a06bace",
+    "studies/host_ages/results/population_transport/cousins-availability.json": "13f36f32ac385cf98a36b01b52fc042f64fc25ac6a068fa1c1ddb14dd9ad1cc7",
+    "studies/host_ages/results/population_transport/group-feasibility.json": "fa8879ffeea7694e42a57c35edc94141ccc200c34be871a069ac9d6893382ec5",
+    "studies/host_ages/results/population_transport/group-inputs.json": "6039cb789f25c9cf756c3d4e28d4bbdd9422554e18a926e93d7617b2a2b06559",
+    "studies/host_ages/results/population_transport/run.json": "6be742df0bccb2dc0f974f5a4a54d91700e6c0e919c5a23696ab43fb9e88151c",
+    "studies/host_ages/results/population_transport/summary.json": "cfcf8aa7110182a2cc51a7671d7a3a87fb83f577dd863db8e1083708a55a7e65",
+    "studies/host_ages/results/population_transport/titan-run.json": "6c0c358b9e0b28be185df80ee888065360cad3efa16f21b666750f1545cd8463",
+    "studies/host_ages/results/population_transport/titan-summary.json": "152c0ff1e866915f29c8f76b505f1c6c35880ffecd03ec77fcd173667f8ff2f3",
+    "studies/host_ages/results/population_transport/validation.json": "a263a15c8c2691c77d776c253e37cc978cc1e154308e34bd0cf9274bc307ae24"
+  },
+  "documentation_sha256": {
+    "README.md": "f1232d0fddb0ed0242763405baa21db53581f5b84001dcb153ae01262f6dc443",
+    "docs/age-correction-evidence.md": "5d8a9691db3b6c857fffa66aa27b4c4232a4b743c538a37d295ef8111324eb6c",
+    "docs/age-correction-plan.md": "b1d549c3223fcbc330a30da759492704ef035c1a4f69064db1f9ebbfed5c8737",
+    "docs/age-correction-results.md": "3d821e757a4d6b4c3f86cc375f489d46ee7c228b0075845e7a0f23775f722adf",
+    "provenance/README.md": "4e27f19b19c2d1baba1bee1ab73b6095ce687e3a60eaecb2bdff30b43cdad1e2",
+    "studies/host_ages/README.md": "c93007e23defd6cf3f56a6ce1dc3c8df65f7c3c3f2410246bd3af912f741819f",
+    "studies/host_ages/code/environment_validation/README.md": "8b94ee901e28ad6538ccf9aed39f97ad9741aa80b3303342ac789a5cd5bc56d3",
+    "studies/host_ages/notes/age-reconciliation-results.md": "7f29e942b14b2e36282c951d37f94790049b2d697727c82bdf97ddaaa914ae33",
+    "studies/host_ages/notes/age-recovery-results.md": "a2c3b453ad8e978b62b1f5d8ceaf8b0bca891e8aa9d9e1ca9dd1067fb6b95f69",
+    "studies/host_ages/notes/environment-validation-results.md": "752fa7f6b83b7a2a1d52ccdaafb8e46e2b90a201a08419e21f0b5f9dd09c2349",
+    "studies/host_ages/notes/population-transport-results.md": "d9127b0a111ad481303c905af826a981fb690819ffd5f0ae121d986751c9aba2",
+    "validation/README.md": "37805e14ee70e2f6b735032513edd2a29dff0a4cff87b291d2905fee54092023"
+  },
+  "environment_sha256": {
+    "pyproject.toml": "04e0c06e0c2310d6a36e44b17ef5b35e9c9fcd52d2f6e7b647eb99f8aee0e560",
+    "uv.lock": "5b183ec5f6da01afb56b13b78eb032791139139725fdb1c3d61381a2e011c6ee"
+  },
+  "publication_policy": "First-party code, designs, concise scientific notes and compact result/provenance JSON only. Downloadable third-party code/data, bulk arrays and regenerable object-level tables are not versioned.",
+  "author_contact_made": false,
+  "new_physical_cosmology_claim": false
+}

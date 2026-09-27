@@ -2,7 +2,7 @@
 
 ### Measurements, corrections and the evidence for cosmic acceleration
 
-**Working manuscript · 26 September 2026**
+**Working manuscript · 27 September 2026**
 
 [Methods](docs/methods/README.md) · [Research studies](studies/README.md) · [Data and code](docs/workflows.md)
 
@@ -10,7 +10,7 @@
 
 The released Pantheon+ supernova distances give **Ωₘ = 0.3323 ± 0.0182** in a spatially flat ΛCDM model, closely matching the published value of 0.334 ± 0.018. The corresponding present deceleration parameter is **q₀ = −0.5016 ± 0.0273**: these distances favour accelerating expansion under that model. Combining supernovae with baryon acoustic oscillations in a more flexible dark-energy model also favours acceleration. A separate inequality test of BAO alone is inconclusive.
 
-Host-age trends depend strongly on which brightness corrections are included. In 196 matched objects, the full-covariance residual–age slope changes from **−0.00495 ± 0.00456** to **−0.01294 ± 0.00456 mag/Gyr** when the exported bias correction is reversed. An assumed population-age template can shift the inferred q₀ to **+0.063**, but its 95% interval crosses zero and the template is not an empirically established correction. Optical and infrared distances show a related dependence on correction accounting: their high-minus-low-redshift contrast changes from **+0.0012 to +0.0754 mag** when the exported mass and bias terms are reversed.
+Host-age trends depend strongly on which brightness corrections are included. In 196 matched objects with ages treated as exact, the full-covariance residual–age slope changes from **−0.00495 ± 0.00456** to **−0.01294 ± 0.00456 mag/Gyr** when the exported bias correction is reversed. An assumed population-age template can shift the inferred q₀ to **+0.063**, but its 95% interval crosses zero and the template is not an empirically established correction. A deeper joint Gaussian-age model gives a nominal 95% residual-slope profile interval of **[−0.056, +0.008] mag/Gyr**, accommodating both zero and the proposed −0.030 scale. The additional prediction from age is small and sensitive to the age model. Optical and infrared distances show a related dependence on correction accounting: their high-minus-low-redshift contrast changes from **+0.0012 to +0.0754 mag** when the exported mass and bias terms are reversed.
 
 The measurement investigations reveal specific limitations. Light-curve mean fluxes agree closely between independent calculations, but some uncertainty prescriptions disagree. A native local peak-time Hessian understates the profile-supported uncertainty by a factor of **4.55** in one supernova. An apparent infrared timing precision largely repeats the supplied initializer. In an HST dark-image comparison, one pixel contributes **82.9%** of the squared difference, making a universal detector-error correction unjustified. These findings identify weaknesses in particular estimators and interpretations; they do not establish a new cosmological correction or a failure of acceleration. The calculations are independent reanalyses of shared published measurements, not independent observations.
 
@@ -113,6 +113,18 @@ This distinction matters because host-population age, progenitor delay and super
 The wider evidence supports environmental brightness differences, but does not yet establish how much additional age-dependent distance bias survives modern corrections. Both the stronger historical age slopes and the weaker corrected slopes are approximately reproducible under their different definitions. The [age-correction evidence review](docs/age-correction-evidence.md) compares the published arguments and our deeper calculations; the [focused experimental plan](docs/age-correction-plan.md) specifies how to distinguish correction overlap from an uncorrected evolving population.
 
 Dust geometry and intrinsic colour also remain degenerate in the constructed models: different mixtures can produce similar observed colour–brightness relations. A separate physical check finds that extrapolating the tested extinction prescriptions to sufficiently low Rᵥ can yield **negative extinction**. A passive absorbing screen cannot brighten a source in that way. This is a failure of the extrapolated model domain, not a measurement of the resulting cosmology bias; clipping the extinction would define another model whose population and selection effects would need to be assessed. [Dust findings](studies/dust/README.md). [Population outputs](results/baseline/populations/summary.json); [dust outputs](results/baseline/dust/summary.json).
+
+### 4.4 What the deeper age tests establish
+
+The original quality variables reproduce the disputed **175-object sample and its 70 young hosts**. The earlier missing-crosswalk concern was overstated. Propagating the shared young-host redshift adjustment changes its slope uncertainty modestly, and cross-fitting preserves the historical association. It does not establish that the same association survives modern standardization.
+
+On the 196 modern matched objects, jointly fitting age, redshift, mass, colour and width gives **−0.0110 ± 0.0056 mag/Gyr** when ages are fixed. Allowing uncertain ages through a conditional Gaussian population gives **−0.0244**, with nominal 95% profile interval **[−0.056, +0.008]**. The missing joint host likelihoods prevent interpreting that approximation as a definitive age measurement. Profile coverage near the intrinsic-scatter boundary is not calibrated. Held-out prediction improves only from **0.15409 to 0.15342 mag RMSE**; its evidence is borderline and depends on the catalogue choice.
+
+An independent UV–IR host comparison with Cepheid-calibrated brightnesses gives **−0.0063 ± 0.0245 mag/Gyr**, using eleven supernovae in nine hosts. Its estimated detection power for the proposed slope is only **23%** under the known-age approximation. This is insufficient to establish absence of an effect. A newly located older TITAN host catalogue permits a **401-object ZTF comparison**. Its incremental global-age coefficient is **+0.0103 ± 0.0110 mag/Gyr**, with no clear held-out prediction gain. This conditions on model-derived age summaries and the documented brightness/blinding assumptions; it does not exclude a latent physical-age effect.
+
+Controlled injections show that fitting cosmology alone retains about **99%** of a linear age slope on the observed 196-object design; fitting width, colour and a host-mass step as well retains about **64%**. Jointly fitting the injected age restores its coefficient. These tests establish partial absorption under specified assumptions, while the real observations still do not identify a high-redshift residual correction. Global host age, local stellar age and progenitor delay cannot be exchanged without validating their mapping and selection.
+
+The [full age-test results](docs/age-correction-results.md) give the observed comparisons, recovery coverage, newly available data and exact remaining limitations. No newly validated age correction has emerged from these tests, so no new corrected cosmological result is claimed.
 
 ## 5. DES: from calibrated flux to prediction and calibration
 

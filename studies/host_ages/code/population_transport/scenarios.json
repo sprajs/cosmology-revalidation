@@ -1,0 +1,74 @@
+{
+  "registered_utc": "2026-09-27T00:07:13.699904+00:00",
+  "status": "New experiment choices frozen before its numerical outputs; previously inspected age results are not blind data.",
+  "seed": 2026092704,
+  "bootstrap_replicates": 2000,
+  "age_catalogues": [
+    "G11_first",
+    "R19_first"
+  ],
+  "z_edges": [
+    0.06,
+    0.2,
+    0.42
+  ],
+  "age_histogram_edges_gyr": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10,
+    12,
+    14
+  ],
+  "selection_density_ratio_limits": [
+    1,
+    2,
+    5
+  ],
+  "selection_log_weight_per_gyr": [
+    -0.25,
+    0.0,
+    0.25
+  ],
+  "reference_host_slope_mag_per_gyr": -0.03,
+  "model_target_age_gyr": 3.1,
+  "mapping_cases": [
+    "affine",
+    "quadratic",
+    "redshift_dependent",
+    "mean_preserving_scatter",
+    "scatter_with_delay_selection"
+  ],
+  "sfhs": [
+    "B13",
+    "MD14"
+  ],
+  "dtds": [
+    "C14_smooth",
+    "W26_cut40"
+  ],
+  "cosmologies": [
+    "lcdm_H70",
+    "son_cpl_H70",
+    "son_cpl_H63p6"
+  ],
+  "population_z": [
+    0.0,
+    0.1,
+    0.2,
+    0.4,
+    0.6,
+    1.0,
+    1.5,
+    2.0
+  ],
+  "delay_points": 16001,
+  "clock_points": 60001,
+  "tolerance_fraction_of_baseline_q0_sigma": 0.1,
+  "bias_shape": "B(z) = amplitude_mag * min(z, 1), with a free brightness intercept",
+  "inference_scope": "Observed age-summary support and fixed-covariance design information are empirical diagnostics. Mapping, selection and cosmic-population scenarios are conditional sensitivities, not empirical residual-correction bounds. No released object-level SFH likelihood or calibrated age/dust/selection posterior is substituted.",
+  "reference_q0_sigma_source": "results/robustness/lcdm/summary.json:q0.sd",
+  "reference_value_audit": "Final source audit replaced an earlier approximate remembered uncertainty (0.027315) with the verified current saved value (0.0273248286653). The predeclared fractional tolerance and bias shape are unchanged."
+}

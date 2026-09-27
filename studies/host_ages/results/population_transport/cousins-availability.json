@@ -1,0 +1,74 @@
+{
+  "checked_utc": "2026-09-27T00:30:02.186091+00:00",
+  "paper": {
+    "url": "https://arxiv.org/abs/2609.13525v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.13525v1",
+    "pdf_sha256": "aa9da1ca06e63a56c2bd3b848016d65648a6576cadf316de6d7307e7e9b02248",
+    "source_url": "https://arxiv.org/src/2609.13525v1",
+    "source_sha256": "91ba935482e1a0597084e1c26650724466ce5255a3f3ad1ce1b5df0fe199ba71",
+    "source_file_inventory": [
+      "00README.json",
+      "699_Paper.tex",
+      "699_Proposal.bib",
+      "aasjournalv7.1.bst",
+      "aastex701.cls",
+      "Figures/Newest/Graphic.png",
+      "Figures/Newest/SN_parameter_hist_2panel_new.pdf",
+      "Figures/Newest/mu_vs_zCMB_with_hist.pdf",
+      "Figures/Newest/rsd_vs_separation_platinum_updated.pdf",
+      "Figures/Newest/rsd_vs_redshift_mcmc_UPDATED_STYLE.pdf",
+      "Figures/Newest/rsd_vs_fracsize_UPDATED.pdf",
+      "Figures/Newest/rsd_vs_groupmass_UPDATED.pdf",
+      "Figures/Newest/rsd_vs_separation_UPDATED_bias.pdf",
+      "Figures/Newest/rsd_vs_cumulative_fractional_separation_r2t.pdf",
+      "Figures/Newest/host_properties_hist.pdf",
+      "Figures/Newest/herculescluster_sgl.pdf",
+      "Figures/Newest/comacluster_sgl.pdf",
+      "Figures/Newest/SN_group_mass_log_hist.pdf",
+      "orcid-ID.png"
+    ],
+    "inspection": "Full22-page PDF and complete arXiv source archive checked. Tables1–5 are aggregate statistics; appendix contains cluster case-study figures. No per-SN cousin/group IDs, distance table or age-posterior bundle is supplied in the source archive."
+  },
+  "public_related_inputs": [
+    {
+      "url": "https://cdsarc.cds.unistra.fr/viz-bin/cat/J/AJ/149/171",
+      "description": "Tully2015 2MASS galaxy-group catalogue; table3 group properties (25474 rows), table4 membership and table5 combined galaxy catalogue (43038 rows each). Public reference catalogue, not the TITAN-to-group crosswalk."
+    },
+    {
+      "url": "https://cdsarc.cds.unistra.fr/ftp/J/AJ/149/171/ReadMe",
+      "path": ".work/population-transport/literature/tully2015-ReadMe",
+      "sha256": "66ff93d0ba029e91b9c2f13fb5c62f7e874f04ed6a1b8c021d3c20a7a7c3762a",
+      "bytes": 14724
+    },
+    {
+      "url": "https://github.com/KSaid-1/pvhub",
+      "description": "Public peculiar-velocity field code linked in paper; not the SN cohort or age data."
+    },
+    {
+      "url": "https://titan-snia.github.io/dr1.html",
+      "description": "Current official release page says Stay tuned; no light-curve/crosswalk release linked."
+    }
+  ],
+  "published_diagnostic": {
+    "gold_sne": 1086,
+    "group_associated": 314,
+    "cousin_sne": 80,
+    "cousin_groups": 32,
+    "age_split_significance_sigma": 0.71,
+    "spiral_fraction_split_significance_sigma": 2.06,
+    "meaning": "Table3 compares scatter across group-averaged host-property splits; not a signed age–brightness slope or paired local-age contrast."
+  },
+  "feasibility": {
+    "exact_paper_reproduction": false,
+    "age_discriminating_new_test": "Executed conservative ZTF-host to individual Tully-galaxy crossmatch for the 401 selected ZTF–TITAN summary events. There are 56 group-member events in 54 groups, two repeated groups, and only one distinct-host cousin pair. The other pair shares a host and has no independent global-age contrast. Group intercepts, width, colour and age are rank deficient; no new slope fit is justified.",
+    "missing_for_exact_reproduction": [
+      "TITAN gold/platinum selection and per-SN distance/covariance products",
+      "SN–host–Tully group crosswalk and ambiguity weights",
+      "Joint local/global age posteriors and selection metadata"
+    ],
+    "new_physical_age_inference_claimed": false,
+    "executed_inventory": "studies/host_ages/results/population_transport/group-feasibility.json",
+    "group_inventory_utc": "2026-09-27T00:44:58.576305+00:00"
+  },
+  "scope": "Bounded primary-source availability audit plus an executed public-cohort membership, age-design rank and conditional precision inventory. No author contact, exact paper reproduction or physical age-slope inference. Negative release search covers inspected primary sources, not every possible release."
+}

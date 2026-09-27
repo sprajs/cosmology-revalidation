@@ -15,6 +15,8 @@ The repository separates current execution paths from immutable historical evide
 | [history](history/) | Immutable manifests from assembly and the September 26 revalidation |
 | [licenses.json](licenses.json) | Third-party licensing and attribution inventory |
 | [literature.json](literature.json) | Sources for the prospective experimental plan |
+| [age-correction-literature.json](age-correction-literature.json) | Primary-source review behind the age-correction experiments |
+| [age-correction-execution.json](age-correction-execution.json) | New observational comparisons, controlled recovery, transport studies and their exact validation boundaries |
 
 `path` fields in the input manifest identify current files. `source_path`, source-record paths and historical run configurations describe the workspace at the time the evidence was produced. They may use older names. Those names are preserved as evidence, not presented as active project organization.
 

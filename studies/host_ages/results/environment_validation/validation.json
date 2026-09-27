@@ -1,0 +1,56 @@
+{
+  "created_utc": "2026-09-27T00:28:35.320404+00:00",
+  "code_sha256": "bf3d2d181f42074c5fdf20ced30a5d10fb9dac11c44db7837a201fb73be62813",
+  "status": "pass for the declared numerical/source checks; physical age/dust identification remains unresolved",
+  "input_files_verified": 12,
+  "source_identities": {
+    "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/sources/updates/2026-09-20-ztf/extracted/kelsey2026-stag1765-supplement/cigale_local_3kpc.txt": "4f9426de88cc02c47d58c2d6026a82815d7df5b53dafca560fc9e40f734b4327",
+    "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/sources/updates/2026-09-20-ztf/extracted/kelsey2026-stag1765-supplement/cigale_local_1kpc.txt": "e51f48b4814495db97e484130bec6349456fcef09bc44b170777c9b468543d7e",
+    "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/sources/updates/2026-09-20-ztf/extracted/kelsey2026-stag1765-supplement/cigale_global.txt": "111d998475a31f5e51be103621a11faf238a5dece1f41fb448009b30c2726beb",
+    "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/sources/updates/2026-09-20-ztf/extracted/kelsey2026-stag1765-supplement/photometry_local_3kpc.txt": "76fa919f883271569ef498bee52ed9ed9ed9aa4d21e2ca0e31f780513886ad29",
+    "/home/szymon/Documents/ChatGPT/supernova/data/distances/Pantheon+SH0ES.dat": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8",
+    "/home/szymon/Documents/ChatGPT/supernova/data/distances/Pantheon+SH0ES_STAT+SYS.cov": "abf806d966485e64afdb359c87bffc0ecc00d05eff0a31ced66f247385df0fdc",
+    "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/sources/repos/PantheonPlusSH0ES__DataRelease@7fc6805/Pantheon+_Data/4_DISTANCES_AND_COVAR/README": "e2b0d262757f01c1794a938c78d32600a21e289b2a0320e5c660c4c6fc9aa87e",
+    "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/sources/updates/2026-09-20-ztf/extracted/ztfsniadr2_lite/tables/snia_data.csv": "00235b02cea086603fe3e6c7436ae2605e33500fc9c7b661373ac7dcd175fa9e",
+    "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/sources/updates/2026-09-20-ztf/extracted/ztfsniadr2_lite/tables/globalhost_data.csv": "d042e87d34b54daf62413ee089149c9e929b8ad2ceed1942af94a21730e03a4a",
+    "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/sources/updates/2026-09-20-ztf/extracted/ztfsniadr2_lite/tables/localhost_data.csv": "267d9e898200e33eb3b62140b5c996e9fd1cc8a414f4572dae5cb1aebaeacf37",
+    "/home/szymon/.local/share/cosmology-revalidation/archive/17487bf659fcbdeeea072221492bac14b04a0a85/sources/updates/2026-09-20-ztf/originals/Ginolin25ab_masterlist--903d65d.csv": "822114c44c2cdf75230591cf32bef404f4407e47bb9d4ce8ee663d9d96511685",
+    "/home/szymon/Documents/ChatGPT/supernova/.work/population-transport/titan-author/host_props_with_SN_age_good_Mar18.csv": "b827165961c269ec4901061e508778b18e892076567dbf51c4b2981258d41031"
+  },
+  "result_sha256": {
+    "dustpedia-summary.json": "bdc01dcede11f293db9caccc023ec41fb81019a5b0d004123801eeabe8a452bb",
+    "ztf-summary.json": "7edefb46bc4d77d403bfc90bd76c0f02a0dc27c70595bd4378faeff26fe19043",
+    "titan-ztf-summary.json": "6d2fbffe7b2bd2d789637115481d3fd5e937947c4f61a2082dd183b4d9effa73",
+    "titan-calibration.json": "3da8978dd1fb41c76c5bbe76cf7d739647ca1d1d15ca8876f90775ba3e295914",
+    "robustness.json": "e322e36d689f23f8dd29390b906d941b184fd676119d83010e8bec7e0b51072b"
+  },
+  "whitened_lstsq_vs_full_covariance_GLS_max_coefficient_difference": 1.8041124150158794e-16,
+  "alias_epochs_and_coordinates_verified": [
+    {
+      "SN": "SN2008fv",
+      "CID": "2008fv_comb",
+      "PKMJD": 54750.8,
+      "coordinate_separation_arcsec": 0.3445637217652384
+    },
+    {
+      "SN": "SN1994D",
+      "CID": "1994DRichmond",
+      "PKMJD": 49432.6,
+      "coordinate_separation_arcsec": 1.2779139008429814
+    }
+  ],
+  "full_calibrator_covariance_minimum_eigenvalue": 0.0032509885409346016,
+  "checks": [
+    "All recorded source, current code, shared dependency and design hashes match.",
+    "Full covariance GLS agrees with an independent Cholesky-whitened least-squares solution.",
+    "New catalogue aliases agree by sky and event year.",
+    "Magnitude and redshift-bin nuisance-shift invariance pass.",
+    "600 fitted-working-model simulations converge with nominal coverage consistent within Monte Carlo precision."
+  ],
+  "not_validated": [
+    "Raw photometric calibration and full peculiar-velocity covariance for ZTF.",
+    "Exact public x0 blinding transformation code.",
+    "Joint host age/dust/metallicity posterior, age-prior robustness and local-to-global mapping.",
+    "Survey selection, population transport and residual cosmological bias."
+  ]
+}

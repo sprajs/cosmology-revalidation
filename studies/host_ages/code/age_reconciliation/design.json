@@ -1,0 +1,50 @@
+{
+  "frozen_utc": "2026-09-27T00:06:12.393253+00:00",
+  "seed": 2026092701,
+  "status": "Prospective methods frozen before this execution; original datasets and earlier aggregate results already inspected. No retrospective blinded claim.",
+  "samples": [
+    "C25 199 G11 with original Gupta2011 light-curve columns",
+    "Park published quality cuts on those original columns",
+    "Pantheon matched unique physical-SN G11-first and R19-first, .06<zHD<.42"
+  ],
+  "ledger": "Signed correction identity, exact row indices, no regenerated correction declared physical.",
+  "fixed_age_gls_models": [
+    "intercept + age",
+    "intercept + age + z",
+    "intercept + age + z + host mass + c + x1",
+    "intercept + age + free redshift-bin intercepts"
+  ],
+  "eiv": "Normal latent-age population, full frozen STAT+SYS covariance; joint mean-age regression on z/mass/c/x1; free residual scatter. Gaussian posterior summaries are a sensitivity model.",
+  "young_host": [
+    "same-sample age<4 regression and correction",
+    "joint age+z fit",
+    "5-fold physical-SN crossfit correction",
+    "2000 paired whole-SN bootstrap replicates with fold identity preserved",
+    "linear-operator exact induced covariance conditional on fixed ages and available original diagonal errors"
+  ],
+  "prediction": {
+    "folds": 5,
+    "repeats": 20,
+    "outcomes": [
+      "corrected",
+      "bias-reversed"
+    ],
+    "models": [
+      "z,mass,c,x1",
+      "z,mass,c,x1,age"
+    ],
+    "covariance": "Full released covariance including train/test block; conditional Gaussian test score; fixed measured ages, no age error model or training-data independence claim.",
+    "report": "Per-physical-SN mean paired squared-loss gain and block joint log-score; repeated split scores are dependent."
+  },
+  "overlap": "Fixed bins [.06,.15,.25,.35,.42], fixed 4 Gyr young threshold; continuous-mass/redshift/colour/width residualized age information.",
+  "interpretation": "Incremental prediction, not causal age or progenitor slope. Raw Tripp nuisance refit uses frozen released distance covariance and corrections; it is conditional accounting, not a full survey re-fit.",
+  "amendment_after_initial_results": {
+    "utc": "2026-09-27T00:11:55.717991+00:00",
+    "changes": [
+      "5000 correlated-noise conditional null and power draws for the already specified repeated-fold prediction statistic",
+      "same original G11 sample with original and C25-updated ages",
+      "independent block-Gaussian validation"
+    ],
+    "status": "Added after initial outcomes; exploratory sensitivity and validation, not preregistered confirmatory tests. Uses the same seeds and primary models."
+  }
+}
