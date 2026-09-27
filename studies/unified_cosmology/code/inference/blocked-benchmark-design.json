@@ -1,0 +1,15 @@
+{
+  "scope": "Performance-only fixed-attempt pilots on unchanged spectral-proposal targets; no cosmological summary, convergence certification or scientific gate change. Live runs remain untouched.",
+  "models": "CPL linear pilot; linear and smooth01 actual dependency/cache checks; smooth03 has identical dependency graph but is not separately timed.",
+  "oversampling_factors": [0, 1, 4],
+  "factor_zero": "One block including all parameters. Other factors mean eight cosmology coordinates in the slow block and five CMB nuisances plus epsilon (when sampled) in the fast block.",
+  "proposal": "Installed Cobaya BlockedProposer, unchanged correlated author covariance, fixed scale1.6, no adaptive learning/dragging/output thinning. Epsilon added with declared .02 proposal SD and zero covariance; performance could improve with learned correlations.",
+  "pilot_attempts": 400,
+  "pilot_seeds": [272991, 272992],
+  "gaussian_attempts": 20000,
+  "gaussian_seeds": [273001, 273002, 273003, 273004],
+  "maximum_native_spectrum_calls": 4,
+  "cap_policy": "Abort entire benchmark if cap exceeded; never turn a capped evaluation into a rejected point or alter support.",
+  "diagnostics": "Preserve every attempted state including rejection repeats; discard initial25percent only for performance ESS. Short real-target ESS is descriptive and unstable, not qualification. Known Gaussian ESS/CPU uses both actual cheap-control cost and an explicitly modeled reference slow/fast cost, not a measured cosmology speedup.",
+  "cache_validation": "For every parameter, compare cached and uncached full likelihood/prior vectors. Fast-only moves must add zero cosmology theory calls. Exact native fallback uses unchanged target when within the cap."
+}

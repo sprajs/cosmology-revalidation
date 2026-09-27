@@ -1,0 +1,41 @@
+{
+  "status": "passed_bounded_read_only_method_review",
+  "reviewed_utc": "2026-09-27T12:20:58.992991+00:00",
+  "reviewer": "independent age_observations agent",
+  "independent_executed_checks": {
+    "train_requested_coordinates_exactly_reconstructed": 768,
+    "holdout_requested_coordinates_exactly_reconstructed": 128,
+    "original_cholesky_times_declared_column_scale_exact": true,
+    "declared_covariance_equals_LLt_exact": true,
+    "frozen_scientific_source_hashes_verified": 4,
+    "native_theory_calls": 0
+  },
+  "source_review": {
+    "same_physical_target_and_priors": true,
+    "invalid_requests_retained_without_redraw": true,
+    "cubic_fit_reads_training_only": true,
+    "cubic_features": 165,
+    "fit_requires_full_rank_and_at_least_twice_feature_count": true,
+    "holdout_distinguishes_exact_fallback": true,
+    "no_inference_from_training_counts": true
+  },
+  "interpretation": [
+    "The new Cholesky scales the final two conditional coordinate directions; it is not a scalar expansion of every marginal physical-parameter standard deviation.",
+    "Method/design review is not spectrum-accuracy validation or posterior qualification. The untouched holdout and eventual exact posterior correction remain necessary."
+  ],
+  "recommendation": "Checker entry should explicitly assert current design/source/acquisition identities. Author reports a separate broad_spectral_audit.py will implement this; that new audit is outside this review.",
+  "changed_scientific_files": false,
+  "source_sha256": {
+    "studies/unified_cosmology/code/inference/broad_spectral_training.py": "75ec8a2d39f8fd654ef5fd7e31e3422c80b418eeff41061dc80e3d86203ea436",
+    "studies/unified_cosmology/code/inference/broad_spectral_fit.py": "ca7d2474774564f301a39c2674ee3e99d6cf5ac437ee14052d40be9ede6dc289",
+    "studies/unified_cosmology/code/inference/broad_spectral_check.py": "be17f165fc9b17ce07b7334909e2a393c796bb380e7285deec3385e2190bd902",
+    "studies/unified_cosmology/code/inference/broad-spectral-design.json": "bfeb36899d8f9bd469c2f7ba29969ac04adbc8ad39dd372510d642c4ef31f5a8",
+    "studies/unified_cosmology/code/inference/spectral_surrogate.py": "d1cfe30acf342d7824c947fbf8475144470af9c0f896f0a84488a14925ae2543"
+  },
+  "pinned_scientific_sources": {
+    "studies/unified_cosmology/code/external_probes/modern_adapter.py": "2ff1e39d111d2383cd84743dd80ed49236dbb13e5427a425611bfdd196e3b284",
+    "studies/unified_cosmology/code/external_probes/adapter.py": "08543f1843ee707c2dbcbe4e7b5e43ff0bcece25313d8d6de50843996cc3545f",
+    "studies/unified_cosmology/code/external_probes/fast_lensing.py": "51f93972068d9f11fd5e81671445a5103f6d6835a0dacb08ccc81d3e02448f8a",
+    "studies/unified_cosmology/code/inference/spectral_surrogate.py": "d1cfe30acf342d7824c947fbf8475144470af9c0f896f0a84488a14925ae2543"
+  }
+}

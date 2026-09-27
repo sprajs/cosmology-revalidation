@@ -1,0 +1,26 @@
+{
+  "status": "source_review_completed",
+  "source": {
+    "url": "https://raw.githubusercontent.com/cmbant/CAMB/1.6.6/fortran/cmbmain.f90",
+    "sha256": "1d2012001bfb9f69e7fa36eb9aaa1af56e6469e16e1a4fa3ce1da10ac0e69311",
+    "local_cache": ".work/unified-cosmology/inference/expansion-history-validation/cmbmain.f90",
+    "relevant_lines": [
+      1014,
+      1035
+    ]
+  },
+  "native_condition": "At the final source step while writing transfer functions: abs(tau-State%Transfer_Times(itf-1)) > 5.e-5, then print warning; no native abort or likelihood reweighting in this branch.",
+  "units": "Conformal time in Mpc (c=1), not physical gigayears.",
+  "multiplicity": "CalcScalarSources executes separately for perturbation wavenumbers; repeated lines do not count independent cosmological points.",
+  "broad_acquisition": {
+    "path": ".work/unified-cosmology/inference/broad-spectral/acquisition.log",
+    "sha256": "765bef211e18297558d7ad53e3c9b66656c271fca3c666af00de5a4d3b6cbf5d",
+    "warning_lines": 269,
+    "attribution": "Buffered interleaved output cannot securely assign the warning to a broad point."
+  },
+  "primary_author_context": [
+    "https://cosmocoffee.info/viewtopic.php?t=3399",
+    "https://cosmocoffee.info/viewtopic.php?t=3431"
+  ],
+  "inference_limit": "The printed warning exposes neither mismatch amplitude nor observable error. Fixed-point precision comparisons are required; no harmlessness claim follows from the warning threshold alone."
+}

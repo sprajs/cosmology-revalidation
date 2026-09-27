@@ -22,6 +22,8 @@ def main():
     original_path=HERE.parent/'external_probes/spectral-training-design.json'
     original=json.loads(original_path.read_text())
     assert sha(original_path)==design['original_design_sha256']
+    modern_acquisition=ROOT/'studies/unified_cosmology/results/external_probes/modern-acquisition.json'
+    assert sha(modern_acquisition)==design['modern_acquisition_sha256']
     for path,digest in design['source_sha256'].items():assert sha(ROOT/path)==digest,path
     centre=np.array(design['centre']);old=np.array(original['coordinate_cholesky'])
     chol=np.array(design['coordinate_cholesky']);assert np.array_equal(chol,old@np.diag([1]*6+[3,3]))
@@ -104,17 +106,22 @@ def main():
     assert np.allclose(np.quantile(delta,[0,.025,.16,.5,.84,.975,1]),holdout['delta_loglike_quantiles'],atol=1e-12,rtol=0)
     assert abs(np.sqrt(np.mean(delta**2))-holdout['delta_loglike_rms'])<1e-12
     for path in HERE.glob('broad_spectral_*.py'):ast.parse(path.read_text())
+    native_log=WORK/'acquisition.log'
+    warning_count=native_log.read_text().count('WARNING: mismatch in integrated times')
+    checks[str(native_log.relative_to(ROOT))]=sha(native_log)
     result=dict(created_utc=datetime.now(timezone.utc).isoformat(),status='passed_numerical_provenance_not_posterior_qualification',
         attempts_checked=896,statuses=statuses,identities_checked=len(checks),
         original_centre_unchanged=True,first_six_covariance_and_crosscovariance_unchanged=True,
         conditional_w_wa_scale_factor=3,scientific_prior_changed=False,
-        source_rows_in_fit=len(source_points),holdout_rows_in_fit=0,independent_QR_rank=rank,
+        source_rows_in_fit=len(source_points),holdout_rows_in_fit=0,independent_QR_rank=int(rank),
         independent_QR_outputs_checked=len(outputs),maximum_scaled_coefficient_difference=coefficient_difference,
         maximum_scaled_fitted_spectrum_difference=fitted_difference,
         theoretical_spectrum_shapes=sorted(set(metadata)),
+        native_integrated_time_warning_lines=warning_count,
+        native_warning_scope='Combined native worker log is retained and hashed; warnings cannot be assigned reliably to individual points from interleaved buffered output. A finite native likelihood is not an independent integration-accuracy certificate.',
         limitations='Numerical support and data lineage checks do not establish posterior convergence, exact-importance overlap, accuracy away from tested points or empirical cosmological model adequacy.',
         dependencies_sha256={str(p.relative_to(ROOT)):sha(p) for p in [Path(__file__),design_path,original_path,
-            RESULT/'broad-spectral-training.json',RESULT/'broad-spectral-fit.json',RESULT/'broad-spectral-holdout.json']},
+            RESULT/'broad-spectral-training.json',RESULT/'broad-spectral-fit.json',RESULT/'broad-spectral-holdout.json',modern_acquisition]},
         checked_sha256=checks)
     (RESULT/'broad-spectral-validation.json').write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps({k:v for k,v in result.items() if k!='checked_sha256'},indent=2))

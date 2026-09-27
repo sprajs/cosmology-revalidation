@@ -39,7 +39,9 @@ def correction_dependencies():
 def initialize(settings):
     global _exact,_proposal
     from cobaya.model import get_model
-    if settings.get('fast_lensing'):
+    if settings.get('gpu'):
+        from modern_gpu import configuration
+    elif settings.get('fast_lensing'):
         from modern_fast import configuration
     else:
         from modern_run import configuration
@@ -165,7 +167,9 @@ def main():
     for path,digest in check['input_sha256'].items():
         assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==digest,'Diagnostics refer to different chain bytes.'
     from late_geometry import sample_path
-    if settings.get('fast_lensing'):
+    if settings.get('gpu'):
+        from modern_gpu import configuration, identify
+    elif settings.get('fast_lensing'):
         from modern_fast import configuration, identify
     else:
         from modern_run import configuration

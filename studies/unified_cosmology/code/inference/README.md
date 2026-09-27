@@ -130,3 +130,28 @@ OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
 ```
 
 The broader cubic model lives at `.work/unified-cosmology/inference/broad-spectral/surrogate-cubic-v1.npz`. Of 896 requested points, 689 training and 116 holdout evaluations were finite. Its untouched holdout includes likelihood errors as large as 140 in log likelihood, so it is retained as a numerical diagnostic rather than used to report cosmology. The largest errors occur at low native likelihood near the early-time CPL support boundary, but this does not establish adequate posterior overlap. The original baseline model stays unchanged. Any replacement numerical model requires a newly declared design, fresh independent validation, independent-chain convergence and native density-correction gates. Training and holdout spectra are not cosmological observations.
+
+## Quartic numerical model
+
+The fixed quartic model uses all 509 original and 689 broader finite training spectra, with 495 polynomial features. Its independent validation contains 128 new requests split equally between the original and broader coordinate distributions; 117 are finite. Earlier holdouts informed this repair and are explicitly not its independent validation. Run `quartic_spectral.py acquire --workers 6`, then `quartic_spectral.py fit`, `quartic_spectral.py check` and `quartic_spectral_audit.py` with the modern environment. Acquisition and fitting can run concurrently because the new holdout never enters the fit. Existing model outputs are not overwritten.
+
+The mixed-width holdout has median log-likelihood error +0.014, with central 68% range [−0.758, +0.511] and much larger errors in some tails. The resulting model remains a proposal requiring native correction. Fresh independent sensitivity chains use:
+
+```bash
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 CLIPY_NOJAX=1 \
+  .work/unified-cosmology/external-probes/.modern-venv/bin/mpiexec -n 4 \
+  .work/unified-cosmology/external-probes/.modern-venv/bin/python \
+  studies/unified_cosmology/code/inference/modern_blocked_sample.py \
+  --evolution linear --seed 272812 --gpu \
+  --surrogate .work/unified-cosmology/inference/quartic-spectral/surrogate-quartic-v1.npz
+```
+
+The separately sampled `smooth01` target uses seed 272813. The same convergence, native density correction and weighted-stability gates apply. The GPU option requires the dependencies and validation below; omitting it retains CPU matrix evaluation with a different recorded numerical identity.
+
+## Optional GPU calculation
+
+`modern_gpu.py` dispatches only the spectral proposal's dense matrix multiplication to the GPU in float64. It inherits the original polynomial, exact background, interpolation-envelope checks, native fallbacks and unit conversions. It changes neither the CMB physics nor the required native-CAMB correction. The GPU identity records the wrapper source, CuPy/CUDA package versions, runtime, driver and device.
+
+Install the pinned optional [GPU dependencies](gpu-requirements-lock.txt) with `uv pip install --no-deps --python .work/unified-cosmology/external-probes/.modern-venv/bin/python -r studies/unified_cosmology/code/inference/gpu-requirements-lock.txt`. The recorded installation added packages while leaving all 54 existing package versions unchanged. CuPy documents these bundled CUDA components in its [installation guide](https://docs.cupy.dev/en/v14.2.0/install.html).
+
+`gpu_validate.py` compares the complete CPU/GPU likelihood at eight fixed interior points for each of three brightness models. Maximum log-posterior difference is 6.83×10⁻¹³. Its component timing includes feature transfer and result retrieval; it does not measure full-chain speed or validate the polynomial against native spectra. The independently validated [blocked sampler](../../notes/blocked-sampling.md) accepts `--gpu` for fresh runs with separate identities and directories. Existing CPU chains are not converted in place.
