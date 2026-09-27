@@ -1,0 +1,1312 @@
+{
+  "status": "passed",
+  "code_sha256": "16284c45041a5af59f3fc484f97afd48c318f89a7fbff800610d4ce88b8bd0c6",
+  "patch": {
+    "path": "/home/szymon/Documents/ChatGPT/supernova/studies/host_ages/code/survey_physics/scaled_scatter_capacity.patch",
+    "sha256": "8f464957dd294215f40f79c497c70afbe3377987825a3b1fc77b81f2f456bc6b"
+  },
+  "build_record_sha256": "e4f0bc7a776eae2582ce6a81716beae9312cd176ba8fc8e1baff9766347a608e",
+  "executable": {
+    "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/native-capacity/bin/SALT2mu.exe",
+    "sha256": "abae2154c852f336908218ee53cec88393771a2e9e8afafc4501941f4f81be1e"
+  },
+  "scope": "Only storage capacity and diagnostics changed. Original pilot has one capacity abort and five zero-MAD failures. Capacity abort repairs; zero-MAD failures persist. All four successful science tables/covariances exactly identical.",
+  "unchanged_science": "same .01 step, \u2212.3 lower limit, MAD, covariance floor, weights, interpolation and support criteria",
+  "records": [
+    {
+      "label": "baseline-nominal",
+      "original_log": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/baseline-nominal/bbc.log",
+        "sha256": "95347a1089ef46e716b95558490688ca8044ac75cc7420f933b4fa75177e99e4"
+      },
+      "original_input": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/baseline-nominal/bbc.input",
+        "sha256": "cb6d6b4c90b42f01e1d648b3d73ab2fe740a91ecbdf4ea2a180a5678e6a3ab4e"
+      },
+      "original_success": true,
+      "replay": {
+        "returncode": 0,
+        "seconds": 0.31250486901262775,
+        "graceful": true,
+        "input_sha256": "cb6d6b4c90b42f01e1d648b3d73ab2fe740a91ecbdf4ea2a180a5678e6a3ab4e",
+        "data_table_sha256": "5a7c1b86d290b1b4fe70145f321d2acf4ead35c1a3beed65f6a7750e19fadb98",
+        "training_table_sha256": "a38ec6c63425adc6a844d0db6abc58e2ba06a01c1a6def4a9da9a79f07cdffa1",
+        "reference_input_sha256": "78815d7cf277b138b1b90bbaf058eef573d1998cbf5884dd5c8a05bfe5f34b15",
+        "reference_config_overrides": {
+          "datafile": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/eval-nominal-common.FITRES",
+          "simfile_biascor": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/tables/train-nominal-literal-k012.FITRES",
+          "prefix": "bbc",
+          "surveygroup_biascor": "'DES(zbin=0.075)'",
+          "u13": "0",
+          "p13": "0",
+          "zmin": ".05",
+          "ndump_nobiascor": "0",
+          "u1": "0",
+          "u2": "0",
+          "u5": "0",
+          "p5": "0"
+        },
+        "executable_sha256": "abae2154c852f336908218ee53cec88393771a2e9e8afafc4501941f4f81be1e",
+        "capacity_patch_sha256": "a7e5dd20ed39b4dbbbc987dcb9701138c6c4f32ca41b1874d23ae4c0d9a47f4f",
+        "scatter_capacity_patch_sha256": "8f464957dd294215f40f79c497c70afbe3377987825a3b1fc77b81f2f456bc6b",
+        "scatter_capacity_scan_diagnostics": [],
+        "log_sha256": "493dfd6ee4ffc4cd8cfd46be4a3ebae89ba82296c76ee6aecc7fd412d65d7d94",
+        "folder": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/repaired/baseline-nominal",
+        "nuisance_mode": "fixed_released_construction_values",
+        "native_support_lines": [
+          "Stored list of 524 biasCor events with SNRMAX > 60.0",
+          "NBIASCOR_CUTS =    2268 for IDSAMPLE=0  DES-zSPEC(X3)",
+          "NBIASCOR_CUTS =    2489 for IDSAMPLE=1  DES-zSPEC(C3)",
+          "NBIASCOR_CUTS =    1248 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+          "NBIASCOR_CUTS =    1239 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+          "NBIASCOR_CUTS =    3023 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+          "sigInt[ia,ib,ig=0,0,0] = 0.0904 (524 evt with all IDSAMPLEs & SNR>60)",
+          "Rejected 20 (of 35) DATA events with no 6D biasCor (DES-zSPEC(X3)).",
+          "Rejected 28 (of 39) DATA events with no 6D biasCor (DES-zSPEC(C3)).",
+          "Rejected 9 (of 20) DATA events with no 6D biasCor (DES-zSPEC(X1+X2)).",
+          "Rejected 15 (of 24) DATA events with no 6D biasCor (DES-zSPEC(S1+S2)).",
+          "Rejected 15 (of 43) DATA events with no 6D biasCor (DES-zSPEC(E1+E2+C1+C2))."
+        ],
+        "native_warning_lines": [],
+        "output_rows": 74,
+        "parameters": {
+          "alpha0": {
+            "value": 0.15,
+            "conditional_error": 0.0,
+            "fixed": true
+          },
+          "beta0": {
+            "value": 2.87,
+            "conditional_error": 0.0,
+            "fixed": true
+          },
+          "gamma0": {
+            "value": 0.0,
+            "conditional_error": 0.0,
+            "fixed": true
+          }
+        },
+        "M0avg": -30.01545,
+        "sigint": 0.0,
+        "global_gamma_offset_lines": [],
+        "outputs": {
+          "bbc.FITRES": "eaedd6b1498908356eea6232cf692d1548afb795ea48217f5cc400a84f3f1a84",
+          "bbc.M0DIF": "59890e759fefb438c6daebbbf926051605138cd7a51810ca7a551b2913072659",
+          "bbc.COV": "d026c3d4fc8426a7054e4e030197929f03b0233f26a59de52c310347a42570ed"
+        },
+        "MUCOV": {
+          "biasCor_muCOVSCALE": {
+            "min": 0.066,
+            "median": 1.0,
+            "max": 1.342
+          },
+          "biasCor_muCOVADD": {
+            "min": -0.09,
+            "median": 0.010700000000000001,
+            "max": 0.0681
+          }
+        },
+        "covariance_dimension": 20,
+        "covariance_min_eigenvalue": 0.0016084299968552903,
+        "populated_IZBIN_counts": {
+          "6": 4,
+          "7": 1,
+          "8": 5,
+          "9": 7,
+          "10": 14,
+          "11": 11,
+          "12": 5,
+          "13": 8,
+          "14": 6,
+          "15": 3,
+          "16": 7,
+          "17": 2,
+          "18": 1
+        },
+        "informative_covariance_bins": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ],
+        "informative_covariance_min_eigenvalue": 0.0016084299968552864,
+        "covariance_scope": "Native conditional raw fitted-bin Hesse covariance, with free global normalization; not the exactly centered M0DIF covariance, correction-training Monte Carlo or survey systematics. Empty bins with MUDIFERR=999 are not informative, regardless of matrix positivity.",
+        "nuisance_design": {
+          "rank": 13,
+          "columns": 13,
+          "singular_values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.9999999999999999,
+            0.9999999999999999,
+            0.9999999999999999
+          ],
+          "rank_relative_threshold": 1e-10,
+          "null_direction_centered_mu_shape_max": 0.0,
+          "centered_mu_shape_identified_by_design": true,
+          "low_mass_count": 0,
+          "high_mass_count": 74,
+          "mixed_mass_native_bins": []
+        },
+        "native_fit_identified": true,
+        "host_mass_overlap_supported": true,
+        "gamma_at_native_bound": false,
+        "nuisance_native_bounds": {
+          "alpha0": {
+            "min": 0.02,
+            "max": 0.3,
+            "at_bound": false
+          },
+          "beta0": {
+            "min": 1.0,
+            "max": 6.0,
+            "at_bound": false
+          },
+          "gamma0": {
+            "min": -0.5,
+            "max": 0.5,
+            "at_bound": false
+          }
+        },
+        "native_map_geometry": [
+          "set_MAPCELL_biasCor : malloc for 6144  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 6144  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 3584  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 4608  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 4608  6D-cells for biasCor",
+          "NBIASCOR_CUTS =    2268 for IDSAMPLE=0  DES-zSPEC(X3)",
+          "NBIASCOR_CUTS =    2489 for IDSAMPLE=1  DES-zSPEC(C3)",
+          "NBIASCOR_CUTS =    1248 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+          "NBIASCOR_CUTS =    1239 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+          "NBIASCOR_CUTS =    3023 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+          "NBINz = 12: 0.140 < z < 1.040",
+          "NBINz = 12: 0.140 < z < 1.040",
+          "NBINz = 12: 0.170 < z < 1.070",
+          "NBINz = 12: 0.170 < z < 1.070",
+          "NBINz = 7: 0.140 < z < 0.665",
+          "NBINz = 7: 0.140 < z < 0.665",
+          "NBINz = 9: 0.140 < z < 0.815",
+          "NBINz = 9: 0.140 < z < 0.815",
+          "NBINz = 9: 0.160 < z < 0.835",
+          "NBINz = 9: 0.160 < z < 0.835"
+        ]
+      },
+      "science_table_exact_numeric_identity": true,
+      "science_rows_byte_identity": true,
+      "covariance_byte_identity": true,
+      "expanded_scan_cells": []
+    },
+    {
+      "label": "baseline-age_nominal",
+      "original_log": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/baseline-age_nominal/bbc.log",
+        "sha256": "1a23a12b5db544e2f00d2ccca80fc455dbfa58e5c3c86b40dfefd895a4589a04"
+      },
+      "original_input": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/baseline-age_nominal/bbc.input",
+        "sha256": "27a91c44069c5fe41b077798b6090347979e72f2393b589dc2bee0245a2ee8f0"
+      },
+      "original_success": true,
+      "replay": {
+        "returncode": 0,
+        "seconds": 0.3627417140232865,
+        "graceful": true,
+        "input_sha256": "27a91c44069c5fe41b077798b6090347979e72f2393b589dc2bee0245a2ee8f0",
+        "data_table_sha256": "b641dd2673e2f030ce2b408c7c4d3511bbbcd352b4b0ac9823a29f85b6cdb901",
+        "training_table_sha256": "a38ec6c63425adc6a844d0db6abc58e2ba06a01c1a6def4a9da9a79f07cdffa1",
+        "reference_input_sha256": "78815d7cf277b138b1b90bbaf058eef573d1998cbf5884dd5c8a05bfe5f34b15",
+        "reference_config_overrides": {
+          "datafile": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/eval-age-common.FITRES",
+          "simfile_biascor": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/tables/train-nominal-literal-k012.FITRES",
+          "prefix": "bbc",
+          "surveygroup_biascor": "'DES(zbin=0.075)'",
+          "u13": "0",
+          "p13": "0",
+          "zmin": ".05",
+          "ndump_nobiascor": "0",
+          "u1": "0",
+          "u2": "0",
+          "u5": "0",
+          "p5": "0"
+        },
+        "executable_sha256": "abae2154c852f336908218ee53cec88393771a2e9e8afafc4501941f4f81be1e",
+        "capacity_patch_sha256": "a7e5dd20ed39b4dbbbc987dcb9701138c6c4f32ca41b1874d23ae4c0d9a47f4f",
+        "scatter_capacity_patch_sha256": "8f464957dd294215f40f79c497c70afbe3377987825a3b1fc77b81f2f456bc6b",
+        "scatter_capacity_scan_diagnostics": [],
+        "log_sha256": "3bd1fef384fae69f60b43d4425ebef27a7f636b960044b23db0deea851667632",
+        "folder": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/repaired/baseline-age_nominal",
+        "nuisance_mode": "fixed_released_construction_values",
+        "native_support_lines": [
+          "Stored list of 524 biasCor events with SNRMAX > 60.0",
+          "NBIASCOR_CUTS =    2268 for IDSAMPLE=0  DES-zSPEC(X3)",
+          "NBIASCOR_CUTS =    2489 for IDSAMPLE=1  DES-zSPEC(C3)",
+          "NBIASCOR_CUTS =    1248 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+          "NBIASCOR_CUTS =    1239 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+          "NBIASCOR_CUTS =    3023 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+          "sigInt[ia,ib,ig=0,0,0] = 0.0904 (524 evt with all IDSAMPLEs & SNR>60)",
+          "Rejected 20 (of 35) DATA events with no 6D biasCor (DES-zSPEC(X3)).",
+          "Rejected 30 (of 39) DATA events with no 6D biasCor (DES-zSPEC(C3)).",
+          "Rejected 9 (of 20) DATA events with no 6D biasCor (DES-zSPEC(X1+X2)).",
+          "Rejected 16 (of 24) DATA events with no 6D biasCor (DES-zSPEC(S1+S2)).",
+          "Rejected 16 (of 43) DATA events with no 6D biasCor (DES-zSPEC(E1+E2+C1+C2))."
+        ],
+        "native_warning_lines": [],
+        "output_rows": 70,
+        "parameters": {
+          "alpha0": {
+            "value": 0.15,
+            "conditional_error": 0.0,
+            "fixed": true
+          },
+          "beta0": {
+            "value": 2.87,
+            "conditional_error": 0.0,
+            "fixed": true
+          },
+          "gamma0": {
+            "value": 0.0,
+            "conditional_error": 0.0,
+            "fixed": true
+          }
+        },
+        "M0avg": -30.03229,
+        "sigint": 0.0,
+        "global_gamma_offset_lines": [],
+        "outputs": {
+          "bbc.FITRES": "12eebf34577b3e6d596cacd13e9e2298ddbb2b0567ef5a2bcd2fbe9353a15ac2",
+          "bbc.M0DIF": "31adc984ea2275adeefb707103b4bad01db94cded9f332e72e143964e7e6a9c8",
+          "bbc.COV": "b1eb725014a721b1c0744037370a7acef99af93b5d38a62dbdfedbe77f3dfe4c"
+        },
+        "MUCOV": {
+          "biasCor_muCOVSCALE": {
+            "min": 0.482,
+            "median": 1.0,
+            "max": 1.231
+          },
+          "biasCor_muCOVADD": {
+            "min": -0.0608,
+            "median": 0.010350000000000002,
+            "max": 0.0682
+          }
+        },
+        "covariance_dimension": 20,
+        "covariance_min_eigenvalue": 0.0017978979994483885,
+        "populated_IZBIN_counts": {
+          "6": 4,
+          "7": 1,
+          "8": 5,
+          "9": 7,
+          "10": 12,
+          "11": 11,
+          "12": 5,
+          "13": 8,
+          "14": 6,
+          "15": 3,
+          "16": 6,
+          "17": 2
+        },
+        "informative_covariance_bins": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "informative_covariance_min_eigenvalue": 0.0017978979994483911,
+        "covariance_scope": "Native conditional raw fitted-bin Hesse covariance, with free global normalization; not the exactly centered M0DIF covariance, correction-training Monte Carlo or survey systematics. Empty bins with MUDIFERR=999 are not informative, regardless of matrix positivity.",
+        "nuisance_design": {
+          "rank": 12,
+          "columns": 12,
+          "singular_values": [
+            1.0000000000000002,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.9999999999999999,
+            0.9999999999999999
+          ],
+          "rank_relative_threshold": 1e-10,
+          "null_direction_centered_mu_shape_max": 0.0,
+          "centered_mu_shape_identified_by_design": true,
+          "low_mass_count": 0,
+          "high_mass_count": 70,
+          "mixed_mass_native_bins": []
+        },
+        "native_fit_identified": true,
+        "host_mass_overlap_supported": true,
+        "gamma_at_native_bound": false,
+        "nuisance_native_bounds": {
+          "alpha0": {
+            "min": 0.02,
+            "max": 0.3,
+            "at_bound": false
+          },
+          "beta0": {
+            "min": 1.0,
+            "max": 6.0,
+            "at_bound": false
+          },
+          "gamma0": {
+            "min": -0.5,
+            "max": 0.5,
+            "at_bound": false
+          }
+        },
+        "native_map_geometry": [
+          "set_MAPCELL_biasCor : malloc for 6144  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 6144  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 3584  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 4608  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 4608  6D-cells for biasCor",
+          "NBIASCOR_CUTS =    2268 for IDSAMPLE=0  DES-zSPEC(X3)",
+          "NBIASCOR_CUTS =    2489 for IDSAMPLE=1  DES-zSPEC(C3)",
+          "NBIASCOR_CUTS =    1248 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+          "NBIASCOR_CUTS =    1239 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+          "NBIASCOR_CUTS =    3023 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+          "NBINz = 12: 0.140 < z < 1.040",
+          "NBINz = 12: 0.140 < z < 1.040",
+          "NBINz = 12: 0.170 < z < 1.070",
+          "NBINz = 12: 0.170 < z < 1.070",
+          "NBINz = 7: 0.140 < z < 0.665",
+          "NBINz = 7: 0.140 < z < 0.665",
+          "NBINz = 9: 0.140 < z < 0.815",
+          "NBINz = 9: 0.140 < z < 0.815",
+          "NBINz = 9: 0.160 < z < 0.835",
+          "NBINz = 9: 0.160 < z < 0.835"
+        ]
+      },
+      "science_table_exact_numeric_identity": true,
+      "science_rows_byte_identity": true,
+      "covariance_byte_identity": true,
+      "expanded_scan_cells": []
+    },
+    {
+      "label": "baseline-age_literal",
+      "original_log": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/baseline-age_literal/bbc.log",
+        "sha256": "a3170b0a62d206c7893d97edc45085b0fc6e42fcdff338107ef4c9216fe7e36f"
+      },
+      "original_input": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/baseline-age_literal/bbc.input",
+        "sha256": "850ad319cdb9d0d4bb8ec28fe2d9fe2501ea5a6cc4c8a14610d3132d2ca9046f"
+      },
+      "original_success": true,
+      "replay": {
+        "returncode": 0,
+        "seconds": 0.30247575099929236,
+        "graceful": true,
+        "input_sha256": "850ad319cdb9d0d4bb8ec28fe2d9fe2501ea5a6cc4c8a14610d3132d2ca9046f",
+        "data_table_sha256": "b641dd2673e2f030ce2b408c7c4d3511bbbcd352b4b0ac9823a29f85b6cdb901",
+        "training_table_sha256": "4969f09d6741fbeb9153719526471a85a312850eb138616dff39e5a0edec671d",
+        "reference_input_sha256": "78815d7cf277b138b1b90bbaf058eef573d1998cbf5884dd5c8a05bfe5f34b15",
+        "reference_config_overrides": {
+          "datafile": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/eval-age-common.FITRES",
+          "simfile_biascor": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/tables/train-age-literal-k012.FITRES",
+          "prefix": "bbc",
+          "surveygroup_biascor": "'DES(zbin=0.075)'",
+          "u13": "0",
+          "p13": "0",
+          "zmin": ".05",
+          "ndump_nobiascor": "0",
+          "u1": "0",
+          "u2": "0",
+          "u5": "0",
+          "p5": "0"
+        },
+        "executable_sha256": "abae2154c852f336908218ee53cec88393771a2e9e8afafc4501941f4f81be1e",
+        "capacity_patch_sha256": "a7e5dd20ed39b4dbbbc987dcb9701138c6c4f32ca41b1874d23ae4c0d9a47f4f",
+        "scatter_capacity_patch_sha256": "8f464957dd294215f40f79c497c70afbe3377987825a3b1fc77b81f2f456bc6b",
+        "scatter_capacity_scan_diagnostics": [],
+        "log_sha256": "8ac32b4a71bd7a4260536c6fec276f5bc49f439cdebdd4e2f9a314e37343dc97",
+        "folder": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/repaired/baseline-age_literal",
+        "nuisance_mode": "fixed_released_construction_values",
+        "native_support_lines": [
+          "Stored list of 548 biasCor events with SNRMAX > 60.0",
+          "NBIASCOR_CUTS =    2179 for IDSAMPLE=0  DES-zSPEC(X3)",
+          "NBIASCOR_CUTS =    2398 for IDSAMPLE=1  DES-zSPEC(C3)",
+          "NBIASCOR_CUTS =    1256 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+          "NBIASCOR_CUTS =    1240 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+          "NBIASCOR_CUTS =    2977 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+          "sigInt[ia,ib,ig=0,0,0] = 0.1298 (548 evt with all IDSAMPLEs & SNR>60)",
+          "Rejected 20 (of 35) DATA events with no 6D biasCor (DES-zSPEC(X3)).",
+          "Rejected 29 (of 39) DATA events with no 6D biasCor (DES-zSPEC(C3)).",
+          "Rejected 10 (of 20) DATA events with no 6D biasCor (DES-zSPEC(X1+X2)).",
+          "Rejected 15 (of 24) DATA events with no 6D biasCor (DES-zSPEC(S1+S2)).",
+          "Rejected 19 (of 43) DATA events with no 6D biasCor (DES-zSPEC(E1+E2+C1+C2))."
+        ],
+        "native_warning_lines": [],
+        "output_rows": 68,
+        "parameters": {
+          "alpha0": {
+            "value": 0.15,
+            "conditional_error": 0.0,
+            "fixed": true
+          },
+          "beta0": {
+            "value": 2.87,
+            "conditional_error": 0.0,
+            "fixed": true
+          },
+          "gamma0": {
+            "value": 0.0,
+            "conditional_error": 0.0,
+            "fixed": true
+          }
+        },
+        "M0avg": -30.04213,
+        "sigint": 0.0,
+        "global_gamma_offset_lines": [],
+        "outputs": {
+          "bbc.FITRES": "5d0c8a34b0b5be73e8da410db2caefee8d0f5e92ec362e9ef1ace63ca88e9104",
+          "bbc.M0DIF": "6a2cc68b2a77291627a995cca3d0750e3c328ec956dd9dda8978284d92d2afec",
+          "bbc.COV": "0a286906561a9df6c5847010b62c88e5547901fbf2965aee5268e114259629d2"
+        },
+        "MUCOV": {
+          "biasCor_muCOVSCALE": {
+            "min": 0.442,
+            "median": 1.0,
+            "max": 1.09
+          },
+          "biasCor_muCOVADD": {
+            "min": -0.0717,
+            "median": 0.0166,
+            "max": 0.0573
+          }
+        },
+        "covariance_dimension": 20,
+        "covariance_min_eigenvalue": 0.0025061199995353874,
+        "populated_IZBIN_counts": {
+          "6": 4,
+          "7": 1,
+          "8": 5,
+          "9": 8,
+          "10": 12,
+          "11": 10,
+          "12": 6,
+          "13": 7,
+          "14": 5,
+          "15": 2,
+          "16": 5,
+          "17": 3
+        },
+        "informative_covariance_bins": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "informative_covariance_min_eigenvalue": 0.0025061199995353874,
+        "covariance_scope": "Native conditional raw fitted-bin Hesse covariance, with free global normalization; not the exactly centered M0DIF covariance, correction-training Monte Carlo or survey systematics. Empty bins with MUDIFERR=999 are not informative, regardless of matrix positivity.",
+        "nuisance_design": {
+          "rank": 12,
+          "columns": 12,
+          "singular_values": [
+            1.0000000000000002,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.9999999999999999,
+            0.9999999999999999,
+            0.9999999999999999
+          ],
+          "rank_relative_threshold": 1e-10,
+          "null_direction_centered_mu_shape_max": 0.0,
+          "centered_mu_shape_identified_by_design": true,
+          "low_mass_count": 0,
+          "high_mass_count": 68,
+          "mixed_mass_native_bins": []
+        },
+        "native_fit_identified": true,
+        "host_mass_overlap_supported": true,
+        "gamma_at_native_bound": false,
+        "nuisance_native_bounds": {
+          "alpha0": {
+            "min": 0.02,
+            "max": 0.3,
+            "at_bound": false
+          },
+          "beta0": {
+            "min": 1.0,
+            "max": 6.0,
+            "at_bound": false
+          },
+          "gamma0": {
+            "min": -0.5,
+            "max": 0.5,
+            "at_bound": false
+          }
+        },
+        "native_map_geometry": [
+          "set_MAPCELL_biasCor : malloc for 6144  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 6144  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 3584  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 4608  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 4608  6D-cells for biasCor",
+          "NBIASCOR_CUTS =    2179 for IDSAMPLE=0  DES-zSPEC(X3)",
+          "NBIASCOR_CUTS =    2398 for IDSAMPLE=1  DES-zSPEC(C3)",
+          "NBIASCOR_CUTS =    1256 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+          "NBIASCOR_CUTS =    1240 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+          "NBIASCOR_CUTS =    2977 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+          "NBINz = 12: 0.140 < z < 1.040",
+          "NBINz = 12: 0.140 < z < 1.040",
+          "NBINz = 12: 0.170 < z < 1.070",
+          "NBINz = 12: 0.170 < z < 1.070",
+          "NBINz = 7: 0.140 < z < 0.665",
+          "NBINz = 7: 0.140 < z < 0.665",
+          "NBINz = 9: 0.140 < z < 0.815",
+          "NBINz = 9: 0.140 < z < 0.815",
+          "NBINz = 9: 0.160 < z < 0.835",
+          "NBINz = 9: 0.160 < z < 0.835"
+        ]
+      },
+      "science_table_exact_numeric_identity": true,
+      "science_rows_byte_identity": true,
+      "covariance_byte_identity": true,
+      "expanded_scan_cells": []
+    },
+    {
+      "label": "baseline-age_retained",
+      "original_log": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/baseline-age_retained/bbc.log",
+        "sha256": "1ca5afe8c1cdceb17a7c701b483584fcd57c276e378acc83a1907c592db94f19"
+      },
+      "original_input": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/baseline-age_retained/bbc.input",
+        "sha256": "50ebc7b5ef06150788b234df4168611c18499d03c321d0c1c1798449f48e468d"
+      },
+      "original_success": true,
+      "replay": {
+        "returncode": 0,
+        "seconds": 0.29833702399628237,
+        "graceful": true,
+        "input_sha256": "50ebc7b5ef06150788b234df4168611c18499d03c321d0c1c1798449f48e468d",
+        "data_table_sha256": "b641dd2673e2f030ce2b408c7c4d3511bbbcd352b4b0ac9823a29f85b6cdb901",
+        "training_table_sha256": "cb468ae68d49c106529f61e60951e936eb02b2cd69acf053a48226fe50041b81",
+        "reference_input_sha256": "78815d7cf277b138b1b90bbaf058eef573d1998cbf5884dd5c8a05bfe5f34b15",
+        "reference_config_overrides": {
+          "datafile": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/eval-age-common.FITRES",
+          "simfile_biascor": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/tables/train-age-retained_age-k012.FITRES",
+          "prefix": "bbc",
+          "surveygroup_biascor": "'DES(zbin=0.075)'",
+          "u13": "0",
+          "p13": "0",
+          "zmin": ".05",
+          "ndump_nobiascor": "0",
+          "u1": "0",
+          "u2": "0",
+          "u5": "0",
+          "p5": "0"
+        },
+        "executable_sha256": "abae2154c852f336908218ee53cec88393771a2e9e8afafc4501941f4f81be1e",
+        "capacity_patch_sha256": "a7e5dd20ed39b4dbbbc987dcb9701138c6c4f32ca41b1874d23ae4c0d9a47f4f",
+        "scatter_capacity_patch_sha256": "8f464957dd294215f40f79c497c70afbe3377987825a3b1fc77b81f2f456bc6b",
+        "scatter_capacity_scan_diagnostics": [],
+        "log_sha256": "4a4021cada79fc05d596f34212a6ac02e138b37840fd7f8a6d09cbcbff4ae90b",
+        "folder": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/repaired/baseline-age_retained",
+        "nuisance_mode": "fixed_released_construction_values",
+        "native_support_lines": [
+          "Stored list of 548 biasCor events with SNRMAX > 60.0",
+          "NBIASCOR_CUTS =    2179 for IDSAMPLE=0  DES-zSPEC(X3)",
+          "NBIASCOR_CUTS =    2398 for IDSAMPLE=1  DES-zSPEC(C3)",
+          "NBIASCOR_CUTS =    1256 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+          "NBIASCOR_CUTS =    1240 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+          "NBIASCOR_CUTS =    2977 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+          "sigInt[ia,ib,ig=0,0,0] = 0.1298 (548 evt with all IDSAMPLEs & SNR>60)",
+          "Rejected 20 (of 35) DATA events with no 6D biasCor (DES-zSPEC(X3)).",
+          "Rejected 29 (of 39) DATA events with no 6D biasCor (DES-zSPEC(C3)).",
+          "Rejected 10 (of 20) DATA events with no 6D biasCor (DES-zSPEC(X1+X2)).",
+          "Rejected 15 (of 24) DATA events with no 6D biasCor (DES-zSPEC(S1+S2)).",
+          "Rejected 19 (of 43) DATA events with no 6D biasCor (DES-zSPEC(E1+E2+C1+C2))."
+        ],
+        "native_warning_lines": [],
+        "output_rows": 68,
+        "parameters": {
+          "alpha0": {
+            "value": 0.15,
+            "conditional_error": 0.0,
+            "fixed": true
+          },
+          "beta0": {
+            "value": 2.87,
+            "conditional_error": 0.0,
+            "fixed": true
+          },
+          "gamma0": {
+            "value": 0.0,
+            "conditional_error": 0.0,
+            "fixed": true
+          }
+        },
+        "M0avg": -30.02756,
+        "sigint": 0.0,
+        "global_gamma_offset_lines": [],
+        "outputs": {
+          "bbc.FITRES": "d182a1321bb12013d17e7a2e79bd9cd9e7774e3b226ce29c65f8bf8d340e26a1",
+          "bbc.M0DIF": "3ee6dd51f2103bfa422d90c2258aada377e0d8e556dfe35f9efcc4b28fa4c47d",
+          "bbc.COV": "f0705ed4f44440e44862f869bd04d8ebda9925f6e60e78b0878048c7f90302c6"
+        },
+        "MUCOV": {
+          "biasCor_muCOVSCALE": {
+            "min": 0.513,
+            "median": 1.0,
+            "max": 1.07
+          },
+          "biasCor_muCOVADD": {
+            "min": -0.0728,
+            "median": 0.01315,
+            "max": 0.0542
+          }
+        },
+        "covariance_dimension": 20,
+        "covariance_min_eigenvalue": 0.002161299999995066,
+        "populated_IZBIN_counts": {
+          "6": 4,
+          "7": 1,
+          "8": 5,
+          "9": 8,
+          "10": 12,
+          "11": 10,
+          "12": 6,
+          "13": 7,
+          "14": 5,
+          "15": 2,
+          "16": 5,
+          "17": 3
+        },
+        "informative_covariance_bins": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "informative_covariance_min_eigenvalue": 0.0021612999999950696,
+        "covariance_scope": "Native conditional raw fitted-bin Hesse covariance, with free global normalization; not the exactly centered M0DIF covariance, correction-training Monte Carlo or survey systematics. Empty bins with MUDIFERR=999 are not informative, regardless of matrix positivity.",
+        "nuisance_design": {
+          "rank": 12,
+          "columns": 12,
+          "singular_values": [
+            1.0000000000000002,
+            1.0000000000000002,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.9999999999999999
+          ],
+          "rank_relative_threshold": 1e-10,
+          "null_direction_centered_mu_shape_max": 0.0,
+          "centered_mu_shape_identified_by_design": true,
+          "low_mass_count": 0,
+          "high_mass_count": 68,
+          "mixed_mass_native_bins": []
+        },
+        "native_fit_identified": true,
+        "host_mass_overlap_supported": true,
+        "gamma_at_native_bound": false,
+        "nuisance_native_bounds": {
+          "alpha0": {
+            "min": 0.02,
+            "max": 0.3,
+            "at_bound": false
+          },
+          "beta0": {
+            "min": 1.0,
+            "max": 6.0,
+            "at_bound": false
+          },
+          "gamma0": {
+            "min": -0.5,
+            "max": 0.5,
+            "at_bound": false
+          }
+        },
+        "native_map_geometry": [
+          "set_MAPCELL_biasCor : malloc for 6144  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 6144  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 3584  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 4608  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 4608  6D-cells for biasCor",
+          "NBIASCOR_CUTS =    2179 for IDSAMPLE=0  DES-zSPEC(X3)",
+          "NBIASCOR_CUTS =    2398 for IDSAMPLE=1  DES-zSPEC(C3)",
+          "NBIASCOR_CUTS =    1256 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+          "NBIASCOR_CUTS =    1240 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+          "NBIASCOR_CUTS =    2977 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+          "NBINz = 12: 0.140 < z < 1.040",
+          "NBINz = 12: 0.140 < z < 1.040",
+          "NBINz = 12: 0.170 < z < 1.070",
+          "NBINz = 12: 0.170 < z < 1.070",
+          "NBINz = 7: 0.140 < z < 0.665",
+          "NBINz = 7: 0.140 < z < 0.665",
+          "NBINz = 9: 0.140 < z < 0.815",
+          "NBINz = 9: 0.140 < z < 0.815",
+          "NBINz = 9: 0.160 < z < 0.835",
+          "NBINz = 9: 0.160 < z < 0.835"
+        ]
+      },
+      "science_table_exact_numeric_identity": true,
+      "science_rows_byte_identity": true,
+      "covariance_byte_identity": true,
+      "expanded_scan_cells": []
+    },
+    {
+      "label": "pilot-r005",
+      "original_log": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r005/bbc.log",
+        "sha256": "6fea2b6dbd3cac1590983723337ac9a9846636d4616544620540d35c74f0d358"
+      },
+      "original_input": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r005/bbc.input",
+        "sha256": "f8f17862812029241e29a21a23763a76ef62d119c9f7af229e583305cdad1274"
+      },
+      "original_success": false,
+      "replay": {
+        "returncode": 0,
+        "seconds": 0.348888383974554,
+        "graceful": true,
+        "input_sha256": "f8f17862812029241e29a21a23763a76ef62d119c9f7af229e583305cdad1274",
+        "data_table_sha256": "6d8e08e963b68bbb258eb083f6db0109fb9fc9e0b2b79038dd25bdd638f8f0a9",
+        "training_table_sha256": "8ee714a7d7966ead3e9bfa25528bbca578692a63ee898f1f50ca9bd18f8122f2",
+        "reference_input_sha256": "78815d7cf277b138b1b90bbaf058eef573d1998cbf5884dd5c8a05bfe5f34b15",
+        "reference_config_overrides": {
+          "datafile": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r005/eval.FITRES",
+          "simfile_biascor": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r005/train.FITRES",
+          "prefix": "bbc",
+          "surveygroup_biascor": "'DES(zbin=0.075)'",
+          "u13": "0",
+          "p13": "0",
+          "zmin": ".05",
+          "ndump_nobiascor": "0",
+          "u1": "0",
+          "u2": "0",
+          "u5": "0",
+          "p5": "0"
+        },
+        "executable_sha256": "abae2154c852f336908218ee53cec88393771a2e9e8afafc4501941f4f81be1e",
+        "capacity_patch_sha256": "a7e5dd20ed39b4dbbbc987dcb9701138c6c4f32ca41b1874d23ae4c0d9a47f4f",
+        "scatter_capacity_patch_sha256": "8f464957dd294215f40f79c497c70afbe3377987825a3b1fc77b81f2f456bc6b",
+        "scatter_capacity_scan_diagnostics": [
+          "CAPACITY_SCAN: makeMap_sigmu_biasCor(j1d=63,z=0.92,c=-0.18,m=10.78,IDSAMPLE=0) N=5 start=0.90995112697675418 mean=0.24261920242987287 STD=0.58179292474199695 steps=121 result=-0.29999999999999999 lower_floor=1"
+        ],
+        "log_sha256": "7ba948cc462ce5ebbdd2d9c2f0cc1b46331fc835ec571f09730a1931c94a6aa3",
+        "folder": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/repaired/pilot-r005",
+        "nuisance_mode": "fixed_released_construction_values",
+        "native_support_lines": [
+          "Stored list of 529 biasCor events with SNRMAX > 60.0",
+          "NBIASCOR_CUTS =    2231 for IDSAMPLE=0  DES-zSPEC(X3)",
+          "NBIASCOR_CUTS =    2578 for IDSAMPLE=1  DES-zSPEC(C3)",
+          "NBIASCOR_CUTS =    1177 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+          "NBIASCOR_CUTS =    1057 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+          "NBIASCOR_CUTS =    2992 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+          "sigInt[ia,ib,ig=0,0,0] = 0.0925 (529 evt with all IDSAMPLEs & SNR>60)",
+          "Rejected 25 (of 33) DATA events with no 6D biasCor (DES-zSPEC(X3)).",
+          "Rejected 28 (of 43) DATA events with no 6D biasCor (DES-zSPEC(C3)).",
+          "Rejected 7 (of 16) DATA events with no 6D biasCor (DES-zSPEC(X1+X2)).",
+          "Rejected 23 (of 34) DATA events with no 6D biasCor (DES-zSPEC(S1+S2)).",
+          "Rejected 15 (of 44) DATA events with no 6D biasCor (DES-zSPEC(E1+E2+C1+C2))."
+        ],
+        "native_warning_lines": [],
+        "output_rows": 72,
+        "parameters": {
+          "alpha0": {
+            "value": 0.15,
+            "conditional_error": 0.0,
+            "fixed": true
+          },
+          "beta0": {
+            "value": 2.87,
+            "conditional_error": 0.0,
+            "fixed": true
+          },
+          "gamma0": {
+            "value": 0.0,
+            "conditional_error": 0.0,
+            "fixed": true
+          }
+        },
+        "M0avg": -30.01483,
+        "sigint": 0.0,
+        "global_gamma_offset_lines": [],
+        "outputs": {
+          "bbc.FITRES": "c2ec1949645f07a4bb5333be502b319ac54f2cb69c63d85bcb673baeeae4d0f1",
+          "bbc.M0DIF": "d5a8daf36dc3ef1a60637f003ab5b67c58e7bbb5ac29e89e48ace63382b7f5e3",
+          "bbc.COV": "966d294c1193ec233b3a45b8e2465e09e2c689f9ff9e8365c006c0056f73edc9"
+        },
+        "MUCOV": {
+          "biasCor_muCOVSCALE": {
+            "min": 0.264,
+            "median": 1.0,
+            "max": 1.203
+          },
+          "biasCor_muCOVADD": {
+            "min": -0.09,
+            "median": 0.0072,
+            "max": 0.0257
+          }
+        },
+        "covariance_dimension": 20,
+        "covariance_min_eigenvalue": 0.0011269819999459275,
+        "populated_IZBIN_counts": {
+          "6": 3,
+          "7": 1,
+          "8": 12,
+          "9": 5,
+          "10": 12,
+          "11": 10,
+          "12": 8,
+          "13": 6,
+          "14": 1,
+          "15": 1,
+          "16": 7,
+          "17": 4,
+          "18": 2
+        },
+        "informative_covariance_bins": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ],
+        "informative_covariance_min_eigenvalue": 0.0011269819999459268,
+        "covariance_scope": "Native conditional raw fitted-bin Hesse covariance, with free global normalization; not the exactly centered M0DIF covariance, correction-training Monte Carlo or survey systematics. Empty bins with MUDIFERR=999 are not informative, regardless of matrix positivity.",
+        "nuisance_design": {
+          "rank": 13,
+          "columns": 13,
+          "singular_values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.9999999999999999,
+            0.9999999999999999,
+            0.9999999999999999
+          ],
+          "rank_relative_threshold": 1e-10,
+          "null_direction_centered_mu_shape_max": 0.0,
+          "centered_mu_shape_identified_by_design": true,
+          "low_mass_count": 0,
+          "high_mass_count": 72,
+          "mixed_mass_native_bins": []
+        },
+        "native_fit_identified": true,
+        "host_mass_overlap_supported": true,
+        "gamma_at_native_bound": false,
+        "nuisance_native_bounds": {
+          "alpha0": {
+            "min": 0.02,
+            "max": 0.3,
+            "at_bound": false
+          },
+          "beta0": {
+            "min": 1.0,
+            "max": 6.0,
+            "at_bound": false
+          },
+          "gamma0": {
+            "min": -0.5,
+            "max": 0.5,
+            "at_bound": false
+          }
+        },
+        "native_map_geometry": [
+          "set_MAPCELL_biasCor : malloc for 5632  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 6144  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 3072  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 3584  6D-cells for biasCor",
+          "set_MAPCELL_biasCor : malloc for 4096  6D-cells for biasCor",
+          "NBIASCOR_CUTS =    2231 for IDSAMPLE=0  DES-zSPEC(X3)",
+          "NBIASCOR_CUTS =    2578 for IDSAMPLE=1  DES-zSPEC(C3)",
+          "NBIASCOR_CUTS =    1177 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+          "NBIASCOR_CUTS =    1057 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+          "NBIASCOR_CUTS =    2992 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+          "NBINz = 11: 0.140 < z < 0.965",
+          "NBINz = 11: 0.140 < z < 0.965",
+          "NBINz = 12: 0.170 < z < 1.070",
+          "NBINz = 12: 0.170 < z < 1.070",
+          "NBINz = 6: 0.140 < z < 0.590",
+          "NBINz = 6: 0.140 < z < 0.590",
+          "NBINz = 7: 0.260 < z < 0.785",
+          "NBINz = 7: 0.260 < z < 0.785",
+          "NBINz = 8: 0.160 < z < 0.760",
+          "NBINz = 8: 0.160 < z < 0.760"
+        ]
+      },
+      "original_failure_type": "scan_capacity",
+      "original_failure_tail": "r : malloc for 4096  6D-cells for biasCor \n\n\t Use simulaton to interpolate 6D+MUCOV biasCor\n\t\t (opt_biascor=4336, sigma_cell=50.00)\n\t Force fitflag_sigmb = 2 \n\n#- - - - - - - - - - - - - - - - - - - - - - - - - - - - \n BIASCOR STAT SUMMARY: 10671(TOTAL) = 10035(ACCEPT) + 636(REJECT) \n BIASCOR NCUT[2**13= 8192] =    636(ALL)    636(onlyCut)   [z-range BIASCOR] \n#- - - - - - - - - - - - - - - - - - - - - - - - - - - - \n\n\n ****************************************************************** \n    makeSparseList_biasCor: make sparse row-list for each biasCor sample.  \n\t NBIASCOR_CUTS =    2231 for IDSAMPLE=0  DES-zSPEC(X3) \n\t NBIASCOR_CUTS =    2578 for IDSAMPLE=1  DES-zSPEC(C3) \n\t NBIASCOR_CUTS =    1177 for IDSAMPLE=2  DES-zSPEC(X1+X2) \n\t NBIASCOR_CUTS =    1057 for IDSAMPLE=3  DES-zSPEC(S1+S2) \n\t NBIASCOR_CUTS =    2992 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2) \n\n init_sigInt_biasCor_SNRCUT for all IDSAMPLEs combined: \n    sigInt[ia,ib,ig=0,0,0] = 0.0925 (529 evt with all IDSAMPLEs & SNR>60) \n\n\n\n\n\n ****************************************************************** \n   init_COVINT_biasCor:  \n\t Compute Intrinsic Matrix (COVINT) from BiasCor Sample.\n\t COVINT -> bins of IDSAMPLE, Redshift, Alpha, Beta, GammaDM\n\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\t START BIASCOR PREP for SAMPLE = DES-zSPEC(X3)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 739 of 5632 grid-cells with >=1 events.\n  BiasCor sample: 2231 of 2231 pass cuts for IDSAMPLE=0.\n\n makeMap_sigmu_biasCor: set sigInt=0 for COVADD method\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=0\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=66 (IDSAMPLE=0)\n\t  NBINz = 11: 0.140 < z < 0.965 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=66 (IDSAMPLE=0)\n\t  NBINz = 11: 0.140 < z < 0.965 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n\n# ================================================ \n  PRE-ABORT DUMP from function makeMap_sigmu_biasCor(j1d=63,z=0.92,c=-0.18,m=10.78,IDSAMPLE=0)->sigint_muresid_list : \n\n   `|```````|`    \n   <| o\\ /o |>    \n    | ' ; ' |     \n    |  ___  |     ABORT program on Fatal Error. \n    | |' '| |     \n    | `---' |     \n    \\_______/    \n\n FATAL ERROR ABORT called by makeMap_sigmu_biasCor(j1d=63,z=0.92,c=-0.18,m=10.78,IDSAMPLE=0)->sigint_muresid_list\n   NBIN_SIGINT=100 exceeds bound MXSTORE_PULL=100\n   Increase bound or check array input\n\n",
+      "expanded_scan_cells": [
+        {
+          "N": 5.0,
+          "start": 0.9099511269767542,
+          "mean": 0.24261920242987287,
+          "STD": 0.581792924741997,
+          "steps": 121.0,
+          "result": -0.3,
+          "lower_floor": 1.0,
+          "requested_capacity": 123,
+          "cell_context": "CAPACITY_SCAN: makeMap_sigmu_biasCor(j1d=63,z=0.92,c=-0.18,m=10.78,IDSAMPLE=0)"
+        }
+      ]
+    },
+    {
+      "label": "pilot-r007",
+      "original_log": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r007/bbc.log",
+        "sha256": "f764b1e9a2c3c2510eae97c6446fea06943f78ff771d7504aea0fa71f08936a0"
+      },
+      "original_input": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r007/bbc.input",
+        "sha256": "0c505a98ef38758bac1fff6cd6f9372b84c81fdac57d903a9be8bdb3aad312d3"
+      },
+      "original_success": false,
+      "replay": {
+        "returncode": 12,
+        "seconds": 0.2615235180128366,
+        "graceful": false,
+        "input_sha256": "0c505a98ef38758bac1fff6cd6f9372b84c81fdac57d903a9be8bdb3aad312d3",
+        "data_table_sha256": "6111b2db865c205f533d2ca0cc514dc43c30096833e49cab4a6471cae7c4b948",
+        "training_table_sha256": "694496a00b0ac7e863f069dcd161e583f26af146921a11406f5cd75ae931e5e7",
+        "reference_input_sha256": "78815d7cf277b138b1b90bbaf058eef573d1998cbf5884dd5c8a05bfe5f34b15",
+        "reference_config_overrides": {
+          "datafile": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r007/eval.FITRES",
+          "simfile_biascor": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r007/train.FITRES",
+          "prefix": "bbc",
+          "surveygroup_biascor": "'DES(zbin=0.075)'",
+          "u13": "0",
+          "p13": "0",
+          "zmin": ".05",
+          "ndump_nobiascor": "0",
+          "u1": "0",
+          "u2": "0",
+          "u5": "0",
+          "p5": "0"
+        },
+        "executable_sha256": "abae2154c852f336908218ee53cec88393771a2e9e8afafc4501941f4f81be1e",
+        "capacity_patch_sha256": "a7e5dd20ed39b4dbbbc987dcb9701138c6c4f32ca41b1874d23ae4c0d9a47f4f",
+        "scatter_capacity_patch_sha256": "8f464957dd294215f40f79c497c70afbe3377987825a3b1fc77b81f2f456bc6b",
+        "scatter_capacity_scan_diagnostics": [],
+        "log_sha256": "53c40f632c7fb4c4a2aef0f6bd82d1f944f6403d257b0df584caa4ba6099e5ef",
+        "folder": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/repaired/pilot-r007",
+        "nuisance_mode": "fixed_released_construction_values",
+        "native_support_lines": [
+          "Stored list of 536 biasCor events with SNRMAX > 60.0",
+          "NBIASCOR_CUTS =    2333 for IDSAMPLE=0  DES-zSPEC(X3)",
+          "NBIASCOR_CUTS =    2363 for IDSAMPLE=1  DES-zSPEC(C3)",
+          "NBIASCOR_CUTS =    1187 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+          "NBIASCOR_CUTS =    1040 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+          "NBIASCOR_CUTS =    2996 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+          "sigInt[ia,ib,ig=0,0,0] = 0.0918 (536 evt with all IDSAMPLEs & SNR>60)"
+        ],
+        "native_warning_lines": [],
+        "failure_tail": "PLE = DES-zSPEC(X1+X2)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 403 of 3072 grid-cells with >=1 events.\n  BiasCor sample: 1187 of 1187 pass cuts for IDSAMPLE=2.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=2\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=36 (IDSAMPLE=2)\n\t  NBINz = 6: 0.190 < z < 0.640 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=36 (IDSAMPLE=2)\n\t  NBINz = 6: 0.190 < z < 0.640 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n\t END BIASCOR PREP for DES-zSPEC(X1+X2)\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\t START BIASCOR PREP for SAMPLE = DES-zSPEC(S1+S2)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 372 of 3584 grid-cells with >=1 events.\n  BiasCor sample: 1040 of 1040 pass cuts for IDSAMPLE=3.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=3\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=42 (IDSAMPLE=3)\n\t  NBINz = 7: 0.260 < z < 0.785 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=42 (IDSAMPLE=3)\n\t  NBINz = 7: 0.260 < z < 0.785 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n\t END BIASCOR PREP for DES-zSPEC(S1+S2)\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\t START BIASCOR PREP for SAMPLE = DES-zSPEC(E1+E2+C1+C2)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 712 of 4096 grid-cells with >=1 events.\n  BiasCor sample: 2996 of 2996 pass cuts for IDSAMPLE=4.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=4\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=48 (IDSAMPLE=4)\n\t  NBINz = 8: 0.170 < z < 0.770 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=48 (IDSAMPLE=4)\n\t  NBINz = 8: 0.170 < z < 0.770 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n   `|```````|`    \n   <| o\\ /o |>    \n    | ' ; ' |     \n    |  ___  |     ABORT program on Fatal Error. \n    | |' '| |     \n    | `---' |     \n    \\_______/    \n\n FATAL ERROR ABORT called by makeMap_sigmu_biasCor(j1d=37,z=0.63,c=0.04,m=9.36,IDSAMPLE=4)->sigint_muresid_list\n   Invalid stdPull = 0.000000\n   NBIN_SIGINT=0\n\n",
+        "failure_kind": "zero_MAD_pull"
+      },
+      "original_failure_type": "zero_MAD_pull",
+      "original_failure_tail": "PLE = DES-zSPEC(X1+X2)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 403 of 3072 grid-cells with >=1 events.\n  BiasCor sample: 1187 of 1187 pass cuts for IDSAMPLE=2.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=2\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=36 (IDSAMPLE=2)\n\t  NBINz = 6: 0.190 < z < 0.640 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=36 (IDSAMPLE=2)\n\t  NBINz = 6: 0.190 < z < 0.640 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n\t END BIASCOR PREP for DES-zSPEC(X1+X2)\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\t START BIASCOR PREP for SAMPLE = DES-zSPEC(S1+S2)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 372 of 3584 grid-cells with >=1 events.\n  BiasCor sample: 1040 of 1040 pass cuts for IDSAMPLE=3.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=3\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=42 (IDSAMPLE=3)\n\t  NBINz = 7: 0.260 < z < 0.785 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=42 (IDSAMPLE=3)\n\t  NBINz = 7: 0.260 < z < 0.785 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n\t END BIASCOR PREP for DES-zSPEC(S1+S2)\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\t START BIASCOR PREP for SAMPLE = DES-zSPEC(E1+E2+C1+C2)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 712 of 4096 grid-cells with >=1 events.\n  BiasCor sample: 2996 of 2996 pass cuts for IDSAMPLE=4.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=4\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=48 (IDSAMPLE=4)\n\t  NBINz = 8: 0.170 < z < 0.770 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=48 (IDSAMPLE=4)\n\t  NBINz = 8: 0.170 < z < 0.770 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n   `|```````|`    \n   <| o\\ /o |>    \n    | ' ; ' |     \n    |  ___  |     ABORT program on Fatal Error. \n    | |' '| |     \n    | `---' |     \n    \\_______/    \n\n FATAL ERROR ABORT called by makeMap_sigmu_biasCor(j1d=37,z=0.63,c=0.04,m=9.36,IDSAMPLE=4)->sigint_muresid_list\n   Invalid stdPull = 0.000000\n   NBIN_SIGINT=0\n\n",
+      "expanded_scan_cells": []
+    },
+    {
+      "label": "pilot-r008",
+      "original_log": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r008/bbc.log",
+        "sha256": "ccbe1c486468e50ad1891e2e44586bfb2e0d4e02dd43837f67447e3a2fbfc9b0"
+      },
+      "original_input": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r008/bbc.input",
+        "sha256": "2af4a2db6c1f73cc8499dd1be56bec91d20564a40352640b1da549afe73605df"
+      },
+      "original_success": false,
+      "replay": {
+        "returncode": 12,
+        "seconds": 0.23332788998959586,
+        "graceful": false,
+        "input_sha256": "2af4a2db6c1f73cc8499dd1be56bec91d20564a40352640b1da549afe73605df",
+        "data_table_sha256": "0c884efb4ac69fc515ae428de1a9108749b9457d774bd282acf3b57b3ffa1401",
+        "training_table_sha256": "9b3250373463a2f235b2335ab158350481a81937a3cb82362afe2b54befc78c6",
+        "reference_input_sha256": "78815d7cf277b138b1b90bbaf058eef573d1998cbf5884dd5c8a05bfe5f34b15",
+        "reference_config_overrides": {
+          "datafile": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r008/eval.FITRES",
+          "simfile_biascor": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r008/train.FITRES",
+          "prefix": "bbc",
+          "surveygroup_biascor": "'DES(zbin=0.075)'",
+          "u13": "0",
+          "p13": "0",
+          "zmin": ".05",
+          "ndump_nobiascor": "0",
+          "u1": "0",
+          "u2": "0",
+          "u5": "0",
+          "p5": "0"
+        },
+        "executable_sha256": "abae2154c852f336908218ee53cec88393771a2e9e8afafc4501941f4f81be1e",
+        "capacity_patch_sha256": "a7e5dd20ed39b4dbbbc987dcb9701138c6c4f32ca41b1874d23ae4c0d9a47f4f",
+        "scatter_capacity_patch_sha256": "8f464957dd294215f40f79c497c70afbe3377987825a3b1fc77b81f2f456bc6b",
+        "scatter_capacity_scan_diagnostics": [],
+        "log_sha256": "53c24b6c2f10cfbcd388cb1904ab57360d7e21b765c0b35259f9e9496e07f3ba",
+        "folder": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/repaired/pilot-r008",
+        "nuisance_mode": "fixed_released_construction_values",
+        "native_support_lines": [
+          "Stored list of 502 biasCor events with SNRMAX > 60.0",
+          "NBIASCOR_CUTS =    2123 for IDSAMPLE=0  DES-zSPEC(X3)",
+          "NBIASCOR_CUTS =    2538 for IDSAMPLE=1  DES-zSPEC(C3)",
+          "NBIASCOR_CUTS =    1263 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+          "NBIASCOR_CUTS =    1226 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+          "NBIASCOR_CUTS =    2991 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+          "sigInt[ia,ib,ig=0,0,0] = 0.0842 (502 evt with all IDSAMPLEs & SNR>60)"
+        ],
+        "native_warning_lines": [],
+        "failure_tail": "Cor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 723 of 6144 grid-cells with >=1 events.\n  BiasCor sample: 2123 of 2123 pass cuts for IDSAMPLE=0.\n\n makeMap_sigmu_biasCor: set sigInt=0 for COVADD method\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=0\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=72 (IDSAMPLE=0)\n\t  NBINz = 12: 0.200 < z < 1.100 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=72 (IDSAMPLE=0)\n\t  NBINz = 12: 0.200 < z < 1.100 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n\t END BIASCOR PREP for DES-zSPEC(X3)\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\t START BIASCOR PREP for SAMPLE = DES-zSPEC(C3)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 787 of 6144 grid-cells with >=1 events.\n  BiasCor sample: 2538 of 2538 pass cuts for IDSAMPLE=1.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=1\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=72 (IDSAMPLE=1)\n\t  NBINz = 12: 0.170 < z < 1.070 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=72 (IDSAMPLE=1)\n\t  NBINz = 12: 0.170 < z < 1.070 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n\t END BIASCOR PREP for DES-zSPEC(C3)\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\t START BIASCOR PREP for SAMPLE = DES-zSPEC(X1+X2)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 440 of 3584 grid-cells with >=1 events.\n  BiasCor sample: 1263 of 1263 pass cuts for IDSAMPLE=2.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=2\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=42 (IDSAMPLE=2)\n\t  NBINz = 7: 0.140 < z < 0.665 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=42 (IDSAMPLE=2)\n\t  NBINz = 7: 0.140 < z < 0.665 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n   `|```````|`    \n   <| o\\ /o |>    \n    | ' ; ' |     \n    |  ___  |     ABORT program on Fatal Error. \n    | |' '| |     \n    | `---' |     \n    \\_______/    \n\n FATAL ERROR ABORT called by makeMap_sigmu_biasCor(j1d=5,z=0.21,c=0.16,m=10.93,IDSAMPLE=2)->sigint_muresid_list\n   Invalid stdPull = 0.000000\n   NBIN_SIGINT=0\n\n",
+        "failure_kind": "zero_MAD_pull"
+      },
+      "original_failure_type": "zero_MAD_pull",
+      "original_failure_tail": "Cor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 723 of 6144 grid-cells with >=1 events.\n  BiasCor sample: 2123 of 2123 pass cuts for IDSAMPLE=0.\n\n makeMap_sigmu_biasCor: set sigInt=0 for COVADD method\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=0\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=72 (IDSAMPLE=0)\n\t  NBINz = 12: 0.200 < z < 1.100 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=72 (IDSAMPLE=0)\n\t  NBINz = 12: 0.200 < z < 1.100 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n\t END BIASCOR PREP for DES-zSPEC(X3)\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\t START BIASCOR PREP for SAMPLE = DES-zSPEC(C3)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 787 of 6144 grid-cells with >=1 events.\n  BiasCor sample: 2538 of 2538 pass cuts for IDSAMPLE=1.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=1\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=72 (IDSAMPLE=1)\n\t  NBINz = 12: 0.170 < z < 1.070 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=72 (IDSAMPLE=1)\n\t  NBINz = 12: 0.170 < z < 1.070 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n\t END BIASCOR PREP for DES-zSPEC(C3)\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\t START BIASCOR PREP for SAMPLE = DES-zSPEC(X1+X2)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 440 of 3584 grid-cells with >=1 events.\n  BiasCor sample: 1263 of 1263 pass cuts for IDSAMPLE=2.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=2\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=42 (IDSAMPLE=2)\n\t  NBINz = 7: 0.140 < z < 0.665 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=42 (IDSAMPLE=2)\n\t  NBINz = 7: 0.140 < z < 0.665 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n   `|```````|`    \n   <| o\\ /o |>    \n    | ' ; ' |     \n    |  ___  |     ABORT program on Fatal Error. \n    | |' '| |     \n    | `---' |     \n    \\_______/    \n\n FATAL ERROR ABORT called by makeMap_sigmu_biasCor(j1d=5,z=0.21,c=0.16,m=10.93,IDSAMPLE=2)->sigint_muresid_list\n   Invalid stdPull = 0.000000\n   NBIN_SIGINT=0\n\n",
+      "expanded_scan_cells": []
+    },
+    {
+      "label": "pilot-r016",
+      "original_log": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r016/bbc.log",
+        "sha256": "06220464a9461c3d2033ed638b576a9afb5398e357c7fd305d61b7b13ecd512a"
+      },
+      "original_input": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r016/bbc.input",
+        "sha256": "8a35c87d6aa44e9baf25e5a6a28c8e3a3ae780f08c8f051f4d1c1c8ec7de82f8"
+      },
+      "original_success": false,
+      "replay": {
+        "returncode": 12,
+        "seconds": 0.23461466902517714,
+        "graceful": false,
+        "input_sha256": "8a35c87d6aa44e9baf25e5a6a28c8e3a3ae780f08c8f051f4d1c1c8ec7de82f8",
+        "data_table_sha256": "7985fa6ed16664c01c641fa9fc55478813efc954923a8b7d0e50c73f1afa43d7",
+        "training_table_sha256": "6d0944cbb0a54094864549f76141c073d0ff16ea4cbd05cf07dc2c1f9bba9f17",
+        "reference_input_sha256": "78815d7cf277b138b1b90bbaf058eef573d1998cbf5884dd5c8a05bfe5f34b15",
+        "reference_config_overrides": {
+          "datafile": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r016/eval.FITRES",
+          "simfile_biascor": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r016/train.FITRES",
+          "prefix": "bbc",
+          "surveygroup_biascor": "'DES(zbin=0.075)'",
+          "u13": "0",
+          "p13": "0",
+          "zmin": ".05",
+          "ndump_nobiascor": "0",
+          "u1": "0",
+          "u2": "0",
+          "u5": "0",
+          "p5": "0"
+        },
+        "executable_sha256": "abae2154c852f336908218ee53cec88393771a2e9e8afafc4501941f4f81be1e",
+        "capacity_patch_sha256": "a7e5dd20ed39b4dbbbc987dcb9701138c6c4f32ca41b1874d23ae4c0d9a47f4f",
+        "scatter_capacity_patch_sha256": "8f464957dd294215f40f79c497c70afbe3377987825a3b1fc77b81f2f456bc6b",
+        "scatter_capacity_scan_diagnostics": [],
+        "log_sha256": "7a56928d37fd95ee1c271eebc0225c1b9bc614624d0f5c3567ddcda00f820325",
+        "folder": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/repaired/pilot-r016",
+        "nuisance_mode": "fixed_released_construction_values",
+        "native_support_lines": [
+          "Stored list of 486 biasCor events with SNRMAX > 60.0",
+          "NBIASCOR_CUTS =    2161 for IDSAMPLE=0  DES-zSPEC(X3)",
+          "NBIASCOR_CUTS =    2452 for IDSAMPLE=1  DES-zSPEC(C3)",
+          "NBIASCOR_CUTS =    1224 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+          "NBIASCOR_CUTS =    1144 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+          "NBIASCOR_CUTS =    2956 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+          "sigInt[ia,ib,ig=0,0,0] = 0.0902 (486 evt with all IDSAMPLEs & SNR>60)"
+        ],
+        "native_warning_lines": [],
+        "failure_tail": "r of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 682 of 5120 grid-cells with >=1 events.\n  BiasCor sample: 2161 of 2161 pass cuts for IDSAMPLE=0.\n\n makeMap_sigmu_biasCor: set sigInt=0 for COVADD method\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=0\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=60 (IDSAMPLE=0)\n\t  NBINz = 10: 0.200 < z < 0.950 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=60 (IDSAMPLE=0)\n\t  NBINz = 10: 0.200 < z < 0.950 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n\t END BIASCOR PREP for DES-zSPEC(X3)\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\t START BIASCOR PREP for SAMPLE = DES-zSPEC(C3)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 769 of 6144 grid-cells with >=1 events.\n  BiasCor sample: 2452 of 2452 pass cuts for IDSAMPLE=1.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=1\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=72 (IDSAMPLE=1)\n\t  NBINz = 12: 0.170 < z < 1.070 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=72 (IDSAMPLE=1)\n\t  NBINz = 12: 0.170 < z < 1.070 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n\t END BIASCOR PREP for DES-zSPEC(C3)\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\t START BIASCOR PREP for SAMPLE = DES-zSPEC(X1+X2)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 408 of 3584 grid-cells with >=1 events.\n  BiasCor sample: 1224 of 1224 pass cuts for IDSAMPLE=2.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=2\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=42 (IDSAMPLE=2)\n\t  NBINz = 7: 0.190 < z < 0.715 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=42 (IDSAMPLE=2)\n\t  NBINz = 7: 0.190 < z < 0.715 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n   `|```````|`    \n   <| o\\ /o |>    \n    | ' ; ' |     \n    |  ___  |     ABORT program on Fatal Error. \n    | |' '| |     \n    | `---' |     \n    \\_______/    \n\n FATAL ERROR ABORT called by makeMap_sigmu_biasCor(j1d=33,z=0.58,c=-0.11,m=11.18,IDSAMPLE=2)->sigint_muresid_list\n   Invalid stdPull = 0.000000\n   NBIN_SIGINT=0\n\n",
+        "failure_kind": "zero_MAD_pull"
+      },
+      "original_failure_type": "zero_MAD_pull",
+      "original_failure_tail": "r of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 682 of 5120 grid-cells with >=1 events.\n  BiasCor sample: 2161 of 2161 pass cuts for IDSAMPLE=0.\n\n makeMap_sigmu_biasCor: set sigInt=0 for COVADD method\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=0\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=60 (IDSAMPLE=0)\n\t  NBINz = 10: 0.200 < z < 0.950 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=60 (IDSAMPLE=0)\n\t  NBINz = 10: 0.200 < z < 0.950 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n\t END BIASCOR PREP for DES-zSPEC(X3)\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\t START BIASCOR PREP for SAMPLE = DES-zSPEC(C3)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 769 of 6144 grid-cells with >=1 events.\n  BiasCor sample: 2452 of 2452 pass cuts for IDSAMPLE=1.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=1\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=72 (IDSAMPLE=1)\n\t  NBINz = 12: 0.170 < z < 1.070 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=72 (IDSAMPLE=1)\n\t  NBINz = 12: 0.170 < z < 1.070 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n\t END BIASCOR PREP for DES-zSPEC(C3)\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\t START BIASCOR PREP for SAMPLE = DES-zSPEC(X1+X2)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 408 of 3584 grid-cells with >=1 events.\n  BiasCor sample: 1224 of 1224 pass cuts for IDSAMPLE=2.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=2\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=42 (IDSAMPLE=2)\n\t  NBINz = 7: 0.190 < z < 0.715 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=42 (IDSAMPLE=2)\n\t  NBINz = 7: 0.190 < z < 0.715 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n   `|```````|`    \n   <| o\\ /o |>    \n    | ' ; ' |     \n    |  ___  |     ABORT program on Fatal Error. \n    | |' '| |     \n    | `---' |     \n    \\_______/    \n\n FATAL ERROR ABORT called by makeMap_sigmu_biasCor(j1d=33,z=0.58,c=-0.11,m=11.18,IDSAMPLE=2)->sigint_muresid_list\n   Invalid stdPull = 0.000000\n   NBIN_SIGINT=0\n\n",
+      "expanded_scan_cells": []
+    },
+    {
+      "label": "pilot-r017",
+      "original_log": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r017/bbc.log",
+        "sha256": "2fe9f930f374866bc90309fdb25660f5f54e405983ed7f95918a89fcc7769fb7"
+      },
+      "original_input": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r017/bbc.input",
+        "sha256": "30e856f86e6e4d54f4661c3bb00935c31a6d2838709422fba171d8f4357715c9"
+      },
+      "original_success": false,
+      "replay": {
+        "returncode": 12,
+        "seconds": 0.2116889790049754,
+        "graceful": false,
+        "input_sha256": "30e856f86e6e4d54f4661c3bb00935c31a6d2838709422fba171d8f4357715c9",
+        "data_table_sha256": "67f46ad59d1dc7ea593752732c199a73e678fa71a66cfac27610028545a62e1e",
+        "training_table_sha256": "17abb4d9935e6f454a73ee2adda863919984b3e37d301878d7fe7366995d26fb",
+        "reference_input_sha256": "78815d7cf277b138b1b90bbaf058eef573d1998cbf5884dd5c8a05bfe5f34b15",
+        "reference_config_overrides": {
+          "datafile": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r017/eval.FITRES",
+          "simfile_biascor": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r017/train.FITRES",
+          "prefix": "bbc",
+          "surveygroup_biascor": "'DES(zbin=0.075)'",
+          "u13": "0",
+          "p13": "0",
+          "zmin": ".05",
+          "ndump_nobiascor": "0",
+          "u1": "0",
+          "u2": "0",
+          "u5": "0",
+          "p5": "0"
+        },
+        "executable_sha256": "abae2154c852f336908218ee53cec88393771a2e9e8afafc4501941f4f81be1e",
+        "capacity_patch_sha256": "a7e5dd20ed39b4dbbbc987dcb9701138c6c4f32ca41b1874d23ae4c0d9a47f4f",
+        "scatter_capacity_patch_sha256": "8f464957dd294215f40f79c497c70afbe3377987825a3b1fc77b81f2f456bc6b",
+        "scatter_capacity_scan_diagnostics": [],
+        "log_sha256": "5c4693f1dd236e97ebf0f635f588bd23eb1400bfd81a9b69f881b02283eafeba",
+        "folder": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/repaired/pilot-r017",
+        "nuisance_mode": "fixed_released_construction_values",
+        "native_support_lines": [
+          "Stored list of 496 biasCor events with SNRMAX > 60.0",
+          "NBIASCOR_CUTS =    2143 for IDSAMPLE=0  DES-zSPEC(X3)",
+          "NBIASCOR_CUTS =    2528 for IDSAMPLE=1  DES-zSPEC(C3)",
+          "NBIASCOR_CUTS =    1199 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+          "NBIASCOR_CUTS =    1222 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+          "NBIASCOR_CUTS =    2866 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+          "sigInt[ia,ib,ig=0,0,0] = 0.0884 (496 evt with all IDSAMPLEs & SNR>60)"
+        ],
+        "native_warning_lines": [],
+        "failure_tail": " setup_BININFO_biasCor: define  2  m bins from -15.000 to 35.000 \n  setup_BININFO_biasCor: define 16 x1 bins from -4.000 to  4.000 \n  setup_BININFO_biasCor: define 16  c bins from -0.300 to  0.500 \n  set_MAPCELL_biasCor : malloc for 3584  6D-cells for biasCor \n\n\t Use simulaton to interpolate 6D+MUCOV biasCor\n\t\t (opt_biascor=4336, sigma_cell=50.00)\n\t Force fitflag_sigmb = 2 \n\n#- - - - - - - - - - - - - - - - - - - - - - - - - - - - \n BIASCOR STAT SUMMARY: 10527(TOTAL) = 9958(ACCEPT) + 569(REJECT) \n BIASCOR NCUT[2**13= 8192] =    569(ALL)    569(onlyCut)   [z-range BIASCOR] \n#- - - - - - - - - - - - - - - - - - - - - - - - - - - - \n\n\n ****************************************************************** \n    makeSparseList_biasCor: make sparse row-list for each biasCor sample.  \n\t NBIASCOR_CUTS =    2143 for IDSAMPLE=0  DES-zSPEC(X3) \n\t NBIASCOR_CUTS =    2528 for IDSAMPLE=1  DES-zSPEC(C3) \n\t NBIASCOR_CUTS =    1199 for IDSAMPLE=2  DES-zSPEC(X1+X2) \n\t NBIASCOR_CUTS =    1222 for IDSAMPLE=3  DES-zSPEC(S1+S2) \n\t NBIASCOR_CUTS =    2866 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2) \n\n init_sigInt_biasCor_SNRCUT for all IDSAMPLEs combined: \n    sigInt[ia,ib,ig=0,0,0] = 0.0884 (496 evt with all IDSAMPLEs & SNR>60) \n\n\n\n\n\n ****************************************************************** \n   init_COVINT_biasCor:  \n\t Compute Intrinsic Matrix (COVINT) from BiasCor Sample.\n\t COVINT -> bins of IDSAMPLE, Redshift, Alpha, Beta, GammaDM\n\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\t START BIASCOR PREP for SAMPLE = DES-zSPEC(X3)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 684 of 5120 grid-cells with >=1 events.\n  BiasCor sample: 2143 of 2143 pass cuts for IDSAMPLE=0.\n\n makeMap_sigmu_biasCor: set sigInt=0 for COVADD method\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=0\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=60 (IDSAMPLE=0)\n\t  NBINz = 10: 0.200 < z < 0.950 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=60 (IDSAMPLE=0)\n\t  NBINz = 10: 0.200 < z < 0.950 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n   `|```````|`    \n   <| o\\ /o |>    \n    | ' ; ' |     \n    |  ___  |     ABORT program on Fatal Error. \n    | |' '| |     \n    | `---' |     \n    \\_______/    \n\n FATAL ERROR ABORT called by makeMap_sigmu_biasCor(j1d=5,z=0.20,c=0.22,m=10.78,IDSAMPLE=0)->sigint_muresid_list\n   Invalid stdPull = 0.000000\n   NBIN_SIGINT=0\n\n",
+        "failure_kind": "zero_MAD_pull"
+      },
+      "original_failure_type": "zero_MAD_pull",
+      "original_failure_tail": " setup_BININFO_biasCor: define  2  m bins from -15.000 to 35.000 \n  setup_BININFO_biasCor: define 16 x1 bins from -4.000 to  4.000 \n  setup_BININFO_biasCor: define 16  c bins from -0.300 to  0.500 \n  set_MAPCELL_biasCor : malloc for 3584  6D-cells for biasCor \n\n\t Use simulaton to interpolate 6D+MUCOV biasCor\n\t\t (opt_biascor=4336, sigma_cell=50.00)\n\t Force fitflag_sigmb = 2 \n\n#- - - - - - - - - - - - - - - - - - - - - - - - - - - - \n BIASCOR STAT SUMMARY: 10527(TOTAL) = 9958(ACCEPT) + 569(REJECT) \n BIASCOR NCUT[2**13= 8192] =    569(ALL)    569(onlyCut)   [z-range BIASCOR] \n#- - - - - - - - - - - - - - - - - - - - - - - - - - - - \n\n\n ****************************************************************** \n    makeSparseList_biasCor: make sparse row-list for each biasCor sample.  \n\t NBIASCOR_CUTS =    2143 for IDSAMPLE=0  DES-zSPEC(X3) \n\t NBIASCOR_CUTS =    2528 for IDSAMPLE=1  DES-zSPEC(C3) \n\t NBIASCOR_CUTS =    1199 for IDSAMPLE=2  DES-zSPEC(X1+X2) \n\t NBIASCOR_CUTS =    1222 for IDSAMPLE=3  DES-zSPEC(S1+S2) \n\t NBIASCOR_CUTS =    2866 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2) \n\n init_sigInt_biasCor_SNRCUT for all IDSAMPLEs combined: \n    sigInt[ia,ib,ig=0,0,0] = 0.0884 (496 evt with all IDSAMPLEs & SNR>60) \n\n\n\n\n\n ****************************************************************** \n   init_COVINT_biasCor:  \n\t Compute Intrinsic Matrix (COVINT) from BiasCor Sample.\n\t COVINT -> bins of IDSAMPLE, Redshift, Alpha, Beta, GammaDM\n\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\t START BIASCOR PREP for SAMPLE = DES-zSPEC(X3)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 684 of 5120 grid-cells with >=1 events.\n  BiasCor sample: 2143 of 2143 pass cuts for IDSAMPLE=0.\n\n makeMap_sigmu_biasCor: set sigInt=0 for COVADD method\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=0\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=60 (IDSAMPLE=0)\n\t  NBINz = 10: 0.200 < z < 0.950 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=60 (IDSAMPLE=0)\n\t  NBINz = 10: 0.200 < z < 0.950 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n   `|```````|`    \n   <| o\\ /o |>    \n    | ' ; ' |     \n    |  ___  |     ABORT program on Fatal Error. \n    | |' '| |     \n    | `---' |     \n    \\_______/    \n\n FATAL ERROR ABORT called by makeMap_sigmu_biasCor(j1d=5,z=0.20,c=0.22,m=10.78,IDSAMPLE=0)->sigint_muresid_list\n   Invalid stdPull = 0.000000\n   NBIN_SIGINT=0\n\n",
+      "expanded_scan_cells": []
+    },
+    {
+      "label": "pilot-r019",
+      "original_log": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r019/bbc.log",
+        "sha256": "3b3480536d749b91ed87d3bd72b9ee574980ef382dd74e463ecb9f38be16e56d"
+      },
+      "original_input": {
+        "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r019/bbc.input",
+        "sha256": "0a0522e19c1d78e1003b26d54423f6e22a0582045b5a9e3c12c659b53e75de19"
+      },
+      "original_success": false,
+      "replay": {
+        "returncode": 12,
+        "seconds": 0.26342546902014874,
+        "graceful": false,
+        "input_sha256": "0a0522e19c1d78e1003b26d54423f6e22a0582045b5a9e3c12c659b53e75de19",
+        "data_table_sha256": "36f9bae9db7dc1b47025c11bd8bb5972d3beb5ade04d0bdd2a6a13494f18dc31",
+        "training_table_sha256": "b1c8807c9772705df0c7b439f41582911ba7a88f2dcc25b5ac5eaa3a5c99de50",
+        "reference_input_sha256": "78815d7cf277b138b1b90bbaf058eef573d1998cbf5884dd5c8a05bfe5f34b15",
+        "reference_config_overrides": {
+          "datafile": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r019/eval.FITRES",
+          "simfile_biascor": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/original/pilot-r019/train.FITRES",
+          "prefix": "bbc",
+          "surveygroup_biascor": "'DES(zbin=0.075)'",
+          "u13": "0",
+          "p13": "0",
+          "zmin": ".05",
+          "ndump_nobiascor": "0",
+          "u1": "0",
+          "u2": "0",
+          "u5": "0",
+          "p5": "0"
+        },
+        "executable_sha256": "abae2154c852f336908218ee53cec88393771a2e9e8afafc4501941f4f81be1e",
+        "capacity_patch_sha256": "a7e5dd20ed39b4dbbbc987dcb9701138c6c4f32ca41b1874d23ae4c0d9a47f4f",
+        "scatter_capacity_patch_sha256": "8f464957dd294215f40f79c497c70afbe3377987825a3b1fc77b81f2f456bc6b",
+        "scatter_capacity_scan_diagnostics": [],
+        "log_sha256": "e92553f00a469bd3f74f756428dd56a0bf7719bf37a9afe5b3fcab645a33bee0",
+        "folder": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/repaired/pilot-r019",
+        "nuisance_mode": "fixed_released_construction_values",
+        "native_support_lines": [
+          "Stored list of 532 biasCor events with SNRMAX > 60.0",
+          "NBIASCOR_CUTS =    2246 for IDSAMPLE=0  DES-zSPEC(X3)",
+          "NBIASCOR_CUTS =    2492 for IDSAMPLE=1  DES-zSPEC(C3)",
+          "NBIASCOR_CUTS =    1053 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+          "NBIASCOR_CUTS =    1275 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+          "NBIASCOR_CUTS =    2992 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+          "sigInt[ia,ib,ig=0,0,0] = 0.0825 (532 evt with all IDSAMPLEs & SNR>60)"
+        ],
+        "native_warning_lines": [],
+        "failure_tail": "LE = DES-zSPEC(X1+X2)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 342 of 2560 grid-cells with >=1 events.\n  BiasCor sample: 1053 of 1053 pass cuts for IDSAMPLE=2.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=2\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=30 (IDSAMPLE=2)\n\t  NBINz = 5: 0.200 < z < 0.575 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=30 (IDSAMPLE=2)\n\t  NBINz = 5: 0.200 < z < 0.575 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n\t END BIASCOR PREP for DES-zSPEC(X1+X2)\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\t START BIASCOR PREP for SAMPLE = DES-zSPEC(S1+S2)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 425 of 3584 grid-cells with >=1 events.\n  BiasCor sample: 1275 of 1275 pass cuts for IDSAMPLE=3.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=3\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=42 (IDSAMPLE=3)\n\t  NBINz = 7: 0.140 < z < 0.665 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=42 (IDSAMPLE=3)\n\t  NBINz = 7: 0.140 < z < 0.665 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n\t END BIASCOR PREP for DES-zSPEC(S1+S2)\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\t START BIASCOR PREP for SAMPLE = DES-zSPEC(E1+E2+C1+C2)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 721 of 4608 grid-cells with >=1 events.\n  BiasCor sample: 2992 of 2992 pass cuts for IDSAMPLE=4.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=4\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=54 (IDSAMPLE=4)\n\t  NBINz = 9: 0.160 < z < 0.835 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=54 (IDSAMPLE=4)\n\t  NBINz = 9: 0.160 < z < 0.835 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n   `|```````|`    \n   <| o\\ /o |>    \n    | ' ; ' |     \n    |  ___  |     ABORT program on Fatal Error. \n    | |' '| |     \n    | `---' |     \n    \\_______/    \n\n FATAL ERROR ABORT called by makeMap_sigmu_biasCor(j1d=41,z=0.64,c=0.10,m=10.74,IDSAMPLE=4)->sigint_muresid_list\n   Invalid stdPull = 0.000000\n   NBIN_SIGINT=0\n\n",
+        "failure_kind": "zero_MAD_pull"
+      },
+      "original_failure_type": "zero_MAD_pull",
+      "original_failure_tail": "LE = DES-zSPEC(X1+X2)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 342 of 2560 grid-cells with >=1 events.\n  BiasCor sample: 1053 of 1053 pass cuts for IDSAMPLE=2.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=2\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=30 (IDSAMPLE=2)\n\t  NBINz = 5: 0.200 < z < 0.575 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=30 (IDSAMPLE=2)\n\t  NBINz = 5: 0.200 < z < 0.575 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n\t END BIASCOR PREP for DES-zSPEC(X1+X2)\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\t START BIASCOR PREP for SAMPLE = DES-zSPEC(S1+S2)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 425 of 3584 grid-cells with >=1 events.\n  BiasCor sample: 1275 of 1275 pass cuts for IDSAMPLE=3.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=3\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=42 (IDSAMPLE=3)\n\t  NBINz = 7: 0.140 < z < 0.665 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=42 (IDSAMPLE=3)\n\t  NBINz = 7: 0.140 < z < 0.665 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n\t END BIASCOR PREP for DES-zSPEC(S1+S2)\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\n @=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@=@\n\t START BIASCOR PREP for SAMPLE = DES-zSPEC(E1+E2+C1+C2)\n  makeMap_fitPar_biasCor of mu-bias(z,m,s,c,a,b)  \n  BiasCor computed for 721 of 4608 grid-cells with >=1 events.\n  BiasCor sample: 2992 of 2992 pass cuts for IDSAMPLE=4.\n\n makeMap_sigmu_biasCor: make map of muCOVscale(a,b,g,z,c) for IDSAMPLE=4\n\t Malloc MUCOVSCALE CELL-INFO arrays with size=54 (IDSAMPLE=4)\n\t  NBINz = 9: 0.160 < z < 0.835 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\t Malloc MUCOVADD CELL-INFO arrays with size=54 (IDSAMPLE=4)\n\t  NBINz = 9: 0.160 < z < 0.835 \n\t  NBINc = 3: -0.300 < c < 0.300 \n\t  NBINm = 2: -15.000 < m < 35.000 \n\n   `|```````|`    \n   <| o\\ /o |>    \n    | ' ; ' |     \n    |  ___  |     ABORT program on Fatal Error. \n    | |' '| |     \n    | `---' |     \n    \\_______/    \n\n FATAL ERROR ABORT called by makeMap_sigmu_biasCor(j1d=41,z=0.64,c=0.10,m=10.74,IDSAMPLE=4)->sigint_muresid_list\n   Invalid stdPull = 0.000000\n   NBIN_SIGINT=0\n\n",
+      "expanded_scan_cells": []
+    }
+  ],
+  "restored_fixtures": true,
+  "restoration_manifest": {
+    "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/capacity-fixtures/restoration.json",
+    "sha256": "3f9c4c91eaa2c9700d86b1c7dc04893af63a7b9640604bd0b1111354a553ee7b"
+  },
+  "restoration_code_sha256": "1f65b275f3c23245f43fa4d93bfd1e1628e23c525ada7645807fc7042eeb5397"
+}

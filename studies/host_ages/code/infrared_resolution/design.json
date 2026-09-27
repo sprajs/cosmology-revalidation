@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-09-27T02:28:45.847320+00:00",
+  "timing": "Exploratory extension after the signed SPIRE beam measurements and optical-neighbour counts, before beam-overlap results.",
+  "question": "How much do the actual optical separations and measured SPIRE beams limit independent host amplitudes, even before uncertainty about which neighbours emit?",
+  "sample": "The existing 265 selected eight-band DES hosts with valid measurements in all three SPIRE bands. Exact deep-catalogue host coordinates and distinct galaxy IDs.",
+  "candidate_neighbours": "All other unflagged optical galaxies of the same DECam deep field, within twice the published approximate SPIRE FWHM. No cut on their unknown infrared flux.",
+  "bands_um": [
+    250,
+    350,
+    500
+  ],
+  "reference_FWHM_arcsec": [
+    18.2,
+    24.9,
+    36.3
+  ],
+  "empirical_beams": "ESA 1arcsec Neptune beam maps; radially averaged observed beam profile is the primary rotation-independent approximation. Native two-dimensional beam at four position angles is a nearest-pair sensitivity.",
+  "nearest_pair": "Normalized beam-template correlation rho; conditional independent-white-pixel noise inflation 1/sqrt(1-rho^2). Gaussian analytic comparison at the same nominal FWHM.",
+  "all_candidates": "Project the host template against all candidate-neighbour templates and a constant/linear sky plane on a finite map-pixel grid. Compare residual template norm with the host-plus-sky-only norm. SVD is rank-revealing; no ridge or positivity prior is imposed.",
+  "fit_radius_FWHM": 4,
+  "singular_value_relative_threshold": 1e-10,
+  "interpretation": "Geometric conditional information, not measured dust fluxes, intrinsic luminosities or a calibrated confidence interval. Optical neighbours need not emit in the infrared; an optical catalogue is not a complete infrared source list. Beam source-spectrum, mapmaking, extension and correlated noise assumptions remain. No new age or cosmological correction is fitted."
+}

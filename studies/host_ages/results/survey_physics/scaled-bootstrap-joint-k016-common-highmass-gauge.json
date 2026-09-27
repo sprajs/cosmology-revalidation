@@ -1,0 +1,1006 @@
+{
+  "mode": "joint",
+  "shards": 16,
+  "variant": "-common-highmass-gauge",
+  "replicates": 200,
+  "workers": 2,
+  "seconds": 279.6323598549934,
+  "code_sha256": "ce25c5e44bc4bb5b1b40fa3cafc86ad91b97a64e758d507869e5f7b7973f73e0",
+  "attempt_pool_sizes": {
+    "train": 240000,
+    "eval": 3000
+  },
+  "executable": {
+    "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/native-capacity/bin/SALT2mu.exe",
+    "sha256": "abae2154c852f336908218ee53cec88393771a2e9e8afafc4501941f4f81be1e"
+  },
+  "row_cloning_code_sha256": "c6d776075ba2e2f0a838637d50705540055c88b4a2cb3d991aeaf174dc3a94ed",
+  "bbc_driver_code_sha256": "9aada532f736bbe70cb52108dcf49f67ab457f6516d51e8e419a41a036f80ae1",
+  "seed_base": 972000,
+  "summary": {
+    "age_literal_all_cases": {
+      "supported_replicates": 139,
+      "slope_sd_mag_per_Gyr": 0.004211698929850652,
+      "percentile_95_mag_per_Gyr": [
+        -0.031359123181071556,
+        -0.01659482740320026
+      ],
+      "median_common_n": 73.0,
+      "redshift_means": [
+        {
+          "bin": 0,
+          "supported_replicates": 97,
+          "sd_mag": 0.028428345152229657,
+          "percentile_95_mag": [
+            -0.05291503990008159,
+            0.06313037333052139
+          ]
+        },
+        {
+          "bin": 1,
+          "supported_replicates": 139,
+          "sd_mag": 0.01632399372747238,
+          "percentile_95_mag": [
+            -0.04685340846852308,
+            0.01674300536187809
+          ]
+        },
+        {
+          "bin": 2,
+          "supported_replicates": 96,
+          "sd_mag": 0.02601657075180117,
+          "percentile_95_mag": [
+            -0.040951138433349535,
+            0.05542267067953837
+          ]
+        },
+        {
+          "bin": 3,
+          "supported_replicates": 60,
+          "sd_mag": 0.028732128748854113,
+          "percentile_95_mag": [
+            -0.014559281018931003,
+            0.1023289852338155
+          ]
+        },
+        {
+          "bin": 4,
+          "supported_replicates": 0,
+          "sd_mag": null,
+          "percentile_95_mag": null
+        }
+      ],
+      "centered_bin_covariance": {
+        "baseline_supported_bin_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "complete_replicates": 25,
+        "covariance_mag2": [
+          [
+            0.0008846036596190685,
+            -0.00034238763112014983,
+            9.731416064747697e-05,
+            -0.00028665569780638253
+          ],
+          [
+            -0.00034238763112014983,
+            0.00025374467031022283,
+            -0.00013193916580879977,
+            -4.1224102420936665e-05
+          ],
+          [
+            9.731416064747697e-05,
+            -0.00013193916580879977,
+            0.0007140923640982992,
+            -1.6526688402541295e-06
+          ],
+          [
+            -0.00028665569780638253,
+            -4.1224102420936665e-05,
+            -1.6526688402541295e-06,
+            0.0008530196683999383
+          ]
+        ]
+      },
+      "fraction_of_injected_slope_95": [
+        0.5531609134400086,
+        1.0453041060357184
+      ]
+    },
+    "age_literal_pair": {
+      "supported_replicates": 141,
+      "slope_sd_mag_per_Gyr": 0.004335597068293491,
+      "percentile_95_mag_per_Gyr": [
+        -0.031312129346735065,
+        -0.015000082509799478
+      ],
+      "median_common_n": 74.0,
+      "redshift_means": [
+        {
+          "bin": 0,
+          "supported_replicates": 98,
+          "sd_mag": 0.028517763163143126,
+          "percentile_95_mag": [
+            -0.0513284321187028,
+            0.06300795782724145
+          ]
+        },
+        {
+          "bin": 1,
+          "supported_replicates": 141,
+          "sd_mag": 0.016326849938488246,
+          "percentile_95_mag": [
+            -0.046689281801223975,
+            0.01514014651039906
+          ]
+        },
+        {
+          "bin": 2,
+          "supported_replicates": 98,
+          "sd_mag": 0.026266584326839103,
+          "percentile_95_mag": [
+            -0.04074573088699536,
+            0.05628705024249871
+          ]
+        },
+        {
+          "bin": 3,
+          "supported_replicates": 62,
+          "sd_mag": 0.029003495909021227,
+          "percentile_95_mag": [
+            -0.01209568196172079,
+            0.10367404599800144
+          ]
+        },
+        {
+          "bin": 4,
+          "supported_replicates": 0,
+          "sd_mag": null,
+          "percentile_95_mag": null
+        }
+      ],
+      "centered_bin_covariance": {
+        "baseline_supported_bin_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "complete_replicates": 26,
+        "covariance_mag2": [
+          [
+            0.0009031725915053171,
+            -0.0003618291450601943,
+            0.00011540834325347317,
+            -0.0003298989340392761
+          ],
+          [
+            -0.0003618291450601943,
+            0.0002628385052355927,
+            -0.00014923253800552222,
+            -1.7296071682182656e-05
+          ],
+          [
+            0.00011540834325347317,
+            -0.00014923253800552222,
+            0.0007071044915958412,
+            -3.213561491621893e-05
+          ],
+          [
+            -0.0003298989340392761,
+            -1.7296071682182656e-05,
+            -3.213561491621893e-05,
+            0.0009014512745622017
+          ]
+        ]
+      },
+      "fraction_of_injected_slope_95": [
+        0.5000027503266493,
+        1.043737644891169
+      ]
+    },
+    "age_nominal_all_cases": {
+      "supported_replicates": 139,
+      "slope_sd_mag_per_Gyr": 0.0037059107928738766,
+      "percentile_95_mag_per_Gyr": [
+        -0.03075605566641663,
+        -0.018338126018752576
+      ],
+      "median_common_n": 73.0,
+      "redshift_means": [
+        {
+          "bin": 0,
+          "supported_replicates": 97,
+          "sd_mag": 0.027966799677478033,
+          "percentile_95_mag": [
+            -0.056467113561115514,
+            0.0546046676474134
+          ]
+        },
+        {
+          "bin": 1,
+          "supported_replicates": 139,
+          "sd_mag": 0.015398183034925857,
+          "percentile_95_mag": [
+            -0.03718695459379661,
+            0.02501333429174122
+          ]
+        },
+        {
+          "bin": 2,
+          "supported_replicates": 96,
+          "sd_mag": 0.020521379639406995,
+          "percentile_95_mag": [
+            -0.04094863844497052,
+            0.04119576486976822
+          ]
+        },
+        {
+          "bin": 3,
+          "supported_replicates": 60,
+          "sd_mag": 0.025669828516171653,
+          "percentile_95_mag": [
+            0.00632481686661476,
+            0.09020221544471328
+          ]
+        },
+        {
+          "bin": 4,
+          "supported_replicates": 0,
+          "sd_mag": null,
+          "percentile_95_mag": null
+        }
+      ],
+      "centered_bin_covariance": {
+        "baseline_supported_bin_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "complete_replicates": 25,
+        "covariance_mag2": [
+          [
+            0.0009570812219103463,
+            -0.0003795940589154867,
+            0.00020946881615001886,
+            -0.00040609875831093567
+          ],
+          [
+            -0.0003795940589154867,
+            0.00020851169397007307,
+            -0.00012284875931191098,
+            9.995471078247598e-05
+          ],
+          [
+            0.00020946881615001886,
+            -0.00012284875931191098,
+            0.0005608405957701443,
+            -0.00014230386660550443
+          ],
+          [
+            -0.00040609875831093567,
+            9.995471078247598e-05,
+            -0.00014230386660550443,
+            0.0005633230424432292
+          ]
+        ]
+      },
+      "fraction_of_injected_slope_95": [
+        0.6112708672917526,
+        1.025201855547221
+      ]
+    },
+    "age_nominal_pair": {
+      "supported_replicates": 162,
+      "slope_sd_mag_per_Gyr": 0.0035450713061645814,
+      "percentile_95_mag_per_Gyr": [
+        -0.030498079270570674,
+        -0.01817988883819193
+      ],
+      "median_common_n": 80.0,
+      "redshift_means": [
+        {
+          "bin": 0,
+          "supported_replicates": 117,
+          "sd_mag": 0.029676739070606795,
+          "percentile_95_mag": [
+            -0.06936125058761958,
+            0.05048142688495571
+          ]
+        },
+        {
+          "bin": 1,
+          "supported_replicates": 162,
+          "sd_mag": 0.014557981611400778,
+          "percentile_95_mag": [
+            -0.0371633828154901,
+            0.02690899229412392
+          ]
+        },
+        {
+          "bin": 2,
+          "supported_replicates": 134,
+          "sd_mag": 0.019648720050079914,
+          "percentile_95_mag": [
+            -0.03846783947610662,
+            0.03861483170769827
+          ]
+        },
+        {
+          "bin": 3,
+          "supported_replicates": 101,
+          "sd_mag": 0.025396118124892453,
+          "percentile_95_mag": [
+            0.004155093269143484,
+            0.09536024374547752
+          ]
+        },
+        {
+          "bin": 4,
+          "supported_replicates": 0,
+          "sd_mag": null,
+          "percentile_95_mag": null
+        }
+      ],
+      "centered_bin_covariance": {
+        "baseline_supported_bin_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "complete_replicates": 55,
+        "covariance_mag2": [
+          [
+            0.0009606908565332623,
+            -0.0003793103910239059,
+            5.9670445966573454e-05,
+            -0.00034633672070538663
+          ],
+          [
+            -0.0003793103910239059,
+            0.0002704407130294671,
+            -4.409951946051309e-05,
+            4.3954416767669597e-05
+          ],
+          [
+            5.9670445966573454e-05,
+            -4.409951946051309e-05,
+            0.00039614496265895664,
+            -8.19024402657746e-05
+          ],
+          [
+            -0.00034633672070538663,
+            4.3954416767669597e-05,
+            -8.19024402657746e-05,
+            0.0007359533639644059
+          ]
+        ]
+      },
+      "fraction_of_injected_slope_95": [
+        0.6059962946063977,
+        1.0166026423523558
+      ]
+    },
+    "age_retained_all_cases": {
+      "supported_replicates": 139,
+      "slope_sd_mag_per_Gyr": 0.004760195794536964,
+      "percentile_95_mag_per_Gyr": [
+        -0.031929921951314284,
+        -0.012673920611627833
+      ],
+      "median_common_n": 73.0,
+      "redshift_means": [
+        {
+          "bin": 0,
+          "supported_replicates": 97,
+          "sd_mag": 0.027632151419553278,
+          "percentile_95_mag": [
+            -0.04099754180231885,
+            0.06337664067730057
+          ]
+        },
+        {
+          "bin": 1,
+          "supported_replicates": 139,
+          "sd_mag": 0.01591347331714913,
+          "percentile_95_mag": [
+            -0.037109925390084036,
+            0.02151422962947793
+          ]
+        },
+        {
+          "bin": 2,
+          "supported_replicates": 96,
+          "sd_mag": 0.02724077286045496,
+          "percentile_95_mag": [
+            -0.06098565969341865,
+            0.040175837667799086
+          ]
+        },
+        {
+          "bin": 3,
+          "supported_replicates": 60,
+          "sd_mag": 0.03240748491149107,
+          "percentile_95_mag": [
+            -0.0706451322757135,
+            0.054589430965494
+          ]
+        },
+        {
+          "bin": 4,
+          "supported_replicates": 0,
+          "sd_mag": null,
+          "percentile_95_mag": null
+        }
+      ],
+      "centered_bin_covariance": {
+        "baseline_supported_bin_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "complete_replicates": 25,
+        "covariance_mag2": [
+          [
+            0.0006168821709397638,
+            -0.0002330259988593402,
+            4.727704257467434e-05,
+            -0.00024832267613699897
+          ],
+          [
+            -0.0002330259988593402,
+            0.00019253780298238333,
+            -0.00015473261813608662,
+            -5.977338758606825e-05
+          ],
+          [
+            4.727704257467434e-05,
+            -0.00015473261813608662,
+            0.0006754171335824465,
+            -4.2584057286098416e-05
+          ],
+          [
+            -0.00024832267613699897,
+            -5.977338758606825e-05,
+            -4.2584057286098416e-05,
+            0.0009555407226645291
+          ]
+        ]
+      },
+      "fraction_of_injected_slope_95": [
+        0.4224640203875937,
+        1.0643307317104762
+      ]
+    },
+    "age_retained_pair": {
+      "supported_replicates": 143,
+      "slope_sd_mag_per_Gyr": 0.004876033515857813,
+      "percentile_95_mag_per_Gyr": [
+        -0.03159392547793219,
+        -0.011774077517934696
+      ],
+      "median_common_n": 74.0,
+      "redshift_means": [
+        {
+          "bin": 0,
+          "supported_replicates": 99,
+          "sd_mag": 0.027571706401647404,
+          "percentile_95_mag": [
+            -0.039290650610853455,
+            0.06423343072112779
+          ]
+        },
+        {
+          "bin": 1,
+          "supported_replicates": 143,
+          "sd_mag": 0.015883437049677186,
+          "percentile_95_mag": [
+            -0.03720957863905616,
+            0.020786350692165757
+          ]
+        },
+        {
+          "bin": 2,
+          "supported_replicates": 99,
+          "sd_mag": 0.027245648700223737,
+          "percentile_95_mag": [
+            -0.06005161704334617,
+            0.04103125402274182
+          ]
+        },
+        {
+          "bin": 3,
+          "supported_replicates": 64,
+          "sd_mag": 0.03217871029230555,
+          "percentile_95_mag": [
+            -0.06941209493740888,
+            0.05439301320824982
+          ]
+        },
+        {
+          "bin": 4,
+          "supported_replicates": 0,
+          "sd_mag": null,
+          "percentile_95_mag": null
+        }
+      ],
+      "centered_bin_covariance": {
+        "baseline_supported_bin_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "complete_replicates": 27,
+        "covariance_mag2": [
+          [
+            0.0006386251627326572,
+            -0.0002601390953044957,
+            0.00011798897012380579,
+            -0.00031236802342160807
+          ],
+          [
+            -0.0002601390953044957,
+            0.0002142913953978498,
+            -0.0002022298470688843,
+            -1.1368187347669601e-05
+          ],
+          [
+            0.00011798897012380579,
+            -0.0002022298470688843,
+            0.0007261416648216076,
+            -0.00012731340545271545
+          ],
+          [
+            -0.00031236802342160807,
+            -1.1368187347669601e-05,
+            -0.00012731340545271545,
+            0.0009793706888840646
+          ]
+        ]
+      },
+      "fraction_of_injected_slope_95": [
+        0.392469250597823,
+        1.0531308492644063
+      ]
+    },
+    "frozen_nominal_all_cases": {
+      "supported_replicates": 139,
+      "slope_sd_mag_per_Gyr": 0.001050123083035844,
+      "percentile_95_mag_per_Gyr": [
+        -0.03193566757281479,
+        -0.027563796906598135
+      ],
+      "median_common_n": 73.0,
+      "redshift_means": [
+        {
+          "bin": 0,
+          "supported_replicates": 97,
+          "sd_mag": 0.028124490989521796,
+          "percentile_95_mag": [
+            -0.06891800570400984,
+            0.029246154268862557
+          ]
+        },
+        {
+          "bin": 1,
+          "supported_replicates": 139,
+          "sd_mag": 0.0158427518003738,
+          "percentile_95_mag": [
+            -0.027892568409298667,
+            0.03057810725217567
+          ]
+        },
+        {
+          "bin": 2,
+          "supported_replicates": 96,
+          "sd_mag": 0.022960877901460414,
+          "percentile_95_mag": [
+            -0.050926358764343524,
+            0.03250562859617715
+          ]
+        },
+        {
+          "bin": 3,
+          "supported_replicates": 60,
+          "sd_mag": 0.02112817735057075,
+          "percentile_95_mag": [
+            0.0270338564183228,
+            0.10131659895888906
+          ]
+        },
+        {
+          "bin": 4,
+          "supported_replicates": 0,
+          "sd_mag": null,
+          "percentile_95_mag": null
+        }
+      ],
+      "centered_bin_covariance": {
+        "baseline_supported_bin_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "complete_replicates": 25,
+        "covariance_mag2": [
+          [
+            0.0009626431304809082,
+            -0.0003846160500211756,
+            1.7677907701547017e-05,
+            -0.00039614373765649075
+          ],
+          [
+            -0.0003846160500211756,
+            0.00021105740845612112,
+            -6.81890440695901e-05,
+            9.944895189491481e-05
+          ],
+          [
+            1.7677907701547017e-05,
+            -6.81890440695901e-05,
+            0.0008103621886481813,
+            9.703233022250955e-05
+          ],
+          [
+            -0.00039614373765649075,
+            9.944895189491481e-05,
+            9.703233022250955e-05,
+            0.00046847179202852115
+          ]
+        ]
+      },
+      "fraction_of_injected_slope_95": [
+        0.9187932302199376,
+        1.0645222524271596
+      ]
+    },
+    "frozen_nominal_pair": {
+      "supported_replicates": 162,
+      "slope_sd_mag_per_Gyr": 0.0010055741656127507,
+      "percentile_95_mag_per_Gyr": [
+        -0.03205658385541595,
+        -0.02801694994525532
+      ],
+      "median_common_n": 80.0,
+      "redshift_means": [
+        {
+          "bin": 0,
+          "supported_replicates": 117,
+          "sd_mag": 0.03018185915905293,
+          "percentile_95_mag": [
+            -0.07737853383083242,
+            0.02953458727757407
+          ]
+        },
+        {
+          "bin": 1,
+          "supported_replicates": 162,
+          "sd_mag": 0.015109213042765968,
+          "percentile_95_mag": [
+            -0.026278296368841374,
+            0.03194800047835282
+          ]
+        },
+        {
+          "bin": 2,
+          "supported_replicates": 134,
+          "sd_mag": 0.02186867152715483,
+          "percentile_95_mag": [
+            -0.05803926392750109,
+            0.028654099346417158
+          ]
+        },
+        {
+          "bin": 3,
+          "supported_replicates": 101,
+          "sd_mag": 0.020497248968598496,
+          "percentile_95_mag": [
+            0.029865689257054497,
+            0.10462398406897348
+          ]
+        },
+        {
+          "bin": 4,
+          "supported_replicates": 0,
+          "sd_mag": null,
+          "percentile_95_mag": null
+        }
+      ],
+      "centered_bin_covariance": {
+        "baseline_supported_bin_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "complete_replicates": 55,
+        "covariance_mag2": [
+          [
+            0.0009806313216891725,
+            -0.00037791412373183985,
+            -5.3471053974294696e-05,
+            -0.00031141798620619183
+          ],
+          [
+            -0.00037791412373183985,
+            0.0002712190130194952,
+            -3.489501643777646e-06,
+            5.403066190103544e-05
+          ],
+          [
+            -5.3471053974294696e-05,
+            -3.489501643777646e-06,
+            0.00045303498986751825,
+            5.192426029713232e-05
+          ],
+          [
+            -0.00031141798620619183,
+            5.403066190103544e-05,
+            5.192426029713232e-05,
+            0.00048168076396967133
+          ]
+        ]
+      },
+      "fraction_of_injected_slope_95": [
+        0.9338983315085106,
+        1.0685527951805318
+      ]
+    }
+  },
+  "paired_estimand_differences": {
+    "age_nominal_minus_frozen_nominal": {
+      "complete_paired_replicates": 139,
+      "sd_mag_per_Gyr": 0.003578336743833889,
+      "percentile_95_mag_per_Gyr": [
+        -9.85820428757408e-05,
+        0.011982648198824782
+      ]
+    },
+    "age_literal_minus_age_nominal": {
+      "complete_paired_replicates": 139,
+      "sd_mag_per_Gyr": 0.0030656561027259267,
+      "percentile_95_mag_per_Gyr": [
+        -0.005696516171370032,
+        0.0071615335138414905
+      ]
+    },
+    "age_retained_minus_age_literal": {
+      "complete_paired_replicates": 139,
+      "sd_mag_per_Gyr": 0.001995631044325134,
+      "percentile_95_mag_per_Gyr": [
+        -0.002393785410883747,
+        0.005008630181543112
+      ]
+    },
+    "age_retained_minus_frozen_nominal": {
+      "complete_paired_replicates": 139,
+      "sd_mag_per_Gyr": 0.0048433429133338275,
+      "percentile_95_mag_per_Gyr": [
+        -0.002066218820741387,
+        0.016804625516296117
+      ]
+    }
+  },
+  "uncertainty_scope": "Attempt resampling conditional on released cadence, W22 mock host population, frozen SALT/classifier and input physics. Not clustered survey-systematic uncertainty.",
+  "interval_scope": "Percentile intervals summarize supported replicates only; failures and unsupported replicates are reported, not imputed. They are not established frequentist coverage guarantees, especially near native map-support boundaries.",
+  "native_case_failure_counts": {
+    "zero_MAD_pull": 148
+  },
+  "expanded_scan_case_count": 24,
+  "native_boundary_case_count": 0,
+  "replicate_status_counts": {
+    "supported": 162,
+    "unsupported_nominal_map": 37,
+    "no_analyzable_paired_slope": 1
+  },
+  "replicate_result_hashes": {
+    "0": "d1c6b1b4c20dce1b7bea763845870f0c7f9180be6aa916c5a93b77e0af523bab",
+    "1": "3e6580af6b2f3d564ec1c0e135d455a96c794cb6ba569017e9a098aa26f57c1a",
+    "2": "92712a7d0c7ea8ae808de8d9494d4a21f3f4a7429cf01199531c0521f26085da",
+    "3": "a37db270a3a59b70bb9a50574452cafd218b29e3e94373440cc0d446528abc09",
+    "4": "ccc554ebe859dd660259ab05328cd84f768a8e80f7137231beb882dbb5a8e12f",
+    "5": "e9912469498a41b5191261ab14b7100a235ba417879fd95db10571047a34cd79",
+    "6": "1911325497723841ae5128ddcea7e22e3f0d04bd0405b34e026ce754213c510e",
+    "7": "033278a6a7e0dd46d31a951816e98955ba3b0de6af3fcada889876391f0406f3",
+    "8": "1c14a8925bc7d1aa7e898f31acbd4b58985f083bb5c2997f0a007d78c8a4e0a8",
+    "9": "64790e3401d4ca7cfdab3e52994b28ab721393581559f85d1948dfaff4231136",
+    "10": "7638c6ec7db915fa930c5d3fe25f6168233a08850358a4082276a204f876fb52",
+    "11": "cfe10103bb4258fce21ea03466fcb062e6c874977ec9d3f525bf267dae30cb85",
+    "12": "33332daa3c31a18eb48bb3f0d8eadfb8f53ab0d2591a74629be46eb512780f93",
+    "13": "9dc298f15fff2b7c3e2ba3f2fe7b7d5879f1872ef45785bc4a286ef5da492a81",
+    "14": "03ef9954ac64768a55f89a181dad1aba2fb4181d23395e37851c5dae7325af6c",
+    "15": "2e475c0fe54be24d46d2afe3b08db7bd85cb1c930d968f8dac9473d3712298ae",
+    "16": "a27511d1d0dda68bedd22b20e0003eb3b4e36639d2d5e49adaa06dd50a2d3fce",
+    "17": "9648c80f311515ca0dcfc04fd8e19a1e7ae52471419dba900ba1df93c3b1fa3d",
+    "19": "bc067f54dca936383aacc664463bbe40615ec50938ef24896c54462385e9fb5b",
+    "18": "768d1d33a76c5305e6ff6bdaaf1de0ab084c8ce98b51cb73cee43cac8efe9c8e",
+    "20": "862f0825be3f4e38c6c130c8b91adbf28ee52b7c955b0f75a653e911a44d2a02",
+    "21": "265b71146bd809b88f3bff8699567c40b6dbc8789c6604df52ec34ccf6a9b982",
+    "22": "4beb94ab2f6d44a16c953eb26c5f26e569f46ae9879b1930b392054acfc14332",
+    "23": "c7bc0bcba49cef9d2e3d0af0c24f5fa53f30ba592554c0719aceb300b3fbcf9c",
+    "24": "a271546446f7eb7b283a8be0b28e329e0a2c58d541609eba0d7ade7a9540e128",
+    "25": "98c577df88b7797c2a1b993846b060bd27c755919eb5ee3553bb5adbd018e965",
+    "26": "ab40c583fadad0dd8e21006930018ea3f2ab0aa6229f500f47c65542f450617c",
+    "27": "ca0da94c7559a89bad059b835f5d2138a7df7864f213e369557690ef8816535a",
+    "28": "201fe873ea4698e35aad9ce426a30e63c80f65accfc97f95671d999595a2ddd2",
+    "29": "8e592e0835131ee08ef0be41c3a24a52acc6f257365e9e725dafab7604fd74c2",
+    "30": "47eda7bdddca2ad5572f1c2acc61568252bc2fa12afe54ffcb3d9aa02ab2ed44",
+    "31": "e60300309ef4ceee41f06459a1a3cfb72cf054349f7f5e1d8e9c158183679c2b",
+    "32": "7c70e49375b6aa398fc5decee448b4a7a42f2c05da8f9ae379c7e3ce15894b9b",
+    "34": "efd104198dc9cc2c95a829095481eb97e71eeae0c9df87e17d2a2f616d7ee4cf",
+    "33": "a4932dd38ec07b153781b647e6930461b42e827d3bac9b5d7363f49513d21eee",
+    "36": "504513506423e6dc535776bf40071a95cb616fde946f975c9e789850fa15877a",
+    "35": "9f5ff845bcf34b9cb276f1d95c1aaeaa38022e236b34184e773150a39acfa21a",
+    "37": "e340295eb577035df2325fc9f752f0797796302b423a11bf933172325b1d5cdf",
+    "38": "bf304d7a70fc855c43b279096a932c030738581f121086746d03be7deb465b80",
+    "39": "5daf15a0231efe1699954adc6bfd9ac465e1950f6bf0574d2b2ca50f583e770e",
+    "40": "07430b7f025a1bc786eff5e26e0ca5a7ce84d420731c8d27d93511b46dcfd403",
+    "41": "365df6be8d57a1d24d837863a2bb59674c85d8e497dade335ca8299a147f6358",
+    "42": "5212046128afe5cf8a512e1f4eaa1f0fa9638e30d72e3842d11b18664086d7d4",
+    "43": "b1d714b0f0dd1cfc3093e85296b6a93d1da402521b27dfec158f05fe3d719811",
+    "44": "5347af4f509c76978daaa4eeb151d2c827638f270ec32842a17023f1166e47eb",
+    "45": "f78d4280a914fa2545a73a55e58cda98f3d1d335d09f0f8226e79786fe74bda6",
+    "46": "66039403b8b4ba01127b1326ed735db1a1a9844e81ddf19624be3a5b5beb79f2",
+    "48": "0a3372b4bca3e5e40c0639cbebb49e71a18af6feb5cb94356505d6ea72006e26",
+    "47": "f9e72c44786c2eb0aa26f5cb8b17df38b053bab7803e400c2eb312ec33659ae5",
+    "49": "06fbc1e570f04622b5dd14defcefd28e77e83ddd4ea37ec6a825637cb5620d6e",
+    "50": "28c2b2b3187d8cc4bbf2d74ab24bf31f67409a9613ba9b601f060c7e0beb3122",
+    "52": "677a1950471354a40de271b79b550c09a9bb208516d4ef331a21c3771b0731d1",
+    "51": "103cbf4576b881d48ccaa869ea6787bc6080d19eada241f5c2afdbe22b1554f0",
+    "53": "2b45bfa0c5266eae9bc87cd26146bf457afe246795443ea63b3b91be85ea5c18",
+    "54": "aa904cc18e58dbb60fc4af3e761a0d77f4de29386cc33a5258954274f58f0497",
+    "55": "7951478e41fc27364dd42e4762af0f1214147b074bd9ecad303141dc744fb536",
+    "56": "3e78514221caae4897d876025eb7cb322de76c60d41f69411072bd06f036174b",
+    "57": "ab82009a90ba71875facb706a4bff4c6ad263b2b2d53863ff728435f9c02ab0d",
+    "58": "00e7b56a149ea15a4863bca843d03eadfe98bb1c975e80d69d71c6c03feeaed0",
+    "59": "b43b321ad30fe0bdc1d70f30824d4c643b4339946440418a45cc6e338082539e",
+    "60": "573ef5cfd5286d8c8811435f7b1a91ad91ffdb086ef3c602b64ef4cc449dcc4e",
+    "61": "606fcaf16d46423fe1355253f7ba3d867b7332dc1c3481d1f92dc8bef530dacb",
+    "62": "67cec9ea8a5eaa323bec6ba10cf6cc6c85eac6183e08126f053d1fa9327a761c",
+    "63": "feda8ac5f2b5d0b1fb2b1948398666c9810c59b3b5add0318a93dc49bcd65be8",
+    "64": "a39311a37e332b192b7c708eb5261cc9ea58a59467c7d15994f5d2abeda8287f",
+    "65": "8b1997f5fa0af9951a8f3665edc899e1ddad9b49bff763b8ea52173b742254ae",
+    "66": "2613a7cc3c69bc964f6c234101839198b515479c8e14e39f1b842e89e8da8ffe",
+    "67": "bd53de7d5b8657f58bb8f8890b2fc6d05eec9a1065c8229955249a0589def7e7",
+    "68": "29c2af2e4709fabb18e0397ac0e92d9f43e101c991bafb86f508c5c3f1b09bc4",
+    "69": "af0b519184e5e95132bbec2ed6ca29c6ed6623912e215bf89a0621a856602b40",
+    "70": "dc468a283b155ed736531350fcaec5fdb519adcd059ce6765c82e00e8b0050fe",
+    "71": "591843e1d5459710f5bd947bb1a801b004e79a88480654aece4b85c5efbdc6b4",
+    "72": "96517debe4015161ae340b9b16142ae01ae93262e54ec014b836e25ee536f8b3",
+    "73": "0f96ce9bdb55aad5d63bf767d039880bd8784a9a26843d1a1b3d23a4d6ce87f0",
+    "74": "3af00a7efee30a01f1bcb87159c4c2169fa8d0203d5cb346abc20ad6588cbc0b",
+    "75": "b33ff1d965ee25d317c5577335dfa502321f58070e998ddea37652e56a0b7840",
+    "76": "51815ddce199f06a2c8f22d81470e9c3024b969130acc5756af383019a403203",
+    "77": "e0f742df98961076af8994a90f94fc10f8b554a9cd82f14920dd54ef5d10cc7c",
+    "78": "1375e84beb29eab1249ab2b798eed8d7790a09b5af23ef2cda7940ed03169988",
+    "79": "068db7ebb0331c061185824e401cab2a57c1cb4fa7dbd31c4309d5828b986ded",
+    "81": "f33fc9f1018940457c4c1c7dbe861e0f7329711f94c1e2bcbfa0a9925d98ad67",
+    "80": "9d947d2b196b7ae9af196691cf6154d4fc1e2d1a217da80b569f191ab90cab66",
+    "82": "72611003e44a90be69188837e3832f7f350942aef1a93a5df1f65e58eb350a63",
+    "83": "a71cae5513a81d56f877af9d51b088557a25f28f22274c059b8fa3ca6a5f5da9",
+    "85": "696e5c6030ccfcf359976ee1979b60849808fee42aa48f91f3a76381a84d03c6",
+    "84": "6dcaa775b30f9bf5cbc569e22614bd7ab915504bad7bb3a33808fa6cb5fd2949",
+    "87": "812e614d3375c09aebc5c7923240a603d9a17c0278d6852d8be0acab32a71f48",
+    "86": "ae63c9e757d26e96965db825d5f7c8bbde18345b1d9252939c8188a002d35cca",
+    "88": "e06d4f82eed079951ccb345cdadf7d02e15bf04ebe9fbcc03065259e684f1bb6",
+    "89": "eba6a377a0fc35f8797b2133d6e9c410e5e2ef6ed8d002db0732fd9d231ecb08",
+    "90": "b318967890451900b828693b578436488914cd5f5f5abbe2504a4f4218cc06ea",
+    "91": "973220af649a4faaeac509b000ad6b3ea3207324ff55bdfd416d1ca963cd39ea",
+    "92": "a6a406ac207803a615e21a6fff51b20f47a3ae55568ca4ec6173590b5b3c1cd9",
+    "93": "0e07196312aae611bbf90be8fd8d3b698de0af864c68d4af06b12151c7eca760",
+    "94": "a0281623f315efa90896ab1aed6e3e205de083d7eafb68249df637a09c903717",
+    "95": "253b9b6a8b541fd4154ce071390e50a3af4de003a0f8caee6d4ae1076ac01eaf",
+    "96": "9fa9c287ec9095e8853f301b6c7f237b168a7a9529198c5bb4ecce7014e39568",
+    "97": "5858396e950c2fba34ee7854bc8cfe3be3c715824c5d7844a2d1eeb3bfde40f2",
+    "98": "163a88270a0dedc3fea6d87617e836bd4b70f38fa8e545bf2471f844b51beee7",
+    "99": "53edc62c7ad73ad6a5fbfb0053669dcfe259708c79ccdf87edfb064eb7a9c9ba",
+    "100": "18bc5b29d4135b712fddd0b2674e705554f0dc7672483fb5f56e404b6653edf9",
+    "101": "34b53e761469b1035babb6896ba39555bcdfe9c02e67a89f7d826832e1946423",
+    "102": "865f242ebde5a15ba1c5e1ce0d3729f995ec9974c7806f8c2b7910a703e8f5f0",
+    "103": "638eda2608732f4d8f8f2fa1e3453ce57a493a78cf44a190d00cc4e9ba009004",
+    "104": "9de8fc54624799178a2e7180c704a836661f8c5857cb447bfdb51a88ccc2ca19",
+    "105": "239a7a1f3e7b1c07ee7fdbed070199bf6594377574c72b8ae28e34fd3d862ab5",
+    "106": "bd7e5c58a3588d95dabb63afef947051206f72e0b14adb048d14b29f89ddd2a2",
+    "107": "e852eeb9cbc7efdf691e74666075c9fb5b34af2d5a7c0bde57b8667f67655ec3",
+    "108": "c6c5e55087bd66fd867854deefd5063a68d27e419c46e3ad35c08a269b2d4be5",
+    "109": "f4ecf84d2292a59ef1aaffcf5ca8101f7bb6cbab17638e75908b8c5add28dd1f",
+    "110": "5a787fbb0ad442512f6e6b37f49fdb4282ee8df6122b0a4079150f879e7f0d8a",
+    "111": "59c202ba11ced8dc310a8a2aaffbe984994ecdd077e020787f56e98fc6469350",
+    "112": "6610d35e5de827b2a0f5664d152ea7d2ebecb99bc81a56ae8400f3237b5dba53",
+    "113": "5b1c945bce95cb65a8fcec25ade5c4df00f25bc5f73a0a91aa577520b38b0523",
+    "114": "f7444a8d7c8df762993b885c056ccae858e3ae72a27f55207e6e0ad72a7c675c",
+    "115": "225733ea880c10dcb7afe9fa80167d59ce50b6ce61e08e3ca1b06f327447de0f",
+    "116": "69f83a0c3eea94d2382d374068ca0d5efbef19a9c68cd2ea83e76afc0d8068fb",
+    "117": "a3ffec86c67132a63a0bda76338d29fcabf64dbf64e8a45227cb46f7a1a5ef98",
+    "118": "01de887ae2ae192b70dab63af6f1be66494c88e0d51b502ccda6708339ff5ae0",
+    "119": "505f64a323ddc68e5322ec9c446084593542c05a55821ebb4f6dd5c473745bc6",
+    "121": "7841021b951568071cc45ab59b67f8eac0236bf278ee7e886149149dcad3bf6b",
+    "120": "2c16cd9794216a6fef7874f3b35ddae64d1de2f7a90ae8ddff6cb17101fafd3d",
+    "122": "9d8265b8b507fc93e247150c905b7500d390c4d3b342bd825c7c139d2d9e04c6",
+    "123": "62f355200ae97cd3d39473610d40de6c74f587f7a28dd31d4d541f0ea93e60fb",
+    "124": "6b89a8873c75f0599f5b186b6ebc0b8c918c386a92d91516d49fb5a2aff20559",
+    "125": "9f003998bfcbdd19b3e1f3ab2a8901c3765cd4d9374cc319b24401e1b8b9c742",
+    "126": "168d8251323b9fbd2d9702f64b910bd8cf66e171f5ebcd0c6a70cb1ea8eb0822",
+    "127": "d34fbd9c4832c428190325a08b3e04bf980f1f832f6d2e91163ac4371b59dcc5",
+    "128": "d7dda273b62ef668f5bb08333a1f590f38741a8ccddb2730b8586b5fbd51d876",
+    "129": "4adb45f56ef29f7574c86109458881a3788fce37d65625d6cc4d59253f1ba075",
+    "130": "546675ba694da36470f1f93db9f92cc10e538fa78ce8367c737dcf1b9d3aa8ba",
+    "131": "509f4efe26aeacc2cd7d3f9f1676efd9be9cee067770ad3ef80a620e44b32fe8",
+    "132": "b7fc1a3e6f259984e9643bae663a3b54c21c188487217c3620b9b5e910a4fd31",
+    "133": "36d084b240077a5e0cfffe75c470fdf13dd118b31ebd5908d1dfaf9a9f9065be",
+    "134": "163759f26b98074e7374bac9f87a27987e0c4ac8d130d2938fa9f9346f06199a",
+    "135": "8f6cc3648d57ae9552244d901995b9d2b70722ec761b0fb1c172deaee3dd3e9b",
+    "136": "8d69347fac11ce2ffc5e808d52cc2ab644eafc746347ddf1dec4f820143c7f3e",
+    "137": "30f622c5ea0ae1179cd61fbb5994265f6fa7c3adcacc99342cc04878b538c570",
+    "138": "0a721d3bb0d551ce8235a63b6a3191b532058564298ef4a0cbf72691cd787f72",
+    "139": "80cfa82c9a774b22018c68817f96a45849193d2d0c7a76ac8e015f0cf06dbfb8",
+    "140": "6e7fdf2911a9e953ebb951a9cfdaf872f85913219830a165a7e020a91da01b56",
+    "141": "5370336a711504575d107ca959aefa2fa691db976c4aca04ff1740664bee0077",
+    "143": "6df161871195b377db991769a1fb4ca373ce27c2523e2bbab9fca4a5502dbd5a",
+    "142": "f57b89edfc7caed224af391bfc379fc4ee72d2ef2e12e20e2d79d8711c36f64f",
+    "144": "4acab06057b7dede0a4e46e0a9480cea63defb483f2e7c1c2497adac2bfe226f",
+    "145": "2240c35bbd7661945763aef7f7d5653090da5470c01e1aef86f69f93857487e5",
+    "146": "93178d637689c6110d6c648e8f462bcdd6c77173946b9b557100b638c9a9bc46",
+    "147": "d1052c89f0dc5870b22063e9bdf63e883e5d0ddd9588ba804513bd064c5d0961",
+    "149": "2066a91d2ba30ee4d0df1832294588361b6e4e3402a4e6b0a4c0488f3edcad63",
+    "148": "19654780448f7a25e569de8a3e2b9f96f78b9c7d7a550a7b8bfa4d41cfa99b84",
+    "150": "3ade6d6dbdd0ad5b1f4b5cf0b06682ab8672235579f88aa5bc0bc2ebc09a325c",
+    "151": "2b74e6b828a9ffefa1864f40bdc3129fe234431b2fcaaa880de30ad8d7df20b3",
+    "152": "b86a6606435989dc069fcdd647b01f663193d81ea823d36673bdd6679cf1cd4e",
+    "153": "e04b6039a6cd2e00075d33460528b4cbef09e88b0da3ddd78d0c718f7402e07f",
+    "154": "ff266700f9b5ffe605e415cb2c56e85618c9187e4983377ffb3733028c707d7f",
+    "155": "3afefb898edad96588f04f36e6a0ff50a26c55c34b737ee678c0dcf62ea0b134",
+    "156": "849785fe859b90d47fd725d4460d9192b7ea86f5b9877a3747c0ed2e88b7095d",
+    "157": "c52f366e4528c56e2a7c3b45cff1ab4255616a60552d90ce48156532729cc8ae",
+    "158": "7d536eacfe3e2226af9f3c21fe720cb2252951ef1b71cc46390fe89bc187b4d5",
+    "159": "7cd085a42182a5320a36193bcb0f1817db117cdce8729e940adfd63f6fda0b41",
+    "160": "e52d75a77c286d67f60fa638889b3ab54abee9a81475a3e2477583d2211533aa",
+    "161": "027cbc2344f49f50bed074c10388a9a875e0b7292f2653acb87247922d9f6a1c",
+    "162": "97a141c3b89ff24c293930b8aac16d3662b871b80002684bd9a21ab6de2205fc",
+    "163": "892539770052f558bdacfadd432fee1fe7e5c20327908b41dbc2eac20267d111",
+    "164": "bf87de8f3bcac5c1261fd3b9d9aa7e5e5cc05345958d2d53b62560f4b0cf4dd7",
+    "165": "a1a16472ab10a1aa383cf8862990638bed65039d3eeb4de7e52303455a1f7b37",
+    "166": "d0623bb0396817308bb9ca7513e6d984b803abcc51fd6f1362c4681d051d89b3",
+    "167": "17c012459765555e2587cdf5f50c857b70af7236eba5efd92de524ea02a4bd2c",
+    "168": "d7daf21843c4f9f9075f2e799a2851401a1333ef0cc0a465439e91eb019f3557",
+    "169": "aad864e7b28c878043b889e1059cbd5e75d74d239038378e2b8e5c57807fae8d",
+    "170": "ea54a9efab81e84f4f41ca1ee28e4cef5b089019a422c1c63ae67f98b191f93d",
+    "171": "18fe937d9741ba8cab29d352a864ba43591651b14375d923185392187df33935",
+    "172": "7fa62ee7baaa12250821652c36627a34db6a6d32e090030ca5f515b19d7c4b42",
+    "173": "f58a5753dccf7f961566adbfd2c88aa6bb26efb0ad20d4ce73080699d7a4af6f",
+    "174": "126beafa66e4c7ad935fb91c2e64b6753140e5dd1f2779b1d9b41c7bd8679f34",
+    "175": "02add5c82a5bd1d8800d79b68b94b944caea07ebb16f8a26b0c3a54c7152d260",
+    "176": "ff4791f55d7c06981b996d6a73f9f5494ffb7f3bd6838812d187cf2259d357e8",
+    "177": "f590ff93d265bbe396b1b40a76971d53074d9dc37caf4c532edeaa88bf612023",
+    "178": "512f5f1cf6a299eb36d6a33c9939907d9ccac727419e187e5a6f8d609ae2d732",
+    "179": "643a5f1b986556c810aae6880ddf72938e78a68d11480cd8d9ced49d97f2da38",
+    "180": "80b23824694b7b4e574d041f7e223b5a21e6ef31d98dc4c5a39d7d7dae1d7689",
+    "181": "6ed7f01c9ce1460bbc48eb02c0d7c1e591f11e0d9aa8e4832d8c0f65dd5ff587",
+    "182": "b53719fe187c682ff88154925d7a108dd37639d39e95153fdb1b4af30b0c7b91",
+    "183": "add8f0ddac09e3c90a0cf89dc645f341bce849b4fa562ecfbe4eda4d9c1df224",
+    "184": "b5e59baf2aadd054ff16219095316561d42826e443b99ac30a3fa509353d00b4",
+    "185": "a61ed9ceca1b876025cb852712ce7a06458db168451ea5e684f984fff14e0091",
+    "186": "83d92f9c75efb34a603b5211f33611446f4706c4078bd64220f77b577423d682",
+    "187": "91e686851d7b4b7c5f9e225c0ac60ba9700afa596d43dfe7a0ecd7230869f7f9",
+    "188": "e67cbec93f8b5f3a28021640d248b6013478fb9261be9e97b0e56a674fc3894a",
+    "189": "35254154936a0242d7e36012425e79877c69a07b5d66064c33d2c8e405f82fd1",
+    "190": "5cf29b7bea114bba8fd66954d72512e980f2c77dc7c7c4b206221befb459b68b",
+    "191": "34d5ee5c988baa0aafa683bafd60ee917b640f59676e455665e8d559f11dc73b",
+    "192": "b0183b08918fe1dcf34094483e9ea1d3336793a67546dba74bbad4f8beabe817",
+    "193": "e96116c1c4c1c8f152a3ce33d82f13123f92dbca0655302b0a5cdb83c19028df",
+    "194": "4acd95cbf5d76965e6a37534535cca8083ce119e174ff69526d6593ae00f5de9",
+    "195": "ab521536d624c7370520d06adf87b6aa023f438800a4aa715f1b6347f25ed7e6",
+    "196": "cc5c3fafde1917f013f1afadec2de08835da0d4f2bd0a1e766cf58765dc6e2f3",
+    "197": "adac106c518a9118119536ed1810985be7c75659f93cc1c58a72f4a20a2e9e9b",
+    "198": "966223e3a3971b733ad62514874063e04f87075063901439fa74de54557ff845",
+    "199": "95a679a0c4e1f3a2d305ebe3e10f3ad6cec6fb6134652a3c7beb7ba17f4d591b"
+  }
+}

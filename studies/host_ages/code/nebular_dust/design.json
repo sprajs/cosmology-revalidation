@@ -1,0 +1,48 @@
+{
+  "frozen_utc": "2026-09-27T02:27:43.033467+00:00",
+  "status": "Exploratory extension specified after existing age/SED/spectral findings, before inspecting these new nebular-brightness fits or their sample counts. Not preregistered or unblinded cosmology.",
+  "seed": 2026092707,
+  "question": "Does directly measured nebular Balmer information alter incremental age-brightness association or heldout prediction on common observed hosts?",
+  "inputs": {
+    ".work/galaxy-validation/brightness-cohort.csv": "2d10f2c135312eafd07830323bc2a1ef59d5b22873297eb3db4c18b01988e5a3",
+    ".work/galaxy-validation/host-spectrum-age-ledger.csv": "e494cc4c09d6faa25d5adaf58841650d4051a4def0e01f26ff2eb72b26b9d31b"
+  },
+  "identity": "Exact source_id + specObjID + physical_host join. Retain existing 165-object parent and physical-host folds; never join rounded 64-bit identifiers.",
+  "line_semantics": "galSpecLine integrated line fluxes in1e-17erg/s/cm2; already foreground-corrected (O Donnell/SFD) and stellar-continuum-subtracted. These are observed nebular measurements, not raw detector flux and not stellar Av or SN extinction. No further foreground correction.",
+  "cohorts": {
+    "balmer_snr3": "Halpha and Hbeta positive flux and positive formal error, each SNR>3; primary log decrement.",
+    "balmer_snr5": "same SNR>5 sensitivity",
+    "starforming_bpt": "all4lines SNR>3; x=log10(NII/Halpha)<.05 and y=log10(OIII/Hbeta)<.61/(x-.05)+1.3",
+    "all_valid_lines": "finite signed Halpha,Hbeta with positive finite errors; no SNR or positive-flux selection; signed stabilized contrast rather than ill-defined log ratio"
+  },
+  "proxies": {
+    "strong_lines": "D=ln(Halpha/Hbeta/2.86), no truncation atD=0.2.86 is a reference zero point; no assumed attenuation law is required for regression. VarD=(sHa/Ha)^2+(sHb/Hb)^2-2rho*sHa*sHb/(Ha*Hb).",
+    "all_valid_lines": "Q=(Ha-2.86Hb)/sqrt(Ha^2+(2.86Hb)^2+sHa^2+(2.86sHb)^2). Finite signed line contrast including nondetections; first-order variance with analytic flux derivatives and fixed reported errors. Not a physical attenuation estimator."
+  },
+  "base": [
+    "intercept",
+    "x1",
+    "c",
+    "z",
+    "mass_step",
+    "localcolour",
+    "c2",
+    "x12"
+  ],
+  "models": "For each identical cohort: base, base+age, base+nebular, base+nebular+age; repeat with continuous TITAN mass, stellar Av and metallicity as separate SED controls. Never compare across changing cohorts as if only covariates changed.",
+  "likelihood": "Existing SALT nuisance-dependent full(x0,x1,c) covariance likelihood, redshift variance and fitted intrinsic scatter. Add slope^2*nebular_proxy_variance. Primary conditions on TITAN age and SED medians; independent age marginal-error propagation is explicitly incomplete sensitivity (joint SED posterior covariance missing).",
+  "uncertainty_sensitivities": [
+    "Strong-line propagated variance rho=-.5,0,+.5; missing line covariances not inferred.",
+    "Historic duplicate-spectra uncertainty scaling Ha2.473 Hb1.882 OIII1.566 NII2.039 as sensitivity: applicability to exact DR8/CAS formal errors is not asserted. Same formal-SNR-selected cohort for error-scaling effect; separately report scaled-error-SNR and BPT selected subsets.",
+    "Hbeta flux multiplication1+.35/abs(Hbeta_EW) as explicitly conditional Groves2011 continuum-bias sensitivity on positive emission equivalent widths only; historical mean correction not established as exact for every object. Errors scaled likewise.",
+    "Age marginal68%halfwidth propagated independently, no joint SED covariance claim."
+  ],
+  "prediction": "Five existing physical-host folds. Fullfit N>=2p+5 and fullrank; heldout only if every training set has N>=2p+5 and fullrank. Gaussian heldout scores include coefficient covariance and fitted residual variance.2000host-bootstrap score differences condition on fitted folds, not full training-process uncertainty.",
+  "validation": "Direct independently expanded SALT covariance and objective evaluation; scipy SLSQP optimizer from deterministic perturbed fits; analytic line-proxy gradients versus finite differences; identity source hashes, exact IDs, physical-host folds, failed optimizer gates retained.",
+  "interpretation": "Incremental conditional associations after possible mediators, selected lowz fibre hosts, not total causal age effects. Unknown exact ZTF x0 blinding transformation prevents certified cosmological or fully unblinded luminosity claims. BPT and line detection select star-forming subpopulations; central fibre often excludes SN site. Dust overlap cannot settle double correction without joint physical/selection model.",
+  "source_semantics_amendment": {
+    "utc": "2026-09-27T02:31:05.524212+00:00",
+    "before_new_brightness_fits": true,
+    "equivalent_width": "Recovered galSpecLine emission EWs have negative sign. Conditional Groves correction is applied only where h_beta_eqw<0, using positive emission strength abs(EW). No correction for absorption/non-emission rows."
+  }
+}

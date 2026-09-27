@@ -31,5 +31,9 @@ The [physical results](../../docs/physical-program-results.md) connect those com
 - [Local and high-redshift photometry, infrared images and selection](notes/host-transport-results.md)
 - [Physical stellar-population age bounds and numerical validation](notes/physical-ages-results.md)
 - [Native survey selection, refitting and residual age response](notes/survey-physics-results.md)
+- [Observed hydrogen lines, nebular dust and incremental age prediction](notes/nebular-dust-results.md)
+- [Empirical infrared beams and limits on separating host light](notes/infrared-resolution-results.md)
+- [Shorter-wavelength infrared counterparts and shared calibration](notes/infrared-photometry-results.md)
+- [Native correction targets, sample support and training uncertainty](notes/survey-bbc-support-results.md)
 
 Each note links its acquisition and analysis commands and compact result records. Source data, third-party builds and regenerated per-object arrays remain outside the versioned tree. Neither an association with age nor a simulated response is presented as a validated cosmological correction.

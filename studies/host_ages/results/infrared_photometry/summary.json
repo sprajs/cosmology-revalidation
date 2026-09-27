@@ -1,0 +1,528 @@
+{
+  "created_utc": "2026-09-27T03:30:22.563900+00:00",
+  "status": "catalogue_associations_only",
+  "hosts": 265,
+  "environment": {
+    "python": "3.12.14 (main, Aug 14 2026, 15:34:45) [Clang 22.1.3 ]",
+    "packages": {
+      "numpy": "2.4.3",
+      "pandas": "3.0.1",
+      "scipy": "1.17.1",
+      "pyarrow": "25.0.1"
+    }
+  },
+  "candidate_sources": 31820,
+  "associations": 795,
+  "photometry_rows": 2120,
+  "matching": [
+    {
+      "family": "SERVS",
+      "field": "C3",
+      "hosts": 144,
+      "radii_arcsec": {
+        "1": {
+          "any_match": 118,
+          "unique_ir": 118
+        },
+        "2": {
+          "any_match": 123,
+          "unique_ir": 123
+        },
+        "3": {
+          "any_match": 125,
+          "unique_ir": 125
+        },
+        "6": {
+          "any_match": 130,
+          "unique_ir": 100
+        }
+      },
+      "primary_unique_ir": 118,
+      "geometry_pass": 118,
+      "passing_with_other_optical_within3": 21,
+      "passing_with_other_optical_within6": 102,
+      "target_not_nearest_within_primary": 0,
+      "optical_competition": 0,
+      "source_shared_by_selected_hosts": 0
+    },
+    {
+      "family": "SERVS",
+      "field": "X3",
+      "hosts": 121,
+      "radii_arcsec": {
+        "1": {
+          "any_match": 96,
+          "unique_ir": 96
+        },
+        "2": {
+          "any_match": 98,
+          "unique_ir": 98
+        },
+        "3": {
+          "any_match": 100,
+          "unique_ir": 100
+        },
+        "6": {
+          "any_match": 102,
+          "unique_ir": 71
+        }
+      },
+      "primary_unique_ir": 96,
+      "geometry_pass": 96,
+      "passing_with_other_optical_within3": 13,
+      "passing_with_other_optical_within6": 80,
+      "target_not_nearest_within_primary": 0,
+      "optical_competition": 0,
+      "source_shared_by_selected_hosts": 0
+    },
+    {
+      "family": "SWIRE",
+      "field": "C3",
+      "hosts": 144,
+      "radii_arcsec": {
+        "1": {
+          "any_match": 104,
+          "unique_ir": 104
+        },
+        "2": {
+          "any_match": 108,
+          "unique_ir": 108
+        },
+        "3": {
+          "any_match": 110,
+          "unique_ir": 109
+        },
+        "6": {
+          "any_match": 114,
+          "unique_ir": 88
+        }
+      },
+      "primary_unique_ir": 104,
+      "geometry_pass": 104,
+      "passing_with_other_optical_within3": 18,
+      "passing_with_other_optical_within6": 91,
+      "target_not_nearest_within_primary": 0,
+      "optical_competition": 0,
+      "source_shared_by_selected_hosts": 0
+    },
+    {
+      "family": "SWIRE",
+      "field": "X3",
+      "hosts": 121,
+      "radii_arcsec": {
+        "1": {
+          "any_match": 84,
+          "unique_ir": 84
+        },
+        "2": {
+          "any_match": 86,
+          "unique_ir": 85
+        },
+        "3": {
+          "any_match": 88,
+          "unique_ir": 86
+        },
+        "6": {
+          "any_match": 94,
+          "unique_ir": 80
+        }
+      },
+      "primary_unique_ir": 84,
+      "geometry_pass": 84,
+      "passing_with_other_optical_within3": 12,
+      "passing_with_other_optical_within6": 71,
+      "target_not_nearest_within_primary": 0,
+      "optical_competition": 0,
+      "source_shared_by_selected_hosts": 0
+    },
+    {
+      "family": "SWIRE24",
+      "field": "C3",
+      "hosts": 144,
+      "radii_arcsec": {
+        "1": {
+          "any_match": 11,
+          "unique_ir": 11
+        },
+        "2": {
+          "any_match": 16,
+          "unique_ir": 16
+        },
+        "3": {
+          "any_match": 16,
+          "unique_ir": 16
+        },
+        "6": {
+          "any_match": 19,
+          "unique_ir": 19
+        }
+      },
+      "primary_unique_ir": 16,
+      "geometry_pass": 16,
+      "passing_with_other_optical_within3": 3,
+      "passing_with_other_optical_within6": 16,
+      "target_not_nearest_within_primary": 0,
+      "optical_competition": 0,
+      "source_shared_by_selected_hosts": 0
+    },
+    {
+      "family": "SWIRE24",
+      "field": "X3",
+      "hosts": 121,
+      "radii_arcsec": {
+        "1": {
+          "any_match": 5,
+          "unique_ir": 5
+        },
+        "2": {
+          "any_match": 8,
+          "unique_ir": 8
+        },
+        "3": {
+          "any_match": 8,
+          "unique_ir": 8
+        },
+        "6": {
+          "any_match": 12,
+          "unique_ir": 12
+        }
+      },
+      "primary_unique_ir": 8,
+      "geometry_pass": 8,
+      "passing_with_other_optical_within3": 0,
+      "passing_with_other_optical_within6": 6,
+      "target_not_nearest_within_primary": 0,
+      "optical_competition": 0,
+      "source_shared_by_selected_hosts": 0
+    }
+  ],
+  "bands": [
+    {
+      "catalogue": "chandra_24_cat_f05",
+      "band_um": 24.0,
+      "geometry_valid_measurements": 16,
+      "clean_geometry_measurements": 13,
+      "extension_semantics_conflict_valid_associations": 0,
+      "statuses": {
+        "no_catalogue_association_coverage_unknown": 128,
+        "catalogue_measurement_geometry_pass": 16
+      },
+      "aperture_metadata_conflict": false
+    },
+    {
+      "catalogue": "chandra_cat_f05",
+      "band_um": 3.6,
+      "geometry_valid_measurements": 104,
+      "clean_geometry_measurements": 0,
+      "extension_semantics_conflict_valid_associations": 0,
+      "statuses": {
+        "catalogue_measurement_geometry_pass": 104,
+        "no_catalogue_association_coverage_unknown": 40
+      },
+      "aperture_metadata_conflict": true
+    },
+    {
+      "catalogue": "chandra_cat_f05",
+      "band_um": 4.5,
+      "geometry_valid_measurements": 104,
+      "clean_geometry_measurements": 0,
+      "extension_semantics_conflict_valid_associations": 0,
+      "statuses": {
+        "catalogue_measurement_geometry_pass": 104,
+        "no_catalogue_association_coverage_unknown": 40
+      },
+      "aperture_metadata_conflict": true
+    },
+    {
+      "catalogue": "chandra_cat_f05",
+      "band_um": 5.8,
+      "geometry_valid_measurements": 31,
+      "clean_geometry_measurements": 0,
+      "extension_semantics_conflict_valid_associations": 0,
+      "statuses": {
+        "covered_flux_missing": 73,
+        "no_catalogue_association_coverage_unknown": 40,
+        "catalogue_measurement_geometry_pass": 31
+      },
+      "aperture_metadata_conflict": true
+    },
+    {
+      "catalogue": "chandra_cat_f05",
+      "band_um": 8.0,
+      "geometry_valid_measurements": 30,
+      "clean_geometry_measurements": 0,
+      "extension_semantics_conflict_valid_associations": 0,
+      "statuses": {
+        "covered_flux_missing": 74,
+        "no_catalogue_association_coverage_unknown": 40,
+        "catalogue_measurement_geometry_pass": 30
+      },
+      "aperture_metadata_conflict": true
+    },
+    {
+      "catalogue": "chandra_cat_f05",
+      "band_um": 24.0,
+      "geometry_valid_measurements": 16,
+      "clean_geometry_measurements": 13,
+      "extension_semantics_conflict_valid_associations": 0,
+      "statuses": {
+        "covered_flux_missing": 88,
+        "no_catalogue_association_coverage_unknown": 40,
+        "catalogue_measurement_geometry_pass": 16
+      },
+      "aperture_metadata_conflict": false
+    },
+    {
+      "catalogue": "servscdfsi12",
+      "band_um": 3.6,
+      "geometry_valid_measurements": 118,
+      "clean_geometry_measurements": 5,
+      "extension_semantics_conflict_valid_associations": 0,
+      "statuses": {
+        "catalogue_measurement_geometry_pass": 118,
+        "no_catalogue_association_coverage_unknown": 26
+      },
+      "aperture_metadata_conflict": false
+    },
+    {
+      "catalogue": "servscdfsi12",
+      "band_um": 4.5,
+      "geometry_valid_measurements": 118,
+      "clean_geometry_measurements": 4,
+      "extension_semantics_conflict_valid_associations": 0,
+      "statuses": {
+        "catalogue_measurement_geometry_pass": 118,
+        "no_catalogue_association_coverage_unknown": 26
+      },
+      "aperture_metadata_conflict": false
+    },
+    {
+      "catalogue": "servsxmmi12",
+      "band_um": 3.6,
+      "geometry_valid_measurements": 96,
+      "clean_geometry_measurements": 8,
+      "extension_semantics_conflict_valid_associations": 0,
+      "statuses": {
+        "catalogue_measurement_geometry_pass": 96,
+        "no_catalogue_association_coverage_unknown": 25
+      },
+      "aperture_metadata_conflict": false
+    },
+    {
+      "catalogue": "servsxmmi12",
+      "band_um": 4.5,
+      "geometry_valid_measurements": 96,
+      "clean_geometry_measurements": 7,
+      "extension_semantics_conflict_valid_associations": 0,
+      "statuses": {
+        "catalogue_measurement_geometry_pass": 96,
+        "no_catalogue_association_coverage_unknown": 25
+      },
+      "aperture_metadata_conflict": false
+    },
+    {
+      "catalogue": "xmm_24_cat_s05",
+      "band_um": 24.0,
+      "geometry_valid_measurements": 8,
+      "clean_geometry_measurements": 7,
+      "extension_semantics_conflict_valid_associations": 1,
+      "statuses": {
+        "no_catalogue_association_coverage_unknown": 113,
+        "catalogue_measurement_geometry_pass": 8
+      },
+      "aperture_metadata_conflict": false
+    },
+    {
+      "catalogue": "xmm_cat_s05",
+      "band_um": 3.6,
+      "geometry_valid_measurements": 84,
+      "clean_geometry_measurements": 58,
+      "extension_semantics_conflict_valid_associations": 1,
+      "statuses": {
+        "catalogue_measurement_geometry_pass": 84,
+        "no_catalogue_association_coverage_unknown": 37
+      },
+      "aperture_metadata_conflict": false
+    },
+    {
+      "catalogue": "xmm_cat_s05",
+      "band_um": 4.5,
+      "geometry_valid_measurements": 84,
+      "clean_geometry_measurements": 73,
+      "extension_semantics_conflict_valid_associations": 1,
+      "statuses": {
+        "catalogue_measurement_geometry_pass": 84,
+        "no_catalogue_association_coverage_unknown": 37
+      },
+      "aperture_metadata_conflict": false
+    },
+    {
+      "catalogue": "xmm_cat_s05",
+      "band_um": 5.8,
+      "geometry_valid_measurements": 19,
+      "clean_geometry_measurements": 19,
+      "extension_semantics_conflict_valid_associations": 0,
+      "statuses": {
+        "covered_flux_missing": 65,
+        "no_catalogue_association_coverage_unknown": 37,
+        "catalogue_measurement_geometry_pass": 19
+      },
+      "aperture_metadata_conflict": false
+    },
+    {
+      "catalogue": "xmm_cat_s05",
+      "band_um": 8.0,
+      "geometry_valid_measurements": 17,
+      "clean_geometry_measurements": 16,
+      "extension_semantics_conflict_valid_associations": 1,
+      "statuses": {
+        "covered_flux_missing": 67,
+        "no_catalogue_association_coverage_unknown": 37,
+        "catalogue_measurement_geometry_pass": 17
+      },
+      "aperture_metadata_conflict": false
+    },
+    {
+      "catalogue": "xmm_cat_s05",
+      "band_um": 24.0,
+      "geometry_valid_measurements": 8,
+      "clean_geometry_measurements": 7,
+      "extension_semantics_conflict_valid_associations": 1,
+      "statuses": {
+        "covered_flux_missing": 76,
+        "no_catalogue_association_coverage_unknown": 37,
+        "catalogue_measurement_geometry_pass": 8
+      },
+      "aperture_metadata_conflict": false
+    }
+  ],
+  "unique_host_union_by_band": [
+    {
+      "band_um": 3.6,
+      "unique_hosts_with_valid_geometric_association": 234,
+      "interpretation": "Union of qualifying catalogue associations, not averaged or independent repeated measurements."
+    },
+    {
+      "band_um": 4.5,
+      "unique_hosts_with_valid_geometric_association": 234,
+      "interpretation": "Union of qualifying catalogue associations, not averaged or independent repeated measurements."
+    },
+    {
+      "band_um": 5.8,
+      "unique_hosts_with_valid_geometric_association": 50,
+      "interpretation": "Union of qualifying catalogue associations, not averaged or independent repeated measurements."
+    },
+    {
+      "band_um": 8.0,
+      "unique_hosts_with_valid_geometric_association": 47,
+      "interpretation": "Union of qualifying catalogue associations, not averaged or independent repeated measurements."
+    },
+    {
+      "band_um": 24.0,
+      "unique_hosts_with_valid_geometric_association": 24,
+      "interpretation": "Union of qualifying catalogue associations, not averaged or independent repeated measurements."
+    }
+  ],
+  "release_consistency": [
+    {
+      "field": "C3",
+      "band_um": 3.6,
+      "geometry_pairs": 91,
+      "centroid_disagreements_gt1": 0,
+      "missing_or_invalid_pairs": 0,
+      "nonpositive_valid_pairs": 0,
+      "ratio_pairs": 91,
+      "ratio_p05_median_p95": [
+        0.9054870876067687,
+        0.998324958123953,
+        1.0611500343532017
+      ],
+      "clean_pairs": 0,
+      "interpretation": "Release consistency only; detection selection, aperture/extension flags, shared IRAC/SWIRE-tied calibration and intrinsic variability remain. Individual exposure overlap was not audited; no independent-calibration or chi-square uncertainty claim."
+    },
+    {
+      "field": "C3",
+      "band_um": 4.5,
+      "geometry_pairs": 91,
+      "centroid_disagreements_gt1": 0,
+      "missing_or_invalid_pairs": 0,
+      "nonpositive_valid_pairs": 0,
+      "ratio_pairs": 91,
+      "ratio_p05_median_p95": [
+        0.9119885935143288,
+        1.0048097030531158,
+        1.2427715238435662
+      ],
+      "clean_pairs": 0,
+      "interpretation": "Release consistency only; detection selection, aperture/extension flags, shared IRAC/SWIRE-tied calibration and intrinsic variability remain. Individual exposure overlap was not audited; no independent-calibration or chi-square uncertainty claim."
+    },
+    {
+      "field": "X3",
+      "band_um": 3.6,
+      "geometry_pairs": 77,
+      "centroid_disagreements_gt1": 2,
+      "missing_or_invalid_pairs": 0,
+      "nonpositive_valid_pairs": 0,
+      "ratio_pairs": 75,
+      "ratio_p05_median_p95": [
+        0.9085100552157203,
+        0.9837211624887646,
+        1.043033923812974
+      ],
+      "clean_pairs": 8,
+      "interpretation": "Release consistency only; detection selection, aperture/extension flags, shared IRAC/SWIRE-tied calibration and intrinsic variability remain. Individual exposure overlap was not audited; no independent-calibration or chi-square uncertainty claim."
+    },
+    {
+      "field": "X3",
+      "band_um": 4.5,
+      "geometry_pairs": 77,
+      "centroid_disagreements_gt1": 2,
+      "missing_or_invalid_pairs": 0,
+      "nonpositive_valid_pairs": 0,
+      "ratio_pairs": 75,
+      "ratio_p05_median_p95": [
+        0.8771412534570292,
+        1.011881188118812,
+        1.2455143540669855
+      ],
+      "clean_pairs": 6,
+      "interpretation": "Release consistency only; detection selection, aperture/extension flags, shared IRAC/SWIRE-tied calibration and intrinsic variability remain. Individual exposure overlap was not audited; no independent-calibration or chi-square uncertainty claim."
+    }
+  ],
+  "photometry_statuses": {
+    "catalogue_measurement_geometry_pass": 949,
+    "no_catalogue_association_coverage_unknown": 728,
+    "covered_flux_missing": 443
+  },
+  "code_sha256": "a55a2d5eafece2add769344c9e0b7c67a55bc95eb31ce598f3d0536f47dab317",
+  "dependencies_sha256": {
+    "studies/host_ages/code/infrared_photometry/acquire.py": "df2236ebdcccfdffc174084619090ef9fbe44aafed0702b5cdfe39e09eb78244",
+    "studies/host_ages/code/infrared_photometry/source-clarification.json": "9c1ecc66359fed93ea5909be242df298777dfebc28253da50f5c52daac5c6c79",
+    "studies/host_ages/code/infrared_photometry/acquisition-amendment.json": "2892076d003e2ca15bd1daaf2f2cc06f04067e0e2a70b81a65db0bfeb4162a62",
+    "studies/host_ages/code/infrared_photometry/analysis-addendum.json": "f2bf13af9a7abb61d5f5c90d69c03473880a0dd74b1eddd2ac189b3cf0fcdab7"
+  },
+  "design_sha256": "c72e936460129b954172acfe166edf951879d99e4cee1bf8ab313e245d688eef",
+  "acquisition_sha256": "62018aadc2f12d9537a92f5abc02f4636dc3a6db55422670b87435604d560c45",
+  "optical_input_sha256": {
+    ".work/host-transport/des/Y3_DEEP_FIELDS_PHOTOM-SN-C3-0000.parquet": "28a7125263cfa1336c95f054ce1f3329b6f31eb25fa7c7f78d588c6adcea1926",
+    ".work/host-transport/des/Y3_DEEP_FIELDS_PHOTOM-SN-X3-0000.parquet": "77a027368d3814e0e9134dc2729a9737fa06bf78bb3aed7dc62ad359f4d2fc42"
+  },
+  "output_sha256": {
+    ".work/infrared-photometry/candidates.csv": "730923927cc92d5f088f090c6f801f449612776c66f2bcc0de2e088f3a51475f",
+    ".work/infrared-photometry/hosts.csv": "f63b696efcc8b72e4de27e92a6340c033b321077de4bfec51f5a42690cd4e3e0",
+    ".work/infrared-photometry/associations.csv": "b5a081fdfd65a8a87447e4cf7ce76bbd20809d5ccde1e6e9565c4e7daf2ad0e2",
+    ".work/infrared-photometry/host-candidates.csv": "677ed016f175f4fdc7c2438d792e82682762c88bee3421463752dcba1c44c109",
+    ".work/infrared-photometry/photometry.csv": "9c0f2b1b97cbe9b25dfbfe6abfc9951c0a9c10519ee5fad6f5579fd3c8af8b0c",
+    ".work/infrared-photometry/release-consistency.csv": "79b79a86c638adb2b604410e751526e4a0221343f600dae86583f6e3344803fb"
+  },
+  "limits": [
+    "No counterpart is not a numerical upper limit or zero flux.",
+    "Native aperture2 is point-source corrected; extended/flagged objects retained with caution.",
+    "CDFS SWIRE TAP error-aperture radius labels conflict with flux labels and explanatory common-aperture documentation; retained, not repaired.",
+    "SWIRE documentation contradicts the meaning of extended-source flag -1; retain it and exclude it from the strict flags-clear diagnostic. Flag0 remains indeterminate, not certified pointlike.",
+    "SERVS is calibrated to SWIRE and uses IRAC; individual exposure overlap between these catalogue records was not audited. SWIRE bandmerged and separate24 detections may duplicate.",
+    "IRAC includes stellar continuum and is not dust-only luminosity. No physical age, dust luminosity or age correction inferred.",
+    "The recovered catalogue columns do not provide a joint cross-band or cross-survey calibration covariance.",
+    "Optical competitor screen includes only unflagged deep-catalogue galaxies; undetected/flagged/other-type IR emitters remain possible."
+  ]
+}

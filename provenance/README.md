@@ -18,6 +18,7 @@ The repository separates current execution paths from immutable historical evide
 | [age-correction-literature.json](age-correction-literature.json) | Primary-source review behind the age-correction experiments |
 | [age-correction-execution.json](age-correction-execution.json) | New observational comparisons, controlled recovery, transport studies and their exact validation boundaries |
 | [physical-program-execution.json](physical-program-execution.json) | Recovered galaxy spectra and images, physical age bounds, native survey experiments and explicitly unresolved physical gates |
+| [physical-program-extension.json](physical-program-extension.json) | Additional nebular observations, infrared source-separation and counterpart measurements, and enlarged native correction simulations |
 
 `path` fields in the input manifest identify current files. `source_path`, source-record paths and historical run configurations describe the workspace at the time the evidence was produced. They may use older names. Those names are preserved as evidence, not presented as active project organization.
 
@@ -36,3 +37,5 @@ The original local bulk acquisitions and environments were retained outside this
 Historical manifests in `history/` apply to the source snapshot and keep their original hashes. They should not be used as inventories of the reorganized working tree. Current runs verify their own input and output records through `validation/record.py`; differences between historical and current orchestration code are explicitly recorded in `layout.json`.
 
 The age-correction execution record is the snapshot at commit `93c2026`; its manuscript hashes are historical once the physical extension is added. The later physical-program record and edition inventory bind the updated documentation. Past execution timestamps and hashes are not rewritten to imply that earlier runs used later code.
+
+The first physical-program execution record is the snapshot at commit `ca8cfaab`. Its scientific source and result identities remain unchanged during the subsequent extension; its shared manuscript hashes describe that earlier commit. The separate extension record and current edition inventory bind the later observations, enlarged simulations and revised documentation.

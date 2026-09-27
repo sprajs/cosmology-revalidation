@@ -1,0 +1,40 @@
+{
+  "created_utc": "2026-09-27T03:07:54.646415+00:00",
+  "timing": "After catalogue availability and metadata inspection, before infrared candidate outcomes or matching-control results. Exploratory association validation, not preregistered astrophysics.",
+  "sample": "All265 existing C3/X3 DES hosts with three-band usable SPIRE coverage; each relevant raw infrared catalogue separately.",
+  "radii_arcsec": [
+    0.5,
+    1.0,
+    2.0,
+    3.0
+  ],
+  "primary_radius_arcsec": 2.0,
+  "position_controls": {
+    "radii_arcsec": [
+      20.0,
+      40.0,
+      60.0
+    ],
+    "bearings_degrees": [
+      0,
+      30,
+      60,
+      90,
+      120,
+      150,
+      180,
+      210,
+      240,
+      270,
+      300,
+      330
+    ],
+    "candidate_query_radius_arcsec": 75.0
+  },
+  "statistics": [
+    "Actual positional-match fraction, unique and ambiguous counts",
+    "Mean match fraction at36 nearby shifted positions",
+    "Physical-host bootstrap interval of actual-minus-shifted match fraction, conditional on these catalogues and shifts"
+  ],
+  "scope": "Empirical local association controls, not calibrated posterior false-match probabilities. Unknown catalogue footprint, detection selection, galaxy clustering and source blending remain. No flux selection or zero-flux imputation."
+}

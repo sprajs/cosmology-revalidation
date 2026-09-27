@@ -1,0 +1,19 @@
+{
+  "stage": "Added after inspection of the 60,000-attempt-per-arm diagnostic and before completion or BBC analysis of the 120,000-attempt-per-arm campaign.",
+  "finding": "Released native BBC derives each field-group redshift map origin and extent from DATA. Arm-specific selection can therefore change map geometry even with identical nominal correction training. The 60k diagnostic also retains only high-mass hosts, making free gamma degenerate with the global zero point.",
+  "selected_input_estimand": "Retain the original selected-input pipeline contrast. Label frozen_nominal as frozen nominal TRAINING and fitted nuisance parameters, with native selection-dependent map geometry. Refitted-minus-frozen on the same age_nominal output still isolates nuisance refitting exactly.",
+  "additional_common_cohort": "Restrict both evaluation inputs to the identical intersection of pre-BBC quality/classifier occurrence IDs; assert identical per-field observed zHD lists. Run all four unchanged native 4336 cases. Assert nominal and age_nominal native map bounds, cell dimensions and NBIASCOR_CUTS match. This is a fixed-support sensitivity, not a replacement for the selection response.",
+  "identifiability_audit": "Audit scaled [x1,c,host-step, native-bin intercept] design rank and its null directions. Gamma unidentifiable solely along a global zero point does not mathematically invalidate centered shapes, but is never called a measured mass step or full nuisance recovery. Preserve BAD_OUTPUT/CrazyERR/bound warnings and fail closed on reported free-nuisance slopes when rank or native covariance output fails. A separately labeled gauge-fixed diagnostic may be assessed only if its scientific assumptions are explicit.",
+  "covariance": "Native .COV is the raw fitted-bin Hesse covariance with large placeholders for unfitted bins, used with a free global normalization. It is not the exactly centered M0DIF covariance. The attempt bootstrap reports a separate centered-bin covariance and paired estimand differences.",
+  "unchanged": "No photon, truth, selection, native scientific minimum-count, field grouping, alpha/beta map-construction or interpolation thresholds are changed. Only the already disclosed native capacity bug patch is permitted.",
+  "fixed_nuisance_conditional_control": {
+    "authorized_before_final120k_outputs": true,
+    "values": {
+      "alpha": 0.15,
+      "beta": 2.87,
+      "gamma": 0
+    },
+    "method": "Separate --common --fixed native runs set u1=u2=u5=0 and p5=0 while preserving source p1=.15,p2=2.87, same trained-map construction, all scientific support gates and identical common evaluation inputs. This measures map-target response conditional on fixed standardization, not successful nuisance retraining.",
+    "bootstrap": "If effective common slope sample is at least30 with at least10/bin, run200 joint and100 training-only paired attempt replicates. Preserve the original free-nuisance failed gate separately."
+  }
+}

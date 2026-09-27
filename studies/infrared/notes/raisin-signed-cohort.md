@@ -50,5 +50,5 @@ The source now establishes a sign-dependent omission and a measurable
 conditional fitting response. The remaining scientific task is to model
 the actual joint measurement, timing, population and selection process,
 retaining the weak distance branches. A [correlated synthetic recovery
-test](onefactor-recovery.md) checks the sign-likelihood machinery under a
+test](../code/onefactor_sign_validation_v2.py) checks the sign-likelihood machinery under a
 declared generator, separately from this observed-data response.

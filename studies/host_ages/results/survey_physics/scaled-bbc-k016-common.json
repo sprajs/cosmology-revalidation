@@ -1,0 +1,786 @@
+{
+  "paired_shards": 16,
+  "attempts_per_arm": 240000,
+  "code_sha256": "9aada532f736bbe70cb52108dcf49f67ab457f6516d51e8e419a41a036f80ae1",
+  "analysis_design_sha256": "20380d4c44fff2bde29d8a2db7297372e611ba6d936a862db0aef6a964dd05e4",
+  "cases": {
+    "nominal": {
+      "returncode": 0,
+      "seconds": 0.7631523399904836,
+      "graceful": true,
+      "input_sha256": "753103e51d91b0adbfa499bdaedd5c7ffc904c4fd29832caff4e9f9eacb67b35",
+      "data_table_sha256": "5a7c1b86d290b1b4fe70145f321d2acf4ead35c1a3beed65f6a7750e19fadb98",
+      "training_table_sha256": "470136a25e7af000c72711e28e2394f762dc4c498a9623e1ff343e2211457480",
+      "reference_input_sha256": "78815d7cf277b138b1b90bbaf058eef573d1998cbf5884dd5c8a05bfe5f34b15",
+      "reference_config_overrides": {
+        "datafile": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/tables/eval-nominal-common.FITRES",
+        "simfile_biascor": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/tables/train-nominal-literal-k016.FITRES",
+        "prefix": "bbc",
+        "surveygroup_biascor": "'DES(zbin=0.075)'",
+        "u13": "0",
+        "p13": "0",
+        "zmin": ".05",
+        "ndump_nobiascor": "0"
+      },
+      "executable_sha256": "abae2154c852f336908218ee53cec88393771a2e9e8afafc4501941f4f81be1e",
+      "capacity_patch_sha256": "a7e5dd20ed39b4dbbbc987dcb9701138c6c4f32ca41b1874d23ae4c0d9a47f4f",
+      "scatter_capacity_patch_sha256": "8f464957dd294215f40f79c497c70afbe3377987825a3b1fc77b81f2f456bc6b",
+      "scatter_capacity_scan_diagnostics": [],
+      "log_sha256": "fbdd28eefa098d6b0b9b35c866db39ce96d0ccee4ddfed5f981aad26af9ef980",
+      "folder": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/bbc/k016-common/nominal",
+      "nuisance_mode": "native_refit",
+      "native_support_lines": [
+        "Stored list of 675 biasCor events with SNRMAX > 60.0",
+        "NBIASCOR_CUTS =    2992 for IDSAMPLE=0  DES-zSPEC(X3)",
+        "NBIASCOR_CUTS =    3356 for IDSAMPLE=1  DES-zSPEC(C3)",
+        "NBIASCOR_CUTS =    1632 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+        "NBIASCOR_CUTS =    1651 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+        "NBIASCOR_CUTS =    4020 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+        "sigInt[ia,ib,ig=0,0,0] = 0.0914 (675 evt with all IDSAMPLEs & SNR>60)",
+        "Rejected 16 (of 35) DATA events with no 6D biasCor (DES-zSPEC(X3)).",
+        "Rejected 19 (of 39) DATA events with no 6D biasCor (DES-zSPEC(C3)).",
+        "Rejected 7 (of 20) DATA events with no 6D biasCor (DES-zSPEC(X1+X2)).",
+        "Rejected 13 (of 24) DATA events with no 6D biasCor (DES-zSPEC(S1+S2)).",
+        "Rejected 12 (of 43) DATA events with no 6D biasCor (DES-zSPEC(E1+E2+C1+C2))."
+      ],
+      "native_warning_lines": [
+        "WARNING(exec_mnpout_mnerrs): gamma0     = -0.499993 is within 2*ERR of MINUIT bound [-0.500,0.500]; check error validity."
+      ],
+      "output_rows": 94,
+      "parameters": {
+        "alpha0": {
+          "value": 0.14093,
+          "conditional_error": 0.01536
+        },
+        "beta0": {
+          "value": 2.54106,
+          "conditional_error": 0.20274
+        },
+        "gamma0": {
+          "value": -0.49999,
+          "conditional_error": 0.00459
+        }
+      },
+      "M0avg": -30.25631,
+      "sigint": 0.0,
+      "global_gamma_offset_lines": [],
+      "outputs": {
+        "bbc.FITRES": "166db5483e75fcff2f770e774956c668e55e8e355b16df30779509520c6e7200",
+        "bbc.M0DIF": "0c19209fc39c698d2a60a38f28ac2488a3c5ad03ee3b11289d8551e9c2210e44",
+        "bbc.COV": "170ac76f891024dc6e4e3482411c8d7ebb386c5cd708ffd073b13f67fda875fb"
+      },
+      "MUCOV": {
+        "biasCor_muCOVSCALE": {
+          "min": 0.079,
+          "median": 1.0,
+          "max": 1.144
+        },
+        "biasCor_muCOVADD": {
+          "min": -0.09,
+          "median": 0.010450000000000001,
+          "max": 0.0458
+        }
+      },
+      "covariance_dimension": 20,
+      "covariance_min_eigenvalue": 0.0011895431162281679,
+      "populated_IZBIN_counts": {
+        "4": 1,
+        "6": 5,
+        "7": 1,
+        "8": 5,
+        "9": 8,
+        "10": 16,
+        "11": 13,
+        "12": 8,
+        "13": 12,
+        "14": 7,
+        "15": 4,
+        "16": 9,
+        "17": 4,
+        "18": 1
+      },
+      "informative_covariance_bins": [
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "informative_covariance_min_eigenvalue": 0.0011895431160212878,
+      "covariance_scope": "Native conditional raw fitted-bin Hesse covariance, with free global normalization; not the exactly centered M0DIF covariance, correction-training Monte Carlo or survey systematics. Empty bins with MUDIFERR=999 are not informative, regardless of matrix positivity.",
+      "nuisance_design": {
+        "rank": 17,
+        "columns": 17,
+        "singular_values": [
+          1.5631428120498403,
+          1.2100054829399607,
+          1.1236791106756778,
+          1.0000000000000004,
+          1.0000000000000002,
+          1.0000000000000002,
+          1.0000000000000002,
+          1.0,
+          1.0,
+          1.0,
+          0.9999999999999999,
+          0.9999999999999998,
+          0.9999999999999996,
+          0.9999999999999994,
+          0.6847622012897657,
+          0.5995037361772062,
+          0.038891318023876506
+        ],
+        "rank_relative_threshold": 1e-10,
+        "null_direction_centered_mu_shape_max": 0.0,
+        "centered_mu_shape_identified_by_design": true,
+        "low_mass_count": 0,
+        "high_mass_count": 94,
+        "mixed_mass_native_bins": []
+      },
+      "native_fit_identified": false,
+      "host_mass_overlap_supported": false,
+      "gamma_at_native_bound": true,
+      "nuisance_native_bounds": {
+        "alpha0": {
+          "min": 0.02,
+          "max": 0.3,
+          "at_bound": false
+        },
+        "beta0": {
+          "min": 1.0,
+          "max": 6.0,
+          "at_bound": false
+        },
+        "gamma0": {
+          "min": -0.5,
+          "max": 0.5,
+          "at_bound": true
+        }
+      },
+      "native_map_geometry": [
+        "set_MAPCELL_biasCor : malloc for 6144  6D-cells for biasCor",
+        "set_MAPCELL_biasCor : malloc for 6144  6D-cells for biasCor",
+        "set_MAPCELL_biasCor : malloc for 3584  6D-cells for biasCor",
+        "set_MAPCELL_biasCor : malloc for 4608  6D-cells for biasCor",
+        "set_MAPCELL_biasCor : malloc for 4608  6D-cells for biasCor",
+        "NBIASCOR_CUTS =    2992 for IDSAMPLE=0  DES-zSPEC(X3)",
+        "NBIASCOR_CUTS =    3356 for IDSAMPLE=1  DES-zSPEC(C3)",
+        "NBIASCOR_CUTS =    1632 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+        "NBIASCOR_CUTS =    1651 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+        "NBIASCOR_CUTS =    4020 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+        "NBINz = 12: 0.140 < z < 1.040",
+        "NBINz = 12: 0.140 < z < 1.040",
+        "NBINz = 12: 0.170 < z < 1.070",
+        "NBINz = 12: 0.170 < z < 1.070",
+        "NBINz = 7: 0.140 < z < 0.665",
+        "NBINz = 7: 0.140 < z < 0.665",
+        "NBINz = 9: 0.140 < z < 0.815",
+        "NBINz = 9: 0.140 < z < 0.815",
+        "NBINz = 9: 0.160 < z < 0.835",
+        "NBINz = 9: 0.160 < z < 0.835"
+      ]
+    },
+    "age_nominal": {
+      "returncode": 0,
+      "seconds": 0.7802927409939002,
+      "graceful": true,
+      "input_sha256": "68e13584c5af8e475db8f524a58974875335058037269240e5ddf70b926f868f",
+      "data_table_sha256": "b641dd2673e2f030ce2b408c7c4d3511bbbcd352b4b0ac9823a29f85b6cdb901",
+      "training_table_sha256": "470136a25e7af000c72711e28e2394f762dc4c498a9623e1ff343e2211457480",
+      "reference_input_sha256": "78815d7cf277b138b1b90bbaf058eef573d1998cbf5884dd5c8a05bfe5f34b15",
+      "reference_config_overrides": {
+        "datafile": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/tables/eval-age-common.FITRES",
+        "simfile_biascor": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/tables/train-nominal-literal-k016.FITRES",
+        "prefix": "bbc",
+        "surveygroup_biascor": "'DES(zbin=0.075)'",
+        "u13": "0",
+        "p13": "0",
+        "zmin": ".05",
+        "ndump_nobiascor": "0"
+      },
+      "executable_sha256": "abae2154c852f336908218ee53cec88393771a2e9e8afafc4501941f4f81be1e",
+      "capacity_patch_sha256": "a7e5dd20ed39b4dbbbc987dcb9701138c6c4f32ca41b1874d23ae4c0d9a47f4f",
+      "scatter_capacity_patch_sha256": "8f464957dd294215f40f79c497c70afbe3377987825a3b1fc77b81f2f456bc6b",
+      "scatter_capacity_scan_diagnostics": [],
+      "log_sha256": "1ecaf478523eadf49888aba65033b242c78edda3d70cbd273e8df9ea8fb1414a",
+      "folder": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/bbc/k016-common/age_nominal",
+      "nuisance_mode": "native_refit",
+      "native_support_lines": [
+        "Stored list of 675 biasCor events with SNRMAX > 60.0",
+        "NBIASCOR_CUTS =    2992 for IDSAMPLE=0  DES-zSPEC(X3)",
+        "NBIASCOR_CUTS =    3356 for IDSAMPLE=1  DES-zSPEC(C3)",
+        "NBIASCOR_CUTS =    1632 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+        "NBIASCOR_CUTS =    1651 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+        "NBIASCOR_CUTS =    4020 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+        "sigInt[ia,ib,ig=0,0,0] = 0.0914 (675 evt with all IDSAMPLEs & SNR>60)",
+        "Rejected 17 (of 35) DATA events with no 6D biasCor (DES-zSPEC(X3)).",
+        "Rejected 20 (of 39) DATA events with no 6D biasCor (DES-zSPEC(C3)).",
+        "Rejected 7 (of 20) DATA events with no 6D biasCor (DES-zSPEC(X1+X2)).",
+        "Rejected 14 (of 24) DATA events with no 6D biasCor (DES-zSPEC(S1+S2)).",
+        "Rejected 11 (of 43) DATA events with no 6D biasCor (DES-zSPEC(E1+E2+C1+C2))."
+      ],
+      "native_warning_lines": [
+        "WARNING(exec_mnpout_mnerrs): gamma0     = -0.500000 is within 2*ERR of MINUIT bound [-0.500,0.500]; check error validity."
+      ],
+      "output_rows": 92,
+      "parameters": {
+        "alpha0": {
+          "value": 0.11355,
+          "conditional_error": 0.01697
+        },
+        "beta0": {
+          "value": 2.67475,
+          "conditional_error": 0.20258
+        },
+        "gamma0": {
+          "value": -0.5,
+          "conditional_error": 0.00046
+        }
+      },
+      "M0avg": -30.25167,
+      "sigint": 0.0362,
+      "global_gamma_offset_lines": [],
+      "outputs": {
+        "bbc.FITRES": "203dfb1ae49ec504653eaeea803bd1434000e44faaf61a20a5dcf7731362cab8",
+        "bbc.M0DIF": "914065a0c212558e6df6d15105da56f68df7ec8e838ef476ae253ab45a0f6c2c",
+        "bbc.COV": "1db4ebe70947e8a857408d508f10a1f28b364f6cd385911c878a8c2353d41f37"
+      },
+      "MUCOV": {
+        "biasCor_muCOVSCALE": {
+          "min": 0.474,
+          "median": 1.0,
+          "max": 1.064
+        },
+        "biasCor_muCOVADD": {
+          "min": -0.0602,
+          "median": 0.0106,
+          "max": 0.0469
+        }
+      },
+      "covariance_dimension": 20,
+      "covariance_min_eigenvalue": 0.0013568487410066214,
+      "populated_IZBIN_counts": {
+        "4": 1,
+        "6": 5,
+        "7": 1,
+        "8": 5,
+        "9": 8,
+        "10": 15,
+        "11": 13,
+        "12": 7,
+        "13": 12,
+        "14": 8,
+        "15": 4,
+        "16": 9,
+        "17": 4
+      },
+      "informative_covariance_bins": [
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "informative_covariance_min_eigenvalue": 0.001356848741020883,
+      "covariance_scope": "Native conditional raw fitted-bin Hesse covariance, with free global normalization; not the exactly centered M0DIF covariance, correction-training Monte Carlo or survey systematics. Empty bins with MUDIFERR=999 are not informative, regardless of matrix positivity.",
+      "nuisance_design": {
+        "rank": 16,
+        "columns": 16,
+        "singular_values": [
+          1.582594133047777,
+          1.1766500730864566,
+          1.0442060164606177,
+          1.0000000000000002,
+          1.0,
+          1.0,
+          0.9999999999999999,
+          0.9999999999999999,
+          0.9999999999999998,
+          0.9999999999999997,
+          0.9999999999999996,
+          0.9999999999999996,
+          0.9999999999999993,
+          0.769355127967439,
+          0.6533815939000023,
+          0.041344776680174763
+        ],
+        "rank_relative_threshold": 1e-10,
+        "null_direction_centered_mu_shape_max": 0.0,
+        "centered_mu_shape_identified_by_design": true,
+        "low_mass_count": 0,
+        "high_mass_count": 92,
+        "mixed_mass_native_bins": []
+      },
+      "native_fit_identified": false,
+      "host_mass_overlap_supported": false,
+      "gamma_at_native_bound": true,
+      "nuisance_native_bounds": {
+        "alpha0": {
+          "min": 0.02,
+          "max": 0.3,
+          "at_bound": false
+        },
+        "beta0": {
+          "min": 1.0,
+          "max": 6.0,
+          "at_bound": false
+        },
+        "gamma0": {
+          "min": -0.5,
+          "max": 0.5,
+          "at_bound": true
+        }
+      },
+      "native_map_geometry": [
+        "set_MAPCELL_biasCor : malloc for 6144  6D-cells for biasCor",
+        "set_MAPCELL_biasCor : malloc for 6144  6D-cells for biasCor",
+        "set_MAPCELL_biasCor : malloc for 3584  6D-cells for biasCor",
+        "set_MAPCELL_biasCor : malloc for 4608  6D-cells for biasCor",
+        "set_MAPCELL_biasCor : malloc for 4608  6D-cells for biasCor",
+        "NBIASCOR_CUTS =    2992 for IDSAMPLE=0  DES-zSPEC(X3)",
+        "NBIASCOR_CUTS =    3356 for IDSAMPLE=1  DES-zSPEC(C3)",
+        "NBIASCOR_CUTS =    1632 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+        "NBIASCOR_CUTS =    1651 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+        "NBIASCOR_CUTS =    4020 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+        "NBINz = 12: 0.140 < z < 1.040",
+        "NBINz = 12: 0.140 < z < 1.040",
+        "NBINz = 12: 0.170 < z < 1.070",
+        "NBINz = 12: 0.170 < z < 1.070",
+        "NBINz = 7: 0.140 < z < 0.665",
+        "NBINz = 7: 0.140 < z < 0.665",
+        "NBINz = 9: 0.140 < z < 0.815",
+        "NBINz = 9: 0.140 < z < 0.815",
+        "NBINz = 9: 0.160 < z < 0.835",
+        "NBINz = 9: 0.160 < z < 0.835"
+      ]
+    },
+    "age_literal": {
+      "returncode": 0,
+      "seconds": 0.8382757689978462,
+      "graceful": true,
+      "input_sha256": "c1b8d797bea1068690ffe19934079fdbdaa51235bd4a93218112b77cd6baffa0",
+      "data_table_sha256": "b641dd2673e2f030ce2b408c7c4d3511bbbcd352b4b0ac9823a29f85b6cdb901",
+      "training_table_sha256": "9d1f33e655ebf1c55523ae0482c06480515a0d5d6d7ecbcfb9134ab2f354fca6",
+      "reference_input_sha256": "78815d7cf277b138b1b90bbaf058eef573d1998cbf5884dd5c8a05bfe5f34b15",
+      "reference_config_overrides": {
+        "datafile": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/tables/eval-age-common.FITRES",
+        "simfile_biascor": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/tables/train-age-literal-k016.FITRES",
+        "prefix": "bbc",
+        "surveygroup_biascor": "'DES(zbin=0.075)'",
+        "u13": "0",
+        "p13": "0",
+        "zmin": ".05",
+        "ndump_nobiascor": "0"
+      },
+      "executable_sha256": "abae2154c852f336908218ee53cec88393771a2e9e8afafc4501941f4f81be1e",
+      "capacity_patch_sha256": "a7e5dd20ed39b4dbbbc987dcb9701138c6c4f32ca41b1874d23ae4c0d9a47f4f",
+      "scatter_capacity_patch_sha256": "8f464957dd294215f40f79c497c70afbe3377987825a3b1fc77b81f2f456bc6b",
+      "scatter_capacity_scan_diagnostics": [],
+      "log_sha256": "ef4d1c9851222769589eeb44ab8e9572812eb028408ec3c40fcc1a65c15d600f",
+      "folder": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/bbc/k016-common/age_literal",
+      "nuisance_mode": "native_refit",
+      "native_support_lines": [
+        "Stored list of 694 biasCor events with SNRMAX > 60.0",
+        "NBIASCOR_CUTS =    2884 for IDSAMPLE=0  DES-zSPEC(X3)",
+        "NBIASCOR_CUTS =    3230 for IDSAMPLE=1  DES-zSPEC(C3)",
+        "NBIASCOR_CUTS =    1641 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+        "NBIASCOR_CUTS =    1655 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+        "NBIASCOR_CUTS =    3962 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+        "sigInt[ia,ib,ig=0,0,0] = 0.1314 (694 evt with all IDSAMPLEs & SNR>60)",
+        "Rejected 17 (of 35) DATA events with no 6D biasCor (DES-zSPEC(X3)).",
+        "Rejected 22 (of 39) DATA events with no 6D biasCor (DES-zSPEC(C3)).",
+        "Rejected 7 (of 20) DATA events with no 6D biasCor (DES-zSPEC(X1+X2)).",
+        "Rejected 13 (of 24) DATA events with no 6D biasCor (DES-zSPEC(S1+S2)).",
+        "Rejected 12 (of 43) DATA events with no 6D biasCor (DES-zSPEC(E1+E2+C1+C2))."
+      ],
+      "native_warning_lines": [
+        "WARNING(exec_mnpout_mnerrs): gamma0     = -0.500000 is within 2*ERR of MINUIT bound [-0.500,0.500]; check error validity."
+      ],
+      "output_rows": 90,
+      "parameters": {
+        "alpha0": {
+          "value": 0.10935,
+          "conditional_error": 0.02075
+        },
+        "beta0": {
+          "value": 2.52182,
+          "conditional_error": 0.22602
+        },
+        "gamma0": {
+          "value": -0.5,
+          "conditional_error": 9e-05
+        }
+      },
+      "M0avg": -30.33495,
+      "sigint": 0.0,
+      "global_gamma_offset_lines": [],
+      "outputs": {
+        "bbc.FITRES": "aaa1036b69a841999db7d2edfa4521ae4e850ab8d67f0010f914bff10514bb0a",
+        "bbc.M0DIF": "ffeca7ef852b26de36f8b9ff62880530d65e756e2c6d40b8e988db852eaf81bd",
+        "bbc.COV": "9ffb51c338b7e20d0f19b45829223cd83a7be04bc8a57fa5a60415851cda7f2e"
+      },
+      "MUCOV": {
+        "biasCor_muCOVSCALE": {
+          "min": 0.558,
+          "median": 1.0,
+          "max": 1.379
+        },
+        "biasCor_muCOVADD": {
+          "min": -0.06,
+          "median": 0.0172,
+          "max": 0.0463
+        }
+      },
+      "covariance_dimension": 20,
+      "covariance_min_eigenvalue": 0.0021115856138406107,
+      "populated_IZBIN_counts": {
+        "4": 1,
+        "5": 1,
+        "6": 5,
+        "7": 1,
+        "8": 5,
+        "9": 8,
+        "10": 14,
+        "11": 13,
+        "12": 8,
+        "13": 13,
+        "14": 6,
+        "15": 3,
+        "16": 8,
+        "17": 4
+      },
+      "informative_covariance_bins": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "informative_covariance_min_eigenvalue": 0.00211158561384061,
+      "covariance_scope": "Native conditional raw fitted-bin Hesse covariance, with free global normalization; not the exactly centered M0DIF covariance, correction-training Monte Carlo or survey systematics. Empty bins with MUDIFERR=999 are not informative, regardless of matrix positivity.",
+      "nuisance_design": {
+        "rank": 17,
+        "columns": 17,
+        "singular_values": [
+          1.5818872831164603,
+          1.1826077119320506,
+          1.076133729002033,
+          1.0000000000000002,
+          1.0000000000000002,
+          1.0000000000000002,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.9999999999999999,
+          0.9999999999999999,
+          0.9999999999999999,
+          0.9999999999999998,
+          0.752031480103847,
+          0.6114479200723881,
+          0.039848644511581065
+        ],
+        "rank_relative_threshold": 1e-10,
+        "null_direction_centered_mu_shape_max": 0.0,
+        "centered_mu_shape_identified_by_design": true,
+        "low_mass_count": 0,
+        "high_mass_count": 90,
+        "mixed_mass_native_bins": []
+      },
+      "native_fit_identified": false,
+      "host_mass_overlap_supported": false,
+      "gamma_at_native_bound": true,
+      "nuisance_native_bounds": {
+        "alpha0": {
+          "min": 0.02,
+          "max": 0.3,
+          "at_bound": false
+        },
+        "beta0": {
+          "min": 1.0,
+          "max": 6.0,
+          "at_bound": false
+        },
+        "gamma0": {
+          "min": -0.5,
+          "max": 0.5,
+          "at_bound": true
+        }
+      },
+      "native_map_geometry": [
+        "set_MAPCELL_biasCor : malloc for 6144  6D-cells for biasCor",
+        "set_MAPCELL_biasCor : malloc for 6144  6D-cells for biasCor",
+        "set_MAPCELL_biasCor : malloc for 3584  6D-cells for biasCor",
+        "set_MAPCELL_biasCor : malloc for 4608  6D-cells for biasCor",
+        "set_MAPCELL_biasCor : malloc for 4608  6D-cells for biasCor",
+        "NBIASCOR_CUTS =    2884 for IDSAMPLE=0  DES-zSPEC(X3)",
+        "NBIASCOR_CUTS =    3230 for IDSAMPLE=1  DES-zSPEC(C3)",
+        "NBIASCOR_CUTS =    1641 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+        "NBIASCOR_CUTS =    1655 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+        "NBIASCOR_CUTS =    3962 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+        "NBINz = 12: 0.140 < z < 1.040",
+        "NBINz = 12: 0.140 < z < 1.040",
+        "NBINz = 12: 0.170 < z < 1.070",
+        "NBINz = 12: 0.170 < z < 1.070",
+        "NBINz = 7: 0.140 < z < 0.665",
+        "NBINz = 7: 0.140 < z < 0.665",
+        "NBINz = 9: 0.140 < z < 0.815",
+        "NBINz = 9: 0.140 < z < 0.815",
+        "NBINz = 9: 0.160 < z < 0.835",
+        "NBINz = 9: 0.160 < z < 0.835"
+      ]
+    },
+    "age_retained": {
+      "returncode": 0,
+      "seconds": 0.8207876870001201,
+      "graceful": true,
+      "input_sha256": "c80f37a48f3806eded001dbc850f8f616c2205ee4c675f8dbe5f7b1707867eb2",
+      "data_table_sha256": "b641dd2673e2f030ce2b408c7c4d3511bbbcd352b4b0ac9823a29f85b6cdb901",
+      "training_table_sha256": "29cab69d28bf79f9d8aaabd6d2e88906427180274cd0d73567a384628a17061c",
+      "reference_input_sha256": "78815d7cf277b138b1b90bbaf058eef573d1998cbf5884dd5c8a05bfe5f34b15",
+      "reference_config_overrides": {
+        "datafile": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/tables/eval-age-common.FITRES",
+        "simfile_biascor": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/tables/train-age-retained_age-k016.FITRES",
+        "prefix": "bbc",
+        "surveygroup_biascor": "'DES(zbin=0.075)'",
+        "u13": "0",
+        "p13": "0",
+        "zmin": ".05",
+        "ndump_nobiascor": "0"
+      },
+      "executable_sha256": "abae2154c852f336908218ee53cec88393771a2e9e8afafc4501941f4f81be1e",
+      "capacity_patch_sha256": "a7e5dd20ed39b4dbbbc987dcb9701138c6c4f32ca41b1874d23ae4c0d9a47f4f",
+      "scatter_capacity_patch_sha256": "8f464957dd294215f40f79c497c70afbe3377987825a3b1fc77b81f2f456bc6b",
+      "scatter_capacity_scan_diagnostics": [],
+      "log_sha256": "4c4a60d988e26c5d739e92e0ba559a571a2e3d2074a296a69dc28f41aae82507",
+      "folder": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/bbc/k016-common/age_retained",
+      "nuisance_mode": "native_refit",
+      "native_support_lines": [
+        "Stored list of 694 biasCor events with SNRMAX > 60.0",
+        "NBIASCOR_CUTS =    2884 for IDSAMPLE=0  DES-zSPEC(X3)",
+        "NBIASCOR_CUTS =    3230 for IDSAMPLE=1  DES-zSPEC(C3)",
+        "NBIASCOR_CUTS =    1641 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+        "NBIASCOR_CUTS =    1655 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+        "NBIASCOR_CUTS =    3962 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+        "sigInt[ia,ib,ig=0,0,0] = 0.1314 (694 evt with all IDSAMPLEs & SNR>60)",
+        "Rejected 17 (of 35) DATA events with no 6D biasCor (DES-zSPEC(X3)).",
+        "Rejected 22 (of 39) DATA events with no 6D biasCor (DES-zSPEC(C3)).",
+        "Rejected 7 (of 20) DATA events with no 6D biasCor (DES-zSPEC(X1+X2)).",
+        "Rejected 13 (of 24) DATA events with no 6D biasCor (DES-zSPEC(S1+S2)).",
+        "Rejected 12 (of 43) DATA events with no 6D biasCor (DES-zSPEC(E1+E2+C1+C2))."
+      ],
+      "native_warning_lines": [
+        "WARNING(exec_mnpout_mnerrs): gamma0     = -0.500000 is within 2*ERR of MINUIT bound [-0.500,0.500]; check error validity."
+      ],
+      "output_rows": 90,
+      "parameters": {
+        "alpha0": {
+          "value": 0.15077,
+          "conditional_error": 0.02012
+        },
+        "beta0": {
+          "value": 2.58025,
+          "conditional_error": 0.22117
+        },
+        "gamma0": {
+          "value": -0.5,
+          "conditional_error": 7e-05
+        }
+      },
+      "M0avg": -30.26043,
+      "sigint": 0.0,
+      "global_gamma_offset_lines": [],
+      "outputs": {
+        "bbc.FITRES": "99cda662f628fbf4e84796d4f863ba7253e69fb2eda74005ce2ff695b58b78ca",
+        "bbc.M0DIF": "e8c2c1caa779cfabb86268b2ce8839d8cb7a992eae651dfba07e69311d3631c7",
+        "bbc.COV": "babcd19149b59a964212badbb8cf692ca96e64bc7d2bd542898a5c1d5a01fc44"
+      },
+      "MUCOV": {
+        "biasCor_muCOVSCALE": {
+          "min": 0.511,
+          "median": 1.0,
+          "max": 1.005
+        },
+        "biasCor_muCOVADD": {
+          "min": -0.0639,
+          "median": 0.013600000000000001,
+          "max": 0.0434
+        }
+      },
+      "covariance_dimension": 20,
+      "covariance_min_eigenvalue": 0.0018672073712247836,
+      "populated_IZBIN_counts": {
+        "4": 1,
+        "5": 1,
+        "6": 5,
+        "7": 1,
+        "8": 5,
+        "9": 8,
+        "10": 14,
+        "11": 13,
+        "12": 8,
+        "13": 13,
+        "14": 6,
+        "15": 3,
+        "16": 8,
+        "17": 4
+      },
+      "informative_covariance_bins": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "informative_covariance_min_eigenvalue": 0.0018672073712247802,
+      "covariance_scope": "Native conditional raw fitted-bin Hesse covariance, with free global normalization; not the exactly centered M0DIF covariance, correction-training Monte Carlo or survey systematics. Empty bins with MUDIFERR=999 are not informative, regardless of matrix positivity.",
+      "nuisance_design": {
+        "rank": 17,
+        "columns": 17,
+        "singular_values": [
+          1.608274798667056,
+          1.1711849717384462,
+          1.0842628925673374,
+          1.0000000000000004,
+          1.0000000000000002,
+          1.0000000000000002,
+          1.0000000000000002,
+          1.0000000000000002,
+          1.0,
+          1.0,
+          1.0,
+          0.9999999999999999,
+          0.9999999999999999,
+          0.9999999999999998,
+          0.705691232221187,
+          0.6055376761844523,
+          0.03841772032859078
+        ],
+        "rank_relative_threshold": 1e-10,
+        "null_direction_centered_mu_shape_max": 0.0,
+        "centered_mu_shape_identified_by_design": true,
+        "low_mass_count": 0,
+        "high_mass_count": 90,
+        "mixed_mass_native_bins": []
+      },
+      "native_fit_identified": false,
+      "host_mass_overlap_supported": false,
+      "gamma_at_native_bound": true,
+      "nuisance_native_bounds": {
+        "alpha0": {
+          "min": 0.02,
+          "max": 0.3,
+          "at_bound": false
+        },
+        "beta0": {
+          "min": 1.0,
+          "max": 6.0,
+          "at_bound": false
+        },
+        "gamma0": {
+          "min": -0.5,
+          "max": 0.5,
+          "at_bound": true
+        }
+      },
+      "native_map_geometry": [
+        "set_MAPCELL_biasCor : malloc for 6144  6D-cells for biasCor",
+        "set_MAPCELL_biasCor : malloc for 6144  6D-cells for biasCor",
+        "set_MAPCELL_biasCor : malloc for 3584  6D-cells for biasCor",
+        "set_MAPCELL_biasCor : malloc for 4608  6D-cells for biasCor",
+        "set_MAPCELL_biasCor : malloc for 4608  6D-cells for biasCor",
+        "NBIASCOR_CUTS =    2884 for IDSAMPLE=0  DES-zSPEC(X3)",
+        "NBIASCOR_CUTS =    3230 for IDSAMPLE=1  DES-zSPEC(C3)",
+        "NBIASCOR_CUTS =    1641 for IDSAMPLE=2  DES-zSPEC(X1+X2)",
+        "NBIASCOR_CUTS =    1655 for IDSAMPLE=3  DES-zSPEC(S1+S2)",
+        "NBIASCOR_CUTS =    3962 for IDSAMPLE=4  DES-zSPEC(E1+E2+C1+C2)",
+        "NBINz = 12: 0.140 < z < 1.040",
+        "NBINz = 12: 0.140 < z < 1.040",
+        "NBINz = 12: 0.170 < z < 1.070",
+        "NBINz = 12: 0.170 < z < 1.070",
+        "NBINz = 7: 0.140 < z < 0.665",
+        "NBINz = 7: 0.140 < z < 0.665",
+        "NBINz = 9: 0.140 < z < 0.815",
+        "NBINz = 9: 0.140 < z < 0.815",
+        "NBINz = 9: 0.160 < z < 0.835",
+        "NBINz = 9: 0.160 < z < 0.835"
+      ]
+    }
+  },
+  "tables": {
+    "nominal_literal": {
+      "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/tables/train-nominal-literal-k016.FITRES",
+      "rows": 14043,
+      "sha256": "470136a25e7af000c72711e28e2394f762dc4c498a9623e1ff343e2211457480",
+      "target": "literal",
+      "changed_columns": []
+    },
+    "age_literal": {
+      "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/tables/train-age-literal-k016.FITRES",
+      "rows": 13724,
+      "sha256": "9d1f33e655ebf1c55523ae0482c06480515a0d5d6d7ecbcfb9134ab2f354fca6",
+      "target": "literal",
+      "changed_columns": []
+    },
+    "age_retained_age": {
+      "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/tables/train-age-retained_age-k016.FITRES",
+      "rows": 13724,
+      "sha256": "29cab69d28bf79f9d8aaabd6d2e88906427180274cd0d73567a384628a17061c",
+      "target": "retained_age",
+      "changed_columns": [
+        "SIM_gammaDM"
+      ]
+    },
+    "eval_nominal": {
+      "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/tables/eval-nominal-common.FITRES",
+      "rows": 161,
+      "sha256": "5a7c1b86d290b1b4fe70145f321d2acf4ead35c1a3beed65f6a7750e19fadb98",
+      "target": "literal",
+      "changed_columns": []
+    },
+    "eval_age": {
+      "path": "/home/szymon/Documents/ChatGPT/supernova/.work/survey-physics/scaled-bbc/tables/eval-age-common.FITRES",
+      "rows": 161,
+      "sha256": "b641dd2673e2f030ce2b408c7c4d3511bbbcd352b4b0ac9823a29f85b6cdb901",
+      "target": "literal",
+      "changed_columns": []
+    }
+  },
+  "evaluation_cohort": "common_preBBC_quality_classifier_occurrences",
+  "same_nominal_map_geometry_verified": true
+}

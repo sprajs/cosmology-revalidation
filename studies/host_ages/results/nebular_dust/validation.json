@@ -1,0 +1,43 @@
+{
+  "created_utc": "2026-09-27T02:38:01.658736+00:00",
+  "passed": true,
+  "exact_source_associations": 165,
+  "physical_hosts": 165,
+  "signed_Balmer_objects": 163,
+  "selected_nonpositive_Balmer_objects": 5,
+  "contrast_gradient_max_relative_error": 9.337044041832407e-10,
+  "contrast_flux_unit_identity_error": 4.440892098500626e-16,
+  "nonlinear_uncertainty_diagnostic": {
+    "scope": "Gaussian perturbations around measurements; tests first-order propagation only, not a flux-population posterior or repeated-sample coverage.",
+    "draws": 10000,
+    "ratio_MC_variance_to_delta_variance_all_quantiles": [
+      0.9459732142789805,
+      1.0035446960901433,
+      1.2359530611685658
+    ],
+    "weak_or_nondetected_objects": 25,
+    "weak_ratio_quantiles": [
+      0.7869745878445841,
+      1.0482269633106516,
+      2.013892531773398
+    ],
+    "contrast_bias_max_abs": 0.2094908131203036
+  },
+  "heldout_score_max_identity_error": 1.4299672557172016e-13,
+  "heldout_model_checks": 48,
+  "independent_full_fit_checks": 88,
+  "independent_objective_max_difference": 2.3424604478350375e-08,
+  "failed_fit_or_heldout_gates": 0,
+  "input_sha256": {
+    ".work/galaxy-validation/brightness-cohort.csv": "2d10f2c135312eafd07830323bc2a1ef59d5b22873297eb3db4c18b01988e5a3",
+    ".work/galaxy-validation/host-spectrum-age-ledger.csv": "e494cc4c09d6faa25d5adaf58841650d4051a4def0e01f26ff2eb72b26b9d31b"
+  },
+  "summary_sha256": "ff88789cad3659d56efbea450d2f7addddc3284e3ee8ad52088aeebf2e7ee087",
+  "code_sha256": {
+    "studies/host_ages/code/nebular_dust/design.json": "e745dd54f0564e037cbdff4411640ec9344c5e6cd2a266d7fccd7d4708469f96",
+    "studies/host_ages/code/nebular_dust/analyze.py": "d8ab534b464e692ca9468e819cc711e0a1ff8ba8c9f2b858c656cab3d10d5f3a",
+    "studies/host_ages/code/nebular_dust/acquire.py": "bb10d17647cc0623eb604de7a52b9337b366e130bb2565d792df48355ac1b5f7",
+    "studies/host_ages/code/nebular_dust/validate.py": "db92a214f150ad5d36de9f16c080ff7ed62023196f2b80da0a0b0e912e3a9cf8",
+    "studies/host_ages/code/nebular_dust/README.md": "99de3d125a0016b25460744f3817d6de714f04729ee5ac3b9f768e92f5d03653"
+  }
+}
