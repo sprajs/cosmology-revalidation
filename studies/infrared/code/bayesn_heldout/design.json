@@ -1,0 +1,30 @@
+{
+  "scope": "Synthetic validation only. No observed optical posterior or observed NIR outcome is authorized by this executor.",
+  "parent_design_sha256": "544131bf73dcd7de5069a1e25ca10f9cc3fa00e36ebabc0644a610429395d433",
+  "parent_forward_sha256": "21d4bcfdf3ef63be82e363466313dc1f038ff2e7d69609a63fc71044d3e830f2",
+  "objects": ["DES16E2clk", "DES16X3cry"],
+  "ordering": "object first, then truth case, then noise seed; all 12 cases retained, no replacement",
+  "truths": [
+    {"AV": 0.0, "RV": 3.1, "theta": 0.0, "epsilon_seed": null, "gray_offset": 0.0},
+    {"AV": 0.3, "RV": 3.1, "theta": 0.0, "epsilon_seed": 201, "gray_offset": 0.0},
+    {"AV": 0.6, "RV": 2.0, "theta": 0.5, "epsilon_seed": 202, "gray_offset": 0.15}
+  ],
+  "truth_tau": 5.0,
+  "noise_seeds": [4101, 4102],
+  "random_streams": "NumPy default_rng(SeedSequence([noise_seed, object_index, truth_index, role_index])); role 0 optical, role 1 NIR. Residual SED default_rng(epsilon_seed).normal(size=(2,42))[object_index].",
+  "measurement": "Fixed diagonal quoted errors, signed Gaussian noise without cuts. Latent M20 residual SED already included; no additional model-error covariance.",
+  "calibration": "Original release passbands and standards; fixed nominal zero points. No fitted correction or recalibration.",
+  "model": "Pinned M20 W0/W1/L_Sigma; theta N(0,1), epsilon_white42 N(0,I), AV Exp(scale .329), RV U(1.2,6), tau U(-10,20).",
+  "distance": {"LCDM": "D Normal(mu_LCDM, sqrt(sigma_external^2+.088^2))", "broad": "D=mu+gray, mu Uniform(20,50), gray Normal(0,.088^2); exact normalized convolution density"},
+  "algorithm_equivalence": "Sample D as an explicit latent instead of numerically marginalizing it in NUTS. This has the identical proper joint density; independent scalar-D quadrature and sampling/predictive-ratio checks are required. No profiled amplitude or improper distance prior.",
+  "integration_bins": 2400,
+  "sampler": {"chains": 4, "warmup": 1000, "draws": 1000, "target_accept_prob": 0.9, "max_tree_depth": 10, "dense_mass": false, "chain_seeds": [273401,273402,273403,273404], "seed_rule": "base + 100*case_index + 10*arm_index", "initial_tau": [-5,0,10,15], "initial_other": "D=mu_LCDM, AV=.2, RV=3.1, theta=0, epsilon_white=0; no held-out-dependent initialization"},
+  "diagnostics": {"Rhat_max": 1.01, "bulk_ESS_min": 400, "tail_ESS_min": 200, "divergences_max": 0, "EBFMI_min": 0.3, "max_tree_fraction_max": 0.01, "mean_MCSE_over_SD_max": 0.05, "predictive_logscore_difference_MCSE_max": 0.05},
+  "timing_boundary": "Pr(tau within 1 rest day of either boundary)>0.01 is timing-limited, retained without expansion or deletion.",
+  "broad_boundary": "Compute conditional mu|D under the convolved uniform prior; posterior probability within 1 mag of either mu bound must be below .001 or report prior-boundary sensitivity.",
+  "predictive": "Joint NIR-vector density averaged over the complete optical posterior. The same D/tau/dust/shape/SED draw predicts all epochs and bands. Independent arm seeds; chain and contiguous-block MC errors retained. No observed outcomes.",
+  "isolation": "Workers receive an optical-only synthetic payload. Their file-read guard rejects synthetic NIR payloads and all real photometry/sealed payload files. Optical records and diagnostics are hash-frozen before synthetic scoring.",
+  "first_case": {"case_index": 0, "object": "DES16E2clk", "truth_index": 0, "noise_seed": 4101},
+  "resources": {"max_CPU_workers": 2, "max_wall_seconds_per_case": 3600, "full_screen_wall_budget_seconds": 3600, "output_limit_MB": 500, "policy": "Never shorten chains and call them validated. First run one declared case only; reassess the full 12-case schedule against the original one-hour two-CPU screen cap.", "wall_enforcement": "Internal check is between complete chains, not in-flight. The documented launch uses GNU timeout with a 3600-second process-group limit and 30-second termination grace; preserve partial chains and do not label an interrupted run converged."},
+  "interpretation": "An implementation and model-conditional power screen, not calibrated frequentist coverage, a population Bayes factor, or an age correction. AV=0 does not identify RV. An injected grey offset need not be recovered as a changed external cosmological distance."
+}
