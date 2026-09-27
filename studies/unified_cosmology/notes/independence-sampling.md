@@ -79,6 +79,17 @@ This is a numerical initialization, not a changed physical prior. Runtime metada
 distinguish NumPy coordinate precision from third-party internal dtypes and
 record actual JAX availability/settings without changing them.
 
+A separate [full-native order check](../results/inference/native-order-review.json)
+uses two fixed, previously evaluated controls in the order A, B, A in a fresh
+process, with three forced uncached evaluations and no extra warmup spectrum.
+The first and revisited A values, every likelihood component and every derived
+quantity agree exactly at stored precision; their spectrum hashes are identical.
+Both first occurrences also exactly reproduce the saved full-native controls.
+Thus the earlier tested cold-background discrepancy is not reproduced in this
+bounded full-native check. Two points do not establish universal order
+independence or numerical convergence. The [fixed design](../code/inference/native-order-design.json)
+and [reproducer](../code/inference/native_order_review.py) retain the complete comparison.
+
 The reusable sampler is a narrow subclass of the installed Cobaya MCMC. It
 replaces the proposal transition and includes the Hastings density ratio while
 retaining Cobaya's original completed-hold collection, burn-in and convergence
