@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Read-only finite-pipeline scientific audit",
+  "type": "object",
+  "required": ["schema", "status", "audit_time_utc", "cohorts", "limits", "new_model_or_background_evaluations", "source_sha256", "execution_completion_is_scientific_qualification"],
+  "properties": {
+    "schema": {"const": "final-scientific-audit-v1"},
+    "status": {"enum": ["failed_integrity_audit", "incomplete_with_failed_gates", "pending_scientific_completion", "complete_with_failed_gates", "completed_conditional_results_audited"]},
+    "new_model_or_background_evaluations": {"const": 0},
+    "execution_completion_is_scientific_qualification": {"const": false},
+    "cohorts": {
+      "type": "array", "minItems": 4, "maxItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["label", "settings", "target_identity", "parent_qualification", "posterior", "stages", "verified_children", "integrity_errors", "units", "evidence_sha256"],
+        "properties": {
+          "label": {"type": "string"},
+          "target_identity": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "parent_qualification": {"enum": ["pending", "qualified_at_declared_native_accuracy", "failed_current_parent_requalification", "failed_native_correction_gates"]},
+          "posterior": {"type": ["object", "null"]},
+          "stages": {"type": "object", "additionalProperties": {"type": "object", "required": ["script", "output_path", "state", "failed_gates"], "properties": {"state": {"enum": ["pending", "not_run", "failed", "invalid", "diagnostic", "qualified"]}}},
+          "verified_children": {"type": "object", "additionalProperties": {"type": "object", "required": ["path", "sha256", "qualified", "target_identity", "parent_correction_path", "parent_correction_sha256"], "properties": {"qualified": {"const": true}}}},
+          "integrity_errors": {"type": "array"}
+        },
+        "allOf": [{"if": {"properties": {"parent_qualification": {"not": {"const": "qualified_at_declared_native_accuracy"}}}}, "then": {"properties": {"posterior": {"type": "null"}, "verified_children": {"maxProperties": 0}}}}]
+      }
+    }
+  },
+  "$comment": "final_audit.validate_report also enforces aggregate status consistency, unique physical targets, child qualification and the no-unqualified-numerics invariant without requiring a new runtime package."
+}

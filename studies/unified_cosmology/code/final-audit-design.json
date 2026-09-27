@@ -1,0 +1,66 @@
+{
+  "schema": "final-scientific-audit-v1",
+  "scope": "Read-only audit of four finite continuations, declared while LCDM native correction is running and other samplers are pending. No model evaluation, background calculation, new chain, reweighting or changes to frozen sources.",
+  "cohorts": [
+    {
+      "plan_path": ".work/unified-cosmology/inference/modern-cpl-linear-dovekie-official_planck-gpu-independence-seed273282-dfff858fc0d4/finite-pipeline-plan.json",
+      "plan_sha256": "eb21dec2eab6fe2e562421f41a6f5bb649c22dca19b7c2861e409b33eb4d36f4",
+      "label": "modern-linear-gpu-independence",
+      "settings": {
+        "model": "cpl",
+        "evolution": "linear",
+        "sample": "dovekie",
+        "calibration": "official_planck"
+      },
+      "target_identity": "89d7caffa799d49076f1d85752f3db67d6526d32388008f18992de2efbb73bcb"
+    },
+    {
+      "plan_path": ".work/unified-cosmology/inference/modern-cpl-none-dovekie-official_planck-independence-seed273262-7316f91342ee/finite-pipeline-plan.json",
+      "plan_sha256": "6afa871e3efb9d0bed43723a493ba2a0c8edc4fa75199b21974c1c5521a7dad7",
+      "label": "modern-cpl-independence",
+      "settings": {
+        "model": "cpl",
+        "evolution": "none",
+        "sample": "dovekie",
+        "calibration": "official_planck"
+      },
+      "target_identity": "a2e379946a9373e7775e00f6b6c369e09d5b11b8d6874d98a9021870ef830835"
+    },
+    {
+      "plan_path": ".work/unified-cosmology/inference/modern-cpl-smooth01-dovekie-official_planck-gpu-independence-seed273286-dfff858fc0d4/finite-pipeline-plan.json",
+      "plan_sha256": "dbe0404f00b1e70c25b33bcb0cd5d47e89a0660c3391d8689ac395b332ea4e7f",
+      "label": "modern-smooth01-gpu-independence",
+      "settings": {
+        "model": "cpl",
+        "evolution": "smooth01",
+        "sample": "dovekie",
+        "calibration": "official_planck"
+      },
+      "target_identity": "fb0194b6bc95ad28eed8c40651be712ea436b8439e68b87d8d3effa7bb37b35d"
+    },
+    {
+      "plan_path": ".work/unified-cosmology/inference/modern-lcdm-none-dovekie-official_planck-independence-seed273240-7316f91342ee/finite-pipeline-plan.json",
+      "plan_sha256": "8381a712117cfa4396ca8bf634e06131c7ad92e2d5c8cc3293b2bc70d6d10d08",
+      "label": "modern-lcdm-independence",
+      "settings": {
+        "model": "lcdm",
+        "evolution": "none",
+        "sample": "dovekie",
+        "calibration": "official_planck"
+      },
+      "target_identity": "a047e290baa300dcaca061873d07c9d38a80242750674c105804c14516085293"
+    }
+  ],
+  "qualification": "A completed parent correction must pass current measurement_summary.summarize_run with all source/assets/chain/native/weight checks. A measurement output must exactly equal that freshly qualified row. Execution completion and exit zero never confer scientific qualification.",
+  "receipt": "Every stage result must have a matching finite-pipeline completed_results receipt and SHA256. Present output without receipt remains pending. Plans are pinned; each producer source is rehashed against its stage entry. Descendant source, parent, lineage, record manifest and payload identities are verified.",
+  "reporting": "No cosmological numeric summaries for unqualified parents. Parent results remain conditional at declared native accuracy; precision flags are shown separately and block a complete clean audit. Diagnostic-only quantile/SN/32-point results never become new measurements. Every lensing variant and omission is assessed separately.",
+  "limits": [
+    "Fixed luminosity baseline B(z)=0 is imposed, not measured. Linear and smooth luminosity models are declared sensitivities, not empirical host-age corrections.",
+    "q<0 denotes scale-factor acceleration; j is a third time derivative, not dq/dt. Units H/H0=km/s/Mpc, rd=Mpc, B=mag, age=Gyr; q/j/w/wa dimensionless.",
+    "Shared flat GR, fixed neutrino physics, analytic CAMB CPL support w0+wa<=0, corrected released SN and probe covariance factorization remain conditional assumptions.",
+    "Probe omissions/bridges do not estimate absent cross-probe covariance or supply evidence, independent-fit significance or global mode guarantees.",
+    "SN quadratic uses N-1 after flat magnitude integration; smooth replication redraws Gaussian luminosity coefficients from their prior, not a shared-universe posterior prediction.",
+    "32-point precision screen is not representative posterior reweighting or asymptotic numerical convergence."
+  ],
+  "validation": "Synthetic passed, pending, failed, unknown-status, changed-source, receipt/hash, wrong-target, wrong-parent and false-qualified fixtures. Test-only parent dependency injection is unavailable in the CLI. No fake observational measurement file is emitted."
+}

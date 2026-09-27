@@ -6,6 +6,8 @@ The late-time Dovekie + DESI DR2 fit in flat ΛCDM gives **Ωₘ = 0.30627 ± 0.
 
 The flexible late-time CPL model gives median **q₀ ≈ −0.38**, with central 95% intervals around **[−0.566, −0.203]** across two independent nested calculations. Jerk remains consistent with both signs. A small low-matter-density tail is prior-sensitive and less precisely sampled; the [tail analysis](notes/late-time-tails.md) preserves the separate results and failed initial checks. The CMB calculations are qualified separately. A fitted point, a reproduced published chain, an interpolated spectrum and a converged independently calculated posterior are different forms of evidence.
 
+The released geometric-anchor and Cepheid distance ladder independently reproduces its published matrix result, **H₀ = 73.043 ± 1.007 km/s/Mpc**. Removing its supernova information yields a correlated distance likelihood for **37 host galaxies**. These are conditional calibration results; the H₀ summary is not added as an independent prior to overlapping supernova samples. [Calibration, covariance and remaining interface](notes/distance-ladder.md).
+
 ## Scientific reading order
 
 1. [Joint inference](notes/joint-inference.md): observations, equations, nuisance brightness, acceleration and jerk, priors and interpretation.
@@ -16,6 +18,7 @@ The flexible late-time CPL model gives median **q₀ ≈ −0.38**, with central
 6. [Calibrated host spectra](notes/calibrated-hosts.md): 55 matched DESI spectra, signed measurements, overlapping-band covariance and physical limitations.
 7. [Physical stellar-age constraints](notes/calibrated-host-physics.md): flexible age, metallicity and dust mixtures, native spectral response, compatible age ranges and the effect of an imposed cosmological clock.
 8. [Supernova release comparison](notes/release-comparison.md): separately fitted Dovekie, Pantheon+ and DES3YR alternatives with the same BAO observations.
+9. [Absolute-distance calibration](notes/distance-ladder.md): the complete released ladder, independent numerical checks, a Cepheid-only host likelihood and overlap with the cosmology samples.
 
 All 17,733 released classification probabilities are reproduced to their printed precision after recovering the measured peak-time input. This resolves a specific classifier-interface discrepancy; it does not reconstruct the complete survey selection or contaminant model. The 1,088 distinct OzDES host spectra add observed high-redshift information, but their lack of relative flux calibration prevents interpreting raw count ratios as calibrated stellar ages. The independent repeat spectra also reject a simple fixed-response, diagonal-noise description for many objects.
 
