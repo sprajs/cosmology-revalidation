@@ -125,6 +125,8 @@ The [calibration interface](../../notes/calibration-interface.md) restores the r
 
 If fresh sampling is required, the [dedicated calibrated-sample instructions](../../notes/anchored-sampling.md) give the ordered proposal freeze, bounded efficiency pilot, four independent chains, native correction and final qualification commands. Proposal training never establishes a posterior. This path adds neither an extra H₀ prior nor another Cepheid factor, and retains the [unresolved shared-host covariance construction](../../notes/calibration-covariance-estimands.md).
 
+The separate [withheld-calibration check](../../notes/calibration-holdout.md) fits only the 1,580 noncalibrator supernova rows with CMB and BAO, then predicts the 77 calibrator rows using their full conditional covariance. Its posterior weights exclude calibrator values. Predictive tails and densities require additional contribution and numerical-error checks; combined calibrated-sample weights cannot be used for this prediction.
+
 ## Broader numerical support for luminosity alternatives
 
 The initial linear and smooth-luminosity pilots visited regions outside the original interpolation envelope often enough that exact fallbacks dominated their runtime. They remain unqualified pilots. A new [numerical design](broad-spectral-design.json) keeps the original centre and physical priors, but expands the two conditional dark-energy directions of the training covariance by a factor of three in standard deviation. Its 768 training attempts and 128 independent holdout attempts use distinct fixed random seeds. Invalid requests are recorded without replacement. The polynomial degree and fitting method were chosen before those new outcomes.
