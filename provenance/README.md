@@ -2,6 +2,10 @@
 
 The repository separates current execution paths from immutable historical evidence. Renaming a file does not justify rewriting the hash or path recorded by a past execution.
 
+The [storage guide](../docs/local-storage.md) describes restoration after the
+October 2026 cleanup. `downloads.json` expands the frozen download registry;
+`frozen-local-inputs.tar.gz` preserves the small inputs without public routes.
+
 | Record | Meaning |
 |---|---|
 | [inputs.json](inputs.json) | Current input locations, sizes, SHA-256 values, source identities and retrieval URLs |

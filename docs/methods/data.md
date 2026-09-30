@@ -36,6 +36,12 @@ uv run --frozen python research.py fetch --group bao
 
 Files without a public URL must be restored from the distributed bundle or regenerated through their documented upstream procedure. This includes local DES objective/matrix exports and the original supplementary archive if its historical publisher link is unavailable. The downloader does not claim that a source-code-only checkout can recreate every bundled intermediate.
 
+The October 2026 cleanup preserves all 34 inputs without verified public URLs in
+`provenance/frozen-local-inputs.tar.gz`. Run
+`python tools/restore_data.py --group core` to restore both public downloads and
+these exact intermediates. See the [storage guide](../local-storage.md) for study
+downloads and regeneration instructions.
+
 The age workflow re-extracts its two table files from the ZIP and verifies exact byte identity. The CSP workflow reads only regular archive members directly; it does not extract arbitrary archive paths onto the filesystem. FITRES and photometry parsers require declared columns, consistent row widths and unambiguous identifiers. Covariances retain the original table ordering.
 
 ## Output contracts

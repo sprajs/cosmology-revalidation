@@ -4,6 +4,10 @@ The reference calculations below use one locked Python environment and one entry
 
 ## Install and verify inputs
 
+After the [local storage cleanup](local-storage.md), restore the frozen inputs
+with `python tools/restore_data.py --group core` before verification. This downloader
+uses only the Python standard library.
+
 Python 3.12 and `uv` are required:
 
 ```bash
