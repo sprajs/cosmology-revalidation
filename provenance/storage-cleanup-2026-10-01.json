@@ -32,7 +32,7 @@
     "smoke_scope": "All 34 frozen archive members plus real HTTPS downloads from BAO, DES model, HST FLT, HST dark RAW and CDS host catalogue sources. Temporary restored copies removed after verification.",
     "retained_study_source_files_verified": 1235,
     "historical_source_locations_verified": 1337,
-    "git_fsck": "passed",
+    "git_fsck": "passed after removing the generated commit-graph cache that referenced pre-shallow commits",
     "archive_member_byte_identities": "passed",
     "scientific_revalidation": "not rerun; historical scientific records retained"
   },
@@ -40,7 +40,8 @@
     "shallow_checkout": true,
     "remote_history_rewritten": false,
     "codex_snapshot_refs_preserved": true,
-    "full_history_recovery": "git fetch --unshallow origin"
+    "full_history_recovery": "git fetch --unshallow origin",
+    "stale_commit_graph_cache_removed": true
   },
   "provenance_repair": "One previously committed infrared note differed from its retained-note digest. Its content was unchanged; the expected retained digest and current edition binding were updated, preserving the previous digest.",
   "restoration_limits": "Recorded URLs can disappear or change; mismatches are refused. Most URLs were not downloaded again. Native builds, extracted releases and generated analyses require the documented study-specific procedures."
