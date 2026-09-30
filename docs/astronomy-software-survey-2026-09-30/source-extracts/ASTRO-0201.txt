@@ -1,0 +1,540 @@
+GitHub - dahowell/superfit: Superfit supernova spectrocopic typing tool, version 3.5. Requires IDL. Written by Andy Howell. · GitHub
+
+ Skip to content
+
+Navigation Menu
+
+Sign in
+Appearance settings
+
+Platform
+
+AI CODE CREATION
+GitHub CopilotWrite better code with AI
+GitHub Copilot appDirect agents from issue to merge
+MCP RegistryIntegrate external tools
+
+DEVELOPER WORKFLOWS
+ActionsAutomate any workflow
+CodespacesInstant dev environments
+IssuesPlan and track work
+Code ReviewManage code changes
+Code QualityEnforce quality at merge
+
+APPLICATION SECURITY
+GitHub Advanced SecurityFind and fix vulnerabilities
+Code securitySecure your code as you build
+Secret protectionStop leaks before they start
+
+EXPLORE
+Why GitHub
+Documentation
+Blog
+Changelog
+Marketplace
+View all features
+
+Solutions
+
+BY COMPANY SIZE
+Enterprises
+Small and medium teams
+Startups
+Nonprofits
+
+BY USE CASE
+App Modernization
+DevSecOps
+DevOps
+CI/CD
+View all use cases
+
+BY INDUSTRY
+Healthcare
+Financial services
+Manufacturing
+Government
+View all industries
+View all solutions
+
+Resources
+
+EXPLORE BY TOPIC
+AI
+Software Development
+DevOps
+Security
+View all topics
+
+EXPLORE BY TYPE
+Customer stories
+Events & webinars
+Ebooks & reports
+Business insights
+GitHub Skills
+
+SUPPORT & SERVICES
+Documentation
+Customer support
+Community forum
+Trust center
+Partners
+View all resources
+
+Open Source
+
+COMMUNITY
+GitHub SponsorsFund open source developers
+
+PROGRAMS
+Security Lab
+Maintainer Community
+GitHub Stars
+Archive Program
+
+REPOSITORIES
+Topics
+Trending
+Collections
+
+Enterprise
+
+ENTERPRISE SOLUTIONS
+Enterprise platformAI-powered developer platform
+
+AVAILABLE ADD-ONS
+GitHub Advanced SecurityEnterprise-grade security features
+Copilot for BusinessEnterprise-grade AI features
+Premium SupportEnterprise-grade 24/7 support
+Pricing
+
+Search/
+
+Sign inSign up
+Appearance settings
+
+ You signed in with another tab or window. Reload to refresh your session.
+ You signed out in another tab or window. Reload to refresh your session.
+ You switched accounts on another tab or window. Reload to refresh your session.
+
+Dismiss alert
+
+{{ message }}
+
+ dahowell
+
+ /
+
+ superfit
+
+ Public
+
+Notifications
+ You must be signed in to change notification settings
+
+Fork
+ 2
+
+ Star
+ 2
+
+ Code
+
+ Issues
+ 0
+
+ Pull requests
+ 0
+
+ Actions
+
+ Projects
+
+ Wiki
+
+ Security and quality
+ 0
+
+ Insights
+
+Additional navigation options
+
+ Code
+
+ Issues
+
+ Pull requests
+
+ Actions
+
+ Projects
+
+ Wiki
+
+ Security and quality
+
+ Insights
+
+master
+
+BranchesTags
+
+Go to fileCode
+Open more actions menu
+
+Latest commit
+
+History1 Commit
+
+1 Commit
+Folders and files
+NameName
+Last commit message
+Last commit date
+
+filters
+
+filters
+
+gal
+
+gal
+
+savefiles
+
+savefiles
+
+sne
+
+sne
+
+README.txt
+
+README.txt
+
+binspec.pro
+
+binspec.pro
+
+binspec_weighted.pro
+
+binspec_weighted.pro
+
+colordex.pro
+
+colordex.pro
+
+colordex_sf3.pro
+
+colordex_sf3.pro
+
+correctZ.m
+
+correctZ.m
+
+correctZ.m~
+
+correctZ.m~
+
+data_chk.pro
+
+data_chk.pro
+
+deepcolor.pro
+
+deepcolor.pro
+
+defaults.txt
+
+defaults.txt
+
+fitstoascii.pro
+
+fitstoascii.pro
+
+fixgap.pro
+
+fixgap.pro
+
+galsetup.pro
+
+galsetup.pro
+
+gettok.pro
+
+gettok.pro
+
+gregatm.pro
+
+gregatm.pro
+
+joiner.pro
+
+joiner.pro
+
+lineclean.pro
+
+lineclean.pro
+
+lineclean.pro~
+
+lineclean.pro~
+
+minfuncred.pro
+
+minfuncred.pro
+
+mkafromlam.pro
+
+mkafromlam.pro
+
+mkcommonred.pro
+
+mkcommonred.pro
+
+namedecoder.pro
+
+namedecoder.pro
+
+numlines.pro
+
+numlines.pro
+
+original_legend.pro
+
+original_legend.pro
+
+original_legend.pro~
+
+original_legend.pro~
+
+readcol.pro
+
+readcol.pro
+
+readfile.pro
+
+readfile.pro
+
+remchar.pro
+
+remchar.pro
+
+repchr.pro
+
+repchr.pro
+
+sf.pro
+
+sf.pro
+
+sf.pro~
+
+sf.pro~
+
+sf_command.txt
+
+sf_command.txt
+
+sf_command.txt~
+
+sf_command.txt~
+
+sfgui.pro
+
+sfgui.pro
+
+sfgui.pro~
+
+sfgui.pro~
+
+sforeader.pro
+
+sforeader.pro
+
+sfsetup.pro
+
+sfsetup.pro
+
+sfsetup.pro~
+
+sfsetup.pro~
+
+sggui.pro
+
+sggui.pro
+
+sggui.pro~
+
+sggui.pro~
+
+showprogress__define.pro
+
+showprogress__define.pro
+
+sntempsetup.pro
+
+sntempsetup.pro
+
+spect.atm_abscor.txt
+
+spect.atm_abscor.txt
+
+srange_gui.pro
+
+srange_gui.pro
+
+strnumber.pro
+
+strnumber.pro
+
+weighted_mean.pro
+
+weighted_mean.pro
+
+weighted_stddev.pro
+
+weighted_stddev.pro
+
+which.pro
+
+which.pro
+
+which_routine.pro
+
+which_routine.pro
+
+zerostrip.pro
+
+zerostrip.pro
+
+zrange_gui.pro
+
+zrange_gui.pro
+
+View all files
+
+Repository files navigation
+
+README
+
+More items
+
+This is superfit, version 3.5. It requires IDL and the astrolib package.
+
+IDL requirements:
+It was tested under IDL 6.4.1. It should work under IDL 8.1 as well. 
+
+To check the version, do 
+IDL> sfgui,/version
+This works for sf.pro and sggui.pro too.
+
+Installation:
+I recommend renaming your current superfit directory to something like
+'old_superfit' (but make sure it is something not in your IDL path)
+and then copying the contents of this directory into the same
+directory you had your old installation. That way you won't have to
+update things in idl starup files or add things to your IDL path. Do
+make sure you don't have a conflicting version of colordex.pro
+somewhere outside the superfit directory (if you've never heard of
+colordex.pro, don't worry about this). You can use the idl program
+which.pro (included) to check which one you are using, e.g.
+IDL> which,'colordex'
+
+Changes: 
+
+- Updated library (thanks largely to Sagi Ben-Ami, and some to
+Christopher White). Sagi has called his version with this library
+SuperSuperfit, but I'd like not to use that name to avoid confusion.
+I have altered the updated libraries they provided, cropping some spectra
+and fixing epochs and redshifts of others.
+
+- New in this library: SLSNe, 2002cx-likes, SN 2007bi, SN 2002bj, etc.
+
+- SNe Ib/c now split into SN Ib and SN Ic. New categories: Others, 2002cx.
+
+- Fixed a bug where at high redshift some fits were giving underflow
+(divide by zero) errors.
+
+- Fixed a bug where postscript plots had incorrect colors.
+
+- Redshift is now given to 4 decimal places
+
+- You can now import templates with up to 20,000 lines (this is easy to increase if necessary)
+
+- New feature: You can start sfgui with a switch: /nogal . This
+unchecks all but one host galaxy and sets the maximum galaxy
+contribution to zero.
+
+- New feature: You can start sfgui with a keyword, 'library' to
+preselect the SN template library so you don't have to select it from
+the dropdown menu. The choices are:
+'Ia','Ib','Ic',II','Others','allsne', '2002cx' and 'snelt10d' for supernovae
+less than or equal to 10 days after max.
+e.g. sfgui,library='Ia'
+
+- Should now work with IDL 8.1
+
+Old Installation instructions:
+You need astrolib for IDL installed.
+
+- My program is intended as a tool to help human classifiers.
+I wouldn't trust what it does on its own.
+
+- The automatic date determination, in particular, could be vastly improved.
+
+You can all the files and documentation you'll need here:
+http://qold.astro.utoronto.ca/howell/superfit/superfit.htm
+login: superfit
+password: $uperfit
+
+You might need to put some things in whatever startup file you have that runs
+when IDL is started. Those are outlined in the email message below.
+I have attached my idl startup file.
+
+About
+Superfit supernova spectrocopic typing tool, version 3.5. Requires IDL. Written by Andy Howell.
+Resources
+Readme
+Activity
+Stars
+2 stars
+Watchers
+2 watching
+Forks
+2 forks
+Report repository
+
+Releases
+
+Packages
+
+Contributors
+
+Languages
+
+Footer
+
+ © 2026 GitHub, Inc.
+
+Footer navigation
+
+ Terms
+
+ Privacy
+
+ Security
+
+ Status
+
+ Community
+
+ Docs
+
+ Contact
+
+ Manage cookies
+
+ Do not share my personal information
+
+ You can’t perform that action at this time.

@@ -1,0 +1,66 @@
+Documentation | View on Github | Download Development ZIP
+
+Accessing Online Astronomical Data
+
+Astroquery is an astropy affiliated package that
+contains a collection of tools to access online Astronomical data. Each web
+service has its own sub-package. For example, to interface with the SIMBAD
+website, use the simbad sub-package:
+
+>>> from astroquery.simbad import Simbad
+>>> theta1c = Simbad.query_object('tet01 Ori C')
+>>> theta1c.pprint()
+ main_id ra dec ... coo_wavelength coo_bibcode matched_id
+ deg deg ...
+------------- ------------- ------------- ... -------------- ------------------- -------------
+* tet01 Ori C 83.8186095697 -5.3897005033 ... O 2020yCat.1350....0G * tet01 Ori C
+
+Installation and Requirements
+
+Astroquery works with Python 3.10 or later.
+As an astropy affiliate, astroquery requires astropy version 5.0 or later.
+
+The latest version of astroquery can be pip installed (note the --pre for
+picking up released developer versions, and -U for upgrade):
+
+$ python -m pip install -U --pre astroquery
+
+To install all the mandatory and optional dependencies add the [all]
+identifier to the pip command above (or use [docs] or [test] for the
+dependencies required to build the documentation or run the tests):
+
+$ python -m pip install -U --pre astroquery[all]
+
+To install the 'bleeding edge' version from GitHub:
+
+$ python -m pip install git+https://github.com/astropy/astroquery.git
+
+Using astroquery
+
+Importing astroquery on its own doesn't get you much: you need to import each
+sub-module specifically. See the documentation for a list of Available
+Services.
+The API shows the standard suite of tools common to most modules, e.g.
+query_object and query_region.
+
+To report bugs and request features, please use the issue tracker. Code
+contributions are very welcome, though we encourage you to follow the API
+and contributing guidelines as much
+as possible.
+
+Citing Astroquery
+
+If you use astroquery, please cite the paper we published in The
+Astronomical Journal.
+
+The BibTeX entry is available from the package itself:
+import astroquery
+astroquery.__citation__
+
+In addition you may also want to refer to specific versions of the
+package. We create a separate Zenodo DOI for each version, they can be
+looked up at the following Zenodo page
+
+Additional Links
+
+Maintained by Adam Ginsburg and Brigitta Sipőcz

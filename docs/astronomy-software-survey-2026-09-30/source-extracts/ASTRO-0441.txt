@@ -1,0 +1,23 @@
+HCIPy: High Contrast Imaging for Python
+
+HCIPy is an open-source object-oriented framework written in Python for performing end-to-end simulations of high-contrast imaging instruments for astronomy.
+
+The library defines wavefronts and optical elements for defining an optical system, and provides both Fraunhofer and Fresnel diffraction propagators. Polarization is supported using Jones calculus, with polarizers and waveplates included out of the box. It implements atmospheric turbulence using thin infinitely-long phase screens, and can model scintillation using Fresnel propagation between individual layers. Many wavefront sensors are implemented including a Shack-Hartmann and Pyramid wavefront sensor. Implemented coronagraphs include the vortex, Lyot and APP coronagraph.
+
+By including simulation of both adaptive optics and coronagraphy into a single framework, HCIPy allows simulations including feedback from post-coronagraphic focal-plane wavefront sensors to the AO system.
+
+The main website is hosted at https://hcipy.org. For documentation, see https://docs.hcipy.org.
+
+Team
+
+HCIPy was originally developed by a small team of astronomers at Leiden Observatory, but has since received external contributions from scientists and software developers around the world. For a current list, please visit our website.
+
+Citing
+
+If you use HCIPy for your own research, we ask you to cite the HCIPy proceeding (Por et al. 2018). If there is no appropriate place in the body text to cite the proceeding, please include something along the lines of the following in your acknowledgements:
+
+This research made use of HCIPy, an open-source object-oriented framework written in Python for performing end-to-end simulations of high-contrast imaging instruments (Por et al. 2018).
+
+Contributions
+
+If you have something to add, or want something added to HCIPy, please let us know using a Github issue. We actively support external contributions to HCIPy, small and large. Please look at the contributing guide for more information.

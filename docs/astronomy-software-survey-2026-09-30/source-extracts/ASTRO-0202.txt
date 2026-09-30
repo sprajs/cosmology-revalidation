@@ -1,0 +1,58 @@
+A new release of SuperNNova is in the main branch.
+For DES-5yr analysis please use the branch SNANA_DES5yr
+(and any other analysis using the syntax: python run.py)
+
+What is SuperNNova (SNN)
+
+SuperNNova is an open-source photometric time-series classification framework.
+
+The framework includes different RNN architectures (LSTM, GRU, Bayesian RNNs) and can be trained with simulations in .csv and SNANA FITS format. SNN is part of the PIPPIN end-to-end cosmology pipeline.
+
+You can train your own model for time-series classification (binary or multi-class) using photometry and additional features.
+
+Please include the full citation if you use this material in your research: A Möller and T de Boissière,
+MNRAS, Volume 491, Issue 3, January 2020, Pages 4277–4293.
+
+Read the documentation
+
+https://supernnova.readthedocs.io
+
+Installation
+
+Install via pip
+
+pip install supernnova
+
+Or clone this repository for development
+
+git clone https://github.com/supernnova/supernnova.git
+
+and configure environment using this documentation
+
+Read the papers
+
+Please include the full citation if you use this material in your research: A Möller and T de Boissière,
+MNRAS, Volume 491, Issue 3, January 2020, Pages 4277–4293.
+
+To reproduce Möller & de Boissière, 2019 MNRAS switch to paper branch and build documentation.
+
+To reproduce the Dark Energy Survey analyses use commit fcf8584b64974ef7a238eac718e01be4ed637a1d. For more recent analyses of DES branch SNANA_DES5yr (should be PIPPIN backward compatible).
+
+Möller et al. 2022 MNRAS
+
+Möller et al. 2024 MNRAS
+
+Vincenzi et al. 2023 MNRAS
+
+DES Collaboration 2024 ApJ
+
+To reproduce Fink analyses until 2024 use commit fcf8584b64974ef7a238eac718e01be4ed637a1d and check Fink's github.
+
+Build docs 
+
+cd docs && make clean && make html && cd ..
+firefox docs/_build/html/index.html
+
+ADACS
+
+This package has been updated to a recent pytorch and updated CI/CD through the ADACS Merit allocation program 2023-2024.

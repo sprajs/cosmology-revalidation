@@ -1,0 +1,23 @@
+VaST: A Software Tool for Finding Variable Objects
+
+The Variability Search Toolkit (VaST) is a software tool that helps in finding variable objects in a series of astronomical images. VaST can process a series of CCD frames or digitized photographic plates that are taken with the same instrument using the same filter and saved in the FITS format. The input images may be shifted, rotated, or flipped with respect to each other, but they have to have the same scale (arcsec/pix) and overlap with each other by at least ~40%. It is not necessary to have World Coordinate System (WCS) information in the FITS image header for basic processing and light curve construction. However, VaST may need to plate-solve the images using the astrometry.net code if automated object identification is required. VaST relies on Source Extractor for source detection and photometry.
+
+VaST is written in C (and partly in Bash) and is intended to work on Linux. VaST can also be used on macOS (with XQuartz and MacPorts or Homebrew) and FreeBSD. On Windows, the recommended approach is WSL2 (Windows Subsystem for Linux); alternatively, you can run Linux in a VirtualBox virtual machine.
+
+Installation
+
+To install VaST, clone this repository and type make. The build process will inform you of any missing packages. Generally, to compile VaST you need gcc, g++, gfortran, X11 libraries, and optionally libpng.
+
+Platform-specific installation guides:
+
+Linux (Ubuntu, Fedora, Alpine)
+
+macOS (Homebrew, MacPorts)
+
+FreeBSD
+
+Windows via WSL2
+
+A more detailed description of VaST and its features can be found at the project homepage and in the VaST paper.
+
+Bug reports, pull requests, and feature suggestions are warmly welcomed!

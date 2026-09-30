@@ -1,0 +1,47 @@
+3d mocassin - home
+
+home
+
+install
+
+manual
+
+faq
+
+visualisation tool
+
+accessories
+
+publications
+
+contact
+
+3D Mocassin
+
+MOnte CArlo SimulationS of Ionized Nebulae
+
+About
+
+MOCASSIN is a fully 3D or 2D photoionisation and dust radiative transfer code which employs a Monte Carlo approach to the transfer of radiation through media of arbitrary geometry and density distribution. It was originally developed for the modelling of photoionised regions like HII regions and planetary nebulae and has since expanded and been applied to a variety of astrophysical problems, including modelling clumpy dusty supernova envelopes, star forming galaxies, protoplanetary disks and inner shell fluorence emission in the photospheres of stars and disk atmospheres. The code can deal with arbitrary Cartesian grids of variable resolution, it has successfully been used to model complex density fields from SPH calculations and can deal with ionising radiation extending from Lyman edge to the X-ray. The dust and gas microphysics is fully coupled both in the radiation transfer and in the thermal balance.
+
+MOCASSIN is freely available under the General Public License (GPL).
+
+Get mocassin
+
+latest release: v2.02.73.2
+
+System requirements
+
+MOCASSIN is written in Fortran 90, so in order to compile it and run it you will first of all need a Fortran 90 compiler. In order to speed up the computation MOCASSIN is fully parallel and it uses the Message Passing Interface (MPI) standard libraries, which are generally distributed with all commercial Fortran compilers. If no Fortran 90 compiler and/or no MPI libraries are installed on your system, they can be separately downloaded. Intel's ifort, gfortran (free) and g95 (free) should all work fine. You will also need an MPI implementation (google-search for 'MPI standard download'). A multi-processor machine (beowulf cluster or shared memory architectures are both suitable) would be ideal, however a normal single-processor PC can also be used (but the time of execution will be of course longer).
+
+MOCASSIN has been tested and benchmarked on a number of platforms using a variety of compilers. In general the code has proved to be reasonably portable and no major problems have been encountered when installing it on a new platform. As long as the makefile is correct for the compiler used, things should go very smoothly.
+
+Latest release
+
+The latest version of MOCASSIN is 2.02.73.2, which was released on 15 February 2019. The download page has instructions on obtaining pre-compiled binaries or installing from source, while the changelog details the changes from previous versions.
+
+Documentation
+
+Further information on installing and running mocassin can be found in the manual and the faq.
+
+last updated 19 December 2022 |

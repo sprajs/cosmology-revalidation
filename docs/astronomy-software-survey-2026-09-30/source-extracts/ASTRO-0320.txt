@@ -1,0 +1,66 @@
+Lightkurve
+
+A friendly package for Kepler & TESS time series analysis in Python.
+
+Documentation: https://lightkurve.github.io/lightkurve/
+
+Lightkurve is a community-developed, open-source Python package which offers a beautiful and user-friendly way
+to analyze astronomical flux time series data,
+in particular the pixels and lightcurves obtained by
+NASA's Kepler and TESS exoplanet missions.
+
+This package aims to lower the barrier for students, astronomers,
+and citizen scientists interested in analyzing Kepler and TESS space telescope data.
+It does this by providing high-quality building blocks and tutorials
+which enable both hand-tailored data analyses and advanced automated pipelines.
+
+Documentation
+
+Read the documentation at https://lightkurve.github.io/lightkurve/.
+
+Quickstart and Installation
+
+Please visit our quickstart guide at https://lightkurve.github.io/lightkurve/quickstart.html.
+
+The easiest way to install Lightkurve and all of its dependencies is to use the pip command,
+which is a standard part of all Python distributions.
+To install Lightkurve, run the following command in a terminal window:
+$ python -m pip install lightkurve --upgrade
+
+The --upgrade flag is optional, but recommended if you already
+have Lightkurve installed and want to upgrade to the latest version.
+
+Depending on the specific Python environment, you may need to replace python
+with the correct Python interpreter, e.g., python3.
+
+If you want to experiment with the latest development version of
+Lightkurve, you can install it straight from the main branch on GitHub:
+
+$ git clone https://github.com/lightkurve/lightkurve.git
+$ cd lightkurve
+$ python -m pip install .
+
+If you want to have a so-called editable install which enables the installed
+version to immediately reflect changes made in the source tree, you can use:
+
+$ python -m pip install poetry
+$ poetry install
+
+Please see our guide on https://lightkurve.github.io/lightkurve/development/index.html
+for additional instructions.
+
+Contributing
+
+We welcome community contributions!
+Please read the guidelines at https://lightkurve.github.io/lightkurve/development/contributing.html.
+
+Citing
+
+If you find Lightkurve useful in your research, please cite it and give us a GitHub star!
+Please read the citation instructions at https://lightkurve.github.io/lightkurve/about/citing.html.
+
+Contact
+
+Lightkurve is an open source community project created by the authors.
+The best way to contact us is to open an issue or to e-mail tesshelp@bigbang.gsfc.nasa.gov.
+Please include a self-contained example that fully demonstrates your problem or question.

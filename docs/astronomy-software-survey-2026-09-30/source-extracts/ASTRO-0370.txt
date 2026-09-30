@@ -1,0 +1,37 @@
+SymBoltz.jl
+
+SymBoltz.jl is a Julia package for solving the linear Einstein-Boltzmann equations in cosmology. It is:
+
+Symbolic-numeric: Models are specified with symbolic equations in a simple, convenient and extensible high-level format, then automatically compiled to fast numerical functions that are solved.
+
+Approximation-free: Full equations are solved at all times without tight-coupling, ultrarelativistic fluid and radiation-streaming approximations (TCA, UFA and RSA) using efficient implicit ODE integrators.
+
+Differentiable: Get derivatives of any output (e.g. power spectra) with respect to any input (e.g. cosmological parameters) using automatic differentiation (exact to numerical precision and does not need step size tuning).
+
+Installation
+
+Install Julia, launch julia -tauto (for multithreading) and run:
+
+using Pkg; Pkg.add("SymBoltz")
+
+Documentation
+
+Visit the documentation to get started with tutorials and examples.
+
+Gallery
+
+Citation
+
+If you use SymBoltz in your work, please cite this peer-reviewed paper (a fully equivalent arXiv preprint is also available):
+
+@article{SymBoltz,
+ title = {{{SymBoltz.jl}}: {{A}} symbolic-numeric, approximation-free, and differentiable linear {{Einstein}}--{{Boltzmann}} solver},
+ author = {Herman Sletmoen},
+ year = 2026,
+ month = mar,
+ journal = {Astronomy \& Astrophysics},
+ volume = {707},
+ pages = {A128},
+ doi = {10.1051/0004-6361/202557450},
+ url = {http://dx.doi.org/10.1051/0004-6361/202557450},
+}

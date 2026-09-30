@@ -1,0 +1,952 @@
+GitHub - Starlink/starlink: Starlink Software Collection · GitHub
+
+ Skip to content
+
+Navigation Menu
+
+Sign in
+Appearance settings
+
+Platform
+
+AI CODE CREATION
+GitHub CopilotWrite better code with AI
+GitHub Copilot appDirect agents from issue to merge
+MCP RegistryIntegrate external tools
+
+DEVELOPER WORKFLOWS
+ActionsAutomate any workflow
+CodespacesInstant dev environments
+IssuesPlan and track work
+Code ReviewManage code changes
+Code QualityEnforce quality at merge
+
+APPLICATION SECURITY
+GitHub Advanced SecurityFind and fix vulnerabilities
+Code securitySecure your code as you build
+Secret protectionStop leaks before they start
+
+EXPLORE
+Why GitHub
+Documentation
+Blog
+Changelog
+Marketplace
+View all features
+
+Solutions
+
+BY COMPANY SIZE
+Enterprises
+Small and medium teams
+Startups
+Nonprofits
+
+BY USE CASE
+App Modernization
+DevSecOps
+DevOps
+CI/CD
+View all use cases
+
+BY INDUSTRY
+Healthcare
+Financial services
+Manufacturing
+Government
+View all industries
+View all solutions
+
+Resources
+
+EXPLORE BY TOPIC
+AI
+Software Development
+DevOps
+Security
+View all topics
+
+EXPLORE BY TYPE
+Customer stories
+Events & webinars
+Ebooks & reports
+Business insights
+GitHub Skills
+
+SUPPORT & SERVICES
+Documentation
+Customer support
+Community forum
+Trust center
+Partners
+View all resources
+
+Open Source
+
+COMMUNITY
+GitHub SponsorsFund open source developers
+
+PROGRAMS
+Security Lab
+Maintainer Community
+GitHub Stars
+Archive Program
+
+REPOSITORIES
+Topics
+Trending
+Collections
+
+Enterprise
+
+ENTERPRISE SOLUTIONS
+Enterprise platformAI-powered developer platform
+
+AVAILABLE ADD-ONS
+GitHub Advanced SecurityEnterprise-grade security features
+Copilot for BusinessEnterprise-grade AI features
+Premium SupportEnterprise-grade 24/7 support
+Pricing
+
+Search/
+
+Sign inSign up
+Appearance settings
+
+ You signed in with another tab or window. Reload to refresh your session.
+ You signed out in another tab or window. Reload to refresh your session.
+ You switched accounts on another tab or window. Reload to refresh your session.
+
+Dismiss alert
+
+{{ message }}
+
+ Starlink
+
+ /
+
+ starlink
+
+ Public
+
+Notifications
+ You must be signed in to change notification settings
+
+Fork
+ 71
+
+ Star
+ 211
+
+ Code
+
+ Issues
+ 24
+
+ Pull requests
+ 2
+
+ Actions
+
+ Projects
+
+ Wiki
+
+ Security and quality
+ 0
+
+ Insights
+
+Additional navigation options
+
+ Code
+
+ Issues
+
+ Pull requests
+
+ Actions
+
+ Projects
+
+ Wiki
+
+ Security and quality
+
+ Insights
+
+master
+
+BranchesTags
+
+Go to fileCode
+Open more actions menu
+
+Latest commit
+
+History42,666 Commits
+
+42,666 Commits
+Folders and files
+NameName
+Last commit message
+Last commit date
+
+applications
+
+applications
+
+buildsupport
+
+buildsupport
+
+docs
+
+docs
+
+etc
+
+etc
+
+java/gsd
+
+java/gsd
+
+libext
+
+libext
+
+libraries
+
+libraries
+
+pubs
+
+pubs
+
+thirdparty
+
+thirdparty
+
+.gitignore
+
+.gitignore
+
+.gitmodules
+
+.gitmodules
+
+Makefile.dependencies
+
+Makefile.dependencies
+
+Makefile.in
+
+Makefile.in
+
+README
+
+README
+
+bootstrap
+
+bootstrap
+
+clean-modules
+
+clean-modules
+
+componentset.xml
+
+componentset.xml
+
+configure.ac.in
+
+configure.ac.in
+
+remove-modules
+
+remove-modules
+
+sourceme-example.csh
+
+sourceme-example.csh
+
+sourceme-example.sh
+
+sourceme-example.sh
+
+update-modules
+
+update-modules
+
+View all files
+
+Repository files navigation
+
+README
+
+More items
+
+This directory contains the following directories:
+
+ libraries
+ Starlink Fortran/C libraries
+
+ applications
+ Starlink Fortran/C applications
+
+ etc
+ Starlink initialisation scripts
+
+ buildsupport
+ Starlink support applications required to build configure-based
+ Starlink applications.
+
+ thirdparty
+ Third party applications and libraries required to build
+ Starlink classic applications
+
+ pubs
+ Starlink publications
+
+ docs
+ General documentation not associated with a particular application
+ or library.
+
+Building the Starlink source set from scratch
+---------------------------------------------
+
+To build the COMPLETE set of Starlink classic applications the following steps
+are required. If you wish to do more elaborate things, then you should refer
+to Starlink document SSN/78, which also contains some FAQs. Details of this
+document are at the end of this README.
+
+This procedure will not build the Starlink _Java_ applications. They are
+built separately, using the procedure described in Java README
+(currently these are available from the git repository at
+https://github.com/Starlink/starjava.git). You do not need to build any of
+the Starlink classic applications to build the Java ones, unless you need to
+rebuild the native parts of JNIAST, JNIHDS or SPLAT. To build the documents
+for the Starjava applications FROG and SPLAT you will need the Starlink
+applications star2html and the latex classes provided in latexsupport.
+
+ Preparation
+ -----------
+
+ - Ensure the required software development tools and headers are installed
+ on your system (see the "Prerequisites" section below)
+
+ - Specify where you want the installed files to end up (_PREFIX) and
+ where you want the build to find any previously installed Starlink
+ tree (_STARLINK). If there is no previously existing tree, then
+ set the two variables to the same value. Both variables default to
+ /star. You must have write access to the directory you name here.
+
+ Here and below we use /local-star as an example; in the examples
+ below substitute your own choice for this directory.
+
+ % setenv STARCONF_DEFAULT_STARLINK /local-star # csh
+ % setenv STARCONF_DEFAULT_PREFIX /local-star
+
+ or
+
+ % export STARCONF_DEFAULT_STARLINK=/local-star # sh
+ % export STARCONF_DEFAULT_PREFIX=/local-star
+
+- Delete any previous Starlink environment variables.
+
+ % unsetenv INSTALL # csh
+ % unsetenv STARLINK
+
+ or
+
+ % unset INSTALL # sh
+ % unset STARLINK
+
+ and also make sure that an old-style Starlink system is not in your
+ PATH (since tools like messgen will get very confused).
+
+ You may also run into difficulties if you have previously sourced
+ the ${STARLINK}/etc/login and ${STARLINK}/etc/cshrc scripts that
+ existed from a previous classic mk-build Starlink install, as
+ even with $STARLINK removed from your PATH some applications may
+ still get confused at build time. If the login script in question
+ is a `new' one, from a previous autoconf install, you will
+ probably be fine (although you may need to remove installed
+ manifest files).
+
+ - Review any other environment variables that might affect the build.
+ For example, the variables F77, FC and CC will force the build
+ system to use the specified compilers. In particular, the default
+ IRAF installation sets the F77 variable to be a script which works
+ happily in most cases, but which will _not_ work with libtool, and
+ will cause the build to fail with opaque error messages about being
+ `unable to infer tagged configuration'. Unless you do wish to
+ force certain compilers to be used, it is probably better to unset
+ these variables before building the software. See './configure
+ --help' for a list of `some influential environment variables'.
+
+ This is good time to get the compilers that you're going to use
+ resolved, especially if you're not working on a GNU/Linux platform.
+ See the platform specific instructions later in this file.
+
+ At the time of writing (February 2009) it is known that the gfortran
+ compiler will work, but only from GCC4.3 onwards. If this is picked up by
+ default on your system you need to re-define FC and F77 to select another
+ compiler. For other versions of GCC4 you will need to use g95 (thanks to
+ Andy Vaught for his help with this), which is available from the g95 web
+ site: www.g95.org. For GCC3 based systems g77 should be used.
+
+ - Ensure that /tmp has sufficient free space and is writable.
+
+ - An example "sourceme" file for csh/tcsh is included in the repository.
+ You can customize it for your system and then use it to set up your
+ environment as described above.
+
+ The build sequence
+ ------------------
+
+ To build the complete source distribution, you go through the steps:
+
+ % ./bootstrap
+ % make configure-deps
+ % ./configure -C
+ % make world
+
+ % cd thirdparty/perlsys/perlmods
+ % setenv STARLINK_DIR $STARCONF_DEFAULT_PREFIX # For csh-like shells.
+ % ./build-modules.sh
+
+ Each of these steps is described in detail below.
+
+ - First bootstrap the system.
+
+ This downloads third-party software, builds and installs the buildsupport
+ system (the tools in the buildsupport directory, plus third-party
+ applications autoconf, automake and libtool), and then goes on to generate
+ the configure scripts which will be used in the next step. The autoconf,
+ automake and libtool applications have been patched specifically for
+ building this tree so any versions shipped with the OS, or installed by
+ you, will _not_ work. These applications will be installed into
+ $STARCONF_DEFAULT_PREFIX/buildsupport, so you should add
+ $STARCONF_DEFAULT_PREFIX/buildsupport/bin to the front of your PATH
+ at this point, BEFORE you run the ./bootstrap script. In order for the
+ `make' below to work, you also need to add the default bin
+ directory to your PATH, so you should do that now.
+
+ # csh-like
+ % setenv PATH $STARCONF_DEFAULT_PREFIX/bin:$STARCONF_DEFAULT_PREFIX/buildsupport/bin:$PATH
+ % ./bootstrap
+
+ or
+
+ # sh-like
+ % PATH=$STARCONF_DEFAULT_PREFIX/bin:$STARCONF_DEFAULT_PREFIX/buildsupport/bin:$PATH
+ % ./bootstrap
+
+ This step takes a long while. Note that, although an important part of the
+ ./bootstrap script is running autoreconf in the top-level directory,
+ you should not run autoreconf yourself in this directory.
+
+ - Build the configure dependencies.
+
+ There are a _few_ components which have to be built and installed
+ before the main tree is configured. You will have been advised of
+ this at the end of the bootstrap process above, but in case you
+ missed that, the command is
+
+ % make configure-deps
+
+ - Configure and build everything.
+
+ Now configure and build the system. The dependencies within the
+ Makefile ensure that everthing is built in the correct order.
+
+ % ./configure -C # -C means caching results
+ % make world
+
+ If you need to give ./configure some help to find include files and
+ libraries (for example, you are on a Mac and have installed Fink in
+ /sw or OpenDarwin in /opt/local, or are on a Sun and have extra
+ software in /opt), then do so by setting (for example)
+ CFLAGS=-I/opt/local/include and LDFLAGS=-L/opt/local/lib either in
+ the environment or, better, as arguments to the ./configure script.
+ Don't do this unless you discover you have to.
+
+ Each of these steps can also take some non-trivial time.
+
+ - Finally install the Perl modules.
+
+ The Perl modules can be installed using the build-modules.sh script
+ in the perlmods directory. This script requires that the environment
+ variable STARLINK_DIR be set to the Starlink installation into which
+ you would like to install the Perl modules, i.e. $STARCONF_DEFAULT_PREFIX.
+
+ % cd thirdparty/perlsys/perlmods
+ % ./build-modules.sh
+
+ This will install or update if needed the dependencies from CPAN and
+ then install all the modules present in the perlmods directory itself.
+
+ Additional hints
+ ----------------
+
+ - Disabling shared libraries
+
+ If you wish to disable the building of shared libraries you should
+ use the --disable-shared configure option when you give the
+ ./configure command above.
+
+ % ./configure -C --disable-shared
+
+ - Disabling the documentation
+
+ By default, the system will be configured so that all documentation
+ is built at the same time as the software. For this to work, you
+ must have LaTeX installed on your machine. Building the documentation
+ is rather slow, and you can speed up the build somewhat by omitting it.
+ You do that as follows:
+
+ % ./configure -C --without-stardocs
+
+ - Disabling build of VTK and associated software
+
+ By default VTK is built as a requirement of GAIA 3D and mesa is built
+ if OpenGL libraries are not present. These components may be omitted
+ using the following option:
+
+ % ./configure -C --without-vtk
+
+ - Building a single library or application
+
+ If you wish to build only as far as a given component, then specify
+ it by giving the name of the associated `manifest' file.
+
+ % make /local-star/manifests/ast
+
+ This will build, and install under STARCONF_DEFAULT_PREFIX, this
+ component and _everything it depends on to be built_.
+
+ Using the Newly-built System
+ ----------------------------
+
+ To activate the Starlink system which you have just built, set the
+ STARLINK_DIR environment variable to the install location (as
+ chosen with STARCONF_DEFAULT_PREFIX) and source the cshrc and login
+ files (for csh/tcsh) or profile file (for bash).
+
+ % setenv STARLINK_DIR /local-star
+ % source ${STARLINK_DIR}/etc/cshrc
+ % source ${STARLINK_DIR}/etc/login
+
+Developing individual components
+--------------------------------
+
+Note that this sequence of
+
+ ./bootstrap; make configure-deps; ./configure -C; make world
+
+is indeed a `make world' command -- it builds everything in the repository
+that has been brought into the configure-based system, and will fail if some
+components have not been checked out. If you wish to build or develop a
+specific component, the instructions are slightly different.
+
+ - Specify the _PREFIX and _STARLINK variables as before, though this
+ time it might be appropriate to give them different values, if you
+ want to build against one installation tree (_STARLINK), but
+ install into another (_PREFIX). As above, unset the INSTALL and
+ STARLINK variables, and make sure there is no old-style Starlink
+ system in your PATH.
+
+ - If you have already built the buildsupport tools (autoconf,
+ automake, libtool and starconf), then make sure these are in your
+ PATH. If they are not built, or if you are not sure they are
+ up-to-date, you can build just these by going to the top-level of
+ your checkout and giving the command
+
+ % ./bootstrap --buildsupport
+
+ - Now you can go into a specific directory and build the library or
+ application as normal (a bootstrap is required in the directory if
+ you are building from a git checkout)
+
+ % ./bootstrap
+ % ./configure
+ % make
+ % make install
+
+ - After updating a component from the repository, it is possible that some
+ generated files will be out of date (if configure.ac or Makefile.am
+ had been updated). Any required updating is generally handled
+ automatically by makefile rules, but if you wish to guarantee that
+ everything is up to date, then you can give the command
+ `autoreconf'. This does no harm in any case, since it does nothing
+ if it is not required. As noted above, the exception to this is
+ that you should not run autoreconf in the top-level directory.
+
+Updating the source set
+-----------------------
+
+The `make world' command will not _re_build the tree after you do an update
+from the source repository, possibly unexpectedly. For a detailed explanation
+of why this is so, see the `General FAQs' in SSN/78, described below.
+
+You should also run the ./update-modules script after performing an update
+of the source set from the main repository. This will make sure that any
+thirdparty code is also updated.
+
+Platform specific build notes
+-----------------------------
+
+ - GNU/Linux
+
+ Currently (February 2009) the source set is known to build on many different
+ flavours of GNU/Linux and is actively developed using these. The only expected
+ issue is that of Fortran compiler support (C, C++ and Fortran compilers are
+ required to build the complete collection).
+
+ After the release of GCC 4 the Fortran compiler "g77" has been replaced with a
+ completely new "gfortran" (that now implements Fortran 90, 95 and some 2003
+ features), which has not been compatible with Starlink Fortran until the
+ release of version 4.3. Happily this turned out to be not a major problem
+ (thanks to Andy Vaught) as the other free Fortran compiler "g95", is
+ compatible. So to build the collection with a GCC 4+ compiler you'll either
+ need a copy of "g95" which is available from "www.g95.org", or more a very
+ recent version of gfortran (this can be checked by running gfortran -v).
+
+ To make sure you use the "g95" or "gfortran" compilers as required it is best
+ to define the environment variables "FC" and "F77":
+
+ % setenv FC g95 # csh
+ % setenv F77 g95
+ or
+ % export FC=g95 # sh
+ % export F77=g95
+
+ or
+
+ % setenv FC gfortran # csh
+ % setenv F77 gfortran
+ or
+ % export FC=gfortran # sh
+ % export F77=gfortran
+
+ before running "configure".
+
+ - Ubuntu (>= 11.04 "Natty Narwhal) / Debian
+
+ As of version 11.04 of Ubuntu the default handling of shared library
+ linking has changed. In the past indirect linking was enabled, such
+ that a program could link library "A", which in turn uses library
+ "B", and without explicitly linking the latter, routines from "B"
+ would be available (a situation that occurs in Starlink). Now that
+ this capability has been disabled, you will likely see strange
+ linker errors if you follow verbatim the build instructions as
+ described earlier in this document.
+
+ To remedy this situation you need to re-activate indirect linking
+ with LDFLAGS when configuring the build:
+
+ % ./configure -C LDFLAGS=-Wl,--no-as-needed
+
+ Ubuntu explain the issue here:
+
+ https://wiki.ubuntu.com/NattyNarwhal/ToolchainTransition
+
+ According to the following web page, this problem will also occur with
+ Debian (as of the Wheezy release), although it has not been tested:
+
+ http://wiki.debian.org/ToolChain/DSOLinking
+
+ Bootstrap in thirdparty/kitware/vtk may fail during bootstrap of cmake
+ if QT5 devel packges are installed on the local system. The answer
+ seems to be to remove such packages before building starlink,
+ reinstalling them again afterwards if necessary..
+
+ - macOS
+
+ The build situation under macOS follows much like that of GNU/Linux,
+ but you'll need to install your own Fortran compiler. In 10.3
+ the "g77" compiler from "Fink" or "MacPorts" has been used successfully,
+ in 10.4 you'll need a copy of "g95". For 10.5 or later you can use
+ g95, or gfortran. The latter is available from hpc.sourceforge.net
+ as well as MacPorts.
+
+ Note you'll also need to install X11 (see http://xquartz.macosforge.org),
+ and a functioning TeX and Ghostscript if you want to build the
+ documents. The build on macOS is not relocatable.
+
+ - Solaris
+
+ The collection is known to build under Solaris 8 (sparc) and 10 (intel),
+ using the SUN compilers (Workshop 6 and studio 11 respectively). To make
+ sure the correct compilers are picked up, you should define:
+
+ % setenv FC f77 # csh
+ % setenv F77 f77
+ % setenv CC cc
+ % setenv CXX CC
+ or
+ % export FC=f77 # sh
+ % export F77=f77
+ % export CC=cc
+ % export CXX=CC
+
+Further information
+-------------------
+
+You should consult the project web pages at <http://www.starlink.ac.uk>,
+<http://starlink.eao.hawaii.edu> and consider subscribing to the Starlink
+development and user mailing lists: see
+<http://www.jiscmail.ac.uk/archives/starlink.html> and
+<http://www.jiscmail.ac.uk/archives/stardev.html>.
+
+Starlink document SSN/78 gives much more detailed information on the
+process of building Starlink classic applications, but this document
+is primarily concerned with documenting the build system itself, and
+describing how to add new components to the build-system repository.
+The source for this document is in the repository at docs/ssn/078, and
+a built version should be available on the Starlink web pages. A
+version is also currently (May 2006) available at
+<http://www.astro.gla.ac.uk/users/norman/star/ssn78/>.
+
+This document contains some FAQs: a few of these will likely be of
+interest to thise building the system from a checkout, though most
+address quite specific details of how to configure software to work
+within the Starlink source tree.
+
+git repository
+--------------
+
+In February 2009 the Starlink source code was moved to a git repository
+on github. This is described by a wiki at:
+
+ http://starlink.eao.hawaii.edu/
+
+The build procedures described above are still correct, but much of the
+associated documentation, SSN/78 etc. are becoming rapidly out-of-date.
+Consult the wiki for download instructions and how to access things like
+specific releases.
+
+Prerequisites
+-------------
+
+This section lists some of the software development tools and headers
+that are required to build Starlink. The list is not exhastive, but is
+just a suggestion of some packages to check that may not not be provided
+by default by your operating system. To build the documentation on any system
+will require a reasonably complete up-to-date TeX install that includes the
+TeX4HT system -- for example, a recent TeXLive installation which includes
+a variety of standard packages.
+
+Ubuntu:
+ git
+ build-essential (includes libc6-dev libc-dev gcc g++ make dpkg-dev)
+ gfortran (or g95)
+ libxext-dev
+ libxau-dev
+ libx11-dev
+ libxt-dev
+ xutils-dev
+ libncurses-dev
+ flex
+ bison
+ byacc
+ latex
+ texlive-latex-base
+ texlive-latex-extra
+ texlive-science
+ latex-color
+ pgf
+ tex4ht
+ texlive-fonts-extra
+ cm-super
+ texinfo
+ texi2html
+ libglu1-mesa-dev
+ freeglut3-dev
+ mesa-common-dev
+ zlib1g-dev
+ curl
+ libssl-dev
+ libexpat1-dev
+ libjpeg-turbo8-dev
+
+Fedora:
+ Mainly as for Ubuntu, but note that package names are usually changed
+ from "libxyz-dev" to "libXyz-devel".
+
+ libXt-devel
+ ncurses-devel
+ makedepend
+
+ For the new documentation build, it may be necessary to install the
+ following (at least on Fedora 20 and 21):
+ texlive-latex
+ texlive-tex4ht.noarch
+ texlive-siunitx.noarch
+ texlive-titlesec.noarch
+ texlive-abstract.noarch
+ texlive-multirow.noarch
+ texlive-mdframed.noarch
+ texlive-titling.noarch
+ texlive-tocloft.noarch
+ texlive-eqparbox.noarch
+
+Fedora 31:
+ flex
+ byacc
+ bison
+ libXt-devel
+ libXau-devel
+ libXext-devel
+ imake
+ libpng-devel
+ openssl-devel
+ expat-devel
+ texi2html
+ texinfo
+ texlive-scheme-full (a subset may be sufficient)
+
+ To build perl-JCMT-Tau package in perlmods, the following packages may
+ need to be added to the text file thirdparty/perlsys/perlmods/cpan_deps.
+
+ XML::Parser
+ SOAP::Lite
+
+Debian 10:
+ This list (kindly provided by Paul Kerry), may not be complete and
+ some packages may be superfluous..
+
+ bison
+ byacc
+ ed
+ flex
+ g++
+ gcc
+ git
+ gfortran
+ libc6-dev
+ libcurl4-openssl-dev
+ libexpat1-dev
+ libxext-dev
+ libffi-dev
+ libfreetype6-dev
+ libgfortran5
+ libice-dev
+ libjpeg62-turbo-dev
+ libncurses-dev
+ libpng-dev
+ libsm-dev
+ libssl-dev
+ libx11-dev
+ libxau-dev
+ libxcb1-dev
+ libxdmcp-dev
+ libxt-dev
+ make
+ texinfo
+ texlive-full
+ uuid-dev
+ xutils-dev
+ zlib1g-dev
+
+Arch Linux:
+ base-devel
+ ed
+ gcc-fortran
+ ghostscript
+ git
+ libx11
+ libxt
+ netpbm
+ tcsh
+ texlive-most
+
+CentOS 7:
+ libXext-devel
+ libXau-devel
+ libX11-devel
+ libXt-devel
+ libxml2-devel
+ ncurses-devel
+ texlive-multirow
+
+Rocky Linux 8:
+ Group: "Development Tools"
+ gfortran
+ libX11-devel
+ libXext-devel
+ libXt-devel
+ libxml2-devel
+ ncurses-devel
+ texinfo
+ libglvnd-opengl
+ mesa-libGLw
+ freeglut-devel
+ openssl-devel
+ expat-devel
+ libjpeg-turbo-devel
+
+macOS:
+ XCode
+ XCode commandline tools
+ XQuartz
+ Homebrew packages:
+ gcc (for gfortran)
+ jpeg-turbo
+ openssl
+ libyaml
+
+About
+Starlink Software Collection
+Topics
+astronomy
+Resources
+Readme
+Activity
+Custom properties
+Stars
+211 stars
+Watchers
+38 watching
+Forks
+71 forks
+Report repository
+
+Releases
+
+Packages
+
+Used by
+
+Contributors
+
+Languages
+
+Footer
+
+ © 2026 GitHub, Inc.
+
+Footer navigation
+
+ Terms
+
+ Privacy
+
+ Security
+
+ Status
+
+ Community
+
+ Docs
+
+ Contact
+
+ Manage cookies
+
+ Do not share my personal information
+
+ You can’t perform that action at this time.

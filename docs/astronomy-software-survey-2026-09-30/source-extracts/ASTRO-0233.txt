@@ -1,0 +1,40 @@
+PySME continues development here: https://github.com/MingjieJian/SME
+
+PySME
+
+Spectroscopy Made Easy (SME) is a software tool that fits an observed
+spectrum of a star with a model spectrum. Since its initial release in
+1996, SME has been a
+suite of IDL routines that call a dynamically linked library, which is
+compiled from C++ and fortran. This classic IDL version of SME is available
+for download.
+
+In 2018, we began began reimplmenting the IDL part of SME in python 3,
+adopting an object oriented paradigm and continuous itegration practices
+(code repository, build automation, self-testing, frequent builds).
+
+Installation
+
+A stable version is available on pip pip install pysme-astro
+If you are interested in the latest version you can do so by cloning this git.
+
+# Clone the git repository
+git clone https://github.com/AWehrhahn/SME.git
+# Move to the new directory
+cd SME
+# Install this folder (as an editable module)
+pip install -e .
+
+See also the documentation
+
+Poster
+
+A poster about PySME can be found here: Poster
+
+GUI
+
+A GUI for PySME is available in its own repository PySME-GUI.
+
+Windows
+
+Unfortunately PySME is not supported in Windows right now. While there is a SME C libary for Windows, it is not compatible with the Python C Extension inteface on Windows as it was compiled with a different compiler. Therefore if you want to use PySME you would need to compile the SME library with the same compiler.

@@ -1,0 +1,29 @@
+eROSITA-DE:EarlyDataRelease:eSASSIntroduction
+
+ eSASS introduction 
+
+ Parallel to the instrument hardware, the eROSITA ground software system was developed by the eROSITA team. Building on the experience and in part on code from the ROSAT and XMM-Newton X-ray observatories, the eROSITA Science Analysis Software System (eSASS) is a collection of tasks, scripts and libraries that allow us to create eROSITA calibrated science data products and to perform various interactive data analysis tasks. For more information on the eROSITA ground software and data analysis pipeline, please refer to Brunner et al. 2018 and Section 6 of Predehl et al. 2020.
+
+ Together with the Early Data Release (EDR) of eROSITA, the necessary tasks to reduce and analyse eROSITA data and the eROSITA Calibration Database (CALDB) are made public. The EDR comprises a series of observations performed during the eROSITA Calibration and Phase Verification (CALPV), and the released data are calibrated event lists produced by the eSASS pipeline at the Max-Planck Institute for extraterrestrial Physics (MPE). The different tasks to analyse eROSITA data are assembled in the so-called eSASS users' release The eSASS users' release works as a command-line interface and allows scientists to obtain standard and/or customized scientific products, such as images, exposure maps, source lists, light-curves, source spectra, response matrices, etc. Moreover, the eSASS users' release supports all three eROSITA observing modes: all-sky survey, pointing and field scan. The CALDB contains all the calibration files necessary to analyse eROSITA data.
+
+ The EDR calibrated event lists and the CALDB files are in standard FITS (or compressed FITS), and the data files produced by eSASS are OGIP-compliant, so they are compatible with the most X-ray commonly used analysis packages: FTOOLS, DS9, XSPEC, etc.
+
+In summary, eSASS is useful to
+
+ create scientific eROSITA products depending on distinct scientific criteria and goals; 
+
+ extract source spectra and generate instrumental response matrices, via the srctool task; 
+
+ generate eROSITA exposure maps, through the expmap task; 
+
+ create images according to different criteria, e.g. multiple energy bands, distinct pattern and flag selection, via the evtool task; 
+
+ find solar flares that affect the data and generate Good Time Intervals (GTI) to remove such flares using the flaregti task; 
+
+ perform source detection on eROSITA observations, via the detection chain (erbox, erbackmap, ermldet tasks); 
+
+ perform aperture photometry, through the apetool task. 
+
+ Please refer to the online documentation for a description of the different eSASS tasks. To download and install eSASS have a look at this page. You can also visit the eSASS Cookbook to learn more about the eSASS capabilities. 
+
+Enjoy playing with eSASS and eROSITA data!

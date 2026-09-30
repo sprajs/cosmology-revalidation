@@ -1,0 +1,341 @@
+GitHub - GalacticDynamics-Oxford/Agama: All-purpose galaxy modeling framework · GitHub
+
+ Skip to content
+
+Navigation Menu
+
+Sign in
+Appearance settings
+
+Platform
+
+AI CODE CREATION
+GitHub CopilotWrite better code with AI
+GitHub Copilot appDirect agents from issue to merge
+MCP RegistryIntegrate external tools
+
+DEVELOPER WORKFLOWS
+ActionsAutomate any workflow
+CodespacesInstant dev environments
+IssuesPlan and track work
+Code ReviewManage code changes
+Code QualityEnforce quality at merge
+
+APPLICATION SECURITY
+GitHub Advanced SecurityFind and fix vulnerabilities
+Code securitySecure your code as you build
+Secret protectionStop leaks before they start
+
+EXPLORE
+Why GitHub
+Documentation
+Blog
+Changelog
+Marketplace
+View all features
+
+Solutions
+
+BY COMPANY SIZE
+Enterprises
+Small and medium teams
+Startups
+Nonprofits
+
+BY USE CASE
+App Modernization
+DevSecOps
+DevOps
+CI/CD
+View all use cases
+
+BY INDUSTRY
+Healthcare
+Financial services
+Manufacturing
+Government
+View all industries
+View all solutions
+
+Resources
+
+EXPLORE BY TOPIC
+AI
+Software Development
+DevOps
+Security
+View all topics
+
+EXPLORE BY TYPE
+Customer stories
+Events & webinars
+Ebooks & reports
+Business insights
+GitHub Skills
+
+SUPPORT & SERVICES
+Documentation
+Customer support
+Community forum
+Trust center
+Partners
+View all resources
+
+Open Source
+
+COMMUNITY
+GitHub SponsorsFund open source developers
+
+PROGRAMS
+Security Lab
+Maintainer Community
+GitHub Stars
+Archive Program
+
+REPOSITORIES
+Topics
+Trending
+Collections
+
+Enterprise
+
+ENTERPRISE SOLUTIONS
+Enterprise platformAI-powered developer platform
+
+AVAILABLE ADD-ONS
+GitHub Advanced SecurityEnterprise-grade security features
+Copilot for BusinessEnterprise-grade AI features
+Premium SupportEnterprise-grade 24/7 support
+Pricing
+
+Search/
+
+Sign inSign up
+Appearance settings
+
+ You signed in with another tab or window. Reload to refresh your session.
+ You signed out in another tab or window. Reload to refresh your session.
+ You switched accounts on another tab or window. Reload to refresh your session.
+
+Dismiss alert
+
+{{ message }}
+
+ GalacticDynamics-Oxford
+
+ /
+
+ Agama
+
+ Public
+
+Notifications
+ You must be signed in to change notification settings
+
+Fork
+ 49
+
+ Star
+ 132
+
+ Code
+
+ Issues
+ 3
+
+ Pull requests
+ 2
+
+ Actions
+
+ Projects
+
+ Wiki
+
+ Security and quality
+ 0
+
+ Insights
+
+Additional navigation options
+
+ Code
+
+ Issues
+
+ Pull requests
+
+ Actions
+
+ Projects
+
+ Wiki
+
+ Security and quality
+
+ Insights
+
+master
+
+BranchesTags
+
+Go to fileCode
+Open more actions menu
+
+Latest commit
+
+History161 Commits
+
+161 Commits
+Folders and files
+NameName
+Last commit message
+Last commit date
+
+data
+
+data
+
+doc
+
+doc
+
+py
+
+py
+
+src
+
+src
+
+tests
+
+tests
+
+.gitignore
+
+.gitignore
+
+Doxyfile
+
+Doxyfile
+
+INSTALL
+
+INSTALL
+
+LICENSE
+
+LICENSE
+
+Makefile
+
+Makefile
+
+Makefile.list
+
+Makefile.list
+
+Makefile.local.template
+
+Makefile.local.template
+
+Makefile.msvc
+
+Makefile.msvc
+
+NEWS
+
+NEWS
+
+README
+
+README
+
+__init__.py
+
+__init__.py
+
+setup.py
+
+setup.py
+
+View all files
+
+Repository files navigation
+
+README
+License
+
+More items
+
+This is the AGAMA library for galaxy modelling.
+
+Its main tasks include:
+
+ - Computation of gravitational potential and forces;
+ - Orbit integration and analysis;
+ - Conversion between position/velocity and action/angle coordinates;
+ - Distribution functions (DFs) and their moments;
+ - DF-based self-consistent multi-component galaxy models;
+ - Schwarzschild orbit-superposition models;
+ - Framework for finding best-fit parameters of a model from data;
+ - Auxiliary utilities (e.g., various mathematical routines).
+
+The stellar-dynamical Monte Carlo code Raga, the Fokker--Planck code PhaseFlow,
+and the Schwarzschild modelling code Forstand are included in the Agama distribution.
+The core of the library is written in C++, and there are Python and Fortran interfaces;
+it may be used as a plugin for other stellar-dynamical software packages:
+amuse, gala, galpy, nemo.
+
+A detailed documentation for the AGAMA library is presented in a separate file doc/reference.pdf,
+and a more technical description may be extracted from source files with Doxygen.
+Instructions for compilation are in the file INSTALL.
+The package also contains collection of examples and test programs both in C++ and Python.
+
+About
+All-purpose galaxy modeling framework
+Resources
+Readme
+License
+Activity
+Custom properties
+Stars
+132 stars
+Watchers
+15 watching
+Forks
+49 forks
+Report repository
+
+Used by
+
+Contributors
+
+Languages
+
+Footer
+
+ © 2026 GitHub, Inc.
+
+Footer navigation
+
+ Terms
+
+ Privacy
+
+ Security
+
+ Status
+
+ Community
+
+ Docs
+
+ Contact
+
+ Manage cookies
+
+ Do not share my personal information
+
+ You can’t perform that action at this time.

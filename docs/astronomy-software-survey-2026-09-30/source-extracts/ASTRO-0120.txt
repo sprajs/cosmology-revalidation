@@ -1,0 +1,146 @@
+Radio Astronomy Simulation, Calibration and Imaging Library — RASCIL 2.1.0 documentation
+
+ RASCIL
+
+Background
+
+Installation
+
+Examples
+
+Structure
+
+API
+
+Development
+
+ RASCIL
+
+Radio Astronomy Simulation, Calibration and Imaging Library
+
+ View page source
+
+Radio Astronomy Simulation, Calibration and Imaging Library
+
+Warning
+
+RASCIL is no longer maintained. Its last released version is 2.0.0.
+Updates (merge requests) and Issues will not be accepted on the repository.
+If you are an SKA developer, please refer to the Processing CoP Slack channel for any queries.
+
+The Radio Astronomy Simulation, Calibration and Imaging Library expresses radio interferometry calibration and
+imaging algorithms in python and numpy. The interfaces all operate with familiar data structures such as image,
+visibility table, gain table, etc.
+
+Source code: https://gitlab.com/ska-telescope/external/rascil-main
+
+As of version 1.0.0, the library mostly contains high-level workflows and pipelines,
+while the data models and a large number of processing components (functions) have been migrated
+to ska-sdp-datamodels and
+ska-sdp-func-python,
+which are directly used within RASCIL.
+
+As of version 0.2.0, the data classes are built on the Xarray library, offering a
+rich API for applications. For more details including how to update existing scripts, see
+Use of xarray.
+
+To achieve sufficient performance we take a dual pronged approach - using threaded libraries for shared memory
+processing, and the Dask library for distributed processing.
+
+The role of the RASCIL in SKA Science Data Processing (SDP)
+
+RASCIL was developed in SDP under the name ARL (Algorithm Reference Library) with the emphasis of creating reference
+versions of standard algorithms. The ARL was therefore designed to present primarily imaging algorithms in a simple
+Python-based form so that the implemented functions could be seen and understood easily. This also fulfilled the
+requirement of providing a simple test version where algorithms could be tested and compared as necessary.
+
+For an overview of the SDP see the SDP CDR
+documentation
+
+More details can be found at: SKA1 SDP Algorithm Reference Library (ARL) Report
+
+Subsequent to the conclusion of the SDP project, it became clear that ARL could play a larger role than being limited
+to a reference library. Hence, it was renamed to the Radio Astronomy Simulation, Calibration and Imaging Library
+(RASCIL) and is undergoing continued development. The Algorithm Reference Library (ARL) is now frozen. The background
+motivation and requirements of the ARL/RASCIL are detailed further in Background.
+
+Background
+
+Core motivations
+
+Purpose
+
+Stakeholders
+
+Prior art
+
+Requirements
+
+Algorithms to be defined
+
+Testing
+
+Installation
+
+Important information for MacOS users
+
+Installation via pip
+
+Installation via docker
+
+Installation via git clone
+
+Trouble-shooting
+
+Examples
+
+Running notebooks
+
+Running scripts
+
+Structure
+
+Data containers used by RASCIL
+
+Functions
+
+Workflows
+
+Apps
+
+RASCIL and DASK
+
+Use of xarray
+
+RASCIL and WAGG
+
+API
+
+Processing Components
+
+Workflows
+
+Apps
+
+Development
+
+Documenting RASCIL
+
+Build and Release process
+
+Managing requirements
+
+Developing in RASCIL
+
+Index
+
+Module Index
+
+ Next 
+
+© Copyright 2016-2025 See CONTRIBUTORS.
+ Last updated on May 08, 2025.
+
+ Built with Sphinx using a
+ theme
+ provided by Read the Docs.

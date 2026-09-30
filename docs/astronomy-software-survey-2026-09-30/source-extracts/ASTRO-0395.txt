@@ -1,0 +1,19 @@
+celerite2
+
+celerite is an algorithm for fast and scalable Gaussian Process (GP)
+Regression in one dimension and this library, celerite2 is a re-write of the
+original celerite project to improve
+numerical stability and integration with various machine learning frameworks.
+Documentation for this version can be found
+here. This new implementation
+includes interfaces in Python and C++, with full support for PyMC (v3 and v4)
+and JAX.
+
+This documentation won't teach you the fundamentals of GP modeling but the best
+resource for learning about this is available for free online: Rasmussen &
+Williams (2006). Similarly, the
+celerite algorithm is restricted to a specific class of covariance functions
+(see the original paper for more information
+and a recent generalization for extensions
+to structured two-dimensional data). If you need scalable GPs with more general
+covariance functions, GPyTorch might be a good choice.

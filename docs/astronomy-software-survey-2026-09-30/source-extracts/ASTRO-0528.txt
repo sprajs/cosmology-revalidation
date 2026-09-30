@@ -1,0 +1,52 @@
+"Dataflow variables are spectacularly expressive in concurrent programming"
+
+Henri E. Bal , Jennifer G. Steiner , Andrew S. Tanenbaum
+
+Nextflow is a workflow system for creating scalable, portable, and reproducible workflows. It is based on the dataflow programming model, which greatly simplifies the writing of parallel and distributed pipelines, allowing you to focus on the flow of data and computation. Nextflow can deploy workflows on a variety of execution platforms, including your local machine, HPC schedulers, AWS Batch, Azure Batch, Google Cloud Batch, and Kubernetes. Additionally, it supports many ways to manage your software dependencies, including Conda, Spack, Docker, Podman, Singularity, and more.
+
+Nextflow is built with ❤️ by Seqera, the best place to run Nextflow.
+
+Quick start
+
+Install Nextflow with a single command:
+
+curl -fsSL https://get.nextflow.io | bash
+
+It creates the nextflow executable file in the current directory. You can then move it to a directory in your $PATH to run it from anywhere.
+
+Nextflow can also be installed from Bioconda:
+
+conda install -c bioconda nextflow
+
+Documentation
+
+The Nextflow documentation is available for the latest stable and edge releases.
+
+Community
+
+You can post questions and get help in the Nextflow community forum or the Nextflow Slack. Bugs and feature requests should be reported as GitHub issues.
+
+The Nextflow community is highly active with regular community meetings, events, a podcast and more. You can view much of this material on the Nextflow and nf-core YouTube channels.
+
+The nf-core project is a community effort aggregating high quality Nextflow workflows which can be used by everyone.
+
+Contributing
+
+Contributions are more than welcome. See the CONTRIBUTING file for details.
+
+License
+
+Nextflow is released under the Apache 2.0 license. Nextflow is a registered trademark.
+
+Citations
+
+If you use Nextflow in your work, please cite:
+
+P. Di Tommaso, et al. Nextflow enables reproducible computational workflows. Nature Biotechnology 35, 316–319 (2017) doi:10.1038/nbt.3820
+
+Credits
+
+Nextflow is built on two *great* open-source software projects, Groovy
+and GPars.
+
+YourKit is kindly supporting Nextflow with its fully-featured Java Profiler.

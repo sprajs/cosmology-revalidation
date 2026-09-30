@@ -1,0 +1,28 @@
+eazy-py: Pythonic photometric redshift tools based on EAZY
+
+Under heavy construction....
+
+Documentation will be here: https://eazy-py.readthedocs.io/, though it's essentially just the module API for now.
+
+Templates and filter files still here: https://github.com/gbrammer/eazy-photoz/.
+
+Note
+
+Please submit any questions/comments/problems you have through the Issues interface.
+
+Installation instructions
+
+$ pip install eazy
+$ pip install eazy[vistool] # for the dash visualiation tool
+
+# Install extra dependency
+$ pip install git+https://github.com/karllark/dust_attenuation.git
+
+# Get templates and filters from https://github.com/gbrammer/eazy-photoz
+$ python -c "import eazy; eazy.fetch_eazy_photoz()"
+
+Demo
+
+Citation
+
+Please cite both this repository and Brammer et al. (2008). A BiBTeX for this repository can be generated via the Cite this repository link in the upper left corner of the GitHub page.

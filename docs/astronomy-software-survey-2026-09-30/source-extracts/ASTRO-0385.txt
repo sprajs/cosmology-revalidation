@@ -1,0 +1,71 @@
+Kokkos: Core Libraries
+
+Kokkos Core implements a programming model in C++ for writing performance portable
+applications targeting all major HPC platforms. For that purpose it provides
+abstractions for both parallel execution of code and data management.
+Kokkos is designed to target complex node architectures with N-level memory
+hierarchies and multiple types of execution resources. It currently can use
+CUDA, HIP, SYCL, HPX, OpenMP and C++ threads as backend programming models with several other
+backends in development.
+
+Kokkos Core is part of the Kokkos C++ Performance Portability Programming Ecosystem.
+
+Kokkos is a Linux Foundation project.
+
+Learning about Kokkos
+
+To start learning about Kokkos:
+
+Kokkos Lectures: they contain a mix of lecture videos and hands-on exercises covering all the important capabilities.
+
+Programming guide: contains in "narrative" form a technical description of the programming model, machine model, and the main building blocks like the Views and parallel dispatch.
+
+API reference: organized by category, i.e., core, algorithms, containers, and simd.
+
+Use cases and Examples: a series of examples ranging from how to use Kokkos with MPI to Fortran interoperability.
+
+Obtaining Kokkos
+
+The latest release of Kokkos can be obtained from the GitHub releases page.
+
+The current release is 5.1.0.
+
+curl -OJ -L https://github.com/kokkos/kokkos/releases/download/5.1.0/kokkos-5.1.0.tar.gz
+# Or with wget
+wget https://github.com/kokkos/kokkos/releases/download/5.1.0/kokkos-5.1.0.tar.gz
+# Or with git
+git clone --depth=2 --branch 5.1.0 https://github.com/kokkos/kokkos.git
+
+To clone the latest development version of Kokkos from GitHub:
+
+git clone --branch develop https://github.com/kokkos/kokkos.git
+
+Building Kokkos
+
+To build Kokkos, you will need to have a C++ compiler that supports C++20 or later.
+All requirements including minimum and primary tested compiler versions can be found here.
+
+Building and installation instructions are described here.
+
+You can also install Kokkos using Spack: spack install kokkos. Available configuration options can be displayed using spack info kokkos.
+
+For the complete documentation: kokkos.org/kokkos-core-wiki/
+
+Support
+
+For questions find us on Slack: https://kokkosteam.slack.com or open a GitHub issue.
+
+For non-public questions send an email to: crtrott(at)sandia.gov
+
+Contributing
+
+Please see this page for details on how to contribute.
+
+Citing Kokkos
+
+Please see the following page.
+
+License
+
+The full license statement used in all headers is available here or
+here.

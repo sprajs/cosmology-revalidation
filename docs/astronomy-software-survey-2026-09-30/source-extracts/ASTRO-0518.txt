@@ -1,0 +1,258 @@
+DIERCKX
+
+DIERCKX
+
+Click here to see the number of accesses to this library.
+
+DIERCKX is a package of Fortran subroutines for calculating smoothing
+splines for various kinds of data and geometries, with automatic
+knot selection.
+This library is also called FITPACK, but is independent of
+the FITPACK library
+by Alan Cline.
+
+Reference
+Paul Dierckx, Curve and Surface Fitting with Splines, Oxford
+University Press, 1993
+Developer
+Paul Dierckx, Department of Computer Science, K.U. Leuven,
+Celestijnenlaan 200 A, B-3001, Heverlee, Belgium
+Paul.Dierckx@cs.kuleuven.ac.be
+
+#======== Curve fitting routines ======
+file curfit.f curfit.f plus dependencies
+for general curve fitting
+gams k1a1a1, k5, l8g, l8h
+
+file percur.f percur.f plus dependencies
+for curve fitting with periodic splines
+gams k1a1a1, k5, l8g, l8h
+
+file parcur.f parcur.f plus dependencies
+for smoothing of parametric curves
+gams k1a1a1, k5, l8g, l8h
+
+file clocur.f clocur.f plus dependencies
+for smoothing of closed curves
+gams k1a1a1, k5, l8g, l8h
+
+file concur.f concur.f plus dependencies
+for smoothing with end point derivative constraints
+gams k1a1a1, k5, l8g, l8h
+
+file cocosp.f cocosp.f plus dependencies
+for least-squares fitting with convexity constraints
+gams k1a2a
+
+file concon.f concon.f plus dependencies
+for automatic smoothing with convexity constraints
+gams k5, k1a2a
+
+#======== Curve application routines ======
+file splev.f splev.f plus dependencies
+for evaluation of a spline function
+gams e3a1, k6a1
+
+file splder.f splder.f plus dependencies
+for derivative calculation of a spline function
+gams e3a2, k6a2
+
+file spalde.f spalde.f plus dependencies
+for all derivatives of a spline function
+gams e3a2, k6a2
+
+file curev.f curev.f plus dependencies
+for evaluation of a spline curve
+gams e3a1, k6a1
+
+file cualde.f cualde.f plus dependencies
+for all derivatives of a spline curve
+gams k6a2
+
+file insert.f insert.f plus dependencies
+for inserting a knot into a given spline
+gams e3a3, k6c
+
+file splint.f splint.f plus dependencies
+for integration of a spline function
+gams e3a3, k6a3
+
+file fourco.f fourco.f plus dependencies
+for fourier coefficients of a cubic spline
+gams e3d, k6d
+
+file sproot.f sproot.f plus dependencies
+for the zeros of a cubic spline
+gams e3d, f1b, k6d
+
+#======== Surface fitting routines ======
+file surfit.f surfit.f plus dependencies
+for surface fitting to scattered data
+gams k1a1b, k5, l8g, l8h
+
+file regrid.f regrid.f plus dependencies
+for surface fitting to data on a rectangular grid
+gams k1a1b, k5, l8g, l8h
+
+file polar.f polar.f plus dependencies
+for surface fitting using generalized polar coordinates
+gams k1a1b, k5, l8g, l8h
+
+file pogrid.f pogrid.f plus dependencies
+for surface fitting to data on a polar grid
+gams k1a1b, k5, l8g, l8h
+
+file sphere.f sphere.f plus dependencies
+for surface fitting using spherical coordinates
+gams k1a1b, k5, l8g, l8h
+
+file spgrid.f spgrid.f plus dependencies
+for surface fitting to data on a spherical grid
+gams k1a1b, k5, l8g, l8h
+
+file parsur.f parsur.f plus dependencies
+for parametric surface fitting to data on a grid
+gams k1a1b, k5, l8g, l8h
+
+#======== Surface application routines ======
+file bispev.f bispev.f plus dependencies
+for evaluation of a bivariate spline function
+gams k6a1
+
+file parder.f parder.f plus dependencies
+for partial derivatives of a bivariate spline
+gams e3a2, k6a2
+
+file dblint.f dblint.f plus dependencies
+for integration of a bivariate spline
+gams e3a3, k6a3
+
+file profil.f profil.f plus dependencies
+for cross sections of a bivariate spline
+gams e3d, k6d
+
+file evapol.f evapol.f plus dependencies
+for evaluation of a polar spline
+gams e3a1, k6a1
+
+file surev.f surev.f plus dependencies
+for evaluation of a parametric spline surface
+gams e3a1, k6a1
+
+lib ex
+for test programs for each of the 29 main routines
+
+# This index file only describes the top-level routines.
+# The remaining FITPACK programs are lower level routines either called directly
+# or indirectly by one or more of the user-level routines below. Their names all
+# begin with the initials fp (fpader, fpadno,...) to avoid confusion with other
+# possible user-supplied routines.
+file fpader.f
+
+file fpadno.f fpadno.f plus dependencies
+
+file fpadpo.f fpadpo.f plus dependencies
+
+file fpback.f
+
+file fpbacp.f
+
+file fpbfout.f fpbfout.f plus dependencies
+
+file fpbisp.f fpbisp.f plus dependencies
+
+file fpbspl.f
+
+file fpchec.f
+
+file fpched.f
+
+file fpchep.f
+
+file fpclos.f fpclos.f plus dependencies
+
+file fpcoco.f fpcoco.f plus dependencies
+
+file fpcons.f fpcons.f plus dependencies
+
+file fpcosp.f fpcosp.f plus dependencies
+
+file fpcsin.f
+
+file fpcurf.f fpcurf.f plus dependencies
+
+file fpcuro.f
+
+file fpcyt1.f
+
+file fpcyt2.f
+
+file fpdeno.f
+
+file fpdisc.f
+
+file fpfrno.f
+
+file fpgivs.f
+
+file fpgrdi.f fpgrdi.f plus dependencies
+
+file fpgrpa.f fpgrpa.f plus dependencies
+
+file fpgrre.f fpgrre.f plus dependencies
+
+file fpgrsp.f fpgrsp.f plus dependencies
+
+file fpinst.f
+
+file fpintb.f
+
+file fpknot.f
+
+file fpopdi.f fpopdi.f plus dependencies
+
+file fpopsp.f fpopsp.f plus dependencies
+
+file fporde.f
+
+file fppara.f fppara.f plus dependencies
+
+file fppasu.f fppasu.f plus dependencies
+
+file fpperi.f fpperi.f plus dependencies
+
+file fppocu.f
+
+file fppogr.f fppogr.f plus dependencies
+
+file fppola.f fppola.f plus dependencies
+
+file fprank.f fprank.f plus dependencies
+
+file fprati.f
+
+file fpregr.f fpregr.f plus dependencies
+
+file fprota.f
+
+file fprppo.f
+
+file fprpsp.f
+
+file fpseno.f
+
+file fpspgr.f fpspgr.f plus dependencies
+
+file fpsphe.f fpsphe.f plus dependencies
+
+file fpsuev.f fpsuev.f plus dependencies
+
+file fpsurf.f fpsurf.f plus dependencies
+
+file fpsysy.f
+
+file fptrnp.f fptrnp.f plus dependencies
+
+file fptrpe.f fptrpe.f plus dependencies
+
+file readme

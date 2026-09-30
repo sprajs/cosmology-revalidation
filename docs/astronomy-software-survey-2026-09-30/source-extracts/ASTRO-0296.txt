@@ -1,0 +1,226 @@
+few: FastEMRIWaveforms
+
+This package contains a highly modular framework for the rapid generation of accurate extreme-mass-ratio inspiral (EMRI) waveforms. FEW combines a variety of separately accessible modules to construct EMRI waveform models for both CPUs and GPUs.
+
+Generally, the modules fall into four categories: trajectory, amplitudes, summation, and utilities. Please see the documentation for further information on these modules.
+
+The code can be found on Github here.
+
+The data necessary for various modules in this package will automatically download the first time it is needed. If you would like to view the data, it can be found on Zenodo.
+
+The current and all past code release zip files can also be found on Zenodo here.
+
+Please see the citation section below for information on citing FEW. This package is part of the Black Hole Perturbation Toolkit.
+
+Getting started
+
+Detailed installation instructions can be found in the documentation.
+Below is a quick set of instructions to install the FastEMRIWaveform package on CPUs and GPUs.
+
+To install the latest version of fastemriwaveforms using pip, simply run:
+
+# For CPU-only version
+pip install fastemriwaveforms
+
+# For GPU-enabled versions with CUDA 12.Y.Z
+pip install fastemriwaveforms-cuda12x
+# For GPU-enabled versions with CUDA 13.Y.Z
+pip install fastemriwaveforms-cuda13x
+
+To know your CUDA version, run the tool nvidia-smi in a terminal a check the CUDA version reported in the table header:
+
+$ nvidia-smi
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.54.15 Driver Version: 550.54.15 CUDA Version: 12.4 |
+|-----------------------------------------+------------------------+----------------------+
+...
+
+You may also install fastemriwaveforms directly using conda (including on Windows)
+as well as its CUDA 12.x plugin (only on Linux). It is strongly advised to:
+
+Ensure that your conda environment makes sole use of the conda-forge channel
+
+Install fastemriwaveforms directly when building your conda environment, not afterwards
+
+# For CPU-only version, on either Linux, macOS or Windows:
+conda create --name few_cpu -c conda-forge --override-channels python=3.12 fastemriwaveforms
+conda activate few_cpu
+
+# For CUDA 12.x version, only on Linux
+conda create --name few_cuda -c conda-forge --override-channels python=3.12 fastemriwaveforms-cuda12x
+conda activate few_cuda
+
+Now, in a python file or notebook:
+
+import few
+
+You may check the currently available backends:
+
+>>> for backend in ["cpu", "cuda12x", "cuda13x", "cuda", "gpu"]:
+... print(f" - Backend '{backend}': {"available" if few.has_backend(backend) else "unavailable"}")
+ - Backend 'cpu': available
+ - Backend 'cuda12x': unavailable
+ - Backend 'cuda13x': unavailable
+ - Backend 'cuda': unavailable
+ - Backend 'gpu': unavailable
+
+Note that the cuda backend is an alias for cuda13x and cuda12x. If any is available, then the cuda backend is available.
+Similarly, the gpu backend is (for now) an alias for cuda.
+
+If you expected a backend to be available but it is not, run the following command to obtain an error
+message which can guide you to fix this issue:
+
+>>> import few
+>>> few.get_backend("cuda12x")
+ModuleNotFoundError: No module named 'few_backend_cuda12x'
+
+The above exception was the direct cause of the following exception:
+...
+
+few.cutils.BackendNotInstalled: The 'cuda12x' backend is not installed.
+
+The above exception was the direct cause of the following exception:
+...
+
+few.cutils.MissingDependencies: FastEMRIWaveforms CUDA plugin is missing.
+ If you are using few in an environment managed using pip, run:
+ $ pip install fastemriwaveforms-cuda12x
+
+The above exception was the direct cause of the following exception:
+...
+
+few.cutils.BackendAccessException: Backend 'cuda12x' is unavailable. See previous error messages.
+
+Once FEW is working and the expected backends are selected, check out the examples notebooks
+on how to start with this software.
+
+Installing from sources
+
+Prerequisites
+
+To install this software from source, you will need:
+
+A C++ compiler (g++, clang++, ...)
+
+Python 3.12 or newer (wheels are built and tested for 3.12, 3.13 and 3.14)
+
+If you want to enable GPU support in FEW, you will also need the NVIDIA CUDA Compiler nvcc in your path as well as
+the CUDA toolkit (with, in particular, the
+libraries CUDA Runtime Library, cuBLAS and cuSPARSE).
+
+There are a set of files required for total use of this package. They will download automatically the first time they are needed. Files are generally under 10MB. However, there is a 100MB file needed for the slow waveform and the bicubic amplitude interpolation. This larger file will only download if you run either of those two modules. The files are hosted on the Black Hole Perturbation Toolkit Download Server.
+
+Installation instructions using conda
+
+We recommend to install FEW using conda in order to have the compilers all within an environment.
+First clone the repo
+
+git clone https://github.com/BlackHolePerturbationToolkit/FastEMRIWaveforms.git
+cd FastEMRIWaveforms
+
+Now create an environment (these instructions work for all platforms but some
+adjustements can be needed, refer to the
+detailed installation documentation for more information):
+
+conda create -n few_env -y -c conda-forge --override-channels cxx-compiler
+
+activate the environment
+
+conda activate few_env
+
+Then we can install locally for development:
+
+pip install -e '.[dev, testing]'
+
+Installation instructions using conda on GPUs and linux
+
+Below is a quick set of instructions to install the Fast EMRI Waveform package on GPUs and linux.
+
+conda create -n few_env -c conda-forge fastemriwaveforms-cuda12x python=3.12
+conda activate few_env
+
+Test the installation device by running python
+
+import few
+few.get_backend("cuda12x")
+
+Running the installation
+
+To start the from-source installation, ensure the pre-requisite are met, clone
+the repository, and then simply run a pip install command:
+
+# Clone the repository
+git clone https://github.com/BlackHolePerturbationToolkit/FastEMRIWaveforms.git
+cd FastEMRIWaveforms
+
+# Run the install
+pip install .
+
+If the installation does not work, first check the detailed installation
+documentation. If
+it still does not work, please open an issue on the
+GitHub repository
+or contact the developers through other means.
+
+Running the Tests
+
+The tests require a few dependencies which are not installed by default. To install them, add the [testing] label to FEW package
+name when installing it. E.g:
+
+# For CPU-only version with testing enabled
+pip install fastemriwaveforms[testing]
+
+# For GPU version with CUDA 12.Y and testing enabled
+pip install fastemriwaveforms-cuda12x[testing]
+
+# For from-source install with testing enabled
+git clone https://github.com/BlackHolePerturbationToolkit/FastEMRIWaveforms.git
+cd FastEMRIWaveforms
+pip install '.[testing]'
+
+To run the tests, open a terminal in a directory containing the sources of FEW and then run the unittest module in discover mode:
+
+$ git clone https://github.com/BlackHolePerturbationToolkit/FastEMRIWaveforms.git
+$ cd FastEMRIWaveforms
+$ python -m few.tests # or "python -m unittest discover"
+...
+----------------------------------------------------------------------
+Ran 20 tests in 71.514s
+OK
+
+Contributing
+
+Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+
+If you want to develop FEW and produce documentation, install few from source with the [dev] label and in editable mode:
+
+$ git clone https://github.com/BlackHolePerturbationToolkit/FastEMRIWaveforms.git
+$ cd FastEMRIWaveforms
+pip install -e '.[dev, testing]'
+
+This will install necessary packages for building the documentation (sphinx, pypandoc, sphinx_rtd_theme, nbsphinx) and to run the tests.
+
+The documentation source files are in docs/source. To compile the documentation locally, change to the docs directory and run make html.
+
+Versioning
+
+We use SemVer for versioning. For the versions available, see the tags on this repository.
+
+Contributors
+
+A (non-exhaustive) list of contributors to the FEW code can be found in CONTRIBUTORS.md.
+
+License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Citation
+
+Please make sure to cite FEW papers and the FEW software on Zenodo.
+We provide a set of prepared references in PAPERS.bib. There are other papers that require citation based on the classes used. For most classes this applies to, you can find these by checking the citation attribute for that class. All references are detailed in the CITATION.cff file.
+
+Acknowledgments
+
+This research resulting in this code was supported by National Science Foundation under grant DGE-0948017 and the Chateaubriand Fellowship from the Office for Science & Technology of the Embassy of France in the United States.
+
+It was also supported in part through the computational resources and staff contributions provided for the Quest/Grail high performance computing facility at Northwestern University.

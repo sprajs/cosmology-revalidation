@@ -1,0 +1,323 @@
+Stéphane Blondin - Supernova Identification (SNID)
+
+Home 
+
+Publications 
+
+[SNID] 
+
+Graphics 
+
+Contact 
+
+Supernova Identification (SNID)
+
+2025-04-29: New Super-SNID template sets available here (see Download section below)
+
+You are here: 
+SNID
+
+You can also access: 
+manual,
+Frequently Asked Questions
+
+Contents: 
+Copyright | 
+Download | 
+Installation | 
+Documentation | 
+References | 
+Useful websites | 
+Comic 
+
+SNID was originally written by John Tonry to determine
+redshifts of Type Ia supernovae, using the correlation techniques of
+Tonry &
+Davis (1979). I have since then re-written and expanded SNID to
+include type and age determination, as well as an interactive plotting
+package.
+
+SNID makes extensive use of the PGPLOT plotting
+package and the associated BUTTON
+library.
+
+If you would like to be kept updated on new
+releases of SNID and associated spectral templates, please send me an
+email: 
+
+Copyright
+
+SNID is Copyright (C) 1999-2007 Stéphane Blondin and John
+L. Tonry, and is available under the GNU General Public
+License. The full GNU License text is included in the SNID
+release as separate text file (gpl-3.0.txt).
+
+Download
+
+You can download the current version (5.0) of SNID here: snid-5.0.tar.gz (3.8 Mb)
+
+You can download the latest set of templates here: templates-2.0.tgz (6.2 Mb). A README file is included with installation instructions. If you plan to use SNID beyond 1 micron, you should use different versions of the templates-2.0 set, available here.
+
+Update (2021-06-01): the texplist and tfirstlist files contained template names in the old format snYYxx.lnw instead of snYYYYxx.lnw. These files have been replaced in the *.tgz files above. You can also directly download the files and place them in your template-2.0*/ directories: texplist and tfirstlist.
+
+Other template sets are available:
+
+SN Ia (+ a few non-SN) templates from the Berkeley Supernova Ia Program (BSNIP; bsnip_v7_snid_templates.tar.gz). Installation instructions here.
+
+SN Ib/c templates from Modjaz et al. (2014) (webpage). Installation instructions are included in the associated README file. See also the paper by Liu & Modjaz (2014) on astro-ph.
+
+SN Ib/c templates from Liu et al. (2016), Modjaz et al. 2016, and Williamson et al. 2019 (github repository). 
+
+SN IIP templates from Gutiérrez et al. (2017) (templates_SNII_gutierrez17.tar.gz). Installation instructions are included in the associated README file.
+
+Super-SNID template set from Magill et al. 2025, which includes new classes of transients (e.g., SLSNe, TDEs, LFBOTs). The templates, source files, and installation instructions are available on a dedicated github repository.
+
+A set of IDL routines to flatten spectra as in SNID is available here: snid_pro.tgz (this can also be achieved with the logwave program).
+
+Installation
+
+Update (2025-01-06): Robert Fisher has created a Docker container for SNID, which enables to easily install SNID under macos, Linux, Windows using a single command. It is available for download at this webpage.
+
+SNID is written in Fortran 77 and so requires an appropriate compiler
+(g77, gfortran, etc.). The interactive plotting package is based on
+PGPLOT, so
+make sure you have the corresponding libraries installed. The list of
+Useful websites below will lead you to
+the right places to download/install an appropriate fortran compiler
+for your system and the PGPLOT library. Check out the Frequently Asked Questions if PGPLOT or a fortran
+compiler are not installed on your computer.
+
+If you have complaints/suggestions on compiler options etc. please
+contact me: . You can also look at the Frequently
+Asked Questions.
+
+To install SNID, follow the following steps:
+
+STEP 0. Unpack the tarball snid-5.0.tar.gz in
+the directory of your choice (hereby referred to as INSTALL_DIR):
+
+ cp snid-5.0.tar.gz INSTALL_DIR
+ cd INSTALL_DIR
+ gunzip snid-5.0.tar.gz
+ tar -xvf snid-5.0.tar
+
+This will create a directory named snid-5.0/ . You can then safely
+remove the snid-5.0.tar file. The snid-5.0/ directory contains the 
+following subdirectories:
+
+bin
+contains the snid, logwave, and plotlnw executables
+
+button
+contains the button library used with PGPLOT
+
+doc
+contains various documentation
+
+examples
+contains example text and graphical output
+
+source
+contains most of the fortran source code (*.f)
+
+templates
+contains the spectral templates (*.lnw)
+
+test
+contains files for test runs
+
+utils
+contains further fortran source code (*.f)
+
+It also contains installation instructions (AAREADME), the
+Makefile, and a copy of the GNU General Public License (gpl-3.0.txt).
+
+STEP 1. cd to the snid-5.0/ directory. Open the file snidmore.f in the
+source/ subdirectory with your favourite editor, and set the tempdir
+variable (in the gettempdir subroutine, line 52 in snidmore.f) to
+point to the directory containing the spectral templates:
+
+ tempdir='INSTALL_DIR/snid-5.0/templates/'
+
+NOTE: Make sure you comply with the 72 character line limit!
+(Read the "IMPORTANT!" note in snidmore.f)
+
+STEP 2. Now you need to edit the Makefile. Open this file up
+with your favourite editor and uncomment the FC, FFLAGS, XLIBS, and
+PGLIBS variables corresponding to your operating system (Linux,
+Solaris, Mac PowerPC, or Mac Intel). For example, on a Linux PC:
+
+ # ------
+ # Linux
+ # ------
+ # NOTE: for 64-bit CPUs, the X11 libraries are located in the lib64/
+ # directory:
+ #
+ # XLIBS= -L/usr/X11R6/lib64 -lX11
+ # OR XLIBS= -L/usr/lib64 -lX11
+ # ------
+ FC= g77
+ FFLAGS= -O
+ XLIBS= -L/usr/X11R6/lib -lX11 
+ PGLIBS= -L/usr/local/pgplot -lpgplot
+
+NOTE: the X11 and PGPLOT libraries may not be located at
+/usr/X11R6/lib/ and /usr/local/pgplot/, respectively. If this is the
+case, edit the XLIBS and PGLIBS settings accordingly.
+
+NOTE: If you use a compiler different than the one specified for your
+OS (g77 for Linux; Sun f77/f90 for Solaris; g77 for Mac PPC; g77
+for Mac Intel), consult the table below to set the appropriate FFLAGS
+compiler flags:
+
+ Compiler OS FFLAGS 
+ -------------------------------------------------------
+ g77 Linux -O -fno-automatic
+ gfortran Linux -O -fno-automatic
+ Intel Linux -O -save
+ Sun Solaris -O
+ IBM IBM AIX, Linux, etc. -O -qsave
+ SGI SGI IRIX -O -static
+ Compaq Tru64 Unix -O -static
+
+FOR MAC USERS: Linking the pgplot libraries on a Mac requires to also
+link the png, z, and aquaterm libraries: 
+
+ PGLIBS= (...) -L/sw/lib -lpng -lz -laquaterm (...)
+
+If the libpng.*, libz.* and libaquaterm.* are not in /sw/lib, you
+will need to edit the PGLIBS setting accordingly. E.g. the libpng.*
+and libz.* libraries could be in /usr/lib, while the libaquaterm.*
+library could be in /usr/local/lib. In this case you should set
+(assuming the libpgplot.* library is in /sw/lib):
+
+ PGLIBS= -Wl,-framework -Wl,Foundation -L/usr/lib -lpng -lz -L/usr/local/lib -laquaterm -L/sw/lib/pgplot -lpgplot
+
+STEP 3. Set the LD_LIBRARY_PATH and PGPLOT_DIR environment
+variables to point to the PGPLOT installation directory
+(see the note in the Makefile).
+
+[in (t)csh]
+ setenv LD_LIBRARY_PATH /usr/local/pgplot
+ setenv PGPLOT_DIR /usr/local/pgplot
+
+[in bash]
+ export LD_LIBRARY_PATH="/usr/local/pgplot"
+ export PGPLOT_DIR="/usr/local/pgplot"
+
+NOTE: the PGPLOT installation directory may not be
+/usr/local/pgplot/. If this is the case, edit the LD_LIBRARY_PATH and
+PGPLOT_DIR settings accordingly.
+
+STEP 4. Now you're ready to compile SNID! Make sure you're in
+the snid-5.0/ directory (which contains the Makefile) then simply
+type:
+
+ make
+
+If this doesn't produce any error messages (note that you may get a
+few "Warnings" depending on which compiler you use, but those are
+harmless) then type:
+
+ make install
+
+which will simply copy the executable files (snid, logwave, and
+plotlnw) to the bin/ directory. Remember to add this bin/ directory to
+your $PATH environment variable if you want to be able to execute SNID
+from any directory on your system:
+
+ setenv PATH $PATH:INSTALL_DIR/snid-5.0/bin [in (t)csh]
+ export PATH=$PATH:INSTALL_DIR/snid-5.0/bin [in bash]
+
+NOTE: If you do get error messages after typing "make" then make
+sure you clean up before attempting to recompile. This is done by
+typing:
+
+ make realclean ; make
+
+If the compilation then succeeds you can type 'make install'
+to copy the executable files to the bin/ directory.
+
+STEP 5. For info on how to use SNID, look at the Howto.snid
+file in the doc/ subdirectory (or at the online manual). In the meantime, you can do a trial run
+on the spectrum of sn2003jo.dat in the test/ subdirectory [follow the
+'1.3. Example run' section in Howto.snid]:
+
+ cd test/
+ snid sn2003jo.dat
+
+...and follow the prompts. Have fun!
+
+Documentation
+
+For information on how to use SNID and its companion programs (logwave
+and plotlnw), please refer to the online manual. There is also a separate webpage with Frequently Asked Questions.
+
+You can view the SNID flowchart here 
+[ps,
+pdf], as well as information on the SNID
+spectral templates
+[ps,
+pdf].
+
+References
+
+For a detailed discussion on SNID, please refer to:
+
+Determining the Type, Redshift, and Age of a Supernova Spectrum 
+[ADS,
+astro-ph]
+
+Blondin, S. & Tonry, J. L. 2007. ApJ, 666, 1024
+
+For the original paper describing the Tonry & Davis
+cross-correlation techniques, check out:
+
+A survey of galaxy redshifts. I - Data reduction techniques
+[ADS]
+
+Tonry, J. L. & Davis, M. 1979. AJ, 84, 1511
+
+Citations to original SNID paper (Blondin & Tonry 2007) through ADS: 
+refereed, 
+all, 
+citation history
+
+References to SNID in circulars (IAUC, CBET, ATel) through ADS:
+here
+
+Useful websites
+
+GCC, the GNU Compiler Collection --
+includes fortran compilers
+
+Fink -- 
+Unix software for Mac OS X
+
+High-performance computing for
+Mac OS X -- 
+g77 and gfortran binaries for Mac
+
+Scisoft OSX --
+astronomical data reduction and analysis software for Mac (includes PGPLOT)
+
+X11 for Mac OS X --
+Implementation of the X Window System for Mac OS X
+
+The MacPorts Project --
+compile, install, and upgrade either command-line, X11 or Aqua based
+open-source software for Mac OS X
+
+PGPLOT -- 
+PGPLOT graphics library; see also
+Compiling PGPLOT on Mac OS X
+
+BUTTON --
+Graphic buttons with PGPLOT
+
+Comic
+
+Michael Woodson has invented a stick figure called "Snid" who is the
+greatest fighter in the world. I requested Snid to fight a
+supernova, and this is the result (note that you can access the
+complete series of "Snid vs." comics here):

@@ -1,0 +1,74 @@
+CUPID – A 3D Clump Identification and Analysis Package 
+
+ SUN/255.2
+
+Starlink Project
+Starlink User Note 255.2
+
+D.S. Berry
+
+13th July 2021
+
+CUPID – A 3D Clump Identification and Analysis Package
+
+Version 2.7
+
+Users’ Manual 
+
+Abstract
+
+CUPID provides a set of commands that identfy and analyse clumps of emission within 1-, 2- and 3-
+dimensional data arrays. 
+
+Contents
+
+1 Introduction
+
+ 1.1 Available Commands
+
+2 Clump Identification Algorithms
+
+ 2.1 FellWalker
+
+ 2.2 GaussClumps
+
+ 2.3 ClumpFind
+
+  2.3.1 Comparing CUPID ClumpFind with other Implementations
+
+ 2.4 Reinhold
+
+  2.4.1 Identifying the Clump Edges
+
+  2.4.2 Cleaning the Clump Edges
+
+  2.4.3 Filling the Clump Edges
+
+  2.4.4 Cleaning up the Filled Clumps
+
+3 Examining the Results
+
+ 3.1 2D Data
+
+ 3.2 3D Data
+
+ 3.3 Using the output Catalogue
+
+4 Taking Account of Varying Noise Levels
+
+A Description of the CUPID applications
+
+ CLUMPINFO – Obtain information about one or more previously
+identified clumps 
+ CUPIDHELP – Display information about CUPID
+
+ EXTRACTCLUMPS – Extract previously identified clumps of emission
+from an NDF 
+ FINDBACK – Estimate the background in an NDF by
+removing small scale structure 
+ FINDCLUMPS – Identify clumps of
+emission within a 1, 2 or 3 dimensional NDF 
+ MAKECLUMPS – Create
+simulated data containing clumps and noise 
+ OUTLINECLUMP –
+Draw an outline around a 2-dimensional clump identified by CUPID

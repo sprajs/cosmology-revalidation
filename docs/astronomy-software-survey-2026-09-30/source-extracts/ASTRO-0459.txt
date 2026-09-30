@@ -1,0 +1,955 @@
+KAPPA — Kernel Application Package 
+
+ SUN/95.45
+
+Starlink Project
+Starlink User Note 95.45
+
+Malcolm J. Currie & David S. Berry
+
+2021 May 21
+
+KAPPA — Kernel Application Package
+
+2.6-12
+
+User’s Guide 
+
+Abstract
+
+Kappa is an applications package comprising about 180 general-purpose commands for image
+processing, data visualisation, and manipulation of the standard Starlink data format—the NDF. It is
+intended to work in conjunction with starlink’s various specialised packages.
+
+In addition to the NDF, Kappa can also process data in other formats by using the ‘on-the-fly’
+conversion scheme. Many commands can process data arrays of arbitrary dimension, and others work
+on both spectra and images. Kappa operates from both the UNIX C-shell and the ICL command
+language.
+
+This document describes how to use Kappa and its features. There is some description of
+techniques too, including a section on writing scripts. This document includes several
+tutorials and is illustrated with numerous examples. The bulk of this document comprises
+detailed descriptions of each command as well as classified and alphabetical summaries.
+
+Contents
+
+1 Introduction
+
+ 1.1 Background
+
+ 1.2 Rôle of KAPPA
+
+ 1.3 Functionality of KAPPA
+
+  1.3.1 Applications
+
+  1.3.2 General
+
+ 1.4 This document
+
+2 Tutorials
+
+ 2.1 From the C-shell
+
+ 2.2 From ICL
+
+3 Getting started
+
+ 3.1 Running KAPPA
+
+ 3.2 Issuing Commands
+
+ 3.3 Obtaining Help
+
+  3.3.1 Hypertext Help
+
+  3.3.2 Entering the Help System
+
+  3.3.3 Navigating Help Hierarchies
+
+  3.3.4 Help on KAPPA commands
+
+ 3.4 Changing the Current Directory in ICL
+
+ 3.5 Exiting an Application
+
+4 Parameters
+
+ 4.1 Summary
+
+ 4.2 Defaults
+
+ 4.3 Globals
+
+ 4.4 Strings
+
+ 4.5 Arrays
+
+ 4.6 Abort and Null
+
+ 4.7 Help
+
+ 4.8 Menus
+
+ 4.9 Environment Variables
+
+ 4.10 Specifying Parameter Values on Command Lines 
+
+  4.10.1 Keyword
+
+  4.10.2 Abbreviations
+
+  4.10.3 Position
+
+  4.10.4 Keyword versus Positional Parameters 
+
+  4.10.5 Special Behaviour
+
+ 4.11 Special Keywords: ACCEPT, PROMPT, RESET 
+
+ 4.12 MIN and MAX parameter values 
+
+ 4.13 Specifying Groups of Objects
+
+  4.13.1 Indirection
+
+  4.13.2 Editing
+
+  4.13.3 Modification
+
+  4.13.4 Ignoring Syntax Characters
+
+  4.13.5 Groups of Data Files
+
+  4.13.6 Examples
+
+ 4.14 Output Parameters
+
+5 Verbosity of Messages
+
+6 Graphics Devices and Files
+
+ 6.1 Selecting a Graphics Device 
+
+  6.1.1 Global Parameters
+
+  6.1.2 X-windows
+
+ 6.2 Composite Hardcopy Plots
+
+7 Plotting Styles and Attributes
+
+ 7.1 Plotting Styles and Attributes
+
+ 7.2 Specifying a Plotting Style
+
+  7.2.1 Group Expressions
+
+  7.2.2 Temporary Attributes
+
+  7.2.3 Synonyms for Attribute Names
+
+  7.2.4 Colour Attributes
+
+ 7.3 Establishing Defaults for Plotting Attributes
+
+ 7.4 Graphical Escape Sequences
+
+8 Data structures
+
+ 8.1 Restrictions on the Usage of Data Structures
+
+ 8.2 Looking at the Data Structures
+
+ 8.3 Editing the Data Structures
+
+ 8.4 Native Format
+
+9 NDF Sections
+
+ 9.1 Specifying Lower and Upper Bounds 
+
+ 9.2 Specifying Centre and Extent 
+
+ 9.3 Using World or Axis Co-ordinates to Specify Sections
+
+  9.3.1 World co-ordinates:
+
+  9.3.2 Axis co-ordinates:
+
+ 9.4 Specifying Fractional Extents 
+
+ 9.5 Changing Dimensionality 
+
+ 9.6 Mixing Bounds Expressions 
+
+10 NDF History
+
+ 10.1 Control and Content of History Recording 
+
+ 10.2 Adding Commentary to History Recording 
+
+ 10.3 Listing History Records 
+
+11 The Graphics Database
+
+ 11.1 The Graphics Database in Action
+
+ 11.2 Other Graphics Database Facilities 
+
+ 11.3 The Co-ordinate Frames Associated with a Picture
+
+ 11.4 The Graphics Database File
+
+ 11.5 Working With PostScript Files
+
+  11.5.1 The Choice of Graphics Device
+
+  11.5.2 The PostScript Files
+
+  11.5.3 Combining the Files into a Single File
+
+  11.5.4 Running the Applications
+
+  11.5.5 Using X-windows to Produce a Prototype
+
+  11.5.6 An Example
+
+12 Using World Co-ordinate Systems
+
+ 12.1 Pixel Indices, Pixel Co-ordinates, and Grid Co-ordinates
+
+ 12.2 Co-ordinate Frames, Axes and Domains
+
+ 12.3 FrameSets, and the Current Frame
+
+ 12.4 Reserved Domain Names
+
+ 12.5 Specifying a Co-ordinate Frame
+
+ 12.6 Propagation of WCS Information
+
+ 12.7 Reading WCS Information Stored in Other Forms
+
+ 12.8 Using SETSKY to Add a Celestial Co-ordinate Frame to an NDF
+
+ 12.9 Converting an AXIS structure to a SpecFrame
+
+ 12.10 Specifying Attributes for sub-Frames within Compound Frames
+
+13 Interaction Mode
+
+14 Graphics Device Colour Table and Palette 
+
+ 14.1 Lookup Tables
+
+ 14.2 Manipulating Colour Tables 
+
+ 14.3 Creating Lookup Tables
+
+  14.3.1 From a Text File
+
+  14.3.2 Running LUTEDIT
+
+ 14.4 Palette
+
+ 14.5 Persistence of Palettes and Colour Tables
+
+15 Masking, Bad Values, and Quality
+
+ 15.1 Bad-pixel Masking
+
+  15.1.1 Doing it the ARD Way
+
+  15.1.2 SEGMENT and ZAPLIN
+
+  15.1.3 Special Filters for Inserting Bad Values 
+
+ 15.2 Quality Masking
+
+ 15.3 Removing bad pixels
+
+16 Using Quality Names
+
+ 16.1 Introduction
+
+ 16.2 Quality Names
+
+ 16.3 Quality Expressions
+
+17 Processing Groups of Data Files
+
+ 17.1 Applications that Process Groups of NDFs
+
+ 17.2 What about the other Parameters?
+
+ 17.3 Output Parameters
+
+ 17.4 What Happens if an Error Occurs?
+
+ 17.5 What about Applications that Re-use Parameters?
+
+ 17.6 Introducing a Pause Between Invocations
+
+ 17.7 Reporting the Data Files being Processed
+
+ 17.8 The Syntax for Specifying Groups of Data Files
+
+ 17.9 Using non-NDF Data Formats
+
+ 17.10 Disabling Multiple Invocations of Applications
+
+18 Getting Data into KAPPA
+
+ 18.1 Automatic Conversion 
+
+ 18.2 Other Routes for Data Import
+
+ 18.3 FITS readers
+
+  18.3.1 Reading FITS Tapes
+
+  18.3.2 Reading FITS Files
+
+ 18.4 The FITS Airlock
+
+  18.4.1 NDF Extensions
+
+  18.4.2 Importing and Exporting from and to the FITS Extension
+
+  18.4.3 Listing the FITS Extension and keywords
+
+  18.4.4 Creating and Editing the FITS Extension
+
+  18.4.5 Easy way to create and edit the FITS Extension
+
+19 Procedures
+
+ 19.1 C-shell scripts
+
+ 19.2 ICL Procedures
+
+20 Problems Problems
+
+ 20.1 Errors
+
+ 20.2 No Match
+
+ 20.3 Unable to Obtain Work Space
+
+ 20.4 Application Automatically Picks up the Wrong NDF
+
+ 20.5 Unable to Store a Picture in the Graphics Database
+
+ 20.6 Line Graphics are Invisible on an Graphics Device
+
+ 20.7 Error Obtaining a Locator to a Slice of an HDS array
+
+ 20.8 Badly placed ()’s
+
+ 20.9 Attempt to use ’positional’ parameter value (x) in an unallocated position
+
+ 20.10 The choice x is not in the menu. The options are…
+
+ 20.11 Annotated axes show the wrong co-ordinate system
+
+ 20.12 “I’ve Got This FITS Tape” 
+
+ 20.13 FITSIN does not Recognise my FITS Tape 
+
+ 20.14 It Used to Work…and Weird Errors
+
+21 Custom KAPPA
+
+ 21.1 Tasks
+
+ 21.2 Parameters
+
+ 21.3 Commands
+
+22 Acknowledgments
+
+23 Acknowledging this Software
+
+A Classified KAPPA commands 
+
+ A.1 DATA IMPORT & EXPORT
+
+  A.1.1 Image generation and input
+
+  A.1.2 Preparation for output
+
+ A.2 DATA DISPLAY
+
+  A.2.1 Detail enhancement
+
+  A.2.2 Device selection
+
+  A.2.3 Display control
+
+  A.2.4 Graphics Database
+
+  A.2.5 Lookup/Colour tables
+
+  A.2.6 Output
+
+  A.2.7 Palette
+
+ A.3 DATA MANIPULATION
+
+  A.3.1 Arithmetic
+
+  A.3.2 Combination
+
+  A.3.3 Compression and expansion
+
+  A.3.4 Configuration change
+
+  A.3.5 Filtering
+
+  A.3.6 HDS components
+
+  A.3.7 NDF array components
+
+  A.3.8 NDF axis components
+
+  A.3.9 NDF character components
+
+  A.3.10 NDF extensions
+
+  A.3.11 NDF History
+
+  A.3.12 NDF Provenance
+
+  A.3.13 NDF World Co-ordinate Systems
+
+  A.3.14 Pixel editing and masking
+
+  A.3.15 Polarimetry
+
+  A.3.16 Resampling and transformations
+
+  A.3.17 Surface and vector fitting
+
+ A.4 DATA ANALYSIS
+
+  A.4.1 Statistics
+
+  A.4.2 Other
+
+ A.5 SCRIPTING TOOLS
+
+ A.6 INQUIRIES & STATUS
+
+ A.7 MISCELLANEOUS
+
+B Quotas to run KAPPA
+
+C Specifications of KAPPA applications
+
+ C.1 Explanatory Notes
+
+ ADD – Adds two NDF data structures 
+ ALIGN2D – Aligns a pair of
+two-dimensional NDFs by minimising the residuals between them. 
+ APERADD
+– Integrates pixel values within an aperture of an NDF 
+ ARDGEN – Creates
+a text file describing selected regions of an image 
+ ARDMASK – Uses an
+ARD file to set some pixels of an NDF to be bad 
+ ARDPLOT – Plot regions
+described in an ARD file 
+ AXCONV – Expands spaced axes in an NDF into
+the primitive form 
+ AXLABEL – Sets a new label value for an axis within an
+NDF data structure 
+ AXUNITS – Sets a new units value for an axis within
+an NDF data structure 
+ BEAMFIT – Fits beam features in a two-dimensional
+NDF 
+ BLOCK – Smooths an NDF using an n-dimensional rectangular box
+filter. 
+ CADD – Adds a scalar to an NDF data structure 
+ CALC – Evaluates
+a mathematical expression 
+ CALPOL – Calculates polarisation parameters
+
+ CARPET – Creates a cube representing a carpet plot of an image 
+ CDIV
+– Divides an NDF by a scalar 
+ CENTROID – Finds the centroids of star-like
+features in an NDF 
+ CHAIN – Concatenates a series of vectorized NDFs 
+
+CHANMAP – Creates a channel map from a cube NDF by compressing slices
+along a nominated axis 
+ CHPIX – Replaces the values of selected pixels in
+an NDF 
+ CLINPLOT – Draws a spatial grid of line plots for an axis of a cube
+
+NDF 
+ CMULT – Multiplies an NDF by a scalar 
+ COLCOMP – Produces
+a colour composite of up to three two-dimensional NDFs 
+ COLLAPSE –
+Reduces the number of axes in an n-dimensional NDF by compressing it along
+a nominated axis 
+ COMPADD – Reduces the size of an NDF by adding
+values in rectangular boxes 
+ COMPAVE – Reduces the size of an NDF by
+averaging values in rectangular boxes 
+ COMPICK – Reduces the size of
+an NDF by picking equally spaced pixels 
+ COMPLEX – Converts between
+representations of complex data 
+ CONFIGECHO – Displays one or more
+configuration parameters 
+ CONTOUR – Contours a two-dimensional NDF 
+
+CONVOLVE – Convolves a pair of one- or two-dimensional NDFs together 
+
+COPYBAD – Copies bad pixels from one NDF file to another 
+ CREFRAME
+– Generates a test two-dimensional NDF with a selection of several forms 
+
+CSUB – Subtracts a scalar from an NDF data structure 
+ CUMULVEC – Sums
+the values cumulatively in a one-dimensional NDF 
+ CURSOR – Reports the
+co-ordinates of positions selected using the cursor 
+ DISPLAY – Displays a
+one- or two-dimensional NDF 
+ DIV – Divides one NDF data structure by
+another 
+ DRAWNORTH – Draws arrows parallel to the axes 
+ DRAWSIG
+– Draws ±n
+standard-deviation lines on a line plot 
+ ELPROF – Creates a radial or azimuthal
+profile of a two-dimensional image 
+ ERASE – Erases an HDS object 
+
+ERRCLIP – Removes pixels with large errors from an NDF 
+ EXCLUDEBAD
+– Excludes bad rows or columns from a two-dimensional NDF 
+ EXP10 –
+Takes the base-10 exponential of an NDF data structure 
+ EXPE – Takes the
+natural exponential of an NDF data structure 
+ EXPON – Takes the exponential
+(specified base) of an NDF data structure 
+ FFCLEAN – Removes defects
+from a substantially flat one-, or two-, or three-dimensional NDF 
+ FILLBAD
+– Removes regions of bad values from an NDF 
+ FITSDIN – Reads a FITS
+disc file composed of simple, group or table objects 
+ FITSEDIT – Edits the
+FITS extension of an NDF 
+ FITSEXIST – Inquires whether or not a keyword
+exists in a FITS extension 
+ FITSEXP – Exports NDF-extension information
+into an NDF FITS extension 
+ FITSHEAD – Lists the headers of FITS files 
+
+FITSIMP – Imports FITS information into an NDF extension 
+ FITSIN – Reads
+a FITS tape composed of simple, group or table files 
+ FITSLIST – Lists the
+FITS extension of an NDF 
+ FITSMOD – Edits an NDF FITS extension via a
+text file or parameters 
+ FITSTEXT – Creates an NDF FITS extension from a
+text file 
+ FITSURFACE – Fits a polynomial surface to two-dimensional data
+array 
+ FITSVAL – Reports the value of a keyword in the FITS extension. 
+
+FITSWRITE – Writes a new keyword to the FITS extension 
+ FLIP – Reverses
+an NDF’s pixels along a specified dimension 
+ FOURIER – Performs
+forward and inverse Fourier transforms of one- or two-dimensional NDFs 
+
+GAUSMOOTH – Smooths a one- or two-dimensional image using a Gaussian
+filter 
+ GDCLEAR – Clears a graphics device and purges its database entries
+
+ GDNAMES – Shows which graphics devices are available 
+ GDSET –
+Selects a current graphics device 
+ GDSTATE – Shows the current status of a
+graphics device 
+ GLITCH – Replaces bad pixels in a two-dimensional NDF
+with the local median 
+ GLOBALS – Displays the values of the Kappa global
+parameters 
+ HISCOM – Adds commentary to the history of an NDF 
+
+HISLIST – Lists NDF history records 
+ HISSET – Sets the NDF history update
+
+mode 
+ HISTAT – Computes ordered statistics for an NDF’s pixels using an
+histogram 
+ HISTEQ – Performs an histogram equalisation on an NDF 
+
+HISTOGRAM – Computes an histogram of an NDF’s values 
+ INTERLEAVE
+– Forms a higher-resolution NDF by interleaving a set of NDFs 
+ KAPHELP
+– Gives help about Kappa
+ KAPVERSION – Checks the package version
+number 
+ KSTEST – Compares data sets using the Kolmogorov-Smirnov
+test 
+ LAPLACE – Performs a Laplacian convolution as an edge detector in a
+two-dimensional NDF 
+ LINPLOT – Draws a line plot of the data values in a
+one-dimensional NDF 
+ LISTMAKE – Creates a catalogue holding a positions
+list 
+ LISTSHOW – Reports the positions stored in a positions list 
+ LOG10
+– Takes the base-10 logarithm of an NDF data structure 
+ LOGAR – Takes
+the logarithm (specified base) of an NDF data structure 
+ LOGE – Takes the
+natural logarithm of an NDF data structure 
+ LOOK – List pixel values in a
+two-dimensional NDF 
+ LUCY – Performs a Richardson-Lucy deconvolution
+of a one- or two-dimensional array 
+ LUTABLE – Manipulates an graphics
+device colour table 
+ LUTBGYRW – Loads the BGYRW lookup table 
+
+LUTCOL – Loads the standard colour lookup table 
+ LUTCOLD – Loads the
+cold lookup table 
+ LUTCONT – Loads a lookup table to give the display the
+appearance of a contour plot 
+ LUTEDIT – Creates or edits an graphics device
+colour lookup table 
+ LUTFC – Loads the standard false-colour lookup table 
+
+LUTGREY – Loads the standard grey-scale lookup table 
+ LUTHEAT – Loads
+the heat lookup table 
+ LUTIKON – Loads the default Ikon lookup table 
+
+LUTNEG – Loads the standard negative grey-scale lookup table 
+ LUTRAMPS
+– Loads the coloured-ramps lookup table 
+ LUTREAD – Loads an graphics
+device lookup table from an NDF 
+ LUTSAVE – Saves the current colour table
+of an graphics device in an NDF 
+ LUTSPEC – Loads a spectrum-like lookup
+table 
+ LUTVIEW – Draws a colour-table key 
+ LUTWARM – Loads the
+warm lookup table 
+ LUTZEBRA – Loads a pseudo-contour lookup table 
+
+MAKESNR – Creates a signal-to-noise array from an NDF with defined variances
+
+ MAKESURFACE – Creates a two-dimensional NDF from the coefficients of
+a polynomial surface 
+ MANIC – Change the dimensionality of all or part of
+an NDF 
+ MATHS – Evaluates mathematical expressions applied to NDF data
+structures 
+ MEDIAN – Smooths a two-dimensional data array using a weighted
+median filter 
+ MEM2D – Performs a Maximum-Entropy deconvolution of
+a two-dimensional NDF 
+ MFITTREND – Fits independent trends to data
+lines that are parallel to an axis 
+ MLINPLOT – Draws a multi-line plot of the
+data values in a two-dimensional NDF 
+ MOCGEN – Creates a Multi-Order
+Coverage map describing regions of an image 
+ MSTATS – Calculate statistics
+over a group of data arrays or points 
+ MULT – Multiplies two NDF data
+structures 
+ NATIVE – Converts an HDS object to native machine data
+representation 
+ NDFCOMPARE – Compares a pair of NDFs for equivalence
+
+ NDFCOMPRESS – Compresses an NDF so that it occupies less disk space 
+
+NDFCOPY – Copies an NDF (or NDF section) to a new location 
+ NDFECHO
+– Displays a group of NDF names 
+ NDFTRACE – Displays the attributes of an
+NDF data structure 
+ NOGLOBALS – Resets the Kappa global parameters 
+
+NOMAGIC – Replaces all occurrences of magic value pixels in an NDF array
+with a new value 
+ NORMALIZE – Normalises one NDF to a similar NDF
+by calculating a scale factor and zero-point difference 
+ NUMB – Counts the
+
+number of elements of an NDF with values or absolute values above or below a
+threshold 
+ ODDEVEN – Removes odd-even defects from a one-dimensional
+NDF 
+ OUTLINE – Draws an outline of a two-dimensional NDF 
+ OUTSET
+– Mask pixels inside or outside a specified circle in a two-dimensional NDF 
+
+PALDEF – Loads the default palette to a colour table 
+ PALENTRY – Enters
+a colour into an graphics device’s palette 
+ PALREAD – Fills the palette of a
+colour table from an NDF 
+ PALSAVE – Saves the current palette of a colour
+table to an NDF 
+ PARGET – Obtains the value or values of an application
+parameter 
+ PASTE – Pastes a series of NDFs upon each other 
+ PERMAXES
+– Permute an NDF’s pixel axes 
+ PICBASE – Selects the BASE picture from
+the graphics database. 
+ PICCUR – Uses a graphics cursor to change the
+current picture 
+ PICDATA – Selects the last DATA picture from the graphics
+database. 
+ PICDEF – Defines a new graphics-database FRAME picture or
+an array of FRAME pictures 
+ PICEMPTY – Finds the first empty FRAME
+picture in the graphics database 
+ PICENTIRE – Finds the first unobscured and
+unobscuring FRAME picture in the graphics database 
+ PICFRAME – Selects
+the last FRAME picture from the graphics database. 
+ PICGRID – Creates an
+array of FRAME pictures 
+ PICIN – Finds the attributes of a picture interior
+to the current picture 
+ PICLABEL – Labels the current graphics-database
+picture 
+ PICLAST – Selects the last picture from the graphics database. 
+
+PICLIST – Lists the pictures in the graphics database for a device 
+ PICSEL –
+Selects a graphics-database picture by its label 
+ PICTRANS – Transforms a
+graphics position from one picture co-ordinate Frame to another 
+ PICVIS –
+Finds the first unobscured FRAME picture in the graphics database 
+ PICXY
+– Creates a new FRAME picture defined by co-ordinate bounds 
+ PIXBIN
+– Places each pixel value in an input NDF into an output bin 
+ PIXDUPE
+– Expands an NDF by pixel duplication 
+ PLUCK – Plucks slices from an
+NDF at arbitrary positions 
+ POW – Takes the specified power of each
+pixel of an NDF 
+ PROFILE – Creates a one-dimensional profile through an
+n-dimensional NDF 
+ PROVADD – Stores provenance information in an NDF
+
+ PROVMOD – Modifies provenance information for an NDF 
+ PROVREM
+– Removes selected provenance information from an NDF 
+ PROVSHOW
+– Displays provenance information for an NDF 
+ PSF – Determines the
+parameters of a model star profile by fitting star images in a two-dimensional
+NDF 
+ QUALTOBAD – Set selected NDF pixels bad on the basis of Quality
+
+ REGIONMASK – Applies a mask to a region of an NDF 
+ REGRID –
+Applies a geometrical transformation to an NDF 
+ REMQUAL – Removes
+specified quality definitions from an NDF 
+ RESHAPE – Reshapes an NDF,
+treating its arrays as vectors 
+ RIFT – Adds a scalar to a section of an NDF data
+structure to correct rift-valley defects 
+ ROTATE – Rotates a two-dimensional
+NDF about its centre through any angle 
+ SCATTER – Displays a scatter plot
+between data in two NDFs 
+ SEGMENT – Copies polygonal segments from
+one NDF into another 
+ SETAXIS – Sets values for an axis array component
+within an NDF data structure 
+ SETBAD – Sets new bad-pixel flag values for
+an NDF 
+ SETBB – Sets a new value for the quality bad-bits mask of an NDF
+
+ SETBOUND – Sets new bounds for an NDF 
+ SETEXT – Manipulates the
+contents of a specified NDF extension 
+ SETLABEL – Sets a new label for an
+NDF data structure 
+ SETMAGIC – Replaces all occurrences of a given value
+
+in an NDF array with the bad value 
+ SETNORM – Sets a new value for one
+or all of an NDF’s axis-normalisation flags 
+ SETORIGIN – Sets a new pixel
+origin for an NDF 
+ SETQUAL – Assigns a specified quality to selected pixels
+within an NDF 
+ SETSKY – Stores new WCS information within an NDF 
+
+SETTITLE – Sets a new title for an NDF data structure 
+ SETTYPE – Sets a
+new numeric type for the DATA and VARIANCE components of an NDF 
+
+SETUNITS – Sets a new units value for an NDF data structure 
+ SETVAR –
+Sets new values for the VARIANCE component of an NDF data structure 
+
+SHADOW – Enhances edges in a two-dimensional NDF using a shadow effect
+
+ SHOWQUAL – Display the quality names defined in an NDF 
+ SLIDE –
+Realigns an NDF using a translation 
+ SQORST – Squashes or stretches an
+NDF 
+ STATS – Computes simple statistics for an NDF’s pixels 
+ SUB –
+Subtracts one NDF data structure from another 
+ SUBSTITUTE – Replaces all
+occurrences of a given value in an NDF array with another value 
+ SURFIT –
+Fits a polynomial or bi-cubic spline surface to two-dimensional data array 
+
+THRESH – Edits an NDF to replace values between or outside given limits with
+specified constant values 
+ TRANDAT – Converts free-format text data into an
+NDF 
+ TRIG – Performs a trigonometric transformation on a NDF 
+ VECPLOT
+– Plots a two-dimensional vector map 
+ WCSADD – Creates a Mapping and
+optionally adds a new co-ordinate Frame into the WCS component of an NDF
+
+ WCSALIGN – Aligns a group of NDFs using World Co-ordinate System
+information 
+ WCSATTRIB – Manages attribute values associated with the
+WCS component of an NDF 
+ WCSCOPY – Copies WCS information from
+one NDF to another 
+ WCSFRAME – Changes the current co-ordinate Frame
+in the WCS component of an NDF 
+ WCSMOSAIC – Tiles a group of NDFs
+using World Co-ordinate System information 
+ WCSREMOVE – Remove
+co-ordinate Frames from the WCS component of an NDF 
+ WCSSHOW –
+Examines the internal structure of a WCS description. 
+ WCSSLIDE – Applies
+a translational correction to the WCS in an NDF 
+ WCSTRAN – Transform a
+position from one NDF co-ordinate Frame to another 
+ WIENER – Applies
+a Wiener filter to a one- or two-dimensional array 
+ ZAPLIN – Replaces
+regions in a two-dimensional NDF by bad values or by linear interpolation 
+
+D Descriptions of Frame Attributes
+
+E Descriptions of Plotting Attributes
+
+F Standard Named Colours
+
+G Using MathMaps
+
+ G.1 Defining Transformation Functions
+
+ G.2 Calculating Intermediate Values
+
+ G.3 Expression Syntax
+
+ G.4 Variables
+
+ G.5 Literal Constants
+
+ G.6 Arithmetic Precision
+
+ G.7 Propagation of Missing Data
+
+ G.8 Arithmetic Operators
+
+ G.9 Logical Operators
+
+ G.10 Relational Operators
+
+ G.11 Bitwise Operators
+
+ G.12 Functions
+
+ G.13 Symbolic Constants
+
+ G.14 Evaluation Precedence and Associativity
+
+H Standard Components in an NDF 
+
+I IMAGE data format
+
+J Supported HDS Data Types
+
+K Release Notes—V2.6
+
+ K.1 New Commands
+
+ K.2 General Changes
+
+ K.3 Modified Commands
+
+L Notes from Previous Few Releases
+
+ L.1 Release Notes—V2.0
+
+  L.1.1 General Changes
+
+  L.1.2 New Commands
+
+  L.1.3 Modified Commands
+
+ L.2 Release Notes—V2.1
+
+  L.2.1 New Commands
+
+  L.2.2 Modified Commands
+
+ L.3 Release Notes—V2.2
+
+  L.3.1 Documentation Changes
+
+  L.3.2 Modified Commands
+
+ L.4 Release Notes—V2.3
+
+  L.4.1 New Commands
+
+  L.4.2 Modified Commands
+
+ L.5 Release Notes—V2.4
+
+  L.5.1 New Commands
+
+  L.5.2 Modified Commands
+
+ L.6 Release Notes—V2.5
+
+  L.6.1 General Changes
+
+  L.6.2 Modified Commands
+
+M Release Notes—V2.5-9
+
+ M.1 Modified Commands

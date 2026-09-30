@@ -1,0 +1,18 @@
+Kerr Ray-tracer for Analytic Null Geodesics (KRANG)
+
+This Julia package provides accurate, differentiable null geodesics in the Kerr spacetime.
+
+The package is intended mainly for scientific use in astrophysical observations, so the observer is constrained to lie at asymptotic infinity.
+These algorithms mainly follow the formalism of Gralla & Lupsasca, with the exception of a new sub-image indexing scheme and a regularized time integral definition.
+The ray tracing scheme has been optimized for GPU compatibility and automatic differentiability with Enzyme.jl.
+These considerations allow the algorithms to be used in machine-learning applications with the existing Julia infrastructure.
+
+Documentation
+
+Repo Status
+
+Installation
+
+Launch a Julia session, then type ] to enter Pkg mode. Once in Pkg mode, type:
+
+add Krang

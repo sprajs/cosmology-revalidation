@@ -1,0 +1,43 @@
+Zarr
+
+What is it?
+
+The zarr library is a Python implementation of the Zarr storage format. zarr delivers compressed, chunked, N-dimensional arrays that work well for parallel computing and object storage. See the documentation for more information.
+
+Main Features
+
+Create N-dimensional arrays with NumPy-compatible dtypes.
+
+Chunk arrays along any dimension.
+
+Encode chunks using a variety of useful encodings (e.g., compression).
+
+Store arrays in memory, on disk, inside a zip file, on S3, etc...
+
+Read an array concurrently from multiple threads or processes.
+
+Write to an array concurrently from multiple threads or processes.
+
+Organize arrays into hierarchies via groups.
+
+Where to get it
+
+Zarr can be installed from PyPI using pip:
+
+pip install zarr
+
+or via conda:
+
+conda install -c conda-forge zarr
+
+For more details, including how to install from source, see the installation documentation.
+
+Repository sub-packages
+
+In addition to the primary zarr implementation, this repository contains other packages that provide specialized functionality with minimal dependencies:
+
+zarr-metadata: Tools for Zarr metadata. Install with pip install zarr-metadata.
+
+zarr-indexing: Tools for lazily indexing chunked arrays. Install with pip install zarr-indexing.
+
+zarr-http-server: An HTTP server implementation targeting Zarr data. Install with pip install zarr-http-server.

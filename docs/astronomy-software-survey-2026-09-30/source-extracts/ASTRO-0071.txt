@@ -1,0 +1,295 @@
+ESO - Instrument Pipelines Page
+
+European
+Southern
+Observatory
+
+ESO — Reaching New Heights in Astronomy
+
+Public
+
+Science
+
+User Portal
+
+Contact
+
+ Go!
+
+ Science Users Information
+  > 
+
+ Science Software
+  > 
+
+ Instrument Pipelines Page
+
+ 29 Sep 2026
+
+jump to navigation
+jump to content
+
+Science Users Information
+
+Observing Facilities
+
+La Silla Paranal Observatory
+
+Paranal Facilities
+
+La Silla Facilities
+
+APEX
+
+ALMA
+
+E-ELT
+
+Instrumentation Development
+
+Future Facilities and Development
+
+ELT
+
+Instrumentation Development
+
+Observing with ESO Telescopes
+
+Policies and Procedures
+
+Telescope Time Allocation
+
+Phase 1 Proposals
+
+Phase 2 Preparation
+
+Phase 3
+
+Public Surveys
+
+Observing Tools and Services
+
+Visiting Astronomers
+
+Observatory Statistics
+
+Science Software
+
+Instrument Pipelines
+
+ESO Reflex
+
+ESO Data Processing System
+
+Common Pipeline Library
+
+Legacy Software
+
+Science Archive Facility
+
+Data Portal
+
+ESO Data
+
+Hubble Space Telescope Data
+
+Virtual Observatory Tools
+
+Catalogues, Plates and DSS
+
+Tools and Documentation
+
+Related External Services
+
+ESO & HST Image Galleries
+
+News and Updates
+
+FAQ
+
+ESO Data Access Policy
+
+Science Activities
+
+APEX Science Verification
+
+Science in Garching and Santiago
+
+Science in Garching
+
+Science in Santiago
+
+Special Visitor Programme for Scientists working in Ukraine
+
+Fellowships and Studentships
+
+PhD Thesis Topics offered by ESO Faculty Members
+
+Instrument Commissioning
+
+VLT/VLTI Science Verification
+
+VISTA Science Verification
+
+50 years of the ESO Fellowship
+
+Science Publications
+
+Science Announcements
+
+ESO Science Newsletter
+
+The Messenger
+
+ESO Annual Reports
+
+Old Science Announcements
+
+Science and Technical Meetings
+
+Seminars at ESO Garching
+
+Seminars at ESO Santiago
+
+Conferences and Workshops
+
+Conferences 2027
+
+Conferences 2026
+
+Conferences 2025
+
+Conferences 2024
+
+Conferences 2023
+
+Conferences 2022
+
+Past Conferences and Workshops in Europe
+
+Past Conferences and Workshops in Chile and Latin America
+
+ESO Code of Conduct for Workshops & Conferences
+
+IT Services
+
+Library, Documentation & Information Services
+
+Information Repository (PDM)
+
+ESO Telescope Bibliography
+
+eContent
+
+Publishing Support
+
+Vacancies
+
+ Home
+
+ Latest News 
+
+ Available Pipelines 
+
+ Homebrew Installation 
+
+ Containers Installation 
+
+ RPM Installation 
+
+ Source Kits Installation 
+
+ Support
+
+ MacPorts Installation (Decommissioned) 
+
+ESO Data Reduction Pipelines and Workflow Systems
+
+ESO provides data reduction pipelines for most current VLT instruments and some La Silla instruments and will provide them for all new VLT and ELT instruments (c.f. complete list of all current instrument pipelines + manuals + source code). 
+
+ESO pipelines consist of of series of reduction steps called "recipes" that can be executed one at a time. These recipes can be encoded in Python or C. In order to execute the recipes, they need to be fed with raw data, static calibration data and (possibly) the output from other recipes.
+
+EDPS is the recommended environment for data reduction of ESO data. All current and future instrument pipelines for VLT and ELT will be supported by EDPS. The development of the older EsoReflex environment with similar functionalities stopped in 2018. Support for it is provided on a best-effort basis.
+
+EDPS automatically organises data from ESO instruments for pipeline processing and orchestrates the execution of the various pipeline recipes on them. It can be easily configured and executed via a graphical user interface, which offers visualisation of the results and re-execution of selected processing steps. A command line interface and direct access to its Python building-block functions are also available.
+
+The above systems use EsoRex or PyEsoRex to execute individual recipes. These tools can also be used to execute recipes one at a time directly from the command line or in shell scripts or other data processing systems. Recipes can also be called directly from Python using the PyCPL interface. There are currently no supported tools to carry out the data organisation, association or visualization outside of the EsoReflex and EDPS.
+
+Test and Science data
+
+Test data sets to demonstrate the reduction are available for each pipeline. They can be obtained as part of the installation procedure, or downloaded with this script. Public science data from ESO telescopes including the necessary calibrations can be downloaded from the ESO Science Archive Facility.
+
+Installation
+
+ESO pipelines are distributed for Linux and macOS and are known to work in Windows. Several installation options are available for each operating system. The different installation options for each operating system are tabulated below in order of recommended preference from higest to lowest, top to bottom. A more detailed discussion of the Pros & Cons of each installation method is provided here in case you want to make a more informed decision regarding the best install method for you/your use case.
+
+The operating system dependent installation methods described below all include installation of EsoReflex, whereas the installation instructions for EDPS are operating system independent (except for RPM, MacPorts and HomeBrew methods which provide EDPS packages). 
+
+In all cases installation from source code should be considered as "for experts", or at least users experienced with building/installing from source code either specifically the ESO pipelines or "software packages" in general.
+
+Recommended installation methods
+
+   macOS       
+
+  Ubuntu    
+
+Systems
+
+    Fedora      
+
+CentOs
+
+   Other
+
+   Linux
+
+Windows
+
+most
+
+least
+
+Homebrew
+
+source code
+
+MacPorts(*)
+
+Homebrew
+
+Apptainer
+
+source code
+
+RPMs 
+
+Homebrew(**)
+
+Apptainer
+
+source code
+
+Homebrew
+
+Apptainer
+
+source code
+
+WSL2(***) with Ubuntu
+
+and Homebrew
+
+WSL2(***) with Ubuntu
+
+and source code installation
+
+(*) We annouce the discontinuation as of 2026-09-01 of support for the ESO MacPorts Repository in favour of Homebrew, which has the advantage of providing a unique package management system for both Mac and Linux systems. If you already have ESO pipelines installed, you can keep using them, but they will no longer be updated and may of the MacPorts Pipeline versions are already out dated compared to the current official Public Release versions. If you want to migrate to Homebrew, or simply remove ESO Pipelines and/or MacPorts completely, please see the MacPorts Decommssioned web page.
+
+(**) For Fedora versions that are supported by ESO RPMS, we recommend RPM installation over Homebrew installation, but we often do not have RPMs available for the very latest one or two releases of Fedora, and then in this case we recommend Homebrew installation.
+
+(***) Ensure you have the very latest version of WSL2.
+
+ Last Update: 14.09.26 © ESO
+ Send us your comments |
+ Subscribe to Newsletter |
+ Privacy Statement

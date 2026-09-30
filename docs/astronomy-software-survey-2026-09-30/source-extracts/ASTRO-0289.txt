@@ -1,0 +1,134 @@
+Name:EinsteinPy
+
+Website:https://einsteinpy.org/
+
+Version:0.5.dev0
+
+EinsteinPy is an open-source pure Python package dedicated to the study of problems arising
+in General Relativity and gravitational physics. Using EinsteinPy, it is possible to approach
+problems symbolically as well as numerically. On the symbolic side, EinsteinPy provides a robust
+API, which allows users to access several predefined metrics or to define custom metrics and perform
+symbolic calculations on them. Computation of quantities, such as terms of metric tensors,
+Christoffel symbols, Riemann Curvature tensor, Ricci tensor, stress-energy tensor and more are
+all supported and extensible, since the symbolic modules are built on top of SymPy. On
+the numerical side, EinsteinPy provides tools to calculate and visualize geodesics, metric
+singularities and hypersurface embeddings in certain spacetimes. We hope to extend the package to
+include more features in the future. EinsteinPy is released under the MIT license.
+
+Documentation
+
+Complete documentation, including a user guide and an API reference, can be perused on
+the wonderful Read the Docs.
+
+Examples
+
+Several tutorial Jupyter notebooks on specific applications of EinsteinPy can be found
+in the examples directory. You can launch a Jupyter notebook instance in the cloud
+using binder to run and edit these notebooks without installing anything. Try it out!
+
+Requirements
+
+EinsteinPy requires the following Python packages:
+
+NumPy, for basic numerical routines
+
+SciPy, for solving ordinary differential equations
+
+SymPy, for symbolic calculations
+
+Astropy, for handling conversion between physical units
+
+Matplotlib, for producing static visualizations
+
+Plotly, for producing interactive visualizations
+
+Numba, for accelerating the code
+
+EinsteinPy is currently tested on Linux, Windows and macOS on Python 3.7 and 3.8, against the latest NumPy.
+
+Platform
+Site
+Status
+
+Linux
+CircleCI
+
+macOS
+Github Actions
+
+Windows x64
+Appveyor
+
+Installation
+
+Currently, the recommended way to install EinsteinPy is using pip
+from PyPI:
+$ pip install einsteinpy
+
+Or, you can install the package using conda:
+$ conda install einsteinpy --channel conda-forge
+
+Note that the package on conda-forge is currently a version behind PyPI. We are working on updating it.
+
+For Debian/Ubuntu/Mint users, the package is installable via apt (Ubuntu 19.04 onwards):
+$ sudo apt install python3-einsteinpy
+
+If you prefer to install from source to stay on the latest but likely unstable version,
+you can do so using the method described here.
+
+Problems
+
+If the installation fails or you find something that doesn't work as expected,
+please open an issue in the issue tracker.
+
+Contributing
+
+EinsteinPy is a community project. Hence, all contributions are more than
+welcome! For more information, head to CONTRIBUTING or see the developer guide.
+
+Support
+
+Please join our [matrix] channel or Gitter chat room for general discussions and further queries.
+
+Release announcements take place on our mailing list. Feel free to join!
+
+If you still have a doubt, write to us directly at all@einsteinpy.org.
+
+Citing
+
+If you use EinsteinPy in your project, please drop us a line.
+You can also use the DOI to cite it in your publications. This is the latest one:
+
+And this is an example citation format:
+
+Shreyas Bapat et al (2021). EinsteinPy 0.4.0 (v0.4.0). Zenodo. https://doi.org/10.5281/zenodo.2582387
+
+License
+
+EinsteinPy is released under the MIT license, thereby allowing commercial
+use of the library. Please refer to COPYING for more details.
+
+FAQ
+
+Why "EinsteinPy"?
+
+EinsteinPy borrows the name of the famous physicist, Nobel laureate and revolutionary
+human, Dr. Albert Einstein. This is a small tribute on our part for the amazing work
+he did for humanity!
+
+Can I do <insert nerdy thing> with EinsteinPy?
+
+EinsteinPy is focused on general relativity. One can always discuss probable features in discussion
+forums and the mailing list and also work with the maintainers to try to implement them.
+We welcome every contribution to EinsteinPy. Please see CONTRIBUTING for more details.
+
+What's the future of the project?
+
+EinsteinPy is actively maintained and we hope to receive an influx of new contributors.
+The best way to get an idea about the roadmap is to view the milestones of
+the project.
+
+Inspiration
+
+The documentation and code structure is shamelessly inspired by poliastro. We wholeheartedly thank the poliastro
+developers that made this possible. EinsteinPy is nothing without its supporters and community.

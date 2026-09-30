@@ -1,0 +1,617 @@
+AIPS ("Classic") Home Page
+
+Astronomical Image Processing System
+
+Apple Mac news
+
+ Apple has released a new line of Mac computers based on Apple
+ Silicon rather than the Intel cpus that they have been using.
+ NRAO has provided AIPS with a Mac Mini with the new M1 chip and
+ with gfortran 12. I spent several months upgrading AIPS software
+ to the strict demands of this latest compiler. We are forced to
+ use this one (or more recent) since they are the only ones that
+ understand Apple's ARM architecture. This new MACARM AIPS 
+ architecture has been released and may be installed as a binary
+ release. The really good news is that this relatively
+ inexpensive computer reached an AIPSMark of 1290, which is a new
+ record by almost a factor of 2! The Y2K Large test ran in only
+ 29 seconds real time. The same computer running the MACINT load
+ modules under the Rosetta system had an AIPSMark of 1000.
+
+ We have recently tested a Mac Mini with an M4 chip. It ran Y2K
+ Large in 22 or 23 seconds, an AIPSMark of 1778!
+
+EOP web site has moved and changed
+
+ The names of the JPL TEC files have changed so that names after
+ day 219 of 2023 are different in form than those before day 220
+ of 2023. The TECR procedures in VLBAUTIL and VLAPROCS have been
+ changed in versions 31DEC22 and later. Run the MNJ ("Midnight
+ Job") which is $HOME/do_daily.hostname to update your
+ version. Older AIPS versions have not been changed. In June
+ 2024, these procedures were updated to include other data
+ sources whose names changed at a variety of dates. Most of
+ this implementation is in 31DEC23 which is now frozen. Some
+ changes are only in 31DEC24 and later. 
+
+ The location of the EOP and TEC files used by AIPS has changed
+ and a new method of downloading them is required (using curl).
+ The VLBA and VLA procedures that download these files have been
+ changed to the new requirements in 31DEC19 and later versions.
+ You will need to be running one of these versions to do the
+ automatic downloading. 
+
+Binary support has ended for Solaris, Mac PPC, Mac Intel, and
+ Linux (32-bit)
+
+ The support for the Solaris operating system in Socorro has
+ been terminated due to the failure of shire in a power outage.
+ The binary installations of Solaris (and of Mac PPC) are not
+ provided in the 31DEC18 and later releases. Linux 32-bit
+ binaries have also been discontinued and do not appear in
+ 31DEC25. The MACINT binaries do not appear in 31DEC26 due
+ to gala-new going belly up. If you have one of these sorts of
+ computer, you may still take AIPS in text form and compile it
+ locally. The code was corrected a while back to survive modern
+ Fortran compilers.
+
+NRAO helpdesk
+
+NRAO has instituted a "helpdesk" system
+ similar to those at other astronomical institutions. AIPS
+ participates in this effort which is intended to avoid having
+ problems fall between the cracks. The helpdesk is accessed via
+ https://help.nrao.edu. Note
+ that the help site will forward you to my.nrao to create a login
+ if you do not already have one and the my.nrao site will then
+ offer a tab to reach the helpdesk. The system for the AIPS
+ "department" makes use of the daip@nrao.edu list manager system that
+ we have used for years. Thus, unlike the rest of the NRAO helpdesk,
+ messages to the AIPS portion will be made public in the daip
+ archive. This archive is accessible via the web and is well known
+ to Google among other things. Please switch to the new helpdesk to
+ allow more systematic handling of your AIPS queries and bug reports.
+ The daip@nrao.edu email address still works for AIPS queries as
+ well.
+
+Scheduled Releases
+
+The development version 31DEC26 is
+ available, the previous development version 31DEC25 is "slushy"
+ (frequent updates in December, then only patches in 2026). The
+ 31DEC24 version has been frozen hard. (A MNJ on 31DEC23, if it has
+ not been run since June 2024, might still be useful.) The new rsync
+ forms of the Midnight Job have been very easy to use and effective
+ in keeping numerous sites up to date. In 2026, the MNJ will work
+ sometimes on 31DEC25 if there has been a released patch. The
+ 31DEC26 and 31DEC25 releases are also available as binary
+ installations (and MNJs). The 31DEC16 and later MNJs no longer 
+ require cvs for binary installations, just rsync. 31DEC24 no longer
+ requires cvs even for text installations (other than the master
+ machines in Socorro).
+
+TeK and message server problems
+
+Users have encountered problems getting
+ the TeK and message servers to work in binary installations.
+ These servers are programs which run in an xterm and that xterm
+ must come up with some knowledge of AIPS libraries. This requires
+ users to modify their login scripts (e.g. .cshrc file for c shell,
+ .bashrc file for bash). See 
+ for details.
+
+Linux compiler troubles
+
+ Older versions of the gnu Fortran compiler do not work with AIPS.
+ Versions 4.4.7 and beyond do seem to work after some cleaning up of
+ the AIPS code. Gnu Fortran versions 7 and 8 required revision of
+ the handling of the AIPS pseudo array processor code. The latter
+ used to use a COMMON for its dynamic memory base, which did not
+ compile well on gfortran versions > 6. Using a variable passed down
+ from above instead works well. The Linux (64-bit) binary release
+ uses gfortran version 8.5. The new Mac ARM (M1) cpu chip required
+ the use of gfortran 11 (or later). That compiler is very strict
+ about apparent inconsistencies and so forced a lot of changes to
+ code that was in fact working correctly.
+
+WHAT IS AIPS
+
+THE CURRENT RELEASE
+
+TWO VLBI TUTORIALS, VLBAPIPE & VLBARUN INFO
+
+PROBLEMS AND WARNINGS
+
+PATCHES
+
+THE MIDNIGHT JOB
+
+NVSS/WENSS/WISH SURVEY FILES
+
+DOCUMENTATION
+
+CookBook Table of ContentsFully linked html and pdf forms are available.
+ Updated July 24, 2026.
+
+31DEC26 (31Jun26 AIPSLetter) 
+
+31DEC25 (31Dec25 AIPSLetter) 
+
+31DEC25 (30Jun25 AIPSLetter) 
+
+31DEC24 (31Dec24 AIPSLetter) 
+
+31DEC24 (30Jun24 AIPSLetter) 
+
+31DEC23 (31Dec23 AIPSLetter) 
+
+31DEC23 (30Jun23 AIPSLetter) 
+
+MAIL GROUPS
+
+AIPS MANAGER FAQ
+
+FITS-IDI FORMAT
+
+Y2K BENCHMARKS 31DEC22
+ version including Y2K HUGE
+
+DESIGNATED AIP
+
+AIPS COPYRIGHT
+
+RELATED SOFTWARE
+
+FITS FORMAT
+
+HELP!
+
+WHAT IS AIPS?
+
+Also, see the Users'
+FAQ: answers to Frequently Asked Questions, the
+AIPS Managers' FAQ:
+answers to AIPS Managers (and installers) Frequent Questions. The AIPS Manager FAQ page is especially helpful if you are
+having trouble getting the AIPS TV to run properly or are encountering
+other general difficulties or wish to configure new machines and disks
+in your AIPS environment.
+
+THE CURRENT RELEASE
+
+ 31DEC26
+ is the new primary development version of AIPS. It is ready
+ for installation. The 6-month progress report on 31DEC26 is
+ available as 31DEC26
+ AIPSLetter dated 30 June 2026 (PS.gz, 964094 bytes).
+ It is also available PDF,
+ (918679 bytes).
+
+ 31DEC25
+ is now the "slushy" version of AIPS. It will be changed in 2025
+ for most things, but only for major bug fixes in 2026. It is ready
+ for installation. The final report on 31DEC25 is
+ available as 31DEC25 gzipped
+ AIPSLetter dated 31 December 2025 (PS.gz, 1245045
+ bytes). It is also available as PDF, (922878 bytes). The 6-month
+ progress report on 31DEC25 is available as 31DEC25 AIPSLetter dated 30
+ June 2025 (PS, 1011700 bytes). It is also available gzipped (463204 bytes) and
+ PDF, (189975 bytes).
+
+ 31DEC24
+ is the now frozen version of AIPS. It was be changed in 2024
+ for most things, but only for major bug fixes in 2025. It is
+ available for installation. The final report on 31DEC24 is
+ available as 31DEC24
+ AIPSLetter dated 31 December 2024 (PS, 1025100
+ bytes). It is also available gzipped, (468261 bytes) and PDF, (197643 bytes). The 6-month
+ progress report on 31DEC24 is available as 31DEC24 AIPSLetter dated 30
+ June 2024 (PS, 1033672 bytes). It is also available gzipped (475695 bytes) and PDF, (192158 bytes).
+
+31DEC23
+ was the frozen version of AIPS. Due to the upgrade to RedHat 8,
+ it was completely frozen in mid June 2024. It is no longer
+ available for installation. The final report on 31DEC23 is
+ available as 31DEC23 
+ AIPSLetter dated 31 December 2023 (PS, 1017389
+ bytes). It is also available gzipped, (465648 bytes) and PDF, (188112 bytes). The 6-month
+ progress report on 31DEC23 is available as 31DEC23 AIPSLetter dated 30
+ June 2023 (PS, 1018605 bytes). It is also available gzipped (467038 bytes) and PDF, (182929 bytes).
+
+ There are files used by the MNJ ("Midnight Job") which may not
+ transfer properly with the MNJ for sites that compile the AIPS
+ code locally. They are named AIPSUPD, UPDCONFIG, UPDERROR, and
+ UPDPSYNC. Copies of these files are in the same data areas as
+ the 31DEC23.tar.gz for download via the web or via ftp. Put
+ them in the $AIPS_ROOT/31DEC23/$ARCH/UPDATE directory. 
+
+ 31DEC22
+ is an obsolete version of AIPS. It is no longer available for
+ installation. The final report on 31DEC22 is available as 31DEC22 AIPSLetter dated 31
+ December 2022 (PS, 1041563 bytes). It is also available gzipped,
+ (498836 bytes) and PDF,
+ (183318 bytes). The 6-month progress report on 31DEC22 is
+ available as 31DEC22
+ AIPSLetter dated 30 June 2022 (PS, 1082649 bytes).
+ It is also available gzipped
+ (498836 bytes) and PDF,
+ (183318 bytes).
+
+ 31DEC21
+ is an obsolete version of AIPS. It is no longer available for
+ installation. The final report on 31DEC21 is available as 31DEC21 AIPSLetter dated 31
+ December 2021 (PS, 1015726 bytes). It is also available gzipped,
+ (462833 bytes) and PDF,
+ (189631 bytes). The 6-month progress report on 31DEC21 is
+ available as 31DEC21
+ AIPSLetter dated 30 June 2021 (PS, 946615 bytes).
+ It is also available gzipped
+ (444817 bytes) and PDF,
+ (152823 bytes).
+
+ 31DEC20
+ is another obsolete version of AIPS. It is no longer available
+ for installation. The final report on 31DEC20 is available as 31DEC20 AIPSLetter dated 31
+ December 2020 (PS, 2700146 bytes). It is also available gzipped, (691630 bytes) and PDF, (481271 bytes). The 6-month
+ progress report on 31DEC20 is available as 31DEC20 AIPSLetter dated 30
+ June 2020 (PS, 1010321 bytes). It is also available gzipped (463109 bytes) and PDF, (186199 bytes).
+
+ 31DEC19
+ is an obsolete version of AIPS. It is no longer available
+ for installation. The final report on 31DEC19 is available as 31DEC19
+ AIPSLetter dated 31 December 2019 (PS, 864697 bytes).
+ It is also available gzipped,
+ (433388 bytes) and PDF,
+ (187651 bytes). The 6-month progress report on 31DEC19 is
+ available as 31DEC19
+ AIPSLetter dated 30 June 2018 (PS, 869314 bytes).
+ It is also available gzipped,
+ (402257 bytes) and PDF,
+ (141532 bytes). 
+
+ 31DEC18
+ is an obsolete version of AIPS. It was the last Intel-compiled
+ version for Macs. The final report on 31DEC18 is available as 31DEC18
+ AIPSLetter dated 31 December 2018 (PS, 8022909 bytes).
+ It is also available gzipped,
+ (1008277 bytes) and PDF,
+ (244403 bytes). The 6-month progress report on 31DEC18 is available as 31DEC18
+ AIPSLetter dated 30 June 2018 (PS, 867221 bytes).
+ It is also available gzipped,
+ (401469 bytes) and PDF,
+ (140662 bytes).
+
+31DEC06 and later releases contain a port to
+ the MacIntosh OS/X system running on Intel cpus. This includes
+ a full binary installation produced with the gfortran compiler.
+ The iMac which was originally used for the Mac Intel ort has been
+ replaced with a more modern Mac mini.
+
+Since the end of January 2009, Linux systems
+ running on 64-bit hardware with 64-bit operating systems have
+ the choice of using LNX64 rather than LINUX as their AIPS
+ architecture. The binary version for LNX64 is compiled with a
+ a 64-bit gfortran compiler and runs somewhat faster than the
+ LINUX version run on the same machines.
+
+From September 1, 2005 through October, 2017,
+ the binary versions for Linux were compiled with the Intel
+ compiler version 9.0. Those load modules developed oddities on
+ newer computers, especially in Europe. We have switched to
+ gfortran 6.3 which has performance about equal to the Intel load
+ modules (on those computers that ran them properly).
+
+ If you own a MacIntosh OS X computer, you
+ may now run AIPS. All available AIPS versions contain the
+ MACINT port and 31DEC22 contains code for the new ARM (M1) cpu
+ chip (MACARM). The Mac version is now compiled with gfortran
+ which allows load modules to be built to support older Mac OS
+ versions back to 13.0. Read also the rather obsolete Mac installation instructions which are
+ supplements to the A Guide to the Install
+ Wizard instructions. 
+
+When you get 31DEC26 or 31DEC25, use
+ the new install wizard; we have a good on-line guide that will help you
+ through it. Read it!
+
+The 15OCT99, 31DEC00, 31DEC01, 31DEC02, 31DEC03 31DEC04 31DEC05 31DEC06 31DEC07 31DEC08 31DEC09 31DEC10 31DEC11 31DEC12 31DEC13 31DEC14 31DEC15 31DEC16 31DEC17 releases of AIPS
+ are no longer available; the number of bug fixes and differences
+ between them and the current version have become too great. The
+ continued significant demand for a frozen, even if obsolete,
+ version was the main reason we decided to resume regular
+ releases. 
+
+TWO VLBI TUTORIALS
+
+Two extensive tutorials on VLBI data reduction in AIPS have been
+prepared, complete with data sets, introductory material about AIPS,
+and detailed instructions. They are simple VLBA project including
+ self-calibration and 
+ spectral-line VLBA project plus astrometry. Users new to, or
+rusty in, VLBI data reduction are encouraged to try these tutorials.
+Appendix C and Chapter 9 of the AIPS CookBook
+are also recommended.
+
+There are now two versions of the VLBA pipeline. They have been
+improved and may be useful to you. In addition, a pipeline for reducing
+VLBA data from secondary phase-stopping positions has been written. See
+the new VLBAPIPE information or the older
+VLBARUN information for details.
+
+PROBLEMS AND
+WARNINGS
+
+There are sometimes considerations which users of older versions of
+AIPS must take into account due to changes in the latest version. In
+addition, there are sometimes bugs introduced into the latest version
+which then get repaired in that version. Such matters may affect
+those users who keep their AIPS up to date. These bugs often do not
+get reported in the AIPSLetter since they were temporary but might be
+of concern for diligent users. They are reported in CHANGE.DOC
+but those reports are sometimes fragmentary and confusing. Do not
+hestitate to e-mail to daip@nrao.edu with any questions.
+
+PATCHES
+
+ You really should be getting 31DEC26 or 31DEC25 instead of patching an older version!
+Information on all patches may be accessed from the
+patches page,
+
+With previous releases, we did not change the frozen release tar
+ball; user sites were required to download the text files and do any
+compilations themselves. But, beginning with 31DEC04, we provide binary
+releases for which user sites are not required to have compilers.
+Therefore, we have reversed our policy. These patches have been applied
+to the official code of 31DEC17 and later releases and may be downloaded
+using an appropriate "Midnight Job". Any tarball taken after the change
+date listed below will already have the patches applied. We no longer
+provide the individual corrected files with instructions. The MNJ will
+work both for locally compiled and binary installations.
+
+Beginning with 31DEC21, we no longer have a formal
+patch procedure. Corrections for serious bugs are simply applied to
+the "NEW" version at NRAO and may be obtained via the MNJ. The files
+31DEC24, 31DEC23, and
+31DEC22 list brief summaries of
+the changes made to the corresponding release while it was NEW. The
+file CHANGE.DOC will provide information
+on any code changed in the current NEW.
+
+THE MIDNIGHT JOB
+
+... will be of interest to you if you want the latest versions
+updated nightly, weekly, or occasionally. It can do either text or
+binary updates depending on which sort you did with install.pl.
+
+NVSS and WENSS/WISH Survey files
+for AIPS
+
+The WENSS/WISH files have been corrected (2 July 2004) to omit the
+sources which are the sum of other "components" also appearing in the
+lists. Note that the survey files shipped with AIPS releases include
+the shorter lists of the stronger sources. The full lists are only
+available from this ftp site.
+
+DOCUMENTATION
+
+AIPS Memos, Reports, old AIPSLetters, the Cookbook, Going
+AIPS, access to the newest versions of the HELP
+files, search CHANGE.DOC and more. The NRAO library has
+a complete set; go to 
+https://library.nrao.edu/aips.shtml. The most recent AIPS Memos
+are:
+
+number 127,
+ discussing editing in AIPS (SPFLG, FTFLG, TVFLG)
+ June 12, 2025
+
+number 126,
+ discussing spectral index fitting in AIPS
+ January 27, 2025,
+ revision dated April 24, 2025
+
+number 125,
+ discussing calibration of linearly-polarized data
+ revised April 16, 2024,
+
+number 124,
+ discussing TVIEW, a new task for exploring image cubes,
+ revision dated April 22, 2025
+
+number 123,
+ discussing the new pulse-cal cabilities of DiFX and AIPS,
+ revision dated December 11, 2024,
+
+number 122,
+ discussing the usage of AGAUS and ZAMAN spectral absorption
+ modeling tasks,
+ revision dated June 16, 2026,
+
+number 121,
+ discussing the usage of the UFLAG gridded data flagging task, dated
+ revision dated April 30, 2025,
+
+number 120,
+ discussing the usage of the TVSPC data exploration task,
+ revision dated April 25, 2025,
+
+number 119,
+ discussing the usage of the TVSAD Gaussian modeling task, dated
+ December 15, 2014,
+
+number 118,
+ discussing the usage of XGAUS, ZEMAN, and RMFIT spectral modeling
+ tasks revision dated June 16, 2026,
+
+number 117,
+ discussing the detailed FITS format used by AIPS, revision dated October 1, 2025,
+
+number 116,
+ discussing new RFI mitigation options in AIPS, dated June 2010,
+
+number 115,
+ discussing new auto-boxing for Clean capabilites in AIPS, dated June 29, 2009,
+
+number 114,
+ re-stating the FITS-IDI convention with corrections and added
+ tables, revision dated Jul 19, 2022,
+
+number 113,
+ discussing a "new" geometric way to handle the W problem, dated May 22, 2009,
+
+number 112,
+ discussing the AIPS pipeline for VLA data reduction, dated March
+ 19, 2007,
+
+number 111,
+ discussing phase referencing with more than one calibrator using
+ ATMCA, dated January 6, 2005,
+
+number 110,
+ discussing strategy for removing troposppheric and clock errors
+ using DELZN, revised October 21, 2009, dated August 31, 2004,
+
+number 109,
+ discussing AIPS on DVDs and read-only data systems, dated
+ January 20, 2004,
+
+number 108,
+ discussing weights for VLA data, dated January 21, 2003,
+
+number 107,
+ discussing the differences between FRING and KRING, dated April
+ 8, 2002,
+
+number 106,
+ discussing the Brandeis scheme for making movies in AIPS dated
+ June 6, 2001,
+
+number 105,
+ discussing the new RUN file to simplify VLBA data reduction
+ dated February 28, 2001 and April 26, 2001,
+
+number 104,
+ discussing the new Y2K performance test dated September 8, 2000, and
+
+number 103,
+ discussing data weighting in AIPS dated 2000-03-21.
+
+MAIL GROUPS
+
+The AIPS group maintains three e-mail exploder lists. The first,
+called daip, is restricted to immediate members of the AIPS group and
+a few NRAO scientist advisors. The other two are, however, open to
+any suitable person. Membership is moderated, of course, because SPAM
+has become so annoying.
+
+The group intended for discussion of AIPS issues is called
+bananas and is used, among other things, to announce patches
+to the "frozen" versions of AIPS. Traffic is light. You can subscribe
+yourself to this list on-line.
+
+The group intended for discussion of problems related to the
+"Midnight Job" is called mnj and is used to announce AIPS
+Manager things related to the current MNJ. Traffic is light, but the
+announcements can have a serious impact on any site attempting to stay
+current with the development version of AIPS. You can subscribe
+yourself to this list on-line.
+
+FITS-IDI
+
+The FITS Interferometry Data Interchange
+format is a set of FITS
+binary table definitions and a set of conventions for using them to
+transport radio interferometry data between different software
+packages.
+
+The FITS Interferometry Data Interchange Convention (formerly Format)
+has been accepted as an IAU-acknowledged convention. This convention
+was documented by Chris Flatters in AIPS
+Memo 102 which, unfortunately, was not accompanied by an editable
+text version. Therefore, Eric Greisen had to re-type the document.
+While doing so, he updated some matters, corrected minor wording
+issues, and added 5 new sections for 5 new tables, 3 of which are
+actually in use. Interested parties should review AIPS
+Memo 114 revised (ps) or AIPS
+Memo 114 revised (pdf); it has been submitted to the IAU FITS
+Committee. Greisen has attempted to highlight the changed parts in
+red in this draft. The current draft is dated July 2022 and
+includes the MODEL_COMPS table and comments from Lorant
+Sjowerman, Bill Cotton, and others. Please e-mail
+egreisen@nrao.edu with comments.
+
+AIPS MANAGER/INSTALLER FAQ
+
+Help for the weary AIPS Installer. Very much experimental and
+incomplete, and probably needs updating, but better than nothing.
+
+BENCHMARKS (the "DDT" and now the
+"Y2K") 
+
+The AIPS Benchmark was known as the "DDT" (Dirty
+Dozen Tasks); we have results for a variety of systems. A more modern
+test called "Y2K" has been developed in 2000 to test faster
+computers and to use IMAGR rather than MX. For 31DEC22 we have new master images and data sets. In
+addition, we have a HUGE test using multi-resolution IMAGR on
+Cygnus A. Changes to CALIB and VTESS in particular
+forced this update, while faster computers make Y2K LARGE run in as
+little as 22 seconds (Mac Mini with ARM M4 chip)!
+
+DESIGNATED AIP
+
+The former designated-AIP-of-the-week program rotation has been
+halted due to the lack of personnel. The e-mail address
+(daip@nrao.edu) was the best method of reaching all
+the members of the AIPS Group and will still work. However, we ask
+you to use the new NRAO-wide helpdesk instead. Go to https://help.nrao.edu
+and login with your my.nrao.edu username and password. There you may
+peruse the "knowledge base" (currently empty), enter new tickets in
+any of several departments including AIPS, and review and update any
+tickets you have submitted.
+
+AIPS COPYRIGHT
+
+AIPS is copyrighted by Associated Universities, Inc. using the GNU
+copyright form. The full text is available with every AIPS release and
+may be read here.
+
+RELATED SOFTWARE
+
+ CASA; 
+
+FITS
+
+This is the Flexible Image Transport System, and is the
+standard data interchange format used by most Astronomical Software,
+including AIPS. Follow the above reference for a very extensive
+set of documentataion, including a large resource list for Astronomy on
+the internet.
+
+HELP!
+
+The primary AIPS address is the daip one
+referenced on our main Contact page, and general
+queries, requests for documents, ftp access, and so on should be
+directed there. Application-oriented questions should be directed to
+the Designated AIP.
+
+ Staff |
+ Contact Us |
+
+ Careers |
+
+ Directories |
+ Site Map |
+ Help |
+ Policies |
+
+ Search
+
+ Copyright © 2009 Associated Universities, Inc.
+
+ The National Radio Astronomy Observatory is a facility of the National
+ Science Foundation operated under cooperative agreement by Associated
+ Universities, Inc.
+
+Modified on $Date: 2026/07/28 20:46:54 $
+
+Eric W. Greisen

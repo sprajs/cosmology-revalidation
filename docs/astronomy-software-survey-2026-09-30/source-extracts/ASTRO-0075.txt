@@ -1,0 +1,51 @@
+The MaNGA Data Analysis Pipeline
+
+The MaNGA data-analysis pipeline (MaNGA DAP) is the survey-led software package
+that has analyzed all galaxy data produced by the MaNGA data-reduction pipeline
+(MaNGA DRP). Its goal is to produce high-level, science-ready data products
+derived from MaNGA spectra. The products currently provided are:
+
+Spatially stacked spectra
+
+Stellar kinematics
+
+Nebular emission-line properties: fluxes, equivalent widths, and
+kinematics
+
+Spectral indices: absorption-line (e.g., H-delta) and bandhead/color
+(e.g., TiO, D4000) measurements
+
+That is, the DAP currently focuses on "model-independent" properties.
+Higher-level, model-dependent properties, such as stellar-population parameters,
+are outside of the scope of the current pipeline.
+
+See our full documentation at sdss-mangadap.readthedocs.io.
+
+SDSS Data Release Versions
+
+SDSS-IV/MaNGA DR15 is based on version 2.2.1
+
+SDSS-IV/MaNGA DR17 is based on version
+3.1.2. Note that the version of the code that produced the DR17 was version
+3.1.0; version 3.1.1 and 3.1.2 only include documentation updates.
+
+Citation
+
+If you use the DAP software and/or its output products, please cite the
+following two papers:
+
+Overview: Westfall et al. (2019, AJ, 158, 231)
+
+Emission-line Modeling: Belfiore et al. (2019, AJ, 158, 160)
+
+Additionally, if you use SDSS-IV/MaNGA data, please see:
+
+How to Cite SDSS
+
+SDSS Technical Publications
+
+Installation
+
+pip install sdss-mangadap
+
+See https://sdss-mangadap.readthedocs.io/en/latest/installation.html

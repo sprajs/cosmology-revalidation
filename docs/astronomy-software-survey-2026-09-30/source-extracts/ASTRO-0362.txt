@@ -1,0 +1,118 @@
+Transits.jl
+
+Flexible photometric transit curves with limb darkening. The goals of this package are, in this order
+
+have a simple interface with high composability
+
+be flexible with respect to numeric types and application
+
+be fully compatible with ChainRules.jl automatic differentiation (AD) system to leverage the derived analytical gradients
+
+provide a codebase that is well-organized, instructive, and easy to extend
+
+maintain high performance: at least as fast as similar tools
+
+WIP: Currently under progress by @mileslucas
+
+Current TODO list
+
+in some order of importance
+
+ Finish writing KeplerOrbit (help wanted)
+
+ Gradients using ChainRulesCore
+
+ Gradient tests using ChainRulesTestUtils
+
+ Kipping prior distributions (with gradients) (help wanted)
+
+ documenation section "Introduction" describing transits and talking about science, very expository (help wanted)
+
+ Plotting functions (recreate ALFM 20 plots)
+
+recipe for lightcurve which automatically makes a simple orbit and shows features
+
+similar as above but special one for SecondaryLimbDark to side-by-side plot secondary
+
+figure 3 and 6 can be written with recipe
+
+ examples (show rich composability of julia)
+
+We can use Pluto notebooks for examples that are learning-oriented
+
+For tutorials and problem-oriented examples prefer a Julia script that can be weaved into the docs (with Literate.jl e.g.) (or just as easily weaved into a jupyter notebook!)
+
+ benchmarks (recreate ALFM 20 plots)
+
+I have some code in bench/speed.jl. This needs modularized- the benchmark function can be rewritten like benchmark(f, Nu, Npts) and abstracted for f as types.
+
+once the code is reorganized (maybe even put the new benchmark in a module for future thinking) decide whether to save data or save images, then build the link with the documentation
+
+need to add benchmarks for the python code. PyCall has worked fine for benchmarking for me in the past, so lets write the driver in Julia. here is a link to the plotting code from ALFM
+
+in general, the more this can be automated the better (including CI!)
+
+ look at simpson integrated light curve (ALFM 20)
+
+If you would like to contribute, feel free to open a pull request. If you want to discuss something before contributing, head over to discussions and join or open a new topic.
+
+Installation
+
+To install use Pkg. From the REPL, press ] to enter Pkg-mode
+
+pkg> add Transits
+
+If you want to use the most up-to-date version of the code, check it out from main
+
+pkg> add Transits#main
+
+Usage
+
+using Transits
+
+orbit = SimpleOrbit(period=3, duration=1)
+u = [0.4, 0.26] # quad limb dark
+ld = PolynomialLimbDark(u)
+
+t = range(-1, 1, length=1000) # days from t0
+rs = range(0, 0.2, length=10) # radius ratio
+
+fluxes = @. ld(orbit, t, rs')
+
+Integrated and Secondary Curves
+
+IntegratedLimbDark can be used to numerically integrate each light curve exposure in time
+
+ld = IntegratedLimbDark([0.4, 0.26])
+orbit = SimpleOrbit(period=3, duration=1)
+t = range(-1, 1, length=1000)
+texp = [0.1 0.2 0.3]
+# no extra calculations made
+flux = @. ld(orbit, t, 0.2)
+# use quadrature to find time-averaged flux for each t
+flux_int = @. ld(orbit, t, 0.2, texp)
+
+SecondaryLimbDark can be used to generate secondary eclipses given a surface brightness ratio
+
+ld = SecondaryLimbDark([0.4, 0.26], brightness_ratio=0.1)
+ld_int = IntegratedLimbDark(ld) # composition works flawlessly
+
+orbit = SimpleOrbit(period=4, duration=1)
+t = range(-1.25, 2.75, length=1000)
+rs = range(0.01, 0.1, length=6)
+
+f = @. ld(orbit, t, rs')
+f_int = @. ld_int(orbit, t, rs', texp=0.3)
+
+Using Units
+
+Units from Unitful.jl are a drop-in substitution for numbers
+
+using Unitful
+orbit = SimpleOrbit(period=10u"d", duration=5u"hr")
+t = range(-6, 6, length=1000)u"hr"
+flux = @. ld(orbit, t, 0.1)
+
+Citations
+
+If you use Transits.jl or a derivative of it in your work please consider citing it at the Zenodo DOI. If you use PolynomialLimbDark or QuadLimbDark please also cite Agol et al. (2020) and Luger et al. (2019). If you use Kipping13 please cite Kipping (2013). BibTeX for all those citations can be found in CITATIONS.bib.

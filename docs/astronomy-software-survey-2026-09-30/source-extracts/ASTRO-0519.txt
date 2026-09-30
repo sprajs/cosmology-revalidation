@@ -1,0 +1,183 @@
+FFTPACK
+
+FFTPACK
+
+Click here to see the number of accesses to this library.
+
+FFTPACK is a package of Fortran subprograms for the fast Fourier
+transform of periodic and other symmetric sequences. It includes
+complex, real, sine, cosine, and quarter-wave transforms.
+
+Reference
+P.N. Swarztrauber, Vectorizing the FFTs, in Parallel Computations
+(G. Rodrigue, ed.), Academic Press, 1982, pp. 51--83.
+Developer
+Paul N. Swarztrauber, National Center for Atmospheric Research,
+Boulder, CO
+
+file links.html
+for related resources
+
+file doc
+for user guide for fftpack
+
+file fft.c fft.c plus dependencies
+for C translation of much of fftpack
+prec single
+by Monty <xiphmont@mit.edu>
+gams J1a
+lang C
+
+file dp.tgz
+for double precision clone of fftpack
+by Hugh C. Pumphrey <hcp@met.ed.ac.uk>
+prec double
+lang Fortran
+gams J1a
+
+file jfftpack.tgz
+for Java translation of fftpack
+by Baoshe Zhang baoshe.zhang@uleth.ca
+lang Java
+gams J1a
+
+file cfftb.f cfftb.f plus dependencies
+gams J1a2
+for FFT, backward transform (synthesis) of a complex Fourier coefficient array
+
+file cfftf.f cfftf.f plus dependencies
+gams J1a2
+for FFT, forward transform of a complex periodic sequence
+
+file cosqf.f cosqf.f plus dependencies
+gams J1a3
+for FFT, forward cosine transform with odd wave numbers
+
+file cost.f cost.f plus dependencies
+gams J1a3
+for FFT, discrete cosine transform of a real even sequence
+
+file ezfftb.f ezfftb.f plus dependencies
+gams J1a1
+for FFT, backward transform (synthesis) of a real Fourier coefficient array, simplified and slower version of (fftpack/rfftb)
+
+file ezfftf.f ezfftf.f plus dependencies
+gams J1a1
+for FFT, forward transform of a real periodic sequence, simplified and slower version of (fftpack/rfftf)
+
+file rfftb.f rfftb.f plus dependencies
+gams J1a1
+for FFT, backward transform (synthesis) of a real Fourier coefficient array
+
+file rfftf.f rfftf.f plus dependencies
+gams J1a1
+for FFT, forward transform of a real periodic sequence
+
+file sinqb.f sinqb.f plus dependencies
+gams J1a3
+for FFT, backward sine transform (synthesis) with odd wave numbers
+
+file sinqf.f sinqf.f plus dependencies
+gams J1a3
+for FFT, forward sine transform with odd wave numbers
+
+file sint.f sint.f plus dependencies
+gams J1a3
+for FFT, discrete sine transform of a real odd sequence
+
+file cffti.f cffti.f plus dependencies
+gams -0-
+for initialization routine for (fftpack/cfftf) and (fftpack/cfftb)
+
+file cosqb.f cosqb.f plus dependencies
+gams J1a3
+for FFT, backward cosine transform (synthesis) with odd wave numbers
+
+file cosqi.f cosqi.f plus dependencies
+gams -0-
+for initialization routine for (fftpack/cosqf) and (fftpack/cosqb)
+
+file ezffti.f ezffti.f plus dependencies
+for initialization routine for (fftpack/ezfftf) and (fftpack/ezfftb)
+
+file costi.f costi.f plus dependencies
+gams -0-
+for initialization routine for (fftpack/cost)
+
+file rffti.f rffti.f plus dependencies
+gams J1a1
+for initialization routine for (fftpack/rfftf) and (ftpack/rfftb)
+
+file sinqi.f sinqi.f plus dependencies
+gams -0-
+for initialization routtine for (fftpack/sinqf) and (fftpack/sinqb)
+
+file sinti.f sinti.f plus dependencies
+gams -0-
+for initialization routine for (fftpack/sint)
+
+file cfftb1.f cfftb1.f plus dependencies
+
+file cfftf1.f cfftf1.f plus dependencies
+
+file cffti1.f
+
+file changes
+
+file cosqb1.f cosqb1.f plus dependencies
+
+file cosqf1.f cosqf1.f plus dependencies
+
+file ezfft1.f
+
+file fftpack.mail
+
+file passb.f
+
+file passb2.f
+
+file passb3.f
+
+file passb4.f
+
+file passb5.f
+
+file passf.f
+
+file passf2.f
+
+file passf3.f
+
+file passf4.f
+
+file passf5.f
+
+file radb2.f
+
+file radb3.f
+
+file radb4.f
+
+file radb5.f
+
+file radbg.f
+
+file radf2.f
+
+file radf3.f
+
+file radf4.f
+
+file radf5.f
+
+file radfg.f
+
+file rfftb1.f rfftb1.f plus dependencies
+
+file rfftf1.f rfftf1.f plus dependencies
+
+file rffti1.f
+
+file sint1.f sint1.f plus dependencies
+
+file test.f test.f plus dependencies

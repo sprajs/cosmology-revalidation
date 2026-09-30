@@ -1,0 +1,103 @@
+CRPropa
+
+CRPropa is a publicly available simulation framework to study the propagation
+of ultra-high-energy nuclei up to iron on their voyage through an
+(extra)galactic environment. It takes into account: pion production,
+photodisintegration and energy losses by pair production of all relevant
+isotopes in the ambient low-energy photon fields as well as nuclear decay.
+CRPropa can model the deflection in (inter)galactic magnetic fields, the
+propagation of secondary electromagnetic cascades and neutrinos for a multitude
+of scenarios for different source distributions and magnetic environments. It
+enables the user to predict the spectra of UHECR (and of their secondaries),
+their composition and arrival direction distribution. Additionally, the
+low-energy Galactic propagation can be simulated by solving the transport
+equation using stochastic differential equations. CRPropa features a very
+flexible simulation setup with python steering and shared-memory
+parallelization.
+
+Interactive Online Demo
+
+You can try out CRPropa online at vispa.physik.rwth-aachen.de.
+Use the guest login and go to the CRPropa example via "VISPA Cluster" --> "Open Examples".
+
+Installation and Documentation
+
+CRPropa can be installed simply over its conda package on every linux or macos system. For the most recent release simply use:
+
+conda install -c conda-forge crpropa::crpropa
+
+For the current master you can use:
+
+conda install -c conda-forge crpropa::crpropa==master
+
+Testing CRPropa
+
+You can test your CRPropa installation by just using:
+
+testCRPropa
+
+You can find the test logs at the following location:
+
+$CONDA_PREFIX/share/crpropa/test/Testing/Temporary/
+
+Building from Source
+
+How to install from source, usage examples and API documentation can be found on the documentation web site of
+CRPropa.
+
+Support
+
+Please use the ticket system for
+support and in case of general questions. Please browse also the
+documentation and previous support requests on
+installation
+and
+usage
+of CRPropa before opening a new ticket.
+
+To receive announcements etc., please subscribe to our mailing list by sending
+a mail with subject: subscribe crpropa-user to sympa@desy.de from the address
+you wish to subscribe.
+
+How to cite CRPropa
+
+If you use CRPropa 3.2 for your research, please cite
+
+JCAP (2022) no. 09, 035; arXiv:2208.00107
+
+as well as additional publications dependent on the components you are using.
+
+Publications based on CRPropa
+
+An extensive list of publications using CRPropa can be found via
+inSPIRE.
+
+Plugins
+
+Plugins are extensions of the core CRPropa framework, but they are not maintained by the CRPropa developer team. Instructions to install plugins can be found in the documentation.
+
+Make sure to correctly cite the plugins when using them.
+
+Name
+Purpose
+Link
+
+FieldlineIntegrator
+Magnetic Field Analysis
+https://github.com/lukasmerten/CRPropa_FieldLineIntegrator
+
+grplinst
+Plasma Instabilities
+https://github.com/rafaelab/grplinst
+
+monopole
+Magnetic Monopole Studies
+https://github.com/chchristie/monopole/tree/main
+
+ROOTOutputPlugin
+Output into root file format
+https://github.com/CRPropa/ROOTOutputPlugin
+
+Hadronic Interactions
+Proton + Proton interactions
+https://gitlab.ruhr-uni-bochum.de/doernjkj/hadronic-interaction-in-crpropa

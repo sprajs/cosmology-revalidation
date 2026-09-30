@@ -1,0 +1,62 @@
+MulensModel
+MulensModel is package for modeling microlensing (or μ-lensing) events. 
+
+Roman Microlensing Data Challenge 2026 (RMDC26)
+
+RMDC26 was announced in Mar 2026. If you want to participate, then you're welcome to use MulensModel. It's possible some new features will be needed. In that case, please open an issue and we will try to help. For information about Roman ephemeris please see here.
+
+NEW - we're working on triple lenses. This feature generally works, but API may change. For current status see the branch by mjmroz. The code is discussed in the pull request.
+
+Documentation
+
+Detailed documentation: https://rpoleski.github.io/MulensModel/
+
+Latest release: 3.11.0 and we're working on further developing the code.
+
+MulensModel can generate a microlensing light curve for a given set of microlensing parameters, fit that light curve to some data, and return a chi2 value. That chi2 (and its gradient in some cases) can then be input into an arbitrary likelihood function to find the best-fit parameters.
+
+If you want to learn more about microlensing, please visit Microlensing Source website and Microlensing Mini Course.
+
+Currently, MulensModel supports:
+
+Lens Systems: point lens or binary lens. Shear and convergence allowed for both point and binary lenses.
+
+Source Stars: single source, binary source, or even larger number of sources.
+
+Effects: finite source (1-parameter), parallax (satellite & annual), binary lens orbital motion (2-parameter or keplerian both circular and elliptical), xallarap effect (with one or two luminous sources), different parametrizations of microlensing models.
+
+Need more? Open an issue, start a discussion, or send us an e-mail.
+
+Acknowledgements
+
+Are you using MulensModel for scientific research? Please give us credit by citing the paper published in "Astronomy and Computing" and ASCL reference. For arXiv version please see link. You should also cite relevant papers for algorithms used. In a typical run that uses binary lenses these will be Bozza (2010) and Skowron & Gould (2012). HERE is a list of papers to cite for various algorithms used in MulensModel. We also thank other people who helped in MulensModel development - please see list in AUTHORS.md file.
+
+Examples and tutorials
+
+We have more than a dozen of examples - starting from very simple ones (like plotting a model) to very advanced (like fitting a binary lens model with finite source effect). Please see:
+
+a list of examples and tutorials,
+
+description of all microlensing parameters used in MulensModel,
+
+methods used to calculate magnification in MulensModel, and
+
+high-level fitting example.
+
+The full documentation of API is at https://rpoleski.github.io/MulensModel/.
+
+How to install?
+
+The easiest way is to run:
+
+pip install mulensmodel
+
+which will download all files and also install all dependencies (using the PyPI website).
+
+If the above method doesn't work or you would like to see other possibilities, then please see the install file.
+
+Contributing
+
+If you want to contribute to MulensModel, then please see this file.
+
+file revised Jul 2026

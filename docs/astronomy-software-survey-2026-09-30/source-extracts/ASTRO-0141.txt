@@ -1,0 +1,92 @@
+PINT
+
+PINT is not TEMPO3
+
+PINT is a project to develop a pulsar timing solution based on
+python and modern libraries. It is still in active development,
+but it is in production use by the NANOGrav collaboration and
+it has been demonstrated produce residuals from most "normal"
+timing models that agree with Tempo and Tempo2 to within ~10
+nanoseconds. It can be used within python scripts or notebooks,
+and there are several command line tools that come with it.
+
+The primary reasons PINT was developed are:
+
+To have a robust system to produce high-precision timing results that is
+completely independent of TEMPO and Tempo2
+
+To make a system that is easy to extend and modify due to a good design
+and the use of a modern programming language, techniques, and libraries.
+
+IMPORTANT Notes!
+
+PINT has a naming conflict with the pint units package available from PyPI (i.e. using pip) and conda.
+Do NOT pip install pint or conda install pint! See below!
+
+PINT requires longdouble (80- or 128-bit floating point) arithmetic within
+numpy. On native macOS ARM Python builds, numpy.longdouble is usually
+just float64, which is not enough for high-precision timing. Prefer one of:
+
+Linux containers on Apple Silicon (recommended): a multi-arch image such as
+nanograv/ng20:cpu provides a native
+linux/arm64 environment with true IEEE binary128 longdouble — full
+PINT precision at native speed (no Rosetta). See the installation docs for
+short usage examples, including optional pintk GUI setup.
+
+Rosetta / osx-64 conda or Pixi: an x86_64 Python stack under Rosetta also
+works (80-bit longdouble), but is slower than a native arm64 Linux
+container. See conda-forge tips for Apple Intel packages on Apple
+silicon.
+
+Installing
+
+PINT is now available via PyPI as the package pint-pulsar, so it is now simple to install via pip.
+For most users, who don't want to develop the PINT code, installation should just be a matter of:
+$ pip install pint-pulsar
+
+By default this will install in your system site-packages. Depending on your system and preferences, you may want to append --user
+to install it for just yourself (e.g. if you don't have permission to write in the system site-packages), or you may want to create a
+virtualenv to work on PINT (using a virtualenv is highly recommended by the PINT developers).
+
+PINT is also available for Anaconda python under the conda-forge channel:
+$ conda install -c conda-forge pint-pulsar
+
+The above two options install the latest released version. If you want access to the latest development version,
+the source code, example notebooks, and tests, you can install from source, by
+cloning the source repository from GitHub, then install
+it, ensuring that all dependencies needed to run PINT are available:
+$ git clone https://github.com/nanograv/PINT.git
+$ cd PINT
+$ pip install .
+
+Complete installation instructions are available on readthedocs.
+
+Using
+
+See the online documentation. Specifically:
+
+Tutorials
+
+API reference
+
+How-Tos for common tasks
+
+Are you a NANOGrav member? Then join the #pint channel in the NANOGrav slack.
+
+If you have tasks that aren't covered in the material above, you can
+email pint@nanograv.org or one of the people below:
+
+Scott Ransom (sransom@nrao.edu)
+
+Paul Ray (paul.s.ray3.civ@us.navy.mil)
+
+David Kaplan (kaplan@uwm.edu)
+
+Abhimanyu Susobhanan (abhimanyu.susobhanan@nanograv.org)
+
+Want to do something new? Submit a github issue.
+
+And for more details, please read and cite(!) the PINT paper_1 and paper_2.
+
+Articles that cite the PINT paper can be found in an ADS Library.
+A list of software packages that use PINT can be found here.
