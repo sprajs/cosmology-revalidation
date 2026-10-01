@@ -55,6 +55,17 @@ multi-step recipe runner remains proposed. More involved experiments can add a
 small, reviewed orchestration script using existing engine interfaces; keep
 shared physical equations and numerical kernels in Irreducible.
 
+## Real-data native reference control
+
+[The LCDM baseline audit](experiments/lcdm-baseline/README.md) uses the installed
+Irreducible C++ SDK on exact ordered 13-row DESI DR2 Gaussian BAO compression.
+Its bounded experiment-specific controller compares distances, ratios and the
+normalized density with independent Decimal quadrature/LDLT references and
+retains failed attempts. It is a chosen supplied-drag massless-radiation control;
+full Planck 2018 massive-neutrino/thermal-drag/CMB reproduction remains blocked.
+Numerical success establishes neither a fit nor a posterior result. Follow the
+packet's native command and exact source/SDK/data pins.
+
 ## Plots and notebooks
 
 Keep visualization source next to its experiment and render into the run folder.

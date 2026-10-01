@@ -36,6 +36,8 @@ def execute(folder, binary, name=None):
     packet, request, identities = read_packet(folder)
     if request is None:
         raise ValueError("Experiment is blocked: " + "; ".join(packet["blockers"]))
+    if packet["execution"].get("interface", "cli") != "cli":
+        raise ValueError("Use the reviewed lcdm-baseline/controller.py native consumer")
     admitted_packet_hash = identities["packet"]
     admitted_request_hash = identities["request"]
     verify_inputs(packet)

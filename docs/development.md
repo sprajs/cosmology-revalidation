@@ -53,3 +53,12 @@ deletion is separate and depends on repository settings. Report deferred cleanup
 If `main` fails, stop new merges, preserve logs and fix or revert through a PR
 under the same review and fresh-check gates. Do not bypass the failure or weaken
 tests merely to make the status green.
+
+The LCDM native controller requires a real installed clean, pinned SDK and exact
+released input identities for scientific execution. Lightweight CI tests its
+adversarial admission, failure retention, bounds and comparison gates without
+scientific data or a native rebuild. A real run and deliberate source/reference
+review are additionally required; record their identities in the packet history.
+Cross-project owners coordinate dependencies before merging, and rerun the
+integrated consumer when a pinned interface changes. Documentation-only engine
+commits do not implicitly update a packet's scientific SDK pin.

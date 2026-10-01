@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "id": "lcdm-baseline",
+  "status": "runnable",
+  "question": "Does the bounded native massless flat matter/radiation/Lambda control agree with independent reference calculations on exact ordered DESI DR2 Gaussian BAO compression?",
+  "origin": {
+    "kind": "development_smoke",
+    "description": "Narrow native control pending immutable Prospector LCDM baseline reference-audit handoff; not full Planck reproduction."
+  },
+  "assumptions": [
+    "Chosen H0 and density fractions are parameter controls, not new observations or a fitted posterior.",
+    "Flat pressureless matter, massless radiation and Lambda; baryons subset matter, photons subset radiation. Supplied drag origin.",
+    "Released full ordered 13-axis Gaussian ratio compression treated conditionally under its release assumptions."
+  ],
+  "limitations": [
+    "Full Planck2018 six-parameter massive-neutrino/thermal-drag/CMB model is blocked.",
+    "No fit, posterior, raw catalog reconstruction or joint SN/BAO independence claim.",
+    "Golden dataset means exact versioned bytes and axis checks, not cosmological truth."
+  ],
+  "inputs": [
+    {
+      "path": "data/bao/desi_gaussian_bao_ALL_GCcomb_mean.txt",
+      "bytes": 472,
+      "sha256": "9ac154ab583ce759c0f7eef3c978c7c70a6ead2d18774caceadf1a350a640585",
+      "role": "released_fitted_summary",
+      "semantics": "DESI DR2 released fitted distance-ratio compression; dimensionless ratios/full ratio-squared covariance in exact 13-row mean order. Retain release selection/reconstruction/calibration assumptions; unknown cross-probe overlap is not independence. Not raw galaxy data.",
+      "source": "https://raw.githubusercontent.com/CobayaSampler/bao_data/bb0c1c9009dc76d1391300e169e8df38fd1096db/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_mean.txt"
+    },
+    {
+      "path": "data/bao/desi_gaussian_bao_ALL_GCcomb_cov.txt",
+      "bytes": 2547,
+      "sha256": "252a143274c8a07c78694c119617d36594f6d7965d00319ca611c6ffb886e509",
+      "role": "released_fitted_summary",
+      "semantics": "DESI DR2 released fitted distance-ratio compression; dimensionless ratios/full ratio-squared covariance in exact 13-row mean order. Retain release selection/reconstruction/calibration assumptions; unknown cross-probe overlap is not independence. Not raw galaxy data.",
+      "source": "https://raw.githubusercontent.com/CobayaSampler/bao_data/bb0c1c9009dc76d1391300e169e8df38fd1096db/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_cov.txt"
+    }
+  ],
+  "execution": {
+    "engine_revision": "db4765838fc404a489a0115ee69713f2ea6cd2f4",
+    "operation": "lcdm-baseline.native",
+    "interface": "native_lcdm_baseline",
+    "request": "request.json",
+    "assurance": "numerical_contract",
+    "timeout_seconds": 120
+  },
+  "blockers": []
+}

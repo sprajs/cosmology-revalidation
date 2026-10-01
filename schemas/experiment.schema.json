@@ -29,6 +29,7 @@
       "type": "object", "additionalProperties": false,
       "required": ["engine_revision", "operation", "request", "assurance", "timeout_seconds"],
       "properties": {"engine_revision": {"$ref": "#/$defs/revision"}, "operation": {"type": "string", "minLength": 1},
+        "interface": {"enum": ["cli", "native_lcdm_baseline"]},
         "request": {"type": "string", "minLength": 1}, "assurance": {"enum": ["numerical_contract", "qualified"]},
         "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 86400}}
     }]},

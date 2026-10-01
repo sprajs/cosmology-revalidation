@@ -1,0 +1,111 @@
+{
+  "schema_version": 2,
+  "operation": "lcdm-baseline.native",
+  "model": {
+    "h0_km_s_mpc": 67.4,
+    "omega_m": 0.315,
+    "omega_r": 9.2e-05,
+    "omega_b": 0.049,
+    "omega_gamma": 5.45e-05,
+    "z_drag": 1059.0,
+    "drag_origin": "supplied synthetic control z_drag=1059; not a thermal-history prediction"
+  },
+  "redshifts": [
+    0.0,
+    0.1,
+    0.7,
+    2.33,
+    5.0
+  ],
+  "rows": [
+    {
+      "id": "desi-dr2-00-DV_over_rs",
+      "z": 0.295,
+      "observable": "DV_over_rs"
+    },
+    {
+      "id": "desi-dr2-01-DM_over_rs",
+      "z": 0.51,
+      "observable": "DM_over_rs"
+    },
+    {
+      "id": "desi-dr2-02-DH_over_rs",
+      "z": 0.51,
+      "observable": "DH_over_rs"
+    },
+    {
+      "id": "desi-dr2-03-DM_over_rs",
+      "z": 0.706,
+      "observable": "DM_over_rs"
+    },
+    {
+      "id": "desi-dr2-04-DH_over_rs",
+      "z": 0.706,
+      "observable": "DH_over_rs"
+    },
+    {
+      "id": "desi-dr2-05-DM_over_rs",
+      "z": 0.934,
+      "observable": "DM_over_rs"
+    },
+    {
+      "id": "desi-dr2-06-DH_over_rs",
+      "z": 0.934,
+      "observable": "DH_over_rs"
+    },
+    {
+      "id": "desi-dr2-07-DM_over_rs",
+      "z": 1.321,
+      "observable": "DM_over_rs"
+    },
+    {
+      "id": "desi-dr2-08-DH_over_rs",
+      "z": 1.321,
+      "observable": "DH_over_rs"
+    },
+    {
+      "id": "desi-dr2-09-DM_over_rs",
+      "z": 1.484,
+      "observable": "DM_over_rs"
+    },
+    {
+      "id": "desi-dr2-10-DH_over_rs",
+      "z": 1.484,
+      "observable": "DH_over_rs"
+    },
+    {
+      "id": "desi-dr2-11-DH_over_rs",
+      "z": 2.33,
+      "observable": "DH_over_rs"
+    },
+    {
+      "id": "desi-dr2-12-DM_over_rs",
+      "z": 2.33,
+      "observable": "DM_over_rs"
+    }
+  ],
+  "budgets": {
+    "distance_absolute_mpc": 1e-09,
+    "distance_relative": 2e-11,
+    "ratio_absolute": 1e-11,
+    "ratio_relative": 5e-11,
+    "density_absolute": 1e-08,
+    "reference_fraction": 0.05
+  },
+  "engine_identity": {
+    "revision": "db4765838fc404a489a0115ee69713f2ea6cd2f4",
+    "build_id": "e10022eb7544a3f490ab245ea651a1504ade3e0debe80e2d9c37b0c34a81e0c6",
+    "manifest_sha256": "54f18ecb5cb707477c7367f13863c0c04e094da5e045e839611b011fb08d8fb6",
+    "archive_sha256": "5bf0fec9b6e7b583eabf53004f6f628b889ad59568ab3e9e10024a86ddfefbcc",
+    "cli_sha256": "e795a70424b54905ed379050e4be35e035d3380bf68658e883f1cb4caa6d1fb6"
+  },
+  "resources": {
+    "maximum_input_bytes": 65536,
+    "maximum_output_bytes": 65536,
+    "timeout_seconds": 120,
+    "reference_panels": [
+      128,
+      256
+    ]
+  }
+}
