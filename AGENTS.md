@@ -82,3 +82,17 @@ branch is an ancestor of fetched `origin/main` before deleting it with `git bran
 -d`. Preserve dirty checkouts, extra commits and branches in active worktrees;
 never force-delete. If `main` fails, stop new merges and repair or revert through
 the same review/check gates. Report deferred cleanup and remaining blockers.
+
+## Cross-project baseline handoff
+
+For `experiments/lcdm-baseline`, the reviewed experiment-specific native
+controller is the only native packet route. Prospector owns the immutable source
+map/candidate; Reproducible owns the exact data axes, experiment/reference
+comparisons and full attempt records; Irreducible owns all production physics.
+Freeze typed native input/output, source/SDK identities, domain and downstream
+error allocations before implementation. Coordinate one owner per project and
+the four-job total; a native consumer build uses one job. Keep full Planck
+massive-neutrino/thermal-drag/CMB blockers distinct from the runnable supplied-drag
+massless control. Never substitute a runnable variant for a faithful full-model
+claim. Review the candidate hash and consumer revision again after a handoff
+changes; do not infer a CLI operation from an experiment name.

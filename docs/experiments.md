@@ -79,3 +79,22 @@ the command-line entry cell only runs in script mode. Move useful
 edits back into the tracked `.py` source. Record the optional tool versions in an
 archive if notebook rendering is part of the published method. Generated notebook
 outputs, HTML, figures and widget state stay in ignored storage.
+
+## The bounded LCDM native consumer
+
+[The LCDM packet](../experiments/lcdm-baseline/README.md) exercises the installed
+C++ interfaces that currently lack a CLI/ABI route. `execution.interface` may
+name only the existing CLI route or the fixed `native_lcdm_baseline` consumer;
+that enum is exclusive to this packet/operation. This is a concrete controller,
+not a packet command language. Use its reviewed command, not `scripts/run.py`.
+The controller verifies exact ordered source inputs, complete SDK inventory and
+clean source/build identities before and after a bounded fresh attempt. It keeps
+numerical comparisons and failed admission separate from inference/interpretation.
+
+The full Planck reference target stays blocked when the required massive-neutrino,
+thermal drag or CMB physics is absent. Its source design may still inform a
+clearly named massless numerical control. That requires an explicit narrowed
+consumer review; preserve the original candidate snapshot and blockers rather
+than rewriting the source claim. A native route promoted to a shared supported
+operation, additional neutrino/thermal state or a changed observable belongs in
+an actionable Irreducible handoff, with equations and consumer budgets first.

@@ -81,7 +81,11 @@ def read_packet(folder):
     identities["request"] = hashlib.sha256(request_bytes).hexdigest()
     if content.get("schema_version") != 2 or content.get("operation") != execution["operation"]:
         raise ValueError("Request schema/operation does not match packet")
-    # Irreducible owns the scientific request schema and its runtime validation.
+    interface = execution.get("interface", "cli")
+    if interface == "native_lcdm_baseline" and (
+            packet["id"] != "lcdm-baseline" or execution["operation"] != "lcdm-baseline.native"):
+        raise ValueError("Native interface is exclusive to lcdm-baseline")
+    # The selected execution route validates its request; the candidate pins the same bytes.
     if design is not None:
         if (design.get("kind") != "candidate_design"
                 or design.get("readiness") != "ready_for_consumer_review"
