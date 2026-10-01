@@ -261,6 +261,26 @@ def execute(args):
     except Exception as e:
         record["status"]="failed";record["error"]=str(e)
     finally:
+        # Retain post-run integrity evidence even when a child/reference fails.
+        integrity_errors=[]
+        if before is not None:
+            try:
+                record["sdk_after"]=fingerprint(args.engine_source,args.sdk)
+                if record["sdk_after"]!=before:integrity_errors.append("SDK changed")
+            except Exception as e:integrity_errors.append("SDK final verification: "+str(e))
+        if "source_hashes" in record:
+            try:
+                final_sources=admitted_sources(args.sources,m)
+                record["source_hashes_after"]={n:hashlib.sha256(b).hexdigest() for n,b in final_sources.items()}
+                if record["source_hashes_after"]!=record["source_hashes"]:integrity_errors.append("source changed")
+            except Exception as e:integrity_errors.append("source final verification: "+str(e))
+        if "packet_hashes" in record:
+            record["packet_hashes_after"]={p.name:sha256(p) for p in FOLDER.iterdir() if p.is_file()}
+            if record["packet_hashes_after"]!=record["packet_hashes"]:integrity_errors.append("packet changed")
+        record["integrity_errors"]=integrity_errors
+        if integrity_errors:
+            record["status"]="failed"
+            record.setdefault("error","post-run identity verification failed")
         record["elapsed_seconds"]=time.monotonic()-started
         (store/"record.json").write_text(json.dumps(record,indent=2)+"\n")
         for p in store.iterdir():

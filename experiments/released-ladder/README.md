@@ -138,7 +138,8 @@ space is bounded to 3GiB, output to 1MiB (compiler output 8MiB), compile time 12
 and each scientific child 900s. Payload bounds are distinct from process memory.
 The controller admits only exact unscaled binary32 primary FITS images and
 unchanged canonical binary64 hashes; checks full-C symmetry and final contrast
-support; and verifies source/SDK/packet identity again after execution. It keeps
+support; and verifies source/SDK/packet identity again after execution, including failed
+children once admission identities are available. It keeps
 source adapter snapshots, actual compiler command/executable hash, SDK/input
 identities, all host joins, native/reference outputs and terminal gates under a
 fresh ignored `results/released-ladder/<name>/` directory. Existing attempts are
@@ -153,3 +154,22 @@ the source-defined column46 contrast. It exposed the zero-width released MCMC
 coordinate 44 and the N1365 selection-count discrepancy. Complete anchor/nuisance
 identities, raw selection/calibration lineage, a normalized posterior measure and
 analysis-variant systematics remain blocked.
+
+
+2026-10-01: clean committed adapter `9ff0af96ddbf97444c604fea27a5b909ed761353`
+completed the full source join and native/SVD/pivoted-QR experiment in 69.93s.
+All 130 named comparisons passed at the unchanged allocations; maximum budget
+fraction 1.52e-5. Native β46=9.317887632654045, q=3552.759330295523 and
+conditional Var(β46)=0.0008964788320013900; SVD variance differs by 2.17e-18.
+The source's rounded 9.318 coordinate agrees. All eight synthetic constraint-row
+perturbations agree with the full47 SVD law; row 3210 leaves β46/q unchanged in
+this named control. These results establish a bounded fixed-design numerical
+comparison, not a parameter posterior or the paper's analysis-variant systematics.
+The complete ignored receipt is
+`results/released-ladder/committed-full47-lineage-20261001/record.json`, SHA-256
+`3cc6f9529dfd4b78ba2bdff474b6b3b7ce0f68aa44582f022e25eadfabbc1fd8`.
+The earlier diagnostic attempt is preserved as failed because the reference
+Python executable was resolved outside its supplied environment; native outputs
+remain in that receipt. The executable path handling was corrected before the
+clean committed run. Subsequent integrity hardening records post-run SDK/source/
+packet identities even after failed children; the original receipts are unchanged.
