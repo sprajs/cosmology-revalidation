@@ -28,7 +28,7 @@ October 2026 cleanup. `downloads.json` expands the frozen download registry;
 
 ## Original research and earlier execution records
 
-The complete pre-reorganization repository is preserved at commit [`17487bf6`](https://github.com/sprajs/cosmology-revalidation/tree/17487bf659fcbdeeea072221492bac14b04a0a85). Original acquisition, preparation, analysis and diagnostic code, experimental specifications and scientific notes are available in [studies](../studies/README.md). Vendored builds, handoff documents, duplicate source snapshots and bulk generated result sets remain outside the active source tree. No Git history was rewritten.
+The complete pre-reorganization repository is preserved at commit [`17487bf6`](https://github.com/sprajs/reproducible/tree/17487bf659fcbdeeea072221492bac14b04a0a85). Original acquisition, preparation, analysis and diagnostic code, experimental specifications and scientific notes are available in [studies](../studies/README.md). Vendored builds, handoff documents, duplicate source snapshots and bulk generated result sets remain outside the active source tree. No Git history was rewritten.
 
 For example, an original source can be inspected without restoring the old working tree:
 

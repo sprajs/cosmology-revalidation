@@ -1,4 +1,14 @@
-# Cosmology Revalidation
+# Reproducible
+
+Reproducible is the research-run repository in a three-part workflow:
+**Prospector** will identify papers and
+export candidate investigations; Reproducible will define and record their
+experiments; [Irreducible](https://github.com/sprajs/irreducible) will supply the
+scientific software used to execute them.
+
+The present calculations below are the historical cosmology revalidation.
+Migration to experiments using Irreducible is planned; that migration has not
+been implemented by this rename.
 
 ### Measurements, corrections and the evidence for cosmic acceleration
 
