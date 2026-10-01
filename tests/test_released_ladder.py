@@ -4,6 +4,8 @@ import importlib.util
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
+from types import SimpleNamespace
 
 ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location("released_ladder",ROOT/"experiments/released-ladder/controller.py")
@@ -20,6 +22,36 @@ class ReleasedLineageTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"zero-width"):module.validate_lineage(changed)
         changed=copy.deepcopy(self.manifest);changed["axes"][44]["physical_identity"]="SMC"
         with self.assertRaisesRegex(ValueError,"no admitted"):module.validate_lineage(changed)
+
+    def test_unreviewed_budgets_source_target_and_perturbations_rejected(self):
+        for field in module.FROZEN_BUDGETS:
+            changed=copy.deepcopy(self.manifest);changed["target"]["reference_budgets"][field]*=100
+            with self.assertRaisesRegex(ValueError,"comparison budgets"):module.validate_lineage(changed)
+        changed=copy.deepcopy(self.manifest);changed["target"]["paper_rounded_coordinate"]["half_last_printed_digit"]*=100
+        with self.assertRaisesRegex(ValueError,"rounded-coordinate"):module.validate_lineage(changed)
+        changed=copy.deepcopy(self.manifest);changed["constraint_rows"]["sensitivity_control"]["delta_y"]*=2
+        with self.assertRaisesRegex(ValueError,"sensitivity rows"):module.validate_lineage(changed)
+        changed=copy.deepcopy(self.manifest);changed["constraint_rows"]["indices"].reverse()
+        with self.assertRaisesRegex(ValueError,"sensitivity rows"):module.validate_lineage(changed)
+
+    def test_oversized_source_refused_before_read(self):
+        with tempfile.TemporaryDirectory() as td:
+            Path(td,"file").write_bytes(b"abcd")
+            source={"sources":[{"name":"file","bytes":3,"sha256":"0"*64}]}
+            with patch.object(Path,"open",side_effect=AssertionError("must not allocate/read oversized source")):
+                with self.assertRaisesRegex(ValueError,"byte count differs"):module.admitted_sources(Path(td),source)
+
+    def test_failed_child_retains_after_integrity_and_original_failure(self):
+        with tempfile.TemporaryDirectory() as td:
+            args=SimpleNamespace(name="failure",sources=Path(td),engine_source=Path(td),sdk=Path(td),reference_python=None)
+            with patch.object(module,"ROOT",Path(td)),patch.object(module,"admitted_sources",return_value={"test":b"abc"}),patch.object(module,"source_audit",return_value={}),patch.object(module,"fingerprint",side_effect=[{"sdk":"before"},{"sdk":"changed"}]),patch.object(module,"child",side_effect=ValueError("compiler failure")),patch.object(module.subprocess,"check_output",return_value="diagnostic"):
+                self.assertEqual(module.execute(args),1)
+            record=module.load(Path(td)/"results/released-ladder/failure/record.json")
+            self.assertEqual(record["error"],"compiler failure")
+            self.assertEqual(record["sdk_after"],{"sdk":"changed"})
+            self.assertEqual(record["integrity_errors"],["SDK changed"])
+            self.assertEqual(record["source_hashes_after"],record["source_hashes"])
+            self.assertEqual((Path(td)/"results/released-ladder/failure/record.json").stat().st_mode & 0o222,0)
 
     def test_malformed_or_changed_source_rejected(self):
         with tempfile.TemporaryDirectory() as td:

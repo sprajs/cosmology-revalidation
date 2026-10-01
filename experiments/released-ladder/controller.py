@@ -31,6 +31,13 @@ SDK_IDENTITY = {
 }
 
 
+FROZEN_BUDGETS = {
+    "coefficient_absolute":1e-8,"coefficient_relative":1e-9,
+    "quadratic_absolute":1e-7,"quadratic_relative":1e-10,
+    "variance_absolute":2e-12,"variance_relative":2e-12,
+}
+
+
 def validate_lineage(m):
     if m["schema_version"] != 1 or m["source_revision"] != "c447f0fea703fcd0fff57de5000947b5ca81286b":
         raise ValueError("unreviewed lineage version/release")
@@ -40,6 +47,13 @@ def validate_lineage(m):
         raise ValueError("unchanged full design required")
     if len({s["name"] for s in m["sources"]}) != len(m["sources"]):
         raise ValueError("duplicate source identity")
+    if m["target"]["reference_budgets"]!=FROZEN_BUDGETS:
+        raise ValueError("unreviewed numerical comparison budgets")
+    rounded=m["target"]["paper_rounded_coordinate"]
+    if rounded["value"]!=9.318 or rounded["half_last_printed_digit"]!=0.0005:
+        raise ValueError("unreviewed source rounded-coordinate target")
+    if m["constraint_rows"]["indices"]!=list(range(3207,3215)) or m["constraint_rows"]["sensitivity_control"]["delta_y"]!=0.01:
+        raise ValueError("unreviewed sensitivity rows/perturbation")
     if m["axes"][44]["physical_identity"] is not None or m["axes"][44]["status"] != "unresolved":
         raise ValueError("column44 has no admitted physical identity")
     if m["target"]["h0_coordinate"]["index"] != 46:
@@ -54,7 +68,11 @@ def admitted_sources(directory, m):
     result = {}
     for item in m["sources"]:
         p = within(directory, item["name"])
-        b = p.read_bytes()
+        if p.stat().st_size != item["bytes"]:
+            raise ValueError("source byte count differs: " + item["name"])
+        with p.open("rb") as stream:
+            b = stream.read(item["bytes"]+1)
+            if stream.read(1):raise ValueError("source grew during bounded read")
         if len(b) != item["bytes"] or hashlib.sha256(b).hexdigest() != item["sha256"]:
             raise ValueError("source bytes/hash differ: " + item["name"])
         result[item["name"]] = b
@@ -221,6 +239,24 @@ def child(command,store,label,timeout,output_limit=1048576):
     return (store/(label+".out")).read_text()
 
 
+
+def validate_native(output):
+    if output["method"]!="retained-whitened-pivoted-householder-qr/v1" or output["variance_method"]!="retained-qr-linear-estimator-variance/v1":
+        raise ValueError("unreviewed native method identity")
+    if len(output["coefficients"])!=47 or not all(math.isfinite(v) for v in output["coefficients"]):
+        raise ValueError("full finite coefficient output required")
+    if not all(math.isfinite(output[k]) for k in ("quadratic","relative_log_score","variance46","variance_sensitivity","stationarity")):
+        raise ValueError("nonfinite native scalar")
+    if output["quadratic"]<0 or output["variance46"]<=0 or output["relative_log_score"]!=-output["quadratic"]/2:
+        raise ValueError("native relative-score/variance contract differs")
+    if output["variance_sensitivity"]<0 or output["variance_sensitivity"]>1e-10 or output["stationarity"]<0 or output["stationarity"]>1e-10:
+        raise ValueError("native numerical screen differs")
+    if [v["row"] for v in output["sensitivities"]]!=list(range(3207,3215)) or any(v["delta_y"]!=0.01 for v in output["sensitivities"]):
+        raise ValueError("native sensitivity order/perturbation differs")
+    if not all(math.isfinite(v[k]) for v in output["sensitivities"] for k in ("beta46_plus","beta46_minus","q_plus","q_minus")):
+        raise ValueError("nonfinite native sensitivity")
+
+
 def execute(args):
     store=within(ROOT,"results/released-ladder/"+args.name)
     store.mkdir(parents=True,exist_ok=False)
@@ -245,7 +281,7 @@ def execute(args):
         child(command,store,"compile",120,8*1024**2);record["consumer_sha256"]=sha256(executable)
         output=json.loads(child([str(executable),str(store)],store,"native",900))
         record["native"]=output; record["gates"]["execution"]="passed"
-        if len(output["coefficients"])!=47 or not all(math.isfinite(v) for v in output["coefficients"]):raise ValueError("full finite coefficient output required")
+        validate_native(output)
         coordinate=m["target"]["paper_rounded_coordinate"]
         if abs(output["coefficients"][46]-coordinate["value"])>coordinate["half_last_printed_digit"]:raise ValueError("paper rounded coordinate mismatch")
         if args.reference_python:
