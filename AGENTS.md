@@ -66,11 +66,15 @@ handover. Open a coherent PR with changes, actual checks and scientific limits.
 Separate unrelated work; a coupled migration can be large. Preserve other
 people's uncommitted work and coordinate one integration owner.
 
-Independent review and passing applicable CI on the latest integrated head/base
-are required before merging. Authorization to run an experiment does not itself
-authorize a merge or an external message. Use standing merge authorization only
-when the user has given it for this repository. Direct pushes to `main` and force
-pushes require a specific request. No additional reviewer count is imposed.
+The owner gives standing authorization to create PRs, review our own changes in
+a separate deliberate review pass, and merge ready PRs without asking again.
+Inspect the complete final diff, fix actionable findings, run the applicable
+checks and require green CI on the latest integrated head and up-to-date base.
+Resolve review conversations and verify the exact head before merging. A
+separate human reviewer is not required; scientific independence and qualification
+still need their own evidence. This workflow applies across Irreducible,
+Reproducible and Prospector. Direct pushes to `main`, force pushes and external
+messages still require specific authorization; never bypass a failed check.
 
 After an authorized merge, verify head and merge SHA, wait for CI on that exact
 `main` commit, fetch/prune and update local `main` fast-forward-only. Prove the

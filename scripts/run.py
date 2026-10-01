@@ -36,6 +36,8 @@ def execute(folder, binary, name=None):
     packet, request = read_packet(folder)
     if request is None:
         raise ValueError("Experiment is blocked: " + "; ".join(packet["blockers"]))
+    admitted_packet_hash = sha256(folder / "experiment.json")
+    admitted_request_hash = sha256(request)
     verify_inputs(packet)
     resolved = shutil.which(str(binary))
     if resolved is None:
@@ -56,6 +58,8 @@ def execute(folder, binary, name=None):
               "jsonschema_version": version("jsonschema"),
               "lock_sha256": sha256(ROOT / "uv.lock") if (ROOT / "uv.lock").is_file() else None,
               "schema_sha256": sha256(ROOT / "schemas/experiment.schema.json"),
+              "admitted_packet_sha256": admitted_packet_hash,
+              "admitted_request_sha256": admitted_request_hash,
               "inputs": packet["inputs"],
               "qualification": {"numerical": "not_assessed", "inference": "not_assessed",
                                 "interpretation": "not_assessed"}}
@@ -80,6 +84,9 @@ def execute(folder, binary, name=None):
         shutil.copyfile(request, store / "request.json")
         record["packet_sha256"] = sha256(store / "experiment.json")
         record["request_sha256"] = sha256(store / "request.json")
+        if (record["packet_sha256"] != admitted_packet_hash
+                or record["request_sha256"] != admitted_request_hash):
+            raise ValueError("Packet or request changed after validation; review a new attempt")
         argv = [str(executable), "run", str(store / "request.json"), str(store / "engine"),
                 "--assurance", packet["execution"]["assurance"]]
         record["command"] = argv

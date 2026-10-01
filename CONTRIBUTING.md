@@ -16,11 +16,13 @@ welcome; split unrelated changes rather than imposing a line-count limit. Keep
 the code, config and explanatory documentation together. Agents use `codex/`
 branches and follow [AGENTS.md](AGENTS.md).
 
-Push meaningful checkpoint commits for backup when authorized. Before merging,
-obtain independent review and green applicable checks for the latest head and
-base. A merge also needs user authorization, including any standing authorization
-already given for this repo. Do not push directly to `main` or force-push without
-a specific request. CI checks PRs and merged `main`; it does not replace review.
+Push meaningful checkpoint commits for backup. The owner authorizes agents to
+review their own PRs in a separate deliberate pass and merge ready changes
+without another confirmation. Fix actionable findings and require green
+applicable checks on the latest head and up-to-date base. No separate human
+reviewer is required. Direct `main` pushes and force pushes still need a specific
+request. CI checks PRs and merged `main`; it does not replace review or scientific
+evidence.
 
 Keep bulk inputs, outputs, simulations, rendered figures and executed notebooks
 out of Git. Publish short findings in the experiment's Markdown and cite a durable

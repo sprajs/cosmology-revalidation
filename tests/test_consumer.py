@@ -21,6 +21,10 @@ import hashlib,json,pathlib,sys,time
 self=pathlib.Path(__file__)
 mode=(self.parent/'mode').read_text()
 if sys.argv[1]=='describe':
+ if mode=='request_changed':
+  (self.parent/'experiments/example/request.json').write_text(json.dumps({'schema_version':2,'operation':'background.evaluate','changed':True}))
+ if mode=='packet_changed':
+  p=self.parent/'experiments/example/experiment.json'; config=json.loads(p.read_text());config['question']='Changed during admission';p.write_text(json.dumps(config))
  print(json.dumps({'product':'Irreducible','build':{'git_head':'a'*40,'git_status':' M bad' if mode=='dirty' else '', 'build_id':'test-build'},'capabilities':[{'id':'background.evaluate','implementation':'implemented'}]}));sys.exit()
 if mode=='timeout':time.sleep(5)
 if mode=='transport':sys.exit(3)
@@ -89,6 +93,13 @@ class ConsumerTests(unittest.TestCase):
         self.mode("mismatch")
         self.assertEqual(self.execute(), 1)
         self.assertIn("identity differs", self.record["error"])
+
+    def test_admitted_sources_cannot_change_during_discovery(self):
+        for mode in ("request_changed", "packet_changed"):
+            self.mode(mode)
+            self.assertEqual(self.execute(mode), 1)
+            self.assertNotIn("command", self.record)
+            self.assertIn("changed after validation", self.record["error"])
 
     def test_dirty_build_refused_and_recorded(self):
         self.mode("dirty")

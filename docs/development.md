@@ -30,12 +30,15 @@ in another PR. Explain dependencies on Prospector/Irreducible revisions and test
 the integrated candidate after a dependency changes. Open a PR and report checks
 and limitations accurately. Attach created PRs to the Codex chat.
 
-Require independent review and applicable green checks on the latest head and
-up-to-date base before an authorized merge. Review conversations must be resolved.
-No additional reviewer count is imposed. Use merge commits when preserving
-checkpoint ancestry matters; don't assume repository settings enforce a policy.
-Direct `main` pushes, force pushes and wiki/external messages need specific
-authorization. Do not infer merge permission just from a request to run or push.
+The owner gives standing authorization for agents to review their own PRs and
+merge ready changes without asking again. Do a deliberate review pass over the
+complete final diff, fix actionable findings, resolve conversations and require
+applicable green checks on the latest integrated head and up-to-date base.
+No separate human reviewer is required. Record the review conclusion and actual
+checks. Use a merge commit and verify the exact head before merging; perform the
+merge directly once ready rather than relying on GitHub's auto-merge setting.
+Direct `main` pushes, force pushes and wiki/external messages still require
+specific authorization. Scientific qualification remains a separate gate.
 
 ## After an authorized merge
 
