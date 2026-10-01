@@ -96,3 +96,11 @@ massive-neutrino/thermal-drag/CMB blockers distinct from the runnable supplied-d
 massless control. Never substitute a runnable variant for a faithful full-model
 claim. Review the candidate hash and consumer revision again after a handoff
 changes; do not infer a CLI operation from an experiment name.
+
+Record later engine prerequisites separately from a packet's executed findings.
+Native thermal-relic E/H does not yet close its distance/ruler consumer, and
+fixed-design estimator variance or a synthetic H0 sampling law does not supply
+observational calibration uncertainty. An identified released contrast can be
+tested without guessing the remaining host/nuisance axes. Preserve the original
+SDK/model/request pins and attempts; changing them requires an explicitly
+reviewed new experiment/build identity and its own execution.

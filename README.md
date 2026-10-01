@@ -66,6 +66,13 @@ full Planck 2018 massive-neutrino/thermal-drag/CMB reproduction remains blocked.
 Numerical success establishes neither a fit nor a posterior result. Follow the
 packet's native command and exact source/SDK/data pins.
 
+Subsequent engine work has passed a released-ladder matrix comparison and added
+an explicit thermal-relic E/H provider and conditional estimator variance.
+The [baseline account](experiments/lcdm-baseline/README.md#engine-prerequisite-progress)
+separates that progress from this packet's original massless model and build.
+A newer engine does not automatically replace a pinned SDK or change an earlier
+run's scientific identity.
+
 ## Plots and notebooks
 
 Keep visualization source next to its experiment and render into the run folder.
