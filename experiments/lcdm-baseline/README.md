@@ -179,6 +179,40 @@ separate launch evidence; a CLI run does not infer a model name. A durable
 archive is still needed before publication of full scientific results; local
 ignored receipts are not a preservation service.
 
+## Engine prerequisite progress
+
+Subsequent engine comparisons are separate from this packet's executed DESI
+baseline. Its request, candidate, original inputs, SDK pin `db4765838fc404a489a0115ee69713f2ea6cd2f4`
+and immutable attempts remain unchanged. A current primary Irreducible checkout
+at a later commit is deliberately refused by admission; use a clean checkout at
+the pinned revision or follow the reviewed new-build-identity procedure above.
+
+- [Irreducible PR 14](https://github.com/sprajs/irreducible/pull/14) replaced the
+  Gaussian design's normal-equation route with retained whitened pivoted QR.
+  The unchanged released 3492x47 ladder products passed independent QR/SVD
+  comparisons at their original budgets, closing the named numerical admission
+  blocker. Those products are distinct from this experiment's DESI inputs.
+- [Irreducible PR 15](https://github.com/sprajs/irreducible/pull/15) supplies
+  explicit thermal-relic density/pressure and flat E/H, with independently
+  refined and matched CLASS controls. Species, temperature and constants are
+  explicit. It does not yet supply this packet's distances/ruler, full Planck
+  parameter mapping, recombination, predicted drag or CMB.
+- [Irreducible PR 16](https://github.com/sprajs/irreducible/pull/16) adds retained
+  contrast variance and an explicitly centered synthetic H0 estimator sampling
+  law. A separate released compact-design contrast comparison tests original
+  column 46 against independent SVD/QR; source review identifies that coordinate
+  as 5 log10(H0 in km/s/Mpc). Other host/nuisance axes remain unresolved, and no
+  released H0/error acceptance target or observational uncertainty is established.
+
+This account records reviewed engine prerequisite evidence, not a rerun of this
+packet or a new posterior. The next useful cosmology experiment needs one
+thermal physical state for E/H, distances and a conditional supplied-drag ruler,
+source-defined parameter mapping, an updated reviewed candidate and explicit
+new SDK/model identities. A released ladder experiment separately needs complete
+calibration/model/axis lineage and its target measure. Shared equations remain in
+Irreducible; [its roadmap](https://github.com/sprajs/irreducible/blob/main/docs/roadmap.md)
+owns their implementation sequence.
+
 ## History
 
 2026-10-01: original strict producer ratio relative2e-14 (absolute1e-14) refused
