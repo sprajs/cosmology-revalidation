@@ -33,11 +33,11 @@ def source_identity():
 
 def execute(folder, binary, name=None):
     folder = within(ROOT / "experiments", folder)
-    packet, request = read_packet(folder)
+    packet, request, identities = read_packet(folder)
     if request is None:
         raise ValueError("Experiment is blocked: " + "; ".join(packet["blockers"]))
-    admitted_packet_hash = sha256(folder / "experiment.json")
-    admitted_request_hash = sha256(request)
+    admitted_packet_hash = identities["packet"]
+    admitted_request_hash = identities["request"]
     verify_inputs(packet)
     resolved = shutil.which(str(binary))
     if resolved is None:

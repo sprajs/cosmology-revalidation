@@ -14,7 +14,7 @@ def sha256(path):
         return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
-def load(path):
+def parse(text):
     def pairs(items):
         result = {}
         for key, value in items:
@@ -29,8 +29,12 @@ def load(path):
             raise ValueError(f"Nonfinite JSON number: {value}")
         return result
 
-    return json.loads(Path(path).read_text(), object_pairs_hook=pairs,
+    return json.loads(text, object_pairs_hook=pairs,
                       parse_float=number, parse_constant=number)
+
+
+def load(path):
+    return parse(Path(path).read_text())
 
 
 def within(root, relative):
@@ -48,7 +52,9 @@ def read_packet(folder):
     folder = Path(folder).resolve()
     schema = load(ROOT / "schemas/experiment.schema.json")
     Draft202012Validator.check_schema(schema)
-    packet = load(folder / "experiment.json")
+    packet_bytes = (folder / "experiment.json").read_bytes()
+    packet = parse(packet_bytes.decode("utf-8"))
+    identities = {"packet": hashlib.sha256(packet_bytes).hexdigest()}
     Draft202012Validator(schema).validate(packet)
     if folder.name != packet["id"] or not (folder / "README.md").is_file():
         raise ValueError("Packet needs a matching directory ID and README.md")
@@ -61,15 +67,18 @@ def read_packet(folder):
     design = None
     if origin["kind"] == "prospector_candidate":
         candidate = within(folder, origin["snapshot"])
-        if sha256(candidate) != origin["sha256"]:
+        candidate_bytes = candidate.read_bytes()
+        if hashlib.sha256(candidate_bytes).hexdigest() != origin["sha256"]:
             raise ValueError("Prospector snapshot hash differs")
-        design = load(candidate)
+        design = parse(candidate_bytes.decode("utf-8"))
         if design.get("schema_version") != 1 or design.get("kind") != "candidate_design":
             raise ValueError("Not a Prospector candidate-design snapshot")
     if packet["status"] == "blocked":
-        return packet, None
+        return packet, None, identities
     request = within(folder, execution["request"])
-    content = load(request)
+    request_bytes = request.read_bytes()
+    content = parse(request_bytes.decode("utf-8"))
+    identities["request"] = hashlib.sha256(request_bytes).hexdigest()
     if content.get("schema_version") != 2 or content.get("operation") != execution["operation"]:
         raise ValueError("Request schema/operation does not match packet")
     # Irreducible owns the scientific request schema and its runtime validation.
@@ -84,10 +93,10 @@ def read_packet(folder):
         if (consumer.get("repository") != "sprajs/irreducible"
                 or consumer.get("revision") != execution["engine_revision"]
                 or consumer.get("dirty") is not False
-                or proposed.get("sha256") != sha256(request)
+                or proposed.get("sha256") != identities["request"]
                 or proposed.get("consumer_validation") != "passed_at_inspected_revision"):
             raise ValueError("Candidate engine/request identity differs; review a new design first")
-    return packet, request
+    return packet, request, identities
 
 
 def verify_inputs(packet):
