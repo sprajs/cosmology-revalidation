@@ -1,9 +1,0 @@
-{
-  "status": "Exploratory addendum frozen after coadd count-band extraction but before repeated-exposure or Hdelta contrast outcomes.",
-  "sample": "All acquired distinct hosts; every exposure whose native INCOADD=True and whose two count-band windows have >=80 percent valid coverage. No signal-to-noise or measured-ratio cut.",
-  "repeat_test": "Common count-spectrum red/blue ratio with one nonnegative normalization per exposure; supplied pixel variances propagated to full2x2 band covariance. Candidate ratio0to4; numerical grid plus bounded refinement. Differential response/noise consistency only, never a calibration of a shared absolute response.",
-  "bootstrap": "First40eligible hosts ordered by SHA256(target), with >=3 usable exposures. 200 independent parametric Gaussian draws from fitted common-ratio/exposure-amplitude model; refit each. Seed927083. Coverage conditional on supplied diagonal pixel covariance, not complete noise calibration.",
-  "Hdelta": "Signed local continuum and absorption contrast from4041.6to4079.75,4083.5to4122.25,4128.5to4161restAngstrom F_lambda count windows. Interpolation through actual mask-weighted centroids exactly cancels a locally linear count continuum. Preserve full2x2 covariance and negative contrast. No equivalent-width division or age conversion inprimaryinterface; smooth response, absorption/emission blending and missing pixels remain assumptions.",
-  "sensitivity": "Report projection of unit quadratic continuum curvature at50Angstrom scale onto signed contrast; not a measured correction or calibrated physical bound. Repeat scatter cannot establish cross-host/survey response.",
-  "seed":927083
-}

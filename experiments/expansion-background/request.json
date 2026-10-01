@@ -1,0 +1,141 @@
+{
+  "schema_version": 2,
+  "operation": "background.evaluate",
+  "geometry": {
+    "kind": "flat_flrw"
+  },
+  "models": [
+    {
+      "kind": "lcdm",
+      "omega_m": 0.3
+    }
+  ],
+  "queries": [
+    {
+      "z_expansion": 0.0,
+      "requested_outputs": [
+        "expansion",
+        "physical"
+      ],
+      "observer": {
+        "redshift": 0.0,
+        "convention": "geometric_same_redshift"
+      },
+      "physical_scale": {
+        "h0_km_s_mpc": 70.0
+      }
+    },
+    {
+      "z_expansion": 0.1,
+      "requested_outputs": [
+        "expansion",
+        "physical"
+      ],
+      "observer": {
+        "redshift": 0.1,
+        "convention": "geometric_same_redshift"
+      },
+      "physical_scale": {
+        "h0_km_s_mpc": 70.0
+      }
+    },
+    {
+      "z_expansion": 0.25,
+      "requested_outputs": [
+        "expansion",
+        "physical"
+      ],
+      "observer": {
+        "redshift": 0.25,
+        "convention": "geometric_same_redshift"
+      },
+      "physical_scale": {
+        "h0_km_s_mpc": 70.0
+      }
+    },
+    {
+      "z_expansion": 0.5,
+      "requested_outputs": [
+        "expansion",
+        "physical"
+      ],
+      "observer": {
+        "redshift": 0.5,
+        "convention": "geometric_same_redshift"
+      },
+      "physical_scale": {
+        "h0_km_s_mpc": 70.0
+      }
+    },
+    {
+      "z_expansion": 0.75,
+      "requested_outputs": [
+        "expansion",
+        "physical"
+      ],
+      "observer": {
+        "redshift": 0.75,
+        "convention": "geometric_same_redshift"
+      },
+      "physical_scale": {
+        "h0_km_s_mpc": 70.0
+      }
+    },
+    {
+      "z_expansion": 1.0,
+      "requested_outputs": [
+        "expansion",
+        "physical"
+      ],
+      "observer": {
+        "redshift": 1.0,
+        "convention": "geometric_same_redshift"
+      },
+      "physical_scale": {
+        "h0_km_s_mpc": 70.0
+      }
+    },
+    {
+      "z_expansion": 1.5,
+      "requested_outputs": [
+        "expansion",
+        "physical"
+      ],
+      "observer": {
+        "redshift": 1.5,
+        "convention": "geometric_same_redshift"
+      },
+      "physical_scale": {
+        "h0_km_s_mpc": 70.0
+      }
+    },
+    {
+      "z_expansion": 2.0,
+      "requested_outputs": [
+        "expansion",
+        "physical"
+      ],
+      "observer": {
+        "redshift": 2.0,
+        "convention": "geometric_same_redshift"
+      },
+      "physical_scale": {
+        "h0_km_s_mpc": 70.0
+      }
+    }
+  ],
+  "numerical_policy": {
+    "maximum_models": 1,
+    "maximum_queries": 8,
+    "maximum_slots": 8,
+    "maximum_callbacks": 100000,
+    "maximum_segment_visits": 0,
+    "maximum_native_bytes": 1048576,
+    "integration": {
+      "absolute_tolerance": 1e-13,
+      "relative_tolerance": 1e-12,
+      "maximum_evaluations": 100000,
+      "maximum_depth": 30
+    }
+  }
+}
