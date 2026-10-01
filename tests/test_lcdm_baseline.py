@@ -152,6 +152,25 @@ class BaselineTests(unittest.TestCase):
                 with self.assertRaises(FileExistsError):controller.execute(Path(t),Path(t),"failure")
                 self.assertEqual(before,record.read_bytes())
 
+    def test_committed_snapshot_preserves_bytes_and_rejects_dirty_replacement(self):
+        import io,tarfile
+        for changed in (False,True):
+            with tempfile.TemporaryDirectory() as t:
+                root=Path(t);store=root/"results";store.mkdir()
+                (root/"contract.py").write_bytes(b"changed" if changed else b"committed source")
+                def archive(command,*args,**kwargs):
+                    with tarfile.open(store/"source.tar","w") as output:
+                        item=tarfile.TarInfo("contract.py");item.size=len(b"committed source")
+                        output.addfile(item,io.BytesIO(b"committed source"))
+                with patch.object(controller,"ROOT",root),patch.object(controller,"bounded",side_effect=archive):
+                    if changed:
+                        with self.assertRaisesRegex(ValueError,"immutable committed"):
+                            controller.snapshot_source(store,"reviewed-revision")
+                    else:
+                        destination=controller.snapshot_source(store,"reviewed-revision")
+                        self.assertEqual((destination/"contract.py").read_bytes(),b"committed source")
+                        self.assertEqual((destination/"contract.py").stat().st_mode&0o222,0)
+
     def test_timeout_and_output_resource_caps_preserve_failure(self):
         with tempfile.TemporaryDirectory() as t:
             p=Path(t)

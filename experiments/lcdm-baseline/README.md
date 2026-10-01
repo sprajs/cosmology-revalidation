@@ -202,4 +202,7 @@ unique input paths and full SDK header inventory; earlier receipts remain intact
 These initial dirty-source attempts recorded source hashes but did not retain
 complete original source bytes; they are diagnostic history, not independently
 reconstructible committed-source runs. Final runs require committed source and
-retain exact source snapshots.
+retain exact source snapshots. Separate hash-verified recovery from preserved tool
+payloads recovered the initial controller/reference; independent root recovery
+recovered the initial native adapter. Their exact hashes match the first
+immutable receipt. Other diagnostic source variants are not claimed recovered.

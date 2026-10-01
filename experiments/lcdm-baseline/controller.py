@@ -9,6 +9,7 @@ from pathlib import Path
 import resource
 import subprocess
 import sys
+import tarfile
 import uuid
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -189,6 +190,34 @@ def bounded(command, store, label, timeout, limit=65536, stdin=None, expected_st
     return (store / (label+".out")).read_text()
 
 
+def snapshot_source(store,revision):
+    bounded(["git","-C",str(ROOT),"archive","--format=tar","--output="+str(store/"source.tar"),revision],store,"source-archive",30,2097152)
+    destination=store/"source"
+    destination.mkdir()
+    total=0
+    with tarfile.open(store/"source.tar","r:") as archive:
+        for member in archive:
+            target=within(destination,member.name)
+            if member.isdir():
+                target.mkdir(parents=True,exist_ok=True)
+                continue
+            if not member.isfile() or member.size>1048576:
+                raise ValueError("Committed source snapshot type/size rejected")
+            total+=member.size
+            if total>1048576:
+                raise ValueError("Committed source snapshot tree quota exceeded")
+            payload=archive.extractfile(member).read(member.size+1)
+            if len(payload)!=member.size:
+                raise ValueError("Committed source snapshot byte count differs")
+            original=within(ROOT,member.name)
+            if original.read_bytes()!=payload:
+                raise ValueError("Working source differs from immutable committed snapshot")
+            target.parent.mkdir(parents=True,exist_ok=True)
+            target.write_bytes(payload)
+            target.chmod(0o444)
+    return destination
+
+
 def typed_transport(q, observed, covariance):
     m = q["model"]
     lines = [" ".join(str(m[k]) for k in ("h0_km_s_mpc", "omega_m", "omega_r", "omega_b", "omega_gamma", "z_drag"))+" "+json.dumps(m["drag_origin"]),
@@ -307,6 +336,9 @@ def execute(source, sdk, name=None):
         validate_request(q)
         validate_admission(packet,q)
         observed, covariance = scientific_inputs(packet, q)
+        if record["reproducible_status"]:
+            raise ValueError("Final attempts require clean committed Reproducible source")
+        source_snapshot=snapshot_source(store,record["reproducible_revision"])
         before, build = fingerprint(source, sdk, q)
         record.update(admitted=admitted, identities_before=before, inputs=packet["inputs"], engine_build_id=build["build_id"], model=q["model"])
         for filename in ("experiment.json", "request.json", "candidate.json"):
@@ -321,9 +353,10 @@ def execute(source, sdk, name=None):
         if description.get("product") != "Irreducible" or description["build"]["build_id"] != build["build_id"] or description["build"]["git_head"] != q["engine_identity"]["revision"] or description["build"]["git_status"] != "":
             raise ValueError("Actual CLI discovery build differs")
         executable = store / "consumer"
-        command = ["/usr/bin/c++", "-std=c++20", "-O2", "-Wall", "-Wextra", "-Wpedantic", "-fno-fast-math", "-ffp-contract=off", str(FOLDER / "consumer.cpp"), "-I", str(sdk / "include"), str(sdk / "lib/libirred_core.a"), "-o", str(executable)]
+        command = ["/usr/bin/c++", "-std=c++20", "-O2", "-Wall", "-Wextra", "-Wpedantic", "-fno-fast-math", "-ffp-contract=off", str(source_snapshot / "experiments/lcdm-baseline/consumer.cpp"), "-I", str(sdk / "include"), str(sdk / "lib/libirred_core.a"), "-o", str(executable)]
         record["compiler_command"] = command
         bounded(command, store, "compile", 120, 2097152)
+        record["source_archive_sha256"]=sha256(store/"source.tar")
         record["consumer_executable_sha256"] = sha256(executable)
         payload = typed_transport(q, observed, covariance)
         (store / "native-input.txt").write_bytes(payload)
@@ -336,7 +369,7 @@ def execute(source, sdk, name=None):
         check_outputs(output, q)
         reference_input=store/"reference-input.json"
         reference_input.write_text(json.dumps({"request":q,"observed":observed,"covariance":covariance},allow_nan=False)+"\n")
-        refs=reference.deserialize(parse(bounded([sys.executable,str(FOLDER/"reference.py"),str(reference_input)],store,"reference",120)))
+        refs=reference.deserialize(parse(bounded([sys.executable,str(source_snapshot/"experiments/lcdm-baseline/reference.py"),str(reference_input)],store,"reference",120)))
         coarse,fine=refs["coarse"],refs["fine"]
         checks = comparisons(output, coarse, fine, q)
         (store / "checks.json").write_text(json.dumps(checks, indent=2)+"\n")
@@ -344,6 +377,8 @@ def execute(source, sdk, name=None):
         scientific_inputs(packet, q)
         if before != after or sha256(executable) != record["consumer_executable_sha256"]:
             raise ValueError("Source/SDK/request/origin/reference/consumer changed during attempt")
+        if git(ROOT,"rev-parse","HEAD")!=record["reproducible_revision"] or git(ROOT,"status","--porcelain","--untracked-files=all"):
+            raise ValueError("Reproducible committed source changed during attempt")
         record["identities_after"] = after
         record.update(execution="completed", checks=len(checks), qualification={"numerical": "named_comparisons_passed", "inference": "not_assessed", "interpretation": "conditional_massless_variant_only"})
     except Exception as error:

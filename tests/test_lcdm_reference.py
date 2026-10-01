@@ -30,7 +30,7 @@ class ReferenceControls(unittest.TestCase):
     def test_radiation_only_distance_and_supplied_ruler_analytic_limit(self):
         q={"model":{"h0_km_s_mpc":70.,"omega_m":0.,"omega_r":1.,"omega_b":0.,"omega_gamma":1.,"z_drag":9.,"drag_origin":"radiation-only analytic control"},"redshifts":[0.,.5,1.,2.],"rows":[{"z":.5,"observable":"DM_over_rs"} for _ in range(13)]}
         covariance=[[float(i==j) for j in range(13)] for i in range(13)]
-        result=reference.evaluate(q,[1.]*13,covariance,128)
+        result=reference.evaluate(q,[1.]*13,covariance,1024)
         with localcontext() as c:
             c.prec=60
             scale=D("299792.458")/70
