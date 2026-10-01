@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "kind": "candidate_design",
+  "paper_ids": [
+    "arxiv:1807.06209v4",
+    "arxiv:2503.14738v3"
+  ],
+  "idea_ids": [
+    "planck-conditioned-base-lcdm",
+    "bao-compressed-relative-ruler",
+    "massless-supplied-drag-comparison"
+  ],
+  "review_id": "2026-10-01-lcdm-baseline-source-claims",
+  "readiness": "ready_for_consumer_review",
+  "equations": [
+    {
+      "expression": "H(z)^2/H0^2 = Omega_bc*(1+z)^3 + Omega_gamma*(1+z)^4 + Omega_nu*rho_nu(z)/rho_nu(0) + Omega_Lambda",
+      "locator": "DESI Sec.I Eq.6, restricted to flat Lambda; neutrino density remains time dependent",
+      "paper_id": "arxiv:2503.14738v3",
+      "definitions": "Omega_bc=Omega_b+Omega_c. Omega_gamma describes photons; Omega_nu is present neutrino density. Their sum and Lambda close flatness. H0 in km s^-1 Mpc^-1.",
+      "domain": "Homogeneous flat GR background; full neutrino thermal transition required for the Planck reference.",
+      "status": "reviewed_transcription"
+    },
+    {
+      "expression": "r_d = integral[z_drag,infinity] c_s(z)/H(z) dz; D_M(z)=c*integral[0,z] dzprime/H(zprime); D_H(z)=c/H(z); D_V(z)=[z*D_M(z)^2*D_H(z)]^(1/3)",
+      "locator": "DESI Sec.I Eqs.1,4,5; Sec.III.1 D_V definition",
+      "paper_id": "arxiv:2503.14738v3",
+      "definitions": "Comoving distances and ruler in Mpc; z dimensionless; c in km/s. r_d is at drag, not r_star at last scattering. BAO constrains distance/ruler ratios.",
+      "domain": "Flat FLRW distance convention; acoustic ruler needs photon-baryon/thermal closure or an explicitly supplied endpoint.",
+      "status": "reviewed_transcription"
+    },
+    {
+      "expression": "E(a)^2=Omega_r/a^4+Omega_m/a^3+Omega_Lambda; Omega_Lambda=1-Omega_m-Omega_r; c_s(a)=c/sqrt(3*(1+3*Omega_b*a/(4*Omega_gamma)))",
+      "locator": "Reviewer-derived massless/pressureless reduction of DESI Sec.I Eqs.1,6, with the explicit supplied-drag engine convention",
+      "paper_id": "arxiv:2503.14738v3",
+      "definitions": "a=1/(1+z), h=H0/100; chosen fractional densities as specified in minimal_test. Baryons/photons are subsets of matter/radiation. No mapping from Planck physical densities or fixed T_CMB/Neff.",
+      "domain": "Flat GR background, positive matter/radiation/photon components, 0<=Omega_b<=Omega_m and 0<Omega_gamma<=Omega_r; nonnegative Lambda. Supplied synthetic drag endpoint; no recombination/neutrino transition/perturbations.",
+      "status": "reviewer_derived"
+    }
+  ],
+  "assumptions": [
+    "ΛCDM is a declared reference, not an established unique truth or replacement for registered alternative cosmologies.",
+    "Freeze exact versions, source hashes, likelihood release identities, object order and data cuts.",
+    "Planck marginal posterior values are conditioned anchors; no extra Planck-summary likelihood or invented covariance.",
+    "BAO templates/reconstruction, SN standardization/bias corrections and shared calibration condition the supplied data."
+  ],
+  "simplifications": [
+    "Permanently massless radiation and pressureless matter; no massive-neutrino thermal transition.",
+    "z_drag=1059 is a chosen synthetic endpoint, not the Planck Table2 value 1059.94 and not a predicted drag epoch.",
+    "Chosen fractional densities replace a fixed-temperature Planck physical-density mapping; Planck r_drag is contextual only, not an exact target.",
+    "Primordial/reionization inputs, SN profiles, anchor calibration and CMB spectra are outside this limited test.",
+    "Released BAO compression is used conditionally; matching predicted distances/likelihood does not reproduce the DESI inference pipeline or its posterior."
+  ],
+  "data_dependencies": [
+    {
+      "paper_id": "arxiv:1807.06209v4",
+      "kind": "fitted posterior summary",
+      "role": "Literature/conditioning context only, not an executed likelihood in this limited background/BAO slice. Parameter/reference conditioning only; not an independent measurement."
+    },
+    {
+      "paper_id": "arxiv:2503.14738v3",
+      "kind": "compressed clustering likelihood",
+      "role": "DESI DR2 Table4 marginalized BAO-fit posterior means/standard deviations, a released fitted compression with full covariance; not raw clustering or a cosmological posterior. Seven baseline samples; omit superseded LRG3/ELG1 rows. Consumer pins official 13-coordinate mean/covariance release and retains unknown cross-probe dependence. Exact release is authoritative for input precision; Lyα released D_M/r_d=38.98897396 differs from rounded printed Table4 38.988, so this is not a literal table transcription.",
+      "release_repository": "CobayaSampler/bao_data",
+      "release_revision": "bb0c1c9009dc76d1391300e169e8df38fd1096db",
+      "assets": [
+        {
+          "source": "https://raw.githubusercontent.com/CobayaSampler/bao_data/bb0c1c9009dc76d1391300e169e8df38fd1096db/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_mean.txt",
+          "bytes": 472,
+          "sha256": "9ac154ab583ce759c0f7eef3c978c7c70a6ead2d18774caceadf1a350a640585",
+          "semantics": "DESI DR2 released fitted distance-ratio compression; dimensionless ratios/full ratio-squared covariance in exact 13-row mean order. Retain release selection/reconstruction/calibration assumptions; unknown cross-probe overlap is not independence. Not raw galaxy data."
+        },
+        {
+          "source": "https://raw.githubusercontent.com/CobayaSampler/bao_data/bb0c1c9009dc76d1391300e169e8df38fd1096db/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_cov.txt",
+          "bytes": 2547,
+          "sha256": "252a143274c8a07c78694c119617d36594f6d7965d00319ca611c6ffb886e509",
+          "semantics": "DESI DR2 released fitted distance-ratio compression; dimensionless ratios/full ratio-squared covariance in exact 13-row mean order. Retain release selection/reconstruction/calibration assumptions; unknown cross-probe overlap is not independence. Not raw galaxy data."
+        }
+      ],
+      "ordered_coordinates": [
+        {
+          "id": "desi-dr2-00-DV_over_rs",
+          "z": 0.295,
+          "observable": "DV_over_rs"
+        },
+        {
+          "id": "desi-dr2-01-DM_over_rs",
+          "z": 0.51,
+          "observable": "DM_over_rs"
+        },
+        {
+          "id": "desi-dr2-02-DH_over_rs",
+          "z": 0.51,
+          "observable": "DH_over_rs"
+        },
+        {
+          "id": "desi-dr2-03-DM_over_rs",
+          "z": 0.706,
+          "observable": "DM_over_rs"
+        },
+        {
+          "id": "desi-dr2-04-DH_over_rs",
+          "z": 0.706,
+          "observable": "DH_over_rs"
+        },
+        {
+          "id": "desi-dr2-05-DM_over_rs",
+          "z": 0.934,
+          "observable": "DM_over_rs"
+        },
+        {
+          "id": "desi-dr2-06-DH_over_rs",
+          "z": 0.934,
+          "observable": "DH_over_rs"
+        },
+        {
+          "id": "desi-dr2-07-DM_over_rs",
+          "z": 1.321,
+          "observable": "DM_over_rs"
+        },
+        {
+          "id": "desi-dr2-08-DH_over_rs",
+          "z": 1.321,
+          "observable": "DH_over_rs"
+        },
+        {
+          "id": "desi-dr2-09-DM_over_rs",
+          "z": 1.484,
+          "observable": "DM_over_rs"
+        },
+        {
+          "id": "desi-dr2-10-DH_over_rs",
+          "z": 1.484,
+          "observable": "DH_over_rs"
+        },
+        {
+          "id": "desi-dr2-11-DH_over_rs",
+          "z": 2.33,
+          "observable": "DH_over_rs"
+        },
+        {
+          "id": "desi-dr2-12-DM_over_rs",
+          "z": 2.33,
+          "observable": "DM_over_rs"
+        }
+      ]
+    }
+  ],
+  "unknowns": [],
+  "verification_gates": [
+    "Independent exact gpt-6.1-sol review of listed original sources/locators and candidate scope.",
+    "Consumer accepts immutable candidate/reference hashes and pins engine revision/build/input identities.",
+    "Compare only declared observables with independent controls at a numerical budget fixed before execution; preserve failed attempts before any correction.",
+    "Check units, density closure, neutrino accounting, free-offset SN identifiability, BAO-ruler identifiability and data overlap.",
+    "Source agreement, numerical acceptance, likelihood reproduction and physical interpretation are separate gates.",
+    "Exported/comparison outputs and frozen consumer scope must match exactly; do not infer an independent standalone H/ruler/D_H/D_V comparison from their internal use in ratios."
+  ],
+  "falsification": "A discrepancy outside a justified predeclared comparison budget identifies a source/implementation/domain/likelihood issue to investigate. Agreement establishes only the scoped comparison, not the full model or theory truth.",
+  "consumer": {
+    "repository": "sprajs/irreducible",
+    "revision": "db4765838fc404a489a0115ee69713f2ea6cd2f4",
+    "dirty": false,
+    "capability_status": "Compiled shared flat matter+radiation+Lambda supplied-drag and early/late native kernels available. Native conditional BAO available. Ten CLI operations; no native early/late CLI route. The background.evaluate LCDM descriptor is a separate radiation-free late-time operation. Missing full massive-neutrino/ionization/drag/perturbation/CMB closure.",
+    "recipe_runner_status": "No implemented generic recipe runner; Reproducible owns a dedicated typed experiment consumer.",
+    "adapter_repository": "sprajs/reproducible",
+    "adapter_revision": "98cadbb3e3bf59f5933ef977133b64453c968c0a",
+    "adapter_dirty": false,
+    "validation_route": "Reproducible experiments/lcdm-baseline/controller.py validates lcdm-baseline.native and dispatches the dedicated typed consumer; not Irreducible CLI-schema acceptance.",
+    "adapter_revision_status": "Clean tested revision with dimensionless twin-E gate corrected; independent high-effort review accepted the typed boundary."
+  },
+  "blockers": [],
+  "executable_request": {
+    "path": "requests/lcdm-baseline-native.json",
+    "sha256": "5d67253917a35031b69b85272fe381da8c946007da5615300a3dcf3381f12bed",
+    "consumer_validation": "passed_at_inspected_revision",
+    "validation_route": "Reproducible experiments/lcdm-baseline/controller.py validates lcdm-baseline.native and dispatches the dedicated typed consumer; not Irreducible CLI-schema acceptance. Engine db4765838fc404a489a0115ee69713f2ea6cd2f4; adapter 98cadbb3e3bf59f5933ef977133b64453c968c0a."
+  },
+  "qualification": {
+    "numerically_executed": false,
+    "scientifically_qualified": false,
+    "reason": "Source-grounded candidate only. Execution evidence and acceptance belong to Reproducible; no full source read or numerical reproduction claimed."
+  },
+  "design_id": "candidate-lcdm-massless-conditional-comparison",
+  "title": "Massless supplied-drag ΛCDM comparison",
+  "faithful_claim": "A flat pressureless matter plus permanently massless radiation plus Lambda background with a supplied synthetic drag endpoint supports a limited implementation comparison of background and conditional BAO. The chosen density controls are not Planck Table2, a posterior draw or a fixed-T_CMB/Neff mapping.",
+  "minimal_test": {
+    "question": "Do the native background/conditional-BAO outputs agree with independent references for the chosen controls and retain the declared fixed-fraction H0 scaling?",
+    "observables": [
+      "E(z), D_M(z) and D_L(z) at z=0,0.1,0.7,2.33,5",
+      "All 13 ordered D_M/r_d, D_H/r_d or D_V/r_d release coordinates",
+      "BAO Gaussian quadratic, log determinant, normalization and log density",
+      "Twin H0 control with fractions, supplied drag and release covariance fixed"
+    ],
+    "parameter_choices": {
+      "reference_path": "references/lcdm/planck2018-reference.json",
+      "variant_id": "flat-massless-synthetic-controls-v1",
+      "values": {
+        "H0": 67.4,
+        "Omega_m": 0.315,
+        "Omega_r": 9.2e-05,
+        "Omega_b": 0.049,
+        "Omega_gamma": 5.45e-05,
+        "z_drag": 1059
+      },
+      "units": {
+        "H0": "km s^-1 Mpc^-1",
+        "Omega_m": "1",
+        "Omega_r": "1",
+        "Omega_b": "1",
+        "Omega_gamma": "1",
+        "z_drag": "1"
+      },
+      "origin": "Reviewer-derived synthetic comparison controls used by Reproducible; not Planck posterior sampling/transcription or fixed-temperature conversion.",
+      "flatness": "Omega_Lambda=1-Omega_m-Omega_r",
+      "T_CMB": null,
+      "N_eff": null,
+      "thermal_parameter_reason": "The native convention accepts explicit fractional densities. No fixed-T_CMB/Neff mapping is adopted.",
+      "numerical_policy": "Consumer freezes producer/refinement/comparison budgets separately; observational posterior errors are not numerical tolerances.",
+      "consumer_request_sha256": "5d67253917a35031b69b85272fe381da8c946007da5615300a3dcf3381f12bed",
+      "comparison_budgets": {
+        "distance_absolute_mpc": 1e-09,
+        "distance_relative": 2e-11,
+        "ratio_absolute": 1e-11,
+        "ratio_relative": 5e-11,
+        "density_absolute": 1e-08,
+        "reference_fraction": 0.05
+      },
+      "redshifts": [
+        0.0,
+        0.1,
+        0.7,
+        2.33,
+        5.0
+      ],
+      "request_validation": "Reproducible experiments/lcdm-baseline/controller.py validates lcdm-baseline.native and dispatches the dedicated typed consumer; not Irreducible CLI-schema acceptance. Engine db4765838fc404a489a0115ee69713f2ea6cd2f4; adapter 98cadbb3e3bf59f5933ef977133b64453c968c0a."
+    },
+    "scope": "Reproducible experiments/lcdm-baseline: compare only the listed exported background and conditional-BAO quantities. Native H, D_H, D_V and the supplied-endpoint ruler support these computations internally; standalone values are not required exported comparison outputs. No SN profile, fit or full source inference."
+  },
+  "source_references": [
+    {
+      "reference_id": "planck2018-base-lcdm-plik-lensing",
+      "path": "references/lcdm/planck2018-reference.json",
+      "sha256": "06c561ab2214bd028b47e03802ec3029d476a4cf61d75602bf550e5cbf1282cf"
+    }
+  ]
+}

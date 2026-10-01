@@ -5,7 +5,11 @@ compression and the installed Irreducible native SDK. It tests a chosen,
 conditional **massless-radiation** flat matter/Lambda model. It fits no
 parameters and does not reproduce the full Planck 2018 six-parameter model or
 its posterior. The Prospector handoff is a design/source audit; the runnable
-variant and the full-model blockers must remain distinct.
+variant and the full-model blockers must remain distinct. The byte-exact
+[candidate snapshot](candidate.json) is pinned to Prospector published commit
+`3e763bad692a13767e34e99af167623c3de4d0d8`; the established consumer-review
+admission gate accepts this limited candidate and rejects its blocked full-model
+sibling.
 
 ## Model and measurement map
 

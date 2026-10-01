@@ -85,7 +85,7 @@ def read_packet(folder):
     if interface == "native_lcdm_baseline" and (
             packet["id"] != "lcdm-baseline" or execution["operation"] != "lcdm-baseline.native"):
         raise ValueError("Native interface is exclusive to lcdm-baseline")
-    # Irreducible owns the scientific request schema and its runtime validation.
+    # The selected execution route validates its request; the candidate pins the same bytes.
     if design is not None:
         if (design.get("kind") != "candidate_design"
                 or design.get("readiness") != "ready_for_consumer_review"

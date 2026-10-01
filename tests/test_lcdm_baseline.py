@@ -20,6 +20,24 @@ class BaselineTests(unittest.TestCase):
     def setUp(self):
         self.q=controller.load(FOLDER/"request.json")
 
+    def test_published_candidate_admission_and_full_model_refusal(self):
+        packet,request,identities=controller.read_packet(FOLDER)
+        self.assertEqual(packet["origin"]["revision"],"3e763bad692a13767e34e99af167623c3de4d0d8")
+        self.assertEqual(identities["request"],"5d67253917a35031b69b85272fe381da8c946007da5615300a3dcf3381f12bed")
+        self.assertEqual(request,FOLDER/"request.json")
+        with tempfile.TemporaryDirectory() as t:
+            folder=Path(t)/"lcdm-baseline";folder.mkdir()
+            for name in ("experiment.json","request.json","candidate.json","README.md"):
+                (folder/name).write_bytes((FOLDER/name).read_bytes())
+            candidate=controller.load(folder/"candidate.json")
+            candidate["readiness"]="blocked"
+            candidate["blockers"]=["Full Planck massive-neutrino/thermal-drag/CMB closures unavailable"]
+            (folder/"candidate.json").write_text(json.dumps(candidate))
+            packet["origin"]["sha256"]=controller.sha256(folder/"candidate.json")
+            (folder/"experiment.json").write_text(json.dumps(packet))
+            with self.assertRaisesRegex(ValueError,"not ready"):
+                controller.read_packet(folder)
+
     def test_supported_typed_request_and_full_model_rejection(self):
         controller.validate_request(self.q)
         for field in ("m_nu_ev","theta_mc","A_s","n_s","tau","omega_c"):
