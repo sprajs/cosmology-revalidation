@@ -314,7 +314,8 @@ def comparisons(output, coarse, fine, q):
     for i, (a, b) in enumerate(zip(*output["background"])):
         for name in ("E", "DM", "DL"):
             expected = D.from_float(a[name])/(1 if name == "E" else 2)
-            compare(f"H0_background[{i}].{name}", b[name], expected, 1e-9+2e-11*abs(float(expected)))
+            budget=2e-11*abs(float(expected)) if name=="E" else 1e-9+2e-11*abs(float(expected))
+            compare(f"H0_background[{i}].{name}", b[name], expected, budget)
     if len(checks)!=6*len(q["redshifts"])+34:
         raise ValueError("Incomplete named comparison coverage")
     return checks

@@ -179,10 +179,13 @@ ignored receipts are not a preservation service.
 
 2026-10-01: original strict producer ratio relative2e-14 (absolute1e-14) refused
 all requested ratios with `conditioning_budget_exceeded`; the ruler and provider
-batch were admitted. The original source hashes, compiled binary, policies, 22,206
-callbacks, partial stdout and stderr remain in `initial-frozen-control`,
+batch were admitted. The original source hashes, compiled binary, policies, partial stdout and stderr remain in `initial-frozen-control`,
 `diagnosed-frozen-control` and `detailed-frozen-control` below the local result
-store. The scalar arithmetic floors and numerator/ruler interval propagation
+store. Specifically, `diagnosed-frozen-control/native.err` records 22,206
+callbacks for its first inspected density point; that is not a batch-total or
+all-failure-slot diagnostic claim. The final negative control refuses after the
+first inspected failed slot and does not retain every failure-slot diagnostic.
+The scalar arithmetic floors and numerator/ruler interval propagation
 exceed that ratio allowance. After independent source review, only the producer
 ratio relative allowance changed to2e-13, still far below the unchanged external
 ratio allocation. No physics, data axes, reference, comparison or projection gate
@@ -206,3 +209,9 @@ retain exact source snapshots. Separate hash-verified recovery from preserved to
 payloads recovered the initial controller/reference; independent root recovery
 recovered the initial native adapter. Their exact hashes match the first
 immutable receipt. Other diagnostic source variants are not claimed recovered.
+
+2026-10-01: independent high review found the twin E scaling check had inherited
+the distance loop's additive1e-9 allowance. It now uses the declared purely
+dimensionless2e-11 relative E allocation. A regression rejects a5e-10 E shift
+that the erroneous additive allowance admitted. Prior receipts remain unchanged;
+the final clean committed rerun uses the stricter declared gate.

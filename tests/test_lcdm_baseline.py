@@ -140,6 +140,12 @@ class BaselineTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"Scientific comparison"):
             controller.comparisons(o,fine,fine,self.q)
 
+    def test_dimensionless_twin_E_does_not_receive_Mpc_additive_slack(self):
+        fine={"background":[{"z":Decimal.from_float(float(z)),"E":Decimal(1),"DM":Decimal(0),"DL":Decimal(0)} for z in self.q["redshifts"]],"predictions":[Decimal(1)]*13,"quadratic":Decimal(0),"log_determinant":Decimal(0),"normalization":Decimal(0),"log_density":Decimal(0)}
+        output=self.output();output["background"][1][0]["E"]=1+5e-10
+        with self.assertRaisesRegex(ValueError,r"H0_background\[0\].E"):
+            controller.comparisons(output,fine,fine,self.q)
+
     def test_fresh_failed_attempt_immutable_and_never_overwritten(self):
         with tempfile.TemporaryDirectory() as t:
             with patch.object(controller,"ROOT",Path(t)),patch.object(controller,"git",return_value="test"),patch.object(controller,"read_packet",side_effect=ValueError("bad input hash")):
