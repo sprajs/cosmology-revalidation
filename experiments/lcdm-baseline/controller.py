@@ -19,6 +19,9 @@ import reference
 
 FOLDER = Path(__file__).resolve().parent
 OP = {"DM_over_rs": 0, "DH_over_rs": 1, "DV_over_rs": 2}
+SCIENTIFIC_IDS={"early_late_equation":"flat-radiation-matter-lambda-log-redshift-distance",
+                "conditional_density":"BAO/flat-early-late-supplied-drag-normalized-ratio-density/v1",
+                "physical_model":"flat-pressureless-matter-massless-radiation-lambda"}
 PRODUCER = {"distance_absolute_mpc":1e-12,"distance_relative":2e-14,"ratio_absolute":1e-14,"ratio_relative":2e-13,"sound_absolute_mpc":1e-12,"sound_relative":2e-14}
 BUDGETS = {"distance_absolute_mpc": 1e-9, "distance_relative": 2e-11,
            "ratio_absolute": 1e-11, "ratio_relative": 5e-11,
@@ -231,7 +234,16 @@ def typed_transport(q, observed, covariance):
 
 
 def check_outputs(output, q):
-    keys(output, ("schema_version", "producer_policy", "density", "background", "callbacks"))
+    keys(output, ("schema_version", "scientific_ids", "arithmetic", "producer_policy", "density", "background", "callbacks"))
+    if output["scientific_ids"]!=SCIENTIFIC_IDS:
+        raise ValueError("Native operation-owned scientific IDs differ")
+    arithmetic=output["arithmetic"]
+    keys(arithmetic,("density_arithmetic_id","double_mantissa_bits","long_double_mantissa_bits","long_double_max_exponent","round_to_nearest"))
+    if (arithmetic["density_arithmetic_id"]!="F02/longdouble-cpu/v1" or arithmetic["double_mantissa_bits"]!=53
+            or type(arithmetic["long_double_mantissa_bits"]) is not int or arithmetic["long_double_mantissa_bits"]<64
+            or type(arithmetic["long_double_max_exponent"]) is not int or arithmetic["long_double_max_exponent"]<16384
+            or arithmetic["round_to_nearest"] is not True):
+        raise ValueError("Native arithmetic contract differs")
     if output["producer_policy"]!=PRODUCER:
         raise ValueError("Native compiled producer policy differs")
     if output["schema_version"] != 1 or type(output["callbacks"]) is not int or not 0 <= output["callbacks"] <= 4000000:
@@ -366,6 +378,8 @@ def execute(source, sdk, name=None):
         record["underbudget_producer_control"]={"status":"conditioning_budget_exceeded","original_ratio_relative":2e-14,"final_ratio_relative":2e-13}
         output = parse(bounded([str(executable)], store, "native", 120, stdin=payload))
         record["actual_compiled_producer_policy"]=output["producer_policy"]
+        record["native_scientific_ids"]=output["scientific_ids"]
+        record["native_arithmetic"]=output["arithmetic"]
         check_outputs(output, q)
         reference_input=store/"reference-input.json"
         reference_input.write_text(json.dumps({"request":q,"observed":observed,"covariance":covariance},allow_nan=False)+"\n")

@@ -111,7 +111,7 @@ class BaselineTests(unittest.TestCase):
     def output(self):
         density={"status":"ok","predictions":[1.]*13,"quadratic":0.,"log_determinant":0.,"normalization":0.,"log_density":0.,"projection_estimate":1e-12,"callbacks":1}
         background=[{"status":"ok","z":z,"E":1.,"DM":0.,"DL":0.} for z in self.q["redshifts"]]
-        return {"schema_version":1,"producer_policy":dict(controller.PRODUCER),"density":[copy.deepcopy(density),copy.deepcopy(density)],"background":[copy.deepcopy(background),copy.deepcopy(background)],"callbacks":2}
+        return {"schema_version":1,"scientific_ids":dict(controller.SCIENTIFIC_IDS),"arithmetic":{"density_arithmetic_id":"F02/longdouble-cpu/v1","double_mantissa_bits":53,"long_double_mantissa_bits":64,"long_double_max_exponent":16384,"round_to_nearest":True},"producer_policy":dict(controller.PRODUCER),"density":[copy.deepcopy(density),copy.deepcopy(density)],"background":[copy.deepcopy(background),copy.deepcopy(background)],"callbacks":2}
 
     def test_status_missing_axis_and_nonfinite_outputs_refused(self):
         controller.check_outputs(self.output(),self.q)
@@ -119,7 +119,9 @@ class BaselineTests(unittest.TestCase):
                        lambda o:o["density"][0]["predictions"].pop(),
                        lambda o:o["density"][0].update(projection_estimate=None),
                        lambda o:o["background"][0][0].update(z=99),
-                       lambda o:o["density"][0].update(log_density=float("inf"))):
+                       lambda o:o["density"][0].update(log_density=float("inf")),
+                       lambda o:o["scientific_ids"].update(physical_model="other-model"),
+                       lambda o:o["arithmetic"].update(round_to_nearest=False)):
             o=self.output();change(o)
             with self.assertRaises((ValueError,TypeError)):controller.check_outputs(o,self.q)
 

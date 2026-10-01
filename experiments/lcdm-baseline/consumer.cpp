@@ -1,8 +1,10 @@
 // Experiment-specific typed transport; physical equations are installed Irred.
 #include "irred/bao_conditional.hpp"
+#include <cfenv>
 #include <cmath>
 #include <iomanip>
 #include <iostream>
+#include <limits>
 #include <sstream>
 #include <stdexcept>
 using namespace irred;
@@ -101,7 +103,23 @@ int main(int argc, char **argv) {
     require(batch.status == statistics::DensityStatus::finite &&
             batch.numerical_status == numerics::Status::ok &&
             batch.slots.size() == 2);
-    std::cout << "{\"schema_version\":1,\"producer_policy\":{\"distance_"
+    std::cout << "{\"schema_version\":1,\"scientific_ids\":{\"early_late_"
+                 "equation\":\""
+              << cosmology::early_late_equation_id
+              << "\",\"conditional_density\":\"" << bao::conditional_density_id
+              << "\",\"physical_model\":\"" << cosmology::sound_horizon_model_id
+              << "\"},\"arithmetic\":{\"density_arithmetic_id\":\""
+              << prepared.metadata().arithmetic_id
+              << "\",\"double_mantissa_bits\":"
+              << std::numeric_limits<double>::digits
+              << ",\"long_double_mantissa_bits\":"
+              << std::numeric_limits<long double>::digits
+              << ",\"long_double_max_exponent\":"
+              << std::numeric_limits<long double>::max_exponent
+              << ",\"round_to_nearest\":"
+              << (std::fegetround() == FE_TONEAREST ? "true" : "false")
+              << "},\"producer_policy\":{\"distance_"
+
                  "absolute_mpc\":"
               << early.absolute_tolerance_mpc
               << ",\"distance_relative\":" << early.relative_tolerance
