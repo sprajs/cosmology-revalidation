@@ -104,3 +104,10 @@ observational calibration uncertainty. An identified released contrast can be
 tested without guessing the remaining host/nuisance axes. Preserve the original
 SDK/model/request pins and attempts; changing them requires an explicitly
 reviewed new experiment/build identity and its own execution.
+
+For `experiments/released-ladder`, use the reviewed bounded controller and pinned
+SDK/source blobs. The unchanged full47 relative Gaussian profile is distinct
+from the released MCMC box support and its fixed coordinate. Check the primary
+rounded-table host join and retain unresolved axes and selection discrepancies.
+Never turn synthetic constraint-row perturbations into a physical calibration
+uncertainty or replace a historical SDK pin without a reviewed new identity.

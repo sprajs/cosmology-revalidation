@@ -73,6 +73,16 @@ separates that progress from this packet's original massless model and build.
 A newer engine does not automatically replace a pinned SDK or change an earlier
 run's scientific identity.
 
+[The released ladder experiment](experiments/released-ladder/README.md) now
+executes the unchanged 3492-row, 47-column compact SH0ES design through the
+installed native library. It verifies all 37 host columns against the pinned
+primary Cepheid table and compares the full fit, H0-related contrast variance
+and declared synthetic constraint-row responses with independent QR/SVD.
+The source MCMC's fixed coordinate, unresolved nuisance identities and
+paper/release selection discrepancy remain explicit. Its narrower controller
+runs while the full paper-reproduction packet stays blocked; it supplies no
+observational posterior or reconstructed systematic H0 uncertainty.
+
 ## Plots and notebooks
 
 Keep visualization source next to its experiment and render into the run folder.
