@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "expansion-background",
+  "status": "runnable",
+  "question": "What expansion rate and physical distance does flat matter-plus-Lambda cosmology predict at the declared redshifts?",
+  "origin": {
+    "kind": "development_smoke",
+    "description": "A small execution-path example inspired by the historical expansion studies; no Prospector paper has been admitted."
+  },
+  "assumptions": [
+    "Spatially flat FLRW; matter plus cosmological constant, no radiation.",
+    "Omega_m=0.3 and H0=70 km/s/Mpc are chosen controls, not fitted measurements.",
+    "Observer and expansion redshifts coincide."
+  ],
+  "limitations": [
+    "No observed data, fitting, uncertainty inference or survey simulation.",
+    "A successful numerical contract does not validate the model or reproduce the historical manuscript."
+  ],
+  "inputs": [],
+  "execution": {
+    "engine_revision": "ef4cb694addac1ca25c332253cff3fbecd0cbbce",
+    "operation": "background.evaluate",
+    "request": "request.json",
+    "assurance": "numerical_contract",
+    "timeout_seconds": 60
+  },
+  "blockers": []
+}

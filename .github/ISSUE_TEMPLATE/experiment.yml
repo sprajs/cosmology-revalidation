@@ -1,0 +1,15 @@
+name: Experiment proposal
+description: Propose a bounded investigation or report a missing prerequisite.
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Question and source
+      description: Exact paper/version or Prospector candidate, faithful claim and smallest useful test.
+    validations:
+      required: true
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Data, engine capabilities and limits
+      description: Input lineage, simplifications, missing physics and checks that could challenge the result.

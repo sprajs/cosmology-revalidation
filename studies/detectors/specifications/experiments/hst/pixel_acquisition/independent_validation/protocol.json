@@ -1,8 +1,0 @@
-{
-  "status": "frozen_before_validation",
-  "scope": "Independent artifact and FITS-metadata verification for the ten public MAST products in parent protocol.json/result.json",
-  "checks": ["exact ten filename/URI and local SHA256 closure to acquisition result and per-file JSON", "FITS block/HDU layout and embedded CHECKSUM/DATASUM status if present", "instrument/filter/target/exposure start/end and BUNIT", "DRZ four-input closure against four acquired FLT roots per association", "WCS and distortion/PAM reference-key inventory; availability versus historical equivalence"],
-  "prohibitions": "No pixel values, pixel statistics, image display, SN or sky flux, aperture/noise outcomes, or historical reduction equivalence claim",
-  "method": "Use astropy.io.fits with lazy HDUs and no image-array reads for header inventory; full-file SHA256 streaming; FITS checksum verification may scan bytes only for integrity; preserve missing metadata as missing",
-  "historical_caveat": "These are current public 2026 CALWF3/AstroDrizzle products, not demonstrated RAISIN-private reductions."
-}

@@ -1,29 +1,20 @@
-# Local environment and Python caches.
-.venv/
+# Inputs, full receipts, simulations and rendered outputs are local.
+/data/
+/downloads/
+/results/
+/runs/
+/simulation/
+/simulations/
+/.work/
+/notebooks/
+/.venv/
 __pycache__/
 *.py[cod]
 .pytest_cache/
 .ruff_cache/
-
-# Frozen scientific inputs are restored and verified from provenance/inputs.json.
-/data/
-/downloads/
+.ipynb_checkpoints/
 *.partial
-
-# Publish the reference records; additional campaigns stay local until selected.
-/results/*
-!/results/README.md
-!/results/baseline/
-!/results/alternatives/
-!/results/robustness/
-*.npz
-*.npy
-# Byte-for-byte supplementary extracts are regenerated from the input archive.
-/results/**/extracted/
-
-# Original study execution, downloaded dependencies and generated products.
-/.work/
-
-# Regenerable object-level result tables stay local.
-/results/**/*.csv
-/results/**/*.dat
+.env
+.env.*
+!.env.example
+.DS_Store

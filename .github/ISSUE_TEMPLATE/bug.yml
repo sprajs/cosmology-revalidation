@@ -1,0 +1,16 @@
+name: Execution or evidence problem
+description: Report a runner failure, provenance gap or misleading interpretation.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction and identity
+      description: Packet, command, source/build identity, exit code and relevant gates; omit private inputs and credentials.
+    validations:
+      required: true
