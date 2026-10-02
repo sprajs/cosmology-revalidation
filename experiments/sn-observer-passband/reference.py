@@ -21,6 +21,10 @@ for r in native['background']:
     compare('radial',r['radial'],radial,2e-12,1e-24)
     compare('shape',r['shape'],shape,2e-12,1e-24)
     compare('distance',r['DL_mpc'],shape*mp.mpf(299792.458)/70,2e-11,1e-9)
+source_rows=[tuple(map(float,line.split())) for line in (store/'rows.tsv').read_text().splitlines()]
+for i,(source_id,z,o) in enumerate(source_rows):
+    a,b=native['background'][2*i:2*i+2]
+    if (a['index'],a['zHD'],a['zHEL'],b['index'],b['zHD'],b['zHEL'])!=(2*i,z,o,2*i+1,z,z):failures.append('source_pair_order')
 for i in range(0,642,2):
     a,b=native['background'][i:i+2]
     compare('observer_ratio',a['shape']/b['shape'],(1+mp.mpf(a['zHEL']))/(1+mp.mpf(a['zHD'])),2e-12,1e-24)
@@ -28,6 +32,11 @@ if any(native['background'][642][k]!=0 for k in ['radial','shape','DL_mpc']):fai
 low=native['background'][643]
 compare('low_z_slope',low['shape']/low['zHD'],1+mp.mpf(low['zHD'])/2,2e-12,1e-24)
 pairs=[tuple(map(float,line.split())) for line in (store/'passband-metre.tsv').read_text().splitlines()]
+angstroms=[tuple(map(float,line.split())) for line in (store/'passband-angstrom.tsv').read_text().splitlines()]
+if len(pairs)!=910 or len(angstroms)!=910:failures.append('passband_count')
+for (a,ta),(b,tb) in zip(angstroms,pairs):
+    checks+=1
+    if float(mp.mpf(a)*mp.mpf('1e-10'))!=b or ta!=tb:failures.append('source_unit_or_transmission_identity')
 x=np.array([a for a,b in pairs]);t=np.array([b for a,b in pairs]);h=mp.mpf('6.62607015e-34');c=mp.mpf(299792458)
 width=mp.mpf(x[-1])-mp.mpf(x[0]);area=mp.mpf(0);weighted=mp.mpf(0)
 for (a,ta),(b,tb) in zip(pairs,pairs[1:]):

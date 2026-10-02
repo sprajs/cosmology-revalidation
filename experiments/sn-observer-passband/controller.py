@@ -17,6 +17,7 @@ FOLDER=Path(__file__).resolve().parent
 spec=importlib.util.spec_from_file_location('retained_sdk_identity',ROOT/'experiments/released-ladder/controller.py')
 sdk_checks=importlib.util.module_from_spec(spec);spec.loader.exec_module(sdk_checks)
 load=sdk_checks.load;sha256=sdk_checks.sha256
+CONFIG_SHA256='a95a36d99c304f99d23e800cf22fa5bc943fe05cd79b4c42bdbf8fabef9b09e3'
 
 def sources(directory, config):
     result={}
@@ -64,13 +65,14 @@ def execute(args):
             os.environ[key]='1'
         record['reference_threads']={k:os.environ[k] for k in ['OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMEXPR_NUM_THREADS']}
         packet=load(FOLDER/'experiment.json');config=load(FOLDER/'config.json')
-        frozen=ROOT/'.work/sn-observer-passband-20261002/contract.json'
-        if (FOLDER/'config.json').read_bytes()!=frozen.read_bytes():raise ValueError('preimplementation contract changed')
+        if sha256(FOLDER/'config.json')!=CONFIG_SHA256:raise ValueError('reviewed configuration changed')
+        (store/'config.json').write_bytes((FOLDER/'config.json').read_bytes())
         expected_candidates={'candidate-sn.json':packet['origin']['sha256'],'candidate-response.json':packet['limitations'][0].split('sha256=')[1]}
         for name,digest in expected_candidates.items():
             if sha256(FOLDER/name)!=digest:raise ValueError('candidate changed')
         record['source_candidate_revision']=packet['origin']['revision'];record['candidate_hashes']=expected_candidates
         record['packet_source_hashes']={p.name:sha256(p) for p in sorted(FOLDER.iterdir()) if p.is_file()}
+        record['retained_sdk_checker_sha256']=sha256(Path(sdk_checks.__file__))
         record['consumer_revision']=subprocess.check_output(['git','-C',str(ROOT),'rev-parse','HEAD'],text=True).strip()
         record['consumer_dirty']=bool(subprocess.check_output(['git','-C',str(ROOT),'status','--porcelain'],text=True).strip())
         if record['consumer_dirty']:raise ValueError('consumer requires clean committed source')
@@ -83,7 +85,7 @@ def execute(args):
         record['consumer_executable_sha256']=sha256(store/'consumer')
         native=sdk_checks.child([str(store/'consumer'),str(store/'rows.tsv'),str(store/'passband-angstrom.tsv'),str(store/'passband-metre.tsv')],store,'native',30)
         result=json.loads(native)
-        if len(result['background'])!=645 or len(result['photometry'])!=3 or not all(result['invalid_controls'].values()):raise ValueError('native output admission')
+        if result['variant']!=config['variant'] or len(result['background'])!=645 or len(result['photometry'])!=3 or not all(result['invalid_controls'].values()):raise ValueError('native output admission')
         record['gates']['execution']='accepted'
         reference=json.loads(sdk_checks.child([str(args.reference_python),str(FOLDER/'reference.py'),str(store)],store,'reference',120))
         if reference['status']!='accepted':raise ValueError('reference comparisons failed')
@@ -102,6 +104,7 @@ def execute(args):
         if 'packet_source_hashes' in record:
             after={p.name:sha256(p) for p in sorted(FOLDER.iterdir()) if p.is_file()}
             if after!=record['packet_source_hashes']:errors.append('packet changed')
+            if sha256(Path(sdk_checks.__file__))!=record['retained_sdk_checker_sha256']:errors.append('SDK checker changed')
         if errors:record['status']='failed';record['integrity_errors']=errors
         record['elapsed_seconds']=time.monotonic()-started
         record['generated_hashes']={p.name:sha256(p) for p in store.iterdir() if p.is_file()}

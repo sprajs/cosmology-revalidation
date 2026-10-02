@@ -57,7 +57,14 @@ int main(int argc,char**argv) {
       {0.1,mask,cosmology::Observer{-1,cosmology::Convention::released_zhd_zhel}},
       {-0.1,mask,cosmology::Observer{0.1,cosmology::Convention::released_zhd_zhel}}};
     const auto invalid=model.evaluate(bad,policy);
-    bool bg=true;for(const auto&s:invalid.slots)bg&=!s.luminosity_shape.value;
+    bool bg=invalid.status==cosmology::Status::ok&&invalid.slots.size()==3;
+    if(bg){
+      for(unsigned i=0;i<3;++i){
+        const auto&s=invalid.slots[i];
+        bg&=!s.luminosity_shape.value;
+        bg&=s.luminosity_shape.status==(i<2?cosmology::Status::incompatible_convention:cosmology::Status::unsupported_domain);
+      }
+    }
     auto invalid_t=t;invalid_t[100]=1.1;
     const auto bad_t=photometry::evaluate_sampled({{sw,sl},{w,invalid_t},1e20,0,1,1},pp);
     auto invalid_w=w;invalid_w[100]=invalid_w[99];
