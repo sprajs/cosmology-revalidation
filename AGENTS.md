@@ -121,3 +121,13 @@ a physical calibration uncertainty or replace a historical SDK pin without a
 reviewed new identity.
 
 Use the dedicated [SN observer/passband controller](experiments/sn-observer-passband/README.md) for its frozen conditional slice. Keep the faithful candidate blocked until event/frame/reduction and calibration-law gaps close; a passing distance or optical integral does not qualify a released likelihood.
+
+The [current campaign](experiments/lcdm-campaign/README.md) is a diagnostic
+source/dependency snapshot serving Irreducible's sole active roadmap, not a
+second development plan. Its bounded thermal DESI controller has its own
+reviewed consumer/build identity and keeps the full-model packet blocked.
+Require exact request, model/order, native policy/status and reference identities
+before comparison. Retain high-precision reference differences at their declared
+precision, including independent refinement axes and tail allocations; binary64
+conversion must not erase a failed reference gate. Use a new immutable attempt
+after source corrections, preserving the earlier receipt and its limitations.

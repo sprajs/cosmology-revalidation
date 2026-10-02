@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "kind": "candidate_design",
+  "paper_ids": [
+    "arxiv:1807.06209v4",
+    "arxiv:2503.14738v3",
+    "arxiv:2202.04077v2",
+    "arxiv:2112.03863v2",
+    "arxiv:2112.03864v2",
+    "arxiv:2112.04510v3"
+  ],
+  "idea_ids": [
+    "planck-conditioned-base-lcdm",
+    "bao-compressed-relative-ruler",
+    "sn-standardized-distance-lineage"
+  ],
+  "review_id": "2026-10-01-lcdm-baseline-source-claims",
+  "readiness": "blocked",
+  "equations": [
+    {
+      "expression": "H(z)^2/H0^2 = Omega_bc*(1+z)^3 + Omega_gamma*(1+z)^4 + Omega_nu*rho_nu(z)/rho_nu(0) + Omega_Lambda",
+      "locator": "DESI Sec.I Eq.6, restricted to flat Lambda; neutrino density remains time dependent",
+      "paper_id": "arxiv:2503.14738v3",
+      "definitions": "Omega_bc=Omega_b+Omega_c. Omega_gamma describes photons; Omega_nu is present neutrino density. Their sum and Lambda close flatness. H0 in km s^-1 Mpc^-1.",
+      "domain": "Homogeneous flat GR background; full neutrino thermal transition required for the Planck reference.",
+      "status": "reviewed_transcription"
+    },
+    {
+      "expression": "r_d = integral[z_drag,infinity] c_s(z)/H(z) dz; D_M(z)=c*integral[0,z] dzprime/H(zprime); D_H(z)=c/H(z); D_V(z)=[z*D_M(z)^2*D_H(z)]^(1/3)",
+      "locator": "DESI Sec.I Eqs.1,4,5; Sec.III.1 D_V definition",
+      "paper_id": "arxiv:2503.14738v3",
+      "definitions": "Comoving distances and ruler in Mpc; z dimensionless; c in km/s. r_d is at drag, not r_star at last scattering. BAO constrains distance/ruler ratios.",
+      "domain": "Flat FLRW distance convention; acoustic ruler needs photon-baryon/thermal closure or an explicitly supplied endpoint.",
+      "status": "reviewed_transcription"
+    },
+    {
+      "expression": "chi2 = DeltaD^T*(C_stat+C_syst)^(-1)*DeltaD; DeltaD_i=mu_i-mu_model(z_i); mu_model=5*log10(d_L/10 pc)",
+      "locator": "Pantheon+ Sec.II Eqs.8–12; Eqs.14–15 specify the different calibrated-host residual/covariance",
+      "paper_id": "arxiv:2202.04077v2",
+      "definitions": "Distances use standardized SALT2/bias-corrected input, not raw fluxes. Matrix order follows light-curve rows, including correlated duplicate observations. M and H0 are degenerate without absolute calibration.",
+      "domain": "Released SN compressed likelihood with its published selection/calibration treatment; calibrated ladder uses separate host residuals, covariance and anchor data.",
+      "status": "reviewed_transcription"
+    }
+  ],
+  "assumptions": [
+    "ΛCDM is a declared reference, not an established unique truth or replacement for registered alternative cosmologies.",
+    "Freeze exact versions, source hashes, likelihood release identities, object order and data cuts.",
+    "Planck marginal posterior values are conditioned anchors; no extra Planck-summary likelihood or invented covariance.",
+    "BAO templates/reconstruction, SN standardization/bias corrections and shared calibration condition the supplied data."
+  ],
+  "simplifications": [
+    "This handoff does not reproduce a full CMB/BAO/SN joint posterior or adjudicate the Hubble tension."
+  ],
+  "data_dependencies": [
+    {
+      "paper_id": "arxiv:1807.06209v4",
+      "kind": "fitted posterior summary",
+      "role": "Parameter/reference conditioning only; not an independent measurement."
+    },
+    {
+      "paper_id": "arxiv:2503.14738v3",
+      "kind": "compressed clustering likelihood",
+      "role": "DESI DR2 Table4 marginalized BAO-fit posterior means/standard deviations, a released fitted compression with full covariance; not raw clustering or a cosmological posterior. Seven baseline samples; omit superseded LRG3/ELG1 rows. Consumer pins official 13-coordinate mean/covariance release and retains unknown cross-probe dependence."
+    },
+    {
+      "paper_id": "arxiv:2202.04077v2",
+      "kind": "standardized SN distance likelihood",
+      "role": "1701 light curves/1550 distinct SNe with full correlated covariance, release columns and chosen selection; subset-specific results require matched scope."
+    },
+    {
+      "paper_id": "arxiv:2112.03863v2",
+      "kind": "sample and light-curve release",
+      "role": "Source/object IDs, cuts, duplicates and shared sample ancestry."
+    },
+    {
+      "paper_id": "arxiv:2112.03864v2",
+      "kind": "calibration and SALT2 training",
+      "role": "Correlated survey zeropoints and light-curve training; preserve dependence across SN/calibration products."
+    },
+    {
+      "paper_id": "arxiv:2112.04510v3",
+      "kind": "calibrated ladder fit",
+      "role": "Comparison context only; Pantheon+ and SH0ES share SN distances/calibrators/covariance. Do not add summary H0 as an independent likelihood on overlapping samples."
+    }
+  ],
+  "unknowns": [
+    "Complete source readings have not occurred in this targeted task.",
+    "Consumer release asset hashes, exact selections and comparison budgets belong to the Reproducible packet and are not yet accepted here.",
+    "Unknown cross-probe covariances stay unknown."
+  ],
+  "verification_gates": [
+    "Independent exact gpt-6.1-sol review of listed original sources/locators and candidate scope.",
+    "Consumer accepts immutable candidate/reference hashes and pins engine revision/build/input identities.",
+    "Compare only declared observables with independent controls at a numerical budget fixed before execution; preserve failed attempts before any correction.",
+    "Check units, density closure, neutrino accounting, free-offset SN identifiability, BAO-ruler identifiability and data overlap.",
+    "Source agreement, numerical acceptance, likelihood reproduction and physical interpretation are separate gates."
+  ],
+  "falsification": "A discrepancy outside a justified predeclared comparison budget identifies a source/implementation/domain/likelihood issue to investigate. Agreement establishes only the scoped comparison, not the full model or theory truth.",
+  "consumer": {
+    "repository": "sprajs/irreducible",
+    "revision": "db4765838fc404a489a0115ee69713f2ea6cd2f4",
+    "dirty": false,
+    "capability_status": "Compiled shared flat matter+radiation+Lambda supplied-drag and early/late native kernels available. Native conditional BAO available. Ten CLI operations; no native early/late CLI route. The background.evaluate LCDM descriptor is a separate radiation-free late-time operation. Missing full massive-neutrino/ionization/drag/perturbation/CMB closure.",
+    "recipe_runner_status": "No implemented generic recipe runner; Reproducible owns a dedicated typed experiment consumer."
+  },
+  "blockers": [
+    "Faithful Planck physics and full likelihood stack are not implemented."
+  ],
+  "executable_request": null,
+  "qualification": {
+    "numerically_executed": false,
+    "scientifically_qualified": false,
+    "reason": "Source-grounded candidate only. Execution evidence and acceptance belong to Reproducible; no full source read or numerical reproduction claimed."
+  },
+  "design_id": "candidate-lcdm-baseline-reference-audit",
+  "title": "Full ΛCDM reference and stack-closure audit",
+  "faithful_claim": "Planck2018 base ΛCDM is a six-parameter flat GR model with standard thermal/primordial closure and a fixed 0.06 eV neutrino. Its Table2 baseline posterior is a comparison reference with explicit likelihood conditioning.",
+  "minimal_test": {
+    "question": "Which parts of the full reference can the current stack predict and compare faithfully, and which require new physics/likelihood closure?",
+    "observables": [
+      "H(z)",
+      "Comoving/luminosity distances",
+      "Drag ruler and BAO distance/ruler ratios",
+      "Standardized SN distance residuals"
+    ],
+    "parameter_choices": {
+      "reference_path": "references/lcdm/planck2018-reference.json",
+      "selection": "Table2 TT,TE,EE+lowE+lensing; no BAO",
+      "full_reference_id": "planck2018-base-lcdm-plik-lensing",
+      "use": "Reference/closure inventory, not executable parameters or a Planck likelihood."
+    },
+    "scope": "Identify supported calculations and explicit blockers. No faithful full Planck reproduction until closure and likelihoods are implemented."
+  },
+  "source_references": [
+    {
+      "reference_id": "planck2018-base-lcdm-plik-lensing",
+      "path": "references/lcdm/planck2018-reference.json",
+      "sha256": "06c561ab2214bd028b47e03802ec3029d476a4cf61d75602bf550e5cbf1282cf"
+    }
+  ]
+}
