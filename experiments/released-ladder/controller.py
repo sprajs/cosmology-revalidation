@@ -38,6 +38,52 @@ FROZEN_BUDGETS = {
 }
 
 
+def validate_constrained(target):
+    if target["schema_version"]!=1 or target["id"]!="released-fixed44/v1" or target["active_original_indices"]!=[j for j in range(47) if j!=44] or target["fixed_coordinates"]!=[{"index":44,"value":0.0}]:
+        raise ValueError("unreviewed fixed-coordinate support/order")
+    if target["unchanged_reference_budgets"]!=FROZEN_BUDGETS or target["box"]["halfwidth_multiplier"]!=10 or target["box"]["endpoints"]!="closed":
+        raise ValueError("unreviewed fixed target box/budgets")
+    if [(v["row"],v["delta_y"]) for v in target["calibration_sensitivities"]]!=[(3211,.10),(3213,.032),(3214,.0263)]:
+        raise ValueError("unreviewed source calibration shifts")
+
+
+def box_support(beta,prior):
+    """Structural source-coordinate box admission; no solver/density in Python."""
+    if len(beta)!=47 or len(prior)!=47 or prior[44]!=[0.,0.] or beta[44]!=0 or not all(math.isfinite(v) for v in beta):
+        raise ValueError("fixed literal-zero finite source support required")
+    bounds=[];outside=[]
+    for j,(center,width) in enumerate(prior):
+        if not math.isfinite(center) or not math.isfinite(width) or (j!=44 and width<=0):
+            raise ValueError("positive finite active box width required")
+        low,high=center-10*width,center+10*width
+        if not math.isfinite(low) or not math.isfinite(high) or (j!=44 and low>=high):
+            raise ValueError("finite nondegenerate active box required")
+        bounds.append({"original_index":j,"lower":low,"upper":high})
+        if not low<=beta[j]<=high:outside.append(j)
+    return {"bounds":bounds,"profile_inside_box":not outside,"outside_original_indices":outside,"meaning":"support only; no posterior normalization/inference"}
+
+
+def constrained_source_audit(store,sources):
+    x=array.array("d");x.frombytes((store/"X.f64").read_bytes())
+    c=array.array("d");c.frombytes((store/"C.f64").read_bytes())
+    expected={37:list(range(2150,2593))+[3213],38:list(range(3130))+[3207,3208],39:list(range(2648,3130))+[3214],40:list(range(2593,2648)),42:list(range(3130,3207))+list(range(3215,3492)),44:[3210],45:list(range(2648,3061))+[3211]}
+    for j,indices in expected.items():
+        if [i for i in range(3492) if x[i*47+j]!=0]!=indices or any(x[i*47+j]!=1 for i in indices):
+            raise ValueError("source coordinate support changed")
+    if any(c[3210*3492+i]!=0 or c[i*3492+3210]!=0 for i in range(3492) if i!=3210):
+        raise ValueError("fixed-coordinate row not covariance-isolated")
+    table=photometry_rows(sources["table2.tex"].decode());groups=[]
+    for host,instrument,start,stop in (("N4258","HST",2150,2593),("M31","HST",2593,2648),("LMC","GRND",2648,2918),("SMC","GRND",2918,3061),("LMC","HST",3061,3130)):
+        failures=[];locators=set()
+        for i in range(start,stop):
+            lp,metal=x[i*47+41],x[i*47+43];hp,hm=binary32_half_ulp(lp),binary32_half_ulp(metal)
+            matches=[r for r in table if r["host"]==host and r["instrument"]==instrument and lp+hp>=r["period_lower"]-1e-14 and lp-hp<=r["period_upper"]+1e-14 and abs(metal-r["metal"])<=r["metal_half"]+hm]
+            if not matches:failures.append({"row":i,"log_period_minus1":lp,"metallicity":metal})
+            locators.update(r["line"] for r in matches)
+        groups.append({"host":host,"instrument":instrument,"rows":[start,stop-1],"row_count":stop-start,"unmatched":failures,"table2_lines":sorted(locators)})
+    return {"original_supports":expected,"fixed44_row_covariance_isolated":True,"anchor_ancillary_join":groups,"qualification":"partial lineage; failed joins retained without adapted tolerance"}
+
+
 def validate_lineage(m):
     if m["schema_version"] != 1 or m["source_revision"] != "c447f0fea703fcd0fff57de5000947b5ca81286b":
         raise ValueError("unreviewed lineage version/release")
@@ -129,7 +175,7 @@ def photometry_rows(text):
         half = 0.5*10**(-decimals)
         metal = float(fields[9])
         metal_decimals = len(fields[9].split(".")[1]) if "." in fields[9] else 0
-        rows.append({"host":fields[0],"id":fields[3],"line":line_number,
+        rows.append({"host":fields[0],"id":fields[3],"line":line_number,"instrument":fields[10].replace("\\","").strip(),
                      "period_lower":math.log10(period-half)-1,
                      "period_upper":math.log10(period+half)-1,
                      "metal":metal,"metal_half":0.5*10**(-metal_decimals)})
@@ -240,7 +286,7 @@ def child(command,store,label,timeout,output_limit=1048576):
 
 
 
-def validate_native(output):
+def validate_native(output,target=None):
     if output["method"]!="retained-whitened-pivoted-householder-qr/v1" or output["variance_method"]!="retained-qr-linear-estimator-variance/v1":
         raise ValueError("unreviewed native method identity")
     if len(output["coefficients"])!=47 or not all(math.isfinite(v) for v in output["coefficients"]):
@@ -251,10 +297,13 @@ def validate_native(output):
         raise ValueError("native relative-score/variance contract differs")
     if output["variance_sensitivity"]<0 or output["variance_sensitivity"]>1e-10 or output["stationarity"]<0 or output["stationarity"]>1e-10:
         raise ValueError("native numerical screen differs")
-    if [v["row"] for v in output["sensitivities"]]!=list(range(3207,3215)) or any(v["delta_y"]!=0.01 for v in output["sensitivities"]):
+    expected=[(v["row"],v["delta_y"]) for v in target["calibration_sensitivities"]] if target else [(i,.01) for i in range(3207,3215)]
+    if [(v["row"],v["delta_y"]) for v in output["sensitivities"]]!=expected:
         raise ValueError("native sensitivity order/perturbation differs")
     if not all(math.isfinite(v[k]) for v in output["sensitivities"] for k in ("beta46_plus","beta46_minus","q_plus","q_minus")):
         raise ValueError("nonfinite native sensitivity")
+    if target and (output.get("rank")!=46 or output["coefficients"][44]!=0):
+        raise ValueError("literal-zero fixed46 native output required")
 
 
 def execute(args):
@@ -264,14 +313,19 @@ def execute(args):
     started=time.monotonic(); before=None
     try:
         m=load(FOLDER/"lineage.json"); validate_lineage(m)
+        target=load(FOLDER/"constrained.json") if getattr(args,"target","full47")=="released-fixed44/v1" else None
+        if target:validate_constrained(target)
         sources=admitted_sources(args.sources,m)
-        record["source_audit"]=source_audit(sources,m,store)
         record["source_hashes"]={n:hashlib.sha256(b).hexdigest() for n,b in sources.items()}
         record["packet_hashes"]={p.name:sha256(p) for p in FOLDER.iterdir() if p.is_file()}
+        record["source_audit"]=source_audit(sources,m,store)
+        if target:
+            record["target"]=target
+            record["constrained_source_audit"]=constrained_source_audit(store,sources)
         before=fingerprint(args.engine_source,args.sdk);record["sdk_before"]=before
         record["engine_tree"]=subprocess.check_output(["git","-C",str(args.engine_source),"rev-parse",SDK_IDENTITY["revision"]+"^{tree}"],text=True).strip()
         # Capture exact adapter sources even during a diagnostic uncommitted run.
-        for name in ("controller.py","consumer.cpp","lineage.json","reference.py"):
+        for name in ("controller.py","consumer.cpp","lineage.json","reference.py","constrained.json"):
             (store/name).write_bytes((FOLDER/name).read_bytes())
         record["repository_head"]=subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()
         record["repository_status"]=subprocess.check_output(["git","status","--porcelain"],cwd=ROOT,text=True)
@@ -279,15 +333,20 @@ def execute(args):
         command=["/usr/bin/c++","-std=c++20","-O2","-Wall","-Wextra","-Wpedantic","-fno-fast-math","-ffp-contract=off",str(store/"consumer.cpp"),"-I",str(args.sdk/"include"),str(args.sdk/"lib/libirred_core.a"),"-o",str(executable)]
         record["compiler_command"]=command
         child(command,store,"compile",120,8*1024**2);record["consumer_sha256"]=sha256(executable)
-        output=json.loads(child([str(executable),str(store)],store,"native",900))
+        record["native_controls"]=json.loads(child([str(executable),"--self-test"],store,"native-controls",30))
+        output=json.loads(child([str(executable),str(store)]+([target["id"]] if target else []),store,"native",900))
         record["native"]=output; record["gates"]["execution"]="passed"
-        validate_native(output)
+        validate_native(output,target)
+        if target:
+            prior=[list(map(float,line.split())) for line in sources["lstsq_results.txt"].decode().splitlines() if line.strip()]
+            record["box_support"]=box_support(output["coefficients"],prior)
         coordinate=m["target"]["paper_rounded_coordinate"]
         if abs(output["coefficients"][46]-coordinate["value"])>coordinate["half_last_printed_digit"]:raise ValueError("paper rounded coordinate mismatch")
         if args.reference_python:
-            reference=json.loads(child([str(args.reference_python),str(store/"reference.py"),str(store)],store,"reference",900))
-            record["reference"]=reference;record["comparisons"]=compare(output,reference,m)
-            record["gates"]["numerical"]="passed named full47 QR/SVD and synthetic row-sensitivity comparisons"
+            record["reference_command"]=[str(args.reference_python),str(store/"reference.py"),str(store)]+([target["id"]] if target else [])
+            reference=json.loads(child(record["reference_command"],store,"reference",900))
+            record["reference"]=reference;record["comparisons"]=compare(output,reference,m,target)
+            record["gates"]["numerical"]="passed named fixed46 QR/SVD and source constraint-mean sensitivity comparisons" if target else "passed named full47 QR/SVD and synthetic row-sensitivity comparisons"
         else:
             record["gates"]["numerical"]="native accepted; external comparison not run"
         if fingerprint(args.engine_source,args.sdk)!=before:raise ValueError("SDK changed during execution")
@@ -318,6 +377,8 @@ def execute(args):
             record["status"]="failed"
             record.setdefault("error","post-run identity verification failed")
         record["elapsed_seconds"]=time.monotonic()-started
+        usage=resource.getrusage(resource.RUSAGE_CHILDREN)
+        record["children_resources"]={"user_cpu_seconds":usage.ru_utime,"system_cpu_seconds":usage.ru_stime,"maximum_rss_kib":usage.ru_maxrss,"scope":"all compiler/native/reference children of this controller"}
         (store/"record.json").write_text(json.dumps(record,indent=2)+"\n")
         for p in store.iterdir():
             if p.is_file():p.chmod(0o444)
@@ -325,9 +386,9 @@ def execute(args):
     return 0 if record["status"]=="completed" else 1
 
 
-def compare(native,reference,m):
+def compare(native,reference,m,target=None):
     b=m["target"]["reference_budgets"];checks=[]
-    if reference.get("rank")!=47 or set(reference["algorithms"])!={"LAPACK_gesdd_SVD","LAPACK_pivoted_QR"}:
+    if reference.get("rank")!=(46 if target else 47) or set(reference["algorithms"])!={"LAPACK_gesdd_SVD","LAPACK_pivoted_QR"}:
         raise ValueError("complete independent reference algorithms/rank required")
     def scalar(name,a,r,kind):
         if not math.isfinite(a) or not math.isfinite(r):raise ValueError("nonfinite reference/output")
@@ -337,13 +398,17 @@ def compare(native,reference,m):
         if delta>budget:raise ValueError("frozen comparison failed: "+name)
     for algorithm,value in reference["algorithms"].items():
         if len(value["coefficients"])!=47:raise ValueError("reference full47 required")
+        if target and (native["coefficients"][44]!=0 or value["coefficients"][44]!=0):
+            raise ValueError("reference fixed coordinate must be literal zero")
         for j,(a,r) in enumerate(zip(native["coefficients"],value["coefficients"])):scalar(f"{algorithm}/beta{j}",a,r,"coefficient")
         scalar(algorithm+"/quadratic",native["quadratic"],value["quadratic"],"quadratic")
         scalar(algorithm+"/variance46",native["variance46"],value["variance46"],"variance")
-    if [v["row"] for v in native["sensitivities"]]!=list(range(3207,3215)) or [v["row"] for v in reference["sensitivities"]]!=list(range(3207,3215)):
+    rows=[v["row"] for v in target["calibration_sensitivities"]] if target else list(range(3207,3215))
+    if [v["row"] for v in native["sensitivities"]]!=rows or [v["row"] for v in reference["sensitivities"]]!=rows:
         raise ValueError("sensitivity row order changed")
     for a,r in zip(native["sensitivities"],reference["sensitivities"]):
-        if a["delta_y"]!=0.01:raise ValueError("sensitivity perturbation changed")
+        delta=next(v["delta_y"] for v in target["calibration_sensitivities"] if v["row"]==a["row"]) if target else .01
+        if a["delta_y"]!=delta or (target and r.get("delta_y")!=delta):raise ValueError("sensitivity perturbation changed")
         for field in ("beta46_plus","beta46_minus"):scalar(f"row{a['row']}/{field}",a[field],r[field],"coefficient")
         for field in ("q_plus","q_minus"):scalar(f"row{a['row']}/{field}",a[field],r[field],"quadratic")
     return checks
@@ -356,6 +421,7 @@ if __name__=="__main__":
     p.add_argument("--sdk",type=Path,required=True)
     p.add_argument("--name",required=True)
     p.add_argument("--reference-python",type=Path)
+    p.add_argument("--target",choices=("full47","released-fixed44/v1"),default="full47")
     args=p.parse_args()
     args.sources=args.sources.resolve();args.engine_source=args.engine_source.resolve();args.sdk=args.sdk.resolve()
     if args.reference_python:args.reference_python=args.reference_python.absolute()

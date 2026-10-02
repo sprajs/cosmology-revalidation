@@ -1,7 +1,8 @@
 # Released compact SH0ES ladder
 
-This packet executes a bounded numerical experiment on the **unchanged 3492-row,
-47-column compact release**. It also audits the primary source identities. The
+This packet executes bounded numerical experiments on the **unchanged 3492-row,
+47-column compact release**, using either its historical full47 profile or the
+explicit source-fixed44 target below. It also audits the primary source identities. The
 paper reproduction packet remains blocked because the complete calibration,
 selection and parameter-measure lineage is unresolved. Its [experiment.json](experiment.json)
 has no generic runner route; the reviewed experiment-specific
@@ -20,7 +21,7 @@ native C++ library; [consumer.cpp](consumer.cpp) supplies bounded transport and
 status handling. It retains one covariance/QR preparation across evaluations.
 No determinant, normalized parameter density, evidence or posterior is reported.
 
-## Primary source dictionary and unresolved identities
+## Historical full47 source dictionary and unresolved identities
 
 [The lineage manifest](lineage.json) pins exact URLs, byte sizes, SHA-256 hashes,
 original source-axis indices and equation/script locators. The complete 37-host
@@ -52,8 +53,8 @@ The paper schematic suggests the identities of the remaining anchor/luminosity,
 SN and ground zero-point coordinates. These correspondences are retained as
 context, with **null physical identities** until the complete release mapping is
 verified. Column44 has no established physical identity and no schematic label.
-No coordinate is renamed, eliminated or regularized. Original external-constraint
-rows3207–3214, their exact y/Cii values and nonzero design support are recorded by
+The historical full47 route retains every coordinate. Original external-constraint
+rows 3207–3214, their exact y/Cii values and nonzero design support are recorded by
 the audit separately from physical labels. The full C retains dependence between
 standardized calibrator/Hubble-flow SNe and all other encoded covariance; unknown
 external probe overlap is not independence.
@@ -71,6 +72,59 @@ measure and treatment of that coordinate; this packet does not supply one. The
 helper fit table supplies initialization/prior limits, not a final numerical
 acceptance target. Numerical acceptance of the full47 profile does not qualify the
 released chain or reproduce observational calibration uncertainty.
+
+The separate [constrained target](constrained.json), `released-fixed44/v1`, uses
+the source-fixed literal β44=0 and ordered original axes 0–43,45,46. The native
+adapter selects these 46 columns and passes them to the same installed
+`DesignProfile`; all 3492 observation rows and the complete C remain unchanged.
+It reports the **unboxed fixed46 relative profile** and conditional estimator
+variance, with a separate closed-source-box support check. Each active box bound
+is the pinned helper center±10 times its positive source width, in its declared
+original coordinate/unit. This does not implement a box-constrained optimizer,
+chain sampler, posterior or evidence. Full47 remains the default and its pins,
+lineage manifest and historical receipts are preserved.
+
+The 46-coordinate Lebesgue measure has a positive finite rectangular volume;
+the reciprocal product of its 46 side lengths defines a normalized uniform prior.
+The fixed44 coordinate is a point mass outside that measure. With positive-definite
+C, exp(−q/2) is continuous and strictly positive on this compact box, so its
+integral exists, is finite and positive. Its numerical normalization is **not
+evaluated**, and no normalized posterior is reported. The source helper's
+constant `log_prior=1` in a degenerate47-dimensional support remains a distinct
+sampler convention. Original column44 still has no source-verified physical label.
+
+The new source audit verifies exact nonzero supports for original 37,38,39,40,
+42,44,45 against the paper's equations/vector, primary photometry and constraint
+structure. It identifies37 as ΔµN4258,38 as the10-day solar-metallicity Cepheid
+Wesenheit absolute magnitude,39 as ΔµLMC,40 as µM31,42 as M⁰B, and45 as the
+ground-minus-HST zeropoint. These source-supported meanings do not establish
+complete reduction lineage. All443 N4258 rows join the primary table, while M31
+row 2630 and LMC rows 2744,2745,2754 fail the unchanged printed-decimal/binary32
+bounds. Every failed row and source locator is retained. Compact/table2 counts
+also differ from printed Table 4: SMC143 versus145 and HST LMC69 versus70.
+The supplemental pinned earlier NIR photometry does not resolve the M31 mismatch.
+
+Constraints also retain unresolved reductions: the HST parallax summary in
+Table 4 has a different mean/error from compact row 3207; Gaia's printed error
+differs from row 3208, and the printed metallicity mean differs from row 3209.
+The wide slope-correction constraint3212 has no complete primary explanation.
+The target manifest records these discrepancies without changing source bytes.
+Column44 occurs only in row 3210, whose y is exactly zero and whose C row/column
+is isolated. Consequently the full47 optimum of that coordinate is zero, and
+fixing it leaves the other coefficients, q and their estimator covariance
+unchanged for these inputs. This structural fact supplies no physical label.
+
+The fixed46 route evaluates three **conditional calibration-constraint mean
+shifts** at unchanged X,C: ground/HST row 3211 by ±0.10mag, N4258 row 3213 by
+±0.032mag and LMC row 3214 by ±0.0263mag, from paper §4.3/4.7. N4258's printed
+0.032 differs from the compact row's approximately 0.032390 standard error;
+the calculation deliberately uses the printed shift and retains compact C.
+These responses are neither random calibration draws nor the paper's Table 5
+variant/systematic uncertainty budget. A physically qualified held-out check
+remains blocked by source-event mapping, alternative-selection calibration and
+cross-covariance closure. The pinned primary `table2.README` explicitly says
+alternative selections/uses may need new artificial-star uncertainty characterization.
+No supplied training block is presented as independent held-out observations.
 
 Paper Section 5 reports its fitted logarithmic coordinate as 9.318, its fitted
 H0 as 73.04±1.01km/s/Mpc, and an increased uncertainty±1.04 after analysis-variant
@@ -131,6 +185,15 @@ uv run python experiments/released-ladder/controller.py \
   --reference-python /absolute/path/to/python-with-numpy-and-scipy
 ```
 
+Append `--target released-fixed44/v1` and use a fresh attempt name for the new
+target. Its external reference performs full-C LAPACK SVD and pivoted QR on the
+same active 46 columns, expands output into original 47 order with literal zero at 44,
+and tests the three named shifts at the existing frozen budgets. The compiled
+adapter also runs an exact small linear control: fixing the third coordinate of
+an identity design to zero fits coefficients (2,3) and leaves q=49 for y=(2,3,7).
+Invalid fixed support and row order are refused. These controls are synthetic
+regressions; they are distinct from observational source qualification.
+
 The reference environment is optional and separate from production dependencies.
 One compiler/compute job is used; reference threads are pinned to one. Native
 preparation has a 2 GiB payload ceiling and 1e-10 sensitivity screen; child address
@@ -173,3 +236,42 @@ Python executable was resolved outside its supplied environment; native outputs
 remain in that receipt. The executable path handling was corrected before the
 clean committed run. Subsequent integrity hardening records post-run SDK/source/
 packet identities even after failed children; the original receipts are unchanged.
+
+2026-10-02: reviewed consumer `02591124b9671d225a6b053826761d120d50efdf`
+completed the source-fixed44 target on the same pinned SDK in 74.20s. All 110
+native/SVD/QR comparisons passed at unchanged budgets; maximum budget fraction
+1.554e-5. β44 is literal zero, and the profile lies inside the source 46-coordinate box.
+β46=9.317887632654045, q=3552.759330295523 and conditional
+Var(β46)=0.0008964788320013900. The exact fixed-zero control and invalid
+support/order checks passed. All source/SDK/packet/reference-library before/after
+identities agreed. Peak child RSS was 482604 KiB, including compiler/native/reference
+children, with one compute job and single-thread reference libraries.
+The immutable local receipt is
+`results/released-ladder/reviewed-fixed44-20261002/record.json`, SHA-256
+`45678ce81b28d501e906907ac21ad7cf7d7fead7020ff7ada0c9240d198144c5`.
+
+At fixed X,C, a positive printed source uncertainty shift in the ground/HST,
+N4258 and LMC constraint means changes β46 by −0.000141043511069,
+−0.00638897192444 and −0.008409013509918 respectively; negative shifts give
+the opposite response. These are the three explicitly named conditional mean
+sensitivities, not a combined calibration uncertainty or analysis-variant result.
+The source audit retains all four failed ancillary period/metallicity joins,
+the printed/compact count and constraint discrepancies above, and unknown column 44.
+Table 2's own README warns that alternative selections/uses may require new
+artificial-star uncertainty characterization; this audit supplies no such new
+characterization. Held-out/model-variant qualification and
+numerical posterior normalization remain unperformed. The initial diagnostic
+reference failure from missing SciPy in the production environment is preserved
+at `results/released-ladder/diagnostic-fixed44-20261002/record.json`; production
+dependencies and prior receipts were not rewritten.
+
+The same reviewed consumer also completed its default full47 route in 72.77s:
+all 130 historical-target comparisons passed, maximum budget fraction 1.520e-5,
+with the original synthetic constraint-row controls retained separately. Its
+immutable local receipt is
+`results/released-ladder/reviewed-full47-preserved-20261002/record.json`, SHA-256
+`32bdfffc8258d43c2884949143dcab8a2d5c344f83931c10eb8ba91a4a502047`.
+Both targets remain conditional numerical experiments with inference unassessed
+and full source qualification blocked. This finding entry changes documentation
+only; the scientific adapter/source snapshots and clean tested revision are in
+the two receipts. No source assets or full run stores are redistributed here.
