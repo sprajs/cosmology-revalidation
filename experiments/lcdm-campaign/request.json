@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "lcdm-campaign/thermal-desi-control-v1",
+  "operation": "lcdm-campaign.thermal-control",
+  "engine": {
+    "revision": "e9a9e6bd5af3404c7efc66916dc6ed6c68d72b4f",
+    "build_id": "e92a0e64ee8e7101864a2d221b67d02abe434ad6f8288f84475b15a4a2445999",
+    "manifest_sha256": "cc73dfcfdb66ab63f6fe6eb89c1d85ffd7632f5d3551eee00b85366db11f6364",
+    "archive_sha256": "698813c49a0e9412ed534dab0751bd7425998220f76c49099e7d9b3f97a8713b",
+    "cli_sha256": "1400b9f1c534ea28605462e882c541d3a699d8b74f55e0d18df2fa627f891a76",
+    "route": "read-only verified source headers and primary native archive; no CLI thermal operation"
+  },
+  "models": [
+    {
+      "id": "thermal-massless-supplied-drag",
+      "H0": 70.0,
+      "omega_b": 0.0245,
+      "omega_c": 0.1225,
+      "Tcmb": 2.7255,
+      "omega_other": 1e-05,
+      "species": [],
+      "z_drag": 1059.95
+    },
+    {
+      "id": "thermal-massive-FD-supplied-drag",
+      "H0": 67.4,
+      "omega_b": 0.02237,
+      "omega_c": 0.12,
+      "Tcmb": 2.725501088928264,
+      "omega_other": 1.703989276e-05,
+      "species": [
+        {
+          "mass_eV": 0.06,
+          "temperature_K": 1.9517599631877276,
+          "g": 2.0
+        }
+      ],
+      "z_drag": 1059.95
+    }
+  ],
+  "model_role": "chosen controls, not a Planck fitted anchor or full standard neutrino/recombination source",
+  "budgets": {
+    "ratio_absolute": 1e-10,
+    "ratio_relative": 5e-10,
+    "distance_absolute_mpc": 1e-08,
+    "distance_relative": 2e-10,
+    "density_absolute": 1e-08,
+    "projection_absolute": 1e-08,
+    "reference_fraction": 0.05
+  },
+  "producer_policy": {
+    "absolute_mpc": 1e-10,
+    "relative": 2e-12,
+    "ratio_absolute": 1e-12,
+    "ratio_relative": 5e-12,
+    "moment_absolute": 1e-14,
+    "moment_relative": 2e-14,
+    "maximum_callbacks_per_point": 100000000,
+    "maximum_callbacks_per_model": 500000000,
+    "maximum_callbacks_total": 1000000000
+  },
+  "resources": {
+    "jobs": 1,
+    "threads": 1,
+    "compile_seconds": 120,
+    "native_seconds": 300,
+    "reference_seconds": 900,
+    "memory_bytes": 3221225472,
+    "output_bytes": 8388608
+  }
+}

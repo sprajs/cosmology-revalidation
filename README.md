@@ -66,6 +66,13 @@ full Planck 2018 massive-neutrino/thermal-drag/CMB reproduction remains blocked.
 Numerical success establishes neither a fit nor a posterior result. Follow the
 packet's native command and exact source/SDK/data pins.
 
+[The current reproduction campaign](experiments/lcdm-campaign/README.md) retains
+all nineteen source and native contracts as a diagnostic status snapshot for
+Irreducible's sole active roadmap. Its separate thermal DESI consumer tests
+chosen massless and massive FD models with supplied drag against the same full
+13-row compression. Full Planck reproduction and observational qualification
+stay blocked; older packets and their SDK identities remain intact.
+
 Subsequent engine work has passed a released-ladder matrix comparison and added
 an explicit thermal-relic E/H provider and conditional estimator variance.
 The [baseline account](experiments/lcdm-baseline/README.md#engine-prerequisite-progress)

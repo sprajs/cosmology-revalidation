@@ -62,3 +62,13 @@ review are additionally required; record their identities in the packet history.
 Cross-project owners coordinate dependencies before merging, and rerun the
 integrated consumer when a pinned interface changes. Documentation-only engine
 commits do not implicitly update a packet's scientific SDK pin.
+
+The [thermal DESI campaign consumer](../experiments/lcdm-campaign/README.md)
+separates a clean pinned source checkout from the read-only build artifacts when
+the engine owner's primary checkout advances. Verify both identities and all
+manifest source hashes; copying a source revision label does not verify an
+archive. Its full-model packet stays blocked while named conditional controls
+run through the bounded controller. Preserve original partial/failure output,
+test admission adversarially, and review a fresh committed run before reporting
+numerical acceptance. The campaign records readiness and findings for the
+engine's sole roadmap; it does not schedule work or execute commands from JSON.

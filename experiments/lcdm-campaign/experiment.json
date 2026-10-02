@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "id": "lcdm-campaign",
+  "status": "blocked",
+  "question": "Which of the nineteen source and native contracts support faithful standard LambdaCDM reproduction from retained real inputs, and which bounded comparisons currently pass?",
+  "origin": {
+    "kind": "prospector_candidate",
+    "repository": "sprajs/prospector",
+    "revision": "023b3839b2fd4fd55e737fbf1415d3b3360c6ed8",
+    "path": "designs/candidate-lcdm-baseline-reference-audit.json",
+    "snapshot": "candidate.json",
+    "sha256": "b098fa4423e2a228ddf392e621ed0bff6748bc094b2bc49696e83033719f45a1"
+  },
+  "assumptions": [
+    "Full Planck physical-density/species/thermal/perturbation identities remain the intended claim.",
+    "Supplied-drag massless and massive FD cases are separately identified conditional controls.",
+    "Released means/covariance are fitted summaries; no posterior parameters are extra observations, no unknown cross-covariance is independence."
+  ],
+  "limitations": [
+    "No full Planck/CMB reproduction or combined cosmological posterior.",
+    "Original packet and SDK identities/receipts remain unchanged.",
+    "Local evidence needs durable preservation before scientific publication."
+  ],
+  "inputs": [
+    {
+      "path": "data/bao/desi_gaussian_bao_ALL_GCcomb_mean.txt",
+      "bytes": 472,
+      "sha256": "9ac154ab583ce759c0f7eef3c978c7c70a6ead2d18774caceadf1a350a640585",
+      "role": "released_fitted_summary",
+      "semantics": "DESI DR2 released fitted distance-ratio compression; dimensionless ratios/full ratio-squared covariance in exact 13-row mean order. Retain release selection/reconstruction/calibration assumptions; unknown cross-probe overlap is not independence. Not raw galaxy data.",
+      "source": "https://raw.githubusercontent.com/CobayaSampler/bao_data/bb0c1c9009dc76d1391300e169e8df38fd1096db/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_mean.txt"
+    },
+    {
+      "path": "data/bao/desi_gaussian_bao_ALL_GCcomb_cov.txt",
+      "bytes": 2547,
+      "sha256": "252a143274c8a07c78694c119617d36594f6d7965d00319ca611c6ffb886e509",
+      "role": "released_fitted_summary",
+      "semantics": "DESI DR2 released fitted distance-ratio compression; dimensionless ratios/full ratio-squared covariance in exact 13-row mean order. Retain release selection/reconstruction/calibration assumptions; unknown cross-probe overlap is not independence. Not raw galaxy data.",
+      "source": "https://raw.githubusercontent.com/CobayaSampler/bao_data/bb0c1c9009dc76d1391300e169e8df38fd1096db/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_cov.txt"
+    }
+  ],
+  "execution": null,
+  "blockers": [
+    "Native transfer/CMB and complete source-defined H/He and drag closure absent.",
+    "Measured frame, calibration, population, detector, RSD and lens source contracts incomplete.",
+    "Released fixed44 box normalization awaits native owner; physical axis44 label remains unresolved."
+  ]
+}
