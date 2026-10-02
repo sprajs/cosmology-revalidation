@@ -98,7 +98,9 @@ claim. Review the candidate hash and consumer revision again after a handoff
 changes; do not infer a CLI operation from an experiment name.
 
 Record later engine prerequisites separately from a packet's executed findings.
-Native thermal-relic E/H does not yet close its distance/ruler consumer, and
+Native thermal-relic E/H now has a distinct native thermal distance/ruler
+consumer with explicit physical-density/species mapping; use its guide and
+actual pinned SDK rather than inheriting qualification from another model. Also,
 fixed-design estimator variance or a synthetic H0 sampling law does not supply
 observational calibration uncertainty. An identified released contrast can be
 tested without guessing the remaining host/nuisance axes. Preserve the original
@@ -109,5 +111,11 @@ For `experiments/released-ladder`, use the reviewed bounded controller and pinne
 SDK/source blobs. The unchanged full47 relative Gaussian profile is distinct
 from the released MCMC box support and its fixed coordinate. Check the primary
 rounded-table host join and retain unresolved axes and selection discrepancies.
-Never turn synthetic constraint-row perturbations into a physical calibration
-uncertainty or replace a historical SDK pin without a reviewed new identity.
+The source-fixed44 target uses active46 original coordinates and a separate
+closed source-box support check. Its unboxed profile and conditional source-named
+constraint-mean shifts are not a normalized posterior, a box optimizer or a
+combined systematic uncertainty. Preserve unmatched source rows and selection/
+constraint discrepancies; held-out qualification needs resolved event and
+cross-covariance lineage. Never turn synthetic constraint-row perturbations into
+a physical calibration uncertainty or replace a historical SDK pin without a
+reviewed new identity.
