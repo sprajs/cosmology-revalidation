@@ -113,3 +113,16 @@ controls only. Inference was not performed, the direct native distance/ruler
 allocation was not exercised, DESI compression applicability is unqualified,
 and the full-model packet remains blocked. Full inputs/records remain local;
 this account does not replace a durable scientific archive.
+
+Later review bound parsed subprocess bytes to the recorded stdout/stderr hashes,
+retained accepted objects instead of rereading them, and made any later log drift
+revoke numerical acceptance. Direct checks found no drift in the preceding run.
+After 61 unit tests passed, the fresh committed repeat
+`committed-thermal-desi-20261003-b` at
+`d796712200e66459ad0fb446a250643e120ac151` passed all 34 comparisons in 93.06
+seconds with the same consumer executable and no identity errors. Its immutable
+local record SHA256 is
+`dc296c164462136687339148c1e3a2879954cd752d5d460bc161f083c3ab3d15`.
+The fixed controls retain quadratic scores 247.085658 and 265.256529 on the
+thirteen fitted coordinates. They were not optimized or accepted as observed
+fits; numerical implementation agreement does not qualify their source model.
