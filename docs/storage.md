@@ -35,6 +35,9 @@ Their existing transport/contract drafts alone total about 85 KiB. The reviewed
 cap and exclusions for generated products and bulk inputs remain enforced.
 This storage allowance does not qualify an experiment or permit redistributing
 third-party inputs.
+Existing request resource limits and run source pins remain unchanged. A rerun
+uses its reviewed source revision; the repository allowance does not enlarge
+an older controller's source snapshot or numerical/work allocations.
 
 The approximately 22 MiB frozen input archive has been moved to ignored
 `data/legacy/frozen-local-inputs.tar.gz`. The recovered local-code archive, its
