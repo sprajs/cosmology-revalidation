@@ -119,3 +119,5 @@ constraint discrepancies; held-out qualification needs resolved event and
 cross-covariance lineage. Never turn synthetic constraint-row perturbations into
 a physical calibration uncertainty or replace a historical SDK pin without a
 reviewed new identity.
+
+Use the dedicated [SN observer/passband controller](experiments/sn-observer-passband/README.md) for its frozen conditional slice. Keep the faithful candidate blocked until event/frame/reduction and calibration-law gaps close; a passing distance or optical integral does not qualify a released likelihood.

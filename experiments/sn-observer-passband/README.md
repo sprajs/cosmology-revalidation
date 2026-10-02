@@ -3,7 +3,7 @@
 The question is whether native supplied-redshift observer geometry and sampled
 optical photometry preserve their source identities and agree with independent
 mathematical controls. This is a bounded deterministic experiment, with a
-synthetic coasting background and steady flat spectrum. It does not reproduce
+chosen radiation-free LambdaCDM and analytic coasting backgrounds with a steady flat spectrum. It does not reproduce
 the Pantheon+ fit or provide a measured instrument calibration distribution.
 
 The pinned Prospector candidates retain the broader scientific blockers. The
