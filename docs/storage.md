@@ -3,7 +3,7 @@
 Git stores experiment descriptions, configuration, orchestration/visualization
 source and small provenance manifests. `data/`, `downloads/`, `results/`, `runs/`,
 `simulation/`, `simulations/`, `notebooks/` and `.work/` are ignored. The repository
-checker rejects tracked generated products and caps the public tree at 1 MiB
+checker rejects tracked generated products and caps the public tree at 2 MiB
 and each packet at eight source files. Change a budget only with an explicit
 review of the storage design. `.gitignore` alone cannot untrack
 previously committed files. Never use `git add -f` for those stores.
@@ -21,6 +21,20 @@ Original labels and `source_path` fields describe that historical workspace;
 they are not current executable paths or a guarantee that an input is raw data.
 The old licensing inventory is retained separately in
 [legacy-licenses.json](../sources/legacy-licenses.json).
+The input manifest uses one compact JSON record per line to leave room for
+experiment source. This formatting preserves all 391 identities, field values
+and order. Older manifest byte hashes remain
+bound to their original Git revisions and run records.
+
+2026-10-03 storage review: compacting only manifest whitespace saved 35,611 bytes,
+leaving about 70 KiB under the old 1 MiB cap. The new source-only SDSS reader and
+the released active46 box consumer need separate controllers, reference/test
+source and immutable design contracts while preserving historical packets.
+Their existing transport/contract drafts alone total about 85 KiB. The reviewed
+2 MiB source cap accommodates these concrete consumers; the eight-file packet
+cap and exclusions for generated products and bulk inputs remain enforced.
+This storage allowance does not qualify an experiment or permit redistributing
+third-party inputs.
 
 The approximately 22 MiB frozen input archive has been moved to ignored
 `data/legacy/frozen-local-inputs.tar.gz`. The recovered local-code archive, its

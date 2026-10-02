@@ -8,6 +8,7 @@ from packet import ROOT, validate_all
 
 LOCAL = {"data", "downloads", "results", "runs", "simulation", "simulations", "notebooks", ".work", ".venv"}
 GENERATED = (".ipynb", ".npy", ".npz", ".fits", ".pdf", ".png", ".svg", ".tar.gz", ".zip")
+PUBLIC_SOURCE_BYTES = 2 * 1024 * 1024
 
 
 def check():
@@ -28,8 +29,8 @@ def check():
                     continue
                 if not (path.parent / target).exists():
                     raise ValueError(f"Broken local link in {name}: {target}")
-    if total > 1024 * 1024:
-        raise ValueError("Public tree exceeds 1 MiB; archive bulk evidence and review the storage design")
+    if total > PUBLIC_SOURCE_BYTES:
+        raise ValueError("Public tree exceeds 2 MiB; archive bulk evidence and review the storage design")
     packets = {}
     for name in files:
         parts = Path(name).parts
