@@ -54,7 +54,7 @@ SN and ground zero-point coordinates. These correspondences are retained as
 context, with **null physical identities** until the complete release mapping is
 verified. Column44 has no established physical identity and no schematic label.
 The historical full47 route retains every coordinate. Original external-constraint
-rows3207–3214, their exact y/Cii values and nonzero design support are recorded by
+rows 3207–3214, their exact y/Cii values and nonzero design support are recorded by
 the audit separately from physical labels. The full C retains dependence between
 standardized calibrator/Hubble-flow SNe and all other encoded covariance; unknown
 external probe overlap is not independence.
@@ -74,9 +74,9 @@ acceptance target. Numerical acceptance of the full47 profile does not qualify t
 released chain or reproduce observational calibration uncertainty.
 
 The separate [constrained target](constrained.json), `released-fixed44/v1`, uses
-the source-fixed literal β44=0 and ordered original axes0–43,45,46. The native
-adapter selects these46 columns and passes them to the same installed
-`DesignProfile`; all3492 observation rows and the complete C remain unchanged.
+the source-fixed literal β44=0 and ordered original axes 0–43,45,46. The native
+adapter selects these 46 columns and passes them to the same installed
+`DesignProfile`; all 3492 observation rows and the complete C remain unchanged.
 It reports the **unboxed fixed46 relative profile** and conditional estimator
 variance, with a separate closed-source-box support check. Each active box bound
 is the pinned helper center±10 times its positive source width, in its declared
@@ -84,8 +84,8 @@ original coordinate/unit. This does not implement a box-constrained optimizer,
 chain sampler, posterior or evidence. Full47 remains the default and its pins,
 lineage manifest and historical receipts are preserved.
 
-The46-coordinate Lebesgue measure has a positive finite rectangular volume;
-the reciprocal product of its46 widths defines a normalized uniform prior.
+The 46-coordinate Lebesgue measure has a positive finite rectangular volume;
+the reciprocal product of its 46 side lengths defines a normalized uniform prior.
 The fixed44 coordinate is a point mass outside that measure. With positive-definite
 C, exp(−q/2) is continuous and strictly positive on this compact box, so its
 integral exists, is finite and positive. Its numerical normalization is **not
@@ -93,33 +93,33 @@ evaluated**, and no normalized posterior is reported. The source helper's
 constant `log_prior=1` in a degenerate47-dimensional support remains a distinct
 sampler convention. Original column44 still has no source-verified physical label.
 
-The new source audit verifies exact nonzero supports for original37,38,39,40,
+The new source audit verifies exact nonzero supports for original 37,38,39,40,
 42,44,45 against the paper's equations/vector, primary photometry and constraint
 structure. It identifies37 as ΔµN4258,38 as the10-day solar-metallicity Cepheid
 Wesenheit absolute magnitude,39 as ΔµLMC,40 as µM31,42 as M⁰B, and45 as the
 ground-minus-HST zeropoint. These source-supported meanings do not establish
 complete reduction lineage. All443 N4258 rows join the primary table, while M31
-row2630 and LMC rows2744,2745,2754 fail the unchanged printed-decimal/binary32
+row 2630 and LMC rows 2744,2745,2754 fail the unchanged printed-decimal/binary32
 bounds. Every failed row and source locator is retained. Compact/table2 counts
-also differ from printed Table4: SMC143 versus145 and HST LMC69 versus70.
+also differ from printed Table 4: SMC143 versus145 and HST LMC69 versus70.
 The supplemental pinned earlier NIR photometry does not resolve the M31 mismatch.
 
 Constraints also retain unresolved reductions: the HST parallax summary in
-Table4 has a different mean/error from compact row3207; Gaia's printed error
-differs from row3208, and the printed metallicity mean differs from row3209.
+Table 4 has a different mean/error from compact row 3207; Gaia's printed error
+differs from row 3208, and the printed metallicity mean differs from row 3209.
 The wide slope-correction constraint3212 has no complete primary explanation.
 The target manifest records these discrepancies without changing source bytes.
-Column44 occurs only in row3210, whose y is exactly zero and whose C row/column
+Column44 occurs only in row 3210, whose y is exactly zero and whose C row/column
 is isolated. Consequently the full47 optimum of that coordinate is zero, and
 fixing it leaves the other coefficients, q and their estimator covariance
 unchanged for these inputs. This structural fact supplies no physical label.
 
 The fixed46 route evaluates three **conditional calibration-constraint mean
-shifts** at unchanged X,C: ground/HST row3211 by±0.10mag, N4258 row3213 by
-±0.032mag and LMC row3214 by±0.0263mag, from paper§4.3/4.7. N4258's printed
-0.032 differs from the compact row's approximately0.032390 standard error;
+shifts** at unchanged X,C: ground/HST row 3211 by ±0.10mag, N4258 row 3213 by
+±0.032mag and LMC row 3214 by ±0.0263mag, from paper §4.3/4.7. N4258's printed
+0.032 differs from the compact row's approximately 0.032390 standard error;
 the calculation deliberately uses the printed shift and retains compact C.
-These responses are neither random calibration draws nor the paper's Table5
+These responses are neither random calibration draws nor the paper's Table 5
 variant/systematic uncertainty budget. A physically qualified held-out check
 remains blocked by source-event mapping, alternative-selection calibration and
 cross-covariance closure. The pinned primary `table2.README` explicitly says
@@ -187,10 +187,10 @@ uv run python experiments/released-ladder/controller.py \
 
 Append `--target released-fixed44/v1` and use a fresh attempt name for the new
 target. Its external reference performs full-C LAPACK SVD and pivoted QR on the
-same active46 columns, expands output into original47 order with literal zero44,
+same active 46 columns, expands output into original 47 order with literal zero at 44,
 and tests the three named shifts at the existing frozen budgets. The compiled
 adapter also runs an exact small linear control: fixing the third coordinate of
-an identity design to zero fits coefficients(2,3) and leaves q=49 for y=(2,3,7).
+an identity design to zero fits coefficients (2,3) and leaves q=49 for y=(2,3,7).
 Invalid fixed support and row order are refused. These controls are synthetic
 regressions; they are distinct from observational source qualification.
 

@@ -53,6 +53,15 @@ class ReleasedLineageTests(unittest.TestCase):
             self.assertEqual(record["source_hashes_after"],record["source_hashes"])
             self.assertEqual((Path(td)/"results/released-ladder/failure/record.json").stat().st_mode & 0o222,0)
 
+    def test_source_audit_failure_still_rechecks_admitted_sources(self):
+        with tempfile.TemporaryDirectory() as td:
+            args=SimpleNamespace(name="audit-failure",sources=Path(td),engine_source=Path(td),sdk=Path(td),reference_python=None)
+            with patch.object(module,"ROOT",Path(td)),patch.object(module,"admitted_sources",return_value={"test":b"abc"}),patch.object(module,"source_audit",side_effect=ValueError("source support changed")):
+                self.assertEqual(module.execute(args),1)
+            record=module.load(Path(td)/"results/released-ladder/audit-failure/record.json")
+            self.assertEqual(record["error"],"source support changed")
+            self.assertEqual(record["source_hashes_after"],record["source_hashes"])
+
     def test_malformed_or_changed_source_rejected(self):
         with tempfile.TemporaryDirectory() as td:
             source={"sources":[{"name":"file","bytes":3,"sha256":"0"*64}]}
@@ -112,6 +121,9 @@ class ReleasedLineageTests(unittest.TestCase):
         native={"coefficients":[0.]*47,"quadratic":0.,"variance46":1.,"sensitivities":sensitivities}
         ref={"rank":46,"algorithms":{name:{"coefficients":[0.]*47,"quadratic":0.,"variance46":1.} for name in ("LAPACK_gesdd_SVD","LAPACK_pivoted_QR")},"sensitivities":sensitivities}
         self.assertEqual(len(module.compare(native,ref,self.manifest,target)),110)
+        ref["algorithms"]["LAPACK_gesdd_SVD"]["coefficients"][44]=1e-300
+        with self.assertRaisesRegex(ValueError,"literal zero"):module.compare(native,ref,self.manifest,target)
+        ref["algorithms"]["LAPACK_gesdd_SVD"]["coefficients"][44]=0
         ref["rank"]=47
         with self.assertRaisesRegex(ValueError,"rank required"):module.compare(native,ref,self.manifest,target)
 

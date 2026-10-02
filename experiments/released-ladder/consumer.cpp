@@ -59,6 +59,7 @@ int main(int argc,char** argv) { try {
   m.ordering_provenance="original FITS row order; no masks"; m.calibration_provenance="released compact constraints retained";
   m.dependence_provenance="supplied full C; no joint-probe independence"; m.source_semantics="released high-level compact products";
   DesignMetadata md; md.residual_unit="released magnitude-like coordinate"; md.design_identity="pinned full X=L.T,3492x47"; md.dependence_identity=m.dependence_provenance;
+  if(fixed) md.design_identity="pinned X=L.T active original axes0..43,45,46;3492x46; beta44=literal0";
   for(std::size_t i=0;i<n;++i) m.ordered_ids.push_back("released-row-"+std::to_string(i));
   for(auto j:active) {
     md.ordered_parameter_ids.push_back("released-parameter-"+std::to_string(j));
@@ -71,7 +72,7 @@ int main(int argc,char** argv) { try {
   std::vector<double>().swap(c); // Source image buffer no longer needed.
   bound=DesignProfile::preparation_payload_bound(g,active.size(),md); require(bound && *bound<=bytes,"design payload bound");
   DesignPolicy policy{n*n,bytes,1e-10}; auto design=DesignProfile::prepare(std::move(g),x,m.ordered_ids,md,policy);
-  require(design.status()==DensityStatus::finite,"full47 design admission failed");
+  require(design.status()==DensityStatus::finite,"selected design admission failed");
   std::vector<double>().swap(x); // The retained profile owns its design.
   auto fit=design.evaluate(y,m.ordered_ids,policy); require(fit.status==DensityStatus::finite,"fit admission failed");
   const auto contrast=active.size()-1;

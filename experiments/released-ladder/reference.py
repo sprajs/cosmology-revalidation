@@ -57,7 +57,7 @@ report={"software":{"python":sys.version,"numpy":np.__version__,"scipy":scipy.__
         "rank":p,"condition2":float(s[0]/s[-1]),"algorithms":{
           "LAPACK_gesdd_SVD":{"coefficients":np.insert(svd,44,0).tolist() if fixed else svd.tolist(),"quadratic":quadratic(svd,y),"variance46":float(sv@sv)},
           "LAPACK_pivoted_QR":{"coefficients":np.insert(qr,44,0).tolist() if fixed else qr.tolist(),"quadratic":quadratic(qr,y),"variance46":float(qv@qv)}},"sensitivities":[]}
-# Full47 retained SVD law with synthetic perturbed observations only.
+# Retained SVD law for historical synthetic or source-named mean shifts.
 variations=target["calibration_sensitivities"] if fixed else [{"row":i,"delta_y":.01} for i in range(3207,3215)]
 for variation in variations:
     row,delta=variation["row"],variation["delta_y"]

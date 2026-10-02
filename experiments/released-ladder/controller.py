@@ -39,7 +39,7 @@ FROZEN_BUDGETS = {
 
 
 def validate_constrained(target):
-    if target["id"]!="released-fixed44/v1" or target["active_original_indices"]!=[j for j in range(47) if j!=44] or target["fixed_coordinates"]!=[{"index":44,"value":0.0}]:
+    if target["schema_version"]!=1 or target["id"]!="released-fixed44/v1" or target["active_original_indices"]!=[j for j in range(47) if j!=44] or target["fixed_coordinates"]!=[{"index":44,"value":0.0}]:
         raise ValueError("unreviewed fixed-coordinate support/order")
     if target["unchanged_reference_budgets"]!=FROZEN_BUDGETS or target["box"]["halfwidth_multiplier"]!=10 or target["box"]["endpoints"]!="closed":
         raise ValueError("unreviewed fixed target box/budgets")
@@ -316,12 +316,12 @@ def execute(args):
         target=load(FOLDER/"constrained.json") if getattr(args,"target","full47")=="released-fixed44/v1" else None
         if target:validate_constrained(target)
         sources=admitted_sources(args.sources,m)
+        record["source_hashes"]={n:hashlib.sha256(b).hexdigest() for n,b in sources.items()}
+        record["packet_hashes"]={p.name:sha256(p) for p in FOLDER.iterdir() if p.is_file()}
         record["source_audit"]=source_audit(sources,m,store)
         if target:
             record["target"]=target
             record["constrained_source_audit"]=constrained_source_audit(store,sources)
-        record["source_hashes"]={n:hashlib.sha256(b).hexdigest() for n,b in sources.items()}
-        record["packet_hashes"]={p.name:sha256(p) for p in FOLDER.iterdir() if p.is_file()}
         before=fingerprint(args.engine_source,args.sdk);record["sdk_before"]=before
         record["engine_tree"]=subprocess.check_output(["git","-C",str(args.engine_source),"rev-parse",SDK_IDENTITY["revision"]+"^{tree}"],text=True).strip()
         # Capture exact adapter sources even during a diagnostic uncommitted run.
@@ -377,6 +377,8 @@ def execute(args):
             record["status"]="failed"
             record.setdefault("error","post-run identity verification failed")
         record["elapsed_seconds"]=time.monotonic()-started
+        usage=resource.getrusage(resource.RUSAGE_CHILDREN)
+        record["children_resources"]={"user_cpu_seconds":usage.ru_utime,"system_cpu_seconds":usage.ru_stime,"maximum_rss_kib":usage.ru_maxrss,"scope":"all compiler/native/reference children of this controller"}
         (store/"record.json").write_text(json.dumps(record,indent=2)+"\n")
         for p in store.iterdir():
             if p.is_file():p.chmod(0o444)
@@ -406,7 +408,7 @@ def compare(native,reference,m,target=None):
         raise ValueError("sensitivity row order changed")
     for a,r in zip(native["sensitivities"],reference["sensitivities"]):
         delta=next(v["delta_y"] for v in target["calibration_sensitivities"] if v["row"]==a["row"]) if target else .01
-        if a["delta_y"]!=delta:raise ValueError("sensitivity perturbation changed")
+        if a["delta_y"]!=delta or (target and r.get("delta_y")!=delta):raise ValueError("sensitivity perturbation changed")
         for field in ("beta46_plus","beta46_minus"):scalar(f"row{a['row']}/{field}",a[field],r[field],"coefficient")
         for field in ("q_plus","q_minus"):scalar(f"row{a['row']}/{field}",a[field],r[field],"quadratic")
     return checks
