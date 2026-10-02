@@ -83,11 +83,12 @@ def keys(value, expected, label):
 
 def finite(value, label):
     try:
-        admitted = type(value) in (int, float) and math.isfinite(value)
+        admitted = (type(value) in (int, float) and math.isfinite(value) and
+                    (value == 0 or abs(value) >= sys.float_info.min))
     except OverflowError:
         admitted = False
     if not admitted:
-        raise ValueError(label + ' requires finite binary64 numbers')
+        raise ValueError(label + ' requires finite normal binary64 numbers or zero')
     return Decimal.from_float(value) if type(value) is float else Decimal(value)
 
 
@@ -343,7 +344,9 @@ def check_native(native, request, rows):
         if (slot['callbacks'] == 0 or slot['outer_callbacks'] == 0 or
                 slot['callbacks'] != slot['outer_callbacks'] + slot['momentum_callbacks'] or
                 slot['preparation_callbacks'] > slot['momentum_callbacks'] or
-                (index == 0 and (slot['momentum_callbacks'] or slot['preparation_callbacks']))):
+                (index == 0 and (slot['momentum_callbacks'] or slot['preparation_callbacks'])) or
+                (index == 1 and (slot['preparation_callbacks'] == 0 or
+                                 slot['momentum_callbacks'] <= slot['preparation_callbacks']))):
             raise ValueError('native work accounting differs')
         keys(slot['density'], DENSITY_KEYS, 'native density')
         density = {key: finite(slot['density'][key], 'native density/' + key) for key in DENSITY_KEYS}
@@ -630,6 +633,8 @@ def execute(args):
             record['gates']['execution'] = 'failed native admission'
     finally:
         ingest_outputs(store, record)
+        if 'native' in record and record['status'] == 'failed' and record['gates']['execution'] == 'unassessed':
+            record['gates']['execution'] = 'failed native subprocess/admission'
         errors = []
         if source_before is not None:
             try:

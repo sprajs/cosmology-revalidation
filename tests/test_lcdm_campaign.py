@@ -51,9 +51,9 @@ class CampaignTests(unittest.TestCase):
                           'predictions': [1.] * 13, 'residuals': [1.] * 13,
                           'predictions_state': dict(state), 'residuals_state': dict(state),
                           'density_state': dict(state), 'projection_estimate': 1e-12,
-                          'density': dict(density), 'callbacks': 10 + index,
+                          'density': dict(density), 'callbacks': 10 + 2 * index,
                           'preparation_callbacks': index, 'outer_callbacks': 10,
-                          'momentum_callbacks': index})
+                          'momentum_callbacks': 2 * index})
         return {'schema_version': 1, 'method': controller.METHOD, 'mapping': controller.MAPPING,
                 'requested': 7, 'batch_status': 0, 'numerical_status': 0,
                 'arithmetic': dict(controller.ARITHMETIC),
@@ -61,7 +61,7 @@ class CampaignTests(unittest.TestCase):
                 'policy_metadata': dict(controller.POLICY_METADATA),
                 'model_order': list(controller.MODEL_ORDER), 'model_sources': copy.deepcopy(self.request['models']),
                 'queries': controller.queries(self.rows), 'slots': slots, 'accepted': True,
-                'callbacks': 21, 'preparation_callbacks': 1, 'outer_callbacks': 20, 'momentum_callbacks': 1}
+                'callbacks': 22, 'preparation_callbacks': 1, 'outer_callbacks': 20, 'momentum_callbacks': 2}
 
     def reference(self):
         # Decimal normalization satisfies its own density identity exactly here.
@@ -160,8 +160,9 @@ class CampaignTests(unittest.TestCase):
             lambda v: v['slots'][0].update(projection_estimate=None),
             lambda v: v['slots'][0].update(callbacks=True),
             lambda v: v['slots'][0].update(callbacks=500000001),
-            lambda v: v.update(callbacks=22),
-            lambda v: v['slots'][1].update(preparation_callbacks=2),
+            lambda v: v.update(callbacks=23),
+            lambda v: v['slots'][1].update(preparation_callbacks=3),
+            lambda v: v['slots'][1].update(preparation_callbacks=0),
             lambda v: v['slots'][0]['density'].update(log_density=0.),
             lambda v: v['slots'][0]['density'].update(normalization=0.),
         ]
@@ -172,7 +173,7 @@ class CampaignTests(unittest.TestCase):
                 controller.check_native(native, self.request, self.rows)
 
     def test_native_nonfinite_and_boolean_numbers(self):
-        for value in (float('nan'), float('inf'), float('-inf'), True, '1'):
+        for value in (float('nan'), float('inf'), float('-inf'), 5e-324, True, '1'):
             for field in ('projection_estimate', 'density', 'predictions'):
                 native = self.native()
                 if field == 'density':
@@ -378,6 +379,52 @@ class CampaignTests(unittest.TestCase):
                 controller.child([sys.executable, '-c', "print('x'*100000)"], store, 'overflow', limits, record=record)
             self.assertLessEqual((store / 'overflow.out').stat().st_size, 64)
             self.assertNotEqual(record['subprocesses']['overflow']['returncode'], 0)
+
+    def test_native_failure_terminal_record_retains_partial_status_and_final_identities(self):
+        # Synthetic subprocess failure exercises the receipt path, not physics.
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            folder = root / 'experiments/lcdm-campaign'
+            folder.mkdir(parents=True)
+            for source in FOLDER.iterdir():
+                if source.is_file():
+                    (folder / source.name).write_bytes(source.read_bytes())
+            packet = controller.load(folder / 'experiment.json')
+            identity = {'head': 'reviewed-fixture', 'status': '', 'files': {}}
+            actual_child = controller.child
+            def stage(command, store, label, limits, stdin=None, record=None):
+                if label == 'discovery':
+                    return json.dumps({'product': 'Irreducible', 'build': {
+                        'build_id': self.request['engine']['build_id'],
+                        'git_head': self.request['engine']['revision'], 'git_status': ''}})
+                if label == 'compile':
+                    (store / 'consumer').write_bytes(b'synthetic compiled fixture')
+                    return ''
+                if label != 'native':
+                    self.fail('reference must not run after failed native subprocess')
+                return actual_child([sys.executable, '-c', "import json,sys; print(json.dumps({'accepted':False,'slots':[{'numerical_status':4,'preparation_status':0}]})); print('work limit',file=sys.stderr); sys.exit(3)"],
+                                    store, label, limits, record=record)
+            args = SimpleNamespace(name='native-failed', engine_source=root, input_root=root,
+                                   reference_python=Path(sys.executable), engine_artifacts=None)
+            with patch.object(controller, 'ROOT', root), patch.object(controller, 'FOLDER', folder), \
+                    patch.object(controller, 'source_identity', return_value=identity), \
+                    patch.object(controller, 'read_packet', return_value=(packet, None, {})), \
+                    patch.object(controller, 'snapshot_source', return_value=root), \
+                    patch.object(controller, 'inputs', return_value=([b'synthetic mean', b'synthetic covariance'], self.rows, [[0.] * 13 for _ in range(13)])), \
+                    patch.object(controller, 'fingerprint', return_value={'admitted': 'engine fixture'}), \
+                    patch.object(controller, 'child', side_effect=stage):
+                self.assertEqual(controller.execute(args), 1)
+            store = root / 'results/lcdm-campaign/native-failed'
+            record = json.loads((store / 'record.json').read_text())
+            self.assertEqual(record['status'], 'failed')
+            self.assertEqual(record['gates']['execution'], 'failed native subprocess/admission')
+            self.assertEqual(record['native']['slots'][0]['numerical_status'], 4)
+            self.assertEqual(record['subprocesses']['native']['returncode'], 3)
+            self.assertEqual(record['engine_before'], record['engine_after'])
+            self.assertEqual(record['source_before'], record['source_after'])
+            self.assertEqual(record['integrity_errors'], [])
+            for name in ('native.out', 'native.err', 'record.json'):
+                self.assertEqual((store / name).stat().st_mode & 0o222, 0)
 
     def test_engine_artifacts_source_inventory_and_real_changed_bytes(self):
         with tempfile.TemporaryDirectory() as temporary:
