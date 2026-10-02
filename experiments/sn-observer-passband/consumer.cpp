@@ -29,10 +29,19 @@ int main(int argc,char**argv) {
     const auto model=cosmology::prepare(cosmology::ConstantQ{0},cosmology::FlatFLRW{});
     const auto result=model.evaluate(requests,policy);
     if(result.status!=cosmology::Status::ok||result.slots.size()!=requests.size())throw std::runtime_error("background batch");
-    std::cout<<std::setprecision(17)<<"{\"variant\":\"conditional-sdss-observer-historical-optical/v1\",\"background\":[";
+    std::cout<<std::setprecision(17)<<"{\"variant\":\"conditional-sdss-observer-historical-optical/v2\",\"background\":[";
     for(std::size_t i=0;i<result.slots.size();++i){
       const auto&s=result.slots[i];
       if(s.admission_status!=cosmology::Status::ok||!s.radial.value||!s.luminosity_shape.value||!s.physical.value)throw std::runtime_error("background output");
+      if(i)std::cout<<',';
+      std::cout<<"{\"index\":"<<i<<",\"zHD\":"<<requests[i].z_expansion<<",\"zHEL\":"<<requests[i].observer->redshift<<",\"radial\":"<<s.radial.value->integral<<",\"shape\":"<<*s.luminosity_shape.value<<",\"DL_mpc\":"<<s.physical.value->luminosity_mpc<<'}';
+    }
+    const auto lcdm=cosmology::prepare(cosmology::LCDM{.3},cosmology::FlatFLRW{}).evaluate(requests,policy);
+    if(lcdm.status!=cosmology::Status::ok||lcdm.slots.size()!=requests.size())throw std::runtime_error("LCDM batch");
+    std::cout<<"],\"lcdm\":[";
+    for(std::size_t i=0;i<lcdm.slots.size();++i){
+      const auto&s=lcdm.slots[i];
+      if(s.admission_status!=cosmology::Status::ok||!s.radial.value||!s.luminosity_shape.value||!s.physical.value)throw std::runtime_error("LCDM output");
       if(i)std::cout<<',';
       std::cout<<"{\"index\":"<<i<<",\"zHD\":"<<requests[i].z_expansion<<",\"zHEL\":"<<requests[i].observer->redshift<<",\"radial\":"<<s.radial.value->integral<<",\"shape\":"<<*s.luminosity_shape.value<<",\"DL_mpc\":"<<s.physical.value->luminosity_mpc<<'}';
     }

@@ -25,6 +25,16 @@ control chooses `ConstantQ(q=0)`, `E(z)=1+z`, `H0=70 km/s/Mpc`; it compares all
 This analytic model is a numerical control, not the fitted SN cosmology or a
 reconstruction of the frame/velocity corrections.
 
+Variant v2 also uses a separately chosen radiation-free flat ΛCDM diagnostic,
+`E(z)^2=0.3(1+z)^3+0.7`, `H0=70 km/s/Mpc`, on the exact same ordered pairs and
+twins. This is not a fitted parameter choice, full Planck model or posterior.
+Independent composite Gauss–Legendre8 integrates in redshift with 64 and 128
+panels. The frozen allocations are `1e-9` relative distance and `1e-10` magnitude,
+with reference refinement limited to 5% of each allocation. The magnitude error
+is a reference diagnostic `5 log10(D_native/D_reference)`; the native consumer
+exports distances. Positive distances, monotonic geometric twins and the analytic
+paired/same-redshift ratio are checked separately.
+
 The response is STScI `wfc3_uvis_f555w_001_syn.fits`: a historical ground optical
 filter component with 910 binary32 samples on 1938–11002 Angstrom, zero endpoints
 and peak transmission 0.9519490003585815. Amplitudes are unaltered. Wavelengths

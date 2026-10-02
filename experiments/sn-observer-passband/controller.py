@@ -17,7 +17,7 @@ FOLDER=Path(__file__).resolve().parent
 spec=importlib.util.spec_from_file_location('retained_sdk_identity',ROOT/'experiments/released-ladder/controller.py')
 sdk_checks=importlib.util.module_from_spec(spec);spec.loader.exec_module(sdk_checks)
 load=sdk_checks.load;sha256=sdk_checks.sha256
-CONFIG_SHA256='a95a36d99c304f99d23e800cf22fa5bc943fe05cd79b4c42bdbf8fabef9b09e3'
+CONFIG_SHA256='6c304ed784d189b7cb8f5afb3d264666748f891a6679a1dd12fa8465fe2688f4'
 
 def sources(directory, config):
     result={}
@@ -58,7 +58,7 @@ def transport(admitted, store):
 
 def execute(args):
     store=args.output.resolve();store.mkdir(parents=True,exist_ok=False)
-    started=time.monotonic();record={'status':'started','variant':'conditional-sdss-observer-historical-optical/v1','engine_identity':sdk_checks.SDK_IDENTITY,'gates':{'execution':'unassessed','numerical':'unassessed','observation':'blocked','inference':'not attempted','measured_calibration_law':'blocked'}}
+    started=time.monotonic();record={'status':'started','variant':'conditional-sdss-observer-historical-optical/v2','engine_identity':sdk_checks.SDK_IDENTITY,'gates':{'execution':'unassessed','numerical':'unassessed','observation':'blocked','inference':'not attempted','measured_calibration_law':'blocked'}}
     before=None;admitted=None
     try:
         for key in ['OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMEXPR_NUM_THREADS']:
@@ -85,7 +85,7 @@ def execute(args):
         record['consumer_executable_sha256']=sha256(store/'consumer')
         native=sdk_checks.child([str(store/'consumer'),str(store/'rows.tsv'),str(store/'passband-angstrom.tsv'),str(store/'passband-metre.tsv')],store,'native',30)
         result=json.loads(native)
-        if result['variant']!=config['variant'] or len(result['background'])!=645 or len(result['photometry'])!=3 or not all(result['invalid_controls'].values()):raise ValueError('native output admission')
+        if result['variant']!=config['variant'] or len(result['background'])!=645 or len(result['lcdm'])!=645 or len(result['photometry'])!=3 or not all(result['invalid_controls'].values()):raise ValueError('native output admission')
         record['gates']['execution']='accepted'
         reference=json.loads(sdk_checks.child([str(args.reference_python),str(FOLDER/'reference.py'),str(store)],store,'reference',120))
         if reference['status']!='accepted':raise ValueError('reference comparisons failed')

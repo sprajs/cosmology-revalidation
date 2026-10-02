@@ -9,12 +9,14 @@ import mpmath as mp
 import numpy as np
 
 store=Path(sys.argv[1]);native=json.loads((store/'native.out').read_text());mp.mp.dps=80
-checks=0;max_relative={};failures=[]
+checks=0;max_relative={};max_absolute={};failures=[]
 def compare(name,actual,expected,relative,absolute):
     global checks
     checks+=1;actual=mp.mpf(actual);expected=mp.mpf(expected);delta=abs(actual-expected)
-    rel=delta/abs(expected) if expected else delta
-    max_relative[name]=max(max_relative.get(name,0),float(rel))
+    max_absolute[name]=max(max_absolute.get(name,0),float(delta))
+    if expected:
+        rel=delta/abs(expected)
+        max_relative[name]=max(max_relative.get(name,0),float(rel))
     if delta>mp.mpf(absolute)+mp.mpf(relative)*abs(expected) or (expected>0 and actual<=0):failures.append(name)
 for r in native['background']:
     z,o=mp.mpf(r['zHD']),mp.mpf(r['zHEL']);radial=mp.log1p(z);shape=(1+o)*radial
@@ -28,6 +30,30 @@ for i,(source_id,z,o) in enumerate(source_rows):
 for i in range(0,642,2):
     a,b=native['background'][i:i+2]
     compare('observer_ratio',a['shape']/b['shape'],(1+mp.mpf(a['zHEL']))/(1+mp.mpf(a['zHD'])),2e-12,1e-24)
+def lcdm_radial(panels):
+    nodes,weights=np.polynomial.legendre.leggauss(8)
+    redshifts=np.array([r['zHD'] for r in native['lcdm']])
+    width=redshifts[:,None,None]/panels
+    mid=(np.arange(panels)[None,:,None]+0.5)*width
+    z=mid+width/2*nodes[None,None,:]
+    integrand=1/np.sqrt(.3*(1+z)**3+.7)
+    return np.sum(integrand*weights[None,None,:]*width/2,axis=(1,2))
+fine,coarse=lcdm_radial(128),lcdm_radial(64)
+for i,r in enumerate(native['lcdm']):
+    z,o=mp.mpf(r['zHD']),mp.mpf(r['zHEL']);expected=(1+o)*mp.mpf(fine[i])*mp.mpf(299792458)/1000/70
+    compare('lcdm_refinement',coarse[i],fine[i],5e-11,0)
+    compare('lcdm_distance',r['DL_mpc'],expected,1e-9,0)
+    if z>0:
+        compare('lcdm_magnitude_error_mag',5*mp.log10(mp.mpf(r['DL_mpc'])/expected),0,0,1e-10)
+        compare('lcdm_magnitude_refinement_mag',5*mp.log10(mp.mpf(coarse[i])/mp.mpf(fine[i])),0,0,5e-12)
+for i,(source_id,z,o) in enumerate(source_rows):
+    a,b=native['lcdm'][2*i:2*i+2]
+    if (a['index'],a['zHD'],a['zHEL'],b['index'],b['zHD'],b['zHEL'])!=(2*i,z,o,2*i+1,z,z):failures.append('lcdm_source_pair_order')
+    compare('lcdm_observer_ratio',a['shape']/b['shape'],(1+mp.mpf(o))/(1+mp.mpf(z)),2e-12,1e-24)
+for model_name in ['background','lcdm']:
+    ordered=sorted(native[model_name][1:642:2],key=lambda r:r['zHD'])
+    if any(r['DL_mpc']<=0 for r in ordered):failures.append(model_name+'_positivity')
+    if any(a['zHD']<b['zHD'] and not a['DL_mpc']<b['DL_mpc'] for a,b in zip(ordered,ordered[1:])):failures.append(model_name+'_monotonicity')
 if any(native['background'][642][k]!=0 for k in ['radial','shape','DL_mpc']):failures.append('zero_limit')
 low=native['background'][643]
 compare('low_z_slope',low['shape']/low['zHD'],1+mp.mpf(low['zHD'])/2,2e-12,1e-24)
@@ -64,5 +90,5 @@ environment={}
 for module in [mp,np]:
     path=Path(module.__file__);environment[module.__name__]={'version':module.__version__,'module_path':str(path),'module_sha256':hashlib.sha256(path.read_bytes()).hexdigest()}
 environment['python']={'path':sys.executable,'version':sys.version,'sha256':hashlib.sha256(Path(sys.executable).read_bytes()).hexdigest()}
-result={'status':'accepted' if not failures else 'failed','checks':checks,'max_relative':max_relative,'failures':failures,'reference_identity':'80decimal coasting log1p and exact wavelength-linear moments; independent frequency GaussLegendre8/16 refinement','response_normalization':{'integral_T_dlambda_metre':float(area),'integral_lambda_T_dlambda_metre_squared':float(weighted),'raw_peak_preserved':max(t)},'environment':environment,'limits':'No source interpolation uncertainty, measured calibration distribution, photometric reduction, SN fit or posterior is established.'}
+result={'status':'accepted' if not failures else 'failed','checks':checks,'max_relative':max_relative,'max_absolute':max_absolute,'failures':failures,'reference_identity':'80decimal coasting log1p and wavelength-linear moments; independent LCDM compositeGL8 64/128panels and frequencyGL8/16 refinement','response_normalization':{'integral_T_dlambda_metre':float(area),'integral_lambda_T_dlambda_metre_squared':float(weighted),'raw_peak_preserved':max(t)},'environment':environment,'limits':'No source interpolation uncertainty, measured calibration distribution, photometric reduction, SN fit or posterior is established.'}
 print(json.dumps(result));raise SystemExit(bool(failures))
