@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "kind": "candidate_design",
+  "idea_ids": [
+    "sn-standardized-distance-lineage"
+  ],
+  "review_id": "2026-10-02-sn-passband-source-claims",
+  "readiness": "blocked",
+  "assumptions": [
+    "Exact source version, bytes, order and units are authoritative; posterior/fitted products are not additional measurements.",
+    "Numerical acceptance and complete observational qualification are separate."
+  ],
+  "verification_gates": [
+    "Consumer freezes candidate/hash/SDK/source identities before implementation.",
+    "Independent analytic/frame/low-z and wavelength/frequency controls at predeclared budgets; preserve invalid support and failed attempts.",
+    "Full source/event/frame/covariance and measured-law gates remain blocked until named gaps close."
+  ],
+  "falsification": "A mismatch outside the frozen numerical or source serialization budget is a failed gate; retain evidence without jitter, discarded rows or relaxed budgets.",
+  "consumer": {
+    "repository": "sprajs/irreducible",
+    "revision": "c9b7febc01ecc85d289056faba8722a8f24a6ad8",
+    "dirty": false,
+    "capability_status": "Verified preserved clean SDK builda08f62cb32a76097e68beff6a540ccf4da903b5b898ae75921ee53818c913903 includes native background Observer released_zhd_zhel, sampled optical photometry and finite joint optical calibration. No automatic survey reduction or posterior inference. Pin refers to immutable SDK, not latest source checkout.",
+    "recipe_runner_status": "A dedicated Reproducible consumer may test conditional supplied redshift pairs and historical optical curve with explicit synthetic source. Faithful released inference and measured optical law remain blocked."
+  },
+  "executable_request": null,
+  "qualification": {
+    "numerically_executed": false,
+    "scientifically_qualified": false,
+    "reason": "Targeted original-source and asset structural audit only; no full readings, released inference or measured calibration-law execution."
+  },
+  "design_id": "candidate-sdss-released-observer-contract",
+  "title": "SDSS released observer and covariance contract",
+  "paper_ids": [
+    "arxiv:2202.04077v2",
+    "arxiv:2112.03863v2"
+  ],
+  "faithful_claim": "The selected Pantheon+ IDSURVEY1 sample contains321 released light-curve rows. Each exactly joins one source SDSS header, updated redshift entry and valid photometry pointer interval; supplied redshift pairs and full original-row covariance support a conditional observer-convention test. Complete physical event/frame/reduction qualification remains blocked.",
+  "equations": [
+    {
+      "expression": "D_L(zHD,zHEL)=(1+zHEL)*(c/H0)*integral[0,zHD] dz/E(z); mu=5log10(D_L/Mpc)+25",
+      "locator": "Released Pantheon+ only CosmoSIS extract_theory_points uses (1+zHD)(1+zHEL)D_A(zHD); paper2202.04077 SecII.3 Eqs11\u201313 and SecIII.1.2",
+      "paper_id": "arxiv:2202.04077v2",
+      "definitions": "zHD dimensionless expansion/peculiar-corrected CMB input; zHEL heliocentric observed spectral/time input; H0 km/s/Mpc; c km/s. Flat D_A=D_C/(1+zHD).",
+      "domain": "Flat background conditional on supplied release redshifts; no inference of the velocity transformation. Calibrator redshifts do not replace Cepheid host distance residuals.",
+      "status": "reviewed_transcription"
+    }
+  ],
+  "minimal_test": {
+    "question": "Does native supplied-pair observer geometry agree with independent exact coasting controls and preserve source row identity?",
+    "observables": [
+      "321 ordered zHD/zHEL conditional distances and same-redshift controls",
+      "zero and low-z limits; invalid/incompatible conventions",
+      "source header/update/photometry and covariance original-row linkage"
+    ],
+    "parameter_choices": {
+      "synthetic_model": "ConstantQ q=0, H0=70 km/s/Mpc, E(z)=1+z; chosen analytic control, not SN cosmological fit",
+      "sample": "IDSURVEY=1; all321 have zHD>0.01; zHD range0.06654\u20130.37991",
+      "source_revision": "c447f0fea703fcd0fff57de5000947b5ca81286b"
+    },
+    "scope": "Conditional observer geometry and exact structural source joins. No SN model fit, covariance likelihood, peculiar-velocity reconstruction or held-out calibration analysis."
+  },
+  "simplifications": [
+    "Select one released survey subset without deduplicating or claiming independence from other surveys.",
+    "Retain calibrated FLUXCAL light curves, fitted SALT2 parameters, standardized m_b_corr and Cepheid-calibrated MU_SH0ES as distinct roles. Synthetic coasting is a numerical fixture only."
+  ],
+  "data_dependencies": [
+    {
+      "kind": "released_fitted_distance_and_calibrated_photometry",
+      "assets": [
+        {
+          "name": "sn-table.dat",
+          "source_member": "Pantheon+_Data/4_DISTANCES_AND_COVAR/Pantheon+SH0ES.dat",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/4_DISTANCES_AND_COVAR/Pantheon%2BSH0ES.dat",
+          "retrieved_utc": "2026-10-02T01:02:34.910581+00:00",
+          "bytes": 579283,
+          "sha256": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8",
+          "byte_limit": 1048576,
+          "http_status": 200,
+          "role": "pending_source_semantic_audit",
+          "redistribution_license": "not verified; assets ignored only"
+        },
+        {
+          "name": "sn-readme.txt",
+          "source_member": "Pantheon+_Data/4_DISTANCES_AND_COVAR/README",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/4_DISTANCES_AND_COVAR/README",
+          "retrieved_utc": "2026-10-02T01:02:35.100439+00:00",
+          "bytes": 4056,
+          "sha256": "e2b0d262757f01c1794a938c78d32600a21e289b2a0320e5c660c4c6fc9aa87e",
+          "byte_limit": 65536,
+          "http_status": 200,
+          "role": "pending_source_semantic_audit",
+          "redistribution_license": "not verified; assets ignored only"
+        },
+        {
+          "name": "sdss-readme.txt",
+          "source_member": "Pantheon+_Data/1_DATA/photometry/JLA2014_SDSS_DS17/JLA2014_SDSS_DS17.README",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/1_DATA/photometry/JLA2014_SDSS_DS17/JLA2014_SDSS_DS17.README",
+          "retrieved_utc": "2026-10-02T01:02:36.402845+00:00",
+          "bytes": 14875,
+          "sha256": "653e5ca44de6f29265923bf24b1ade3d9ec7b6586a7c49f278163ea59b2b426a",
+          "byte_limit": 65536,
+          "http_status": 200,
+          "role": "pending_source_semantic_audit",
+          "redistribution_license": "not verified; assets ignored only"
+        },
+        {
+          "name": "sn-covariance.cov",
+          "source_member": "Pantheon+_Data/4_DISTANCES_AND_COVAR/Pantheon+SH0ES_STAT+SYS.cov",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/4_DISTANCES_AND_COVAR/Pantheon%2BSH0ES_STAT%2BSYS.cov",
+          "retrieved_utc": "2026-10-02T01:02:37.947871+00:00",
+          "bytes": 33284960,
+          "sha256": "abf806d966485e64afdb359c87bffc0ecc00d05eff0a31ced66f247385df0fdc",
+          "byte_limit": 41943040,
+          "http_status": 200,
+          "role": "pending_source_semantic_audit",
+          "redistribution_license": "not verified; assets ignored only"
+        },
+        {
+          "name": "all_redshifts_PVs.csv",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/1_DATA/all_redshifts_PVs.csv",
+          "source_member": "Pantheon+_Data/1_DATA/all_redshifts_PVs.csv",
+          "bytes": 279184,
+          "sha256": "06641b9d3a54fc8ad1ce5a58dd11c6dce84af37e2f312326d2be0ca881a37d8a",
+          "retrieved_utc": "2026-10-02T01:12:55.515672+00:00",
+          "byte_limit": 1048576,
+          "aggregate_allowance_bytes": 100663296,
+          "redistribution_license": "not verified; ignored only"
+        },
+        {
+          "name": "REDSHIFT_CMB.txt",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/1_DATA/header_overrides/REDSHIFT_CMB.txt",
+          "source_member": "Pantheon+_Data/1_DATA/header_overrides/REDSHIFT_CMB.txt",
+          "bytes": 47188,
+          "sha256": "ffb20e03bdb65bb236802f7fac9ff4516477fd8bc947eeca321f51479a29acf8",
+          "retrieved_utc": "2026-10-02T01:12:55.720775+00:00",
+          "byte_limit": 1048576,
+          "aggregate_allowance_bytes": 100663296,
+          "redistribution_license": "not verified; ignored only"
+        },
+        {
+          "name": "REDSHIFT_CMB_ERR.txt",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/1_DATA/header_overrides/REDSHIFT_CMB_ERR.txt",
+          "source_member": "Pantheon+_Data/1_DATA/header_overrides/REDSHIFT_CMB_ERR.txt",
+          "bytes": 47169,
+          "sha256": "0422e7e5237d424b79b519ffdd1046f35af743ed52f72dd5eac5bfb390eae91d",
+          "retrieved_utc": "2026-10-02T01:12:55.927832+00:00",
+          "byte_limit": 1048576,
+          "aggregate_allowance_bytes": 100663296,
+          "redistribution_license": "not verified; ignored only"
+        },
+        {
+          "name": "VPEC.txt",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/1_DATA/header_overrides/VPEC.txt",
+          "source_member": "Pantheon+_Data/1_DATA/header_overrides/VPEC.txt",
+          "bytes": 51522,
+          "sha256": "46a226187eceb47a6bee84d8b407c8734e0aa0d5528a3e516f0f6a9c1019d743",
+          "retrieved_utc": "2026-10-02T01:12:56.140751+00:00",
+          "byte_limit": 1048576,
+          "aggregate_allowance_bytes": 100663296,
+          "redistribution_license": "not verified; ignored only"
+        },
+        {
+          "name": "VPEC_ERR.txt",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/1_DATA/header_overrides/VPEC_ERR.txt",
+          "source_member": "Pantheon+_Data/1_DATA/header_overrides/VPEC_ERR.txt",
+          "bytes": 51875,
+          "sha256": "64101ce14adde0845c982c6086d7554fdc69d13a0b2e49ca0dfaf9a70a5a70ba",
+          "retrieved_utc": "2026-10-02T01:12:56.339421+00:00",
+          "byte_limit": 1048576,
+          "aggregate_allowance_bytes": 100663296,
+          "redistribution_license": "not verified; ignored only"
+        },
+        {
+          "name": "JLA2014_SDSS_DS17_PHOT.FITS.gz",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/1_DATA/photometry/JLA2014_SDSS_DS17/JLA2014_SDSS_DS17_PHOT.FITS.gz",
+          "source_member": "Pantheon+_Data/1_DATA/photometry/JLA2014_SDSS_DS17/JLA2014_SDSS_DS17_PHOT.FITS.gz",
+          "bytes": 41472241,
+          "sha256": "3ecc77dc8f42fce5911264a39e6dd62bd7a06b2c9284ef61d23e242cea131a0d",
+          "retrieved_utc": "2026-10-02T01:12:58.165402+00:00",
+          "byte_limit": 50331648,
+          "aggregate_allowance_bytes": 100663296,
+          "redistribution_license": "not verified; ignored only"
+        },
+        {
+          "name": "Pantheon+_only_cosmosis_likelihood.py",
+          "source_member": "Pantheon+_Data/5_COSMOLOGY/cosmosis_likelihoods/Pantheon+_only_cosmosis_likelihood.py",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/5_COSMOLOGY/cosmosis_likelihoods/Pantheon%2B_only_cosmosis_likelihood.py",
+          "bytes": 4000,
+          "sha256": "7bc222fedc11a3d496ef4c5c18b2e111842dcef4d2bb65d22e9597eb9be191a4",
+          "retrieved_utc": "2026-10-02T01:16:23.149526+00:00",
+          "byte_limit": 65536,
+          "redistribution_license": "notverified; ignoredonly"
+        },
+        {
+          "name": "Pantheon+SH0ES_cosmosis_likelihood.py",
+          "source_member": "Pantheon+_Data/5_COSMOLOGY/cosmosis_likelihoods/Pantheon+SH0ES_cosmosis_likelihood.py",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/5_COSMOLOGY/cosmosis_likelihoods/Pantheon%2BSH0ES_cosmosis_likelihood.py",
+          "bytes": 4573,
+          "sha256": "345fac3781a5cb930b95e91c1c07eb17dcf99b441703bb5e449477519240a59d",
+          "retrieved_utc": "2026-10-02T01:16:23.567542+00:00",
+          "byte_limit": 65536,
+          "redistribution_license": "notverified; ignoredonly"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/1_DATA/photometry/JLA2014_SDSS_DS17/JLA2014_SDSS_DS17_HEAD.FITS.gz",
+          "retrieved_utc": "2026-10-02T01:05:12.278487+00:00",
+          "bytes": 806293,
+          "sha256": "c15b24545f604798b0963d192b63ed0ca1d0548fe3490ff1f9245b1c8fcdf735",
+          "name": "sdss-header-example.dat",
+          "redistribution_license": "notverified; ignoredonly"
+        },
+        {
+          "name": "SDSS_allCandidates+BOSS_PHOT.FITS.gz",
+          "source_member": "Pantheon+_Data/1_DATA/photometry/JLA2014_SDSS_DS17/SDSS_allCandidates+BOSS_PHOT.FITS.gz",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/1_DATA/photometry/JLA2014_SDSS_DS17/SDSS_allCandidates%2BBOSS_PHOT.FITS.gz",
+          "bytes": 40919338,
+          "sha256": "0b143978c068c0b93b78eb582701bf77286b1930cfa93ce436ef30b5722a5a05",
+          "retrieved_utc": "2026-10-02T01:22:01.880740+00:00",
+          "byte_limit": 50331648,
+          "aggregate_allowance_bytes": 150994944,
+          "redistribution_license": "notverified; ignoredonly",
+          "reason": "ExactPHOTFILE namedbyHEADheader; preserveearlierrenamedPHOT candidate"
+        }
+      ],
+      "units_axes": "1701 full covariance rows and columns in final table order, mag\u00b2. SDSS321 uses original row-index submatrix if later likelihood qualified. Source PHOT FLUXCAL calibrated convention, not photon counts; MJD epochs and FLT labels retained. Redshift dimensionless; VPEC km/s; sky RA/DEC degrees.",
+      "selection": "Final source selected quality/systematics light curves;321 exact SDSS CID/headerSNID matches,35181 selectedPHOT points,1120566 parentPHOT rows. Source likelihood zHD>0.01. Selection/training ancestry retained; no raw-observation qualification.",
+      "dependence": "Duplicates/shared standards/SALT2/bias corrections and SH0ES host covariance; diagonals are plotting-only, no assumed independence.",
+      "photometry_pair_identity": "The HEAD asset explicitly names SDSS_allCandidates+BOSS_PHOT.FITS. Its compressed body was acquired separately. The renamed JLA PHOT is a distinct byte identity; MJD, FLT, FIELD and FLUXCAL arrays compare exactly. Other metadata and calibration lineage remain distinct."
+    }
+  ],
+  "unknowns": [
+    "Ten selected source RA coordinates exceed the final table half-decimal rounding bound; update ancestry is not explained by rounding. Exact CID/header/epoch-pointer linkage does not close that physical identity gate.",
+    "Reconstructing updated CMB/peculiar/group corrections requires Carr and Peterson original equations/map/version/flags. Their known-ID arXiv metadata request returned429; acquisition stopped and failure preserved. Supplied release redshift pairs may be tested conditionally.",
+    "Complete cross-survey event aliases, shared calibration/selection/training dependencies and cross-probe covariance remain unresolved. No independence or held-out inference claim.",
+    "PHOT FITS columns lack TUNIT metadata; MJD time scale and FLUXCAL normalization/error law are not established by this asset alone. Calibrated source fluxes are not admitted as physical radiometric measurements.",
+    "Source covariance contains fitted calibration, simulation-dependent corrections and Cepheid-host dependence. It is not raw photometric covariance or a parameter posterior."
+  ],
+  "blockers": [
+    "Ten selected source RA coordinates exceed the final table half-decimal rounding bound; update ancestry is not explained by rounding. Exact CID/header/epoch-pointer linkage does not close that physical identity gate.",
+    "Reconstructing updated CMB/peculiar/group corrections requires Carr and Peterson original equations/map/version/flags. Their known-ID arXiv metadata request returned429; acquisition stopped and failure preserved. Supplied release redshift pairs may be tested conditionally.",
+    "Complete cross-survey event aliases, shared calibration/selection/training dependencies and cross-probe covariance remain unresolved. No independence or held-out inference claim.",
+    "PHOT FITS columns lack TUNIT metadata; MJD time scale and FLUXCAL normalization/error law are not established by this asset alone. Calibrated source fluxes are not admitted as physical radiometric measurements.",
+    "Source covariance contains fitted calibration, simulation-dependent corrections and Cepheid-host dependence. It is not raw photometric covariance or a parameter posterior."
+  ]
+}

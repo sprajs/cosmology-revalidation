@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "sn-observer-passband",
+  "status": "blocked",
+  "question": "Do native supplied SN observer pairs and a historical optical response preserve source identities and pass independent deterministic mathematical controls?",
+  "origin": {
+    "kind": "prospector_candidate",
+    "repository": "sprajs/prospector",
+    "revision": "4b9a9f4fc93f98b7d1ea1bffe105338162220897",
+    "path": "designs/candidate-sdss-released-observer-contract.json",
+    "snapshot": "candidate-sn.json",
+    "sha256": "954d3e2369f21099dbe7fa298e7ee040bab0c5c90ca101f192b79292ff31f5fe"
+  },
+  "assumptions": [
+    "Conditional supplied redshift pairs and original row order; no frame/velocity reconstruction.",
+    "Synthetic ConstantQ0 geometry and flat steady spectrum; native optics excludes detectorQE/electronics."
+  ],
+  "limitations": [
+    "Supporting Prospector optical candidate pinned snapshot candidate-response.json sha256=a60bd8e8139d5b1b9e1dc725b2b54bc22ec9a232daa920bd31c45e669b1a583f",
+    "Complete physical event/frame/reduction/covariance inference qualification remains blocked in source candidate.",
+    "No source-supported joint optical transmission states/probability masses/calibration mapping; measured optical calibration-law qualification blocked."
+  ],
+  "inputs": [
+    {
+      "path": "data/sn-observer-passband/sn-table.dat",
+      "bytes": 579283,
+      "sha256": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8",
+      "role": "released_fitted_summary",
+      "semantics": "Full final Pantheon+ table, standardized/fitted/calibrated products and dimensionless redshift pairs; select original-order IDSURVEY1 without independence claim.",
+      "source": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/4_DISTANCES_AND_COVAR/Pantheon%2BSH0ES.dat"
+    },
+    {
+      "path": "data/sn-observer-passband/wfc3-filter-original.fits",
+      "bytes": 14400,
+      "sha256": "cd44697fce5d903deb8ee9363cce8bc09c7dac3bd7f99e6376b9cc4a769ca84f",
+      "role": "derived_input",
+      "semantics": "Historical ground optical filter component; wavelength Angstrom, dimensionless transmission unscaled; 910binary32 samples; finite wavelength-linear model with zero outside, not full detector system response.",
+      "source": "https://ssb.stsci.edu/trds/comp/wfc3/wfc3_uvis_f555w_001_syn.fits"
+    }
+  ],
+  "execution": null,
+  "blockers": [
+    "Complete physical event/frame/reduction/covariance inference qualification remains blocked in source candidate.",
+    "No source-supported joint optical transmission states/probability masses/calibration mapping; measured optical calibration-law qualification blocked."
+  ]
+}

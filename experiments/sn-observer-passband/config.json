@@ -1,0 +1,15 @@
+{
+  "variant": "conditional-sdss-observer-historical-optical/v1",
+  "source_revision": "c447f0fea703fcd0fff57de5000947b5ca81286b",
+  "sources": {
+    "sn-table.dat": {"bytes": 579283, "sha256": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8"},
+    "wfc3-filter-original.fits": {"bytes": 14400, "sha256": "cd44697fce5d903deb8ee9363cce8bc09c7dac3bd7f99e6376b9cc4a769ca84f"}
+  },
+  "sample": {"IDSURVEY": "1", "rows": 321, "order": "unchanged original final table order"},
+  "model": {"type": "ConstantQ", "q": 0, "H0_km_s_Mpc": 70, "role": "synthetic analytic geometry control, not fitted SN cosmology"},
+  "controls": {"low_z": [0, 1e-10, 1e-6], "observer_twins": "same zHD integration, released zHEL versus geometric zHD", "photometry_redshifts": [0, 0.1, 0.06707], "source_rest_angstrom": [1000, 12000], "source_Llambda_W_per_m": 1, "collecting_area_m2": 1, "exposure_observer_s": 1, "photometry_DL_metre": 1e20},
+  "response": {"knots": 910, "source_units": "Angstrom and dimensionless optical transmission", "source_normalization": "unaltered released amplitudes; no peak/area normalization", "interpolation": "piecewise-linear in wavelength, zero outside finite support", "unit_conversion": "native exact1e-10 metre/Angstrom factor then binary64 rounding", "detector_quantum_efficiency": null, "calibration_law": null},
+  "budgets": {"distance_absolute_mpc": 1e-9, "distance_relative": 2e-11, "shape_absolute": 1e-24, "shape_relative": 2e-12, "photometry_relative": 2e-12, "photometry_absolute": 1e-300, "reference_relative": 2e-13},
+  "resources": {"jobs": 1, "threads": 1, "compile_seconds": 120, "native_seconds": 30, "reference_seconds": 120, "memory_bytes": 3221225472, "output_bytes": 1048576},
+  "qualification": {"scope": "supplied release redshift pairs and historical optical component with synthetic source", "observational": "blocked", "inference": "not attempted", "measured_calibration_law": "blocked"}
+}
