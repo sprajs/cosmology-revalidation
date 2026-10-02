@@ -123,7 +123,7 @@ These responses are neither random calibration draws nor the paper's Table 5
 variant/systematic uncertainty budget. A physically qualified held-out check
 remains blocked by source-event mapping, alternative-selection calibration and
 cross-covariance closure. The pinned primary `table2.README` explicitly says
-alternative selections/uses need new artificial-star uncertainty characterization.
+alternative selections/uses may need new artificial-star uncertainty characterization.
 No supplied training block is presented as independent held-out observations.
 
 Paper Section 5 reports its fitted logarithmic coordinate as 9.318, its fitted
@@ -236,3 +236,42 @@ Python executable was resolved outside its supplied environment; native outputs
 remain in that receipt. The executable path handling was corrected before the
 clean committed run. Subsequent integrity hardening records post-run SDK/source/
 packet identities even after failed children; the original receipts are unchanged.
+
+2026-10-02: reviewed consumer `02591124b9671d225a6b053826761d120d50efdf`
+completed the source-fixed44 target on the same pinned SDK in 74.20s. All 110
+native/SVD/QR comparisons passed at unchanged budgets; maximum budget fraction
+1.554e-5. β44 is literal zero, and the profile lies inside the source 46-coordinate box.
+β46=9.317887632654045, q=3552.759330295523 and conditional
+Var(β46)=0.0008964788320013900. The exact fixed-zero control and invalid
+support/order checks passed. All source/SDK/packet/reference-library before/after
+identities agreed. Peak child RSS was 482604 KiB, including compiler/native/reference
+children, with one compute job and single-thread reference libraries.
+The immutable local receipt is
+`results/released-ladder/reviewed-fixed44-20261002/record.json`, SHA-256
+`45678ce81b28d501e906907ac21ad7cf7d7fead7020ff7ada0c9240d198144c5`.
+
+At fixed X,C, a positive printed source uncertainty shift in the ground/HST,
+N4258 and LMC constraint means changes β46 by −0.000141043511069,
+−0.00638897192444 and −0.008409013509918 respectively; negative shifts give
+the opposite response. These are the three explicitly named conditional mean
+sensitivities, not a combined calibration uncertainty or analysis-variant result.
+The source audit retains all four failed ancillary period/metallicity joins,
+the printed/compact count and constraint discrepancies above, and unknown column 44.
+Table 2's own README warns that alternative selections/uses may require new
+artificial-star uncertainty characterization; this audit supplies no such new
+characterization. Held-out/model-variant qualification and
+numerical posterior normalization remain unperformed. The initial diagnostic
+reference failure from missing SciPy in the production environment is preserved
+at `results/released-ladder/diagnostic-fixed44-20261002/record.json`; production
+dependencies and prior receipts were not rewritten.
+
+The same reviewed consumer also completed its default full47 route in 72.77s:
+all 130 historical-target comparisons passed, maximum budget fraction 1.520e-5,
+with the original synthetic constraint-row controls retained separately. Its
+immutable local receipt is
+`results/released-ladder/reviewed-full47-preserved-20261002/record.json`, SHA-256
+`32bdfffc8258d43c2884949143dcab8a2d5c344f83931c10eb8ba91a4a502047`.
+Both targets remain conditional numerical experiments with inference unassessed
+and full source qualification blocked. This finding entry changes documentation
+only; the scientific adapter/source snapshots and clean tested revision are in
+the two receipts. No source assets or full run stores are redistributed here.
