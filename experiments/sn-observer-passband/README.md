@@ -86,4 +86,34 @@ This packet does not update previous experiment SDK pins or receipts. The genera
 runner remains blocked for the faithful candidate; the dedicated controller
 executes only the stated conditional numerical slice.
 
-No accepted run is claimed until its immutable receipt has been inspected.
+On 2026-10-02, clean consumer commit
+`14fd71b99224b15143ea2a6634aea6e85329a1bd` passed 6,093 comparisons in 1.94 s,
+including the independently refined ΛCDM diagnostic. Its largest distance
+discrepancy was `3.07e-16` relative and its largest magnitude diagnostic was
+`6.66e-16 mag`. The GL8 64/128-panel refinement differed by at most `2.95e-16`
+relative distance and `6.40e-16 mag`, below the fixed reference allocations.
+Frequency refinement differed by at most `2.79e-16` relative. Exact source row
+order, 910 wavelength-unit/transmission identities, positivity, monotonic twins,
+observer ratios, zero/low-redshift limits and typed invalid controls passed.
+All source bytes, SDK source/header/archive/CLI inventory and compiler/library
+identities were unchanged before and after execution. The reference used Python
+3.14.8, NumPy 2.5.3 and mpmath 1.3.0 with one BLAS/OpenMP thread.
+
+The immutable local attempt is
+`results/sn-observer-passband/reviewed-lcdm-v2-20261002/record.json`, SHA-256
+`4fc73ccb47c445a740a157bd9a33b886b72df59d11c553e939a1ada4994e1b14`.
+The earlier coasting-only 2,284-comparison receipt remains unchanged at
+`results/sn-observer-passband/reviewed-20261002/record.json`, SHA-256
+`397e7491ffb615f035ce790b352e955147c4e43f68b73db73acd7dc9eecef6fe`.
+These ignored local stores are execution evidence, not durable public archives.
+
+A changed-source adversary appended one newline to an ignored copy, preserving
+both admitted originals. Admission rejected it before compilation; the failed
+receipt is `results/sn-observer-passband/changed-source-rejected-20261002/record.json`,
+SHA-256 `c577e802ea8757f95b24bd7b8f68f320fdeb97dae5bff151d0d32587188a1d32`.
+SDK identities were still verified after rejection. No tolerance, source row,
+calibration value or historical receipt was changed to secure acceptance.
+
+Only the conditional numerical gates are accepted. Physical event/frame and
+reduction qualification, covariance inference and a measured joint optical
+calibration law remain blocked; no cosmological posterior was attempted.
