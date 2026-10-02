@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "kind": "candidate_design",
+  "idea_ids": [
+    "sn-standardized-distance-lineage"
+  ],
+  "review_id": "2026-10-02-sn-passband-source-claims",
+  "readiness": "blocked",
+  "assumptions": [
+    "Exact source version, bytes, order and units are authoritative; posterior/fitted products are not additional measurements.",
+    "Numerical acceptance and complete observational qualification are separate."
+  ],
+  "verification_gates": [
+    "Consumer freezes candidate/hash/SDK/source identities before implementation.",
+    "Independent analytic/frame/low-z and wavelength/frequency controls at predeclared budgets; preserve invalid support and failed attempts.",
+    "Full source/event/frame/covariance and measured-law gates remain blocked until named gaps close."
+  ],
+  "falsification": "A mismatch outside the frozen numerical or source serialization budget is a failed gate; retain evidence without jitter, discarded rows or relaxed budgets.",
+  "consumer": {
+    "repository": "sprajs/irreducible",
+    "revision": "c9b7febc01ecc85d289056faba8722a8f24a6ad8",
+    "dirty": false,
+    "capability_status": "Verified preserved clean SDK builda08f62cb32a76097e68beff6a540ccf4da903b5b898ae75921ee53818c913903 includes native background Observer released_zhd_zhel, sampled optical photometry and finite joint optical calibration. No automatic survey reduction or posterior inference. Pin refers to immutable SDK, not latest source checkout.",
+    "recipe_runner_status": "A dedicated Reproducible consumer may test conditional supplied redshift pairs and historical optical curve with explicit synthetic source. Faithful released inference and measured optical law remain blocked."
+  },
+  "executable_request": null,
+  "qualification": {
+    "numerically_executed": false,
+    "scientifically_qualified": false,
+    "reason": "Targeted original-source and asset structural audit only; no full readings, released inference or measured calibration-law execution."
+  },
+  "design_id": "candidate-wfc3-optical-response-contract",
+  "title": "Historical WFC3 optical response and calibration-law boundary",
+  "paper_ids": [
+    "arxiv:2112.03864v2",
+    "arxiv:2112.03863v2"
+  ],
+  "faithful_claim": "The STScI WFC3 F555W _001 ground optical filter component has910 increasing wavelength knots, transmission within[0,1] and zero endpoints. Its exact unscaled curve supports a deterministic sampled optical operator under an explicit wavelength-linear finite-support assumption. Released Fragilistic joint zeropoint covariance and nine SALT2 variants do not identify a joint WFC3 optical calibration distribution.",
+  "equations": [
+    {
+      "expression": "F_lambda(lambda)=L_lambda(lambda/(1+z))/(4*pi*D_L^2*(1+z)); E=A*t*integral F_lambda*T d_lambda; N=A*t/(h*c)*integral lambda*F_lambda*T d_lambda",
+      "locator": "Reviewer-derived conditional native sampled optical operator; source component FITS extension WAVELENGTH ANGSTROMS and THROUGHPUT TRANSMISSION; Fragilistic SecIV.3 limits joint calibration interpretation",
+      "paper_id": "arxiv:2112.03864v2",
+      "definitions": "L_lambda W/m rest; observed lambda metres; T dimensionless optical filter transmission; D_L metres; A m\u00b2; t observed seconds; exactSI h andc. DetectorQE/gain absent.",
+      "domain": "Positive increasing finite source/filter wavelength axes; nonnegative luminosity;0<=T<=1;z>=0; piecewise-linear wavelength and zero outside supports. No detector-inclusive system response admitted.",
+      "status": "reviewer_derived"
+    }
+  ],
+  "minimal_test": {
+    "question": "Does native deterministic photometry for the pinned historical optical curve agree with independently normalized wavelength and frequency calculations?",
+    "observables": [
+      "incident flux, optical collected energy, transmitted photons",
+      "no renormalization, no second photon weighting/QE, clipping and invalidsupport controls"
+    ],
+    "parameter_choices": {
+      "response": "wfc3_uvis_f555w_001_syn.fits;ground TV1 Dec2006;910binary32 knots1938\u201311002Angstrom;peak0.9519490003585815",
+      "source": "Chosen flat steady rest spectrum1W/m on[1000,12000]Angstrom; synthetic control only",
+      "calibration_law": null,
+      "calibration_law_reason": "Fitted magnitude-offset covariance lacks optical transmission mapping/states/probability masses; nine systematic scales are not a distribution."
+    },
+    "scope": "Deterministic historical optical component and explicitly synthetic source; measured instrument calibration distribution remains blocked."
+  },
+  "simplifications": [
+    "_004 in-flight calibrated component is separate: sourcehistory applies F555W1.0059 scalar and shifted wavelength grid; identical MJD columns do not define random draws.",
+    "Filter component excludes telescope optics/QE/electronics. Never use a photon/electron system throughput as pure optical transmission."
+  ],
+  "data_dependencies": [
+    {
+      "kind": "historical_optical_component_and_fitted_calibration_summary",
+      "assets": [
+        {
+          "name": "calibration-readme.txt",
+          "source_member": "Pantheon+_Data/2_CALIBRATION/README",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/2_CALIBRATION/README",
+          "retrieved_utc": "2026-10-02T01:02:35.299775+00:00",
+          "bytes": 261,
+          "sha256": "7ebef75c87d80e9bee72e1b2010e449b32ad6e1060a6cdf0886078898b685cfe",
+          "byte_limit": 65536,
+          "http_status": 200,
+          "role": "pending_source_semantic_audit",
+          "redistribution_license": "not verified; assets ignored only"
+        },
+        {
+          "name": "fragilistic-covariance.npz",
+          "source_member": "Pantheon+_Data/2_CALIBRATION/FRAGILISTIC_COVARIANCE.npz",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/2_CALIBRATION/FRAGILISTIC_COVARIANCE.npz",
+          "retrieved_utc": "2026-10-02T01:02:35.710836+00:00",
+          "bytes": 90672,
+          "sha256": "c58704e80061f1aa1b74d97861c5b115ee412bea685e4fef88545525d16dfc70",
+          "byte_limit": 1048576,
+          "http_status": 200,
+          "role": "pending_source_semantic_audit",
+          "redistribution_license": "not verified; assets ignored only"
+        },
+        {
+          "name": "wfc3-filter.fits",
+          "source_member": null,
+          "url": "https://ssb.stsci.edu/trds/comp/wfc3/wfc3_uvis_f555w_004_syn.fits",
+          "retrieved_utc": "2026-10-02T01:02:36.194861+00:00",
+          "bytes": 28800,
+          "sha256": "e3708cebe70321fa66d161678d53299fc9849226161fd0f15cc3782d20b60e15",
+          "byte_limit": 1048576,
+          "http_status": 200,
+          "role": "pending_source_semantic_audit",
+          "redistribution_license": "not verified; assets ignored only"
+        },
+        {
+          "name": "salt2-readme.txt",
+          "source_member": "Pantheon+_Data/3_SALT2/README",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/3_SALT2/README",
+          "bytes": 373,
+          "sha256": "7b14123f47ea879afe59b68de23983fd93376392bc9c58c91bc487af44c8468a",
+          "retrieved_utc": "2026-10-02T01:15:40.971332+00:00",
+          "byte_limit": 131072,
+          "redistribution_license": "notverified; ignoredonly"
+        },
+        {
+          "name": "ALL.fitopts",
+          "source_member": "Pantheon+_Data/3_SALT2/CALIB_fitopts/ALL.fitopts",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/3_SALT2/CALIB_fitopts/ALL.fitopts",
+          "bytes": 43183,
+          "sha256": "5662aa5af987e54ccdb44376d094c62dd0227071e40a9c560f5bd17f58ccf118",
+          "retrieved_utc": "2026-10-02T01:15:41.166481+00:00",
+          "byte_limit": 131072,
+          "redistribution_license": "notverified; ignoredonly"
+        },
+        {
+          "name": "shift_0.dat",
+          "source_member": "Pantheon+_Data/3_SALT2/SALT2_trainopts/shift_0.dat",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/3_SALT2/SALT2_trainopts/shift_0.dat",
+          "bytes": 1036,
+          "sha256": "ca5b9b86f1be086b7b1fffee45e0f4485a101c8192fa21926937fd35b4e683c7",
+          "retrieved_utc": "2026-10-02T01:15:41.363904+00:00",
+          "byte_limit": 131072,
+          "redistribution_license": "notverified; ignoredonly"
+        },
+        {
+          "name": "shift_1.dat",
+          "source_member": "Pantheon+_Data/3_SALT2/SALT2_trainopts/shift_1.dat",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/3_SALT2/SALT2_trainopts/shift_1.dat",
+          "bytes": 1045,
+          "sha256": "7f6c01a6bdb94ec1cc4d014652117d7d3fcb005c0b0060c3fb0b2c4be20ed7ad",
+          "retrieved_utc": "2026-10-02T01:15:41.565392+00:00",
+          "byte_limit": 131072,
+          "redistribution_license": "notverified; ignoredonly"
+        },
+        {
+          "name": "shift_2.dat",
+          "source_member": "Pantheon+_Data/3_SALT2/SALT2_trainopts/shift_2.dat",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/3_SALT2/SALT2_trainopts/shift_2.dat",
+          "bytes": 1034,
+          "sha256": "80a07fce64e33852d775e9415ed6786e7a0788f30978a7afb9f28cda1726e744",
+          "retrieved_utc": "2026-10-02T01:15:41.774246+00:00",
+          "byte_limit": 131072,
+          "redistribution_license": "notverified; ignoredonly"
+        },
+        {
+          "name": "shift_3.dat",
+          "source_member": "Pantheon+_Data/3_SALT2/SALT2_trainopts/shift_3.dat",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/3_SALT2/SALT2_trainopts/shift_3.dat",
+          "bytes": 1043,
+          "sha256": "58b998f60bbf45900964074838091314044a39125cfa5a1ec9222ee6497a1212",
+          "retrieved_utc": "2026-10-02T01:15:41.985068+00:00",
+          "byte_limit": 131072,
+          "redistribution_license": "notverified; ignoredonly"
+        },
+        {
+          "name": "shift_4.dat",
+          "source_member": "Pantheon+_Data/3_SALT2/SALT2_trainopts/shift_4.dat",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/3_SALT2/SALT2_trainopts/shift_4.dat",
+          "bytes": 1032,
+          "sha256": "bc759cb57b4ec10829873f55945282b0d7f9802a1a52b836e228d53144394dd8",
+          "retrieved_utc": "2026-10-02T01:15:42.169696+00:00",
+          "byte_limit": 131072,
+          "redistribution_license": "notverified; ignoredonly"
+        },
+        {
+          "name": "shift_5.dat",
+          "source_member": "Pantheon+_Data/3_SALT2/SALT2_trainopts/shift_5.dat",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/3_SALT2/SALT2_trainopts/shift_5.dat",
+          "bytes": 1038,
+          "sha256": "d7c889fbeddb51f4193c1bdbb835d8598eaa6ab348c1d30debee541c45dbc12c",
+          "retrieved_utc": "2026-10-02T01:15:42.381081+00:00",
+          "byte_limit": 131072,
+          "redistribution_license": "notverified; ignoredonly"
+        },
+        {
+          "name": "shift_6.dat",
+          "source_member": "Pantheon+_Data/3_SALT2/SALT2_trainopts/shift_6.dat",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/3_SALT2/SALT2_trainopts/shift_6.dat",
+          "bytes": 1033,
+          "sha256": "b50c56a3de05698ea8f43cc0aed1b9b9d732eb5d288393eef46ed57cf4518d87",
+          "retrieved_utc": "2026-10-02T01:15:42.574018+00:00",
+          "byte_limit": 131072,
+          "redistribution_license": "notverified; ignoredonly"
+        },
+        {
+          "name": "shift_7.dat",
+          "source_member": "Pantheon+_Data/3_SALT2/SALT2_trainopts/shift_7.dat",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/3_SALT2/SALT2_trainopts/shift_7.dat",
+          "bytes": 1037,
+          "sha256": "99d2ae4b98d0c864ef715ae6d8a70a4bf07646b7e906126a448697c6f371b289",
+          "retrieved_utc": "2026-10-02T01:15:42.760968+00:00",
+          "byte_limit": 131072,
+          "redistribution_license": "notverified; ignoredonly"
+        },
+        {
+          "name": "shift_8.dat",
+          "source_member": "Pantheon+_Data/3_SALT2/SALT2_trainopts/shift_8.dat",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/3_SALT2/SALT2_trainopts/shift_8.dat",
+          "bytes": 1045,
+          "sha256": "3e64fdea7fea85dfb04970b54c6aacccf18f2255d41897e50cdb9d7f8f09c39e",
+          "retrieved_utc": "2026-10-02T01:15:42.944047+00:00",
+          "byte_limit": 131072,
+          "redistribution_license": "notverified; ignoredonly"
+        },
+        {
+          "name": "kcor_SDSS.input",
+          "source_member": "Pantheon+_Data/2_CALIBRATION/SNANA_kcor/kcor_SDSS.input",
+          "url": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/2_CALIBRATION/SNANA_kcor/kcor_SDSS.input",
+          "bytes": 1037,
+          "sha256": "b27008fc0be2dd94c21bafc38bee49d08cea38d9ff157777b14376705a2b93c1",
+          "retrieved_utc": "2026-10-02T01:15:43.139792+00:00",
+          "byte_limit": 131072,
+          "redistribution_license": "notverified; ignoredonly"
+        },
+        {
+          "url": "https://ssb.stsci.edu/trds/comp/wfc3/wfc3_uvis_f555w_001_syn.fits",
+          "retrieved_utc": "2026-10-02T01:05:40.265490+00:00",
+          "bytes": 14400,
+          "sha256": "cd44697fce5d903deb8ee9363cce8bc09c7dac3bd7f99e6376b9cc4a769ca84f",
+          "name": "wfc3-filter-original.fits",
+          "redistribution_license": "notverified; ignoredonly"
+        }
+      ],
+      "normalization": "Use original_001 transmission amplitudes as released; no area normalization or peak scaling. Wavelength Angstrom\u2192metre exact1e-10 unit factor; declare piecewise-linear wavelength with zero outside. _004 distinct calibration/history.",
+      "joint_covariance": "NPZ cov102x102 f64 mag\u00b2; labels102 literalstrings sourceorder;SDSSgriz indices34\u201337; noHST labels. maxasymmetry5.082197683525802e-21mag\u00b2 retained. Cholesky-of-source or source serialization repair not executed.",
+      "roles": "Fitted zeropoint covariance conditioned on stellar templates/CALSPEC/PS1 priors; nine source retraining and light-curve systematic variants, not independent observations or full optical curve law.",
+      "dependence": "SALT2 retraining and same photometry calibration propagated jointly; HST crosscalibration absent. Source license unresolved, links/originalnotes only."
+    }
+  ],
+  "unknowns": [
+    "No published joint wavelength-transmission law, positive optical curve states with probability masses, or mapping from Fragilistic zeropoint covariance to WFC3 filter transmission was identified in inspected assets.",
+    "Fragilistic archive has102 ordered labels, versus105 fitted filters described in the paper; missing-three mapping is unresolved. Source covariance has5.08e-21 mag\u00b2 asymmetry; no silently symmetrized production input is admitted.",
+    "Nine released SALT2 training/fit variants include source-specific systematic scale0.3. These are systematic perturbations, not a normalized probability law; HST is not recalibrated by Fragilistic.",
+    "Ground WFC3_001 is a historical filter component, not full in-flight telescope/detector response or the SDSS SN instrument. Source between-knot and calibration uncertainty is unknown."
+  ],
+  "blockers": [
+    "No published joint wavelength-transmission law, positive optical curve states with probability masses, or mapping from Fragilistic zeropoint covariance to WFC3 filter transmission was identified in inspected assets.",
+    "Fragilistic archive has102 ordered labels, versus105 fitted filters described in the paper; missing-three mapping is unresolved. Source covariance has5.08e-21 mag\u00b2 asymmetry; no silently symmetrized production input is admitted.",
+    "Nine released SALT2 training/fit variants include source-specific systematic scale0.3. These are systematic perturbations, not a normalized probability law; HST is not recalibrated by Fragilistic.",
+    "Ground WFC3_001 is a historical filter component, not full in-flight telescope/detector response or the SDSS SN instrument. Source between-knot and calibration uncertainty is unknown."
+  ]
+}

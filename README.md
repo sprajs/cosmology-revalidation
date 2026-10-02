@@ -113,3 +113,5 @@ Use a branch and a reviewable PR, including for agent work. See
 integrity, storage rules and runner behavior; it does not qualify a scientific
 result. [BSD 3-Clause](LICENSE) covers original repository code and documentation;
 third-party inputs retain their own terms.
+
+The [SN observer and historical passband control](experiments/sn-observer-passband/README.md) checks 321 supplied released redshift pairs under chosen radiation-free LambdaCDM and analytic coasting backgrounds, plus a pinned optical filter with an explicitly synthetic source. Numerical agreement is conditional; unresolved event/frame and joint-calibration information remains explicit.
