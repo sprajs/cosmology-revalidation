@@ -485,12 +485,23 @@ def validate_reference(reference, request, rows, identity=None):
                 raise ValueError('massless reference must have no momentum tail')
 
 
+def read_log(path, maximum):
+    if path.is_symlink() or not path.is_file():
+        raise ValueError('raw log missing or not a regular file')
+    with path.open('rb') as stream:
+        blob = stream.read(maximum + 1)
+    if len(blob) > maximum:
+        raise ValueError('raw log byte quota exceeded')
+    return blob
+
+
 def child(command, store, label, limits, stdin=None, record=None):
     def bound():
         resource.setrlimit(resource.RLIMIT_AS, (limits['memory_bytes'], limits['memory_bytes']))
         resource.setrlimit(resource.RLIMIT_FSIZE, (limits['output_bytes'], limits['output_bytes']))
         resource.setrlimit(resource.RLIMIT_CPU, (math.ceil(limits[label + '_seconds']) + 1,) * 2)
     operation = {'command': command, 'status': 'started', 'returncode': None, 'timed_out': False}
+    outputs = {}
     if record is not None:
         record.setdefault('subprocesses', {})[label] = operation
     try:
@@ -505,7 +516,6 @@ def child(command, store, label, limits, stdin=None, record=None):
         if result.returncode != 0:
             raise ValueError(f'{label} failed with status {result.returncode}')
         operation['status'] = 'completed'
-        return (store / (label + '.out')).read_text()
     except subprocess.TimeoutExpired:
         operation['timed_out'] = True
         operation['status'] = 'timeout'
@@ -516,19 +526,51 @@ def child(command, store, label, limits, stdin=None, record=None):
     finally:
         for suffix in ('out', 'err'):
             path = store / (label + '.' + suffix)
-            if path.exists():
-                operation[suffix + '_bytes'] = path.stat().st_size
-                operation[suffix + '_sha256'] = sha256(path)
-
-
-def ingest_outputs(store, record):
-    for label in ('native', 'reference', 'runtime'):
-        path = store / (label + '.out')
-        if path.is_file():
             try:
-                record[label if label != 'runtime' else 'reference_runtime'] = parse(path.read_text())
+                blob = read_log(path, limits['output_bytes'])
+                outputs[suffix] = blob
+                operation[suffix + '_bytes'] = len(blob)
+                operation[suffix + '_sha256'] = hashlib.sha256(blob).hexdigest()
+            except Exception as error:
+                operation.setdefault('capture_errors', {})[suffix] = str(error)
+    if operation.get('capture_errors'):
+        operation['status'] = 'failed'
+        raise ValueError(label + ' raw log capture failed: ' + str(operation['capture_errors']))
+    # This is the same immutable byte buffer whose identity was recorded above.
+    return outputs['out'].decode('utf-8')
+
+
+def verify_outputs(store, record):
+    errors, stdout = [], {}
+    for label, operation in record.get('subprocesses', {}).items():
+        for suffix in ('out', 'err'):
+            name = label + '.' + suffix
+            try:
+                if suffix in operation.get('capture_errors', {}):
+                    raise ValueError('admission capture failed: ' + operation['capture_errors'][suffix])
+                blob = read_log(store / name, operation[suffix + '_bytes'])
+                if (len(blob) != operation[suffix + '_bytes'] or
+                        hashlib.sha256(blob).hexdigest() != operation[suffix + '_sha256']):
+                    raise ValueError('raw log identity changed')
+                if suffix == 'out':
+                    stdout[label] = blob
+            except Exception as error:
+                errors.append(name + ' raw log drift: ' + str(error))
+    return errors, stdout
+
+
+def ingest_outputs(store, record, stdout=None):
+    errors = []
+    if stdout is None:
+        errors, stdout = verify_outputs(store, record)
+    for label in ('native', 'reference', 'runtime'):
+        key = label if label != 'runtime' else 'reference_runtime'
+        if key not in record and label in stdout:
+            try:
+                record[key] = parse(stdout[label].decode('utf-8'))
             except Exception as error:
                 record.setdefault('partial_output_errors', {})[label] = str(error)
+    return errors
 
 
 def execute(args):
@@ -632,10 +674,10 @@ def execute(args):
         if 'native' in record and record['gates']['execution'] != 'passed':
             record['gates']['execution'] = 'failed native admission'
     finally:
-        ingest_outputs(store, record)
+        errors, stdout = verify_outputs(store, record)
+        ingest_outputs(store, record, stdout)
         if 'native' in record and record['status'] == 'failed' and record['gates']['execution'] == 'unassessed':
             record['gates']['execution'] = 'failed native subprocess/admission'
-        errors = []
         if source_before is not None:
             try:
                 record['source_after'] = source_identity()
@@ -680,6 +722,22 @@ def execute(args):
                     errors.append('compiled consumer changed')
             except Exception as error:
                 errors.append('compiled consumer final verification: ' + str(error))
+        record['output_sha256'] = {}
+        for path in store.rglob('*'):
+            if path.is_file() and not path.is_symlink():
+                name = str(path.relative_to(store))
+                try:
+                    record['output_sha256'][name] = sha256(path)
+                except Exception as error:
+                    errors.append(name + ' final output hash: ' + str(error))
+        # Bind the final manifest too: another identity check can take time after
+        # the verified buffers used for failure ingestion were captured.
+        for label, operation in record.get('subprocesses', {}).items():
+            for suffix in ('out', 'err'):
+                name = label + '.' + suffix
+                expected = operation.get(suffix + '_sha256')
+                if expected is not None and record['output_sha256'].get(name) != expected:
+                    errors.append(name + ' raw log drift: final manifest identity differs')
         if errors:
             record['status'] = 'failed'
             record.setdefault('error', 'post-run identity failure')
@@ -691,10 +749,9 @@ def execute(args):
         record['children_resources'] = {'cpu_user_seconds': usage.ru_utime - usage_before.ru_utime,
                                         'cpu_system_seconds': usage.ru_stime - usage_before.ru_stime,
                                         'process_lifetime_maximum_rss_kib': usage.ru_maxrss, 'jobs': 1, 'threads': 1}
-        record['output_sha256'] = {str(path.relative_to(store)): sha256(path) for path in store.rglob('*') if path.is_file()}
         (store / 'record.json').write_text(json.dumps(record, indent=2, allow_nan=False) + '\n')
         for path in store.rglob('*'):
-            if path.is_file():
+            if path.is_file() and not path.is_symlink():
                 path.chmod(0o555 if path.name == 'consumer' else 0o444)
     print(json.dumps({'status': record['status'], 'record': str(store / 'record.json'),
                       'gates': record['gates'], 'error': record.get('error')}))

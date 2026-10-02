@@ -45,7 +45,7 @@ covariance density separately. These refinement comparisons are empirical
 discretization checks. Runtime fingerprints bind Python and the complete mpmath
 source inventory before and after execution. Reference refinement and the summed
 axis/tail envelope must consume at most 5% of fixed allocations. Ratios use
-1e-10+5e-10*abs(reference), density components absolute1e-8, projection <=1e-8.
+1e-10+5e-10*abs(reference), density components absolute 1e-8, projection <=1e-8.
 The producer uses separately frozen tighter settings and finite work limits.
 No failed row is removed, covariance inflated or acceptance tolerance relaxed.
 The native consumer returns ratios and density only. Its reference ruler output
@@ -81,7 +81,7 @@ source-fixed44 box normalization and thermal DESI contracts. A preserved
 uncommitted diagnostic compared all thirteen rows for both supplied-drag models
 at engine source `e9a9e6bd5af3404c7efc66916dc6ed6c68d72b4f`, build
 `e92a0e64ee8e7101864a2d221b67d02abe434ad6f8288f84475b15a4a2445999`.
-Its native projection estimates were below1e-8, but the controller converted
+Its native projection estimates were below 1e-8, but the controller converted
 60/90-digit references to binary64 before comparing refinement. Its recorded
 numerical pass is provisional: small differences were erased. The immutable
 diagnostic receipt SHA256
@@ -89,3 +89,27 @@ diagnostic receipt SHA256
 remains local and unchanged. A corrected committed comparison and deliberate
 review are required before acceptance. Every remaining closure stays visible;
 a passing control will not promote the full experiment.
+
+2026-10-03: the corrected clean committed attempt
+`committed-thermal-desi-20261003-a`, at Reproducible
+`3b7ecb1f9c5fdfc67781fee893fd82afe6c22d71`, passed execution and all 34 named
+comparisons (26 ratios and eight normalized density components) at the original
+request/engine/input pins. Its maximum native difference was 1.368e-12 for the
+massless quadratic, using 0.0001368 of its 1e-8 allocation. The largest summed
+reference axis/tail envelope was 4.840e-23 for the massive quadratic; its positive
+analytic tail bound 6.259e-61 was retained. Native projection estimates were
+3.089e-9 and 3.615e-9, below 1e-8. No source, build, runtime or input identity changed.
+The run took 96.81 seconds with one job/thread and consumer executable SHA256
+`835c66774178cc06d029085567e1e2a38cd10e7643b1bd6ee72916c92685626e`.
+The full immutable local record is
+`results/lcdm-campaign/committed-thermal-desi-20261003-a/record.json`, SHA256
+`a9c16da3690b877bb9fa48a753743990af72c593f64c9f93adb4eb34072f2382`.
+
+All 59 repository unit tests, including 16 campaign admission/failure tests,
+passed; 56 bounded analytic/reference probes passed, including exact binary64
+conversion, covariance refusals, GL moments and the massless FD analytic moment.
+Repository storage/packet checks passed. These checks accept the named numerical
+controls only. Inference was not performed, the direct native distance/ruler
+allocation was not exercised, DESI compression applicability is unqualified,
+and the full-model packet remains blocked. Full inputs/records remain local;
+this account does not replace a durable scientific archive.

@@ -426,6 +426,121 @@ class CampaignTests(unittest.TestCase):
             for name in ('native.out', 'native.err', 'record.json'):
                 self.assertEqual((store / name).stat().st_mode & 0o222, 0)
 
+    def test_child_hashes_exact_stdout_buffer_used_for_parsing(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            store = Path(temporary)
+            original = b'{"value": 1}\n'
+            changed = b'{"value": 2}\n'
+            limits = {'native_seconds': 2, 'memory_bytes': 1073741824, 'output_bytes': 65536}
+            record = {}
+            def producer(_command, **kwargs):
+                kwargs['stdout'].write(original)
+                return SimpleNamespace(returncode=0)
+            actual_read = controller.read_log
+            reads = []
+            def drift_after_read(path, maximum):
+                blob = actual_read(path, maximum)
+                if path.name == 'native.out':
+                    reads.append(path.name)
+                    path.write_bytes(changed)
+                return blob
+            with patch.object(controller.subprocess, 'run', side_effect=producer), \
+                    patch.object(controller, 'read_log', side_effect=drift_after_read):
+                output = controller.child(['synthetic-producer'], store, 'native', limits, record=record)
+            self.assertEqual(reads, ['native.out'])
+            self.assertEqual(controller.parse(output), {'value': 1})
+            self.assertEqual(record['subprocesses']['native']['out_sha256'], controller.hashlib.sha256(original).hexdigest())
+            self.assertEqual(record['subprocesses']['native']['out_bytes'], len(original))
+            errors, stdout = controller.verify_outputs(store, record)
+            self.assertNotIn('native', stdout)
+            self.assertIn('native.out raw log drift', errors[0])
+
+    def test_passing_attempt_rejects_raw_output_drift_without_overwriting_accepted_values(self):
+        # Every subprocess is simulated; the nominal path tests receipt closure.
+        for drift in (None, 'changed', 'malformed', 'deleted', 'changed-stderr', 'late-drift'):
+            with self.subTest(drift=drift), tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary)
+                folder = root / 'experiments/lcdm-campaign'
+                folder.mkdir(parents=True)
+                for source in FOLDER.iterdir():
+                    if source.is_file():
+                        (folder / source.name).write_bytes(source.read_bytes())
+                packet = controller.load(folder / 'experiment.json')
+                identity = {'head': 'reviewed-fixture', 'status': '', 'files': {}}
+                actual_child = controller.child
+                native = self.native()
+                reference = self.reference()
+                def stage(command, store, label, limits, stdin=None, record=None):
+                    if label == 'discovery':
+                        value = {'product': 'Irreducible', 'build': {
+                            'build_id': self.request['engine']['build_id'],
+                            'git_head': self.request['engine']['revision'], 'git_status': ''}}
+                    elif label == 'compile':
+                        (store / 'consumer').write_bytes(b'synthetic compiled fixture')
+                        value = None
+                    elif label == 'native':
+                        value = native
+                    elif label == 'runtime':
+                        value = self.runtime
+                    elif label == 'reference':
+                        reference['reference_input_sha256'] = controller.sha256(store / 'reference-input.json')
+                        reference['reference_script_sha256'] = controller.sha256(store / 'reference.py')
+                        value = reference
+                    else:
+                        self.fail('unexpected synthetic subprocess ' + label)
+                    blob = (json.dumps(value) + '\n').encode() if value is not None else b''
+                    def producer(_command, **kwargs):
+                        kwargs['stdout'].write(blob)
+                        return SimpleNamespace(returncode=0)
+                    with patch.object(controller.subprocess, 'run', side_effect=producer):
+                        output = actual_child(command, store, label, limits, stdin, record)
+                    if label == 'reference':
+                        if drift == 'changed':
+                            (store / 'native.out').write_text('{"accepted":false,"slots":[]}\n')
+                        elif drift == 'malformed':
+                            (store / 'reference.out').write_text('malformed JSON\n')
+                        elif drift == 'deleted':
+                            (store / 'native.out').unlink()
+                        elif drift == 'changed-stderr':
+                            (store / 'reference.err').write_text('changed after subprocess return\n')
+                    return output
+                args = SimpleNamespace(name='raw-log-drift', engine_source=root, input_root=root,
+                                       reference_python=Path(sys.executable), engine_artifacts=None)
+                source_checks = []
+                def source_state():
+                    source_checks.append(True)
+                    if drift == 'late-drift' and len(source_checks) == 2:
+                        (root / 'results/lcdm-campaign/raw-log-drift/native.out').write_text('{"accepted":false,"slots":[]}\n')
+                    return identity
+                with patch.object(controller, 'ROOT', root), patch.object(controller, 'FOLDER', folder), \
+                        patch.object(controller, 'source_identity', side_effect=source_state), \
+                        patch.object(controller, 'read_packet', return_value=(packet, None, {})), \
+                        patch.object(controller, 'snapshot_source', return_value=root), \
+                        patch.object(controller, 'inputs', return_value=([b'synthetic mean', b'synthetic covariance'], self.rows, [[0.] * 13 for _ in range(13)])), \
+                        patch.object(controller, 'fingerprint', return_value={'admitted': 'engine fixture'}), \
+                        patch.object(controller, 'child', side_effect=stage):
+                    self.assertEqual(controller.execute(args), 0 if drift is None else 1)
+                store = root / 'results/lcdm-campaign/raw-log-drift'
+                result = json.loads((store / 'record.json').read_text())
+                self.assertEqual(result['native'], native)
+                self.assertEqual(result['reference'], reference)
+                self.assertEqual(len(result['comparisons']), 34)
+                self.assertEqual(result['gates']['execution'], 'passed')
+                self.assertEqual(result['source_before'], result['source_after'])
+                self.assertEqual(result['engine_before'], result['engine_after'])
+                self.assertEqual((store / 'record.json').stat().st_mode & 0o222, 0)
+                if drift is None:
+                    self.assertEqual(result['status'], 'completed')
+                    self.assertEqual(result['integrity_errors'], [])
+                    self.assertTrue(result['gates']['numerical'].startswith('passed'))
+                else:
+                    self.assertEqual(result['status'], 'failed')
+                    self.assertEqual(result['gates']['numerical'], 'not accepted: identity failure')
+                    name = 'reference.err' if drift == 'changed-stderr' else 'reference.out' if drift == 'malformed' else 'native.out'
+                    self.assertTrue(any(name + ' raw log drift' in error for error in result['integrity_errors']))
+                    self.assertEqual(result['subprocesses']['native']['out_sha256'],
+                                     controller.hashlib.sha256((json.dumps(native) + '\n').encode()).hexdigest())
+
     def test_engine_artifacts_source_inventory_and_real_changed_bytes(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
