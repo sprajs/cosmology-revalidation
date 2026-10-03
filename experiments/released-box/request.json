@@ -1,14 +1,8 @@
 {
   "schema_version": 1,
-  "id": "released-fixed44-box-median-native-request/v4",
+  "id": "released-fixed44-box-median-native-request/v5",
   "created_utc_date": "2026-10-03",
-  "consumer_interface_id": "released-fixed44-box-native/v3",
-  "supersedes_unexecuted_request": {
-    "id": "released-fixed44-box-median-native-request/v3",
-    "sha256": "b132553c8f9e1688b22b835082f153ccb90160e70a05e48e6741200deca4180c",
-    "preserved_path": ".work/released-box-formatting-history/v3/experiments/released-box/request.json",
-    "reason": "remove one final blank line from bounds.hpp to pass the repository whitespace check; exact 92 endpoint bits, SDK, interface, numerical policies and resource allocations unchanged; full unexecuted v3 source checkpoint retained read-only"
-  },
+  "consumer_interface_id": "released-fixed44-box-native/v4",
   "original_contract": {
     "path": ".work/box-contract-20261002/contract.json",
     "sha256": "ee885213f48cdb04d3b6d0bada41fea3d65524feb9f33b0d3bda985645aa0741",
@@ -25,15 +19,16 @@
     "source_gaps_retained": "original immutable contract source_gaps, unchanged"
   },
   "sdk_identity": {
-    "engine_revision": "6f869532c1951ed1afd9f2506b5d05c6cfd03c82",
-    "build_id": "f22c25423cfb9cbac3c2b91a4e514b13ce604e92e7010f55a9aa0bdd42f40f59",
-    "manifest_sha256": "f2e4d6a22257c13f8ab46de51cdfc92654d9857a82a7bc3ea5b8c0edf234f062",
-    "archive_sha256": "1cb2b85ad292334f3b5041d669187b04a6fca0916bca8c41070b0ff878499dff",
-    "cli_sha256": "09b5bfd05ce6c057423b1d41f6f81f8e4d0db44dfd35424fdccd0b34fd9b22d9",
-    "gaussian_box_header_sha256": "8d54de01dffc17a11c1cf625afe19df3655b375b7bcdb9d977f8b97baa86b3ce",
+    "engine_revision": "29c87bd734e64d30a6edb8f8b60f93fca147cde1",
+    "build_id": "fee44c6172ee6cc790448ff0abb6a80643cc8e1a39fe627826f3fecc7e9b86d5",
+    "manifest_sha256": "ce8455f4fcee0745b770e81e0967cd164f5b197b50d0ef1c3717ae5b60b21e02",
+    "archive_sha256": "be08158b14c77f7692fe2a55caf9aaac4abe97eef1edd75e4966e57f27516d77",
+    "cli_sha256": "de0c98b505eae2c88d86569f3b8d6d3de8c6926939318ec25ac32f3cb96ce09a",
+    "gaussian_box_header_sha256": "8a8d25d4d8e77cb985014e21dca1b30c59460429fe9329ab72fffcc564cac5b2",
     "compiler_executable_sha256": "f04191f6a7b2cd7d9a62e1745872b8a6088791e5af6955488c69c9b2c4668bc9",
     "standard_library_sha256": "f5fc7380f2ae46fa4053a64be04e7b98109f1066a4bbfff3c37042488aa0be0e",
-    "source_inventory_count": 311
+    "source_inventory_count": 325,
+    "gaussian_box_guide_sha256": "c0af31ed5a12fab7d922cbd8b0f410f4fb56c733e9530fa487f1db788240c31d"
   },
   "native_route": "C++ Gaussian -> retained DesignProfile -> GaussianBox; no CLI operation",
   "transport": {
@@ -444,5 +439,32 @@
     "narrowing_authority": "active coordinator explicitly froze original46/active45 probability0.5 only for this distinct request; original broader contract remains byte-identical",
     "historical_identity_policy": "all original packets, requests, SDK pins and receipts remain immutable; old c9b7/e9a archives do not supply GaussianBox"
   },
-  "execution_status": "unperformed; source-only freeze, no compiler/syntax/native/scientific/test execution"
+  "execution_status": "unperformed; source-only freeze, no compiler/syntax/native/scientific/test execution",
+  "supersedes_request": {
+    "id": "released-fixed44-box-median-native-request/v4",
+    "sha256": "664b7054f1d2c3d23ae7af170c163e8d717213e2ccf05e5945e1971b56635de8",
+    "preserved_source_revision": "bdb4f713e8b111e442dcafe47620f983b1f6ae5c",
+    "executed_source_revision": "29dcf0e51f8862638b4332cadd628af2768d37b0",
+    "actual_record_sha256": "7822fbbb20e3bbe1aeb9fa6b60d299a9f535b007f149fcaab2a02993da6dc07a",
+    "reason": "Reviewed new SDK reads retained covariance determinant without an unrelated zero-residual solve and exposes attempted completion gates. Original target, support, numerical/reference policies, resources and historical v4 failure remain unchanged."
+  },
+  "sdk_handoff": {
+    "source_root": "/home/szymon/.codex/worktrees/box-pr-integrated/irreducible",
+    "path": "evidence/box-sdk-integrated-20261003/sdk-handoff-v2.json",
+    "sha256": "f7a9eea4ac6e9a4c6451cda2c678792a3941b92fbd547b0bfb6fa83818155d1d",
+    "qualification": "clean experimental SDK branch; installed/synthetic checks do not qualify the original3492 target or inherit engine PR CI"
+  },
+  "completion_diagnostics": {
+    "completion_step": {
+      "0": "unassessed",
+      "1": "profile_evaluation",
+      "2": "source_whitening",
+      "3": "qr_completion",
+      "4": "marginal_variances",
+      "5": "covariance_determinant",
+      "6": "complete"
+    },
+    "completion_parameter_index": "nullable integer0..45, present only during marginal_variances; active source order maps through active_original_indices",
+    "availability": "attempted step is separate from last available result_stage; stage0 has no completion outputs; stages1..6 require completion_step6 and null index"
+  }
 }

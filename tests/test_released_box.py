@@ -20,7 +20,7 @@ spec = importlib.util.spec_from_file_location('box_controller_test', CONTROLLER)
 c = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(c)
 REQUEST = c.request_bytes((CONTROLLER.parent / 'request.json').read_bytes())
-GUIDE = '7db2a06a5ef95c07729d0dbec4acd7d06e3b0eeb0678137e3d5c06e1d1a35571'
+GUIDE = 'c0af31ed5a12fab7d922cbd8b0f410f4fb56c733e9530fa487f1db788240c31d'
 
 
 def enclosure(value, radius=0):
@@ -75,6 +75,7 @@ def native_fixture():
                     'design_consumed_by_box': True},
          'payload_bounds': dict.fromkeys(('gaussian_preparation', 'design_preparation', 'box_preparation', 'box_evaluation'), 1024),
          'result_status': 0, 'result_numerical_status': 0, 'result_stage': 6,
+         'completion_step': 6, 'completion_parameter_index': None,
          'method_id': 'retained-qr-rational-tail-box-enclosure/v1',
          'enclosure_scope': r['qualification']['enclosure_scope'], 'availability': dict.fromkeys(c.FLAGS, True),
          'completion': {'mean': means, 'variance': variances, 'named_variance_original46': variances[-1],
@@ -179,6 +180,26 @@ class BoxControllerTests(unittest.TestCase):
         overlapping['median']['lower_endpoint_cdf'] = {'lower': 0.49, 'upper': 0.51}
         overlapping['median']['upper_endpoint_cdf'] = {'lower': 0.49, 'upper': 0.51}
         self.assertTrue(c.check_native(overlapping, REQUEST, GUIDE))
+
+    def test_attempted_completion_gate_is_distinct_from_available_stage(self):
+        refused = native_fixture()
+        refused.update(result_status=4, result_numerical_status=8, result_stage=0,
+                       completion_step=4, completion_parameter_index=7,
+                       output_complete=False, accepted=False)
+        refused['availability'] = dict.fromkeys(c.FLAGS, False)
+        for name in ('completion', 'box_diagnostics', 'normalizations', 'median'):
+            refused[name] = None
+        refused['work'] = dict.fromkeys(refused['work'], 0)
+        self.assertFalse(c.check_native(refused, REQUEST, GUIDE, require_complete=False))
+        for step, index in ((4, None), (4, 46), (4, True), (1, 7), (6, None), (True, None)):
+            changed = copy.deepcopy(refused)
+            changed.update(completion_step=step, completion_parameter_index=index)
+            with self.subTest(step=step, index=index), self.assertRaises(ValueError):
+                c.check_native(changed, REQUEST, GUIDE, require_complete=False)
+        changed = native_fixture()
+        changed['completion_step'] = 5
+        with self.assertRaises(ValueError):
+            c.check_native(changed, REQUEST, GUIDE)
 
     def test_reference_complete_fixture_and_exact_refinement(self):
         native = native_fixture()
@@ -450,7 +471,7 @@ class BoxControllerTests(unittest.TestCase):
             (root / 'docs').mkdir()
             (root / 'build/native-release').mkdir(parents=True)
             (root / 'target/release').mkdir(parents=True)
-            sources = [root / 'src' / (str(i) + '.rs') for i in range(305)] + [
+            sources = [root / 'src' / (str(i) + '.rs') for i in range(REQUEST['sdk_identity']['source_inventory_count'] - 6)] + [
                 root / 'Cargo.toml', root / 'Cargo.lock', root / 'build.rs', root / 'cpp/CMakeLists.txt',
                 root / 'cpp/cmake/gaussian_box.cmake', root / 'cpp/include/irred/gaussian_box.hpp']
             for path in sources:
@@ -475,12 +496,13 @@ class BoxControllerTests(unittest.TestCase):
             request = copy.deepcopy(REQUEST)
             request['sdk_identity'].update(build_id=build_id, manifest_sha256=c.sha256(manifest), archive_sha256=c.sha256(archive),
                                            cli_sha256=c.sha256(cli), gaussian_box_header_sha256=c.sha256(sources[-1]),
+                                           gaussian_box_guide_sha256=c.sha256(guide),
                                            compiler_executable_sha256=compiler_digest, standard_library_sha256=c.sha256(library))
             def git(root, *args):
                 return request['sdk_identity']['engine_revision'] if args[0] == 'rev-parse' else ''
             with patch.object(c.receipt, 'git', git), patch.object(c.subprocess, 'check_output', return_value=guide.read_bytes()):
                 identity = c.engine_identity(root, root, request)
-                self.assertEqual(len(identity['sources']), 311)
+                self.assertEqual(len(identity['sources']), REQUEST['sdk_identity']['source_inventory_count'])
                 self.assertIn('cpp/cmake/gaussian_box.cmake', identity['sources'])
                 sources[-2].write_bytes(b'changed synthetic SDK source')
                 with self.assertRaises(ValueError):
