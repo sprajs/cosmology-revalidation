@@ -1,5 +1,5 @@
-// Source-only experiment transport draft; production mathematics is Irreducible's.
-// Frozen distinct6f GaussianBox SDK; source-only until an explicit compute lease.
+// Experiment transport; production mathematics is Irreducible's.
+// Reviewed distinct29c87 GaussianBox SDK; historical request identities stay intact.
 #include "irred/gaussian_box.hpp"
 #include "bounds.hpp"
 #include <bit>
@@ -25,7 +25,7 @@
 #if !defined(RELEASED_BOX_ENGINE_REVISION) || !defined(RELEASED_BOX_BUILD_ID) || \
     !defined(RELEASED_BOX_MANIFEST_SHA256) || !defined(RELEASED_BOX_ARCHIVE_SHA256) || \
     !defined(RELEASED_BOX_CLI_SHA256) || !defined(RELEASED_BOX_HEADER_SHA256)
-#error Supply the frozen6f GaussianBox SDK identity declarations; historical SDKs are not admitted.
+#error Supply the reviewed29c87 GaussianBox SDK identity declarations; historical SDKs are not admitted.
 #endif
 
 namespace {
@@ -36,18 +36,18 @@ constexpr std::size_t native_payload=std::size_t(2)*1024*1024*1024;
 constexpr std::size_t address_limit=std::size_t(3)*1024*1024*1024;
 constexpr std::size_t output_limit=1024*1024;
 constexpr unsigned native_seconds=900;
-constexpr std::string_view interface_id="released-fixed44-box-native/v3";
+constexpr std::string_view interface_id="released-fixed44-box-native/v4";
 constexpr std::string_view contract_sha="ee885213f48cdb04d3b6d0bada41fea3d65524feb9f33b0d3bda985645aa0741";
-constexpr std::string_view request_sha="664b7054f1d2c3d23ae7af170c163e8d717213e2ccf05e5945e1971b56635de8";
+constexpr std::string_view request_sha="fe6a68858122b0ef590d4f046cea508d3b76b33f3718d47cb60e51c86ae55228";
 // These declarations are frozen source identities. The controller verifies the
 // actual source/archive/header/toolchain and consumer executable before/after.
-static_assert(std::string_view(RELEASED_BOX_ENGINE_REVISION)=="6f869532c1951ed1afd9f2506b5d05c6cfd03c82");
-static_assert(std::string_view(RELEASED_BOX_BUILD_ID)=="f22c25423cfb9cbac3c2b91a4e514b13ce604e92e7010f55a9aa0bdd42f40f59");
-static_assert(std::string_view(RELEASED_BOX_MANIFEST_SHA256)=="f2e4d6a22257c13f8ab46de51cdfc92654d9857a82a7bc3ea5b8c0edf234f062");
-static_assert(std::string_view(RELEASED_BOX_ARCHIVE_SHA256)=="1cb2b85ad292334f3b5041d669187b04a6fca0916bca8c41070b0ff878499dff");
-static_assert(std::string_view(RELEASED_BOX_CLI_SHA256)=="09b5bfd05ce6c057423b1d41f6f81f8e4d0db44dfd35424fdccd0b34fd9b22d9");
-static_assert(std::string_view(RELEASED_BOX_HEADER_SHA256)=="8d54de01dffc17a11c1cf625afe19df3655b375b7bcdb9d977f8b97baa86b3ce");
-constexpr std::string_view guide_sha="7db2a06a5ef95c07729d0dbec4acd7d06e3b0eeb0678137e3d5c06e1d1a35571";
+static_assert(std::string_view(RELEASED_BOX_ENGINE_REVISION)=="29c87bd734e64d30a6edb8f8b60f93fca147cde1");
+static_assert(std::string_view(RELEASED_BOX_BUILD_ID)=="fee44c6172ee6cc790448ff0abb6a80643cc8e1a39fe627826f3fecc7e9b86d5");
+static_assert(std::string_view(RELEASED_BOX_MANIFEST_SHA256)=="ce8455f4fcee0745b770e81e0967cd164f5b197b50d0ef1c3717ae5b60b21e02");
+static_assert(std::string_view(RELEASED_BOX_ARCHIVE_SHA256)=="be08158b14c77f7692fe2a55caf9aaac4abe97eef1edd75e4966e57f27516d77");
+static_assert(std::string_view(RELEASED_BOX_CLI_SHA256)=="de0c98b505eae2c88d86569f3b8d6d3de8c6926939318ec25ac32f3cb96ce09a");
+static_assert(std::string_view(RELEASED_BOX_HEADER_SHA256)=="8a8d25d4d8e77cb985014e21dca1b30c59460429fe9329ab72fffcc564cac5b2");
+constexpr std::string_view guide_sha="c0af31ed5a12fab7d922cbd8b0f410f4fb56c733e9530fa487f1db788240c31d";
 constexpr std::string_view compiler_sha="f04191f6a7b2cd7d9a62e1745872b8a6088791e5af6955488c69c9b2c4668bc9";
 constexpr std::string_view standard_library_sha="f5fc7380f2ae46fa4053a64be04e7b98109f1066a4bbfff3c37042488aa0be0e";
 constexpr std::string_view measure="46-dimensional Lebesgue measure in original ordered coordinates0..43,45,46";
@@ -56,6 +56,13 @@ constexpr std::string_view prior_identity="lstsq_results.txt@c447f0fea703fcd0fff
 static_assert(released_box_transport::active_original.size()==p);
 static_assert(released_box_transport::active_original[43]==43&&
     released_box_transport::active_original[44]==45&&released_box_transport::active_original[45]==46);
+static_assert(unsigned(BoxCompletionStep::unassessed)==0&&
+    unsigned(BoxCompletionStep::profile_evaluation)==1&&
+    unsigned(BoxCompletionStep::source_whitening)==2&&
+    unsigned(BoxCompletionStep::qr_completion)==3&&
+    unsigned(BoxCompletionStep::marginal_variances)==4&&
+    unsigned(BoxCompletionStep::covariance_determinant)==5&&
+    unsigned(BoxCompletionStep::complete)==6);
 
 void require(bool yes,const char* message) { if(!yes) throw std::runtime_error(message); }
 bool normal(double x) { return std::isfinite(x)&&(x==0||std::fpclassify(x)==FP_NORMAL); }
@@ -133,7 +140,8 @@ struct Attempt {
 };
 bool complete(const GaussianBoxResult& r,const BoxPolicy& policy) {
   if(r.status!=DensityStatus::finite||r.numerical_status!=numerics::Status::ok||
-      r.stage!=BoxStage::complete||!r.gaussian_completion_available||!r.endpoint_margins_available||
+      r.stage!=BoxStage::complete||r.completion_step!=BoxCompletionStep::complete||
+      r.completion_parameter_index||!r.gaussian_completion_available||!r.endpoint_margins_available||
       !r.rectangle_enclosure_available||!r.normalization_enclosures_available||
       !r.quantile_enclosure_available||!r.endpoint_cdf_enclosures_available||
       r.unboxed_mean.size()!=p||r.unboxed_variance.size()!=p||
@@ -178,7 +186,7 @@ void emit(const Attempt& a,const BoxPolicy& policy) {
   std::cout<<",\"gaussian_box_guide_sha256\":";text(guide_sha);
   std::cout<<",\"compiler_executable_sha256\":";text(compiler_sha);
   std::cout<<",\"standard_library_sha256\":";text(standard_library_sha);
-  std::cout<<",\"source_inventory_count\":311";
+  std::cout<<",\"source_inventory_count\":325";
   std::cout<<",\"verification_owner\":\"distinct bounded controller; echoed compile-time declarations are not self-certified\"}";
   std::cout<<",\"target\":{\"observations\":3492,\"original_columns\":47,\"active_columns\":46,\"active_original_indices\":[";
   for(std::size_t j=0;j<p;++j)std::cout<<(j?",":"")<<released_box_transport::active_original[j];
@@ -216,6 +224,8 @@ void emit(const Attempt& a,const BoxPolicy& policy) {
   std::cout<<",\"method_id\":";if(a.result)text(a.result->method_id);else std::cout<<"null";
   std::cout<<",\"enclosure_scope\":";if(a.result)text(a.result->enclosure_scope);else std::cout<<"null";
   std::cout<<",\"result_stage\":";if(a.result)std::cout<<unsigned(a.result->stage);else std::cout<<"null";
+  std::cout<<",\"completion_step\":";if(a.result)std::cout<<unsigned(a.result->completion_step);else std::cout<<"null";
+  std::cout<<",\"completion_parameter_index\":";if(a.result)bound(a.result->completion_parameter_index);else std::cout<<"null";
   std::cout<<",\"availability\":";
   if(a.result) {
     const auto& r=*a.result;

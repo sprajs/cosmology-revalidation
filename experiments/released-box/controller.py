@@ -23,7 +23,7 @@ import time
 
 ROOT = Path(__file__).resolve().parents[2]
 FOLDER = Path(__file__).resolve().parent
-REQUEST_SHA256 = '664b7054f1d2c3d23ae7af170c163e8d717213e2ccf05e5945e1971b56635de8'
+REQUEST_SHA256 = 'fe6a68858122b0ef590d4f046cea508d3b76b33f3718d47cb60e51c86ae55228'
 CONTRACT_SHA256 = 'ee885213f48cdb04d3b6d0bada41fea3d65524feb9f33b0d3bda985645aa0741'
 ACTIVE = list(range(44)) + [45, 46]
 COMPONENT_SIZES = [2593, 55, 339, 143, 354] + [1] * 8
@@ -52,7 +52,7 @@ ComparisonFailure = receipt.ComparisonFailure
 
 NATIVE_FIELDS = ('schema_version interface_id contract_sha256 request_sha256 sdk_identity target '
                  'source_identities arithmetic policy resources stages payload_bounds result_status '
-                 'result_numerical_status method_id enclosure_scope result_stage availability completion '
+                 'result_numerical_status method_id enclosure_scope result_stage completion_step completion_parameter_index availability completion '
                  'box_diagnostics normalizations median work output_complete accepted qualification').split()
 FLAGS = ('gaussian_completion endpoint_margins rectangle_enclosure normalization_enclosures '
          'quantile_enclosure endpoint_cdf_enclosures').split()
@@ -660,13 +660,25 @@ def check_native(output, request, guide_sha256, require_complete=True):
     if result:
         count(output['result_status'], 5, 'assessed result status')
         count(output['result_numerical_status'], 8, 'assessed numerical status')
+        step = output['completion_step']
+        count(step, 6, 'attempted completion step')
+        if step == 4:
+            count(output['completion_parameter_index'], 45, 'attempted active marginal variance')
+        else:
+            exact(output['completion_parameter_index'], None, 'unattempted marginal variance index')
+        if output['result_stage'] == 0:
+            if step == 6:
+                raise ValueError('completed step without available Gaussian completion')
+        else:
+            exact(step, 6, 'available Gaussian completion step')
         exact(output['method_id'], 'retained-qr-rational-tail-box-enclosure/v1', 'box method')
         exact(output['enclosure_scope'], request['qualification']['enclosure_scope'], 'box enclosure scope')
         keys(flags, FLAGS, 'availability')
         for index, flag in enumerate(FLAGS, 1):
             exact(flags[flag], output['result_stage'] >= index, 'causal availability/' + flag)
     else:
-        for key in ('availability', 'result_status', 'result_numerical_status', 'method_id', 'enclosure_scope'):
+        for key in ('availability', 'result_status', 'result_numerical_status', 'method_id', 'enclosure_scope',
+                    'completion_step', 'completion_parameter_index'):
             exact(output[key], None, 'unassessed/' + key)
         flags = dict.fromkeys(FLAGS, False)
     for key, flag in (('completion', 'gaussian_completion'), ('box_diagnostics', 'endpoint_margins'),
@@ -890,6 +902,7 @@ def engine_identity(source, artifacts, request):
     result['gaussian_box_header_sha256'] = sha256(source / 'cpp/include/irred/gaussian_box.hpp')
     exact(result['gaussian_box_header_sha256'], sdk['gaussian_box_header_sha256'], 'GaussianBox header')
     result['gaussian_box_guide_sha256'] = sha256(source / 'docs/gaussian-box.md')
+    exact(result['gaussian_box_guide_sha256'], sdk['gaussian_box_guide_sha256'], 'reviewed GaussianBox guide')
     exact(result['gaussian_box_guide_sha256'], hashlib.sha256(subprocess.check_output(
           ['git', '-C', str(source), 'show', sdk['engine_revision'] + ':docs/gaussian-box.md'], timeout=30)).hexdigest(),
           'committed GaussianBox guide')

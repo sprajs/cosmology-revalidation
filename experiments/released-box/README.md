@@ -15,10 +15,16 @@ unchanged. This packet retains the immutable reviewed
 [box contract](contract.snapshot.json), SHA256
 `ee885213f48cdb04d3b6d0bada41fea3d65524feb9f33b0d3bda985645aa0741`,
 and a distinct [native request](request.json), SHA256
-`664b7054f1d2c3d23ae7af170c163e8d717213e2ccf05e5945e1971b56635de8`.
+`fe6a68858122b0ef590d4f046cea508d3b76b33f3718d47cb60e51c86ae55228`.
 The unexecuted v3 source checkpoint is preserved locally; v4 removes one final
 blank line from the bounds header and updates all coupled request hashes. The
-92 endpoint bits, SDK, interfaces and numerical allocations are unchanged.
+92 endpoint bits and numerical allocations were unchanged by that correction.
+The current v5 request admits a separately reviewed SDK and native interface v4.
+It retains every target/input/support, numerical/reference policy and resource
+allocation from v4, including its failed attempt. The engine reads its retained
+covariance determinant without an unrelated zero-residual solve. Its typed
+attempted completion step and optional active-coordinate index are separate from
+available output stages; a refused step supplies no completion prediction.
 The contract's earlier `native_consumer_pending` field is historical evidence;
 it is not edited to describe a later implementation. There is no separate
 admitted Prospector reproduction candidate for this numerical control.
@@ -102,9 +108,9 @@ close those gaps or reproduce analysis-variant systematics.
 ## Execution and provenance
 
 Use the clean pinned SDK source
-`6f869532c1951ed1afd9f2506b5d05c6cfd03c82`, build
-`f22c25423cfb9cbac3c2b91a4e514b13ce604e92e7010f55a9aa0bdd42f40f59`.
-All 311 build-manifest source hashes, including CMake wiring, and the actual
+`29c87bd734e64d30a6edb8f8b60f93fca147cde1`, build
+`fee44c6172ee6cc790448ff0abb6a80643cc8e1a39fe627826f3fecc7e9b86d5`.
+All 325 build-manifest source hashes, including CMake wiring, and the actual
 archive/CLI/header/toolchain hashes are admitted before and after execution.
 The source checkout and read-only artifacts may be separate. Do not rebuild or
 replace this SDK implicitly when its owner's active checkout advances.
@@ -147,7 +153,9 @@ No numerical tolerance changed. These controls do not execute or qualify the
 actual 3492-row target.
 
 2026-10-03: the fresh full-input attempt used committed Reproducible source
-`29dcf0e51f8862638b4332cadd628af2768d37b0`, request v4 and the frozen SDK above.
+`29dcf0e51f8862638b4332cadd628af2768d37b0`, request v4 and its original SDK
+`6f869532c1951ed1afd9f2506b5d05c6cfd03c82`, build
+`f22c25423cfb9cbac3c2b91a4e514b13ce604e92e7010f55a9aa0bdd42f40f59`.
 Source admission, compiled discovery and consumer compilation passed. Gaussian,
 full-rank design and box preparation succeeded, but box evaluation returned
 `numerical_failure / conditioning_budget_exceeded` at stage 0, before a completion
@@ -167,5 +175,13 @@ The immutable local record is
 Its execution/numerical gates remain the original `unassessed` strings: failure
 output was first ingested during finalization. A subsequent controller correction
 labels failed execution/reference/comparison gates explicitly; the historical
-receipt and its source remain unchanged. Engine-owned diagnosis is pending and
-requires a reviewed new SDK/experiment identity for any later repair.
+receipt and its source remain unchanged. Stage 0 alone did not identify the
+attempted completion gate; later engine-owned diagnosis and repair require a
+reviewed new SDK/experiment identity.
+
+2026-10-03: request v5 freezes the new source/header/archive/build identities
+above after engine-owned repair and installed synthetic checks. Those checks
+are distinct from the unchanged 3492-row target and its original-input reference.
+This source preparation accepts no new numerical or observational result; a
+fresh committed attempt must earn its own gates. The original v4 receipt and
+all earlier requests, source snapshots and SDKs remain unchanged.
