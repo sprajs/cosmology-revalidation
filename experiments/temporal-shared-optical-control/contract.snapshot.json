@@ -1,0 +1,618 @@
+{
+  "acceptance": {
+    "gate_policy": "budgets fixed before execution; preserve failed attempts and original expectations before any correction; no loosen-after-failure",
+    "identities_and_masks": "exact all-eight row order, one grid, four curves, channel/event order, state IDs/masses, source origin, epoch/support, coverage/full duration, detector units, requested/omitted groups survive receipts",
+    "independent_frequency_vs_polynomial_and_refinement": {
+      "absolute_photons": 1e-300,
+      "formula": "abs(frequency64_N-polynomial_N)+earned_frequency64_absolute_error+earned_polynomial_absolute_error<=1e-300+2e-13*abs(polynomial_N); 32/64 difference plus both earned errors uses the same fixed2e-13 relative allocation",
+      "relative": 2e-13
+    },
+    "independent_high_precision_arithmetic_reservation": "60 decimal-digit arithmetic: reserve1e-50*(1+abs(quantity)) in each computed high-precision scalar coordinate, add refinement difference and Gaussian-envelope tail where applicable; preserve each reservation and transformation. This empirical arithmetic reservation is far below fixed budgets and must be earned by the declared refinement control.",
+    "native_joint_event_selected_logs_vs_independent": {
+      "absolute": 2e-10,
+      "formula": "abs(native_log-reference_log)+earned_reference_log_error<=2e-10*(1+abs(reference_log)); joint numerator, event and selected each have separate earned errors",
+      "scaled": 2e-10
+    },
+    "native_photons_vs_polynomial": {
+      "absolute_photons": 1e-300,
+      "formula": "abs(native_N-polynomial_N)+earned_polynomial_absolute_error<=1e-300+2e-12*abs(polynomial_N); retain positivity separately",
+      "relative": 2e-12
+    },
+    "photon_endpoint_ancestry": "This is an empirical control allocation, not a universal rigorous temporal certificate. Apply lower nextafter(N*(1-3.2e-12),0) and upper nextafter(N*(1+3.2e-12),+infinity); compare native log changes and retain all endpoint failures. The base durations 2 and 3 are exact binary64, so this control has zero dark-duration casting error; any future arbitrary-duration composition requires an explicit dark-duration sensitivity contract.",
+    "photon_endpoint_relative_empirical_allocation": "3.2e-12 = sampled empirical 3e-12 + temporal mean admission 1e-13 + duration admission 1e-13",
+    "reference_error_rule": "Convert refined positive density/CDF/probability errors, analytic Gaussian truncation bounds and high-precision arithmetic reservation into each actual log coordinate. For a positive mixture M with earned absolute error delta<M, log error is -log1p(-delta/M); selected error includes both numerator and event allocations. Charge earned error to the same fixed comparison budget, never append it outside the allowance.",
+    "reference_refinement_max_fraction_of_log_acceptance": 0.05,
+    "selection_identity": "reported selected log equals reported joint log minus same reported ALL-four-detected event log within stated allocation"
+  },
+  "authorization": {
+    "NEXT17_full_contract_remains_open": true,
+    "execution_gate": "Contract hash and independent source-only review accepted by root, then one explicit local compiler/compute lease",
+    "initial_active_jobs": 0,
+    "integration_owner": "/root",
+    "maximum_active_jobs_after_lease": 1,
+    "owner": "/root/optical_owner",
+    "physical_or_observational_qualification": false,
+    "scope": "ignored experiment and evidence only; no production interface, public Reproducible files, source assets or frozen SDK modifications"
+  },
+  "channels": [
+    {
+      "exposure": "E0",
+      "full_exposure_second": 2,
+      "id": "E0/blue",
+      "index": 0,
+      "physical_band": "blue"
+    },
+    {
+      "exposure": "E0",
+      "full_exposure_second": 2,
+      "id": "E0/red",
+      "index": 1,
+      "physical_band": "red"
+    },
+    {
+      "exposure": "E1",
+      "full_exposure_second": 3,
+      "id": "E1/blue",
+      "index": 2,
+      "physical_band": "blue"
+    },
+    {
+      "exposure": "E1",
+      "full_exposure_second": 3,
+      "id": "E1/red",
+      "index": 3,
+      "physical_band": "red"
+    }
+  ],
+  "detector": {
+    "arrival_mean_equation": "lambda_s,c=QE_b*N_s,c+B_c+dark_rate_c*FULL_exposure_duration_e",
+    "background_expected_electrons_each_channel": 0.25,
+    "bias_adu_each_channel": 1,
+    "conditional_independence": "Poisson arrivals and Gaussian read errors mutually independent across disjoint four readouts, conditional on the one common optical state; separate record controls are alternative data, never multiplied as extra measurements",
+    "dark_electrons_per_second_each_channel": 0.125,
+    "endpoint_request_policy": "nominal and both photon-sensitivity endpoints retain complete original records plus threshold-only nondetection probes, all under same detector policy; count every Poisson term and required failure Compute N +/- empirical allocation in long double, cast to binary64 then directed nextafter. Required positive endpoints must be normal and finite or retain an outside_domain refusal. For an exact N=0 witness skip endpoint calls; never manufacture a positive subnormal endpoint.",
+    "event_definition": "ALL four channels detected: Y_c>=1.5 ADU for every c; zero-noise K_c>=1",
+    "gain_electrons_per_adu_each_channel": 2,
+    "origin": "synthetic fixed electron-arrival and readout parameters",
+    "per_sigma_batch": "For each fixed sigma=0 or3/4 and each state/channel: three original rows (joint all-detected, selected-control numerator all-detected, joint censored), followed by three threshold-only nondetection probes; exactly6 rows. Every original and probe Observation measure is joint_detection_record. Only the external reducer applies selected-only ALL-four conditioning once.",
+    "photon_law": "explicit Poisson arrivals",
+    "quantum_efficiency_after_transmission": {
+      "blue": 0.75,
+      "red": 0.5
+    },
+    "read_noise_rms_electrons_control_values": [
+      0,
+      0.75
+    ],
+    "readout_equation": "K_s,c~Poisson(lambda_s,c); R_c~Normal(0,sigma_c^2); Y_c=(K_s,c+R_c)/gain_c+bias_c",
+    "selection_policy": {
+      "absolute_density_allowance_per_adu": 5e-13,
+      "absolute_log_allowance": 5e-13,
+      "absolute_probability_allowance": 5e-13,
+      "maximum_payload_bytes": 1048576,
+      "maximum_poisson_terms": 256,
+      "maximum_rows": 6,
+      "relative_density_allowance": 2e-11,
+      "relative_probability_allowance": 2e-11,
+      "scaled_log_allowance": 2e-11
+    },
+    "threshold_adu_each_channel": 1.5
+  },
+  "exposures": [
+    {
+      "covered_duration_second": 2,
+      "covered_fraction": "1",
+      "expected_coverage": "full",
+      "full_duration_second": 2,
+      "id": "E0",
+      "observer_interval_second": [
+        9,
+        11
+      ]
+    },
+    {
+      "covered_duration_second": 2,
+      "covered_fraction": "2/3",
+      "expected_coverage": "partial",
+      "full_duration_second": 3,
+      "id": "E1",
+      "observer_interval_second": [
+        12,
+        15
+      ]
+    }
+  ],
+  "external_reducer": {
+    "aggregate_log_gate": {
+      "absolute_allowance": 5e-12,
+      "formula": "empirical_error <= absolute + scaled*(1+abs(log_quantity))",
+      "scaled_allowance": 1e-08
+    },
+    "arithmetic": "long double positive mixture/log accumulation; explicitly retained structural zero and failed status",
+    "correlation_algebra": "M_joint-M_E0*M_E1=p0*p1*(q_S0,E0-q_S1,E0)*(q_S0,E1-q_S1,E1), where q is the within-exposure conditional product. ALL-detected event q can coincide under state-swap symmetry; here effective unattenuated blue/red electron signal ratios51/58 and276/307 are near symmetry and do not prove a1e-3 event lower bound.",
+    "correlation_witness": "Compare common-state four-channel L with product over exposures of separately marginalized two-channel L. Numerator absolute relative difference must exceed1e-3 in at least one declared sigma control as synthetic experiment success criterion, not a proved theorem or engine correctness requirement. Always report same-event signed/relative differences and earned reference errors, and require shared-event denominator/reference agreement without an invented minimum event dependence.",
+    "covariance_interpretation": "off-diagonal readout covariance is Cov_p(lambda_s,i,lambda_s,j)/(g_i*g_j); mixture retains that shared dependence without injecting a Gaussian covariance or extra noise",
+    "diagnostic_rule": "sum conditional band log diagnostics, transfer photon endpoint differences, then weighted positive-mixture relative diagnostics with rounding ancestry; joint numerator and event have distinct gates, selected allocation includes both All native/endpoint/mixture diagnostics are empirical controls, not a universal rigorous numerical certificate.",
+    "event_equation": "P(ALL_detected)=sum_s p_s*product_c=0..3 P(detected_c|s)",
+    "failure_behavior": "required nominal or endpoint refusal withholds joint/event/selected outputs, preserving all raw attempts, states/masses and row identities; selected-only containing nondetection is refused",
+    "joint_equation": "L(data)=sum_s p_s*product_c=0..3 p(data_c|s)",
+    "selected_equation": "L_selected(data)=L(data)/P(ALL_detected) only for an all-detected record"
+  },
+  "frozen_sdk": {
+    "archive": "build/native-release/libirred_core.a",
+    "archive_sha256": "1cb2b85ad292334f3b5041d669187b04a6fca0916bca8c41070b0ff878499dff",
+    "build_id": "f22c25423cfb9cbac3c2b91a4e514b13ce604e92e7010f55a9aa0bdd42f40f59",
+    "compiler": "/usr/bin/c++",
+    "compiler_executable_sha256": "f04191f6a7b2cd7d9a62e1745872b8a6088791e5af6955488c69c9b2c4668bc9",
+    "git_head": "6f869532c1951ed1afd9f2506b5d05c6cfd03c82",
+    "git_tracked_status": "clean",
+    "manifest": "build/build-manifest-release.json",
+    "record_additionally": [
+      "manifest bytes SHA256",
+      "complete header inventory and hashes",
+      "external consumer source and executable SHA256",
+      "reference/controller source SHA256",
+      "compiler version",
+      "effective external flags",
+      "contract bytes SHA256"
+    ],
+    "root": "/home/szymon/.codex/worktrees/box-target-integrated/irreducible",
+    "source_inventory_count": 311,
+    "source_inventory_rule": "Verify every manifest sources path and SHA256, and rebuild canonical build ID excluding build_id/git_head/git_status using sorted compact JSON",
+    "standard_library": "/usr/lib/gcc/x86_64-pc-linux-gnu/16/libstdc++.so",
+    "standard_library_sha256": "f5fc7380f2ae46fa4053a64be04e7b98109f1066a4bbfff3c37042488aa0be0e",
+    "verification_boundaries": [
+      "before compile",
+      "before each numerical execution",
+      "after final execution"
+    ]
+  },
+  "identity": "synthetic-fixed-bilinear-source-two-exposures-two-bands-one-common-two-state-optical-law",
+  "independent_references": {
+    "ancestry": "original reference code written for this experiment; no call to native temporal interpolation/sampled radiometry/detector likelihood in reference; equations and exact constants shared by declared design, not independent evidence of the physical model",
+    "observer_time_frequency": {
+      "arithmetic": "independent high precision at least 60 decimal digits",
+      "equation": "N=A/(4*pi*D_L^2*r*h) integral dt_obs integral dnu_obs L_lambda(c/(r*nu_obs),(t_obs-epoch)/r)*c/nu_obs^3*T_s,b(c/nu_obs)",
+      "method": "original tensor Gauss-Legendre integration in observer time and observer frequency; direct analytic L, not native interpolation; split all rest time knots mapped to observer time and band/support frequency endpoints",
+      "orders": [
+        32,
+        64
+      ],
+      "support": "integrate only source-time overlap; no covered-duration division or extra coverage factor"
+    },
+    "poisson": {
+      "method": "exact analytic exp(-lambda)*lambda^k/k!; zero-noise nondetection exp(-lambda); independently sum both finite states and all four channel products",
+      "zero_noise_event": "product_c(1-exp(-lambda_s,c)) within state, then finite state sum"
+    },
+    "polynomial": {
+      "N_equation": "N_s,e,b = A*r*C*T_s,b/(4*pi*D_L^2*h*c) times the specified rest-wavelength integral",
+      "method": "symbolic observer-time integrals then polynomial rest-wavelength antiderivatives, high precision original implementation",
+      "observer_time_integrated_L_divided_by_C": {
+        "E0": "2+x",
+        "E1": "11/4+19*x/16"
+      },
+      "rest_wavelength_integrals_lambda_I": {
+        "E0/blue": "17/12",
+        "E0/red": "29/12",
+        "E1/blue": "23/12",
+        "E1/red": "307/96"
+      },
+      "shape_evolution_witness": {
+        "blue_E1_over_E0": "23/17",
+        "red_E1_over_E0": "307/232",
+        "required": "unequal; source polynomial cross-term ux/16 is not separable"
+      }
+    },
+    "positive_read_noise": {
+      "arithmetic": "independent high precision at least 60 decimal digits",
+      "cdf_density_independent_refinement": "retain coarse/refined density, threshold CDF and finite-mixture logs; include refinement differences and tail estimates in reference acceptance",
+      "cdf_equation": "F_Y(y)=1/2-(1/pi)*integral_0^T Im(exp(-i*t*gain*(y-bias))*phi(t))/t dt; removable t=0 limit lambda-gain*(y-bias)",
+      "density_adu_equation": "f_Y(y)=gain/pi*integral_0^T Re(exp(-i*t*gain*(y-bias))*phi(t)) dt",
+      "gauss_legendre_orders": [
+        32,
+        64
+      ],
+      "method": "original characteristic-function inversion in electron coordinates; independent of native Poisson-tail summation and Gaussian CDF route",
+      "panel_width_inverse_electron": "1/4",
+      "phi_equation": "phi(t)=exp(lambda*(exp(i*t)-1)-sigma^2*t^2/2)",
+      "tail_allocation": "Gaussian envelope bounds density tail gain*exp(-sigma^2*T^2/2)/(pi*sigma^2*T), CDF tail exp(-sigma^2*T^2/2)/(pi*sigma^2*T^2); at sigma=3/4 and T=24 the exponent is -162",
+      "truncation_T_inverse_electron": 24
+    }
+  },
+  "optical_law": {
+    "excludes": [
+      "quantum efficiency",
+      "electronic gain",
+      "additive independent calibration noise"
+    ],
+    "normalization": "exact rational masses explicitly supplied as 1/4 and 3/4, sum one; no fitted covariance to transmission conversion",
+    "origin": "supplied exact finite synthetic masses and constant per-band optical curves",
+    "retention": "all two states, original mass and channel mappings remain on every required refusal; no dropping or renormalizing",
+    "state_scope": "one identical latent state for every exposure and physical band of a joint trial"
+  },
+  "optical_states": [
+    {
+      "blue_transmission": [
+        0.25,
+        0.25
+      ],
+      "id": "S0",
+      "normalized_mass": "1/4",
+      "red_transmission": [
+        0.75,
+        0.75
+      ],
+      "relative_mass": 1
+    },
+    {
+      "blue_transmission": [
+        0.75,
+        0.75
+      ],
+      "id": "S1",
+      "normalized_mass": "3/4",
+      "red_transmission": [
+        0.25,
+        0.25
+      ],
+      "relative_mass": 3
+    }
+  ],
+  "output_quantities": [
+    {
+      "id": "N_s,e,b",
+      "order": "eight primary row order",
+      "role": "synthetic state-resolved conditional expectation",
+      "unit": "expected transmitted photon count"
+    },
+    {
+      "id": "lambda_s,c",
+      "order": "state then four-channel order",
+      "role": "synthetic conditional Poisson mean",
+      "unit": "expected electron count"
+    },
+    {
+      "id": "coverage_s,e,b",
+      "order": "eight primary row order",
+      "role": "native coverage diagnostic; full duration distinct from covered duration",
+      "unit": "seconds and dimensionless fraction"
+    },
+    {
+      "id": "conditional_record_log",
+      "order": "state then record control",
+      "role": "conditional log and empirical numerical allocation",
+      "unit": "log of probability or density in the declared ADU coordinate"
+    },
+    {
+      "id": "joint_record_log",
+      "order": "record_controls order",
+      "role": "finite shared-state mixture",
+      "unit": "log probability for discrete; log numerical ADU^-4 or ADU^-3 density for continuous"
+    },
+    {
+      "id": "all_four_detected_log",
+      "order": "sigma control order",
+      "role": "same mixture selection-event denominator",
+      "unit": "dimensionless log probability"
+    },
+    {
+      "id": "selected_log",
+      "order": "selected record controls",
+      "role": "joint numerator divided by its same event denominator",
+      "unit": "log probability or log numerical ADU^-4 density conditional on all-four selection"
+    },
+    {
+      "id": "product_of_exposure_marginals",
+      "order": "sigma control then numerator/event",
+      "role": "deliberately incorrect independence comparator; never used for accepted outputs",
+      "unit": "matching probability/density and signed relative difference"
+    },
+    {
+      "id": "attempt_diagnostics",
+      "order": "original attempt order",
+      "role": "all preparation/row/nominal/endpoint/reference/refusal results, retained even on failure",
+      "unit": "status, work counts, seconds, bytes"
+    }
+  ],
+  "physical_bands": [
+    {
+      "id": "blue",
+      "observed_wavelength_knots_metre": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "red",
+      "observed_wavelength_knots_metre": [
+        3,
+        4
+      ]
+    }
+  ],
+  "record_controls": [
+    {
+      "detected": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "electron_counts": [
+        2,
+        3,
+        3,
+        2
+      ],
+      "id": "discrete-all-detected",
+      "measure": "joint discrete counting probability",
+      "sigma_electrons": 0
+    },
+    {
+      "detected": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "electron_counts": [
+        2,
+        3,
+        3,
+        2
+      ],
+      "id": "discrete-selected-all-detected",
+      "measure": "selected-only discrete counting probability",
+      "sigma_electrons": 0
+    },
+    {
+      "detected": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "electron_counts": [
+        2,
+        3,
+        3,
+        null
+      ],
+      "id": "discrete-censored",
+      "measure": "joint detected counts and one nondetection probability",
+      "sigma_electrons": 0
+    },
+    {
+      "detected": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "id": "continuous-all-detected",
+      "measure": "joint ADU^-4 density",
+      "measured_adu": [
+        3,
+        3.5,
+        3.5,
+        3
+      ],
+      "sigma_electrons": 0.75
+    },
+    {
+      "detected": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "id": "continuous-selected-all-detected",
+      "measure": "selected-only ADU^-4 density",
+      "measured_adu": [
+        3,
+        3.5,
+        3.5,
+        3
+      ],
+      "sigma_electrons": 0.75
+    },
+    {
+      "detected": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "id": "continuous-censored",
+      "measure": "joint ADU^-3 density and one nondetection probability",
+      "measured_adu": [
+        3,
+        3.5,
+        3.5,
+        null
+      ],
+      "sigma_electrons": 0.75
+    }
+  ],
+  "required_control_checks": [
+    {
+      "change": "one row exposure [20,22], all else fixed",
+      "expected": "ok admission, no_overlap, photons available exact zero, full duration 2 retained",
+      "id": "no-time-overlap"
+    },
+    {
+      "change": "one row observer lower=upper=9",
+      "expected": "row refusal and no available photons; no joint output",
+      "id": "zero-duration"
+    },
+    {
+      "change": "one row z=-1",
+      "expected": "row refusal and no available photons; no joint output",
+      "id": "invalid-redshift"
+    },
+    {
+      "change": "primary row S1/E1/red uses out-of-range band_index=4",
+      "expected": "all eight returned rows retained, required row refusal, states/masses retained, no joint output; no dropping/renormalizing",
+      "id": "required-state-row-refusal"
+    },
+    {
+      "change": "primary temporal maximum_segment_work=0",
+      "expected": "work_limit retained; no joint output",
+      "id": "temporal-work-refusal"
+    },
+    {
+      "change": "primary maximum_rows=7",
+      "expected": "work_limit without proceeding to detector",
+      "id": "temporal-row-admission-refusal"
+    },
+    {
+      "change": "one required nominal detector QE=1.01",
+      "expected": "outside-domain refusal retained; no joint output",
+      "id": "detector-QE-domain"
+    },
+    {
+      "change": "one required nominal likelihood maximum_poisson_terms=1 at positive sigma",
+      "expected": "native row conditioning_budget_exceeded, no finite log; batch admission can remain ok. Explicit external required-row gate withholds mixture. Preserve actual status rather than infer it from the batch.",
+      "id": "detector-work-refusal"
+    },
+    {
+      "change": "request selected-only measure on censored record",
+      "expected": "native invalid_input for an individual selected-only nondetection probe; external ALL-four reducer also refuses selected censored record without modifying its accepted joint record",
+      "id": "selected-nondetection"
+    },
+    {
+      "change": "zero-noise detected K=0 at threshold1.5",
+      "expected": "native status ok, zero_probability=true and no finite log_value: admitted structural zero because Y=1 below threshold; preserve zero distinct from failure",
+      "id": "zero-noise-threshold-boundary"
+    },
+    {
+      "change": "source-only inspect frozen archived regression cases for underflow/endpoint/work/coverage controls; no rebuild",
+      "expected": "scope actual SDK experiment claims to exercised cases and mark other existing regression claims as source/previous receipt evidence",
+      "id": "existing-temporal-owner-coverage"
+    }
+  ],
+  "resources": {
+    "compiler_flags": [
+      "-std=c++20",
+      "-O3",
+      "-DNDEBUG",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-fno-fast-math",
+      "-ffp-contract=off"
+    ],
+    "environment": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "experiment_process_schedule": "all source checks, compile, native run and independent reference run sequential; never overlap two compiler/compute processes",
+    "native_payload_policy_bytes": 1048576,
+    "numerical_process_cpu_limit_seconds": 180,
+    "process_address_space_limit_bytes": 1073741824,
+    "record": [
+      "prepare and evaluate wall time separately",
+      "retained payload bytes",
+      "coarse rows and requested mask",
+      "native segment work",
+      "all nominal and endpoint Poisson terms",
+      "reference integrand evaluations and refinement work",
+      "compiler elapsed time and peak RSS",
+      "native/reference elapsed time and peak RSS"
+    ]
+  },
+  "schema": "irreducible-bounded-temporal-optical-sdk-experiment/v2",
+  "sdk_requests": {
+    "no_copy_contract": "prepare source/curves once; no spectral grid readback/copy or exposed mean-spectrum request; external reducer borrows scalar row results",
+    "omitted_outputs_must_remain_omitted": [
+      "incident mean flux",
+      "collected energy"
+    ],
+    "preparation_policy": {
+      "maximum_bands": 4,
+      "maximum_grid_values": 6,
+      "maximum_grids": 1,
+      "maximum_native_bytes": 1048576,
+      "maximum_total_knots": 64
+    },
+    "prepare_once": "one TemporalGrid and four TemporalBand curves in order S0/blue,S0/red,S1/blue,S1/red; immutable native owner retained",
+    "primary_evaluate_calls": 1,
+    "primary_rows": 8,
+    "requested_output_mask": 4,
+    "requested_output_name": "transmitted_photons only",
+    "required_row_gate": "batch status ok AND all eight rows admitted ok AND expected_photons available with numerical_status ok and finite nonnegative value; retain every row when gate fails",
+    "row_order": [
+      "S0/E0/blue",
+      "S0/E0/red",
+      "S0/E1/blue",
+      "S0/E1/red",
+      "S1/E0/blue",
+      "S1/E0/red",
+      "S1/E1/blue",
+      "S1/E1/red"
+    ],
+    "temporal_policy": {
+      "maximum_native_bytes": 1048576,
+      "maximum_rows": 8,
+      "maximum_segment_work": 512,
+      "requested_outputs": 4
+    }
+  },
+  "source": {
+    "collecting_area_square_metre": 1,
+    "constants": {
+      "c_metre_per_second": 299792458,
+      "h_joule_second": "6.62607015e-34 exact SI",
+      "pi": "mathematical pi; independent high precision reference"
+    },
+    "coordinates": "u=tau/(1 second); x=(lambda_rest-1 metre)/(1 metre)",
+    "equation": "L_lambda=C*(1+u/4+x/2+u*x/16)",
+    "geometry": "isotropic luminosity-distance radiometry; r=1+z=2; no dust/source color/instrument interpretation",
+    "id": "synthetic-bilinear-ux16-v1",
+    "luminosity_distance_metre": 1,
+    "luminosity_scale_watt_per_metre": "2^-80",
+    "origin": "original analytic synthetic control; not SALT2, measured flux, fitted offset, or observed source",
+    "outside_support_model": "exact zero; full exposure remains the normalization and dark-current duration",
+    "redshift": 1,
+    "rest_time_knots_second": [
+      -1,
+      0,
+      2
+    ],
+    "rest_wavelength_knots_metre": [
+      1,
+      2
+    ],
+    "source_epoch_observer_second": 10,
+    "support": {
+      "rest_time_second": [
+        -1,
+        2
+      ],
+      "rest_wavelength_metre": [
+        1,
+        2
+      ]
+    },
+    "time_major_grid_values_divided_by_C": [
+      0.75,
+      1.1875,
+      1,
+      1.5,
+      1.5,
+      2.125
+    ]
+  },
+  "supersedes_preserved_contract": {
+    "path": "contract-v1.json",
+    "reason": "Pre-execution source-only review corrected native refusal expectations, fixed earned-reference budget accounting and clarified batching/endpoints/correlation acceptance; no numerical execution has occurred.",
+    "sha256": "029a47a8b94980350721b1a96e3ece4c0b4116ed7bc216ae866245c66ef518d6"
+  },
+  "unmet_gates": [
+    "No new native temporal/shared-state cross-exposure interface is authorized by this experiment.",
+    "SALT2 release units/support/training law, measured photometric calibration transmission law, raw detector bridge, parent-population/selection, observational covariance and NEXT17 physical joint qualification remain open.",
+    "Synthetic numerical acceptance establishes this bounded control and the possible missing composition interface only."
+  ]
+}

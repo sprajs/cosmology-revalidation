@@ -35,6 +35,13 @@ It never executes commands from packet JSON, installs models or implements an
 engine multi-step recipe language. Large controllers belong in small reviewed
 experiment-specific scripts, sharing equation implementations through Irreducible.
 
+A blocked packet with a reviewed dedicated controller may include
+`request_sha256` to pin the exact adjacent `request.json` bytes. Packet validation
+checks that identity and still returns no executable route. The controller owns
+its source, SDK, runtime and numerical admission; this pin supplies no scientific
+qualification. Runnable packets keep their existing candidate/execution request
+binding.
+
 ## Keep a useful account
 
 A packet normally contains README.md, experiment.json, request.json and optionally

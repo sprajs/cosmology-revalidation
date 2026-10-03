@@ -132,6 +132,41 @@ class ConsumerTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             run.execute("example", self.binary)
 
+    def test_dedicated_blocked_request_pin_checks_exact_bytes_without_execution(self):
+        self.config.update(status="blocked", execution=None, blockers=["Missing physics"],
+                           request_sha256=packet.sha256(self.folder / "request.json"))
+        self.save()
+        _, request, identities = packet.read_packet(self.folder)
+        self.assertIsNone(request)
+        self.assertEqual(identities["controller_request"], self.config["request_sha256"])
+        with self.assertRaises(ValueError):
+            run.execute("example", self.binary)
+        changed = b'{"schema_version":2,"operation":"different.control"}\n'
+        (self.folder / "request.json").write_bytes(changed)
+        with self.assertRaisesRegex(ValueError, "Dedicated controller request hash differs"):
+            packet.read_packet(self.folder)
+        self.assertEqual((self.folder / "request.json").read_bytes(), changed)
+
+    def test_dedicated_request_pin_requires_hash_blocked_status_and_confined_file(self):
+        self.config["request_sha256"] = packet.sha256(self.folder / "request.json")
+        self.save()
+        with self.assertRaises(Exception):
+            packet.read_packet(self.folder)  # A runnable packet uses its execution binding.
+        self.config.update(status="blocked", execution=None, blockers=["Missing physics"])
+        for invalid in (True, 12, "A" * 64, "a" * 63):
+            self.config["request_sha256"] = invalid
+            self.save()
+            with self.subTest(invalid=invalid), self.assertRaises(Exception):
+                packet.read_packet(self.folder)
+        self.config["request_sha256"] = "a" * 64
+        self.save()
+        (self.folder / "request.json").unlink()
+        with self.assertRaises(FileNotFoundError):
+            packet.read_packet(self.folder)
+        (self.folder / "request.json").symlink_to(self.root.parent / "external-request.json")
+        with self.assertRaises(ValueError):
+            packet.read_packet(self.folder)
+
     def test_unknown_fields_duplicates_and_nonfinite_values_rejected(self):
         self.config["shell"] = "anything"
         self.save()
