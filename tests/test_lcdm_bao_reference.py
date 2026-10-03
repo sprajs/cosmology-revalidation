@@ -137,10 +137,27 @@ class AuthorityControls(unittest.TestCase):
 
     def test_changed_bytes_and_byte_limit_refuse(self):
         self.path.write_bytes(b"drift!")
-        with self.assertRaisesRegex(ValueError, "source pin"):
+        with self.assertRaisesRegex(controller.SourceIdentityError, "source pin") as caught:
             controller.read(self.path, self.pin, limit=6)
-        with self.assertRaisesRegex(ValueError, "source size/type"):
+        observed = caught.exception.observed_identity
+        self.assertEqual(caught.exception.expected_identity, self.pin)
+        self.assertEqual(observed["consumed_bytes"], 6)
+        self.assertEqual(observed["consumed_sha256"], hashlib.sha256(b"drift!").hexdigest())
+        self.assertTrue(observed["reached_eof"])
+        self.assertEqual(observed["capture_errors"], [])
+        for key in ("fd_before", "fd_after", "link_stat"):
+            self.assertEqual(observed[key]["bytes"], 6)
+            self.assertEqual(observed[key]["inode"], self.path.stat().st_ino)
+        with self.assertRaisesRegex(controller.SourceIdentityError, "source size/type") as capped:
             controller.read(self.path, limit=5)
+        prefix = capped.exception.observed_identity
+        self.assertIsNone(capped.exception.expected_identity)
+        self.assertEqual(prefix["consumed_bytes"], 0)
+        self.assertEqual(prefix["consumed_sha256"], hashlib.sha256(b"").hexdigest())
+        self.assertFalse(prefix["reached_eof"])
+        self.assertEqual(prefix["fd_before"]["bytes"], 6)
+        self.assertEqual(prefix["fd_after"]["bytes"], 6)
+        self.assertEqual(prefix["link_stat"]["bytes"], 6)
 
     def test_actual_consumed_read_drift_refuses(self):
         original_read = os.read
@@ -157,9 +174,84 @@ class AuthorityControls(unittest.TestCase):
             return raw
 
         with mock.patch.object(controller.os, "read", side_effect=changed_read), \
-                self.assertRaisesRegex(ValueError, "source changed while consumed"):
+                mock.patch.object(controller.os, "open", wraps=os.open) as opened, \
+                self.assertRaisesRegex(controller.SourceIdentityError,
+                                       "source changed while consumed") as caught:
             controller.read(self.path, self.pin, limit=6)
         self.assertTrue(changed)
+        self.assertEqual(opened.call_count, 1)
+        observed = caught.exception.observed_identity
+        self.assertEqual(caught.exception.expected_identity, self.pin)
+        self.assertEqual(observed["consumed_bytes"], 6)
+        self.assertEqual(observed["consumed_sha256"], self.pin["sha256"])
+        self.assertNotEqual(observed["consumed_sha256"], hashlib.sha256(self.path.read_bytes()).hexdigest())
+        self.assertTrue(observed["reached_eof"])
+        self.assertEqual(observed["fd_before"]["mtime_ns"], before_ns)
+        self.assertEqual(observed["fd_after"]["mtime_ns"], before_ns + 1)
+        self.assertEqual(observed["link_stat"]["mtime_ns"], before_ns + 1)
+
+    def test_missing_link_retains_consumed_stream_and_descriptor_observations(self):
+        original_read = os.read
+        removed = False
+
+        def unlinked_read(fd, count):
+            nonlocal removed
+            raw = original_read(fd, count)
+            if raw and not removed:
+                removed = True
+                self.path.unlink()
+            return raw
+
+        with mock.patch.object(controller.os, "read", side_effect=unlinked_read), \
+                mock.patch.object(controller.os, "open", wraps=os.open) as opened, \
+                self.assertRaisesRegex(controller.SourceIdentityError,
+                                       "source identity stat capture failed") as caught:
+            controller.read(self.path, self.pin, limit=6)
+        self.assertEqual(opened.call_count, 1)
+        observed = caught.exception.observed_identity
+        self.assertEqual(caught.exception.expected_identity, self.pin)
+        self.assertEqual(observed["consumed_bytes"], 6)
+        self.assertEqual(observed["consumed_sha256"], self.pin["sha256"])
+        self.assertTrue(observed["reached_eof"])
+        self.assertEqual(observed["fd_before"]["bytes"], 6)
+        self.assertEqual(observed["fd_after"]["bytes"], 6)
+        self.assertIsNone(observed["link_stat"])
+        self.assertEqual(len(observed["capture_errors"]), 1)
+        self.assertEqual(observed["capture_errors"][0]["operation"], "link_stat")
+        self.assertEqual(observed["capture_errors"][0]["kind"], "FileNotFoundError")
+
+    def test_terminal_stat_drift_retains_consumed_identity_and_original_authority(self):
+        _, original = controller.read(self.path, self.pin, limit=6)
+        self.path.chmod(0o444)
+        with self.assertRaisesRegex(controller.SourceIdentityError, "terminal file drift") as caught:
+            controller.read(self.path, original, limit=6, check_stat=True)
+        observed = caught.exception.observed_identity
+        self.assertEqual(caught.exception.expected_identity, self.pin)
+        self.assertEqual(observed["consumed_sha256"], self.pin["sha256"])
+        self.assertEqual(observed["consumed_bytes"], 6)
+        self.assertTrue(observed["reached_eof"])
+        self.assertEqual(observed["fd_after"]["mode"], "0o444")
+        self.assertNotEqual(observed["fd_after"]["mode"], original["mode"])
+
+    def test_initial_and_terminal_failure_formatter_preserves_identity_in_json(self):
+        self.path.write_bytes(b"drift!")
+        with self.assertRaises(controller.SourceIdentityError) as caught:
+            controller.read(self.path, self.pin, limit=6)
+        exc = caught.exception
+        # These are the two receipt contexts, using their shared failure formatter.
+        initial = {**controller.failure(exc), "error": getattr(exc, "error", None)}
+        terminal = {"stage": "terminal-identity", "path": str(self.path),
+                    **controller.failure(exc, 512)}
+        record = json.loads(json.dumps({"failure": initial, "failures": [terminal]}, allow_nan=False))
+        for entry in (record["failure"], record["failures"][0]):
+            self.assertEqual(entry["kind"], "SourceIdentityError")
+            self.assertEqual(entry["expected_identity"], self.pin)
+            self.assertEqual(entry["observed_identity"], exc.observed_identity)
+            self.assertEqual(entry["observed_identity"]["consumed_sha256"],
+                             hashlib.sha256(b"drift!").hexdigest())
+            self.assertTrue(entry["observed_identity"]["reached_eof"])
+            self.assertIsNone(entry["source_cause"])
+        self.assertEqual(record["failures"][0]["stage"], "terminal-identity")
 
     def test_symlink_leaf_and_ancestor_and_traversal_refuse(self):
         leaf = self.root / "alias"

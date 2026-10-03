@@ -45,33 +45,98 @@ def require(value, message):
         raise ValueError(message)
 
 
-def read(path, expected=None, limit=33554432):
+class SourceIdentityError(ValueError):
+    def __init__(self, message, observed, expected=None, cause=None):
+        super().__init__(message)
+        self.observed_identity = observed
+        # Only the bounded positive byte authority belongs in this error.
+        self.expected_identity = None if expected is None else {
+            'path': expected['path'] if type(expected.get('path')) is str and
+                    len(expected['path'].encode()) <= 4096 else None,
+            'bytes': expected['bytes'] if type(expected.get('bytes')) is int and
+                     0 <= expected['bytes'] <= 33554432 else None,
+            'sha256': expected['sha256'] if type(expected.get('sha256')) is str and
+                      re.fullmatch(r'[0-9a-f]{64}', expected['sha256']) else None}
+        self.source_cause = cause
+
+
+def failure(exc, limit=2048):
+    value = {'kind': type(exc).__name__, 'message': str(exc)[:limit]}
+    if isinstance(exc, SourceIdentityError):
+        value.update(observed_identity=exc.observed_identity,
+                     expected_identity=exc.expected_identity, source_cause=exc.source_cause)
+    return value
+
+
+def stat_identity(value):
+    if value is None:
+        return None
+    return {'device': value.st_dev, 'inode': value.st_ino, 'bytes': value.st_size,
+            'mode_bits': value.st_mode, 'mode': oct(stat.S_IMODE(value.st_mode)),
+            'mtime_ns': value.st_mtime_ns, 'ctime_ns': value.st_ctime_ns}
+
+
+def read(path, expected=None, limit=33554432, *, check_stat=False):
     path = Path(path).absolute()
     require('..' not in path.parts, 'path traversal')
     for parent in path.parents:
         require(parent.is_dir() and not parent.is_symlink(), 'source ancestor')
     fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+    before = after = linked = None
+    chunks, count, digest, eof = [], 0, hashlib.sha256(), False
+    captured, capture_errors = False, []
+
+    def observation():
+        nonlocal captured, after, linked
+        if not captured:
+            captured = True
+            for name, getter in (('fd_after', lambda: os.fstat(fd)), ('link_stat', path.lstat)):
+                try:
+                    value = getter()
+                    if name == 'fd_after':
+                        after = value
+                    else:
+                        linked = value
+                except OSError as exc:
+                    capture_errors.append({'operation': name, **failure(exc, 256)})
+        return {'path': str(path), 'consumed_bytes': count, 'consumed_sha256': digest.hexdigest(),
+                'reached_eof': eof, 'fd_before': stat_identity(before),
+                'fd_after': stat_identity(after), 'link_stat': stat_identity(linked),
+                'capture_errors': capture_errors}
+
     try:
         before = os.fstat(fd)
         require(stat.S_ISREG(before.st_mode) and before.st_size <= limit, 'source size/type')
-        chunks, count = [], 0
         while True:
             block = os.read(fd, min(65536, limit + 1 - count))
             if not block:
+                eof = True
                 break
-            chunks.append(block)
             count += len(block)
+            digest.update(block)
+            chunks.append(block)
             require(count <= limit, 'consumed source size')
-        after, linked = os.fstat(fd), path.lstat()
+        observed = observation()
+        if capture_errors:
+            raise SourceIdentityError('source identity stat capture failed', observed, expected)
         facts = lambda x: (x.st_dev, x.st_ino, x.st_size, x.st_mode, x.st_mtime_ns, x.st_ctime_ns)
-        require(facts(before) == facts(after) == facts(linked), 'source changed while consumed')
+        if facts(before) != facts(after) or facts(after) != facts(linked):
+            raise SourceIdentityError('source changed while consumed', observed, expected)
         raw = b''.join(chunks)
-        pin = {'path': str(path), 'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest(),
+        pin = {'path': str(path), 'bytes': count, 'sha256': digest.hexdigest(),
                'device': after.st_dev, 'inode': after.st_ino, 'mode': oct(stat.S_IMODE(after.st_mode)),
                'mtime_ns': after.st_mtime_ns, 'ctime_ns': after.st_ctime_ns}
         if expected is not None:
-            require(all(pin[k] == expected[k] for k in ('path', 'bytes', 'sha256')), 'source pin')
+            if not all(pin[k] == expected[k] for k in ('path', 'bytes', 'sha256')):
+                raise SourceIdentityError('source pin', observed, expected)
+            if check_stat and not all(pin[k] == expected[k] for k in
+                    ('device', 'inode', 'mode', 'mtime_ns', 'ctime_ns') if k in expected):
+                raise SourceIdentityError('terminal file drift', observed, expected)
         return raw, pin
+    except SourceIdentityError:
+        raise
+    except (OSError, ValueError) as exc:
+        raise SourceIdentityError(str(exc)[:2048], observation(), expected, failure(exc, 256)) from exc
     finally:
         os.close(fd)
 
@@ -331,8 +396,7 @@ def main():
         record['gates'].update(execution='passed', native_numeric='finite-existing-empirical-solve-screen')
         record['status'] = 'completed'
     except BaseException as exc:
-        record['failures'].append({'kind': type(exc).__name__, 'message': str(exc)[:2048],
-                                   'error': getattr(exc, 'error', None)})
+        record['failures'].append({**failure(exc), 'error': getattr(exc, 'error', None)})
         if hasattr(exc, 'earned_prefix'):
             record['earned_failure_prefix'] = exc.earned_prefix
             if 'native_output' in exc.earned_prefix:
@@ -343,15 +407,14 @@ def main():
                 record['runtime_after'] = runtime()
                 require(record['runtime_after'] == record['runtime_before'], 'runtime before/after identity')
             except BaseException as exc:
-                record['failures'].append({'stage': 'terminal-runtime', 'kind': type(exc).__name__, 'message': str(exc)[:512]})
+                record['failures'].append({'stage': 'terminal-runtime', **failure(exc, 512)})
         # Independent after checks preserve accepted objects and revoke disposition on drift.
         for pin in expected:
             try:
-                _, after = read(pin['path'], pin)
-                require(all(after[k] == pin[k] for k in ('device', 'inode', 'mode', 'mtime_ns', 'ctime_ns') if k in pin), 'terminal file drift')
+                _, after = read(pin['path'], pin, check_stat=True)
                 record['after'].append(after)
             except BaseException as exc:
-                record['failures'].append({'stage': 'terminal-identity', 'path': pin['path'], 'kind': type(exc).__name__, 'message': str(exc)[:512]})
+                record['failures'].append({'stage': 'terminal-identity', 'path': pin['path'], **failure(exc, 512)})
         if record['failures']:
             record['status'] = 'failed'
             record['gates'].update(execution='failed', native_numeric='withheld-on-failure')

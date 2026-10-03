@@ -99,8 +99,9 @@ request records its initially unexecuted design; the later execution below
 retains that request identity.
 
 2026-10-03: the committed public route at
-`17d6b0213996fcb8577c4dc5464e13928a8850db` completed a fresh bounded confirmation
-in **3.691418 seconds**, with describe, compile and native evaluation all exiting
+`17d6b0213996fcb8577c4dc5464e13928a8850db` completed a fresh bounded confirmation.
+Its reported controller wall before final sealing was **3.691418 seconds**;
+describe, compile and native evaluation all exited
 0. Controller SHA256 was
 `9d9573290e98684d7d5fdf5e95c7420c359c4cf10e6d599c833e39ea7f73fb96`;
 preparer SHA256 was
@@ -118,6 +119,16 @@ portable 14 synthetic header/authority controls and the full 247-test suite
 passed; frozen dependency sync and packet/storage/link checks passed. This
 confirms this configured source route, while the arithmetic, CLASS accuracy and
 inference limits above remain distinct.
+
+A separate final source review found that refused changed files lost their
+observed identities. The correction retains consumed-stream byte counts, hashes,
+EOF state and descriptor/link observations in initial and terminal failure
+records, including failed stat capture. It preserves expected authorities and
+never labels a changed stream as the current complete file. Controller SHA256
+is now `76d53f71e53cbae91ff5bacde26029c0dc5f846ee3ba7773ec8f4f5accda3fb5`.
+The 17 synthetic controls pass, including changed-byte/read-drift, missing-link,
+terminal-stat and serialized-failure evidence. This successor awaits its own
+committed bounded confirmation; the earlier receipt remains immutable.
 
 After complete source/runtime review and a one-job grant, the dedicated route is:
 
