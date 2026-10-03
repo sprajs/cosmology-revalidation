@@ -78,3 +78,11 @@ has a dedicated structural route with no engine request. Review its exact
 schemas and source joins, run adversarial fixtures and a fresh committed source
 attempt, and retain failures and changed-file identities. Structural completion
 does not unblock the scientific packet or the released likelihood.
+
+The [released finite-box controller](../experiments/released-box/README.md)
+has a distinct SDK/request identity and an immutable original contract snapshot.
+Test complete and partial native admission, exact support/source/order identity,
+total numerical-budget accounting and failure retention. Review original-input
+reference ancestry and earned errors, then perform a fresh committed bounded
+original46 attempt. Native conditional enclosures and empirical reference
+comparisons do not close the source/physical qualification gaps.
