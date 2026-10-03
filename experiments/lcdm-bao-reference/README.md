@@ -127,8 +127,25 @@ records, including failed stat capture. It preserves expected authorities and
 never labels a changed stream as the current complete file. Controller SHA256
 is now `76d53f71e53cbae91ff5bacde26029c0dc5f846ee3ba7773ec8f4f5accda3fb5`.
 The 17 synthetic controls pass, including changed-byte/read-drift, missing-link,
-terminal-stat and serialized-failure evidence. This successor awaits its own
-committed bounded confirmation; the earlier receipt remains immutable.
+terminal-stat and serialized-failure evidence.
+
+2026-10-03: this correction at committed source
+`cfd24e19d1a71ba8b4ab5bba73e264ae3ec61cc3` passed its separate bounded
+confirmation. The reported pre-seal controller wall was **3.536021 seconds**;
+describe, compile and native evaluation exited 0, with no failures or sealing
+errors. Receipt
+`results/lcdm-bao-reference/public-source-confirmation-v2-20261003/record.json`
+is 325,927 bytes with SHA256
+`93081f47596d11320bdb57a0b5ba3825434679c3b21fc003bb7a8b8ce67bf760`.
+The closed local configuration was 981 bytes with SHA256
+`9e042abdb1612a64802c416561be85979f43ea4db56281cd7660dc0af1fb7959`.
+All four complete prediction and native-result objects matched both C and the
+first public confirmation exactly. Compiled consumer, native wire and raw
+native output likewise retained their original byte identities. All 105
+consumed-file identities agreed on common hash/stat fields before and after,
+and actual Python runtime inventories matched. The full 250-test suite passed.
+The earlier receipts and source-review findings remain immutable; this new
+execution closes the corrected launcher gate while scientific limits remain.
 
 After complete source/runtime review and a one-job grant, the dedicated route is:
 
