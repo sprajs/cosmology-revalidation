@@ -73,6 +73,14 @@ def read_packet(folder):
         design = parse(candidate_bytes.decode("utf-8"))
         if design.get("schema_version") != 1 or design.get("kind") != "candidate_design":
             raise ValueError("Not a Prospector candidate-design snapshot")
+    if "request_sha256" in packet:
+        # A dedicated blocked controller may bind its adjacent request without
+        # creating a generic executable route or assuming an engine operation.
+        controller_request = within(folder, "request.json")
+        controller_digest = hashlib.sha256(controller_request.read_bytes()).hexdigest()
+        if controller_digest != packet["request_sha256"]:
+            raise ValueError("Dedicated controller request hash differs")
+        identities["controller_request"] = controller_digest
     if packet["status"] == "blocked":
         return packet, None, identities
     request = within(folder, execution["request"])
