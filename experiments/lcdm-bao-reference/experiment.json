@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "id": "lcdm-bao-reference",
+  "status": "blocked",
+  "question": "What separate full-covariance DESI DR2 Gaussian compression score is obtained from the same explicit retained CLASS LCDM background and predicted drag horizon for the anchor, changed precision and two fixed spectral-index points?",
+  "origin": {
+    "kind": "development_smoke",
+    "description": "External full-LCDM fixed-parameter reference and released DESI Gaussian compression consumer; a native-development reference, not a Prospector reproduction or combined-probe inference target."
+  },
+  "assumptions": [
+    "CLASS v3.3.0 source example parameters are explicit; its source point was conditioned on a joint Planck primary-plus-lensing result and is not a primary-only best fit or independent posterior draw.",
+    "The released 13 coordinates retain their exact order and full 169-element covariance, including the final DH-before-DM pair.",
+    "DM uses the flat CLASS radial comoving distance, DH is the inverse emitted H/c in 1/Mpc, and DV=(z*DM^2*DH)^(1/3); every ratio uses that same state printed predicted r_drag.",
+    "The Gaussian mean is fixed for each retained case; no free fit, diagonalization, covariance jitter or supplied-drag substitution is made."
+  ],
+  "limitations": [
+    "Linear interpolation on emitted CLASS background samples and six-decimal printed drag have no earned propagated likelihood-accuracy bound.",
+    "The existing native Gaussian estimated-forward-sensitivity gate is empirical and is not a certified end-to-end score error or a physical calibration uncertainty.",
+    "Parameter-point ancestry and unknown cross-probe dependence/prior prevent combining this score with the primary CMB or an SN likelihood.",
+    "The configured route and its failure-provenance correction have separate committed confirmations recorded in README. Historical C and the independent arithmetic check remain separate parents. Future local source/runtime bindings require review.",
+    "No durable archive has yet been created for the ignored full receipts and lawful raw data acquisition routes."
+  ],
+  "inputs": [
+    {
+      "path": "data/bao/desi_gaussian_bao_ALL_GCcomb_mean.txt",
+      "bytes": 472,
+      "sha256": "9ac154ab583ce759c0f7eef3c978c7c70a6ead2d18774caceadf1a350a640585",
+      "role": "released_fitted_summary",
+      "semantics": "13 ordered DESI DR2 DM/r_drag, DH/r_drag or DV/r_drag compression coordinates; dimensionless values, not raw galaxy data. Fixed release header and axes are checked. Calibration/selection belongs to the release; cross-probe dependence is unresolved.",
+      "source": "CobayaSampler/bao_data bb0c1c9009dc76d1391300e169e8df38fd1096db desi_bao_dr2"
+    },
+    {
+      "path": "data/bao/desi_gaussian_bao_ALL_GCcomb_cov.txt",
+      "bytes": 2547,
+      "sha256": "252a143274c8a07c78694c119617d36594f6d7965d00319ca611c6ffb886e509",
+      "role": "released_fitted_summary",
+      "semantics": "Full ordered 13 by 13 covariance for the paired dimensionless release means. All cross entries retained; positive diagonal/exact symmetry admitted before the native positive-definiteness and empirical solve screen. No covariance with CMB/SN is supplied.",
+      "source": "CobayaSampler/bao_data bb0c1c9009dc76d1391300e169e8df38fd1096db desi_bao_dr2"
+    }
+  ],
+  "execution": null,
+  "blockers": [
+    "End-to-end CLASS interpolation/printed-drag score accuracy and physical/calibration/inference qualification remain unearned.",
+    "The generic single-request runner does not launch this dedicated controller; its successful separate confirmation does not close scientific qualification gates."
+  ],
+  "request_sha256": "db50c6679a50be51bf2a80234c9cc893b1dd792307a4c8bff586f8fade29a95f"
+}
