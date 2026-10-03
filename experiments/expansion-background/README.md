@@ -13,11 +13,12 @@ required engine revision. The [request](request.json) contains the scientific
 parameters. There are no data inputs, fitted parameters, uncertainty estimates
 or random draws. This is not a supernova likelihood or a CMB calculation.
 
-From the repository root, after building the pinned Irreducible revision:
+From the repository root, after building the pinned Irreducible revision and
+creating the [plot environment](../../README.md#run-the-example):
 
 ```sh
 uv run python scripts/run.py expansion-background --irred ../irreducible/target/debug/irred --name example
-uv run --extra plots python experiments/expansion-background/plot.py results/expansion-background/example
+.work/plots/bin/python experiments/expansion-background/plot.py results/expansion-background/example
 ```
 
 The destination must be new. All receipts and rendered figures remain ignored.
