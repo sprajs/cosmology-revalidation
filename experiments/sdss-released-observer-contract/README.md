@@ -91,3 +91,27 @@ fresh paths, input/runtime drift and terminal-failure preservation. A fresh
 committed source attempt and deliberate final review are required before this
 packet's own structural finding is recorded. Physical exposure and observational
 qualification require separately reviewed source and dependence contracts.
+
+2026-10-03: fresh attempt `committed-source-lineage-20261003-b` at committed
+source `5b0854b607123ba0659953e62a672ed1e1ad095d` completed the structural route
+in 1.97 seconds with one job/thread. All 321 joins, both 115-record slices,
+15 negative fluxes and ten coordinate failures matched the retained prototype
+data sections. Packet/Git, Python and all nine original-file identities matched
+before and after, and captured stdout matched the terminal receipt. The local
+receipt SHA256 is
+`4b395f4a5e78786afdcd8fdd2b93f690262511204bbc611065bf408313b7d517`;
+lineage SHA256 is
+`89c72cf62beaeb7e506ef99bca2a7362cc5e5abbb9435549297662db811f94d9`.
+All 90 repository tests and packet/storage checks passed. Separate complete
+source review repaired identity and terminal-failure gaps and found no remaining
+actionable issue. These checks establish source serialization only.
+
+The preceding attempt `committed-source-lineage-20261003-a` failed because the
+external launcher applied its 64 KiB log cap to the larger lineage file. Its
+partial output and failed receipt SHA256
+`60fa08d10d449540489ecb4dcb964c4a67c1f5d9792e4336f9af630938d9084d`
+remain unchanged. The corrected launcher used the already frozen 4 MiB file
+allowance, with 64 KiB raw logs, 512 MiB address space and 60/90-second CPU/wall
+caps. No reader, coordinate, input or physical acceptance policy changed.
+Full records remain ignored local evidence and need lawful durable preservation
+before any scientific publication.
