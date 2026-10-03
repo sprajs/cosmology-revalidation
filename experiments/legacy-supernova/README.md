@@ -26,7 +26,7 @@ Unsuccessful tests and unresolved identification remain part of the history.
 
 ## Inputs and reconstruction
 
-[391 frozen input identities](../../sources/legacy-inputs.json) retain original
+[391 losslessly encoded frozen input identities](../../sources/legacy-inputs.encoded.json) retain original
 paths, SHA-256, sizes, source labels and known download URLs. Some are derived
 input summaries. [Third-party notices](../../sources/legacy-licenses.json) retain
 the existing unresolved redistribution checks.
@@ -41,3 +41,9 @@ Rebuild one scientific question at a time after Prospector review and the needed
 Irreducible capabilities. The new background example supplies no supernova,
 host-age, detector, survey or CMB inference. No automatic replay of this historical
 campaign exists in the new repository.
+
+The encoded source decodes to the exact historical JSON bytes. Inspect it with
+`python -B scripts/metadata_source.py legacy-inputs` from the repository root.
+The distinct transport/decoder and decoded historical identities are described in
+[storage](../../docs/storage.md); restoration and scientific qualification remain
+separate. Historical manifests and receipts retain their original hashes.

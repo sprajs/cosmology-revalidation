@@ -23,6 +23,7 @@ class StorageTests(unittest.TestCase):
             inventory = ("\0".join(files) + "\0").encode()
             with patch.object(check_repository, "ROOT", root), \
                     patch.object(check_repository, "validate_all", return_value=0), \
+                    patch.object(check_repository, "verify_metadata_sources", return_value={}), \
                     patch.object(check_repository.subprocess, "check_output", return_value=inventory), \
                     contextlib.redirect_stdout(io.StringIO()):
                 check_repository.check()

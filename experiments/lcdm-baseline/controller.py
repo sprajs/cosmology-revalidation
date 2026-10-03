@@ -15,6 +15,7 @@ import uuid
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts"))
 from packet import load, parse, read_packet, sha256, verify_inputs, within
+from metadata_source import load_legacy_inputs, read_document
 import reference
 
 FOLDER = Path(__file__).resolve().parent
@@ -89,11 +90,11 @@ def validate_admission(packet,q):
 
 
 def scientific_inputs(packet, q):
+    manifest = load_legacy_inputs(ROOT)
     verify_inputs(packet)
     expected_paths=["data/bao/desi_gaussian_bao_ALL_GCcomb_mean.txt","data/bao/desi_gaussian_bao_ALL_GCcomb_cov.txt"]
     if [x["path"] for x in packet["inputs"]]!=expected_paths or any(x["role"] != "released_fitted_summary" for x in packet["inputs"]):
         raise ValueError("Expected exact unique ordered mean/covariance released compression inputs")
-    manifest = load(ROOT / "sources/legacy-inputs.json")
     historical = {x["path"]: x for x in manifest["files"] if x.get("group") == "bao"}
     for x in packet["inputs"]:
         if x["path"] not in historical or any(x[k] != historical[x["path"]][k] for k in ("bytes", "sha256")):
@@ -176,8 +177,11 @@ def fingerprint(source, sdk, q):
     for path in sorted(FOLDER.iterdir()):
         if path.is_file():
             identity["packet/"+path.name] = sha256(path)
-    for path in (ROOT / "scripts/packet.py", ROOT / "schemas/experiment.schema.json", ROOT / "sources/legacy-inputs.json", ROOT / "uv.lock"):
+    for path in (ROOT / "scripts/packet.py", ROOT / "schemas/experiment.schema.json", ROOT / "scripts/metadata_source.py", ROOT / "sources/legacy-inputs.encoded.json", ROOT / "uv.lock"):
         identity[str(path.relative_to(ROOT))] = sha256(path)
+    # Distinct current transport/decoder and exact decoded historical identities.
+    _, _, legacy_identity = read_document('legacy-inputs', ROOT)
+    identity['metadata-source/legacy-inputs'] = legacy_identity
     return identity, build
 
 

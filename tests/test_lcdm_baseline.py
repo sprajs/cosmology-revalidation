@@ -2,6 +2,7 @@
 import copy
 import importlib.util
 import json
+import hashlib
 from pathlib import Path
 import sys
 import tempfile
@@ -102,10 +103,55 @@ class BaselineTests(unittest.TestCase):
 
     def test_consumed_bytes_are_hash_bound_not_only_prior_path_check(self):
         packet=controller.load(FOLDER/"experiment.json")
+        # Admit the real metadata separately; mutate only consumed scientific inputs.
+        manifest=controller.load_legacy_inputs(controller.ROOT)
         class Stats:st_size=packet["inputs"][0]["bytes"]
-        with patch.object(controller,"verify_inputs"),patch.object(Path,"stat",return_value=Stats()),patch.object(Path,"read_bytes",return_value=b"temporary substituted bytes"):
+        with patch.object(controller,"load_legacy_inputs",return_value=manifest),patch.object(controller,"verify_inputs"),patch.object(Path,"stat",return_value=Stats()),patch.object(Path,"read_bytes",return_value=b"temporary substituted bytes"):
             with self.assertRaisesRegex(ValueError,"Consumed input"):
                 controller.scientific_inputs(packet,self.q)
+
+    def test_manifest_refusal_precedes_input_and_native_effects(self):
+        packet=controller.load(FOLDER/"experiment.json")
+        with patch.object(controller,"load_legacy_inputs",side_effect=ValueError("manifest source refused")), \
+                patch.object(controller,"verify_inputs") as verify, \
+                patch.object(Path,"read_bytes") as read, \
+                patch.object(controller,"bounded") as child:
+            with self.assertRaisesRegex(ValueError,"manifest source refused"):
+                controller.scientific_inputs(packet,self.q)
+        verify.assert_not_called();read.assert_not_called();child.assert_not_called()
+
+    def test_fingerprint_keeps_decoded_and_current_source_identities_distinct(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary);sdk=root/"sdk";sdk.mkdir();packet=root/"packet";packet.mkdir()
+            build={"git_head":"r"*40,"git_status":"","sources":{},
+                   "compiler_executable_digest":"c"*64,"standard_library":str(root/"stdlib"),
+                   "standard_library_digest":"d"*64}
+            body={k:v for k,v in build.items() if k not in ("git_head","git_status")}
+            build["build_id"]=hashlib.sha256(json.dumps(body,sort_keys=True,separators=(",",":")).encode()).hexdigest()
+            expected={"revision":build["git_head"],"build_id":build["build_id"],
+                      "manifest_sha256":"a"*64,"archive_sha256":"b"*64,"cli_sha256":"e"*64}
+            manifest_identity={"format":"reproducible-metadata-source/v1","document_id":"legacy-inputs",
+                "transport":{"path":"sources/legacy-inputs.encoded.json","bytes":35386,"sha256":"1"*64},
+                "decoded":{"bytes":255902,"sha256":"7ed81f37e617ce7bb2638f30596165f46ae7ee81ca31788177e90cf57ad5e56f",
+                           "origin":{"path":"sources/legacy-inputs.json","revision":"23ebabd606aaceaca469de59c70ec6d7bed87989","kind":"committed-source"}},
+                "decoder":{"path":"scripts/metadata_source.py","bytes":123,"sha256":"2"*64}}
+            def hash_path(path):
+                return {str(sdk/"build-manifest.json"):"a"*64,str(sdk/"lib/libirred_core.a"):"b"*64,
+                        str(sdk/"bin/irred"):"e"*64,"/usr/bin/c++":"c"*64,str(root/"stdlib"):"d"*64,
+                        str(root/"sources/legacy-inputs.encoded.json"):"1"*64,
+                        str(root/"scripts/metadata_source.py"):"2"*64}.get(str(path),"f"*64)
+            with patch.object(controller,"ROOT",root),patch.object(controller,"FOLDER",packet), \
+                    patch.object(controller,"git",side_effect=[build["git_head"],""]), \
+                    patch.object(controller,"load",return_value=build),patch.object(controller,"verify_headers"), \
+                    patch.object(controller,"sha256",side_effect=hash_path), \
+                    patch.object(controller,"read_document",return_value=({},b"",manifest_identity)) as reader:
+                identities,_=controller.fingerprint(root,sdk,{"engine_identity":expected})
+            reader.assert_called_once_with("legacy-inputs",root)
+            self.assertEqual(identities["metadata-source/legacy-inputs"],manifest_identity)
+            self.assertEqual(identities["sources/legacy-inputs.encoded.json"],"1"*64)
+            self.assertEqual(identities["scripts/metadata_source.py"],"2"*64)
+            self.assertNotIn("sources/legacy-inputs.json",identities)
+            self.assertNotEqual(identities["sources/legacy-inputs.encoded.json"],manifest_identity["decoded"]["sha256"])
 
     def test_sdk_bad_hash_and_dirty_source_refused(self):
         with tempfile.TemporaryDirectory() as t:

@@ -15,16 +15,15 @@ when downloads are public; original source data are preserved during cleanup.
 
 ## Retained historical inputs
 
-[legacy-inputs.json](../sources/legacy-inputs.json) retains 391 frozen identities
+[legacy-inputs.encoded.json](../sources/legacy-inputs.encoded.json) retains 391 frozen identities
 from the old campaign, including 34 inputs restored from a local archive.
 Original labels and `source_path` fields describe that historical workspace;
 they are not current executable paths or a guarantee that an input is raw data.
 The old licensing inventory is retained separately in
 [legacy-licenses.json](../sources/legacy-licenses.json).
-The input manifest uses one compact JSON record per line to leave room for
-experiment source. This formatting preserves all 391 identities, field values
-and order. Older manifest byte hashes remain
-bound to their original Git revisions and run records.
+The transport recovers the exact historical JSON bytes, including all 391
+identities, field values and order. Older manifest byte hashes remain bound
+to their original Git revisions and run records.
 
 2026-10-03 storage review: compacting only manifest whitespace saved 35,611 bytes,
 leaving about 70 KiB under the old 1 MiB cap. The new source-only SDSS reader and
@@ -87,3 +86,46 @@ Delete disposable run outputs only after recording useful findings and ensuring
 published full receipts have an archive. Preserve input originals and unresolved
 failures. A scientific result must remain auditable even if the working run store
 is later removed.
+
+## Exact-byte metadata transport
+
+This representation retains the historical 255,902-byte legacy manifest exactly:
+SHA256 `7ed81f37e617ce7bb2638f30596165f46ae7ee81ca31788177e90cf57ad5e56f`,
+commit `23ebabd606aaceaca469de59c70ec6d7bed87989`, path
+`sources/legacy-inputs.json`. The new encoded file and decoder have separate
+source identities. A compressed representation is never labelled with the old
+raw-file hash. Historical packet source labels such as `sources/legacy-inputs.json`
+refer to those decoded original bytes; historical requests, SDKs, snapshots and
+receipts remain unchanged. Future attempts record their actual new committed
+source and exact current transport/decoder plus decoded-source identities.
+
+The named reader is [metadata_source.py](../scripts/metadata_source.py):
+`python -B scripts/metadata_source.py legacy-inputs` writes the exact original JSON
+bytes; append `--identity` for all three identities. The restore tool and LCDM
+baseline controller both use that same reader. Its closed pinned envelopes admit
+only canonical RFC4648 base64, one complete RFC1950 zlib stream without trailing
+or unused/unconsumed bytes, exact decoded byte length/SHA, strict finite integer
+JSON, unique keys and bounded typed schema. Refusal is explicit before restoration;
+there is no fallback to another source or shape. It has no download or physics
+operation. Generated decoded inspection files remain ignored, and outputs do not
+become observations through decoding.
+Invalid inspection arguments refuse before source reads, with a null document
+identity and bounded JSON diagnostic; supplied argument text is never echoed.
+
+The source-only [asset-v2 ledger](../sources/actual-data-asset-status.encoded.json)
+and [identity companion](../sources/actual-data-asset-status-input-identities.encoded.json)
+use the same exact-byte transport. Inspect with `metadata_source.py asset-status`
+or `asset-identities`; the [dated provenance account](../sources/actual-data-asset-status-v2.md)
+is retained byte-for-byte. Its local paths, old evidence dates and review-pending
+wording are historical source metadata, not assertions that those files exist in
+fresh clones. The named companion route supplies the public representation of
+`fresh_source_identity_ref` without rewriting that original field. All90 asset
+rows,15 retained receipt maps,22 source pins, statuses, failures, rights and unknown
+covariances remain exact. No primary assets or large receipts are redistributed.
+
+The checker still counts these real encoded source bytes and all decoder,
+caller, documentation and test bytes against2MiB. Every packet remains at most
+eight source files. This representation changes no cap or scientific policy.
+The LCDM baseline's old1MiB source snapshot bound still prevents an attempt from
+this complete current tree; use its original reviewed source for historical reruns.
+Storage savings alone do not admit NEXT17, a new Box route or all19 execution.
