@@ -12,10 +12,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def identity(path):
+def consumed(path):
     raw = path.read_bytes()
-    return {'path': str(path.resolve()), 'bytes': len(raw),
-            'sha256': hashlib.sha256(raw).hexdigest()}
+    return raw, {'path': str(path.resolve()), 'bytes': len(raw),
+                 'sha256': hashlib.sha256(raw).hexdigest()}
+
+
+def identity(path):
+    return consumed(path)[1]
 
 
 def main():
@@ -25,10 +29,10 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     record_path = args.attempt / 'record.json'
-    record_pin = identity(record_path)
+    record_raw, record_pin = consumed(record_path)
     if record_pin['sha256'] != args.record_sha256:
         raise ValueError('attempt record identity differs')
-    record = json.loads(record_path.read_bytes())
+    record = json.loads(record_raw)
     if record['status'] != 'completed' or record['gates']['execution'] != 'passed':
         raise ValueError('attempt did not complete')
     if [row['id'] for row in record['cases']] != ['anchor', 'precision', 'ns-minus', 'ns-plus']:
@@ -36,10 +40,10 @@ def main():
     curves, input_pins = {}, [record_pin]
     for row in record['cases']:
         p = Path(row['products']['path'])
-        pin = identity(p)
+        raw, pin = consumed(p)
         if any(pin[k] != row['products'][k] for k in ('path', 'bytes', 'sha256')):
             raise ValueError('retained prediction product differs')
-        curves[row['id']] = json.loads(p.read_bytes())
+        curves[row['id']] = json.loads(raw)
         input_pins.append(pin)
     anchor = curves['anchor']
     ell = np.asarray(anchor['cmb']['ell'])

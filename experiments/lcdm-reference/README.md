@@ -116,7 +116,8 @@ unchanged. Original third-party archives and products remain local.
 The retained-product command is [score.py](score.py). Its closed runtime
 configuration binds the actual library, resolved Python executable, controller
 sources, completed prediction receipt, four product hashes and an explicit flat
-inventory of released data and dependencies. Use the getter-derived input order,
+inventory of released data and dependencies, with complete selected product
+directory checks before and after native execution. Use the getter-derived input order,
 the fixed selfcheck criterion and one explicit relative prior. A receipt hash
 supplies lineage, not automatic scientific qualification. Execute with an outer
 watchdog and capture its exit status and logs, for example:
@@ -132,9 +133,21 @@ timeout --signal=TERM --kill-after=2s 900s \
 The process enforces a stricter 2 GiB address limit and 180-second native phases;
 a terminated phase retains its started record without inventing a returned
 score. [official_clik.py](official_clik.py) transports the original C API with
-managed native errors. The four scored inputs were checked against the actual
-SimAll table support before evaluation. Each subsequent attempt needs its own
-admitted input, controller and compiled-runtime identities.
+managed native errors. The current adapter admits only the fixed calibration
+route and checks SimAll's actual table support before evaluating supplied
+spectra. Its source identity differs from the first receipt and must be recorded
+in each subsequent attempt.
+
+A fresh confirmation on 2026-10-03 used this fixed-calibration support guard,
+the unchanged `1e-6` criterion and the complete 26-file/11-directory selected
+product inventory. All four component values and sums matched the first
+attempt bit for bit; all 58 admitted files and the directory trees agreed
+before/after, and all three native owners closed successfully. The confirmation
+receipt SHA256 is
+`84b84a9b00c91ad972d3010a371164ec73d6e7d1a7d47a07917a98006f8eea0d`.
+Seventeen focused mocked transport/admission tests passed. The original receipt
+and executed source remain preserved; this confirmation adds no inference or
+certified numerical bound.
 
 [plot.py](plot.py) renders the four retained prediction products after checking
 their identities. It uses the emitted sample grids and keeps signed TE and

@@ -11,7 +11,9 @@ import hashlib
 import json
 import math
 from numbers import Integral, Real
+import os
 from pathlib import Path
+import stat
 import struct
 
 SPECTRA = ("TT", "EE", "BB", "TE", "TB", "EB")
@@ -26,6 +28,14 @@ PRIOR_SOURCE = {
     "url": "https://www.aanda.org/articles/aa/full_html/2020/09/aa36386-19/aa36386-19.html",
     "parameter": "A_planck", "source_coordinate": "y_P", "measure": "dA_planck",
     "mean": 1.0, "sigma": 0.0025,
+    "A_planck_to_y_P_mapping": "unverified; experiment declaration only",
+}
+SIMALL_METADATA = {
+    "free_calib": ("str", "A_planck"), "lmin": ("int", "2"),
+    "nell": ("int", "28"), "nstepsEE": ("int", "3000"),
+    "lmax": ("int", "29"), "stepEE": ("float", "0.0001"),
+    "lkl_type": ("str", "simall"), "pipeid": ("str", "simall_EE_BB_TE"),
+    "unit": ("int", "1"),
 }
 
 
@@ -43,6 +53,91 @@ def finite_real(value, label):
     if not math.isfinite(result):
         raise ValueError(f"{label}: nonfinite value")
     return result
+
+
+def fixed_calibration(nuisance):
+    if type(nuisance) is not dict or set(nuisance) != {"A_planck"}:
+        raise ValueError("first route requires only fixed A_planck=1")
+    value = finite_real(nuisance["A_planck"], "A_planck")
+    if value != 1.0:
+        raise ValueError("first route requires fixed A_planck=1")
+    return value
+
+
+def read_simall_support(product):
+    """Read the selected released table's small CLDF metadata, never its arrays."""
+    path = Path(product) / "clik/lkl_0/_mdb"
+    identity = None
+    try:
+        if any(p.is_symlink() for p in (path, *path.parents)):
+            raise ValueError("SimAll metadata symlink")
+        with os.fdopen(os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK), "rb") as stream:
+            before = os.fstat(stream.fileno())
+            if not stat.S_ISREG(before.st_mode) or before.st_size > 4096:
+                raise ValueError("SimAll metadata requires a regular file <=4096 bytes")
+            raw = stream.read(4097)
+            after = os.fstat(stream.fileno())
+        identity = {"path": str(path), "bytes": len(raw),
+                    "sha256": hashlib.sha256(raw).hexdigest()}
+        if (len(raw) > 4096 or len(raw) != before.st_size
+                or (before.st_dev, before.st_ino, before.st_size, before.st_mtime_ns,
+                    before.st_ctime_ns) !=
+                   (after.st_dev, after.st_ino, after.st_size, after.st_mtime_ns,
+                    after.st_ctime_ns)):
+            raise ValueError("SimAll metadata changed during bounded read")
+        entries = {}
+        for line in raw.decode("ascii").splitlines():
+            fields = line.split()
+            if len(fields) != 3 or fields[0] in entries:
+                raise ValueError("SimAll metadata malformed or duplicate key")
+            entries[fields[0]] = tuple(fields[1:])
+        if entries != SIMALL_METADATA:
+            raise ValueError("SimAll metadata differs from selected released EE table")
+        # CLDF reads double with %lg; clik_simall stores it in a C float.
+        step = struct.unpack("=f", struct.pack("=f", float(entries["stepEE"][1])))[0]
+        return {"metadata_identity": identity, "lmin": 2, "nell": 28,
+                "nstepsEE": 3000, "stepEE_native_float32": step, "unit": 1,
+                "free_calib": "A_planck", "conditioning": "fixed A_planck=1",
+                "rule": "0 <= Cl_uK2*ell*(ell+1)/2/pi/native_step < nstepsEE"}
+    except Exception as exc:
+        raise LikelihoodRefusal("SimAll support metadata refused", {
+            "phase": "simall-support-metadata", "status": "failed",
+            "metadata_identity": identity, "error": str(exc)[:2048]}) from exc
+
+
+def guard_simall(spectra, nuisance, support):
+    """Guard the selected C table's index BEFORE the component's compute call.
+
+    At A_planck=1, unit=1 and the admitted unbinned/no-window release, the
+    lklbs calibration/selection does not change Cl. Operation order matches
+    simall_lkl's double arithmetic; the denominator is its stored C float.
+    """
+    record = {"phase": "simall-support", "status": "failed",
+              "metadata_identity": support["metadata_identity"], "ell": None,
+              "Cl_observation": None, "index_argument": None}
+    try:
+        fixed_calibration(nuisance)
+        if "EE" not in spectra or len(spectra["EE"]) < 30:
+            raise ValueError("SimAll requires EE ell=0..29")
+        ratios = []
+        for ell in range(2, 30):
+            value = spectra["EE"][ell]
+            record.update(ell=ell, Cl_observation=None, index_argument=None)
+            if isinstance(value, Real) and not isinstance(value, bool):
+                record["Cl_observation"] = scalar_observation(value)
+            cl = finite_real(value, f"EE[{ell}]")
+            dl = cl * ell * (ell + 1) / 2.0 / math.pi
+            ratio = dl / support["stepEE_native_float32"]
+            record["index_argument"] = scalar_observation(ratio)
+            if not math.isfinite(ratio) or not 0.0 <= ratio < support["nstepsEE"]:
+                raise ValueError(f"SimAll EE[{ell}] index outside [0,3000)")
+            ratios.append(ratio)
+        return {"status": "passed", "metadata_identity": support["metadata_identity"],
+                "ells_checked": 28, "minimum_index_argument": min(ratios),
+                "maximum_index_argument": max(ratios)}
+    except Exception as exc:
+        record["error"] = str(exc)[:2048]
+        raise LikelihoodRefusal("SimAll support refused before native compute", record) from exc
 
 
 def validate_contract(lmax, extra_names):
@@ -76,7 +171,7 @@ def build_clik_vector(spectra, nuisance, lmax, extra_names):
 
 
 def calibration_prior(A_planck, convention):
-    """ONE sourced Gaussian in dA_planck, not a fitted-summary likelihood.
+    """ONE declared Gaussian in dA_planck; the source-coordinate alias is open.
 
     The Gaussian law is on the real line; positive calibration evaluation is
     the likelihood domain. No truncated-normal renormalization is invented.
@@ -118,8 +213,8 @@ def combine_terms(component_loglikes, prior=None):
         target = finite_real(total + prior["logprior_term"], "combined target")
     return {"components": terms, "loglike": total, "calibration_prior": prior,
             "logprior_term": None if prior is None else prior["logprior_term"],
-            "logtarget": target, "logposterior": target,
-            "posterior_normalization": "not integrated",
+            "logtarget": target, "logposterior": None,
+            "posterior_normalization": None,
             "minus2_loglike": -2.0 * total}
 
 
@@ -161,6 +256,9 @@ class PlanckPrimary:
                 prefix["components"].append(row)
                 if not (root / PRODUCTS[key]).exists():
                     raise FileNotFoundError(root / PRODUCTS[key])
+                support = read_simall_support(root / PRODUCTS[key]) if key == "simall_EE" else None
+                if support is not None:
+                    row["support_metadata"] = support
                 obj = clik.clik(str(root / PRODUCTS[key]))
                 self.objects[key] = obj
                 maxima = tuple(obj.get_lmax())
@@ -169,8 +267,13 @@ class PlanckPrimary:
                 # Released wrappers may return numpy integral scalars. Admission
                 # precedes lossless conversion; floats and booleans stay refused.
                 maxima = tuple(int(n) for n in maxima)
+                if key == "simall_EE" and (maxima != (-1, 29, -1, -1, -1, -1)
+                                          or names != ("A_planck",)):
+                    raise ValueError("SimAll runtime axes differ from selected EE support")
                 contract = {"lmax": maxima, "extra_names": names, "path": row["path"],
                             "input_units": "Cl_microkelvin_squared"}
+                if support is not None:
+                    contract["support_metadata"] = support
                 self.contracts[key] = contract
                 row.update(status="completed", contract=contract)
             self.runtime_version = prefix["runtime_version"]
@@ -178,7 +281,12 @@ class PlanckPrimary:
             for row in prefix["components"]:
                 if row["status"] == "started":
                     row["status"] = "refused"
-                    row["native_error"] = getattr(exc, "record", None)
+                    detail = getattr(exc, "record", None)
+                    if isinstance(detail, dict) and detail.get("phase") == "simall-support-metadata":
+                        row["support_metadata_error"] = detail
+                        row["native_error"] = None
+                    else:
+                        row["native_error"] = detail
             prefix["error"] = str(exc)[:2048]
             raise LikelihoodRefusal("Planck initialization refused", prefix) from exc
 
@@ -190,9 +298,15 @@ class PlanckPrimary:
                   "component_attempts": rows, "components": {}, "combined": None,
                   "runtime_version": self.runtime_version, "calibration_prior": prior}
         try:
+            fixed_calibration(nuisance)
+            if prior != calibration_prior(1.0, "relative_penalty"):
+                raise ValueError("first route requires declared relative calibration prior at A_planck=1")
             for row in rows:
                 key = row["id"]; row["status"] = "started"
                 contract = self.contracts[key]
+                if key == "simall_EE":
+                    row["support_check"] = guard_simall(
+                        spectra, nuisance, contract["support_metadata"])
                 vector = build_clik_vector(spectra, nuisance, contract["lmax"], contract["extra_names"])
                 row["input_vector"] = vector_identity(vector)
                 # Pinned clik __call__ converts the supplied list to contiguous double.
@@ -215,6 +329,9 @@ class PlanckPrimary:
                 failed = next(r for r in rows if r["status"] == "started")
                 failed.update(status="refused", error=str(exc)[:2048],
                               native_error=getattr(exc, "record", None))
+                if isinstance(exc, LikelihoodRefusal) and exc.record.get("phase") == "simall-support":
+                    failed["support_check"] = exc.record
+                    failed["native_error"] = None
             record["error"] = str(exc)[:2048]
             raise LikelihoodRefusal("Planck evaluation refused", record) from exc
 
@@ -225,13 +342,10 @@ def validate_config(config):
         raise ValueError("require exact clik configuration fields")
     if config["backend"] != "clik" or config["highl"] != "plik_lite_TTTEEE":
         raise ValueError("first route is official clik Plik-lite TTTEEE")
-    if type(config["nuisance"]) is not dict or "A_planck" not in config["nuisance"]:
-        raise ValueError("require explicit A_planck/nuisance dictionary")
-    if (type(config["calibration_prior"]) is not dict
-            or set(config["calibration_prior"]) != {"convention"}):
-        raise ValueError("require explicit calibration prior convention")
-    return calibration_prior(config["nuisance"]["A_planck"],
-                             config["calibration_prior"]["convention"])
+    value = fixed_calibration(config["nuisance"])
+    if config["calibration_prior"] != {"convention": "relative_penalty"}:
+        raise ValueError("first route requires explicit relative calibration prior")
+    return calibration_prior(value, "relative_penalty")
 
 
 def prepare(config):

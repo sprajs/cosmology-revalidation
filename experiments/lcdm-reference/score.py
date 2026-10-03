@@ -26,6 +26,7 @@ PRODUCTS = [("commander_TT", "low_l/commander/commander_dx12_v3_2_29.clik"),
 LIMITS = {"case_wall_seconds": 180, "total_wall_seconds": 900,
           "address_bytes": 2147483648, "attempt_bytes": 2147483648,
           "file_bytes": 134217728, "max_files": 128}
+SELFCHECK_CRITERION = {"max_abs_printed_difference": 1e-6}
 
 
 def require(condition, message):
@@ -103,6 +104,44 @@ def pinned_json(pin, deadline):
                       parse_constant=lambda x: (_ for _ in ()).throw(ValueError("nonfinite JSON")))
 
 
+def product_tree(plc_root, files, deadline):
+    """Refuse undeclared CLDF keys/subtrees before their optional native lookup."""
+    roots = [Path(plc_root) / relative for _, relative in PRODUCTS]
+    require(type(files) is list and 0 < len(files) <= 8192, "released file inventory bound")
+    expected_files, expected_dirs = set(), set(roots)
+    for pin in files:
+        path = Path(pin["path"])
+        owners = [root for root in roots if root in path.parents]
+        require(len(owners) == 1 and path not in expected_files, "released file ownership/duplicate")
+        expected_files.add(path)
+        parent = path.parent
+        while parent != owners[0]:
+            expected_dirs.add(parent)
+            parent = parent.parent
+    observed_files, observed_dirs, pending, entries = set(), set(), list(roots), 0
+    while pending:
+        require(time.monotonic() < deadline, "released directory admission deadline")
+        folder = pending.pop()
+        require(stat.S_ISDIR(folder.lstat().st_mode), "released product directory type")
+        observed_dirs.add(folder)
+        with os.scandir(folder) as stream:
+            for entry in stream:
+                entries += 1
+                require(entries <= 16384, "released directory entry bound")
+                path, mode = Path(entry.path), entry.stat(follow_symlinks=False).st_mode
+                require(len(str(path).encode()) <= 4096, "released member path bound")
+                if stat.S_ISDIR(mode):
+                    require(path in expected_dirs, "undeclared released directory")
+                    pending.append(path)
+                else:
+                    require(stat.S_ISREG(mode) and path in expected_files,
+                            "undeclared or nonregular released file")
+                    observed_files.add(path)
+    require(observed_files == expected_files and observed_dirs == expected_dirs,
+            "released directory inventory differs")
+    return {"files": sorted(map(str, observed_files)), "directories": sorted(map(str, observed_dirs))}
+
+
 def error_record(exc):
     result = {"kind": type(exc).__name__, "message": str(exc)[:2048]}
     for name in ("record", "observed_identity", "expected_identity"):
@@ -154,8 +193,8 @@ def initialization(owner_factory, attempt, transport, c_api, deadline):
 
 
 def selfchecks(raw, plc_root, criterion):
-    require(type(criterion) is dict and set(criterion) == {"max_abs_printed_difference"},
-            "explicit initialization selfcheck criterion")
+    require(type(criterion) is dict and criterion == SELFCHECK_CRITERION,
+            "unchanged initialization selfcheck criterion")
     limit = criterion["max_abs_printed_difference"]
     require(type(limit) in (int, float) and math.isfinite(limit) and limit >= 0,
             "selfcheck difference criterion domain")
@@ -182,6 +221,8 @@ def score(config_path, attempt_path, deadline_utc):
             "admission_files", "selfcheck_criteria", "limits"}, "closed scoring configuration")
     require(config["schema"] == "lcdm-retained-primary-score-config/v1" and config["limits"] == LIMITS,
             "scorer schema/unchanged limits")
+    require(config["selfcheck_criteria"] == SELFCHECK_CRITERION,
+            "unchanged initialization selfcheck criterion")
     require([(x["id"], x["ns"]) for x in config["cases"]] == CASES and
             all(set(x) == {"id", "ns", "products"} for x in config["cases"]), "exact four retained cases")
     required = [config[k] for k in ("scorer", "transport", "adapter", "c_api", "library", "python",
@@ -226,7 +267,7 @@ def score(config_path, attempt_path, deadline_utc):
               "scope": "three official primary terms plus one calibration prior, fixed other coordinates",
               "BAO_SN_combination": False, "posterior_normalization": None,
               "runtime_ABI_independent_qualification": None, "outer_watchdog_required": True}
-    c_api, adapter, owner = None, None, None
+    c_api, adapter, owner, product_files = None, None, None, None
     pins = []
     try:
         transport.write_new(attempt / "config.snapshot.json", raw_config)
@@ -244,12 +285,23 @@ def score(config_path, attempt_path, deadline_utc):
         for pin in pins:
             record["inputs_before"].append(checked_file(pin, deadline)[1])
         # Receipt hash is source/data admission lineage, not inferred qualification.
-        pinned_json(config["admission"], deadline)
+        admission = pinned_json(config["admission"], deadline)
         plc_root = Path(config["likelihood"]["plc_root"])
-        for _, relative in PRODUCTS:
-            root = plc_root / relative
-            require(any(root == Path(pin["path"]) or root in Path(pin["path"]).parents
-                        for pin in config["admission_files"]), "missing released product inventory")
+        require(admission["library"] == config["library"] and admission["python"] == config["python"]
+                and admission["plc_root"] == str(plc_root)
+                and admission["file_inventory"] in config["admission_files"],
+                "runtime/data admission binding differs")
+        product_manifest = pinned_json(admission["file_inventory"], deadline)
+        require(product_manifest["kind"] == "exact-three-product-file-inventory"
+                and product_manifest["plc_root"] == str(plc_root)
+                and product_manifest["order"] == [identifier for identifier, _ in PRODUCTS],
+                "three-product inventory identity/order")
+        product_files = product_manifest["files"]
+        declared = [pin for pin in config["admission_files"] if any(
+            plc_root / relative in Path(pin["path"]).parents for _, relative in PRODUCTS)]
+        require(sorted(declared, key=lambda pin: pin["path"]) ==
+                sorted(product_files, key=lambda pin: pin["path"]), "released file pins differ from admission")
+        record["released_products_before"] = product_tree(plc_root, product_files, deadline)
         resource.setrlimit(resource.RLIMIT_AS, (LIMITS["address_bytes"],) * 2)
         for name in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS", "BLIS_NUM_THREADS",
                      "VECLIB_MAXIMUM_THREADS", "NUMEXPR_NUM_THREADS"):
@@ -336,6 +388,10 @@ def score(config_path, attempt_path, deadline_utc):
                 record["failures"].append(error_record(exc))
                 break
         try:
+            if product_files is not None:
+                record["released_products_after"] = product_tree(plc_root, product_files, deadline)
+                require(record.get("released_products_before") == record["released_products_after"],
+                        "terminal released directory drift")
             require(record["inputs_before"] == record["inputs_after"], "terminal score source/data drift")
             record["output_inventory"] = transport.seal_inventory(attempt, LIMITS)
             require(not record["output_inventory"]["errors"], "terminal score output sealing")
