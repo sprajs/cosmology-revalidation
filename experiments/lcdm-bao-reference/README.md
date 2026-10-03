@@ -86,7 +86,7 @@ Shared input ancestry is retained; no physical or joint inference gate closes.
 
 The adapter, transport and C++ consumer here preserve C's executed source bytes.
 [prepare_probe.py](prepare_probe.py) and [controller.py](controller.py) are
-**unexecuted successors**: they replace workstation literals with repository
+distinct successors: they replace workstation literals with repository
 relative sources and an explicitly admitted local path/identity configuration.
 They reuse the exact existing [CLASS table adapter](../lcdm-reference/theory.py)
 and [process capture](../lcdm-reference/run.py), loaded from hash-checked RAM
@@ -94,7 +94,30 @@ bytes. The old full CLASS tables and exact INI/receipt law remain the target;
 rebasing a historical path is not automatically admissible. The pinned SDK
 admission likewise retains its original paths and source identity. A fresh clone
 needs those lawful local artifacts or a separately reviewed new identity.
-Historical execution does not qualify this new controller source.
+Historical execution does not qualify this new controller source. The immutable
+request records its initially unexecuted design; the later execution below
+retains that request identity.
+
+2026-10-03: the committed public route at
+`17d6b0213996fcb8577c4dc5464e13928a8850db` completed a fresh bounded confirmation
+in **3.691418 seconds**, with describe, compile and native evaluation all exiting
+0. Controller SHA256 was
+`9d9573290e98684d7d5fdf5e95c7420c359c4cf10e6d599c833e39ea7f73fb96`;
+preparer SHA256 was
+`d084193d7568cb465e42573e39430acd09941e3fbc2511541baede727e3c7a31`.
+The receipt, retained locally at
+`results/lcdm-bao-reference/public-source-confirmation-v1-20261003/record.json`,
+is 325,957 bytes with SHA256
+`ab2c077d8b84123bffba774deaa660e55c24247d744024b27771ce52443502bc`.
+The compiled consumer, native wire and raw native output were byte-identical to
+C. All four complete prediction and admitted native-result objects agreed
+exactly with C, including means, residuals and scores. All 105 consumed-file
+identities agreed on common hash/stat fields before and after; actual Python
+runtime inventories matched. No failures or sealing errors occurred. The
+portable 14 synthetic header/authority controls and the full 247-test suite
+passed; frozen dependency sync and packet/storage/link checks passed. This
+confirms this configured source route, while the arithmetic, CLASS accuracy and
+inference limits above remain distinct.
 
 After complete source/runtime review and a one-job grant, the dedicated route is:
 
