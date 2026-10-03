@@ -534,6 +534,38 @@ class BoxControllerTests(unittest.TestCase):
                 self.assertTrue(any('raw log drift' in error for error in errors))
                 self.assertEqual(record['gates']['numerical'], 'not accepted: identity failure')
 
+    def test_terminal_failed_gates_distinguish_execution_and_comparison(self):
+        cases = [
+            ({}, {}, 'failed before native execution',
+             'not performed: complete native and reference results unavailable'),
+            ({'native': {'status': 'failed'}}, {'native': {'partial': True}},
+             'failed native subprocess or output admission',
+             'not performed: complete native and reference results unavailable'),
+            ({'native': {'status': 'completed'}}, {'native': {'accepted': False}},
+             'failed native subprocess or output admission',
+             'not performed: complete native and reference results unavailable'),
+            ({'reference': {'status': 'failed'}}, {},
+             'passed complete native conditional box result',
+             'not accepted: reference subprocess or output admission failed'),
+            ({'reference': {'status': 'completed'}}, {'comparisons': [{'passed': False}]},
+             'passed complete native conditional box result',
+             'failed numerical comparison/refinement allocation'),
+        ]
+        for operations, earned, execution, numerical in cases:
+            with self.subTest(execution=execution, numerical=numerical), tempfile.TemporaryDirectory() as name:
+                record = {'status': 'failed', 'subprocesses': operations, **earned,
+                          'gates': {'execution': execution if 'reference' in operations else 'unassessed',
+                                    'numerical': 'unassessed'}}
+                before = copy.deepcopy(earned)
+                with patch.object(c.receipt, 'verify_outputs', return_value=([], {})), \
+                     patch.object(c.receipt, 'ingest_outputs'):
+                    c.terminal_outputs(Path(name), record, [])
+                self.assertEqual(record['gates']['execution'], execution)
+                self.assertEqual(record['gates']['numerical'], numerical)
+                for key, value in before.items():
+                    self.assertEqual(record[key], value)
+                self.assertEqual(record['status'], 'failed')
+
     def test_names_and_fresh_failed_attempts(self):
         with self.assertRaises(ValueError):
             c.execute(SimpleNamespace(name='../escape'))

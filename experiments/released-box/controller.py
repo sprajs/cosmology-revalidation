@@ -958,6 +958,19 @@ def terminal_outputs(store, record, errors):
         record['status'] = 'failed'
         record.setdefault('error', 'terminal identity failure')
         record['gates']['numerical'] = 'not accepted: identity failure'
+    if record['status'] == 'failed':
+        gates = record['gates']
+        operations = record.get('subprocesses', {})
+        if gates.get('execution') == 'unassessed':
+            gates['execution'] = ('failed native subprocess or output admission' if 'native' in operations
+                                  else 'failed before native execution')
+        if gates.get('numerical') == 'unassessed':
+            if record.get('comparisons'):
+                gates['numerical'] = 'failed numerical comparison/refinement allocation'
+            elif 'reference' in operations:
+                gates['numerical'] = 'not accepted: reference subprocess or output admission failed'
+            else:
+                gates['numerical'] = 'not performed: complete native and reference results unavailable'
 
 
 def execute(args):

@@ -144,4 +144,28 @@ import failure are preserved; only the fixture and invocation were corrected.
 The repository suite passed all 106 tests before and after the formatting
 correction; the revised reference passed the same 37 controls.
 No numerical tolerance changed. These controls do not execute or qualify the
-actual 3492-row target, whose fresh committed attempt remains pending.
+actual 3492-row target.
+
+2026-10-03: the fresh full-input attempt used committed Reproducible source
+`29dcf0e51f8862638b4332cadd628af2768d37b0`, request v4 and the frozen SDK above.
+Source admission, compiled discovery and consumer compilation passed. Gaussian,
+full-rank design and box preparation succeeded, but box evaluation returned
+`numerical_failure / conditioning_budget_exceeded` at stage 0, before a completion
+was available. Every completion, normalization and median field stayed null;
+CDF work was zero. The controller retained the admitted partial failure and did
+not launch the original-input reference. No numerical comparison or inference
+was accepted, and no tolerance was changed.
+
+The attempt took 71.801 seconds, with 67.968 child CPU seconds and maximum child
+RSS 482964 KiB; no timeout or resource refusal occurred. All original/canonical
+inputs, 311 SDK sources, build/artifacts/toolchain, source snapshots and raw logs
+passed terminal identity checks. The compiled consumer SHA256 is
+`b49d8cba6cbfb882a6003e09ab52c40b84c66b15802ce9adfdb419d103b8f7e9`.
+The immutable local record is
+`results/released-box/committed-original46-v4-20261003-a/record.json`, SHA256
+`7822fbbb20e3bbe1aeb9fa6b60d299a9f535b007f149fcaab2a02993da6dc07a`.
+Its execution/numerical gates remain the original `unassessed` strings: failure
+output was first ingested during finalization. A subsequent controller correction
+labels failed execution/reference/comparison gates explicitly; the historical
+receipt and its source remain unchanged. Engine-owned diagnosis is pending and
+requires a reviewed new SDK/experiment identity for any later repair.
