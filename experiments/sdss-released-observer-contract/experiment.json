@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "id": "sdss-released-observer-contract",
+  "status": "blocked",
+  "question": "Can the exact released SDSS source rows, header/update joins and one original photometry slice be retained without guessing physical event, frame, exposure or calibration semantics?",
+  "origin": {
+    "kind": "prospector_candidate",
+    "repository": "sprajs/prospector",
+    "revision": "4b9a9f4fc93f98b7d1ea1bffe105338162220897",
+    "path": "designs/candidate-sdss-released-observer-contract.json",
+    "snapshot": "candidate.json",
+    "sha256": "954d3e2369f21099dbe7fa298e7ee040bab0c5c90ca101f192b79292ff31f5fe"
+  },
+  "assumptions": [
+    "Source-only standard-library parsing of the nine exact pinned assets; no Irreducible execution, physical calculation, fit or inference.",
+    "IDSURVEY1 selects 321 original final-table rows. All source flags, host fields, row order, signed fluxes and failures are retained; unique CID serialization does not establish physical-event independence.",
+    "The chosen literal CID6057 is final row690, HEAD row2864 and update row737. Its one-based PHOT interval313798–313912 contains115 original records; both PHOT byte identities remain distinct.",
+    "Coordinate differences use exact admitted Decimal literals and an explicit128-digit context with rounding traps; the final printed half-unit threshold is unchanged. No frame transformation or correction is inferred.",
+    "Source admission requires positive error-free identities for all five packet files, exact byte/hash pins for all nine original files before/after, and clean tracked Reproducible HEAD with committed packet blobs matching bounded packet bytes. Untracked/ignored storage is excluded from the committed-source gate. Source drift retains checked lineage and a failed immutable receipt; these are provenance gates only.",
+    "The actual Python executable/version is identified before/after; interpreter failures or drift revoke structural completion. Bounded UTF-8 path/error displays retain full text hashes. Oversized argv refuses before attempt creation, and encoded receipt overflow retains a bounded failed identity summary and any checked lineage."
+  ],
+  "limitations": [
+    "This bounded structural slice narrows the original source candidate. It omits numerical observer/passband execution and does not reproduce the released SN likelihood.",
+    "The versioned all19 source-gate contract is referenced at Prospector9abdf9e6856d78b84cd05d1a4fdf7c4365d2b1d9, register/contracts/standard-model-source-gates-v1.json, SHA256ca0ed970215f151d372da450dec7d1f0f24bd307b09d53e6df98c30a30122597. It does not replace the original candidate or create a runtime Prospector dependency.",
+    "FITS TUNIT cards are present but blank; EXPTIME is absent. Physical FLUXCAL/error units, clock standard, exposure interval/area, template normalization and detector law remain unresolved.",
+    "Final redshifts, earlier HEAD fields and update/override literals have distinct ancestry. Frame/velocity reconstruction, cross-survey event aliases, selection/calibration/training and cross-covariance remain unknown.",
+    "Source assets and decoded local outputs remain ignored; no source-asset redistribution license has been verified. No full covariance is read or subset by this reader."
+  ],
+  "inputs": [
+    {
+      "path": "data/sdss-released-observer-contract/sdss-header-example.dat",
+      "bytes": 806293,
+      "sha256": "c15b24545f604798b0963d192b63ed0ca1d0548fe3490ff1f9245b1c8fcdf735",
+      "role": "derived_input",
+      "semantics": "Gzip FITS despite .dat suffix; released source header, raw names/values/host flags and original photometry pointers. Blank TUNIT cards; earlier reduction, not independently qualified physical events.",
+      "source": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/1_DATA/photometry/JLA2014_SDSS_DS17/JLA2014_SDSS_DS17_HEAD.FITS.gz"
+    },
+    {
+      "path": "data/sdss-released-observer-contract/SDSS_allCandidates+BOSS_PHOT.FITS.gz",
+      "bytes": 40919338,
+      "sha256": "0b143978c068c0b93b78eb582701bf77286b1930cfa93ce436ef30b5722a5a05",
+      "role": "derived_input",
+      "semantics": "Exact PHOTFILE named by HEAD. Calibrated signed FLUXCAL/error, source flags, MJD and instrument fields; blank units, no EXPTIME, no guessed detection or physical electron law.",
+      "source": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/1_DATA/photometry/JLA2014_SDSS_DS17/SDSS_allCandidates%2BBOSS_PHOT.FITS.gz"
+    },
+    {
+      "path": "data/sdss-released-observer-contract/JLA2014_SDSS_DS17_PHOT.FITS.gz",
+      "bytes": 41472241,
+      "sha256": "3ecc77dc8f42fce5911264a39e6dd62bd7a06b2c9284ef61d23e242cea131a0d",
+      "role": "derived_input",
+      "semantics": "Distinct renamed PHOT source identity; bounded original115-record comparison only. Calibration ancestry is retained separately despite equal selected records.",
+      "source": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/1_DATA/photometry/JLA2014_SDSS_DS17/JLA2014_SDSS_DS17_PHOT.FITS.gz"
+    },
+    {
+      "path": "data/sdss-released-observer-contract/sn-table.dat",
+      "bytes": 579283,
+      "sha256": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8",
+      "role": "released_fitted_summary",
+      "semantics": "Full final Pantheon+ table in original covariance order. Fitted, standardized and calibrated products remain distinct from source photometry; no independent-event or covariance likelihood claim.",
+      "source": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/4_DISTANCES_AND_COVAR/Pantheon%2BSH0ES.dat"
+    },
+    {
+      "path": "data/sdss-released-observer-contract/all_redshifts_PVs.csv",
+      "bytes": 279184,
+      "sha256": "06641b9d3a54fc8ad1ce5a58dd11c6dce84af37e2f312326d2be0ca881a37d8a",
+      "role": "derived_input",
+      "semantics": "Source update table with dimensionless redshift literals, sky coordinates in degrees and source group/host flags. No frame/velocity-map reconstruction or physically qualified alias join.",
+      "source": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/1_DATA/all_redshifts_PVs.csv"
+    },
+    {
+      "path": "data/sdss-released-observer-contract/REDSHIFT_CMB.txt",
+      "bytes": 47188,
+      "sha256": "ffb20e03bdb65bb236802f7fac9ff4516477fd8bc947eeca321f51479a29acf8",
+      "role": "derived_input",
+      "semantics": "Released CMB-redshift override source rows; retain literal dimensionless values and original source-row indices.",
+      "source": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/1_DATA/header_overrides/REDSHIFT_CMB.txt"
+    },
+    {
+      "path": "data/sdss-released-observer-contract/REDSHIFT_CMB_ERR.txt",
+      "bytes": 47169,
+      "sha256": "0422e7e5237d424b79b519ffdd1046f35af743ed52f72dd5eac5bfb390eae91d",
+      "role": "derived_input",
+      "semantics": "Released redshift-uncertainty override rows; source uncertainty is not independent photometric noise or additional observations.",
+      "source": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/1_DATA/header_overrides/REDSHIFT_CMB_ERR.txt"
+    },
+    {
+      "path": "data/sdss-released-observer-contract/VPEC.txt",
+      "bytes": 51522,
+      "sha256": "46a226187eceb47a6bee84d8b407c8734e0aa0d5528a3e516f0f6a9c1019d743",
+      "role": "derived_input",
+      "semantics": "Released peculiar-velocity override source rows in declared km/s convention; raw source literals retained without recalculating corrections.",
+      "source": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/1_DATA/header_overrides/VPEC.txt"
+    },
+    {
+      "path": "data/sdss-released-observer-contract/VPEC_ERR.txt",
+      "bytes": 51875,
+      "sha256": "64101ce14adde0845c982c6086d7554fdc69d13a0b2e49ca0dfaf9a70a5a70ba",
+      "role": "derived_input",
+      "semantics": "Released peculiar-velocity uncertainty source rows; shared model and cross-probe dependence remain unknown.",
+      "source": "https://raw.githubusercontent.com/PantheonPlusSH0ES/DataRelease/c447f0fea703fcd0fff57de5000947b5ca81286b/Pantheon%2B_Data/1_DATA/header_overrides/VPEC_ERR.txt"
+    }
+  ],
+  "execution": null,
+  "blockers": [
+    "Physical-event aliases and ten source RA discrepancies remain unresolved; structural CID joins do not establish independence.",
+    "Source frame/velocity/reduction, selection/calibration/training and cross-covariance lineage remain unresolved.",
+    "Physical FLUXCAL/error, clock/exposure/area, empirical-template and detector/calibration-law mappings remain absent. No physical exposure or scientific native run is admitted."
+  ]
+}

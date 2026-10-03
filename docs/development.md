@@ -72,3 +72,9 @@ run through the bounded controller. Preserve original partial/failure output,
 test admission adversarially, and review a fresh committed run before reporting
 numerical acceptance. The campaign records readiness and findings for the
 engine's sole roadmap; it does not schedule work or execute commands from JSON.
+
+The [SDSS source reader](../experiments/sdss-released-observer-contract/README.md)
+has a dedicated structural route with no engine request. Review its exact
+schemas and source joins, run adversarial fixtures and a fresh committed source
+attempt, and retain failures and changed-file identities. Structural completion
+does not unblock the scientific packet or the released likelihood.
