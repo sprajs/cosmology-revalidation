@@ -140,8 +140,8 @@ in each subsequent attempt.
 
 A fresh confirmation on 2026-10-03 used this fixed-calibration support guard,
 the unchanged `1e-6` criterion and the complete 26-file/11-directory selected
-product inventory. All four component values and sums matched the first
-attempt bit for bit; all 58 admitted files and the directory trees agreed
+product inventory. For all four cases, the three component values and their
+sums matched the first attempt bit for bit; all 58 admitted files and the directory trees agreed
 before/after, and all three native owners closed successfully. The confirmation
 receipt SHA256 is
 `84b84a9b00c91ad972d3010a371164ec73d6e7d1a7d47a07917a98006f8eea0d`.
