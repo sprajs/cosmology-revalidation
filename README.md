@@ -40,8 +40,15 @@ From this repository root:
 uv sync --frozen
 uv run python scripts/packet.py
 uv run python scripts/run.py expansion-background --irred ../irreducible/target/debug/irred --name example
-uv run --extra plots python experiments/expansion-background/plot.py results/expansion-background/example
+uv venv .work/plots
+uv pip install --python .work/plots/bin/python --require-hashes --only-binary=:all: -r requirements/plots.txt
+.work/plots/bin/python experiments/expansion-background/plot.py results/expansion-background/example
 ```
+
+Plotting uses a separate optional environment. [Its requirements](requirements/plots.txt)
+retain the prior plot versions and artifact hashes; the core lock contains only
+runner dependencies. Keep the actual plotting environment identity with any
+published figure. Existing scientific runtimes and receipts are separate.
 
 The [background example](experiments/expansion-background/README.md) evaluates
 chosen flat ΛCDM parameters at eight redshifts. It uses no observed data and fits

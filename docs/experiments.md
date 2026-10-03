@@ -73,12 +73,15 @@ example's plot.py includes cell markers. Keep plotting code here because
 Irreducible intentionally has no visualization layer. Plot reported values rather
 than quietly recomputing the scientific model in plotting code.
 
-Jupyter/Jupytext are optional exploration tools, not runtime dependencies:
+First create the isolated, hash-pinned plot environment using the repository
+README. Jupyter/Jupytext are optional exploration tools; their additional
+dependencies are not hash-locked. The plot version constraints remain in effect:
 
 ```sh
 mkdir -p notebooks
-uv run --extra plots --with jupytext jupytext --to ipynb experiments/expansion-background/plot.py --output notebooks/background.ipynb
-uv run --extra plots --with jupyterlab jupyter lab notebooks/background.ipynb
+uv pip install --python .work/plots/bin/python -c requirements/plots.txt jupytext jupyterlab
+.work/plots/bin/jupytext --to ipynb experiments/expansion-background/plot.py --output notebooks/background.ipynb
+.work/plots/bin/jupyter lab notebooks/background.ipynb
 ```
 
 In the notebook, call `plot(run_path)` with the saved run you want to inspect;
