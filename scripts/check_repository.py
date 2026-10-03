@@ -5,10 +5,16 @@ import re
 import subprocess
 
 from packet import ROOT, validate_all
+from metadata_source import DOCUMENTS, read_document
 
 LOCAL = {"data", "downloads", "results", "runs", "simulation", "simulations", "notebooks", ".work", ".venv"}
 GENERATED = (".ipynb", ".npy", ".npz", ".fits", ".pdf", ".png", ".svg", ".tar.gz", ".zip")
 PUBLIC_SOURCE_BYTES = 2 * 1024 * 1024
+
+
+def verify_metadata_sources():
+    # Metadata identity admission is separate from restoration and qualification.
+    return {name: read_document(name, ROOT)[2] for name in DOCUMENTS}
 
 
 def check():
@@ -39,6 +45,7 @@ def check():
     for name, size in packets.items():
         if size > 8:
             raise ValueError(f"Packet exceeds eight public source files: {name}")
+    verify_metadata_sources()
     print(f"Checked {count} executable/blocked packets, {len(files)} public files, {total:,} bytes.")
 
 

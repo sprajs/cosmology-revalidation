@@ -14,6 +14,8 @@ import tarfile
 import tempfile
 import urllib.request
 
+from metadata_source import MetadataSourceError, read_document
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -97,7 +99,13 @@ def main():
     parser.add_argument("--verify-only", action="store_true")
     parser.add_argument("--list", action="store_true")
     args = parser.parse_args()
-    manifest = json.loads((ROOT / "sources/legacy-inputs.json").read_text())
+    try:
+        manifest, _, source_identity = read_document('legacy-inputs', ROOT)
+    except MetadataSourceError as exc:
+        print(json.dumps({'source_admission': 'refused', 'document_id': exc.document,
+                          'stage': exc.stage, 'error': str(exc)[:256],
+                          'manifest_source': exc.identities}, sort_keys=True))
+        raise SystemExit(1)
     if args.list:
         groups = {}
         for row in manifest["files"]:
@@ -130,7 +138,8 @@ def main():
             print(f"{status}: {row['path']}", flush=True)
         except (OSError, ValueError, KeyError, tarfile.TarError) as exc:
             failures.append({"path": row["path"], "error": str(exc)})
-    print(json.dumps({"selected": len(rows), "statuses": statuses, "failures": failures}, indent=2))
+    print(json.dumps({"selected": len(rows), "statuses": statuses, "failures": failures,
+                      "manifest_source": source_identity}, indent=2))
     if failures:
         raise SystemExit(1)
 
