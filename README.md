@@ -90,6 +90,12 @@ paper/release selection discrepancy remain explicit. Its narrower controller
 runs while the full paper-reproduction packet stays blocked; it supplies no
 observational posterior or reconstructed systematic H0 uncertainty.
 
+[The released SDSS lineage reader](experiments/sdss-released-observer-contract/README.md)
+retains 321 original source joins and one 115-record photometry slice, including
+coordinate discrepancies and signed fluxes. Its dedicated route verifies source
+serialization only. Physical units, event/frame/reduction, calibration and
+dependence remain unresolved; the experiment's scientific execution stays blocked.
+
 ## Plots and notebooks
 
 Keep visualization source next to its experiment and render into the run folder.
