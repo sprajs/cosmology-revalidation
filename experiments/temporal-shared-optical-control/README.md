@@ -18,8 +18,8 @@ All original source and attempt identities, including the missing-mpmath and
 missing-time-wrapper failures, remain unchanged. The earlier engine-owned
 attempt reported 169 passing comparisons and a signed -3.8038735 percent
 zero-read-noise all-detected numerator difference (magnitude 3.8039 percent).
-That is prior handoff evidence; this public controller
-needs a fresh committed Reproducible attempt under its own request/source identity.
+That is prior handoff evidence. The fresh Reproducible attempt below has its own
+committed request/source and executable identities.
 
 The source is the original bilinear spectral/time law
 `L_lambda = 2^-80 * (1 + u/4 + x/2 + u*x/16)` W/m,
@@ -87,6 +87,32 @@ magnitude offsets and covariance cannot supply those missing laws. No physical
 calibration/systematic uncertainty or full supernova likelihood is qualified.
 Production temporal/detector mathematics belongs to Irreducible; a convenience
 native composition remains optional and separately reviewed.
+
+2026-10-03: the fresh committed attempt
+`committed-shared-optical-v1-20261003-a` used Reproducible source
+`bf866424f8917c164850563218199a08aa972a1a` and request SHA256
+`adc8a3d4919bece9305a9606f0449d07165d4cb2643b4dfc32e4d2058022b6df`.
+It compiled against the pinned Irreducible source
+`6f869532c1951ed1afd9f2506b5d05c6cfd03c82`, actual build identity
+`f22c25423cfb9cbac3c2b91a4e514b13ce604e92e7010f55a9aa0bdd42f40f59`;
+the compiled consumer SHA256 was
+`a1a6fcc5a786d433e8472dd39cec0fca71f728ac1cb8e786ed26a3ddef416637`.
+All 28 direct controller children completed and all 169 original comparisons
+passed. The full local attempt record has SHA256
+`48051b34a20b19e342d4701f5b1cea459351083fb6f8a0f0aedecd4d4bfdb113`.
+
+For the zero-read-noise all-detected record, the fresh reference gives
+`shared_joint / product_of_separate_exposure_mixtures - 1 = -0.038038735088527866`,
+or -3.8038735 percent. The separate event-probability relative difference is
+`+0.000020612866538529`; it is not the record numerator difference. Maximum used
+fractions of the photon and log-comparison budgets were respectively
+`3.32065e-5` and `2.30052e-7`; the reference log-error fraction was `3.15813e-35`.
+Required refusals, nondetections and the zero-probability threshold control
+passed without removing state masses. Source, SDK, executable, runtime and
+consumed-output identities remained unchanged. These are earned execution and
+numerical findings for the frozen synthetic control. Inference and interpretation
+remain blocked by the physical and observational gaps above; there is no
+original-input certificate or measured calibration uncertainty.
 
 Full local receipts and generated products stay under ignored results storage.
 A durable archive of exact sources, lawful input routes and full receipts is
