@@ -1,0 +1,246 @@
+{
+  "cases": [
+    "anchor",
+    "precision",
+    "ns-minus",
+    "ns-plus"
+  ],
+  "helper_sources": {
+    "bao": {
+      "bytes": 11212,
+      "path": "experiments/lcdm-bao-reference/bao.py",
+      "sha256": "5a09d83648ca547a6d785ae234fb2e6a7edc747550a588d6395d4956af3d00bf"
+    },
+    "prepare_probe": {
+      "bytes": 7458,
+      "path": "experiments/lcdm-bao-reference/prepare_probe.py",
+      "sha256": "d084193d7568cb465e42573e39430acd09941e3fbc2511541baede727e3c7a31"
+    },
+    "run": {
+      "bytes": 27050,
+      "path": "experiments/lcdm-reference/run.py",
+      "sha256": "e764e828e495c66eda296a3404759350fdcb0860e0ea2f817818c4cf7d35ec44"
+    },
+    "theory": {
+      "bytes": 12691,
+      "path": "experiments/lcdm-reference/theory.py",
+      "sha256": "bb737cd123d72997ede5f62bc461d5c8f56fbc43aaf8f706ec8b83f6fd8ab273"
+    },
+    "transport": {
+      "bytes": 12460,
+      "path": "experiments/lcdm-bao-reference/transport.py",
+      "sha256": "d254c758d4c18248ba3802ce33916f5f2bd8450c39e3102a7116f55fd1437b05"
+    }
+  },
+  "history": {
+    "actual_C_courier_sha256": "e1367af247403dbe8d2ccf8a6e9672d9c0e4cd351eb98dba63f1e080d6a07e0c",
+    "actual_C_driver_sha256": "0dcbad5fe016b49ab93607446e54c03fbf3d5ceb4ca8b94d4d427e457b462a14",
+    "actual_C_preparer_sha256": "450d33a94b180bcc0939aa8b0020a367725fc1adcf67fb4c14093907166f7d7c",
+    "actual_C_record_sha256": "97dd8c95ddd5021ef387e34628b24e8b2580d6fae788f8cee91da967fef31b33",
+    "independent_Decimal_check": {
+      "CLASS_accuracy_qualified": false,
+      "absolute_comparison_gate": 1e-08,
+      "digits": [
+        80,
+        120
+      ],
+      "execution_sha256": "312bff7de51b0b053889e22f18a0dbbf85f158f28e0be56207d2ce2f91b36cd1",
+      "joint_inference_qualified": false,
+      "native_negative_controls_executed": false,
+      "refinement_gate": 1e-10,
+      "result_sha256": "7f74e08ea555af3f1fe284b590dd4372f7385a6627ec777ad46fa83582626420",
+      "scope": "represented-full-covariance-and-rounded-residual-arithmetic-only",
+      "source_sha256": "53fc00c52b1fd7ba23b5956a717a337cf7517882f99fe2f41f773ee7ea841ddd"
+    },
+    "unexecuted_successor": true
+  },
+  "interface_id": "lcdm-class-desi-native-reference-design/v1",
+  "native_consumer": {
+    "bytes": 11465,
+    "path": "experiments/lcdm-bao-reference/consumer.cpp",
+    "sha256": "b8047f44a9de2b23e02d98fb4ea1d622ed511cc9d5f24f819a134fe60dcbabc4"
+  },
+  "producer_policy": {
+    "maximum_forward_sensitivity": 1e-08,
+    "maximum_input_bytes": 16384,
+    "maximum_library_payload_bytes": 1048576,
+    "maximum_matrix_elements": 169,
+    "maximum_models": 4
+  },
+  "resources": {
+    "address_bytes": 2147483648,
+    "attempt_bytes": 33554432,
+    "combined_logs_bytes": 1048576,
+    "file_bytes": 16777216,
+    "jobs": 1,
+    "max_files": 32,
+    "native_stdout_bytes": 32768,
+    "prepare_build_wall_seconds": 120,
+    "prepare_score_wall_seconds": 180,
+    "threads": 1,
+    "whole_CPU_seconds_per_process": 300,
+    "whole_wall_seconds": 300
+  },
+  "retained_source_roles": [
+    {
+      "bytes": 1218,
+      "role": "anchor/input",
+      "sha256": "1ca2cfb878f6ee5dc3475fd0d15aef32ecd66799e63e56327dd2417703473b27"
+    },
+    {
+      "bytes": 21080729,
+      "role": "anchor/background",
+      "sha256": "51f02c4e9152bf2f9f009df9541d5e54def9fb9dd18f5a28ff7387f857f2e4c9"
+    },
+    {
+      "bytes": 8557352,
+      "role": "anchor/thermodynamics",
+      "sha256": "0e088a78921a82fb8b2171e7e8a1008497b50ad757c95e662bdbd3bd07b1dd51"
+    },
+    {
+      "bytes": 2404,
+      "role": "anchor/stdout",
+      "sha256": "445ad815b255034cd2c081bd57be605275c51346359383482f7ba7393996f0a6"
+    },
+    {
+      "bytes": 1221,
+      "role": "precision/input",
+      "sha256": "44ab535d161e5d060509835f7824456b21a51482c0f6dbbf659e91f54d5379cc"
+    },
+    {
+      "bytes": 21080729,
+      "role": "precision/background",
+      "sha256": "51f02c4e9152bf2f9f009df9541d5e54def9fb9dd18f5a28ff7387f857f2e4c9"
+    },
+    {
+      "bytes": 8557352,
+      "role": "precision/thermodynamics",
+      "sha256": "0e088a78921a82fb8b2171e7e8a1008497b50ad757c95e662bdbd3bd07b1dd51"
+    },
+    {
+      "bytes": 2407,
+      "role": "precision/stdout",
+      "sha256": "327029102834e2a6333189af2a6e809fb65ef9c9f3fde70f45ef3c21aa01ed69"
+    },
+    {
+      "bytes": 1220,
+      "role": "ns-minus/input",
+      "sha256": "20df8f5770a332a1bda1ecda969fc3f8b3906e636997d6833c9a307347033da5"
+    },
+    {
+      "bytes": 21080729,
+      "role": "ns-minus/background",
+      "sha256": "51f02c4e9152bf2f9f009df9541d5e54def9fb9dd18f5a28ff7387f857f2e4c9"
+    },
+    {
+      "bytes": 8557352,
+      "role": "ns-minus/thermodynamics",
+      "sha256": "0e088a78921a82fb8b2171e7e8a1008497b50ad757c95e662bdbd3bd07b1dd51"
+    },
+    {
+      "bytes": 2406,
+      "role": "ns-minus/stdout",
+      "sha256": "7d0462f0e3ff8ae3bf44a1cea0ff140998ba078d7a9aed70fa6bb4e83d27d777"
+    },
+    {
+      "bytes": 1219,
+      "role": "ns-plus/input",
+      "sha256": "71f650ca55db09f4f32c5240e3dbc61ed470cfc8f3d9135254aaadd44ddd9a4f"
+    },
+    {
+      "bytes": 21080729,
+      "role": "ns-plus/background",
+      "sha256": "51f02c4e9152bf2f9f009df9541d5e54def9fb9dd18f5a28ff7387f857f2e4c9"
+    },
+    {
+      "bytes": 8557352,
+      "role": "ns-plus/thermodynamics",
+      "sha256": "0e088a78921a82fb8b2171e7e8a1008497b50ad757c95e662bdbd3bd07b1dd51"
+    },
+    {
+      "bytes": 2402,
+      "role": "ns-plus/stdout",
+      "sha256": "cea032c35668a362fff75ca4830fc075e221a1400b8988bcff0981602fd75182"
+    },
+    {
+      "bytes": 10085,
+      "role": "class_courier",
+      "sha256": "6f0f681d931eb98f2da6329c5c462e69aa5f1ee3c3cf6b22f4f1d3a24821c3b6"
+    },
+    {
+      "bytes": 312212,
+      "role": "class_record",
+      "sha256": "8eb4f479207f53f7889f29ecb395dbdc4304a19d3404623f030b98f3a3340eee"
+    },
+    {
+      "bytes": 4365,
+      "role": "class_reference",
+      "sha256": "f0d5e9f58c0cdcc94cbc04200d6cdd5667147fb8e733edeeda1ceb012bb93444"
+    },
+    {
+      "bytes": 11212,
+      "role": "bao_source",
+      "sha256": "5a09d83648ca547a6d785ae234fb2e6a7edc747550a588d6395d4956af3d00bf"
+    },
+    {
+      "bytes": 12691,
+      "role": "theory_source",
+      "sha256": "bb737cd123d72997ede5f62bc461d5c8f56fbc43aaf8f706ec8b83f6fd8ab273"
+    },
+    {
+      "bytes": 27050,
+      "role": "retained_controller_source",
+      "sha256": "e764e828e495c66eda296a3404759350fdcb0860e0ea2f817818c4cf7d35ec44"
+    },
+    {
+      "bytes": 472,
+      "role": "desi_mean",
+      "sha256": "9ac154ab583ce759c0f7eef3c978c7c70a6ead2d18774caceadf1a350a640585"
+    },
+    {
+      "bytes": 2547,
+      "role": "desi_covariance",
+      "sha256": "252a143274c8a07c78694c119617d36594f6d7965d00319ca611c6ffb886e509"
+    },
+    {
+      "bytes": 9928960,
+      "role": "class_binary",
+      "sha256": "7361da65a9bb037bdc6346dba6408add16114ac4d25c75d8d4df477dd49077d9"
+    },
+    {
+      "bytes": 300,
+      "role": "class_precision",
+      "sha256": "b6614adedad02f6e22cd42cc9274d048778e5c546c7a8fcfa282b30e24997199"
+    }
+  ],
+  "schema_version": 1,
+  "sdk": {
+    "admission_sha256": "406675b96e741b8bd1aee6d1b9008c581d47f413442e945357334c38d9dc3ba1",
+    "archive": {
+      "bytes": 2090606,
+      "sha256": "be08158b14c77f7692fe2a55caf9aaac4abe97eef1edd75e4966e57f27516d77"
+    },
+    "build_id": "6d495efb166006c6ce651359a366af5d87686ce516ecd7f0f49eed4e8d8be07e",
+    "consumed_header_count": 46,
+    "historical_source_inventory_count": 327,
+    "manifest_sha256": "77317e5a47fa9fa20c29f6cf7f4b8dfd5ce7262cf39ebcb1d1637af03d70cd85",
+    "revision": "f3b19b6539c72fda5a8b489a0546ca4d0266ace3"
+  },
+  "target": {
+    "covariance": "full-released-covariance-no-slicing-or-jitter",
+    "covariance_elements": 169,
+    "covariance_source": {
+      "bytes": 2547,
+      "sha256": "252a143274c8a07c78694c119617d36594f6d7965d00319ca611c6ffb886e509"
+    },
+    "drag": "same-CLASS-state-printed-six-decimal-predicted-r_drag_Mpc",
+    "mean_source": {
+      "bytes": 472,
+      "sha256": "9ac154ab583ce759c0f7eef3c978c7c70a6ead2d18774caceadf1a350a640585"
+    },
+    "measure": "product-of-13-dimensionless-DM-DH-DV-over-rdrag-coordinates",
+    "ordered_rows": 13,
+    "residual": "binary64-observed-minus-predicted",
+    "scope": "fixed-parameter-external-compression-score-no-joint-inference"
+  }
+}
