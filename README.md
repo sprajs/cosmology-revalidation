@@ -80,6 +80,12 @@ separates that progress from this packet's original massless model and build.
 A newer engine does not automatically replace a pinned SDK or change an earlier
 run's scientific identity.
 
+The [conditional SN working profile](experiments/sn-symmetric-working-profile/README.md)
+compares the native common-M profile with an independent full-mode spectral
+reference for a separately declared symmetric matrix and all 1657 selected
+SN+SH0ES occurrences. The original nonsymmetric covariance remains refused;
+numerical agreement does not qualify the released likelihood or an H0 posterior.
+
 [The released ladder experiment](experiments/released-ladder/README.md) now
 executes the unchanged 3492-row, 47-column compact SH0ES design through the
 installed native library. It verifies all 37 host columns against the pinned
