@@ -90,6 +90,13 @@ paper/release selection discrepancy remain explicit. Its narrower controller
 runs while the full paper-reproduction packet stays blocked; it supplies no
 observational posterior or reconstructed systematic H0 uncertainty.
 
+[The released finite-box control](experiments/released-box/README.md) retains
+all 3492 rows and fixes only original 44 at zero outside active 46-coordinate product measure.
+Its separate request compares three log normalizations and the original46 median
+through a pinned native SDK and independent original-input reference. Numerical
+comparison, conditional enclosures and observational qualification remain
+separate; the original ladder packets and SDKs remain intact.
+
 [The released SDSS lineage reader](experiments/sdss-released-observer-contract/README.md)
 retains 321 original source joins and one 115-record photometry slice, including
 coordinate discrepancies and signed fluxes. Its dedicated route verifies source
