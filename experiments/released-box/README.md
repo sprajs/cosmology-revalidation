@@ -185,3 +185,41 @@ are distinct from the unchanged 3492-row target and its original-input reference
 This source preparation accepts no new numerical or observational result; a
 fresh committed attempt must earn its own gates. The original v4 receipt and
 all earlier requests, source snapshots and SDKs remain unchanged.
+
+2026-10-03: the fresh v5 attempt used committed Reproducible source
+`076c81afef556583ee6cfbc7880e843a58e791dc`, request SHA256
+`fe6a68858122b0ef590d4f046cea508d3b76b33f3718d47cb60e51c86ae55228`
+and the pinned repaired SDK above. The unchanged original 3492-row native
+target completed at result stage 6 and completion step 6, with no failing
+parameter index and all six output groups available. It used 12296 CDF node
+evaluations, 62 CDF evaluations and 58 bisections. This earned native execution;
+the original-input reference then ran independently and refused acceptance.
+Its source identity, covariance log-determinant and finite-box-tail gates passed,
+but completion, normalization, original-coordinate-46 median, refinement and
+runtime identity did not. No native/reference comparison was performed or
+accepted, and no numerical or observational result is promoted.
+
+The reference's earned empirical error estimates included approximately
+`1.471606944e-5` for relative-box log normalization versus its frozen `5e-9`
+allocation and `2.126859887e-6` for the original-coordinate-46 median versus
+`5e-10`. These are reference error estimates, not accepted native/reference
+differences or certificates. Separately, the final runtime inventory gained the
+previously unloaded CPython `mmap` extension during input admission; existing
+file bytes did not change. The controller retained the refused reference
+payload and raw output, with partial admission also refused because the ordered
+runtime inventory lengths differed. No tolerance, numerical policy or runtime
+gate was relaxed. Any improvement requires a reviewed new source/request/runtime
+identity and its own attempt; this failed receipt stays unchanged.
+
+The controller took 87.044 seconds, with 82.308 child CPU seconds and maximum
+child RSS 622884 KiB. The reference reported 13.145 seconds. No timeout or
+resource refusal occurred. All original/canonical inputs, 325 SDK sources,
+build/artifacts/toolchain, source snapshots and raw logs passed terminal identity
+checks. The compiled consumer SHA256 is
+`1eacb0747d4a81354ff29f9698ebca2448f62ffdbc942338e4bf51882693aca8`.
+The immutable local record is
+`results/released-box/committed-original46-v5-20261003-a/record.json`, SHA256
+`829368c73a0eefa4ead112ba2a7907514c884c84c39c77e4c5d6dec0e35536da`.
+Its inference gate names the conditional target only; failed numerical admission
+supplies no accepted inference. The original calibration, selection, event and
+cross-covariance qualification gaps remain open.
